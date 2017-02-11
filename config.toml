@@ -1,9 +1,9 @@
-baseurl = "https://example.org"
-title = "Universal"
+baseurl = "https://curso-r.com"
+title = "Curso-R"
 theme = "hugo-universal-theme"
-languageCode = "en-us"
+languageCode = "pt-br"
 # Enable comments by entering your Disqus shortname
-disqusShortname = "devcows"
+disqusShortname = "curso-r"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
 
@@ -12,13 +12,13 @@ paginate = 10
 
 [params]
     viewMorePostLink = "/blog/"
-    author = "DevCows"
+    author = "Curso-R"
 
     # Google Maps API key (if not set will default to not passing a key.)
     googleMapsApiKey = ""
 
     # Style options: default (light-blue), blue, green, marsala, pink, red, turquoise, violet
-    style = "default"
+    style = "red"
 
     # Since this template is static, the contact form uses www.formspree.io as a
     # proxy. The form makes a POST request to their servers to send the actual
@@ -41,7 +41,7 @@ paginate = 10
     # Format dates with Go's time formatting
     date_format = "January 2, 2006"
 
-    logo = "img/logo.png"
+    logo = "img/logo-curso-r.png"
     address = """<p><strong>Universal Ltd.</strong>
         <br>13/25 New Avenue
         <br>Newtown upon River
@@ -68,14 +68,9 @@ paginate = 10
     weight = 2
 
 [[params.menu]]
-    name = "FAQ"
-    url  = "/faq/"
-    weight = 3
-
-[[params.menu]]
     name = "Contact"
     url  = "/contact/"
-    weight = 4
+    weight = 3
 
 # Enable and disable widgets for the right sidebar
 [params.widgets]

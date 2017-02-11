@@ -805,7 +805,6 @@ fieldset[disabled] .btn-template-primary.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #da4d4d;
   opacity: 0.9;
   filter: alpha(opacity=90);
 }
@@ -1143,10 +1142,13 @@ fieldset[disabled] .btn-template-primary.active {
 }
 .home-carousel {
   position: relative;
-  background: url('../img/photogrid.jpg') center center repeat;
+  background: url('../img/phtogrid2.jpg') center center repeat;
   background-size: cover;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
+  background-color: rgb(0, 0, 0);
+    /* RGBa with 0.6 opacity */
+  background-color: rgba(0, 0, 0, 0.9);
   transition: all 0.2s ease-out;
 }
 .home-carousel .dark-mask {
@@ -1155,9 +1157,9 @@ fieldset[disabled] .btn-template-primary.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #da4d4d;
-  opacity: 0.9;
-  filter: alpha(opacity=90);
+  background: #a3a1a1;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
 }
 .home-carousel .owl-carousel {
   padding-top: 60px;
