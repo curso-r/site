@@ -77,6 +77,11 @@ paginate = 10
     name = "Contato"
     url  = "/contact/"
     weight = 4
+    
+[[params.menu]]
+    name = "Sobre"
+    url  = "/sobre/"
+    weight = 5
 
 # Enable and disable widgets for the right sidebar
 [params.widgets]
