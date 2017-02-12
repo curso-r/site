@@ -6,6 +6,7 @@ languageCode = "pt-br"
 disqusShortname = "curso-r"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
+canonifyURLs = true
 
 # Define the number of posts per page
 paginate = 10
