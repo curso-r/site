@@ -782,5 +782,36 @@ uma mesma filosofia e foram feitos para serem utilizados conjuntamente.&lt;/p&gt
 &lt;/ul&gt;</description>
     </item>
     
+    <item>
+      <title>Sobre</title>
+      <link>https://curso-r.github.io/site/sobre/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://curso-r.github.io/site/sobre/</guid>
+      <description>
+
+&lt;h1 id=&#34;história&#34;&gt;História&lt;/h1&gt;
+
+&lt;p&gt;O grupo surgiu em 2015 para ministrar um curso de R no programa de verão do Instituto de
+Matemática e Estatística da Universidade de São Paulo. o curso foi chamado de
+&amp;ldquo;Programação em R: Do casual ao avançado&amp;rdquo;. Desde o começo abraçamos a filosofia
+&lt;em&gt;Open Source&lt;/em&gt;: Todo material que desenvolvemos fica disponível em nossa conta do
+&lt;a href=&#34;https://github.com/curso-r/&#34;&gt;Github&lt;/a&gt; de forma aberta, para quem quiser usar.
+Acreditamos que é assim que o conhecimento deve ser compartilhado: livre para quem
+tiver interesse. Em 2016 e 2017 ministramos novamente o curso &amp;ldquo;Programando em R: Do casual ao
+Avançado&amp;rdquo; no programa de verão e depois de mais de 100 alunos formados e decidimos
+aumentar a gama de cursos e a frequência de ocorrência para que possamos atingir
+muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.&lt;/p&gt;
+
+&lt;h1 id=&#34;nossa-missão&#34;&gt;Nossa missão&lt;/h1&gt;
+
+&lt;p&gt;Disseminar conhecimentos sobre R, Estatística e Data Science.&lt;/p&gt;
+
+&lt;h1 id=&#34;nossa-visão&#34;&gt;Nossa visão&lt;/h1&gt;
+
+&lt;h1 id=&#34;nossos-valores&#34;&gt;Nossos valores&lt;/h1&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
