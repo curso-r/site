@@ -1,4 +1,0 @@
-+++
-title = "Cursos"
-id = "cursos"
-+++

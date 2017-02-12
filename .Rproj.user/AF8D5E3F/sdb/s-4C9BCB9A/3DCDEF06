@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "language: r\ncache: packages\n\nbefore_script:\n  - chmod +x ./_build.sh\n  - chmod +x ./_deploy.sh\n\nscript:\n  - ./_build.sh\n  - ./_deploy.sh\n\n",
+    "created" : 1486903933342.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3551770428",
+    "id" : "3DCDEF06",
+    "lastKnownWriteTime" : 1486903960,
+    "last_content_update" : 1486903960222,
+    "path" : "~/Desktop/site/.travis.yml",
+    "project_path" : ".travis.yml",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 11,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}

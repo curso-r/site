@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: site\nTitle: placeholder\nVersion: 0.0.0.9000\nAuthors@R: c(\n    person(\"Daniel\", \"Falbel\", email = \"dfalbel@gmail.com\", role = \"cre\"),\n    person(\"Julio\", \"Trecenti\", email = \"jtrecenti@jtrecenti.com\", role = \"aut\"),\n    person(\"Athos\", \"Damiani\", email = \"athos.damiani@gmail.com\", role = \"aut\"),\n    person(\"William\", \"Amorim\", email = \"thewilliam89@gmail.com\", role = \"aut\"),\n    person(\"Fernando\", \"Correa\", email = \"fptcorrea@gmail.com\", role = \"aut\"))\nDescription: Just a placeholder to install deps.\nDepends:\n    R (>= 3.2.3)\nLicense: MIT + file LICENSE\nEncoding: UTF-8\nLazyData: true\nRemotes:\n    rstudio/blogdown\nImports:\n    stringr,\n    purrr,\n    httr,\n    magrittr,\n    bookdown,\n    devtools,\n    blogdown,\n    tutorial,\n    desc,\n    forcats\nRoxygenNote: 5.0.1\n\n",
+    "created" : 1486903808156.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1563502535",
+    "id" : "F853785F",
+    "lastKnownWriteTime" : 1486903828,
+    "last_content_update" : 1486903828693,
+    "path" : "~/Desktop/site/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}
