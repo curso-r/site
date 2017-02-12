@@ -41,22 +41,14 @@
                                     <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
                                     <div class="clearfix">
                                         <p class="author-category">
-                                          {{ if isset .Params "author" }}
-                                          Por <a href="#">{{ .Params.author }}</a>
+                                          {{ if isset .Params "next" }}
+                                          Próxima Turma: <a>{{ .Params.next }}</a>
                                           {{ end }}
-                                          {{ if isset .Params "categories" }}
-                                          {{ if gt (len .Params.categories) 0 }}
-                                          em <a href="{{ $.Site.BaseURL }}categories/{{ index .Params.categories 0 | urlize | lower }}">{{ index .Params.categories 0 }}</a>
-                                          {{ end }}
-                                          {{ end }}
-
                                         </p>
-                                        <p class="date-comments">
-                                            <a href="{{ .Permalink }}"><i class="fa fa-calendar-o"></i> {{ .Date.Format .Site.Params.date_format }}</a>
-                                        </p>
+                                        
                                     </div>
                                     <p class="intro">{{ .Summary }}</p>
-                                    <p class="read-more"><a href="{{ .Permalink }}" class="btn btn-template-main">Continue lendo</a>
+                                    <p class="read-more"><a href="{{ .Permalink }}" class="btn btn-template-main">Mais Informações</a>
                                     </p>
                                 </div>
                             </div>
@@ -77,25 +69,6 @@
                             {{ end }}
                         </ul>
                     </div>
-                    <!-- /.col-md-9 -->
-
-                    <!-- *** LEFT COLUMN END *** -->
-
-                    <!-- *** RIGHT COLUMN ***
-       _________________________________________________________ -->
-
-                    <div class="col-md-3">
-
-                        <!-- *** MENUS AND WIDGETS *** -->
-
-                        {{ partial "sidebar.html" . }}
-
-                        <!-- *** MENUS AND FILTERS END *** -->
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-                    <!-- *** RIGHT COLUMN END *** -->
 
                 </div>
                 <!-- /.row -->

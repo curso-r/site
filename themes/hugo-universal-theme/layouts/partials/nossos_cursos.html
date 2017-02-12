@@ -1,22 +1,22 @@
-{{ if isset .Site.Params "recent_posts" }}
-{{ if .Site.Params.recent_posts.enable }}
+{{ if isset .Site.Params "cursos" }}
+{{ if .Site.Params.cursos.enable }}
 <section class="bar background-white no-mb">
     <div class="container">
 
         <div class="col-md-12">
             <div class="heading text-center">
-                <h2>{{ .Site.Params.recent_posts.title }}</h2>
+                <h2>{{ .Site.Params.cursos.title }}</h2>
             </div>
 
             <p class="lead">
-              {{ .Site.Params.recent_posts.subtitle }}
+              {{ .Site.Params.cursos.subtitle }}
             </p>
 
             <!-- *** BLOG HOMEPAGE *** -->
 
             <div class="row">
-
-                {{ range first 4 (where .Data.Pages "Section" "blog") }}
+              
+                {{ range first 4 (where .Data.Pages "Section" "cursos") }}
                 <div class="col-md-3 col-sm-6">
                     <div class="box-image-text blog">
                         <div class="top">
@@ -30,7 +30,7 @@
                             <div class="bg"></div>
                             <div class="text">
                                 <p class="buttons">
-                                    <a href="{{ .Permalink }}" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
+                                    <a href="{{ .Permalink }}" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Mais Informações</a>
                                 </p>
                             </div>
                         </div>
@@ -41,11 +41,11 @@
                             {{ with .Params.author }}
                             By <a href="#">{{ . }}</a>
                             {{ end }}
-                            on {{ .Date.Format .Site.Params.date_format }}
+                            Próxima Turma: {{ .Params.next }}
                             </p>
                             <p class="intro">{{ .Summary }}</p>
                             <p class="read-more">
-                              <a href="{{ .Permalink }}" class="btn btn-template-main">Continue reading</a>
+                              <a href="{{ .Permalink }}" class="btn btn-template-main">Mais Informações</a>
                             </p>
                         </div>
                     </div>
