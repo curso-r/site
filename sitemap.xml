@@ -2,138 +2,138 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://curso-r.com/blog/2015/10/10/migrate-from-jekyll/</loc>
+    <loc>https://curso-r.github.io/site/blog/2015/10/10/migrate-from-jekyll/</loc>
     <lastmod>2015-10-10T13:07:31+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://curso-r.com/blog/2015/10/02/linked-post/</loc>
+    <loc>https://curso-r.github.io/site/blog/2015/10/02/linked-post/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://curso-r.com/blog/2015/09/17/go-is-for-lovers/</loc>
+    <loc>https://curso-r.github.io/site/blog/2015/09/17/go-is-for-lovers/</loc>
     <lastmod>2015-09-17T13:47:08+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://curso-r.com/blog/2015/08/03/hugo-is-for-lovers/</loc>
+    <loc>https://curso-r.github.io/site/blog/2015/08/03/hugo-is-for-lovers/</loc>
     <lastmod>2015-08-03T13:39:46+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://curso-r.com/blog/2015/07/23/r-rmarkdown/</loc>
+    <loc>https://curso-r.github.io/site/blog/2015/07/23/r-rmarkdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://curso-r.com/blog/</loc>
+    <loc>https://curso-r.github.io/site/blog/</loc>
     <lastmod>2015-10-10T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/categories/</loc>
+    <loc>https://curso-r.github.io/site/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/contact/</loc>
+    <loc>https://curso-r.github.io/site/contact/</loc>
   </url>
   
   <url>
-    <loc>https://curso-r.com/</loc>
+    <loc>https://curso-r.github.io/site/</loc>
     <lastmod>2015-10-10T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/cursos/</loc>
+    <loc>https://curso-r.github.io/site/cursos/</loc>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/go/</loc>
+    <loc>https://curso-r.github.io/site/tags/go/</loc>
     <lastmod>2015-09-17T13:47:08+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/golang/</loc>
+    <loc>https://curso-r.github.io/site/tags/golang/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/hugo/</loc>
+    <loc>https://curso-r.github.io/site/tags/hugo/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/ipsum/</loc>
+    <loc>https://curso-r.github.io/site/tags/ipsum/</loc>
     <lastmod>2015-10-10T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/categories/lorem/</loc>
+    <loc>https://curso-r.github.io/site/categories/lorem/</loc>
     <lastmod>2015-10-10T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/plot/</loc>
+    <loc>https://curso-r.github.io/site/tags/plot/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/cursos/casual-ao-avancado/</loc>
+    <loc>https://curso-r.github.io/site/cursos/casual-ao-avancado/</loc>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/programming/</loc>
+    <loc>https://curso-r.github.io/site/tags/programming/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/categories/programming/</loc>
+    <loc>https://curso-r.github.io/site/categories/programming/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/categories/pseudo/</loc>
+    <loc>https://curso-r.github.io/site/categories/pseudo/</loc>
     <lastmod>2015-08-03T13:39:46+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/categories/r/</loc>
+    <loc>https://curso-r.github.io/site/categories/r/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/r-markdown/</loc>
+    <loc>https://curso-r.github.io/site/tags/r-markdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/regression/</loc>
+    <loc>https://curso-r.github.io/site/tags/regression/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/</loc>
+    <loc>https://curso-r.github.io/site/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.com/tags/theme/</loc>
+    <loc>https://curso-r.github.io/site/tags/theme/</loc>
     <lastmod>2015-10-02T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>

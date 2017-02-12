@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cursos on Curso-R</title>
-    <link>https://curso-r.com/cursos/index.xml</link>
+    <link>https://curso-r.github.io/site/cursos/index.xml</link>
     <description>Recent content in Cursos on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <atom:link href="https://curso-r.com/cursos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://curso-r.github.io/site/cursos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Programação em R: Do casual ao avançado</title>
-      <link>https://curso-r.com/cursos/casual-ao-avancado/</link>
+      <link>https://curso-r.github.io/site/cursos/casual-ao-avancado/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://curso-r.com/cursos/casual-ao-avancado/</guid>
+      <guid>https://curso-r.github.io/site/cursos/casual-ao-avancado/</guid>
       <description>&lt;p&gt;Neste curso introdutório você aprenderá a se ambientar no R e a realizar tarefas comuns na análise de dados como: manipulação, visualização e modelagem. Esse curso é recomendado para qualquer aluno que deseja começar a usar R para realizar as suas análises.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;

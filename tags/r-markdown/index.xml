@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R Markdown on Curso-R</title>
-    <link>https://curso-r.com/tags/r-markdown/index.xml</link>
+    <link>https://curso-r.github.io/site/tags/r-markdown/index.xml</link>
     <description>Recent content in R Markdown on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <atom:link href="https://curso-r.com/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://curso-r.github.io/site/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hello R Markdown</title>
-      <link>https://curso-r.com/blog/2015/07/23/r-rmarkdown/</link>
+      <link>https://curso-r.github.io/site/blog/2015/07/23/r-rmarkdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>https://curso-r.com/blog/2015/07/23/r-rmarkdown/</guid>
+      <guid>https://curso-r.github.io/site/blog/2015/07/23/r-rmarkdown/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 
 
@@ -58,7 +58,7 @@ pie(
   init.angle = -50, border = NA
 )&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;https://curso-r.com/blog/2015/07/23/r-rmarkdown/figures/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;https://curso-r.github.io/site/blog/2015/07/23/r-rmarkdown/figures/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: A fancy pie chart.
 &lt;/p&gt;
