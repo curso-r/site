@@ -142,4 +142,8 @@
     <priority>0</priority>
   </url>
   
+  <url>
+    <loc>https://curso-r.github.io/site/cursos/webscraping/</loc>
+  </url>
+  
 </urlset>

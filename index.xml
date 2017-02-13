@@ -813,5 +813,61 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.&lt
 </description>
     </item>
     
+    <item>
+      <title>Webscraping com R</title>
+      <link>https://curso-r.github.io/site/cursos/webscraping/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://curso-r.github.io/site/cursos/webscraping/</guid>
+      <description>&lt;p&gt;Neste curso você aprenderá os princípios básicos das requisições web e como controlá-las
+por intermédio do R. Numa segunda parte, você aprenderá a &lt;em&gt;raspar&lt;/em&gt; esses dados para
+obter informações estruturadas das páginas consultadas.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;turma&#34;&gt;Turma&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: A definir&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duração&lt;/strong&gt;: 10h&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
+
+&lt;p&gt;Com webscraping é possível&lt;/p&gt;
+
+&lt;h2 id=&#34;público-alvo&#34;&gt;Público Alvo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Estudantes de graduação em estatística que desejam ganhar tempo nos trabalhos da faculdade e entrar no mercado de trabalho com bons diferenciais.&lt;/li&gt;
+&lt;li&gt;Profissionais do mercado de trabalho que desejam inserir o R no fluxo de atividades do setor/empresa.&lt;/li&gt;
+&lt;li&gt;Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
+
+&lt;p&gt;O curso utiliza extensivamente os seguintes softwares. Instale nessa ordem:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;R: Instale pelo site do CRAN.&lt;/li&gt;
+&lt;li&gt;RStudio: Faça o download aqui.&lt;/li&gt;
+&lt;li&gt;tidyverse - No console do R, digite o código abaixo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Aula 01 - Introdução ao R, Rstudio e &lt;code&gt;tidyverse&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Aula 02 - Manipulação de vetores com &lt;code&gt;lubridate&lt;/code&gt;, &lt;code&gt;stringr&lt;/code&gt; e &lt;code&gt;forcats&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Aula 03 - Transformação de dados com &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Aula 04 - Visualização com &lt;code&gt;ggplot2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Aula 05 - Programação funcional com &lt;code&gt;purrr&lt;/code&gt; e &lt;code&gt;plyr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Aula 06 - Introdução à modelagem estatística usando o R&lt;/li&gt;
+&lt;li&gt;Aula 07 - Tópicos adiconais sobre modelagem&lt;/li&gt;
+&lt;li&gt;Aula 08 - Tema escolhido pelos alunos&lt;/li&gt;
+&lt;li&gt;Aula 09 - Shiny e tópicos sobre comunicação com o R&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
   </channel>
 </rss>
