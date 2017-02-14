@@ -7,7 +7,7 @@ Este repositório contém o código fonte da página http://curso-r.github.io/si
 - [ ] Completar o conteúdo da página "Sobre"
 - [ ] Fazer o contato funcionar (isso inclui saber para quem vai os e-mails e como vamos lidar com isso)
 - [ ] Planejar um curso novo
-- [ ] Traduzir as datas
+- [x] Traduzir as datas
 - [ ] Fazer a busca funcionar
 - [ ] Escrever post 1
 - [ ] Escrever post 2

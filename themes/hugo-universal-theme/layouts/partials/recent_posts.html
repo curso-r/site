@@ -30,7 +30,7 @@
                             <div class="bg"></div>
                             <div class="text">
                                 <p class="buttons">
-                                    <a href="{{ .Permalink }}" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Read more</a>
+                                    <a href="{{ .Permalink }}" class="btn btn-template-transparent-primary"><i class="fa fa-link"></i> Leia Mais</a>
                                 </p>
                             </div>
                         </div>
@@ -39,13 +39,13 @@
                             <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
                             <p class="author-category">
                             {{ with .Params.author }}
-                            By <a href="#">{{ . }}</a>
+                            Por <a href="#">{{ . }}</a>
                             {{ end }}
-                            on {{ .Date.Format .Site.Params.date_format }}
+                            em {{ .Date.Format .Site.Params.date_format }}
                             </p>
                             <p class="intro">{{ .Summary }}</p>
                             <p class="read-more">
-                              <a href="{{ .Permalink }}" class="btn btn-template-main">Continue reading</a>
+                              <a href="{{ .Permalink }}" class="btn btn-template-main">Continue Lendo</a>
                             </p>
                         </div>
                     </div>
