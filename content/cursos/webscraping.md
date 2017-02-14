@@ -1,12 +1,12 @@
 +++
-title = "Webscraping com R"
+title = "Web scraping com R"
 banner = "img/banners/banner-1.jpg"
 next = "A definir"
 +++
 
-Neste curso você aprenderá os princípios básicos das requisições web e como controlá-las
-por intermédio do R. Numa segunda parte, você aprenderá a *raspar* esses dados para
-obter informações estruturadas das páginas consultadas.
+Neste curso você aprenderá os princípios básicos das requisições HTTP, como controlá-las
+por intermédio do R e como obter informações estruturadas de páginas da web. 
+Você também aprenderá a automatizar o controle de um browser usando o R.
 
 <!--more-->
 
@@ -17,13 +17,20 @@ obter informações estruturadas das páginas consultadas.
 
 ## Ementa
 
-Com webscraping é possível 
+Com *Web Scraping* é o ato de extrair informações de sites da internet de forma
+automatizada de forma direta (usando o protocolo HTTP) ou por meio de um browser.
+Para fazer com que o aluno saia do curso sabendo fazer Web Scraping de qualquer
+página, o curso aborda os seguintes tópicos:
+
+* Noções sobre o protocolo HTTP
+* Pacote `httr` para fazer requisições HTTP com o R
+* Pacote `rvest` para obter informações estruturadas de arquivos `.html`
+* `RSelenium` para controlar um browser por intermédio do R
 
 ## Público Alvo
 
-* Estudantes de graduação em estatística que desejam ganhar tempo nos trabalhos da faculdade e entrar no mercado de trabalho com bons diferenciais.
-* Profissionais do mercado de trabalho que desejam inserir o R no fluxo de atividades do setor/empresa.
-* Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.
+Estudantes e profissionais com __conhecimento básico de programação__ que tenham
+interesse em aprender a extrair dados de sites da internet.
 
 ## Softwares
 
@@ -31,16 +38,12 @@ O curso utiliza extensivamente os seguintes softwares. Instale nessa ordem:
 
 * R: Instale pelo site do CRAN.
 * RStudio: Faça o download aqui.
-* tidyverse - No console do R, digite o código abaixo.
+* Pacotes: `httr`, `rvest` e `RSelenium`
 
 ## Programa
 
-* Aula 01 - Introdução ao R, Rstudio e `tidyverse`
-* Aula 02 - Manipulação de vetores com `lubridate`, `stringr` e `forcats`
-* Aula 03 - Transformação de dados com `dplyr` e `tidyr`
-* Aula 04 - Visualização com `ggplot2`
-* Aula 05 - Programação funcional com `purrr` e `plyr`
-* Aula 06 - Introdução à modelagem estatística usando o R
-* Aula 07 - Tópicos adiconais sobre modelagem
-* Aula 08 - Tema escolhido pelos alunos
-* Aula 09 - Shiny e tópicos sobre comunicação com o R
+* Aula 01 - Noções de HTTP e primeira requisição com `httr`
+* Aula 02 - Requisições usando o `httr`
+* Aula 03 - Extraindo conteúdo de arquivos `.html` com o pacote `rvest`
+* Aula 04 - Fazendo um web scraper do início ao fim
+* Aula 05 - Controlando um browser usando o `RSelenium`
