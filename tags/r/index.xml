@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Curso-R</title>
-    <link>https://curso-r.github.io/site/categories/r/index.xml</link>
+    <link>https://curso-r.github.io/site/tags/r/index.xml</link>
     <description>Recent content in R on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <atom:link href="https://curso-r.github.io/site/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://curso-r.github.io/site/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>O blog do Curso R</title>

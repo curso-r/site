@@ -2,33 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://curso-r.github.io/site/blog/2015/10/10/migrate-from-jekyll/</loc>
-    <lastmod>2015-10-10T13:07:31+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/blog/2015/10/02/linked-post/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/blog/2015/09/17/go-is-for-lovers/</loc>
-    <lastmod>2015-09-17T13:47:08+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/blog/2015/08/03/hugo-is-for-lovers/</loc>
-    <lastmod>2015-08-03T13:39:46+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/blog/2015/07/23/r-rmarkdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <loc>https://curso-r.github.io/site/blog/2017/02/15/2017-02-15-blog-curso-r/</loc>
+    <lastmod>2017-02-15T13:07:31+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://curso-r.github.io/site/blog/</loc>
-    <lastmod>2015-10-10T13:07:31+02:00</lastmod>
+    <lastmod>2017-02-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -43,7 +23,7 @@
   
   <url>
     <loc>https://curso-r.github.io/site/</loc>
-    <lastmod>2015-10-10T13:07:31+02:00</lastmod>
+    <lastmod>2017-02-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -52,78 +32,18 @@
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/tags/go/</loc>
-    <lastmod>2015-09-17T13:47:08+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/tags/golang/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/tags/hugo/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/tags/ipsum/</loc>
-    <lastmod>2015-10-10T13:07:31+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/categories/lorem/</loc>
-    <lastmod>2015-10-10T13:07:31+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/tags/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://curso-r.github.io/site/cursos/casual-ao-avancado/</loc>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/tags/programming/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/categories/programming/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/categories/pseudo/</loc>
-    <lastmod>2015-08-03T13:39:46+02:00</lastmod>
+    <loc>https://curso-r.github.io/site/tags/r/</loc>
+    <lastmod>2017-02-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://curso-r.github.io/site/categories/r/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/tags/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/tags/regression/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2017-02-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -133,12 +53,6 @@
   
   <url>
     <loc>https://curso-r.github.io/site/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/tags/theme/</loc>
-    <lastmod>2015-10-02T21:49:20+02:00</lastmod>
     <priority>0</priority>
   </url>
   
