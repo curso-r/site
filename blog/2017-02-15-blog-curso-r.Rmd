@@ -12,22 +12,19 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e Wiliam e 
-seremos os autores dos posts desse blog. Aqui vamos divulgar pequenas análises, 
-novidades sobre o R, e pequenas descobertas sobre estatística e Data Science. 
-Sinta-se a vontade para comentar no espaço abaixo! Adoramos comentários. Também 
-fique a vontade para compartilhar os nossos posts!
+seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, 
+novidades sobre o R e pequenas descobertas sobre estatística e Data Science. 
+Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também 
+fique a vontade para compartilhar os nossos posts.
 
-O Curso-R surgiu em 2015 para ministrar um curso (de R) no programa de verão do Instituto de 
-Matemática e Estatística da Universidade de São Paulo. o curso foi chamado de
-"Programação em R: Do casual ao avançado". Desde o começo abraçamos a filosofia
-*Open Source*: Todo material que desenvolvemos fica disponível em nossa conta do 
-[Github](https://github.com/curso-r/) de forma aberta, para quem quiser usar. 
-Em 2016 e 2017 ministramos novamente o curso "Programando em R: Do casual ao
-Avançado" no programa de verão e depois de mais de 100 alunos formados e decidimos 
-aumentar a gama de cursos e a frequência de ocorrência para que possamos atingir 
-muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
+O Curso-R surgiu em 2015 no programa de verão do Instituto de 
+Matemática e Estatística da Universidade de São Paulo (IME-USP). o curso foi chamado de
+"Programação em R: do casual ao avançado". Desde o começo, nós abraçamos a filosofia
+*Open Source* - todo material que desenvolvemos fica disponível em nossa conta do 
+[Github](https://github.com/curso-r/) de forma aberta para quem quiser usar. 
+Em 2016 e 2017, ministramos novamente o curso no programa de verão e, depois de mais de 100 alunos formados, decidimos aumentar a gama de cursos e a frequência de ocorrência para que possamos atingir muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
-Esperamos que aprendam bastante e principalmente divirtam-se bastante lendo este blog!
+Esperamos que aprendam bastante e, principalmente, divirtam-se bastante lendo este blog!
 
 
 
