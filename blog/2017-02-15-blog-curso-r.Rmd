@@ -11,7 +11,7 @@ author: "Athos, Daniel, Fernando, Julio e William"
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e Wiliam e 
+Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e 
 seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, 
 novidades sobre o R e pequenas descobertas sobre estatística e Data Science. 
 Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também 
