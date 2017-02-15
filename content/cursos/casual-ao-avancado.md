@@ -4,7 +4,7 @@ banner = "img/banners/banner-1.jpg"
 next = "A definir"
 +++
 
-Neste curso introdutório você aprenderá a se ambientar no R e a realizar tarefas comuns na análise de dados como: manipulação, visualização e modelagem. Esse curso é recomendado para qualquer aluno que deseja começar a usar R para realizar as suas análises.
+Neste curso introdutório, você aprenderá a se ambientar no R e a realizar tarefas comuns na análise de dados, como: manipulação, visualização e modelagem. Esse curso é recomendado para qualquer aluno que deseja começar a usar R para realizar as suas análises.
 
 <!--more-->
 
@@ -37,10 +37,10 @@ uma mesma filosofia e foram feitos para serem utilizados conjuntamente.
 
 ## Softwares
 
-O curso utiliza extensivamente os seguintes softwares. Instale nessa ordem:
+O curso utiliza extensivamente softwares a seguir. Instale-os nessa ordem:
 
-* R: Instale pelo site do CRAN.
-* RStudio: Faça o download aqui.
+* R - Instale pelo site do CRAN.
+* RStudio - Faça o download aqui.
 * tidyverse - No console do R, digite o código abaixo.
 
 ## Programa
