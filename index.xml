@@ -11,6 +11,64 @@
     <atom:link href="https://curso-r.github.io/site/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Manifesto tidy</title>
+      <link>https://curso-r.github.io/site/blog/2017/02/15/2017-02-16-manifesto-tidy/</link>
+      <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>https://curso-r.github.io/site/blog/2017/02/15/2017-02-16-manifesto-tidy/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;O &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html&#34;&gt;manifesto das ferramentas tidy&lt;/a&gt; do Hadley Wickham é um dos documentos mais importantes sobre R dos últimos tempos. Esse documento formaliza uma série de princípios que norteiam o desenvolvimento do &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;, também chamado por muitos de &lt;em&gt;hadleyverse&lt;/em&gt;, é um conjunto de pacotes que por compartilharem esses princípios do manifesto tidy podem ser utilizados naturalmente em conjunto. Pode-se dizer que existe o R antes do &lt;code&gt;tidyverse&lt;/code&gt; e o R depois do &lt;code&gt;tidyverse&lt;/code&gt;. A linguagem mudou muito, a comunidade abraçou fortemente o uso desses princípios e tem muita gente criando pacotes para conversar uns com os outros dessa forma. No entanto, usar a filosofia &lt;em&gt;tidy&lt;/em&gt; não é a única forma de fazer pacotes do R, existem muitos pacotes excelentes que não utilizam essa filosofia. Como o próprio texto diz “O contrário de &lt;em&gt;tidyverse&lt;/em&gt; não é o &lt;strong&gt;messy&lt;/strong&gt;verse e sim muitos outros universos de pacotes interconectados.”.&lt;/p&gt;
+&lt;p&gt;Os princípios fundamentais do &lt;code&gt;tidyverse&lt;/code&gt; são:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Reutilizar estruturas de dados existentes.&lt;/li&gt;
+&lt;li&gt;Organizar funções simples usando o &lt;em&gt;pipe&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Aderir à programação funcional.&lt;/li&gt;
+&lt;li&gt;Projetado para ser usado por seres humanos.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;No &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html&#34;&gt;texto do manifesto tidy&lt;/a&gt; cada um dos lemas é descrito de forma detalhada. Aqui selecionei os aspectos que achei mais importante de cada um deles.&lt;/p&gt;
+&lt;div id=&#34;reutilizar-estruturas-de-dados-existentes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Reutilizar estruturas de dados existentes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Quando possível é melhor utilizar estruturas de dados comuns do que criar uma estrutura específica para o seu pacote.&lt;/li&gt;
+&lt;li&gt;Geralmente é melhor reutilizar uma estrutura existente mesmo que ela não se encaixe perfeitamente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;organizar-funcoes-simples-usando-o-pipe&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Organizar funções simples usando o &lt;em&gt;pipe&lt;/em&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Faça com que suas funções sejam o mais simples possíveis. Uma função deve poder ser descrita com apenas uma sentença.&lt;/li&gt;
+&lt;li&gt;A sua função deve ou fazer uma transformação no estilo &lt;em&gt;copy-on-modify&lt;/em&gt; ou ter um efeito colateral. Nunca os dois.&lt;/li&gt;
+&lt;li&gt;O nome das funções devem ser verbos. Exceto quando as funções do pacote usam sempre o mesmo verbo. Ex: adicionar ou modificar.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;aderir-a-programacao-funcional&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Aderir à programação funcional&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;O R é uma linguagem de &lt;a href=&#34;https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_funcional&#34;&gt;programação funcional&lt;/a&gt;, não lute contra isso.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;projetado-para-ser-usado-por-seres-humanos&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Projetado para ser usado por seres humanos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Desenvolva o seu pacote para ser usado por humanos. Foque em ter uma API clara para que você escreva o código de maneira intuitiva e rápida. Eficiência dos algoritmos é uma preocupação secundária, pois gastamos mais tempo escrevendo o código do que executando.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;Esses princípios são bem gerais, mas ajudam bastante a tomar decisões quando estamos escrevendo o nosso código. Para finalizar, clique &lt;a href=&#34;https://github.com/search?utf8=%E2%9C%93&amp;amp;q=tidy+language%3Ar&#34;&gt;aqui&lt;/a&gt; e veja uma busca no Github por “tidy” em repositórios de R. São mais de 2000 resultados quase todos seguindoe ssa filosofia e estendendo o &lt;em&gt;universo arrumado&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>O blog do Curso R</title>
       <link>https://curso-r.github.io/site/blog/2017/02/15/2017-02-15-blog-curso-r/</link>
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>

@@ -5,7 +5,6 @@ tags: ["tidyverse", "r"]
 categories: ["r"]
 banner: "img/banners/tidyverse.jpg"
 author: "Daniel"
-draft: true
 ---
 
 ```{r setup, include=FALSE}
