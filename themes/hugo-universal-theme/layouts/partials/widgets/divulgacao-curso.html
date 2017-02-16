@@ -1,13 +1,13 @@
 {{ if .Site.Params.widgets.divulgacao }}
 <div class="panel sidebar-menu">
     <div class="panel-heading">
-        <h3 class="panel-title">Curso-R</h3>
+        <h3 class="panel-title">Nossos Cursos</h3>
     </div>
 
     <div class="blog-entries">
-        {{ range first 3 (where (where .Site.Pages "Title" "!=" "Cursos") "Section" "cursos") }}
-        <div class="item same-height-row clearfix">
-            <div class="image same-height-always">
+        {{ range first 2 (shuffle (where (where .Site.Pages "Title" "!=" "Cursos") "Section" "cursos")) }} 
+        <div>
+            <div>
                 <a href="{{ .Permalink }}">
                   {{ if isset .Params "banner" }}
                     <img src="{{ .Site.BaseURL}}{{ .Params.banner }}" class="img-responsive" alt="">
