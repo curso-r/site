@@ -69,4 +69,4 @@ do que executando.
 Esses princípios são bem gerais, mas ajudam bastante a tomar decisões quando 
 estamos escrevendo o nosso código. Para finalizar, clique [aqui](https://github.com/search?utf8=%E2%9C%93&q=tidy+language%3Ar) 
 e veja uma busca no Github por "tidy" em repositórios de R. São mais de 2000 resultados
-quase todos seguindoe ssa filosofia e estendendo o *universo arrumado*.
+quase todos seguindo essa filosofia e estendendo o *universo arrumado*.
