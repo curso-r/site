@@ -1,4 +1,5 @@
 library(magick)
+library(magrittr)
 
 # ler a imagem original
 laptop <- image_read('static/img/banners/laptop-original.jpg')
@@ -15,3 +16,13 @@ bookshop <- image_read('static/img/banners/bookshop-original.jpg')
 bookshop %>% 
   image_crop('1000x750') %>% 
   image_write('static/img/banners/bookshop.jpg')
+
+# ler a imagem original
+tidyverse <- image_read('static/img/banners/tidyverse-original.png')
+
+# dar um rescale p/ ficar com o tamanho de 1000 por 750
+tidyverse %>% 
+  image_scale('900') %>%
+  image_border('white', '50x24') %>%
+  image_write('static/img/banners/tidyverse.jpg')
+  
