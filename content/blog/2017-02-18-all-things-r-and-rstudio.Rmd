@@ -1,0 +1,60 @@
+---
+title: "rstudio::conf: Sessão Final"
+date: "2017-02-18T13:07:31+02:00"
+tags: ["rstudio", "r"]
+categories: ["r"]
+banner: "img/banners/tidyverse.jpg"
+author: "Daniel"
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+No início de Janeiro desse ano ocorreu a primeira [rstudio::conf](https://www.rstudio.com/conference/),
+uma conferência sobre R promovida pela Rstudio. A conferência parece ter sido 
+bem animada! Teve até um passeio para o parque do Harry Potter na Florida, 
+e surgiram memes como a imagem abaixo.
+
+```{r hadley, echo=FALSE}
+library(magick)
+x <- image_read('img/hadley-meme.jpg')
+plot(x)
+```
+
+Em termos de conteudo, parece ter
+sido sensacional. Para quem não teve oportunidade de ir, os videos da conferência 
+foram divulgados [aqui](https://www.rstudio.com/resources/webinars/#rstudioconf) como bem
+lembrado pelo [blog Análise Real](https://analisereal.com/2017/02/16/videos-da-rstudio-conference-disponiveis/).
+
+Eu ainda não tive tempo de passar por todas as palestras e comecei pelo fim. Vi o [vídeo](https://www.rstudio.com/resources/videos/all-things-r-and-rstudio/)
+da última sessão da conferência que erda nada mais nada menos do que uma sessão de
+perguntas com J.J. Allaire, Hadley Wickham e Joe Cheng. Para quem não conhece, o primeiro
+é fundador do RStudio, outro é o criador do `tidyverse`, `ggplot2`, etc e o último
+é o criador do Shiny.
+
+A discussão foi muito interessante, tratando de importantes temas sobre o desenvolvimento
+do R. Vou resumir as minhas impressões nesse post, mas ressalvo que vale muito a
+pena ver [o vídeo](https://www.rstudio.com/resources/videos/all-things-r-and-rstudio/).
+
+-------------
+
+A sessão começa com 2 perguntas do moderador [Joseph Rickert](https://www.rstudio.com/rviews/author/josephrickert/). A primeira falando 
+sobre a conferência em que J.J., Joe e Hadley, é claro, estão muito satisfeitos.
+A conferência parece ter sido um sucesso. A segunda pergunta é filosófica, mas o objetivo
+é saber dos participantes o que os motiva nos trabalhos open-source.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
