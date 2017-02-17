@@ -17,13 +17,13 @@ Esse documento formaliza uma série de princípios que norteiam o desenvolviment
 [`tidyverse`](http://tidyverse.org/).
 
 O [`tidyverse`](http://tidyverse.org/), também chamado por muitos de *hadleyverse*, 
-é um conjunto de pacotes que por compartilharem esses princípios do manifesto tidy 
+é um conjunto de pacotes que, por compartilharem esses princípios do manifesto tidy, 
 podem ser utilizados naturalmente em conjunto. Pode-se dizer que existe o R antes do 
 `tidyverse` e o R depois do `tidyverse`. A linguagem mudou muito, a comunidade abraçou
 fortemente o uso desses princípios e tem muita gente criando pacotes para conversar
 uns com os outros dessa forma. No entanto, usar a filosofia *tidy* não é a única forma 
 de fazer pacotes do R, existem muitos pacotes excelentes que não utilizam essa filosofia. 
-Como o próprio texto diz "O contrário de *tidyverse* não é o **messy**verse e sim muitos outros universos de pacotes interconectados.".
+Como o próprio texto diz "O contrário de *tidyverse* não é o **messy**verse, e sim muitos outros universos de pacotes interconectados.".
 
 Os princípios fundamentais do `tidyverse` são:
 
@@ -33,21 +33,21 @@ Os princípios fundamentais do `tidyverse` são:
 4. Projetado para ser usado por seres humanos.
 
 No [texto do manifesto tidy](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html)
-cada um dos lemas é descrito de forma detalhada. Aqui selecionei os aspectos que
+cada um dos lemas é descrito de forma detalhada. Aqui, selecionei os aspectos que
 achei mais importante de cada um deles.
 
 ### Reutilizar estruturas de dados existentes
 
-* Quando possível é melhor utilizar estruturas de dados comuns do que criar uma 
+* Quando possível, é melhor utilizar estruturas de dados comuns do que criar uma 
 estrutura específica para o seu pacote.
-* Geralmente é melhor reutilizar uma estrutura existente mesmo que ela não se 
+* Geralmente, é melhor reutilizar uma estrutura existente mesmo que ela não se 
 encaixe perfeitamente.
 
 ### Organizar funções simples usando o *pipe*
 
 * Faça com que suas funções sejam o mais simples possíveis. Uma função deve poder
 ser descrita com apenas uma sentença.
-* A sua função deve ou fazer uma transformação no estilo *copy-on-modify* ou ter um
+* A sua função deve fazer uma transformação no estilo *copy-on-modify* ou ter um
 efeito colateral. Nunca os dois.
 * O nome das funções devem ser verbos. Exceto quando as funções do pacote usam sempre
 o mesmo verbo. Ex: adicionar ou modificar.
