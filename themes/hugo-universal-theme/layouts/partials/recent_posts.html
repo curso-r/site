@@ -43,7 +43,7 @@
                             {{ end }}
                             em {{ .Date.Format .Site.Params.date_format }}
                             </p>
-                            <p class="intro">{{ .Summary }}</p>
+                            <p class="intro">{{ if isset .Params "summary" }}{{ .Params.summary }}{{ else }}{{ .Summary }}{{ end }}</p>
                             <p class="read-more">
                               <a href="{{ .Permalink }}" class="btn btn-template-main">Continue Lendo</a>
                             </p>
