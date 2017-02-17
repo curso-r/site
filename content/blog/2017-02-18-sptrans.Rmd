@@ -9,7 +9,7 @@ draft: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, eval = FALSE)
 ```
 
 A SPTrans nasceu em 1995 e é hoje responsável por quase todo o sistema de
