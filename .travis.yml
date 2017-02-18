@@ -6,7 +6,8 @@ addons:
       - librsvg2-dev
       - libwebp-dev
       - libpoppler-cpp-dev
-
+      - r-cran-rgdal
+      
 cache: packages
 
 before_script:
