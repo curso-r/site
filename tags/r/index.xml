@@ -152,6 +152,75 @@ Figure 2: Intervalos de confiança usando &lt;code&gt;stat = &#39;stepribbon&#39
     </item>
     
     <item>
+      <title>Top 10 dicas do Curso R de verão 2017</title>
+      <link>https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-top10-dicas-verao-2017/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-top10-dicas-verao-2017/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;Abaixo segue um compilado das 10 melhores dicas dadas durante o Curso de R de Verão 2017 ministrada no IME-USP.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Conheça e domine o Tidyverse&lt;/li&gt;
+&lt;li&gt;R + Shiny é uma grande alternativa às ferramentas de BI e Dashboards&lt;/li&gt;
+&lt;li&gt;ggplot2 e tidyr tem tudo a ver&lt;/li&gt;
+&lt;li&gt;Web Scraping é uma habilidade visada no mercado&lt;/li&gt;
+&lt;li&gt;É legal usar vetores booleanos para filtrar data.frames e outros vetores&lt;/li&gt;
+&lt;li&gt;Tudo no R é objeto&lt;/li&gt;
+&lt;li&gt;Avalie muito bem o problema antes de decidir que se trata de um problema de BIG DATA&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Top 10 pacotes para data science</title>
+      <link>https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-top10-pacotes-para-data-science/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-top10-pacotes-para-data-science/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;O R mudou muito nos últimos 5 anos graças a criações de novos pacotes focados nas questões mais práticas do dia a dia de um analista de dados. Abaixo coloquei meu top 10 de pacotes que revolucionaram o jeito de programar em R e fizeram meu trabalho mais ágil e prazeroso:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;magrittr&lt;/li&gt;
+&lt;li&gt;ggplot2&lt;/li&gt;
+&lt;li&gt;dplyr&lt;/li&gt;
+&lt;li&gt;tidyr&lt;/li&gt;
+&lt;li&gt;lubridate&lt;/li&gt;
+&lt;li&gt;stringi (ou stringr)&lt;/li&gt;
+&lt;li&gt;shiny&lt;/li&gt;
+&lt;li&gt;caret&lt;/li&gt;
+&lt;li&gt;purrr&lt;/li&gt;
+&lt;li&gt;shiny&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Outros pacotes também merecem destaque! As medálhas de honra ao mérito vão para:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;knitr&lt;/li&gt;
+&lt;li&gt;forcats&lt;/li&gt;
+&lt;li&gt;FactoMiner&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Manifesto tidy</title>
       <link>https://curso-r.github.io/site/blog/2017/02/15/2017-02-16-manifesto-tidy/</link>
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>

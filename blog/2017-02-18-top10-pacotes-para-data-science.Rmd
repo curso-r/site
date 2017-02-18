@@ -1,0 +1,27 @@
+---
+title: "Top 10 pacotes para data science"
+date: "2017-02-18"
+tags: ["r"]
+categories: ["r"]
+author: "Athos"
+---
+
+O R mudou muito nos últimos 5 anos graças a criações de novos pacotes focados nas questões mais práticas do dia a dia de um analista de dados. Abaixo coloquei meu top 10 de pacotes que revolucionaram o jeito de programar em R e fizeram meu trabalho mais ágil e prazeroso:
+
+1. magrittr
+2. ggplot2
+3. dplyr
+4. tidyr
+5. lubridate
+6. stringi (ou stringr)
+7. shiny
+8. caret
+9. purrr
+10. shiny
+
+Outros pacotes também merecem destaque! As medálhas de honra ao mérito vão para:
+
+- knitr
+- forcats
+- FactoMiner
+- 

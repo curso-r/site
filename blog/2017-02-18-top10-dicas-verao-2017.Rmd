@@ -1,0 +1,19 @@
+---
+title: "Top 10 dicas do Curso R de verão 2017"
+date: "2017-02-18"
+tags: ["r"]
+categories: ["r"]
+author: "Athos"
+---
+
+
+Abaixo segue um compilado das 10 melhores dicas dadas durante o Curso de R de Verão 2017 ministrada no IME-USP.
+
+1. Conheça e domine o Tidyverse
+2. R + Shiny é uma grande alternativa às ferramentas de BI e Dashboards
+3. ggplot2 e tidyr tem tudo a ver
+4. Web Scraping é uma habilidade visada no mercado
+5. É legal usar vetores booleanos para filtrar data.frames e outros vetores
+6. Tudo no R é objeto
+7. Avalie muito bem o problema antes de decidir que se trata de um problema de BIG DATA
+8. 
