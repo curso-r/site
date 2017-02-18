@@ -3560,3 +3560,51 @@ a.list-group-item.active > .badge,
   left: 15px;
   right: 15px;
 }
+
+/* ******************************* */
+
+#post-content table {
+    margin: 2em 0 1.5em;
+    font-size: 13px;
+    overflow: hidden
+}
+
+#post-content table {
+    max-width: 100%;
+    display: inline-block;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+#post-content img {
+    max-width: 100%;
+    display: inline-block;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+
+#post-content table th {
+    font-size: 12px;
+    text-align: left
+}
+
+#post-content table td,
+#post-content table th {
+    padding: 12px 16px;
+    vertical-align: top
+}
+
+#post-content table {
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, .24), 0 3px 8px rgba(0, 0, 0, .05);
+    border-radius: 3px;
+}
+
+#post-content table th {
+    background: #ee7a70;
+    color: #fff
+}
+
+#post-content table td {
+    border-top: 1px solid rgba(0, 0, 0, .05)
+}

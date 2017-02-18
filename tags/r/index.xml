@@ -10,6 +10,148 @@
     <atom:link href="https://curso-r.github.io/site/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Pacote ggalt</title>
+      <link>https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-ggalt/</link>
+      <pubDate>Sat, 18 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-ggalt/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;O pacote &lt;code&gt;ggalt&lt;/code&gt; é uma extensão ao &lt;code&gt;ggplot2&lt;/code&gt; que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.&lt;/p&gt;
+&lt;p&gt;É possível instalar o pacote &lt;code&gt;ggalt&lt;/code&gt; usando a função &lt;code&gt;install.packages()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;ggalt&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para exemplificar a utilização do &lt;code&gt;ggalt&lt;/code&gt;, vamos utilizar os pacotes abaixo.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
+library(ggplot2)
+library(ggalt)
+library(broom)
+library(survival)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nesse exemplo, utilizaremos a base de dados &lt;code&gt;lung&lt;/code&gt; que vem com o pacote &lt;code&gt;survival&lt;/code&gt;. Primeiramente, ajustamos um modelo Kaplan-Meier simples, usando a função &lt;code&gt;survfit()&lt;/code&gt;. Esse modelo tenta explicar a sobrevivência de pacientes com câncer de pulmão para cada sexo.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modelo kaplan-meier simples
+km &amp;lt;- survfit(Surv(time, status) ~ sex, data = lung)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A função &lt;code&gt;tidy()&lt;/code&gt; do pacote &lt;code&gt;broom&lt;/code&gt; transforma o resultado do modelo numa tabela, já preparada para gerar gráficos.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_km &amp;lt;- tidy(km)
+
+knitr::kable(head(d_km))&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;time&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n.risk&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n.event&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n.censor&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;estimate&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;std.error&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;conf.high&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;conf.low&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;strata&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;11&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;138&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9782609&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0126898&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.0000000&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9542301&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;135&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9710145&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0147075&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9994124&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9434235&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;13&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;134&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9565217&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0181489&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9911586&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9230952&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;15&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;132&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9492754&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0196777&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9866017&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9133612&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;26&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;131&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9420290&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0211171&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9818365&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9038355&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;30&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;130&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9347826&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0224847&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9768989&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.8944820&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;A gráfico da Figura &lt;a href=&#34;#fig:ruim&#34;&gt;1&lt;/a&gt; usa a função &lt;code&gt;geom_ribbon()&lt;/code&gt; para gerar os intervalos de confiança. Essa função liga os pontos da faixa diretamente, o que é inadequado do ponto de vista estatístico.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+              alpha = .1, size = .1) +
+  geom_step() +
+  theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:ruim&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-ggalt/figures/ruim-1.png&#34; alt=&#34;Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Intervalos de confiança usando apenas &lt;code&gt;ggplot2&lt;/code&gt; e &lt;code&gt;geom_ribbon()&lt;/code&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Na Figura &lt;a href=&#34;#fig:bom&#34;&gt;2&lt;/a&gt;, adicionamos o parâmetro &lt;code&gt;stat = &amp;quot;stepribbon&amp;quot;&lt;/code&gt;, que faz com que o &lt;code&gt;ggplot&lt;/code&gt; utilize a função &lt;code&gt;stat_stepribbon()&lt;/code&gt; do &lt;code&gt;ggalt&lt;/code&gt; para o cálculo da faixa. Isso faz com que os intervalos tenham comportamento de escada, como queríamos.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+              stat = &amp;#39;stepribbon&amp;#39;, alpha = .1, size = .1) +
+  geom_step() +
+  theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:bom&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-ggalt/figures/bom-1.png&#34; alt=&#34;Intervalos de confiança usando `stat = &#39;stepribbon&#39;́`&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Intervalos de confiança usando &lt;code&gt;stat = &#39;stepribbon&#39;́&lt;/code&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Manifesto tidy</title>
       <link>https://curso-r.github.io/site/blog/2017/02/15/2017-02-16-manifesto-tidy/</link>
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
@@ -26,7 +168,7 @@
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
 
 &lt;p&gt;O &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html&#34;&gt;manifesto das ferramentas tidy&lt;/a&gt; do Hadley Wickham é um dos documentos mais importantes sobre R dos últimos tempos. Esse documento formaliza uma série de princípios que norteiam o desenvolvimento do &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;O &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;, também chamado por muitos de &lt;em&gt;hadleyverse&lt;/em&gt;, é um conjunto de pacotes que por compartilharem esses princípios do manifesto tidy podem ser utilizados naturalmente em conjunto. Pode-se dizer que existe o R antes do &lt;code&gt;tidyverse&lt;/code&gt; e o R depois do &lt;code&gt;tidyverse&lt;/code&gt;. A linguagem mudou muito, a comunidade abraçou fortemente o uso desses princípios e tem muita gente criando pacotes para conversar uns com os outros dessa forma. No entanto, usar a filosofia &lt;em&gt;tidy&lt;/em&gt; não é a única forma de fazer pacotes do R, existem muitos pacotes excelentes que não utilizam essa filosofia. Como o próprio texto diz “O contrário de &lt;em&gt;tidyverse&lt;/em&gt; não é o &lt;strong&gt;messy&lt;/strong&gt;verse e sim muitos outros universos de pacotes interconectados.”.&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;, também chamado por muitos de &lt;em&gt;hadleyverse&lt;/em&gt;, é um conjunto de pacotes que, por compartilharem esses princípios do manifesto tidy, podem ser utilizados naturalmente em conjunto. Pode-se dizer que existe o R antes do &lt;code&gt;tidyverse&lt;/code&gt; e o R depois do &lt;code&gt;tidyverse&lt;/code&gt;. A linguagem mudou muito, a comunidade abraçou fortemente o uso desses princípios e tem muita gente criando pacotes para conversar uns com os outros dessa forma. No entanto, usar a filosofia &lt;em&gt;tidy&lt;/em&gt; não é a única forma de fazer pacotes do R, existem muitos pacotes excelentes que não utilizam essa filosofia. Como o próprio texto diz “O contrário de &lt;em&gt;tidyverse&lt;/em&gt; não é o &lt;strong&gt;messy&lt;/strong&gt;verse, e sim muitos outros universos de pacotes interconectados.”.&lt;/p&gt;
 &lt;p&gt;Os princípios fundamentais do &lt;code&gt;tidyverse&lt;/code&gt; são:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Reutilizar estruturas de dados existentes.&lt;/li&gt;
@@ -34,19 +176,19 @@
 &lt;li&gt;Aderir à programação funcional.&lt;/li&gt;
 &lt;li&gt;Projetado para ser usado por seres humanos.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;No &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html&#34;&gt;texto do manifesto tidy&lt;/a&gt; cada um dos lemas é descrito de forma detalhada. Aqui selecionei os aspectos que achei mais importante de cada um deles.&lt;/p&gt;
+&lt;p&gt;No &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html&#34;&gt;texto do manifesto tidy&lt;/a&gt; cada um dos lemas é descrito de forma detalhada. Aqui, selecionei os aspectos que achei mais importante de cada um deles.&lt;/p&gt;
 &lt;div id=&#34;reutilizar-estruturas-de-dados-existentes&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Reutilizar estruturas de dados existentes&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Quando possível é melhor utilizar estruturas de dados comuns do que criar uma estrutura específica para o seu pacote.&lt;/li&gt;
-&lt;li&gt;Geralmente é melhor reutilizar uma estrutura existente mesmo que ela não se encaixe perfeitamente.&lt;/li&gt;
+&lt;li&gt;Quando possível, é melhor utilizar estruturas de dados comuns do que criar uma estrutura específica para o seu pacote.&lt;/li&gt;
+&lt;li&gt;Geralmente, é melhor reutilizar uma estrutura existente mesmo que ela não se encaixe perfeitamente.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;organizar-funcoes-simples-usando-o-pipe&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Organizar funções simples usando o &lt;em&gt;pipe&lt;/em&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Faça com que suas funções sejam o mais simples possíveis. Uma função deve poder ser descrita com apenas uma sentença.&lt;/li&gt;
-&lt;li&gt;A sua função deve ou fazer uma transformação no estilo &lt;em&gt;copy-on-modify&lt;/em&gt; ou ter um efeito colateral. Nunca os dois.&lt;/li&gt;
+&lt;li&gt;A sua função deve fazer uma transformação no estilo &lt;em&gt;copy-on-modify&lt;/em&gt; ou ter um efeito colateral. Nunca os dois.&lt;/li&gt;
 &lt;li&gt;O nome das funções devem ser verbos. Exceto quando as funções do pacote usam sempre o mesmo verbo. Ex: adicionar ou modificar.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
