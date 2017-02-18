@@ -1,4 +1,12 @@
 language: r
+addons:
+  apt:
+    packages:
+      - libmagick++-dev
+      - librsvg2-dev
+      - libwebp-dev
+      - libpoppler-cpp-dev
+
 cache: packages
 
 before_script:
