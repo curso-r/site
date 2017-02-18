@@ -25,6 +25,12 @@ Imports:
     blogdown,
     tutorial,
     desc,
-    forcats
+    forcats,
+    magick,
+    ggfortify,
+    broom,
+    ggplot2,
+    dplyr,
+    ggalt,
+    survival
 RoxygenNote: 5.0.1
-
