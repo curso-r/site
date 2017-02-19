@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Curso-R</title>
-    <link>https://curso-r.github.io/site/index.xml</link>
+    <link>http://curso-r.com/index.xml</link>
     <description>Recent content on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
     <lastBuildDate>Sat, 18 Feb 2017 13:07:31 +0200</lastBuildDate>
-    <atom:link href="https://curso-r.github.io/site/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://curso-r.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Pacote ggalt</title>
-      <link>https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-ggalt/</link>
+      <link>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</link>
       <pubDate>Sat, 18 Feb 2017 13:07:31 +0200</pubDate>
       
-      <guid>https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-ggalt/</guid>
+      <guid>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 
 
@@ -132,7 +132,7 @@ knitr::kable(head(d_km))&lt;/code&gt;&lt;/pre&gt;
   geom_step() +
   theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:ruim&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-ggalt/figures/ruim-1.png&#34; alt=&#34;Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`.&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/figures/ruim-1.png&#34; alt=&#34;Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Intervalos de confiança usando apenas &lt;code&gt;ggplot2&lt;/code&gt; e &lt;code&gt;geom_ribbon()&lt;/code&gt;.
 &lt;/p&gt;
@@ -144,7 +144,7 @@ Figure 1: Intervalos de confiança usando apenas &lt;code&gt;ggplot2&lt;/code&gt
   geom_step() +
   theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:bom&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-ggalt/figures/bom-1.png&#34; alt=&#34;Intervalos de confiança usando `stat = &#39;stepribbon&#39;́`&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/figures/bom-1.png&#34; alt=&#34;Intervalos de confiança usando `stat = &#39;stepribbon&#39;́`&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Intervalos de confiança usando &lt;code&gt;stat = &#39;stepribbon&#39;́&lt;/code&gt;
 &lt;/p&gt;
@@ -154,10 +154,10 @@ Figure 2: Intervalos de confiança usando &lt;code&gt;stat = &#39;stepribbon&#39
     
     <item>
       <title>Manifesto tidy</title>
-      <link>https://curso-r.github.io/site/blog/2017/02/15/2017-02-16-manifesto-tidy/</link>
+      <link>http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/</link>
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
       
-      <guid>https://curso-r.github.io/site/blog/2017/02/15/2017-02-16-manifesto-tidy/</guid>
+      <guid>http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 
 
@@ -212,10 +212,10 @@ Figure 2: Intervalos de confiança usando &lt;code&gt;stat = &#39;stepribbon&#39
     
     <item>
       <title>O blog do Curso R</title>
-      <link>https://curso-r.github.io/site/blog/2017/02/15/2017-02-15-blog-curso-r/</link>
+      <link>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</link>
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
       
-      <guid>https://curso-r.github.io/site/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
+      <guid>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 
 
@@ -234,10 +234,10 @@ Figure 2: Intervalos de confiança usando &lt;code&gt;stat = &#39;stepribbon&#39
     
     <item>
       <title>Contato</title>
-      <link>https://curso-r.github.io/site/contact/</link>
+      <link>http://curso-r.com/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://curso-r.github.io/site/contact/</guid>
+      <guid>http://curso-r.com/contact/</guid>
       <description>
 
 &lt;h1 id=&#34;como-podemos-ajudar&#34;&gt;Como podemos ajudar?&lt;/h1&gt;
@@ -251,10 +251,10 @@ Tem uma sugestão, elogio ou reclamação?&lt;/p&gt;
     
     <item>
       <title>Programação em R: Do casual ao avançado</title>
-      <link>https://curso-r.github.io/site/cursos/casual-ao-avancado/</link>
+      <link>http://curso-r.com/cursos/casual-ao-avancado/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://curso-r.github.io/site/cursos/casual-ao-avancado/</guid>
+      <guid>http://curso-r.com/cursos/casual-ao-avancado/</guid>
       <description>&lt;p&gt;Neste curso introdutório, você aprenderá a se ambientar no R e a realizar tarefas comuns na análise de dados, como: manipulação, visualização e modelagem. Esse curso é recomendado para qualquer aluno que deseja começar a usar R para realizar as suas análises.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
@@ -319,10 +319,10 @@ uma mesma filosofia e foram feitos para serem utilizados conjuntamente.&lt;/p&gt
     
     <item>
       <title>Sobre</title>
-      <link>https://curso-r.github.io/site/sobre/</link>
+      <link>http://curso-r.com/sobre/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://curso-r.github.io/site/sobre/</guid>
+      <guid>http://curso-r.com/sobre/</guid>
       <description>
 
 &lt;h1 id=&#34;história&#34;&gt;História&lt;/h1&gt;
@@ -350,10 +350,10 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.&lt
     
     <item>
       <title>Web scraping com R</title>
-      <link>https://curso-r.github.io/site/cursos/webscraping/</link>
+      <link>http://curso-r.com/cursos/webscraping/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://curso-r.github.io/site/cursos/webscraping/</guid>
+      <guid>http://curso-r.com/cursos/webscraping/</guid>
       <description>&lt;p&gt;Neste curso, você aprenderá os princípios básicos das requisições HTTP, como controlá-las
 por intermédio do R e como obter informações estruturadas de páginas da web.
 Você também aprenderá a automatizar o controle de um &lt;em&gt;browser&lt;/em&gt; usando o R.&lt;/p&gt;

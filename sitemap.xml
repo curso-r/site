@@ -2,83 +2,83 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://curso-r.github.io/site/blog/2017/02/18/2017-02-18-ggalt/</loc>
+    <loc>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</loc>
     <lastmod>2017-02-18T13:07:31+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/blog/2017/02/15/2017-02-16-manifesto-tidy/</loc>
+    <loc>http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/</loc>
     <lastmod>2017-02-15T13:07:31+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/blog/2017/02/15/2017-02-15-blog-curso-r/</loc>
+    <loc>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</loc>
     <lastmod>2017-02-15T13:07:31+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/blog/</loc>
+    <loc>http://curso-r.com/blog/</loc>
     <lastmod>2017-02-18T13:07:31+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/categories/</loc>
+    <loc>http://curso-r.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/contact/</loc>
+    <loc>http://curso-r.com/contact/</loc>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/</loc>
-    <lastmod>2017-02-18T13:07:31+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/cursos/</loc>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/tags/ggplot/</loc>
+    <loc>http://curso-r.com/</loc>
     <lastmod>2017-02-18T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/cursos/casual-ao-avancado/</loc>
+    <loc>http://curso-r.com/cursos/</loc>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/tags/r/</loc>
+    <loc>http://curso-r.com/tags/ggplot/</loc>
     <lastmod>2017-02-18T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/categories/r/</loc>
+    <loc>http://curso-r.com/cursos/casual-ao-avancado/</loc>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/r/</loc>
     <lastmod>2017-02-18T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/sobre/</loc>
-  </url>
-  
-  <url>
-    <loc>https://curso-r.github.io/site/tags/</loc>
+    <loc>http://curso-r.com/categories/r/</loc>
+    <lastmod>2017-02-18T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/tags/tidyverse/</loc>
+    <loc>http://curso-r.com/sobre/</loc>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/tidyverse/</loc>
     <lastmod>2017-02-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://curso-r.github.io/site/cursos/webscraping/</loc>
+    <loc>http://curso-r.com/cursos/webscraping/</loc>
   </url>
   
 </urlset>
