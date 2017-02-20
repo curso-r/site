@@ -4,7 +4,7 @@ date: "2017-02-18T13:07:31+02:00"
 tags: ["rstudio", "r"]
 categories: ["r"]
 banner: "img/banners/tidyverse.jpg"
-author: "Daniel"
+author: ["Daniel"]
 draft: true
 ---
 
