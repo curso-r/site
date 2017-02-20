@@ -1,4 +1,4 @@
-baseurl = "https://curso-r.github.io/site/"
+baseurl = "http://curso-r.com/"
 title = "Curso-R"
 theme = "hugo-universal-theme"
 languageCode = "pt-br"
