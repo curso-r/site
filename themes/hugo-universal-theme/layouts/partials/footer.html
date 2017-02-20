@@ -1,4 +1,17 @@
 <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="{{ .Site.BaseURL }}js/prism.js"></script> 
     <div class="container">
 
         {{ if isset .Site.Params "about_us" }}
