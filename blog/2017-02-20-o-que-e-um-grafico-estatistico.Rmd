@@ -1,0 +1,46 @@
+---
+title: "O que é um gráfico estatístico?"
+date: "2017-02-20"
+tags: ["r", "ggplot2"]
+categories: ["r"]
+author: "William"
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Os gráficos são técnicas estatísticas para visualização de dados amplamente utilizados em todas as áreas da pesquisa. A sua popularidade se deve à maneira como elucidam informações que estavam escondidas nas colunas do banco de dados, sendo que muitos deles podem ser compreendidos até mesmo por leigos no assunto em questão. 
+
+Mas será que podemos definir formalmente o que é um gráfico estatístico?
+
+```{r, echo = F}
+library(ggplot2)
+
+ggplot(mtcars) +
+  geom_text(aes(x = disp, y = mpg, label = '?')) +
+  labs(x = '???', y = '???')
+```
+
+Em 2005, o estatístico norte-americano Leland Wilkinson publicou um livro chamado The Grammar of Graphics, uma fonte de princípios fundamentais para a construção de gráficos estatísticos. Alguns anos mais tarde, Hadley Wickham adaptou esses conceitos (A Layered Grammar	of Graphics) e criou o pacote `ggplot2`, enterrando com muitas pás de terra as funções gráficas do R base.
+
+A gramática criada por Leland defende que um gráfico é o mapeamento dos dados a partir de atributos estéticos (posição, cor, forma, tamanho) de objetos geométricos (pontos, linhas, barras, caixas). Com base nessa definição, Hadley sugeriu que os principais aspectos de um gráfico (dados, sistema de coordenadas, rótulos e anotações) podiam ser divididos em camadas. Essa a estrutura primordial do `ggplot2`.
+
+No gráfico abaixo, temos informação de 32 carros com respeito a 4 variáveis: milhas por galão, tonelagem, transmissão e número de cilindros. O objeto geométrico escolhido para representar os dados foi o **ponto**. As posições dos pontos no eixo xy mapeia a associação entre a tonelagem e a quantidade de milhas por galão. A cor dos pontos mapeia o número de cilindros de cada carro, enquanto a forma dos pontos mapeia o tipo de transmissão. Observando o código, fica claro como cada linha/camada representa um aspecto diferente do gráfico.
+
+```{r}
+ggplot(mtcars) +
+  geom_point(aes(x = disp, y = mpg, shape = as.factor(am), color = cyl)) +
+  labs(x = "Tonelagem", y = "Milhas por galão", 
+       shape = "Transmissão", color = "Cilindros") +
+  scale_shape_discrete(labels = c("Automática","Manual")) +
+  theme_bw() +
+  theme(legend.position = "bottom") 
+  
+```
+
+
+Apesar da gramática prover uma forte fundação para a compreensão de diversos gráficos, ela não indica qual gráfico deve ser usado ou como ele deve parecer. Essas escolhas, fundamentadas na pergunta a ser respondida, nem sempre são triviais, e negligenciá-las pode gerar gráficos mal construídos e conclusões equivocadas. Cabe a nós, estatísticos, desenvolver, aprimorar e divulgar as técnicas de visualização adequadas para cada tipo de variável, assim como apontar ou denunciar os usos incorretos e mal-intencionados. Mas, em um mundo cuja veracidade das notícias é cada vez menos importante, é papel de todos ter senso crítico para entender e julgar as informações trazidas por um gráfico.
+
+
