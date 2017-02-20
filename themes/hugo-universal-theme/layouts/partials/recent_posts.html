@@ -39,7 +39,14 @@
                             <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
                             <p class="author-category">
                             {{ with .Params.author }}
-                            Por <a href="#">{{ . }}</a>
+                            Por 
+                            
+                            {{ range $index, $author := . }}
+                              {{ if gt $index 0 }}, {{ end }}
+                                <a href="{{ "/author/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+                            {{ end }}
+                            
+                            
                             {{ end }}
                             em {{ .Date.Format .Site.Params.date_format }}
                             </p>

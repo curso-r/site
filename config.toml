@@ -11,6 +11,11 @@ canonifyURLs = true
 # Define the number of posts per page
 paginate = 10
 
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "author"
+
 [params]
     viewMorePostLink = "/blog/"
     author = "Curso-R"
