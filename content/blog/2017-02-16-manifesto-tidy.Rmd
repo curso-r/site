@@ -4,7 +4,7 @@ date: "2017-02-15T13:07:31+02:00"
 tags: ["tidyverse", "r"]
 categories: ["r"]
 banner: "img/banners/tidyverse.jpg"
-author: "Daniel"
+author: ["Daniel"]
 ---
 
 ```{r setup, include=FALSE}

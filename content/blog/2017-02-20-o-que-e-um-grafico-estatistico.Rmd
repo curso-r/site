@@ -3,7 +3,7 @@ title: "O que é um gráfico estatístico?"
 date: "2017-02-20"
 tags: ["r", "ggplot2"]
 categories: ["r"]
-author: "William"
+author: ["William"]
 draft: true
 ---
 
