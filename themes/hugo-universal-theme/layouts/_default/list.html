@@ -42,7 +42,11 @@
                                     <div class="clearfix">
                                         <p class="author-category">
                                           {{ if isset .Params "author" }}
-                                          Por <a href="#">{{ .Params.author }}</a>
+                                          Por 
+                                            {{ range $index, $author := .Params.author }}
+                                              {{ if gt $index 0 }}, {{ end }}
+                                                <a href="{{ "/author/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+                                            {{ end }}
                                           {{ end }}
                                           {{ if isset .Params "categories" }}
                                           {{ if gt (len .Params.categories) 0 }}

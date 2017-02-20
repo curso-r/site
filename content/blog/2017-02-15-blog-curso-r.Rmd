@@ -4,7 +4,7 @@ date: "2017-02-15T13:07:31+02:00"
 tags: ["r"]
 categories: ["r"]
 banner: "img/banners/bookshop.jpg"
-author: "Athos, Daniel, Fernando, Julio e William"
+author: ["Athos", "Daniel", "Fernando", "Julio", "William"]
 ---
 
 ```{r setup, include=FALSE}
