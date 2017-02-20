@@ -48,19 +48,23 @@ knitr::kable(head(d_km))
 A gráfico da Figura \@ref(fig:ruim) usa a função `geom_ribbon()` para gerar os intervalos de confiança. Essa função liga os pontos da faixa diretamente, o que é inadequado do ponto de vista estatístico.
 
 ```{r ruim, width=12, height=8, fig.cap="Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`."}
-ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)
+ggplot(d_km,
+       aes(x = time, y = estimate, colour = strata)) +
+geom_ribbon(
+       aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+       alpha = .1, size = .1) +
+geom_step() +
+theme_bw(16)
 ```
 
 Na Figura \@ref(fig:bom), adicionamos o parâmetro `stat = "stepribbon"`, que faz com que o `ggplot` utilize a função `stat_stepribbon()` do `ggalt` para o cálculo da faixa. Isso faz com que os intervalos tenham comportamento de escada, como queríamos.
 
 ```{r bom, width=12, height=8, fig.cap="Intervalos de confiança usando `stat = 'stepribbon'́`"}
-ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              stat = 'stepribbon', alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)
+ggplot(d_km,
+       aes(x = time, y = estimate, colour = strata)) +
+geom_ribbon(
+       aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+       stat = 'stepribbon', alpha = .1, size = .1) +
+geom_step() +
+theme_bw(16)
 ```
