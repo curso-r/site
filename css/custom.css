@@ -8,3 +8,8 @@
 .box-simple {
   min-height: 230px;
 }
+
+span.has-jax {font-size: 90%;
+              background: inherit;
+              border: inherit;
+              color: #333;}

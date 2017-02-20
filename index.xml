@@ -126,11 +126,13 @@ knitr::kable(head(d_km))&lt;/code&gt;&lt;/pre&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;A gráfico da Figura &lt;a href=&#34;#fig:ruim&#34;&gt;1&lt;/a&gt; usa a função &lt;code&gt;geom_ribbon()&lt;/code&gt; para gerar os intervalos de confiança. Essa função liga os pontos da faixa diretamente, o que é inadequado do ponto de vista estatístico.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(d_km,
+       aes(x = time, y = estimate, colour = strata)) +
+geom_ribbon(
+       aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+       alpha = .1, size = .1) +
+geom_step() +
+theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:ruim&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/figures/ruim-1.png&#34; alt=&#34;Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
@@ -138,11 +140,13 @@ Figure 1: Intervalos de confiança usando apenas &lt;code&gt;ggplot2&lt;/code&gt
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Na Figura &lt;a href=&#34;#fig:bom&#34;&gt;2&lt;/a&gt;, adicionamos o parâmetro &lt;code&gt;stat = &amp;quot;stepribbon&amp;quot;&lt;/code&gt;, que faz com que o &lt;code&gt;ggplot&lt;/code&gt; utilize a função &lt;code&gt;stat_stepribbon()&lt;/code&gt; do &lt;code&gt;ggalt&lt;/code&gt; para o cálculo da faixa. Isso faz com que os intervalos tenham comportamento de escada, como queríamos.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              stat = &amp;#39;stepribbon&amp;#39;, alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(d_km,
+       aes(x = time, y = estimate, colour = strata)) +
+geom_ribbon(
+       aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+       stat = &amp;#39;stepribbon&amp;#39;, alpha = .1, size = .1) +
+geom_step() +
+theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:bom&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/figures/bom-1.png&#34; alt=&#34;Intervalos de confiança usando `stat = &#39;stepribbon&#39;́`&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;

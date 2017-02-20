@@ -47,7 +47,8 @@
   <link href="http://curso-r.com/css/owl.theme.css" rel="stylesheet">
 
   <link rel="alternate" href="http://curso-r.com/index.xml" type="application/rss+xml" title="Curso-R">
-
+  <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
+  
   
   <meta property="og:title" content="Curso-R" />
   <meta property="og:type" content="website" />
@@ -442,6 +443,19 @@ O Curso-R surgiu em 2015 no programa de verão do Instituto de Matemática e Est
 
 
         <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="http://curso-r.com/js/prism.js"></script> 
     <div class="container">
 
         
@@ -578,8 +592,27 @@ ga('send', 'pageview');
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+MathJax.Hub.Config({
+  "HTML-CSS": {
+    preferredFont: "STIX"  }
+});
+</script>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>

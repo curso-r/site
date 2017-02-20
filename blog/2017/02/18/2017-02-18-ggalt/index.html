@@ -47,7 +47,8 @@
   <link href="http://curso-r.com/css/owl.theme.css" rel="stylesheet">
 
   <link rel="alternate" href="http://curso-r.com/index.xml" type="application/rss+xml" title="Curso-R">
-
+  <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
+  
   
   <meta property="og:title" content="Pacote ggalt" />
   <meta property="og:type" content="website" />
@@ -265,11 +266,13 @@ knitr::kable(head(d_km))</code></pre>
 </tbody>
 </table>
 <p>A gráfico da Figura <a href="#fig:ruim">1</a> usa a função <code>geom_ribbon()</code> para gerar os intervalos de confiança. Essa função liga os pontos da faixa diretamente, o que é inadequado do ponto de vista estatístico.</p>
-<pre class="r"><code>ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)</code></pre>
+<pre class="r"><code>ggplot(d_km,
+       aes(x = time, y = estimate, colour = strata)) +
+geom_ribbon(
+       aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+       alpha = .1, size = .1) +
+geom_step() +
+theme_bw(16)</code></pre>
 <div class="figure"><span id="fig:ruim"></span>
 <img src="figures/ruim-1.png" alt="Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`." width="672" />
 <p class="caption">
@@ -277,11 +280,13 @@ Figure 1: Intervalos de confiança usando apenas <code>ggplot2</code> e <code>ge
 </p>
 </div>
 <p>Na Figura <a href="#fig:bom">2</a>, adicionamos o parâmetro <code>stat = &quot;stepribbon&quot;</code>, que faz com que o <code>ggplot</code> utilize a função <code>stat_stepribbon()</code> do <code>ggalt</code> para o cálculo da faixa. Isso faz com que os intervalos tenham comportamento de escada, como queríamos.</p>
-<pre class="r"><code>ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              stat = &#39;stepribbon&#39;, alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)</code></pre>
+<pre class="r"><code>ggplot(d_km,
+       aes(x = time, y = estimate, colour = strata)) +
+geom_ribbon(
+       aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+       stat = &#39;stepribbon&#39;, alpha = .1, size = .1) +
+geom_step() +
+theme_bw(16)</code></pre>
 <div class="figure"><span id="fig:bom"></span>
 <img src="figures/bom-1.png" alt="Intervalos de confiança usando `stat = 'stepribbon'́`" width="672" />
 <p class="caption">
@@ -407,19 +412,6 @@ Figure 2: Intervalos de confiança usando <code>stat = 'stepribbon'́</code>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/laptop.jpg" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/casual-ao-avancado/">
                   
                     <img src="http://curso-r.com/img/banners/banner-1.jpg" class="img-responsive" alt="">
@@ -428,6 +420,19 @@ Figure 2: Intervalos de confiança usando <code>stat = 'stepribbon'́</code>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/casual-ao-avancado/">Programação em R: Do casual ao avançado</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/laptop.jpg" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -455,6 +460,19 @@ Figure 2: Intervalos de confiança usando <code>stat = 'stepribbon'́</code>
         
 
         <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="http://curso-r.com/js/prism.js"></script> 
     <div class="container">
 
         
@@ -591,8 +609,27 @@ ga('send', 'pageview');
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+MathJax.Hub.Config({
+  "HTML-CSS": {
+    preferredFont: "STIX"  }
+});
+</script>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
