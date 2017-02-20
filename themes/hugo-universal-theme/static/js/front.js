@@ -33,7 +33,7 @@ function contactForm () {
         $this[0].reset() // clear form
 
         $('#contact-message')
-        .html('<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Obrigado pelo contato. Responderemos em breve!</div>')
+        .html('<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>Thank you for getting in touch. We will get back to you soon!</div>')
         .fadeIn()
       }
       , 'json')
