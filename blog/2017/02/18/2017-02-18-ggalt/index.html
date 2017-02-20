@@ -266,13 +266,11 @@ knitr::kable(head(d_km))</code></pre>
 </tbody>
 </table>
 <p>A gráfico da Figura <a href="#fig:ruim">1</a> usa a função <code>geom_ribbon()</code> para gerar os intervalos de confiança. Essa função liga os pontos da faixa diretamente, o que é inadequado do ponto de vista estatístico.</p>
-<pre class="r"><code>ggplot(d_km,
-       aes(x = time, y = estimate, colour = strata)) +
-geom_ribbon(
-       aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-       alpha = .1, size = .1) +
-geom_step() +
-theme_bw(16)</code></pre>
+<pre class="r"><code>ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+              alpha = .1, size = .1) +
+  geom_step() +
+  theme_bw(16)</code></pre>
 <div class="figure"><span id="fig:ruim"></span>
 <img src="figures/ruim-1.png" alt="Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`." width="672" />
 <p class="caption">
@@ -280,17 +278,15 @@ Figure 1: Intervalos de confiança usando apenas <code>ggplot2</code> e <code>ge
 </p>
 </div>
 <p>Na Figura <a href="#fig:bom">2</a>, adicionamos o parâmetro <code>stat = &quot;stepribbon&quot;</code>, que faz com que o <code>ggplot</code> utilize a função <code>stat_stepribbon()</code> do <code>ggalt</code> para o cálculo da faixa. Isso faz com que os intervalos tenham comportamento de escada, como queríamos.</p>
-<pre class="r"><code>ggplot(d_km,
-       aes(x = time, y = estimate, colour = strata)) +
-geom_ribbon(
-       aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-       stat = &#39;stepribbon&#39;, alpha = .1, size = .1) +
-geom_step() +
-theme_bw(16)</code></pre>
+<pre class="r"><code>ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
+              stat = &#39;stepribbon&#39;, alpha = .1, size = .1) +
+  geom_step() +
+  theme_bw(16)</code></pre>
 <div class="figure"><span id="fig:bom"></span>
-<img src="figures/bom-1.png" alt="Intervalos de confiança usando `stat = 'stepribbon'́`" width="672" />
+<img src="figures/bom-1.png" alt="Intervalos de confiança usando `stat = 'stepribbon'." width="672" />
 <p class="caption">
-Figure 2: Intervalos de confiança usando <code>stat = 'stepribbon'́</code>
+Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
 </p>
 </div>
 
@@ -412,19 +408,6 @@ Figure 2: Intervalos de confiança usando <code>stat = 'stepribbon'́</code>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/casual-ao-avancado/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-1.jpg" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/casual-ao-avancado/">Programação em R: Do casual ao avançado</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/laptop.jpg" class="img-responsive" alt="">
@@ -433,6 +416,19 @@ Figure 2: Intervalos de confiança usando <code>stat = 'stepribbon'́</code>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/casual-ao-avancado/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-1.jpg" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/casual-ao-avancado/">Programação em R: Do casual ao avançado</a></h5>
             </div>
         </div>
         
