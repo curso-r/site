@@ -38,7 +38,7 @@ Se tem uma coisa que dá para dar dor de cabeça infinita são datas. Por isso i
 
 ### [4. tidyr](https://blog.rstudio.org/2014/07/22/introducing-tidyr/) (transformação de data.frames)
 
-As principais funções são `gather()` e `spread()`. Elas pivotam/despivotam data.frames, ou derretem/condensam data.frames. Ela merece nosso quarto lugar porque possui uma grande sinergia com os terceiro e segundo lugares. Não raramente precisamos rearranjar conjunto de colunas em um par de colunas chave/valor ou vice-versa com facilidade. Pivotar/despivotar é particularmente muito chato de fazer em SQL. E o [tidyr](https://blog.rstudio.org/2014/07/22/introducing-tidyr/) possui outras funções úteis tbm (ex: `unite()`, `separete()`).
+As principais funções são `gather()` e `spread()`. Elas pivotam/despivotam data.frames, ou derretem/condensam data.frames. Ela merece nosso quarto lugar porque possui uma grande sinergia com os terceiro e segundo lugares. Não raramente precisamos rearranjar conjunto de colunas em um par de colunas chave/valor ou vice-versa. Pivotar/despivotar é particularmente muito chato de fazer em SQL e o [tidyr](https://blog.rstudio.org/2014/07/22/introducing-tidyr/) faz isso parecer trivial. Ele também possui outras funções úteis que recomendo dar uma olhada (ex: `unite()`, `separete()`).
 
 ### [3. dplyr](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html) (manipulação de data.frames)
 
@@ -61,6 +61,7 @@ A medalha de prata eu acho que é o pacote mais famoso do R.
 
 O R é conhecido pela sua rica capacidade gráfica, mas foi o [ggplot2](http://docs.ggplot2.org/current/) que trouxe a alegria de viver para os usuários minimamente preocupados com a boa aparência de suas visualizações. O [ggplot2](http://docs.ggplot2.org/current/) permite usar a "gramática de gráficos" ([*grammar of graphics*](http://vita.had.co.nz/papers/layered-grammar.pdf)) para construir gráficos em camadas e customizáveis. Há uma pequena curva de aprendizado, mas o tempo investido se paga no primeiro gráfico gerado. Gráficos que seriam veradeiras obras da engenharia se feitas no R-base não passariam de 5 linhas de [ggplot2](http://docs.ggplot2.org/current/) e ainda ficariam mais bonitos!
 
+Indispensável na caixa de ferramentas de qualquer cientista de dados.
 
 ### [1. magrittr](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html) (pipe!)
 

@@ -11,10 +11,10 @@
     
     <item>
       <title>Top 10 pacotes para data science</title>
-      <link>http://curso-r.com/blog/2017/02/21/2017-02-18-top10-pacotes-para-data-science/</link>
+      <link>http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/</link>
       <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://curso-r.com/blog/2017/02/21/2017-02-18-top10-pacotes-para-data-science/</guid>
+      <guid>http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 
 
@@ -53,7 +53,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;tidyr-transformacao-de-data.frames&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;&lt;a href=&#34;https://blog.rstudio.org/2014/07/22/introducing-tidyr/&#34;&gt;4. tidyr&lt;/a&gt; (transformação de data.frames)&lt;/h3&gt;
-&lt;p&gt;As principais funções são &lt;code&gt;gather()&lt;/code&gt; e &lt;code&gt;spread()&lt;/code&gt;. Elas pivotam/despivotam data.frames, ou derretem/condensam data.frames. Ela merece nosso quarto lugar porque possui uma grande sinergia com os terceiro e segundo lugares. Não raramente precisamos rearranjar conjunto de colunas em um par de colunas chave/valor ou vice-versa com facilidade. Pivotar/despivotar é particularmente muito chato de fazer em SQL. E o &lt;a href=&#34;https://blog.rstudio.org/2014/07/22/introducing-tidyr/&#34;&gt;tidyr&lt;/a&gt; possui outras funções úteis tbm (ex: &lt;code&gt;unite()&lt;/code&gt;, &lt;code&gt;separete()&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;As principais funções são &lt;code&gt;gather()&lt;/code&gt; e &lt;code&gt;spread()&lt;/code&gt;. Elas pivotam/despivotam data.frames, ou derretem/condensam data.frames. Ela merece nosso quarto lugar porque possui uma grande sinergia com os terceiro e segundo lugares. Não raramente precisamos rearranjar conjunto de colunas em um par de colunas chave/valor ou vice-versa. Pivotar/despivotar é particularmente muito chato de fazer em SQL e o &lt;a href=&#34;https://blog.rstudio.org/2014/07/22/introducing-tidyr/&#34;&gt;tidyr&lt;/a&gt; faz isso parecer trivial. Ele também possui outras funções úteis que recomendo dar uma olhada (ex: &lt;code&gt;unite()&lt;/code&gt;, &lt;code&gt;separete()&lt;/code&gt;).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;dplyr-manipulacao-de-data.frames&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;&lt;a href=&#34;https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html&#34;&gt;3. dplyr&lt;/a&gt; (manipulação de data.frames)&lt;/h3&gt;
@@ -73,6 +73,7 @@
 &lt;h3&gt;&lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;2. ggplot2&lt;/a&gt; (visualização)&lt;/h3&gt;
 &lt;p&gt;A medalha de prata eu acho que é o pacote mais famoso do R.&lt;/p&gt;
 &lt;p&gt;O R é conhecido pela sua rica capacidade gráfica, mas foi o &lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;ggplot2&lt;/a&gt; que trouxe a alegria de viver para os usuários minimamente preocupados com a boa aparência de suas visualizações. O &lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;ggplot2&lt;/a&gt; permite usar a “gramática de gráficos” (&lt;a href=&#34;http://vita.had.co.nz/papers/layered-grammar.pdf&#34;&gt;&lt;em&gt;grammar of graphics&lt;/em&gt;&lt;/a&gt;) para construir gráficos em camadas e customizáveis. Há uma pequena curva de aprendizado, mas o tempo investido se paga no primeiro gráfico gerado. Gráficos que seriam veradeiras obras da engenharia se feitas no R-base não passariam de 5 linhas de &lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;ggplot2&lt;/a&gt; e ainda ficariam mais bonitos!&lt;/p&gt;
+&lt;p&gt;Indispensável na caixa de ferramentas de qualquer cientista de dados.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;magrittr-pipe&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html&#34;&gt;1. magrittr&lt;/a&gt; (pipe!)&lt;/h3&gt;
