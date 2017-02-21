@@ -3606,5 +3606,11 @@ a.list-group-item.active > .badge,
 }
 
 #post-content table td {
-    border-top: 1px solid rgba(0, 0, 0, .05)
+    border-top: 1px solid rgba(0, 0, 0, .05);
+}
+
+/* ******************************* */
+
+.img-circle {
+    border-radius: 50%;
 }
