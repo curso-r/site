@@ -132,13 +132,14 @@ fit_stan <- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
              control = list(adapt_delta = 0.99))
 ```
 
-```{r, echo = F}
-library(rstan)
-fit_stan <- readRDS("fit_stan.rds")
-```
-
 A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâmetro do modelo. O ponto central de cada intervalo representa as estimativas pontuais dos parâmetros. Como se nota, a estimativa do modelo bayesiano utilizando `stan` está muito mais próxima das anteriores.
 
-```{r}
+```{r, eval = FALSE}
 plot(fit_stan)
 ```
+```{r, echo = FALSE}
+library(magick)
+x <- image_read('img/imagem_fernando_1.jpg')
+plot(x)
+```
+
