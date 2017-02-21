@@ -11,6 +11,11 @@ canonifyURLs = true
 # Define the number of posts per page
 paginate = 10
 
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "author"
+
 [params]
     viewMorePostLink = "/blog/"
     author = "Curso-R"
@@ -34,7 +39,7 @@ paginate = 10
     # - you're done. Happy mailing!
     #
     # Enable the contact form by entering your Formspree.io email
-    email = "your@email.com"
+    email = "contato@curso-r.com"
 
     about_us = "<p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>"
     copyright = "Copyright (c) 2016 - 2017, Curso-R; all rights reserved."
