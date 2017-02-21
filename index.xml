@@ -37,7 +37,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;knitrrmarkdown-relatorios&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;&lt;a href=&#34;https://yihui.name/knitr/&#34;&gt;8. knitr/rmarkdown&lt;/a&gt; (relatórios)&lt;/h3&gt;
-&lt;p&gt;A dupla &lt;a href=&#34;https://yihui.name/knitr/&#34;&gt;knitr&lt;/a&gt; e &lt;a href=&#34;http://rmarkdown.rstudio.com/&#34;&gt;rmarkdown&lt;/a&gt; fizeram do R de patinho feio para o rei dos holofotes. Depois deles, relatórios no R são fáceis, bonitos e flexíveis. Escrever em RMarkdown é como escrever um rascunho, que depois é transformado em um arquivo belamente formatado e em virtualmente qualquer formato: pdf, word e html são alguns deles. A ideologia por trás do RMarkdown é trazer o foco para a análise e deixar as perfumarias para segundo plano o máximo possível.&lt;/p&gt;
+&lt;p&gt;A dupla &lt;a href=&#34;https://yihui.name/knitr/&#34;&gt;knitr&lt;/a&gt; e &lt;a href=&#34;http://rmarkdown.rstudio.com/&#34;&gt;rmarkdown&lt;/a&gt; fizeram do R de patinho feio para o rei dos holofotes. Depois deles, relatórios no R são fáceis, bonitos e flexíveis. Escrever em RMarkdown é como escrever um rascunho, que depois é transformado em um arquivo decente em qualquer formato: pdf, word e html são os mais comuns. A ideologia por trás do RMarkdown é trazer o foco para a análise e deixar as perfumarias para segundo plano o máximo possível.&lt;/p&gt;
 &lt;p&gt;OBS: todos os posts desse blog são feitos em RMarkdown!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;stringr-manipulacao-de-strings&#34; class=&#34;section level3&#34;&gt;

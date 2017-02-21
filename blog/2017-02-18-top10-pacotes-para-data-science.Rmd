@@ -20,7 +20,7 @@ Se você procura modelagem estatística (ferramenta básica do cientista de dado
 
 ### [8. knitr/rmarkdown](https://yihui.name/knitr/) (relatórios)
 
-A dupla [knitr](https://yihui.name/knitr/) e [rmarkdown](http://rmarkdown.rstudio.com/) fizeram do R de patinho feio para o rei dos holofotes. Depois deles, relatórios no R são fáceis, bonitos e flexíveis. Escrever em RMarkdown é como escrever um rascunho, que depois é transformado em um arquivo belamente formatado e em virtualmente qualquer formato: pdf, word e html são alguns deles. A ideologia por trás do RMarkdown é trazer o foco para a análise e deixar as perfumarias para segundo plano o máximo possível.
+A dupla [knitr](https://yihui.name/knitr/) e [rmarkdown](http://rmarkdown.rstudio.com/) fizeram do R de patinho feio para o rei dos holofotes. Depois deles, relatórios no R são fáceis, bonitos e flexíveis. Escrever em RMarkdown é como escrever um rascunho, que depois é transformado em um arquivo decente em qualquer formato: pdf, word e html são os mais comuns. A ideologia por trás do RMarkdown é trazer o foco para a análise e deixar as perfumarias para segundo plano o máximo possível.
 
 OBS: todos os posts desse blog são feitos em RMarkdown!
 
