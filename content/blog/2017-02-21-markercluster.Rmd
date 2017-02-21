@@ -1,12 +1,12 @@
 ---
 title: "leaflet com markerCluster"
-date: "2017-02-21T13:07:31+02:00"
+date: "2017-02-21T14:07:31+02:00"
 tags: ["leaflet", "mapas", "r"]
 categories: ["r"]
-banner: "img/banners/ggalt.png"
-author: "Julio"
+banner: "img/banners/markercluster.png"
+author: ["Julio"]
 draft: true
-summary: "O [*leaflet*](leafletjs.com) é uma biblioteca javascript para criação de mapas interativos. O pacote [`leaflet`](https://rstudio.github.io/leaflet/) do R é um [`htmlwidget`](www.htmlwidgets.org/) que permite gerar esses mapas de forma direta no R, para usar em documentos `RMarkdown` e Shiny."
+summary: "O leaflet é uma biblioteca javascript para criação de mapas interativos. O pacote leaflet do R é um htmlwidget que permite gerar esses mapas de forma direta no R, para usar em documentos `RMarkdown` e Shiny."
 ---
 
 ```{r setup, include=FALSE}
@@ -33,20 +33,19 @@ dados_aj_lab <- dados_aj %>%
 
 Uma das ferramentas que mais gosto do leaflet é a função `markerClusterOptions()`, que permite agrupar pontos no mapa em conjuntos de vários pontos.
 
-Como exemplo, utilizaremos uma base de dados que contém a localização e informações das varas da Justiça Estadual no Brasil. A Tabela \@ref(tab:aj) as dez primeiras linhas dessa base. A coluna `lab` já foi trabalhada para ser adicionada nos marcadores do mapa como popup.
+Como exemplo, utilizaremos uma base de dados que contém a localização e informações das varas da Justiça Estadual no Brasil. A Tabela \@ref(tab:aj) as cinco primeiras linhas dessa base. A coluna `lab` já foi trabalhada para ser adicionada nos marcadores do mapa como popup.
 
 ```{r aj}
 dados_aj_lab %>% 
-  head(10) %>% 
-  knitr::kable(caption = "Primeiras dez linhas da base de dados de varas estaduais do Brasil.")
+  head(5) %>% 
+  knitr::kable(caption = "Primeiras cinco linhas da base de dados de varas estaduais do Brasil.")
 ```
 
 Para utilizar o pacote `leaflet`, basta instalar o pacote via `install.packages()`. A Figura \@ref(fig:mapa). Experimente passear pelo mapa. Procure também algum lugar que tenha várias varas juntas, para ver o que o `markerCluster` faz nesse caso.
 
-```{r mapa, fig.cap='Mapa das varas estaduais do Brasil.'}
+```{r mapa, fig.align='center', fig.cap='Mapa das varas estaduais do Brasil.'}
 library(dplyr)
 library(leaflet)
-
 dados_aj_lab %>% 
   leaflet() %>% 
   addTiles() %>% 
