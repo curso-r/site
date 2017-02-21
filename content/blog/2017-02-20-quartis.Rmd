@@ -4,7 +4,7 @@ date: "2017-02-20T13:07:31+02:00"
 tags: ["ggplot", "r"]
 categories: ["r"]
 banner: "img/banners/ggalt.png"
-author: "Julio"
+author: ["Julio"]
 draft: true
 summary: "Hoje estava fazendo uma análise exploratória e precisava estudar os quartis de uma variável contínua. A solução usando o tidyverse é tão elegante que valeu um post no blog."
 ---
