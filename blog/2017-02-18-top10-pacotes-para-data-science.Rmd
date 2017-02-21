@@ -32,5 +32,8 @@ Outros pacotes também merecem destaque! As medálhas de honra ao mérito vão p
 - plyr
 - roxygen2
 - devtools
+- htmlwidgets
+- leaflet
+- RODBC
 
 Encorajo vocês a colocarem nos comentários os pacotes que moram nos corações de vocês =)
