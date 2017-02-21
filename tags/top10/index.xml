@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Athos on Curso-R</title>
-    <link>http://curso-r.com/author/athos/index.xml</link>
-    <description>Recent content in Athos on Curso-R</description>
+    <title>Top10 on Curso-R</title>
+    <link>http://curso-r.com/tags/top10/index.xml</link>
+    <description>Recent content in Top10 on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <atom:link href="http://curso-r.com/author/athos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://curso-r.com/tags/top10/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Top 10 pacotes para data science</title>
@@ -75,28 +75,6 @@
 &lt;li&gt;&lt;strong&gt;leaflet&lt;/strong&gt; (mapas interativos)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;E você, concorda? Coloque nos comentários os pacotes que moram em seu coração! =)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>O blog do Curso R</title>
-      <link>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</link>
-      <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-
-
-
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-&lt;p&gt;Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.&lt;/p&gt;
-&lt;p&gt;O Curso-R surgiu em 2015 no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP). o curso foi chamado de “Programação em R: do casual ao avançado”. Desde o começo, nós abraçamos a filosofia &lt;em&gt;Open Source&lt;/em&gt; - todo material que desenvolvemos fica disponível em nossa conta do &lt;a href=&#34;https://github.com/curso-r/&#34;&gt;Github&lt;/a&gt; de forma aberta para quem quiser usar. Em 2016 e 2017, ministramos novamente o curso no programa de verão e, depois de mais de 100 alunos formados, decidimos aumentar a gama de cursos e a frequência de ocorrência para que possamos atingir muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.&lt;/p&gt;
-&lt;p&gt;Esperamos que aprendam bastante e, principalmente, divirtam-se bastante lendo este blog!&lt;/p&gt;
 </description>
     </item>
     

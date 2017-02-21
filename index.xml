@@ -153,6 +153,75 @@ Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
     </item>
     
     <item>
+      <title>Top 10 pacotes para data science</title>
+      <link>http://curso-r.com/blog/2017/02/18/2017-02-18-top10-pacotes-para-data-science/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/18/2017-02-18-top10-pacotes-para-data-science/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;O R mudou muito nos últimos 5 anos graças a criações de novos pacotes focados nas questões mais práticas do dia a dia de um cientista de dados. Abaixo coloquei meu top 10 de pacotes que revolucionaram o jeito de programar em R e fizeram meu trabalho mais ágil e prazeroso:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://jennybc.github.io/purrr-tutorial&#34;&gt;&lt;strong&gt;10. purrr&lt;/strong&gt;&lt;/a&gt; (manipulação de vetores e listas)&lt;/p&gt;
+&lt;p&gt;Nosso décimo lugar colocou o &lt;code&gt;for&lt;/code&gt; em perigo de extinção. Com ele, aplicar funções em vetores, listas ou combinações dos dois é uma tarefa de poucas linhas e sem a necessidade de índices i, j, k’s confusos. E ainda, com o advento das &lt;a href=&#34;https://cran.r-project.org/web/packages/tibble/tibble.pdf&#34;&gt;tibbles&lt;/a&gt;, seus data.frames ganharam potencial de guardar muito mais do que meros números e strings e o purrr é seu mais forte aliado na hora de criar as chamadas &lt;a href=&#34;https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html&#34;&gt;&lt;em&gt;list-columns&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://caret.r-forge.r-project.org/&#34;&gt;&lt;strong&gt;9. caret&lt;/strong&gt;&lt;/a&gt; (modelagem estatística)&lt;/p&gt;
+&lt;p&gt;Se você procura modelagem estatística (ferramenta básica do cientista de dados), dê chance ao &lt;a href=&#34;http://caret.r-forge.r-project.org/&#34;&gt;caret&lt;/a&gt;. Esse pacote compilou os mais consagrados algoritmos de modelos preditivos (vulgo &lt;em&gt;machine learning&lt;/em&gt;) já feitos no R e ainda implementou ferramentas típicas de um processo de construção de modelos, por exemplo, cross-validation, ajuste de hiperparâmetros, bases treino/teste, pré-processamentos e até paralelização. Além das diferentes técnicas de ajuste de modelos, os seus respectivos diagnósticos e visualizações também foram convenientemente compiladas, tudo num mesmo lugar, fazendo a procura de peças no gigantesco balde do R ser menos custosa.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://yihui.name/knitr/&#34;&gt;&lt;strong&gt;8. knitr/rmarkdown&lt;/strong&gt;&lt;/a&gt; (relatórios)&lt;/p&gt;
+&lt;p&gt;A dupla &lt;a href=&#34;https://yihui.name/knitr/&#34;&gt;knitr&lt;/a&gt; e &lt;a href=&#34;http://rmarkdown.rstudio.com/&#34;&gt;rmarkdown&lt;/a&gt; fizeram do R de patinho feio para o rei dos holofotes. Depois deles, relatórios no R são fáceis, bonitos e flexíveis. Escrever em RMarkdown é como escrever um rascunho, que depois é transformado em um arquivo belamente formatado e em virtualmente qualquer formato: pdf, word e html são alguns deles. A ideologia por trás do RMarkdown é trazer o foco para a análise e deixar as perfumarias para segundo plano o máximo possível.&lt;/p&gt;
+&lt;p&gt;OBS: todos os posts desse blog são feitos em RMarkdown!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html&#34;&gt;&lt;strong&gt;6. stringr&lt;/strong&gt;&lt;/a&gt; (manipulação de strings)&lt;/p&gt;
+&lt;p&gt;Stringr te dá tudo para extrair, criar e transformar strings. As funções aceitam &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html&#34;&gt;regex&lt;/a&gt; extremamente versáril e eficiente. Mineração de texto vira brincadeira.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html&#34;&gt;&lt;strong&gt;5. lubridate&lt;/strong&gt;&lt;/a&gt; (manipulação de datas)&lt;/p&gt;
+&lt;p&gt;Se tem uma coisa que dá para dar dor de cabeça infinita são datas. Por isso inventaram o &lt;a href=&#34;https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html&#34;&gt;lubridate&lt;/a&gt;. Tudo o que você gostaria de fazer com datas e horas esse pacote fornece, desde soma e subtração até comparações lógicas e arredondamentos. É a ferramenta ideal para lidar com tempo.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;&lt;strong&gt;5. shiny&lt;/strong&gt;&lt;/a&gt; (criação de aplicativos web)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;Shiny&lt;/a&gt; dá o poder de fazer aplicações na web a um analista de dados sem nenhum conhecimento prévio de html, css e javascript. Acredite se quiser, agora, fazer sites interativos e orientados por dados não é mais exclusividade dos desenvolvedores web. Com uma curva de aprendizagem ligeiramente alongada, pode-se criar de dashboards estáticos a mapas personalizados a lá google maps! É uma ótima maneira de apresentar resultados e serve muito bem como produto final de ferramentas de gestão.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.rstudio.org/2014/07/22/introducing-tidyr/&#34;&gt;&lt;strong&gt;4. tidyr&lt;/strong&gt;&lt;/a&gt; (transformação de data.frames)&lt;/p&gt;
+&lt;p&gt;As principais funções são &lt;code&gt;gather()&lt;/code&gt; e &lt;code&gt;spread()&lt;/code&gt;. Elas pivotam/despivotam data.frames, ou derretem/condensam data.frames. Ela merece nosso quarto lugar porque possui uma grande sinergia com os terceiro e segundo lugares. Não raramente precisamos rearranjar conjunto de colunas em um par de colunas chave/valor ou vice-versa com facilidade. Pivotar/despivotar é particularmente muito chato de fazer em SQL. E o &lt;a href=&#34;https://blog.rstudio.org/2014/07/22/introducing-tidyr/&#34;&gt;tidyr&lt;/a&gt; possui outras funções úteis tbm (ex: &lt;code&gt;unite()&lt;/code&gt;, &lt;code&gt;separete()&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html&#34;&gt;&lt;strong&gt;3. dplyr&lt;/strong&gt;&lt;/a&gt; (manipulação de data.frames)&lt;/p&gt;
+&lt;p&gt;Nossa medalha de bronze vai para &lt;a href=&#34;https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html&#34;&gt;dplyr&lt;/a&gt; porque ele trouxe os verbos de manipulação de base de dados para o nível mais simples e intuitivo. São eles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;filter()&lt;/code&gt; filtra linhas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange()&lt;/code&gt; ordena linhas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select()&lt;/code&gt; seleciona colunas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;distinct()&lt;/code&gt; retira linhas duplicadas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate()&lt;/code&gt; constrói novas colunas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;group_by()&lt;/code&gt; + &lt;code&gt;summarise()&lt;/code&gt; sumariza valores por um ou mais fatores&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;E o pacote vai muito além desses verbos. Vale a pena explorar suas funções se você precisa deixar sua base pronta para analisar.&lt;/p&gt;
+&lt;p&gt;OBS: foi feito para funcionar com o &lt;em&gt;“pipe”&lt;/em&gt; (%&amp;gt;%).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;&lt;strong&gt;2. ggplot2&lt;/strong&gt;&lt;/a&gt; (visualização)&lt;/p&gt;
+&lt;p&gt;A medalha de prata eu acho que é o pacote mais famoso do R.&lt;/p&gt;
+&lt;p&gt;O R é conhecido pela sua rica capacidade gráfica, mas foi o &lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;ggplot2&lt;/a&gt; que trouxe a alegria de viver para os usuários minimamente preocupados com a boa aparência de suas visualizações. O &lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;ggplot2&lt;/a&gt; permite usar a “gramática de gráficos” (&lt;a href=&#34;http://vita.had.co.nz/papers/layered-grammar.pdf&#34;&gt;&lt;em&gt;grammar of graphics&lt;/em&gt;&lt;/a&gt;) para construir gráficos em camadas e customizáveis. Há uma pequena curva de aprendizado, mas o tempo investido se paga no primeiro gráfico gerado. Gráficos que seriam veradeiras obras da engenharia se feitas no R-base não passariam de 5 linhas de &lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;ggplot2&lt;/a&gt; e ainda ficariam mais bonitos!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html&#34;&gt;&lt;strong&gt;1. magrittr&lt;/strong&gt;&lt;/a&gt; (pipe!)&lt;/p&gt;
+&lt;p&gt;A medalha de ouro nos fornece o tal do &lt;em&gt;pipe&lt;/em&gt; (%&amp;gt;%). Em vez de &lt;code&gt;h(g(f(x)))&lt;/code&gt;, escreva &lt;code&gt;x %&amp;gt;% f %&amp;gt;% g %&amp;gt;% h&lt;/code&gt;. Pronto! É tudo o que o &lt;em&gt;pipe&lt;/em&gt; faz. Você pode se perguntar por que raios isso merece o nosso primeiro lugar, mas acredite: o &lt;em&gt;pipe&lt;/em&gt; é revolucionário. Ele mudou o jeito de se programar em R. Com ele o ganho em legibilidade dos códigos e agilidade na programação é inimaginável. E ainda abriu portas para desenvolvimento de pacotes que sem ele não seriam viáveis, incluindo o dplyr e tidyr.&lt;/p&gt;
+&lt;p&gt;E por isso que ele merece estar no primeiro lugar na nossa lista e no logo da nossa página.&lt;/p&gt;
+&lt;p&gt;Outros pacotes também merecem destaque! As medálhas de honra ao mérito vão para:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;forcats&lt;/strong&gt; (utilidades para fatores)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rcpp&lt;/strong&gt; (R para C++)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FactoMiner&lt;/strong&gt; (análise multivariada)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RODBC&lt;/strong&gt; (conexão com banco de dados)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;httr/xml2/rvest&lt;/strong&gt; (ferramentas para web)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;flexdashboard&lt;/strong&gt; (rmarkdown para formato de dashboard)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;janitor&lt;/strong&gt; (limpeza de dados para modelagem)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;plyr&lt;/strong&gt; (manipulação de vetores, listas e data.frames)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;roxygen2&lt;/strong&gt; (criação de pacotes de R)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;devtools&lt;/strong&gt; (ferramentas diversas)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;htmlwidgets&lt;/strong&gt; (integração entre R e bibliotecas JavaScript)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;leaflet&lt;/strong&gt; (mapas interativos)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;E você, concorda? Coloque nos comentários os pacotes que moram em seu coração! =)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Manifesto tidy</title>
       <link>http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/</link>
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
