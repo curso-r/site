@@ -37,5 +37,7 @@ Imports:
     abjData,
     leaflet,
     tibble,
-    tidyr
+    tidyr,
+    gamlss,
+    dglm
 RoxygenNote: 5.0.1
