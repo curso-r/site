@@ -3,7 +3,7 @@ title: "Top 10 pacotes para data science"
 date: "2017-02-18"
 tags: ["r", "top10"]
 categories: ["r"]
-author: "Athos"
+author: ["Athos"]
 draft: true
 ---
 

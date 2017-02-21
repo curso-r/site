@@ -24,11 +24,26 @@
 
                     <div class="col-md-9" id="blog-post">
 
-                        <p class="text-muted text-uppercase mb-small text-right">{{ if .Params.author }}Por <a href="#">{{ .Params.author }}</a> | {{ end }}{{ .Date.Format .Site.Params.date_format }}</p>
-
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          {{ if .Params.author }}
+                            Por 
+                            
+                            {{ range $index, $author := .Params.author }}
+                              {{ if gt $index 0 }}, {{ end }}
+                                <a href="{{ "/author/" | relURL }}{{ . | urlize }}">{{ . }}</a>
+                            {{ end }}
+                            
+                          <!--  <a href="#">{{ .Params.author }}</a>-->
+                          {{ end }}
+                          {{ .Date.Format .Site.Params.date_format }}
+                        </p>
+                        
                         <div id="post-content">
                           {{ .Content }}
                         </div>
+                        
+                        <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
+                        
                         <!-- /#post-content -->
                         {{ if .Site.DisqusShortname }}
                         <div id="comments">
