@@ -55,9 +55,6 @@
   <meta property="og:url" content="/blog/2017/02/18/2017-02-18-ggalt//" />
   <meta property="og:image" content="img/logo-curso-r.png" />
 
-
-
-
 </head>
 
 
@@ -175,10 +172,7 @@
                         </p>
                         
                         <div id="post-content">
-
-
-
-<p>O pacote <code>ggalt</code> é uma extensão ao <code>ggplot2</code> que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.</p>
+                          <p>O pacote <code>ggalt</code> é uma extensão ao <code>ggplot2</code> que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.</p>
 <p>É possível instalar o pacote <code>ggalt</code> usando a função <code>install.packages()</code>:</p>
 <pre class="r"><code>install.packages(&#39;ggalt&#39;)</code></pre>
 <p>Para exemplificar a utilização do <code>ggalt</code>, vamos utilizar os pacotes abaixo.</p>
@@ -284,7 +278,7 @@ knitr::kable(head(d_km))</code></pre>
   geom_step() +
   theme_bw(16)</code></pre>
 <div class="figure"><span id="fig:ruim"></span>
-<img src="figures/ruim-1.png" alt="Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`." width="672" />
+<img src="http://curso-r.com/blog/2017-02-18-ggalt_files/figure-html/ruim-1.png" alt="Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`." width="672" />
 <p class="caption">
 Figure 1: Intervalos de confiança usando apenas <code>ggplot2</code> e <code>geom_ribbon()</code>.
 </p>
@@ -296,7 +290,7 @@ Figure 1: Intervalos de confiança usando apenas <code>ggplot2</code> e <code>ge
   geom_step() +
   theme_bw(16)</code></pre>
 <div class="figure"><span id="fig:bom"></span>
-<img src="figures/bom-1.png" alt="Intervalos de confiança usando `stat = 'stepribbon'." width="672" />
+<img src="http://curso-r.com/blog/2017-02-18-ggalt_files/figure-html/bom-1.png" alt="Intervalos de confiança usando `stat = 'stepribbon'." width="672" />
 <p class="caption">
 Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
 </p>
@@ -426,14 +420,14 @@ Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/casual-ao-avancado/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-1.jpg" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/rstudio.jpg" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/casual-ao-avancado/">Programação em R: Do casual ao avançado</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          

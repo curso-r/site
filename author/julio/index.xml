@@ -15,17 +15,7 @@
       <pubDate>Sat, 18 Feb 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-
-
-
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
-&lt;p&gt;O pacote &lt;code&gt;ggalt&lt;/code&gt; é uma extensão ao &lt;code&gt;ggplot2&lt;/code&gt; que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.&lt;/p&gt;
+      <description>&lt;p&gt;O pacote &lt;code&gt;ggalt&lt;/code&gt; é uma extensão ao &lt;code&gt;ggplot2&lt;/code&gt; que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.&lt;/p&gt;
 &lt;p&gt;É possível instalar o pacote &lt;code&gt;ggalt&lt;/code&gt; usando a função &lt;code&gt;install.packages()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;ggalt&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exemplificar a utilização do &lt;code&gt;ggalt&lt;/code&gt;, vamos utilizar os pacotes abaixo.&lt;/p&gt;
@@ -131,7 +121,7 @@ knitr::kable(head(d_km))&lt;/code&gt;&lt;/pre&gt;
   geom_step() +
   theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:ruim&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/figures/ruim-1.png&#34; alt=&#34;Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`.&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;http://curso-r.com/blog/2017-02-18-ggalt_files/figure-html/ruim-1.png&#34; alt=&#34;Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Intervalos de confiança usando apenas &lt;code&gt;ggplot2&lt;/code&gt; e &lt;code&gt;geom_ribbon()&lt;/code&gt;.
 &lt;/p&gt;
@@ -143,7 +133,7 @@ Figure 1: Intervalos de confiança usando apenas &lt;code&gt;ggplot2&lt;/code&gt
   geom_step() +
   theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:bom&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/figures/bom-1.png&#34; alt=&#34;Intervalos de confiança usando `stat = &#39;stepribbon&#39;.&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;http://curso-r.com/blog/2017-02-18-ggalt_files/figure-html/bom-1.png&#34; alt=&#34;Intervalos de confiança usando `stat = &#39;stepribbon&#39;.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
 &lt;/p&gt;
@@ -158,15 +148,10 @@ Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
       
       <guid>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
       <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-
-
-
 &lt;!-- /BLOGDOWN-HEAD --&gt;
 
 &lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-
 &lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-
 &lt;p&gt;Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.&lt;/p&gt;
 &lt;p&gt;O Curso-R surgiu em 2015 no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP). o curso foi chamado de “Programação em R: do casual ao avançado”. Desde o começo, nós abraçamos a filosofia &lt;em&gt;Open Source&lt;/em&gt; - todo material que desenvolvemos fica disponível em nossa conta do &lt;a href=&#34;https://github.com/curso-r/&#34;&gt;Github&lt;/a&gt; de forma aberta para quem quiser usar. Em 2016 e 2017, ministramos novamente o curso no programa de verão e, depois de mais de 100 alunos formados, decidimos aumentar a gama de cursos e a frequência de ocorrência para que possamos atingir muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.&lt;/p&gt;
 &lt;p&gt;Esperamos que aprendam bastante e, principalmente, divirtam-se bastante lendo este blog!&lt;/p&gt;

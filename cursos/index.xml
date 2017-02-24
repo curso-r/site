@@ -10,6 +10,66 @@
     <atom:link href="http://curso-r.com/cursos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Introdução à Programação em R</title>
+      <link>http://curso-r.com/cursos/introducao-programacao-r/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/cursos/introducao-programacao-r/</guid>
+      <description>&lt;p&gt;Neste curso introdutório você aprenderá a se ambientar no R e no RStudio. Carregar
+um banco de dados para análise e fazer algumas visualizações. Após este curso você
+terá conhecimentos suficientes para fazer algumas análises com bastante autonomia.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;turma&#34;&gt;Turma&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: A definir&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duração&lt;/strong&gt;: 12h&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
+
+&lt;p&gt;No curso você aprenderá a se ambientar com o R e RStudio. A partir daí serão
+introduzidos alguns conceitos do R sobre operações, &lt;em&gt;subseting&lt;/em&gt;, tipos de objeto
+e controles de fluxo (&lt;em&gt;for&lt;/em&gt; e &lt;em&gt;while&lt;/em&gt;). Serão apresentados conceitos de funções e
+um vocabulário de funções úteis no R.&lt;/p&gt;
+
+&lt;p&gt;Depois dessa introdução, o aluno aprenderá a carregar um banco de dados para dentro
+do R e fazer cálculos e gráficos usando as variáveis do banco de dados. Durante as
+aulas o aluno será exposto ao RMarkdown, ferramenta que permite a elaboração de
+relatórios e dashboards usando o R.&lt;/p&gt;
+
+&lt;h2 id=&#34;público-alvo&#34;&gt;Público Alvo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Estudantes de graduação em estatística que desejam ganhar tempo nos trabalhos da faculdade e entrar no mercado de trabalho com bons diferenciais.&lt;/li&gt;
+&lt;li&gt;Profissionais do mercado de trabalho que desejam inserir o R no fluxo de atividades do setor/empresa.&lt;/li&gt;
+&lt;li&gt;Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
+
+&lt;p&gt;O curso utiliza extensivamente softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;R - Instale pelo site do CRAN.&lt;/li&gt;
+&lt;li&gt;RStudio - Faça o download aqui.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Aula 01 - Introdução ao R, Rstudio, RMarkdown e R como calculadora&lt;/li&gt;
+&lt;li&gt;Aula 02 - Tipos de objeto, operações básicas e funções úteis&lt;/li&gt;
+&lt;li&gt;Aula 03 - Subsetting e Controles de Fluxo&lt;/li&gt;
+&lt;li&gt;Aula 04 - Criação de Funções e Leitura de banco de dados&lt;/li&gt;
+&lt;li&gt;Aula 05 - Conceitos básicos de &lt;code&gt;dplyr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Aula 06 - Conceitos básicos de &lt;code&gt;ggplot2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>Programação em R: Do casual ao avançado</title>
       <link>http://curso-r.com/cursos/casual-ao-avancado/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
