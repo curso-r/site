@@ -14,7 +14,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Remotes:
-    rstudio/blogdown
+    rstudio/blogdown,
+    abjur/abjData
 Imports:
     stringr,
     purrr,
@@ -32,5 +33,11 @@ Imports:
     ggplot2,
     dplyr,
     ggalt,
-    survival
+    survival,
+    abjData,
+    leaflet,
+    tibble,
+    tidyr,
+    gamlss,
+    dglm
 RoxygenNote: 5.0.1
