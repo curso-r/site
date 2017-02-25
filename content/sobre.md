@@ -28,14 +28,14 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
 <div>
 <img class="img-circle" src="https://avatars0.githubusercontent.com/u/1925102?v=3&amp;s=460" style="float: left; margin: 0px 15px 15px 0px;" width="120" height="120">
-<p style="vertical-align: middle;"> MINI BIO ATHOS </p>
+<p style="vertical-align: middle;"> Athos - Estatístico pelo IME-USP, Nãrd e apaixonado por R. </p>
 </div>
 
 <br>
 
 <div style="clear: left;">
 <p>
-BIO COMPLETA ATHOS texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
+Bacharel em Estatística pelo IME-USP e sócio dá XBeta consultoria. Trabalhou com modelos preditivos, extração de dados da internet e visualização/dashboards para ABJ, IBOPE, Itaú e atualmente é modeleiro na ClearSale. Ministrou cursos de verão de R do IME-USP de 2015 a 2017. Programa em R desde 2010 e se interessa por tudo ligado ao R e à estatística. Churrasqueiro.
 </p>
 </div>
 
