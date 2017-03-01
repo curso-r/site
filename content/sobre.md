@@ -8,8 +8,8 @@ id = "about"
 <div align="justify">
 <p>
 O grupo surgiu em 2015 para ministrar o curso "Programação em R: do casual ao avançado" no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP). Desde o começo, abraçamos a filosofia
-*Open Source* - todo material que desenvolvemos fica disponível em nossa conta do 
-[Github](https://github.com/curso-r/) de forma aberta, para quem quiser usar. 
+<b>Open Source</b> - todo material que desenvolvemos fica disponível em nossa conta do 
+<a href="https://github.com/curso-r/">Github</a> de forma aberta, para quem quiser usar. 
 Acreditamos que o conhecimento deve ser compartilhado para quem
 tiver interesse.
 </p>
