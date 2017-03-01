@@ -1,13 +1,13 @@
 ---
 title: "leaflet com markerCluster"
-date: "2017-02-21T14:07:31+02:00"
+date: "2017-03-02T17:50:00-03:00"
 tags: ["leaflet", "mapas", "r"]
 categories: ["r"]
 banner: "img/banners/markercluster.png"
 author: ["Julio"]
-draft: true
 summary: "O leaflet é uma biblioteca javascript para criação de mapas interativos. O pacote leaflet do R é um htmlwidget que permite gerar esses mapas de forma direta no R, para usar em documentos `RMarkdown` e Shiny."
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
