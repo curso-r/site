@@ -458,8 +458,8 @@ uma mesma filosofia e foram feitos para serem utilizados conjuntamente.&lt;/p&gt
 &lt;div align=&#34;justify&#34;&gt;
 &lt;p&gt;
 O grupo surgiu em 2015 para ministrar o curso &#34;Programação em R: do casual ao avançado&#34; no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP). Desde o começo, abraçamos a filosofia
-*Open Source* - todo material que desenvolvemos fica disponível em nossa conta do 
-[Github](https://github.com/curso-r/) de forma aberta, para quem quiser usar. 
+&lt;b&gt;Open Source&lt;/b&gt; - todo material que desenvolvemos fica disponível em nossa conta do 
+&lt;a href=&#34;https://github.com/curso-r/&#34;&gt;Github&lt;/a&gt; de forma aberta, para quem quiser usar. 
 Acreditamos que o conhecimento deve ser compartilhado para quem
 tiver interesse.
 &lt;/p&gt;
@@ -529,7 +529,7 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
   &lt;div class = &#34;minibio&#34;&gt;
   
     &lt;h4&gt;&lt;b&gt;Fernando Corrêa&lt;/b&gt;&lt;/h4&gt;
-    &lt;p&gt; MINI BIO Fernando &lt;/p&gt;
+    &lt;p&gt; Nerd, Estatístico e mágico. Me apaixonei por R à primeira vista. &lt;/p&gt;
     
   &lt;/div&gt;
 
@@ -537,7 +537,7 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
 &lt;p&gt;&lt;div class = &#34;bio&#34; style = &#34;clear: left;&#34;&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;p&gt; BIO COMPLETA FERNANDO &lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;p&gt; Bacharel e mestrando em Estatística pelo IME-USP. Consultor técnico na Associação Brasileira de Jurimetria. Usa R para tudo, mas tem interesse especial em web-scraping, visualização de dados e modelagem bayesiana. &lt;/p&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
