@@ -85,16 +85,6 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/leaflet/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://curso-r.com/tags/mapas/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://curso-r.com/cursos/casual-ao-avancado/</loc>
   </url>
   
@@ -139,10 +129,6 @@
     <loc>http://curso-r.com/author/william/</loc>
     <lastmod>2017-02-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://curso-r.com/blog/1/01/01/2017-02-21-markercluster/</loc>
   </url>
   
 </urlset>
