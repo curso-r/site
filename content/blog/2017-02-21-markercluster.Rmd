@@ -1,6 +1,7 @@
 ---
 title: "leaflet com markerCluster"
-date: "2017-03-01T18:01:00-03:00"
+date: "2017-03-01T18:11:00-03:00"
+pubdate: "2017-03-01T18:11:00-03:00"
 tags: ["leaflet", "mapas", "r"]
 categories: ["r"]
 banner: "img/banners/markercluster.png"
