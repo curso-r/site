@@ -81,7 +81,7 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
   <div class = "minibio">
   
     <h4><b>Fernando Corrêa</b></h4>
-    <p> MINI BIO Fernando </p>
+    <p> Nerd, Estatístico e mágico. Me apaixonei por R à primeira vista. </p>
     
   </div>
 
@@ -89,7 +89,7 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
   <div class = "bio" style = "clear: left;">
   
-  <p> BIO COMPLETA FERNANDO </p>
+  <p> Bacharel e mestrando em Estatística pelo IME-USP. Consultor técnico na Associação Brasileira de Jurimetria. Usa R para tudo, mas tem interesse especial em web-scraping, visualização de dados e modelagem bayesiana. </p>
   
   </div>
 </div>
