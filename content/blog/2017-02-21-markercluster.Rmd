@@ -1,6 +1,6 @@
 ---
 title: "leaflet com markerCluster"
-date: "2017-03-02T17:52:00-03:00"
+date: "2017-03-01T18:01:00-03:00"
 tags: ["leaflet", "mapas", "r"]
 categories: ["r"]
 banner: "img/banners/markercluster.png"
@@ -34,7 +34,7 @@ Uma das ferramentas que mais gosto do leaflet é a função `markerClusterOption
 
 Como exemplo, utilizaremos uma base de dados que contém a localização e informações das varas da Justiça Estadual no Brasil. A Tabela \@ref(tab:aj) as cinco primeiras linhas dessa base. A coluna `lab` já foi trabalhada para ser adicionada nos marcadores do mapa como popup.
 
-```{r aj}
+```{r aj, echo=FALSE}
 dados_aj_lab %>% 
   head(5) %>% 
   knitr::kable(caption = "Primeiras cinco linhas da base de dados de varas estaduais do Brasil.")
