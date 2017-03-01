@@ -3614,3 +3614,29 @@ a.list-group-item.active > .badge,
 .img-circle {
     border-radius: 50%;
 }
+
+.card {
+  
+    background-color: rgb(236, 236, 236);
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-size: auto auto;
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 15px 15px 15px 15px;
+  
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.minibio {
+   padding: 2px 16px;
+}
+
+bio {
+  
+   padding: 2px 16px;
+   
+}

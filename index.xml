@@ -476,85 +476,120 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
 &lt;div align=&#34;justify&#34;&gt;
 
-&lt;div&gt;
-&lt;img class=&#34;img-circle&#34; src=&#34;https://avatars0.githubusercontent.com/u/1925102?v=3&amp;amp;s=460&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
-&lt;p style=&#34;vertical-align: middle;&#34;&gt; Athos - Estatístico pelo IME-USP, Nãrd e apaixonado por R. &lt;/p&gt;
-&lt;/div&gt;
+&lt;div class = &#34;card&#34;&gt;
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+  &lt;img class=&#34;img-circle&#34; src=&#34;https://avatars0.githubusercontent.com/u/1925102?v=3&amp;amp;s=460&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
+  
+  &lt;div class = &#34;minibio&#34;&gt;
+  
+    &lt;h4&gt;&lt;b&gt;Athos Damiani&lt;/b&gt;&lt;/h4&gt;
+    &lt;p&gt; Estatístico pelo IME-USP, Nãrd e apaixonado por R. &lt;/p&gt;
+    
+  &lt;/div&gt;
 
-&lt;div style=&#34;clear: left;&#34;&gt;
-&lt;p&gt;
-Bacharel em Estatística pelo IME-USP e sócio dá XBeta consultoria. Trabalhou com modelos preditivos, extração de dados da internet e visualização/dashboards para ABJ, IBOPE, Itaú e atualmente é modeleiro na ClearSale. Ministrou cursos de verão de R do IME-USP de 2015 a 2017. Programa em R desde 2010 e se interessa por tudo ligado ao R e à estatística. Churrasqueiro.
-&lt;/p&gt;
-&lt;/div&gt;
+&lt;div style = &#34;clear: left; margin-top: 5px; margin-bottom: 5px; border: 0; border-top: 1px solid #848484;&#34;&gt; &lt;/div&gt;
 
-&lt;p&gt;&lt;br&gt;
-&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class = &#34;bio&#34; style = &#34;clear: left;&#34;&gt;&lt;/p&gt;
 
-&lt;div&gt;
-&lt;img class=&#34;img-circle&#34; src=&#34;https://avatars2.githubusercontent.com/u/4706822?v=3&amp;amp;s=460&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
-&lt;p&gt; MINI BIO Daniel &lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;p&gt; Bacharel em Estatística pelo IME-USP e sócio dá XBeta consultoria. Trabalhou com modelos preditivos, extração de dados da internet e visualização/dashboards para ABJ, IBOPE, Itaú e atualmente é modeleiro na ClearSale. Ministrou cursos de verão de R do IME-USP de 2015 a 2017. Programa em R desde 2010 e se interessa por tudo ligado ao R e à estatística. Churrasqueiro. &lt;/p&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;div style=&#34;clear: left;&#34;&gt;
-&lt;p&gt;
-BIO COMPLETA DANIEL texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
-&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 
-&lt;div&gt;
-&lt;img class=&#34;img-circle&#34; src=&#34;https://avatars3.githubusercontent.com/u/14807413?v=3&amp;amp;s=460&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
-&lt;p&gt; MINI BIO Fernando &lt;/p&gt;
-&lt;/div&gt;
+&lt;div class = &#34;card&#34;&gt;
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+  &lt;img class=&#34;img-circle&#34; src=&#34;https://avatars2.githubusercontent.com/u/4706822?v=3&amp;amp;s=460&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
+  
+  &lt;div class = &#34;minibio&#34;&gt;
+  
+    &lt;h4&gt;&lt;b&gt;Daniel Falbel&lt;/b&gt;&lt;/h4&gt;
+    &lt;p&gt; Bacharel em Estatística, trabalhando diariamente com R há mais de 4 anos. &lt;/p&gt;
+    
+  &lt;/div&gt;
 
-&lt;div style=&#34;clear: left;&#34;&gt;
-&lt;p&gt;
-BIO COMPLETA FERNANDO texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto
-&lt;/p&gt;
-&lt;/div&gt;
+&lt;div style = &#34;clear: left; margin-top: 5px; margin-bottom: 5px; border: 0; border-top: 1px solid #848484;&#34;&gt; &lt;/div&gt;
 
-&lt;p&gt;&lt;br&gt;
-&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class = &#34;bio&#34; style = &#34;clear: left;&#34;&gt;&lt;/p&gt;
 
-&lt;div&gt;
-&lt;img class=&#34;img-circle&#34; src=&#34;https://avatars2.githubusercontent.com/u/1425970?v=3&amp;amp;s=460&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
-&lt;p&gt;
-Julio - Doutorando em Estatística, Diretor-técnico da Associação Brasileira de Jurimetria, Vice-presidente do CONRE - 3a Região e Sócio da Erri consultoria. &lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;p&gt; Bacharel em Estatística pelo IME. Trabalha diariamente com R há mais de 4 anos. É interessado por tudo que tem a ver com R, Machine Learning e Estatística. &lt;/p&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;div style=&#34;clear: left;&#34;&gt;
-&lt;p&gt; Bacharel, mestre e doutorando em Estatística pelo IME-USP. Diretor-técnico da Associação Brasileira de Jurimetria (ABJ). Vice-presidente - CONRE-3a Região. Sócio da Erri consultoria - Trabalha com web scraping, consolidação de dados, visualização e modelagem, construindo modelos preditivos, APIs, pacotes em R e dashboards em Shiny. Cursos: Ministrante do curso &#34;R: do casual ao avançado&#34; do Programa de Verão do IME-USP - 2015 a 2017. Ministrante do minicurso &#34;R pragmático&#34; na semana da Estatística da UFSCar - 2015. Ministrante do minicurso &#34;R pragmático&#34; na semana da Estatística do IME-USP - 2016. Ministrante e coordenador do curso &#34;Jurimetria&#34; no Tribunal Superior Eleitoral. &lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
 
-&lt;div&gt;
-&lt;img class=&#34;img-circle&#34; src=&#34;https://avatars2.githubusercontent.com/u/8967307?v=3&amp;amp;s=460&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
-&lt;p&gt;
-William - Doutorando em Estatística 
-&lt;/p&gt;
-&lt;/div&gt;
+&lt;div class = &#34;card&#34;&gt;
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+  &lt;img class=&#34;img-circle&#34; src=&#34;https://avatars3.githubusercontent.com/u/14807413?v=3&amp;amp;s=460&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
+  
+  &lt;div class = &#34;minibio&#34;&gt;
+  
+    &lt;h4&gt;&lt;b&gt;Fernando Corrêa&lt;/b&gt;&lt;/h4&gt;
+    &lt;p&gt; MINI BIO Fernando &lt;/p&gt;
+    
+  &lt;/div&gt;
 
-&lt;div style=&#34;clear: left;&#34;&gt;
-&lt;p&gt;
-Bacharel, mestre e doutorando em Estatística pelo IME-USP. Áreas de pesquisa: análise de sobrevivência, modelos mistos, modelos longitudinais, modelos lineares generalizados, modelos aditivos generalizados e programação em R. Projetos de pesquisa: Etanol e a qualidade do ar na RMSP; e desenvolvimento de pacotes em R. Ministrante do curso &#34;Introdução à análise explanatória e métodos estatísticos&#34; do Programa de Verão IME-USP, 2016 e 2017. Ministrante do curso &#34;R: do casual ao avançado&#34; do Programa de Verão do IME-USP, 2015 a 2017. Escritor nas horas vagas... ou o contrário.
-&lt;/p&gt;
-&lt;/div&gt;
+&lt;div style = &#34;clear: left; margin-top: 5px; margin-bottom: 5px; border: 0; border-top: 1px solid #848484;&#34;&gt; &lt;/div&gt;
 
-&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class = &#34;bio&#34; style = &#34;clear: left;&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt; BIO COMPLETA FERNANDO &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;div class = &#34;card&#34;&gt;
+
+  &lt;img class=&#34;img-circle&#34; src=&#34;https://scontent.fgru5-1.fna.fbcdn.net/v/t1.0-1/p160x160/16114295_1258922350821204_8940809982819833465_n.jpg?oh=421035561a6d02b2d9324735647620e3&amp;amp;oe=593C1144&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
+  
+  &lt;div class = &#34;minibio&#34;&gt;
+  
+    &lt;h4&gt;&lt;b&gt;Julio Trecenti&lt;/b&gt;&lt;/h4&gt;
+    &lt;p&gt; Doutorando em Estatística, Diretor-técnico da Associação Brasileira de Jurimetria, Vice-presidente do CONRE - 3a Região e Sócio da Erri consultoria. &lt;/p&gt;
+    
+  &lt;/div&gt;
+
+&lt;div style = &#34;clear: left; margin-top: 5px; margin-bottom: 5px; border: 0; border-top: 1px solid #848484;&#34;&gt; &lt;/div&gt;
+
+&lt;p&gt;&lt;div class = &#34;bio&#34; style = &#34;clear: left;&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt; Bacharel, mestre e doutorando em Estatística pelo IME-USP. Diretor-técnico da Associação Brasileira de Jurimetria (ABJ). Vice-presidente - CONRE-3a Região. Sócio da Erri consultoria - Trabalha com web scraping, consolidação de dados, visualização e modelagem, construindo modelos preditivos, APIs, pacotes em R e dashboards em Shiny. Cursos: Ministrante do curso &amp;ldquo;R: do casual ao avançado&amp;rdquo; do Programa de Verão do IME-USP - 2015 a 2017. Ministrante do minicurso &amp;ldquo;R pragmático&amp;rdquo; na semana da Estatística da UFSCar - 2015. Ministrante do minicurso &amp;ldquo;R pragmático&amp;rdquo; na semana da Estatística do IME-USP - 2016. Ministrante e coordenador do curso &amp;ldquo;Jurimetria&amp;rdquo; no Tribunal Superior Eleitoral. &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;div class = &#34;card&#34;&gt;
+
+  &lt;img class=&#34;img-circle&#34; src=&#34;https://avatars2.githubusercontent.com/u/8967307?v=3&amp;amp;s=460&#34; style=&#34;float: left; margin: 0px 15px 15px 0px;&#34; width=&#34;120&#34; height=&#34;120&#34;&gt;
+  
+  &lt;div class = &#34;minibio&#34;&gt;
+  
+    &lt;h4&gt;&lt;b&gt;William Amorim&lt;/b&gt;&lt;/h4&gt;
+    &lt;p&gt; Doutorando em Estatística e programador em R. &lt;/p&gt;
+    
+  &lt;/div&gt;
+
+&lt;div style = &#34;clear: left; margin-top: 5px; margin-bottom: 5px; border: 0; border-top: 1px solid #848484;&#34;&gt; &lt;/div&gt;
+
+&lt;p&gt;&lt;div class = &#34;bio&#34; style = &#34;clear: left;&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;p&gt; Bacharel, mestre e doutorando em Estatística pelo IME-USP. Áreas de pesquisa: análise de sobrevivência, modelos mistos, modelos longitudinais, modelos lineares generalizados, modelos aditivos generalizados e programação em R. Projetos de pesquisa: Etanol e a qualidade do ar na RMSP; e desenvolvimento de pacotes em R. Ministrante do curso &amp;ldquo;Introdução à análise explanatória e métodos estatísticos&amp;rdquo; do Programa de Verão IME-USP, 2016 e 2017. Ministrante do curso &amp;ldquo;R: do casual ao avançado&amp;rdquo; do Programa de Verão do IME-USP, 2015 a 2017. Escritor nas horas vagas&amp;hellip; ou o contrário. &lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
 </description>
     </item>
     
