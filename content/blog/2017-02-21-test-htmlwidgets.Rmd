@@ -38,6 +38,13 @@ n <- networkD3::forceNetwork(Links = MisLinks, Nodes = MisNodes,
 n
 ```
 
+## dygraphs
+
+```{r}
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
+```
 
 ## DiagrammeR
 
