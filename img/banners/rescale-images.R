@@ -26,3 +26,18 @@ tidyverse %>%
   image_border('white', '50x24') %>%
   image_write('static/img/banners/tidyverse.jpg')
   
+# 
+introducao_r <- image_read('static/img/banners/introducao-r-original.jpeg')
+
+image_scale(introducao_r, '1000') %>%
+  image_border('white', '0x99') %>%
+  image_crop('1000x750') %>%
+  image_write('static/img/banners/introducao-r.jpeg')
+
+# 
+r_avancado <- image_read('static/img/banners/r-avancado-original.jpeg')
+
+image_scale(r_avancado, '1000') %>% 
+  image_border('white', '0x99') %>%
+  image_crop('1000x750') %>%
+  image_write('static/img/banners/r-avancado.jpeg')

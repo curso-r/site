@@ -70,12 +70,15 @@ relatórios e dashboards usando o R.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Programação em R: Do casual ao avançado</title>
-      <link>http://curso-r.com/cursos/casual-ao-avancado/</link>
+      <title>R Avançado</title>
+      <link>http://curso-r.com/cursos/r-avancado/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://curso-r.com/cursos/casual-ao-avancado/</guid>
-      <description>&lt;p&gt;Neste curso introdutório, você aprenderá a se ambientar no R e a realizar tarefas comuns na análise de dados, como: manipulação, visualização e modelagem. Esse curso é recomendado para qualquer aluno que deseja começar a usar R para realizar as suas análises.&lt;/p&gt;
+      <guid>http://curso-r.com/cursos/r-avancado/</guid>
+      <description>&lt;p&gt;Nesse curso você aprofundará os seus conhecimentos em manipulação e transformação
+de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão
+e classificação. Por fim, aprenderá a comunicar as suas análises usando o ferramentas
+do R como o &lt;code&gt;shiny&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 
@@ -83,38 +86,37 @@ relatórios e dashboards usando o R.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: A definir&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Duração&lt;/strong&gt;: 30h&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duração&lt;/strong&gt;: 12h&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
 
-&lt;p&gt;O curso te ajudará a usar o R na execução de tarefas corriqueiras de forma eficiente e
-concisa. Ao final do curso, será possível:&lt;/p&gt;
+&lt;p&gt;O curso aprofunda os conhecimentos em manipulação de dados aprimorando o conhecimento
+do pacote &lt;code&gt;dplyr&lt;/code&gt; e introduzindo pacotes como:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Carregar - Carregar o banco de dados para dentro do R.&lt;/li&gt;
-&lt;li&gt;Arrumar - Deixar os dados na melhor estrutura para a análise.&lt;/li&gt;
-&lt;li&gt;Transformar - Agregar, criar novas variáveis etc.&lt;/li&gt;
-&lt;li&gt;Visualizar - Criar gráficos e visualizações.&lt;/li&gt;
-&lt;li&gt;Modelar - Ajustar modelos que ajudam na interpretação dos dados.&lt;/li&gt;
-&lt;li&gt;Comunicar - Apresentar os resultados de forma eficiente.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tidyr&lt;/code&gt;: para manipulações mais complexas como pivotagem e aninhamento&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stringr&lt;/code&gt;: para manipulação de textos&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lubridate&lt;/code&gt;: para manipulação de datas&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;O curso será baseado no &lt;a href=&#34;http://r4ds.had.co.nz/&#34;&gt;R for Data Science&lt;/a&gt;, que por sua
-vez é baseado no &lt;a href=&#34;http://tidyverse.org/&#34;&gt;tidyverse&lt;/a&gt;, universo arrumado, um conjunto de pacotes que dividem
-uma mesma filosofia e foram feitos para serem utilizados conjuntamente.&lt;/p&gt;
+&lt;p&gt;Após passar pela manipulação, o curso abordará o ajuste e verificação de modelos
+estatísticos conhecidos como Regressão Logística e Árvores de Decisão usando o R.&lt;/p&gt;
+
+&lt;p&gt;Por fim, serão introduzidas ferramentas como o &lt;code&gt;shiny&lt;/code&gt; e &lt;code&gt;flexdashboard&lt;/code&gt; que são úteis
+para a comunicação das análises feitas em R.&lt;/p&gt;
 
 &lt;h2 id=&#34;público-alvo&#34;&gt;Público Alvo&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Estudantes de graduação em estatística que desejam ganhar tempo nos trabalhos da faculdade e entrar no mercado de trabalho com bons diferenciais.&lt;/li&gt;
-&lt;li&gt;Profissionais do mercado de trabalho que desejam inserir o R no fluxo de atividades do setor/empresa.&lt;/li&gt;
+&lt;li&gt;Estudantes de graduação em estatística que desejam se aprofundar no conhecimento do R.&lt;/li&gt;
+&lt;li&gt;Profissionais do mercado de trabalho que usam o R casualmente e desejam aprimorar os seus conhecimentos.&lt;/li&gt;
 &lt;li&gt;Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
 
-&lt;p&gt;O curso utiliza extensivamente softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
+&lt;p&gt;O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;R - Instale pelo site do CRAN.&lt;/li&gt;
@@ -125,15 +127,12 @@ uma mesma filosofia e foram feitos para serem utilizados conjuntamente.&lt;/p&gt
 &lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Aula 01 - Introdução ao R, Rstudio e &lt;code&gt;tidyverse&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Aula 02 - Manipulação de vetores com &lt;code&gt;lubridate&lt;/code&gt;, &lt;code&gt;stringr&lt;/code&gt; e &lt;code&gt;forcats&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Aula 03 - Transformação de dados com &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Aula 04 - Visualização com &lt;code&gt;ggplot2&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Aula 05 - Programação funcional com &lt;code&gt;purrr&lt;/code&gt; e &lt;code&gt;plyr&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Aula 06 - Introdução à modelagem estatística usando o R&lt;/li&gt;
-&lt;li&gt;Aula 07 - Tópicos adiconais sobre modelagem&lt;/li&gt;
-&lt;li&gt;Aula 08 - Tema escolhido pelos alunos&lt;/li&gt;
-&lt;li&gt;Aula 09 - Shiny e tópicos sobre comunicação com o R&lt;/li&gt;
+&lt;li&gt;Aula 01 - Manipulação de dados com &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Aula 02 - Transformando textos usando &lt;code&gt;stringr&lt;/code&gt; e Regex.&lt;/li&gt;
+&lt;li&gt;Aula 03 - Extraindo informações de datas usando &lt;code&gt;lubridate&lt;/code&gt; e exercícios.&lt;/li&gt;
+&lt;li&gt;Aula 04 - Programação funcional com &lt;code&gt;purrr&lt;/code&gt; e &lt;code&gt;plyr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Aula 05 - Introdução à modelagem estatística usando o R&lt;/li&gt;
+&lt;li&gt;Aula 06 - Shiny e tópicos sobre comunicação com o R&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
