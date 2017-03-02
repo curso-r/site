@@ -45,11 +45,46 @@
                     <div class="col-md-3">
 
                         <!-- *** MENUS AND WIDGETS *** -->
-
-
-                        <!-- *** MENUS AND FILTERS END *** -->
-
+                        <div class="panel panel-default sidebar-menu">
+                        
+                          <div class="panel-heading">
+                            <h3 class="panel-title">Inscreva-se</h3>
+                          </div>
+                          
+                          <p>Entraremos em contato para formalizar a inscrição.</p>
+  
+                          <form class="contact-form" method="post" action="https://formspree.io/{{ .Site.Params.email }}">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="name">Nome</label>
+                                        <input type="text" class="form-control" name="name" id="name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" name="email" id="email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden">
+                              <div class="col-sm-12">
+                                <div class="form-group">
+                                  <label for="message">Mensagem</label>
+                                  <textarea id="message" class="form-control" name="message">{{ .Title }}</textarea>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="btn btn-template-main"><i class="fa fa-envelope-o"></i> Enviar</button>
+                            </div>
+                          </form>
+                      </div>
                     </div>
+                    <!-- *** MENUS AND FILTERS END *** -->
                     <!-- /.col-md-3 -->
 
                     <!-- *** RIGHT COLUMN END *** -->
