@@ -1,6 +1,6 @@
 +++
 title = "Introdução à Programação em R"
-banner = "img/banners/rstudio.jpg"
+banner = "img/banners/introducao-r.jpeg"
 next = "A definir"
 +++
 
