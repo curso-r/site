@@ -2,6 +2,7 @@
 title = "Web scraping com R"
 banner = "img/banners/laptop.jpg"
 next = "A definir"
+rich_card_desc = "Neste curso, você aprenderá os princípios básicos das requisições HTTP, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R."
 +++
 
 Neste curso, você aprenderá os princípios básicos das requisições HTTP, como controlá-las

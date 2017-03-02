@@ -2,11 +2,10 @@
 title = "Introdução à Programação em R"
 banner = "img/banners/introducao-r.jpeg"
 next = "A definir"
+rich_card_desc = "Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia."
 +++
 
-Neste curso introdutório você aprenderá a se ambientar no R e no RStudio. Carregar
-um banco de dados para análise e fazer algumas visualizações. Após este curso você
-terá conhecimentos suficientes para fazer algumas análises com bastante autonomia.
+Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia.
 
 <!--more-->
 

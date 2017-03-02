@@ -2,6 +2,7 @@
 title = "R Avançado"
 banner = "img/banners/r-avancado.jpeg"
 next = "A definir"
+rich_card_desc = "Nesse curso você apronfundará seus conhecimentos em manipulação e transformação de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão e classificação. Por fim, aprenderá a comunicar as suas análises usando ferramentas do R como o shiny."
 +++
 
 Nesse curso você aprofundará os seus conhecimentos em manipulação e transformação
