@@ -39,5 +39,10 @@ Imports:
     tibble,
     tidyr,
     gamlss,
-    dglm
+    dglm,
+    networkD3,
+    DiagrammeR,
+    plotly,
+    dygraphs,
+    DT
 RoxygenNote: 5.0.1
