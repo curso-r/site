@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
 
-  <title>Programação em R: Do casual ao avançado</title>
+  <title>R Avançado</title>
 
   <meta name="author" content="" />
   <meta name="keywords" content="">
@@ -50,9 +50,9 @@
   <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
   
   
-  <meta property="og:title" content="Programação em R: Do casual ao avançado" />
+  <meta property="og:title" content="R Avançado" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/cursos/casual-ao-avancado//" />
+  <meta property="og:url" content="/cursos/r-avancado//" />
   <meta property="og:image" content="img/logo-curso-r.png" />
 
 </head>
@@ -71,8 +71,8 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="http://curso-r.com/">
-                    <img src="http://curso-r.com/img/logo.svg" alt="Programação em R: Do casual ao avançado logo" width="50" height="50">
-                    <span class="sr-only">Programação em R: Do casual ao avançado - go to homepage</span>
+                    <img src="http://curso-r.com/img/logo.svg" alt="R Avançado logo" width="50" height="50">
+                    <span class="sr-only">R Avançado - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -141,7 +141,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Programação em R: Do casual ao avançado</h1>
+                <h1>R Avançado</h1>
             </div>
         </div>
     </div>
@@ -158,7 +158,10 @@
                     <div class="col-md-9" id="blog-post">
 
                         <div id="post-content">
-                          <p>Neste curso introdutório, você aprenderá a se ambientar no R e a realizar tarefas comuns na análise de dados, como: manipulação, visualização e modelagem. Esse curso é recomendado para qualquer aluno que deseja começar a usar R para realizar as suas análises.</p>
+                          <p>Nesse curso você aprofundará os seus conhecimentos em manipulação e transformação
+de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão
+e classificação. Por fim, aprenderá a comunicar as suas análises usando o ferramentas
+do R como o <code>shiny</code>.</p>
 
 <p></p>
 
@@ -166,38 +169,37 @@
 
 <ul>
 <li><strong>Data</strong>: A definir</li>
-<li><strong>Duração</strong>: 30h</li>
+<li><strong>Duração</strong>: 12h</li>
 </ul>
 
 <h2 id="ementa">Ementa</h2>
 
-<p>O curso te ajudará a usar o R na execução de tarefas corriqueiras de forma eficiente e
-concisa. Ao final do curso, será possível:</p>
+<p>O curso aprofunda os conhecimentos em manipulação de dados aprimorando o conhecimento
+do pacote <code>dplyr</code> e introduzindo pacotes como:</p>
 
 <ul>
-<li>Carregar - Carregar o banco de dados para dentro do R.</li>
-<li>Arrumar - Deixar os dados na melhor estrutura para a análise.</li>
-<li>Transformar - Agregar, criar novas variáveis etc.</li>
-<li>Visualizar - Criar gráficos e visualizações.</li>
-<li>Modelar - Ajustar modelos que ajudam na interpretação dos dados.</li>
-<li>Comunicar - Apresentar os resultados de forma eficiente.</li>
+<li><code>tidyr</code>: para manipulações mais complexas como pivotagem e aninhamento</li>
+<li><code>stringr</code>: para manipulação de textos</li>
+<li><code>lubridate</code>: para manipulação de datas</li>
 </ul>
 
-<p>O curso será baseado no <a href="http://r4ds.had.co.nz/">R for Data Science</a>, que por sua
-vez é baseado no <a href="http://tidyverse.org/">tidyverse</a>, universo arrumado, um conjunto de pacotes que dividem
-uma mesma filosofia e foram feitos para serem utilizados conjuntamente.</p>
+<p>Após passar pela manipulação, o curso abordará o ajuste e verificação de modelos
+estatísticos conhecidos como Regressão Logística e Árvores de Decisão usando o R.</p>
+
+<p>Por fim, serão introduzidas ferramentas como o <code>shiny</code> e <code>flexdashboard</code> que são úteis
+para a comunicação das análises feitas em R.</p>
 
 <h2 id="público-alvo">Público Alvo</h2>
 
 <ul>
-<li>Estudantes de graduação em estatística que desejam ganhar tempo nos trabalhos da faculdade e entrar no mercado de trabalho com bons diferenciais.</li>
-<li>Profissionais do mercado de trabalho que desejam inserir o R no fluxo de atividades do setor/empresa.</li>
+<li>Estudantes de graduação em estatística que desejam se aprofundar no conhecimento do R.</li>
+<li>Profissionais do mercado de trabalho que usam o R casualmente e desejam aprimorar os seus conhecimentos.</li>
 <li>Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.</li>
 </ul>
 
 <h2 id="softwares">Softwares</h2>
 
-<p>O curso utiliza extensivamente softwares a seguir. Instale-os nessa ordem:</p>
+<p>O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:</p>
 
 <ul>
 <li>R - Instale pelo site do CRAN.</li>
@@ -208,15 +210,12 @@ uma mesma filosofia e foram feitos para serem utilizados conjuntamente.</p>
 <h2 id="programa">Programa</h2>
 
 <ul>
-<li>Aula 01 - Introdução ao R, Rstudio e <code>tidyverse</code></li>
-<li>Aula 02 - Manipulação de vetores com <code>lubridate</code>, <code>stringr</code> e <code>forcats</code></li>
-<li>Aula 03 - Transformação de dados com <code>dplyr</code> e <code>tidyr</code></li>
-<li>Aula 04 - Visualização com <code>ggplot2</code></li>
-<li>Aula 05 - Programação funcional com <code>purrr</code> e <code>plyr</code></li>
-<li>Aula 06 - Introdução à modelagem estatística usando o R</li>
-<li>Aula 07 - Tópicos adiconais sobre modelagem</li>
-<li>Aula 08 - Tema escolhido pelos alunos</li>
-<li>Aula 09 - Shiny e tópicos sobre comunicação com o R</li>
+<li>Aula 01 - Manipulação de dados com <code>dplyr</code> e <code>tidyr</code>.</li>
+<li>Aula 02 - Transformando textos usando <code>stringr</code> e Regex.</li>
+<li>Aula 03 - Extraindo informações de datas usando <code>lubridate</code> e exercícios.</li>
+<li>Aula 04 - Programação funcional com <code>purrr</code> e <code>plyr</code></li>
+<li>Aula 05 - Introdução à modelagem estatística usando o R</li>
+<li>Aula 06 - Shiny e tópicos sobre comunicação com o R</li>
 </ul>
                         </div>
                         
@@ -226,9 +225,9 @@ uma mesma filosofia e foram feitos para serem utilizados conjuntamente.</p>
                             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'curso-r';
-    var disqus_identifier = 'http:\/\/curso-r.com\/cursos\/casual-ao-avancado\/';
-    var disqus_title = 'Programação em R: Do casual ao avançado';
-    var disqus_url = 'http:\/\/curso-r.com\/cursos\/casual-ao-avancado\/';
+    var disqus_identifier = 'http:\/\/curso-r.com\/cursos\/r-avancado\/';
+    var disqus_title = 'R Avançado';
+    var disqus_url = 'http:\/\/curso-r.com\/cursos\/r-avancado\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -251,11 +250,46 @@ uma mesma filosofia e foram feitos para serem utilizados conjuntamente.</p>
                     <div class="col-md-3">
 
                         
-
-
+                        <div class="panel panel-default sidebar-menu">
                         
-
+                          <div class="panel-heading">
+                            <h3 class="panel-title">Inscreva-se</h3>
+                          </div>
+                          
+                          <p>Entraremos em contato para formalizar a inscrição.</p>
+  
+                          <form class="contact-form" method="post" action="https://formspree.io/contato@curso-r.com">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="name">Nome</label>
+                                        <input type="text" class="form-control" name="name" id="name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" name="email" id="email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden">
+                              <div class="col-sm-12">
+                                <div class="form-group">
+                                  <label for="message">Mensagem</label>
+                                  <textarea id="message" class="form-control" name="message">R Avançado</textarea>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="btn btn-template-main"><i class="fa fa-envelope-o"></i> Enviar</button>
+                            </div>
+                          </form>
+                      </div>
                     </div>
+                    
                     
 
                     
