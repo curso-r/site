@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>William on Curso-R</title>
-    <link>http://curso-r.com/author/william/index.xml</link>
-    <description>Recent content in William on Curso-R</description>
+    <title>Ggplot2 on Curso-R</title>
+    <link>http://curso-r.com/tags/ggplot2/index.xml</link>
+    <description>Recent content in Ggplot2 on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <atom:link href="http://curso-r.com/author/william/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://curso-r.com/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>O que é um gráfico estatístico?</title>
@@ -33,23 +33,6 @@
   theme(legend.position = &amp;quot;bottom&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-02-20-o-que-e-um-grafico-estatistico_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Por fim, é preciso frisar que, apesar de a gramática prover uma forte fundação para a construção de gráficos, ela não indica qual gráfico deve ser usado ou como ele deve parecer. Essas escolhas, fundamentadas na pergunta a ser respondida, nem sempre são triviais, e negligenciá-las pode gerar gráficos mal construídos e conclusões equivocadas. Cabe a nós, estatísticos, desenvolver, aprimorar e divulgar as técnicas de visualização adequadas para cada tipo de variável, assim como apontar ou denunciar os usos incorretos e mal-intencionados. Mas, em um mundo cuja veracidade das notícias é cada vez menos importante, é papel de todos ter senso crítico para entender e julgar as informações trazidas por um gráfico.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>O blog do Curso R</title>
-      <link>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</link>
-      <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.&lt;/p&gt;
-&lt;p&gt;O Curso-R surgiu em 2015 no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP). o curso foi chamado de “Programação em R: do casual ao avançado”. Desde o começo, nós abraçamos a filosofia &lt;em&gt;Open Source&lt;/em&gt; - todo material que desenvolvemos fica disponível em nossa conta do &lt;a href=&#34;https://github.com/curso-r/&#34;&gt;Github&lt;/a&gt; de forma aberta para quem quiser usar. Em 2016 e 2017, ministramos novamente o curso no programa de verão e, depois de mais de 100 alunos formados, decidimos aumentar a gama de cursos e a frequência de ocorrência para que possamos atingir muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.&lt;/p&gt;
-&lt;p&gt;Esperamos que aprendam bastante e, principalmente, divirtam-se bastante lendo este blog!&lt;/p&gt;
 </description>
     </item>
     

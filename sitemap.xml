@@ -7,6 +7,11 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/blog/2017/02/20/2017-02-20-o-que-e-um-grafico-estatistico/</loc>
+    <lastmod>2017-02-20T23:26:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</loc>
     <lastmod>2017-02-18T13:07:31+02:00</lastmod>
   </url>
@@ -75,6 +80,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/ggplot2/</loc>
+    <lastmod>2017-02-20T23:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/cursos/introducao-programacao-r/</loc>
   </url>
   
@@ -127,7 +138,7 @@
   
   <url>
     <loc>http://curso-r.com/author/william/</loc>
-    <lastmod>2017-02-15T13:07:31+02:00</lastmod>
+    <lastmod>2017-02-20T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
