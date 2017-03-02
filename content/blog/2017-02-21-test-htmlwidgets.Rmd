@@ -46,7 +46,6 @@ lungDeaths <- cbind(mdeaths, fdeaths)
 dygraph(lungDeaths)
 ```
 
-
 ## DiagrammeR
 
 ```{r}
