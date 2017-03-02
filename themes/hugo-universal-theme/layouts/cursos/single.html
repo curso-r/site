@@ -103,6 +103,21 @@
 
     </div>
     <!-- /#all -->
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Course",
+      "name": "{{ .Title}}",
+      "description": "{{ .Summary}}",
+      "provider": {
+        "@type": "Organization",
+        "name": "Curso-R",
+        "sameAs": "http://curso-r.com"
+      }
+    }
+    </script>
+    
 
     {{ partial "scripts.html" . }}
 
