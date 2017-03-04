@@ -10,6 +10,67 @@
     <atom:link href="http://curso-r.com/cursos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Dashboards</title>
+      <link>http://curso-r.com/cursos/dashboards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/cursos/dashboards/</guid>
+      <description>&lt;p&gt;Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;turma&#34;&gt;Turma&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: A definir&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Duração&lt;/strong&gt;: 10h&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
+
+&lt;p&gt;Trabalhos de análise estatística possuem três outputs possíveis: i) relatórios analíticos, ii) dashboards de visualização e iii) APIs (Application Programming Interfaces). Neste curso, falaremos do tópico ii).&lt;/p&gt;
+
+&lt;p&gt;Como base, abordaremos o Shiny e htmlwidgets.&lt;/p&gt;
+
+&lt;p&gt;O Shiny é um sistema para desenvolvimento de aplicações web usando o R, um pacote do R e um servidor web. Abordaremos conceitos web como &lt;strong&gt;server side&lt;/strong&gt; e &lt;strong&gt;user side&lt;/strong&gt;. Entenderemos também porque o Shiny não é uma página web, não é um substituto para sistemas mais gerais, como Ruby on Rails e Django, e não é uma ferramenta gerencial, como o Tableau.&lt;/p&gt;
+
+&lt;p&gt;As bibliotecas baseadas em htmlwidgets trazem o melhor da visualização de dados da web para o R. Além de embutir widgets em relatórios e aplicações em Shiny, é possível criar novos widgets utilizando um ambiente que constrói perfeitamente uma ponte entre o R e o JavaScript. Vamos utilizar bibliotecas como: &lt;code&gt;dygraphs&lt;/code&gt;, para visualização de séries temporais, &lt;code&gt;DT&lt;/code&gt;, para visualização de tabelas e &lt;code&gt;leaflet&lt;/code&gt;, para a produção de mapas.&lt;/p&gt;
+
+&lt;h2 id=&#34;público-alvo&#34;&gt;Público Alvo&lt;/h2&gt;
+
+&lt;p&gt;Estudantes e profissionais com &lt;strong&gt;conhecimento intermediário de programação&lt;/strong&gt; que tenham interesse em comunicar as suas análises de maneira interativa e dinâmica.&lt;/p&gt;
+
+&lt;h3 id=&#34;requisitos&#34;&gt;Requisitos&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/introducao-programacao-r/&#34;&gt;R básico&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/r4ds/&#34;&gt;R para Data Science&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
+
+&lt;p&gt;O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;R - &lt;a href=&#34;https://www.r-project.org/&#34;&gt;Instale pelo site da R foundation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;RStudio - Faça o download. &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;aqui&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Pacotes - &lt;code&gt;shiny&lt;/code&gt;, &lt;code&gt;flexdashboard&lt;/code&gt; e &lt;code&gt;htmlwidgets&lt;/code&gt;, entre outros.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Introdução ao ambiente web: user side e server side.&lt;/li&gt;
+&lt;li&gt;Criar dashboards rápidos com &lt;code&gt;flexdashboard&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Visualizações dinâmicas com &lt;code&gt;htmlwidgets&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Shiny básico - estudo de caso.&lt;/li&gt;
+&lt;li&gt;Shiny avançado - grafo de invalidação, otimização dos algoritmos etc.&lt;/li&gt;
+&lt;li&gt;Dashboards gerenciais com &lt;code&gt;shinydashboards&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Shiny em ambiente de produção.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>Introdução à Programação em R</title>
       <link>http://curso-r.com/cursos/introducao-programacao-r/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
