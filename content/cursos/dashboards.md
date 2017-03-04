@@ -1,6 +1,6 @@
 +++
 title = "Dashboards"
-banner = "img/banners/banner-dashboards.png"
+banner = "img/banners/banner-dashboards2.png"
 next = "a definir"
 price = "R$ 690,00"
 workload = "12h"
