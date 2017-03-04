@@ -3655,3 +3655,26 @@ bio {
   text-align: center;
   
 }
+
+.enroll-title {
+  
+  text-align: center;  
+
+}
+
+.enroll-btn {
+  
+  color: #ffffff;
+  background-color: #da4d4d;
+  border-color: #da4d4d;
+  
+}
+
+.enroll-btn:hover {
+  
+  color: #da4d4d;
+  background-color: #ffffff;
+  border-color: #da4d4d;
+  
+}
+
