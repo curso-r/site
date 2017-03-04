@@ -48,3 +48,16 @@ dash %>%
   image_border('white', '200x0') %>%
   image_scale('1000x750+100') %>% 
   image_write('static/img/banners/banner-dashboards2.png')
+
+library(magick)
+library(magrittr)
+
+# ler a imagem original
+dash <- image_read('static/img/banners/banner-dashboards.png')
+dash %>% 
+  image_border('white', '60x30+0') %>%
+  # image_crop('1200x750+100') %>% 
+  # image_flatten() %>% 
+  image_crop('1200x780') %>% 
+  image_scale('!1000x!760') %>%
+  image_write('static/img/banners/banner-dashboards2.png')
