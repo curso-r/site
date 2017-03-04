@@ -1,6 +1,6 @@
 +++
 title = "Web scraping com R"
-banner = "img/banners/laptop.jpg"
+banner = "img/banners/banner-scrape.png"
 next = "A definir"
 price = "690,00"
 workload = "12h"
