@@ -1,6 +1,6 @@
 +++
 title = "R para Data Science"
-banner = "img/banners/r-avancado.jpeg"
+banner = "img/banners/banner-r-avancado.jpeg"
 next = "a definir"
 price = "590,00"
 workload = "12h"
