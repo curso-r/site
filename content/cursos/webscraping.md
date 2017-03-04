@@ -2,7 +2,7 @@
 title = "Web scraping com R"
 banner = "img/banners/banner-scrape.png"
 next = "A definir"
-price = "690,00"
+price = "R$ 690,00"
 workload = "12h"
 place = "São Paulo"
 summary = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter."
