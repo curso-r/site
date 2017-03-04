@@ -69,10 +69,10 @@ relatórios e dashboards usando o R.&lt;/p&gt;
     
     <item>
       <title>R Avançado</title>
-      <link>http://curso-r.com/cursos/r-avancado/</link>
+      <link>http://curso-r.com/cursos/r4ds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://curso-r.com/cursos/r-avancado/</guid>
+      <guid>http://curso-r.com/cursos/r4ds/</guid>
       <description>&lt;p&gt;Nesse curso você aprofundará os seus conhecimentos em manipulação e transformação
 de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão
 e classificação. Por fim, aprenderá a comunicar as suas análises usando o ferramentas
@@ -140,57 +140,70 @@ para a comunicação das análises feitas em R.&lt;/p&gt;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://curso-r.com/cursos/webscraping/</guid>
-      <description>&lt;p&gt;Neste curso, você aprenderá os princípios básicos das requisições HTTP, como controlá-las
-por intermédio do R e como obter informações estruturadas de páginas da web.
-Você também aprenderá a automatizar o controle de um &lt;em&gt;browser&lt;/em&gt; usando o R.&lt;/p&gt;
+      <description>
 
-&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter.&lt;/p&gt;
 
 &lt;h2 id=&#34;turma&#34;&gt;Turma&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: A definir&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Duração&lt;/strong&gt;: 10h&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Carga horária&lt;/strong&gt;: 12h&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
 
-&lt;p&gt;&lt;em&gt;Web Scraping&lt;/em&gt; é o ato de extrair informações de sites da internet de forma
-automatizada de forma direta (usando o protocolo HTTP) ou por meio de um browser.
-Para fazer com que o aluno saia do curso sabendo fazer Web Scraping de qualquer
-página, o curso aborda os seguintes tópicos:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Web scraping&lt;/em&gt; é a tarefa de extrair dados de sites da internet de forma automatizada, sendo direta (usando o protocolo HTTP) ou por meio de um browser. Para construir um web scraper geralmente é necessário estudar&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;noções sobre o protocolo HTTP;&lt;/li&gt;
-&lt;li&gt;pacote &lt;code&gt;httr&lt;/code&gt; para fazer requisições HTTP com o R;&lt;/li&gt;
-&lt;li&gt;pacote &lt;code&gt;rvest&lt;/code&gt; para obter informações estruturadas de arquivos &lt;code&gt;.html&lt;/code&gt;; e&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;RSelenium&lt;/code&gt; para controlar um browser por intermédio do R.&lt;/li&gt;
+&lt;li&gt;como o site a ser acessado foi construído, se tem limites de requisições, utilização de cookies, sessões etc;&lt;/li&gt;
+&lt;li&gt;como e com que frequência o site é atualizado, tanto em relação à sua interface como em relação aos dados que queremos extrair;&lt;/li&gt;
+&lt;li&gt;qual o caminho percorrido para acessar uma página específica.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O curso aborda os seguintes tópicos:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;noções do protocolo HTTP e acesso a páginas web;&lt;/li&gt;
+&lt;li&gt;pacote &lt;code&gt;httr&lt;/code&gt; para fazer requisições HTTP com o R e baixar arquivos;&lt;/li&gt;
+&lt;li&gt;pacotes &lt;code&gt;xml2&lt;/code&gt;, &lt;code&gt;rvest&lt;/code&gt; e &lt;code&gt;jsonlite&lt;/code&gt; para obter informações estruturadas de arquivos &lt;code&gt;.xml&lt;/code&gt;, &lt;code&gt;.html&lt;/code&gt; e &lt;code&gt;json&lt;/code&gt;; e&lt;/li&gt;
+&lt;li&gt;utilização do &lt;code&gt;selenium&lt;/code&gt; para controlar um browser por intermédio do R.&lt;/li&gt;
+&lt;li&gt;utilização de APIs como Facebook, Twitter e traders de bitcoin.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;público-alvo&#34;&gt;Público Alvo&lt;/h2&gt;
 
-&lt;p&gt;Estudantes e profissionais com &lt;strong&gt;conhecimento básico de programação&lt;/strong&gt; que tenham
-interesse em aprender a extrair dados de sites da internet.&lt;/p&gt;
+&lt;p&gt;Estudantes e profissionais com &lt;strong&gt;conhecimento intermediário de programação de R&lt;/strong&gt; que tenham interesse em aprender a extrair dados de sites da internet.&lt;/p&gt;
+
+&lt;h3 id=&#34;requisitos&#34;&gt;Requisitos&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/introducao-programacao-r/&#34;&gt;R básico&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/r4ds/&#34;&gt;R para Data Science&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
 
 &lt;p&gt;O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;R - Instale pelo site do CRAN.&lt;/li&gt;
-&lt;li&gt;RStudio - Faça o download aqui.&lt;/li&gt;
-&lt;li&gt;Pacotes - &lt;code&gt;httr&lt;/code&gt;, &lt;code&gt;rvest&lt;/code&gt; e &lt;code&gt;RSelenium&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;R - &lt;a href=&#34;https://www.r-project.org/&#34;&gt;Instale pelo site da R foundation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;RStudio - Faça o download. &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;aqui&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Pacotes - &lt;code&gt;tidyverse&lt;/code&gt;, &lt;code&gt;httr&lt;/code&gt;, &lt;code&gt;rvest&lt;/code&gt; e &lt;code&gt;jsonlite&lt;/code&gt;, entre outros.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Aula 01 - Noções de HTTP e primeira requisição com &lt;code&gt;httr&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Aula 02 - Requisições usando o &lt;code&gt;httr&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Aula 03 - Extraindo conteúdo de arquivos &lt;code&gt;.html&lt;/code&gt; com o pacote &lt;code&gt;rvest&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Aula 04 - Fazendo um web scraper do início ao fim.&lt;/li&gt;
-&lt;li&gt;Aula 05 - Controlando um browser usando o &lt;code&gt;RSelenium&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;li&gt;Noções de HTTP e requisições básicas com &lt;code&gt;httr&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Acessar páginas mais complexas, acompanhar usando ferramentas de inspecionar elementos.&lt;/li&gt;
+&lt;li&gt;Extrair conteúdo de arquivos &lt;code&gt;.html&lt;/code&gt; com o pacote &lt;code&gt;rvest&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Extrair dados de estruturas mais complexas (&lt;code&gt;pdf&lt;/code&gt;, &lt;code&gt;xml&lt;/code&gt;, &lt;code&gt;json&lt;/code&gt; etc).&lt;/li&gt;
+&lt;li&gt;Montar e executar um web scraper do início ao fim.&lt;/li&gt;
+&lt;li&gt;Controlar um browser usando o &lt;code&gt;selenium&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Extrair dados de APIs conhecidas como Facebook e Twitter.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>
