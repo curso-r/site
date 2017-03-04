@@ -22,6 +22,8 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 </p>
 </div>
 
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_follow_toolbox"></div>
+
 # Quem somos
 
 
