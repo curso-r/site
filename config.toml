@@ -19,13 +19,10 @@ paginate = 10
 [params]
     viewMorePostLink = "/blog/"
     author = "Curso-R"
-
     # Google Maps API key (if not set will default to not passing a key.)
     googleMapsApiKey = ""
-
-    # Style options: default (light-blue), blue, green, marsala, pink, red, turquoise, violet
+    # Style options: default (light-blue), blue, green, marsala, pink, red, turquoise, violet
     style = "red"
-
     # Since this template is static, the contact form uses www.formspree.io as a
     # proxy. The form makes a POST request to their servers to send the actual
     # email. Visitors can send up to a 1000 emails each month for free.
@@ -38,15 +35,12 @@ paginate = 10
     # - click the confirm link in the email from www.formspree.io
     # - you're done. Happy mailing!
     #
-    # Enable the contact form by entering your Formspree.io email
+    # Enable the contact form by entering your Formspree.io email
     email = "contato@curso-r.com"
-
     about_us = "<p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>"
     copyright = "Copyright (c) 2016 - 2017, Curso-R; all rights reserved."
-
     # Format dates with Go's time formatting
     date_format = "02/01/2006"
-
     logo = "img/logo-curso-r.png"
     address = """<p><strong>Universal Ltd.</strong>
         <br>13/25 New Avenue
@@ -138,5 +132,5 @@ paginate = 10
 
 [params.recent_posts]
     enable = true
-    title = "Do nosso blog"
+    title = "Blog"
     subtitle = "No nosso blog, compartilhamos pequenos scripts e análises que podem ser interessantes para o nosso público. Nossos posts sempre mostram análises interessantes que podem ser realizadas usando o R."
