@@ -3640,3 +3640,40 @@ bio {
    padding: 2px 16px;
    
 }
+
+.info-curso {
+
+background-color: #FFF;
+border-radius: 0%;
+
+}
+
+.espaco-coxinha {
+
+width: 21px;
+display: inline-block;
+text-align: center;
+
+}
+
+.enroll-title {
+  
+  text-align: center;  
+
+}
+
+.enroll-btn {
+  
+  color: #ffffff;
+  background-color: #da4d4d;
+  border-color: #da4d4d;
+  
+}
+
+.enroll-btn:hover {
+  
+  color: #da4d4d;
+  background-color: #ffffff;
+  border-color: #da4d4d;
+  
+}
