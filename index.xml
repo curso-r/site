@@ -358,7 +358,7 @@ Tem uma sugestão, elogio ou reclamação?&lt;/p&gt;
 
 &lt;p&gt;Como base, abordaremos o Shiny e htmlwidgets.&lt;/p&gt;
 
-&lt;p&gt;O Shiny é um sistema para desenvolvimento de aplicações web usando o R, um pacote do R e um servidor web. Abordaremos conceitos web como &lt;strong&gt;server side&lt;/strong&gt; e &lt;strong&gt;user side&lt;/strong&gt;. Entenderemos também porque o Shiny não é uma página web, não é um substituto para sistemas mais gerais, como Ruby on Rails e Django, e não é uma ferramenta gerencial, como o Tableau.&lt;/p&gt;
+&lt;p&gt;O Shiny é um sistema para desenvolvimento de aplicações web usando o R, um pacote do R e um servidor web. Abordaremos conceitos web como &lt;strong&gt;server side&lt;/strong&gt; e &lt;strong&gt;user side&lt;/strong&gt;. Entenderemos também porque o Shiny não é uma página web, não é um substituto para sistemas mais gerais, como Ruby on Rails e Django.&lt;/p&gt;
 
 &lt;p&gt;As bibliotecas baseadas em htmlwidgets trazem o melhor da visualização de dados da web para o R. Além de embutir widgets em relatórios e aplicações em Shiny, é possível criar novos widgets utilizando um ambiente que constrói perfeitamente uma ponte entre o R e o JavaScript. Vamos utilizar bibliotecas como: &lt;code&gt;dygraphs&lt;/code&gt;, para visualização de séries temporais, &lt;code&gt;DT&lt;/code&gt;, para visualização de tabelas e &lt;code&gt;leaflet&lt;/code&gt;, para a produção de mapas.&lt;/p&gt;
 
