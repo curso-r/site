@@ -1,21 +1,13 @@
 +++
 title = "R Avançado"
 banner = "img/banners/r-avancado.jpeg"
-next = "A definir"
+next = "a definir"
+price = "590,00"
+workload = "12h"
+place = "São Paulo"
+summary = "Nesse curso você apronfundará seus conhecimentos em manipulação e transformação de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão e classificação. Por fim, aprenderá a comunicar as suas análises usando ferramentas do R como o shiny."
 rich_card_desc = "Nesse curso você apronfundará seus conhecimentos em manipulação e transformação de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão e classificação. Por fim, aprenderá a comunicar as suas análises usando ferramentas do R como o shiny."
 +++
-
-Nesse curso você aprofundará os seus conhecimentos em manipulação e transformação
-de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão
-e classificação. Por fim, aprenderá a comunicar as suas análises usando o ferramentas
-do R como o `shiny`.
-
-<!--more-->
-
-## Turma
-
-* __Data__: A definir
-* __Duração__: 12h
 
 ## Ementa
 
@@ -45,12 +37,3 @@ O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:
 * R - Instale pelo site do CRAN.
 * RStudio - Faça o download aqui.
 * tidyverse - No console do R, digite o código abaixo.
-
-## Programa
-
-* Aula 01 - Manipulação de dados com `dplyr` e `tidyr`.
-* Aula 02 - Transformando textos usando `stringr` e Regex.
-* Aula 03 - Extraindo informações de datas usando `lubridate` e exercícios.
-* Aula 04 - Programação funcional com `purrr` e `plyr`
-* Aula 05 - Introdução à modelagem estatística usando o R
-* Aula 06 - Shiny e tópicos sobre comunicação com o R

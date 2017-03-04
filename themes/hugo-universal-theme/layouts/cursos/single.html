@@ -25,6 +25,40 @@
                     <div class="col-md-9" id="blog-post">
 
                         <div id="post-content">
+                          
+                          <div class="card info-curso row">
+                            <div class="col-md-4">
+                              <div align="center">
+                                <img class="card-img-top" src="{{ .Site.BaseURL}}{{ .Params.banner }}" alt="Card image cap">
+                              </div>
+                            </div>
+                            <div class="col-md-8">
+                              <div class="card-block">
+                                <h4 class="card-title">{{ .Title }}</h4>
+                                <p class="card-text">{{ .Params.summary }}</p>
+                              </div>
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                  <span class="espaco-coxinha"><i class="fa fa-map-marker" aria-hidden="true"></i></span>  
+                                  <b>Local</b>: {{ .Params.place }}
+                                </li>
+                                <li class="list-group-item">
+                                  <span class="espaco-coxinha"><i class="fa fa-calendar" aria-hidden="true"></i></span>  
+                                  <b>Data</b>: {{ .Params.next }}
+                                </li>
+                                <li class="list-group-item">
+                                  <span class="espaco-coxinha"><i class="fa fa-clock-o" aria-hidden="true"></i></span>  
+                                  <b>Carga Horária</b>: {{ .Params.workload }}
+                                </li>
+                                <li class="list-group-item">
+                                  <span class="espaco-coxinha"><i class="fa fa-money" aria-hidden="true"></i></span>  
+                                  <b>Preço</b>: {{ .Params.price }}
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          
+                          
                           {{ .Content }}
                         </div>
                         <!-- /#post-content -->

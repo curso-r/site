@@ -3640,3 +3640,18 @@ bio {
    padding: 2px 16px;
    
 }
+
+.info-curso {
+  
+  background-color: #FFF;
+  border-radius: 0%;
+  
+}
+
+.espaco-coxinha {
+  
+  width: 21px;
+  display: inline-block;
+  text-align: center;
+  
+}
