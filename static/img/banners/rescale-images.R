@@ -41,3 +41,10 @@ image_scale(r_avancado, '1000') %>%
   image_border('white', '0x99') %>%
   image_crop('1000x750') %>%
   image_write('static/img/banners/r-avancado.jpeg')
+
+# ler a imagem original
+dash <- image_read('static/img/banners/banner-dashboards.png')
+dash %>% 
+  image_border('white', '200x0') %>%
+  image_scale('1000x750+100') %>% 
+  image_write('static/img/banners/banner-dashboards2.png')
