@@ -1,6 +1,6 @@
 +++
 title = "Introdução à Programação em R"
-banner = "img/banners/banner-r-base.jpeg"
+banner = "img/banners/banner-r-base.png"
 next = "a definir"
 summary = "Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia."
 price = "R$ 590,00"
