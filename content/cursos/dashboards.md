@@ -1,6 +1,6 @@
 +++
 title = "Dashboards"
-banner = ""
+banner = "img/banners/banner-dashboards.png"
 next = "A definir"
 rich_card_desc = "Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R"
 +++
