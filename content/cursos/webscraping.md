@@ -1,50 +1,56 @@
-+++
-title = "Web scraping com R"
-banner = "img/banners/laptop.jpg"
-next = "A definir"
-rich_card_desc = "Neste curso, você aprenderá os princípios básicos das requisições HTTP, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R."
-+++
+---
+title: "Web scraping com R"
+banner: "img/banners/laptop.jpg"
+next: "A definir"
+rich_card_desc: "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter."
+---
 
-Neste curso, você aprenderá os princípios básicos das requisições HTTP, como controlá-las
-por intermédio do R e como obter informações estruturadas de páginas da web. 
-Você também aprenderá a automatizar o controle de um *browser* usando o R.
-
-<!--more-->
+Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter.
 
 ## Turma
 
 * __Data__: A definir
-* __Duração__: 10h
+* __Carga horária__: 12h
 
 ## Ementa
 
-*Web Scraping* é o ato de extrair informações de sites da internet de forma
-automatizada de forma direta (usando o protocolo HTTP) ou por meio de um browser.
-Para fazer com que o aluno saia do curso sabendo fazer Web Scraping de qualquer
-página, o curso aborda os seguintes tópicos:
+*Web scraping* é a tarefa de extrair dados de sites da internet de forma automatizada, sendo direta (usando o protocolo HTTP) ou por meio de um browser. Para construir um web scraper geralmente é necessário estudar
 
-* noções sobre o protocolo HTTP;
-* pacote `httr` para fazer requisições HTTP com o R;
-* pacote `rvest` para obter informações estruturadas de arquivos `.html`; e
-* `RSelenium` para controlar um browser por intermédio do R.
+* como o site a ser acessado foi construído, se tem limites de requisições, utilização de cookies, sessões etc;
+* como e com que frequência o site é atualizado, tanto em relação à sua interface como em relação aos dados que queremos extrair;
+* qual o caminho percorrido para acessar uma página específica.
+
+O curso aborda os seguintes tópicos:
+
+* noções do protocolo HTTP e acesso a páginas web;
+* pacote `httr` para fazer requisições HTTP com o R e baixar arquivos;
+* pacotes `xml2`, `rvest` e `jsonlite` para obter informações estruturadas de arquivos `.xml`, `.html` e `json`; e
+* utilização do `selenium` para controlar um browser por intermédio do R.
+* utilização de APIs como Facebook, Twitter e traders de bitcoin.
 
 ## Público Alvo
 
-Estudantes e profissionais com __conhecimento básico de programação__ que tenham
-interesse em aprender a extrair dados de sites da internet.
+Estudantes e profissionais com __conhecimento intermediário de programação de R__ que tenham interesse em aprender a extrair dados de sites da internet.
+
+### Requisitos
+
+- Conteúdo do curso [R básico](http://curso-r.com/cursos/introducao-programacao-r/)
+- Conteúdo do curso [R para Data Science](http://curso-r.com/cursos/r4ds/)
 
 ## Softwares
 
 O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:
 
-* R - Instale pelo site do CRAN.
-* RStudio - Faça o download aqui.
-* Pacotes - `httr`, `rvest` e `RSelenium`
+* R - [Instale pelo site da R foundation](https://www.r-project.org/).
+* RStudio - Faça o download. [aqui](https://www.rstudio.com/products/rstudio/download/preview/).
+* Pacotes - `tidyverse`, `httr`, `rvest` e `jsonlite`, entre outros.
 
 ## Programa
 
-* Aula 01 - Noções de HTTP e primeira requisição com `httr`.
-* Aula 02 - Requisições usando o `httr`.
-* Aula 03 - Extraindo conteúdo de arquivos `.html` com o pacote `rvest`.
-* Aula 04 - Fazendo um web scraper do início ao fim.
-* Aula 05 - Controlando um browser usando o `RSelenium`.
+* Noções de HTTP e requisições básicas com `httr`.
+* Acessar páginas mais complexas, acompanhar usando ferramentas de inspecionar elementos.
+* Extrair conteúdo de arquivos `.html` com o pacote `rvest`.
+* Extrair dados de estruturas mais complexas (`pdf`, `xml`, `json` etc).
+* Montar e executar um web scraper do início ao fim.
+* Controlar um browser usando o `selenium`.
+* Extrair dados de APIs conhecidas como Facebook e Twitter.
