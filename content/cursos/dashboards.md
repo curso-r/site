@@ -2,7 +2,7 @@
 title = "Dashboards"
 banner = "img/banners/banner-dashboards.png"
 next = "a definir"
-price = "690,00"
+price = "R$ 690,00"
 workload = "12h"
 place = "São Paulo"
 summary = "Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R"
@@ -15,7 +15,7 @@ Trabalhos de análise estatística possuem três outputs possíveis: i) relatór
 
 Como base, abordaremos o Shiny e htmlwidgets.
 
-O Shiny é um sistema para desenvolvimento de aplicações web usando o R, um pacote do R e um servidor web. Abordaremos conceitos web como __server side__ e __user side__. Entenderemos também porque o Shiny não é uma página web, não é um substituto para sistemas mais gerais, como Ruby on Rails e Django, e não é uma ferramenta gerencial, como o Tableau.
+O Shiny é um sistema para desenvolvimento de aplicações web usando o R, um pacote do R e um servidor web. Abordaremos conceitos web como __server side__ e __user side__. Entenderemos também porque o Shiny não é uma página web, não é um substituto para sistemas mais gerais, como Ruby on Rails e Django.
 
 As bibliotecas baseadas em htmlwidgets trazem o melhor da visualização de dados da web para o R. Além de embutir widgets em relatórios e aplicações em Shiny, é possível criar novos widgets utilizando um ambiente que constrói perfeitamente uma ponte entre o R e o JavaScript. Vamos utilizar bibliotecas como: `dygraphs`, para visualização de séries temporais, `DT`, para visualização de tabelas e `leaflet`, para a produção de mapas. 
 

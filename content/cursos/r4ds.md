@@ -2,7 +2,7 @@
 title = "R para Data Science"
 banner = "img/banners/r-avancado.jpeg"
 next = "a definir"
-price = "590,00"
+price = "R$ 590,00"
 workload = "12h"
 place = "São Paulo"
 summary = "Nesse curso você apronfundará seus conhecimentos em manipulação e transformação de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão e classificação. Por fim, aprenderá a comunicar as suas análises usando ferramentas do R como o shiny."
