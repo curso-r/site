@@ -15,16 +15,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://curso-r.com/cursos/dashboards/</guid>
-      <description>&lt;p&gt;Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;turma&#34;&gt;Turma&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: A definir&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Duração&lt;/strong&gt;: 10h&lt;/li&gt;
-&lt;/ul&gt;
+      <description>
 
 &lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
 
@@ -56,18 +47,7 @@
 &lt;li&gt;RStudio - Faça o download. &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;aqui&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Pacotes - &lt;code&gt;shiny&lt;/code&gt;, &lt;code&gt;flexdashboard&lt;/code&gt; e &lt;code&gt;htmlwidgets&lt;/code&gt;, entre outros.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Introdução ao ambiente web: user side e server side.&lt;/li&gt;
-&lt;li&gt;Criar dashboards rápidos com &lt;code&gt;flexdashboard&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Visualizações dinâmicas com &lt;code&gt;htmlwidgets&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Shiny básico - estudo de caso.&lt;/li&gt;
-&lt;li&gt;Shiny avançado - grafo de invalidação, otimização dos algoritmos etc.&lt;/li&gt;
-&lt;li&gt;Dashboards gerenciais com &lt;code&gt;shinydashboards&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Shiny em ambiente de produção.&lt;/li&gt;
-&lt;/ul&gt;</description>
+</description>
     </item>
     
     <item>
@@ -76,16 +56,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://curso-r.com/cursos/introducao-programacao-r/</guid>
-      <description>&lt;p&gt;Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;turma&#34;&gt;Turma&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: A definir&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Duração&lt;/strong&gt;: 12h&lt;/li&gt;
-&lt;/ul&gt;
+      <description>
 
 &lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
 
@@ -115,17 +86,7 @@ relatórios e dashboards usando o R.&lt;/p&gt;
 &lt;li&gt;R - Instale pelo site do CRAN.&lt;/li&gt;
 &lt;li&gt;RStudio - Faça o download aqui.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Aula 01 - Introdução ao R, Rstudio, RMarkdown e R como calculadora&lt;/li&gt;
-&lt;li&gt;Aula 02 - Tipos de objeto, operações básicas e funções úteis&lt;/li&gt;
-&lt;li&gt;Aula 03 - Subsetting e Controles de Fluxo&lt;/li&gt;
-&lt;li&gt;Aula 04 - Criação de Funções e Leitura de banco de dados&lt;/li&gt;
-&lt;li&gt;Aula 05 - Conceitos básicos de &lt;code&gt;dplyr&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Aula 06 - Conceitos básicos de &lt;code&gt;ggplot2&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
+</description>
     </item>
     
     <item>
@@ -134,19 +95,7 @@ relatórios e dashboards usando o R.&lt;/p&gt;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://curso-r.com/cursos/r4ds/</guid>
-      <description>&lt;p&gt;Nesse curso você aprofundará os seus conhecimentos em manipulação e transformação
-de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão
-e classificação. Por fim, aprenderá a comunicar as suas análises usando o ferramentas
-do R como o &lt;code&gt;shiny&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;turma&#34;&gt;Turma&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: A definir&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Duração&lt;/strong&gt;: 12h&lt;/li&gt;
-&lt;/ul&gt;
+      <description>
 
 &lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
 
@@ -173,6 +122,12 @@ para a comunicação das análises feitas em R.&lt;/p&gt;
 &lt;li&gt;Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&#34;requisitos&#34;&gt;Requisitos&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/introducao-programacao-r/&#34;&gt;R básico&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
 
 &lt;p&gt;O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
@@ -182,17 +137,7 @@ para a comunicação das análises feitas em R.&lt;/p&gt;
 &lt;li&gt;RStudio - Faça o download aqui.&lt;/li&gt;
 &lt;li&gt;tidyverse - No console do R, digite o código abaixo.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Aula 01 - Manipulação de dados com &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Aula 02 - Transformando textos usando &lt;code&gt;stringr&lt;/code&gt; e Regex.&lt;/li&gt;
-&lt;li&gt;Aula 03 - Extraindo informações de datas usando &lt;code&gt;lubridate&lt;/code&gt; e exercícios.&lt;/li&gt;
-&lt;li&gt;Aula 04 - Programação funcional com &lt;code&gt;purrr&lt;/code&gt; e &lt;code&gt;plyr&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Aula 05 - Introdução à modelagem estatística usando o R&lt;/li&gt;
-&lt;li&gt;Aula 06 - Shiny e tópicos sobre comunicação com o R&lt;/li&gt;
-&lt;/ul&gt;</description>
+</description>
     </item>
     
     <item>
@@ -202,15 +147,6 @@ para a comunicação das análises feitas em R.&lt;/p&gt;
       
       <guid>http://curso-r.com/cursos/webscraping/</guid>
       <description>
-
-&lt;p&gt;Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter.&lt;/p&gt;
-
-&lt;h2 id=&#34;turma&#34;&gt;Turma&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: A definir&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Carga horária&lt;/strong&gt;: 12h&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
 
@@ -251,18 +187,6 @@ para a comunicação das análises feitas em R.&lt;/p&gt;
 &lt;li&gt;R - &lt;a href=&#34;https://www.r-project.org/&#34;&gt;Instale pelo site da R foundation&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;RStudio - Faça o download. &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;aqui&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Pacotes - &lt;code&gt;tidyverse&lt;/code&gt;, &lt;code&gt;httr&lt;/code&gt;, &lt;code&gt;rvest&lt;/code&gt; e &lt;code&gt;jsonlite&lt;/code&gt;, entre outros.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;programa&#34;&gt;Programa&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Noções de HTTP e requisições básicas com &lt;code&gt;httr&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Acessar páginas mais complexas, acompanhar usando ferramentas de inspecionar elementos.&lt;/li&gt;
-&lt;li&gt;Extrair conteúdo de arquivos &lt;code&gt;.html&lt;/code&gt; com o pacote &lt;code&gt;rvest&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Extrair dados de estruturas mais complexas (&lt;code&gt;pdf&lt;/code&gt;, &lt;code&gt;xml&lt;/code&gt;, &lt;code&gt;json&lt;/code&gt; etc).&lt;/li&gt;
-&lt;li&gt;Montar e executar um web scraper do início ao fim.&lt;/li&gt;
-&lt;li&gt;Controlar um browser usando o &lt;code&gt;selenium&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Extrair dados de APIs conhecidas como Facebook e Twitter.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

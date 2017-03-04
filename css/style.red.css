@@ -3642,18 +3642,18 @@ bio {
 }
 
 .info-curso {
-
-background-color: #FFF;
-border-radius: 0%;
-
+  
+  background-color: #FFF;
+  border-radius: 0%;
+  
 }
 
 .espaco-coxinha {
-
-width: 21px;
-display: inline-block;
-text-align: center;
-
+  
+  width: 21px;
+  display: inline-block;
+  text-align: center;
+  
 }
 
 .enroll-title {
@@ -3677,3 +3677,4 @@ text-align: center;
   border-color: #da4d4d;
   
 }
+
