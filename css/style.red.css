@@ -133,6 +133,7 @@ div.section {
   border: solid 1px #fff;
   font-size: 20px;
 }
+
 .icon.icon-lg {
   font-size: 30px;
   border-width: 2px;
@@ -234,6 +235,20 @@ ul.list-style-none {
     box-shadow: 0 0 5px #cccccc;
   }
 }
+
+@media (max-width: 770px) {
+  .enroll-box {
+    position: relative;
+  }
+}
+@media (min-width: 771px) {
+  .enroll-box {
+    position: fixed; 
+    margin-left: 1%; 
+    margin-right: 1%; 
+  }
+}
+
 #top {
   background: #555555;
   color: #eeeeee;
