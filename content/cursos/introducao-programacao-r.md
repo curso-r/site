@@ -1,18 +1,13 @@
 +++
 title = "Introdução à Programação em R"
 banner = "img/banners/introducao-r.jpeg"
-next = "A definir"
+next = "a definir"
+summary = "Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia."
+price = "590,00"
+workload = "12h"
+place = "São Paulo"
 rich_card_desc = "Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia."
 +++
-
-Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia.
-
-<!--more-->
-
-## Turma
-
-* __Data__: A definir
-* __Duração__: 12h
 
 ## Ementa
 
@@ -38,12 +33,3 @@ O curso utiliza extensivamente softwares a seguir. Instale-os nessa ordem:
 
 * R - Instale pelo site do CRAN.
 * RStudio - Faça o download aqui.
-
-## Programa
-
-* Aula 01 - Introdução ao R, Rstudio, RMarkdown e R como calculadora
-* Aula 02 - Tipos de objeto, operações básicas e funções úteis
-* Aula 03 - Subsetting e Controles de Fluxo
-* Aula 04 - Criação de Funções e Leitura de banco de dados
-* Aula 05 - Conceitos básicos de `dplyr`
-* Aula 06 - Conceitos básicos de `ggplot2`

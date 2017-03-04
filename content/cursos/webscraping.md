@@ -1,16 +1,13 @@
----
-title: "Web scraping com R"
-banner: "img/banners/laptop.jpg"
-next: "A definir"
-rich_card_desc: "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter."
----
-
-Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter.
-
-## Turma
-
-* __Data__: A definir
-* __Carga horária__: 12h
++++
+title = "Web scraping com R"
+banner = "img/banners/laptop.jpg"
+next = "A definir"
+price = "690,00"
+workload = "12h"
+place = "São Paulo"
+summary = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter."
+rich_card_desc = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter."
++++
 
 ## Ementa
 
@@ -44,13 +41,3 @@ O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:
 * R - [Instale pelo site da R foundation](https://www.r-project.org/).
 * RStudio - Faça o download. [aqui](https://www.rstudio.com/products/rstudio/download/preview/).
 * Pacotes - `tidyverse`, `httr`, `rvest` e `jsonlite`, entre outros.
-
-## Programa
-
-* Noções de HTTP e requisições básicas com `httr`.
-* Acessar páginas mais complexas, acompanhar usando ferramentas de inspecionar elementos.
-* Extrair conteúdo de arquivos `.html` com o pacote `rvest`.
-* Extrair dados de estruturas mais complexas (`pdf`, `xml`, `json` etc).
-* Montar e executar um web scraper do início ao fim.
-* Controlar um browser usando o `selenium`.
-* Extrair dados de APIs conhecidas como Facebook e Twitter.

@@ -1,18 +1,13 @@
 +++
 title = "Dashboards"
 banner = "img/banners/banner-dashboards.png"
-next = "A definir"
+next = "a definir"
+price = "690,00"
+workload = "12h"
+place = "São Paulo"
+summary = "Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R"
 rich_card_desc = "Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R"
 +++
-
-Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R.
-
-<!--more-->
-
-## Turma
-
-* __Data__: A definir
-* __Duração__: 10h
 
 ## Ementa
 
@@ -40,13 +35,3 @@ O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:
 * R - [Instale pelo site da R foundation](https://www.r-project.org/).
 * RStudio - Faça o download. [aqui](https://www.rstudio.com/products/rstudio/download/preview/).
 * Pacotes - `shiny`, `flexdashboard` e `htmlwidgets`, entre outros.
-
-## Programa
-
-* Introdução ao ambiente web: user side e server side.
-* Criar dashboards rápidos com `flexdashboard`.
-* Visualizações dinâmicas com `htmlwidgets`.
-* Shiny básico - estudo de caso.
-* Shiny avançado - grafo de invalidação, otimização dos algoritmos etc.
-* Dashboards gerenciais com `shinydashboards`.
-* Shiny em ambiente de produção.

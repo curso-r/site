@@ -30,6 +30,10 @@ para a comunicação das análises feitas em R.
 * Profissionais do mercado de trabalho que usam o R casualmente e desejam aprimorar os seus conhecimentos.
 * Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.
 
+### Requisitos
+
+- Conteúdo do curso [R básico](http://curso-r.com/cursos/introducao-programacao-r/)
+
 ## Softwares
 
 O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:
