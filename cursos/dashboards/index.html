@@ -522,7 +522,9 @@ MathJax.Hub.Config({
           var foot = $("#footer").outerHeight();
           var cr = $("#copyright").outerHeight();
           var ins = $("#inscrever").outerHeight();
-          var tot = foot + cr + ins + 60;
+          var disq = $("#comments").outerHeight();
+          var nav = $("#navigation").outerHeight();
+          var tot = foot + cr + ins + disq - nav - 30;
           var p = 0;
           if (pos < tot) {
             $("#inscrever").css({"margin-top": (pos) + "px"});
