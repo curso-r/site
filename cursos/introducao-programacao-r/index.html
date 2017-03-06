@@ -255,6 +255,8 @@ relatórios e dashboards usando o R.</p>
                     <div class="col-md-3">
 
                         
+                        
+                        <div>
                         <div id="inscrever" class="panel panel-default sidebar-menu enroll-box">
                           <div class="panel-heading enroll-title">
                             <h3 class="panel-title">Inscreva-se</h3>
@@ -295,6 +297,7 @@ relatórios e dashboards usando o R.</p>
                                 <br />
                             </div>
                           </form>
+                      </div>
                       </div>
                     </div>
                     
@@ -447,18 +450,6 @@ relatórios e dashboards usando o R.</p>
     </div>
     
     
-    
-    <script>
-      $(window).scroll(function (event) {
-        var wtop = $("#inscrever").offset().top + 400;        
-        if (wtop <= $("#footer").offset().top) {
-            $("#inscrever").addClass("fixed");
-        } else {
-            $("#inscrever").removeClass("fixed");
-        }
-      });
-    </script>
-    
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -473,7 +464,6 @@ relatórios e dashboards usando o R.</p>
     }
     </script>
     
-
     
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -521,6 +511,28 @@ MathJax.Hub.Config({
 
 <script src="http://curso-r.com/js/owl.carousel.min.js"></script>
 
+    
+    <script>
+      $(window).scroll(function () {
+        if ($(window).width() >= 992) {
+          $("#inscrever").css({"padding-bottom": (0) + "px"});
+          var pos = $(window).scrollTop();
+          var foot = $("#footer").outerHeight();
+          var cr = $("#copyright").outerHeight();
+          var ins = $("#inscrever").outerHeight();
+          var tot = foot + cr + ins + 60;
+          var p = 0;
+          if (pos < tot) {
+            $("#inscrever").css({"margin-top": (pos) + "px"});
+          } else {
+            $("#inscrever").css({"margin-top": (tot) + "px"});
+          }
+        } else {
+          $("#inscrever").css({"margin-top": (0) + "px"});
+          $("#inscrever").css({"padding-bottom": (20) + "px"});
+        }
+      });
+    </script>
 
   </body>
 </html>

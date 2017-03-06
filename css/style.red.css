@@ -236,16 +236,14 @@ ul.list-style-none {
   }
 }
 
-@media (min-width: 1300px) {
+@media (max-width: 991) {
   .enroll-box {
     position: relative;
   }
 }
-@media (min-width: 1301px) {
+@media (min-width: 992px) {
   .enroll-box {
-    position: fixed; 
-    margin-left: 1%; 
-    margin-right: 1%; 
+    position: absolute; 
   }
 }
 
