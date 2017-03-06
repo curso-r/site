@@ -78,7 +78,7 @@
                     <div class="col-md-3">
 
                         <!-- *** MENUS AND WIDGETS *** -->
-                        <div class="panel panel-default sidebar-menu enroll-box">
+                        <div id="inscrever" class="panel panel-default sidebar-menu enroll-box">
                           <div class="panel-heading enroll-title">
                             <h3 class="panel-title">Inscreva-se</h3>
                           </div>
@@ -137,6 +137,18 @@
 
     </div>
     <!-- /#all -->
+    
+    
+    <script>
+      $(window).scroll(function (event) {
+        var wtop = $("#inscrever").offset().top + 400;        
+        if (wtop <= $("#footer").offset().top) {
+            $("#inscrever").addClass("fixed");
+        } else {
+            $("#inscrever").removeClass("fixed");
+        }
+      });
+    </script>
     
     <script type="application/ld+json">
     {
