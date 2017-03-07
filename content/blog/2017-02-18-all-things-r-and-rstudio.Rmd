@@ -29,7 +29,7 @@ foram divulgados [aqui](https://www.rstudio.com/resources/webinars/#rstudioconf)
 lembrado pelo [blog Análise Real](https://analisereal.com/2017/02/16/videos-da-rstudio-conference-disponiveis/).
 
 Eu ainda não tive tempo de passar por todas as palestras e comecei pelo fim. Vi o [vídeo](https://www.rstudio.com/resources/videos/all-things-r-and-rstudio/)
-da última sessão da conferência que erda nada mais nada menos do que uma sessão de
+da última sessão da conferência que era nada mais nada menos do que uma sessão de
 perguntas com J.J. Allaire, Hadley Wickham e Joe Cheng. Para quem não conhece, o primeiro
 é fundador do RStudio, outro é o criador do `tidyverse`, `ggplot2`, etc e o último
 é o criador do Shiny.
@@ -42,8 +42,19 @@ pena ver [o vídeo](https://www.rstudio.com/resources/videos/all-things-r-and-rs
 
 A sessão começa com 2 perguntas do moderador [Joseph Rickert](https://www.rstudio.com/rviews/author/josephrickert/). A primeira falando 
 sobre a conferência em que J.J., Joe e Hadley, é claro, estão muito satisfeitos.
-A conferência parece ter sido um sucesso. A segunda pergunta é filosófica, mas o objetivo
-é saber dos participantes o que os motiva nos trabalhos open-source.
+Gosto bastante da resposta do Hadley para essa pergunta: 
+
+> Nossa métrica de sucesso é o seu sucesso e é muito bom ver vocês usando as ferramentas
+> que desenvolvemos para resolver problemas importantes. Isso é fantástico.
+
+A segunda pergunta é filosófica, mas o objetivo é saber dos participantes o que 
+os motiva nos trabalhos open-source. J.J. Allaire argumenta que desenvolver software
+*open-source* é muito gratificante porque estes são duráveis, não estão ligados ao 
+sucesso ou fracasso de nenhuma companhia. Ele acha que se você que encontrar significado
+no seu trabalho e ver que seu software teve impacto na comunidade não tem nada melhor 
+do que desenvolver *open-source*.
+
+
 
 
 
