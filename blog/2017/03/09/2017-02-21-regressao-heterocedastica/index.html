@@ -176,9 +176,9 @@
 <p>Neste post, vou mostrar três pacotes do R que ajustam modelos da forma</p>
 <p><span class="math display">\[ Y_i = \beta_0 + \sum_{k=1}^p\beta_kx_{ik} + \epsilon_i, \ i = 1,\ldots,n\]</span></p>
 <p><span class="math display">\[ \epsilon_{i} \sim \textrm{N}(0,\sigma_i), \ i = 1,\ldots,n \ \textrm{independentes, com }\sigma_i^2 = \alpha x_i^2.  \]</span></p>
-<p>Além de mostrar como se faz, também vou ilustrar o desempenho dos pacotes em um exemplo simulado. Os modelo que gerará os dados do exemplo terá a seguinte forma funcional</p>
+<p>Além de mostrar como se faz, também vou ilustrar o desempenho dos pacotes em um exemplo simulado. O modelo que gerará os dados do exemplo terá a seguinte forma funcional</p>
 <p><span class="math display">\[ Y_i = \beta x_i + \epsilon_i, \ i = 1,...n \]</span> <span class="math display">\[ \epsilon_i \sim N(0, \sigma_i)\text{ independentes, com }\sigma_i = \alpha\sqrt{|x_i|},\]</span></p>
-<p>e os parâmetros do modelo serão os valores <span class="math inline">\(\beta = 1\)</span> e <span class="math inline">\(\alpha = 4\)</span>. Nesse modelo, a heterocedasticidade do modelo faz com que os pontos desenhem um cone ao redor da reta de regressão.</p>
+<p>e os parâmetros do modelo serão os valores <span class="math inline">\(\beta = 1\)</span> e <span class="math inline">\(\alpha = 4\)</span>. A heterocedasticidade faz com que os pontos desenhem um cone ao redor da reta de regressão.</p>
 <pre class="r"><code>library(ggplot2)
 
 N &lt;- 1000
@@ -195,7 +195,7 @@ qplot(X,Y) +
 dataset &lt;- data.frame(Y,X,X2)</code></pre>
 <div id="usando-o-pacote-gamlss" class="section level3">
 <h3>Usando o pacote <code>gamlss</code></h3>
-<p>Quando ajusta-se um GAMLSS, você pode modelar os parâmetros de locação, escala e curtose ao mesmo tempo em que escolhe a distribuição dos dados dentre uma grande gama de opções. Escolhendo a distribuição normal e modelando apenas os parâmetros de locação e escala, o GAMLSS ajusta modelos lineares normais com heterocedasticidade.</p>
+<p>Quando se ajusta um GAMLSS, você pode modelar os parâmetros de locação, escala e curtose ao mesmo tempo em que escolhe a distribuição dos dados dentre uma grande gama de opções. Escolhendo a distribuição normal e modelando apenas os parâmetros de locação e escala, o GAMLSS ajusta modelos lineares normais com heterocedasticidade.</p>
 <p>No código abaixo, o parâmetro <code>formula = Y ~ X-1</code> indica que a função de regressão será constiuída por um preditor linear em <code>X</code> sem intercepto. Já o parâmetro <code>sigma;formula = ~X2-1</code> indica que o desvio padrão será modelado por um preditor linear em <code>X2</code> (ou raiz de <code>X</code>), também sem intercepto.</p>
 <pre class="r"><code>library(gamlss)
 
@@ -245,8 +245,8 @@ Global Deviance:     17870.67
 </div>
 <div id="usando-o-pacote-dglm" class="section level3">
 <h3>Usando o pacote <code>dglm</code></h3>
-<p>Quando ajusta-se um Modelo Linear Generalizado Duplo (MLGD em português e DGLM em inglês), você tem uma flexibilidade parecida com a de um GAMLSS. Entretanto, você não pode definir um modelo para a curtose.</p>
-<p>O código abaixo, similar ao utilizado para ajustar o GAMLSS, ajustam um DGLM aos dados simulados.</p>
+<p>Quando se ajusta um Modelo Linear Generalizado Duplo (MLGD em português e DGLM em inglês), você tem uma flexibilidade parecida com a de um GAMLSS. Entretanto, você não pode definir um modelo para a curtose e a classe de distribuições disponível é bem menor.</p>
+<p>O código abaixo, similar ao utilizado para ajustar o GAMLSS, ajusta um DGLM aos dados simulados.</p>
 <pre class="r"><code>library(dglm)
 
 fit &lt;- dglm(Y~X-1, dformula = ~X2-1,data = dataset, family = gaussian, method = &#39;reml&#39;)</code></pre>
@@ -278,15 +278,14 @@ Number of Alternating Iterations: 18 </code></pre>
 </div>
 <div id="usando-o-pacote-rstan" class="section level3">
 <h3>Usando o pacote <code>rstan</code></h3>
-<p><a href="http://mc-stan.org/">Stan</a> é uma linguagem de programação voltada para descrever e manipular objetos probabilísticos. Essa linguagem foi projetada para tornar intuitivo e simples o ajuste de modelos probabilísticos. A forma de descrever os problemas é particularmente simples em inferência bayesiana.</p>
-<p>Uma das vantagens do <code>stan</code> é que ele possui várias interfaces para <code>R</code>. A mais básica é o <code>rstan</code>, que será utilizada aqui.</p>
-<p>Uma chamada a função <code>stan</code> possui dois componentes básicos:</p>
+<p><a href="http://mc-stan.org/">Stan</a> é uma linguagem de programação voltada para descrever e manipular objetos probabilísticos, como por exemplo variáveis aleatórias, processos estocásticos, distribuições de probabilidades etc. Essa linguagem foi projetada para tornar intuitivo e simples o ajuste de modelos estatísticos. Em particular, a forma de descrever modelos bayesianos é bem cômoda.</p>
+<p>O <code>stan</code> possui várias interfaces para <code>R</code>. A mais básica é o <code>rstan</code>, que será utilizada aqui. A principal função desse pacote é a função <code>rstan</code>, que possui dois parâmetros básicos:</p>
 <ul>
-<li>um parâmetro <code>model_code =</code>, que recebe o código na linguagem <code>stan</code> que descreve o modelo.</li>
+<li>um parâmetro <code>model_code =</code>, que recebe um código que descreve o modelo na linguagem <code>stan</code>.</li>
 <li>um parâmetro <code>data =</code>, que recebe uma lista contendo os inputs do modelo, tais como dados coletados, parâmetros de distribuições a priori, etc.</li>
 </ul>
-<p>Embora esse seja o mínimo que a função precisa, outras componentes também podem ser passadas. O parâmetro <code>verbose = FALSE</code> faz com que a função não imprima nada enquanto roda e o parâmetro <code>control = list(...)</code> passa uma lista de parâmetros de controle para o algoritmo de ajuste.</p>
-<p>O retorno da função <code>stan()</code> é um objeto do tipo <code>stanfit</code>, que pode ser sumarizado normalmente, utilizando a função <code>summary()</code> e a função <code>plot()</code>.</p>
+<p>Embora esse seja o mínimo que a função precisa, também podemos passar outras componentes. O parâmetro <code>verbose = FALSE</code> faz com que a função não imprima nada enquanto roda e o parâmetro <code>control = list(...)</code> passa uma lista de opções de controle para o algoritmo de ajuste.</p>
+<p>O retorno da função <code>stan()</code> é um objeto do tipo <code>stanfit</code>, que pode ser sumarizado da mesma forma que outros modelos em R, utilizando a função <code>summary()</code> e a função <code>plot()</code>.</p>
 <p>O código abaixo ilustra a aplicação da função <code>stan()</code> ao nosso exemplo.</p>
 <pre class="r"><code>library(rstan)
 
@@ -310,7 +309,7 @@ dados &lt;- list(N = nrow(dataset), y = dataset$Y, x = dataset$X)
 
 fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
              control = list(adapt_delta = 0.99))</code></pre>
-<p>A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâmetro do modelo. O ponto central de cada intervalo representa as estimativas pontuais dos parâmetros. Como se nota, a estimativa do modelo bayesiano utilizando <code>stan</code> está muito mais próxima das anteriores.</p>
+<p>A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâmetro do modelo. O ponto central de cada intervalo representa as estimativas pontuais dos parâmetros. Como se nota, as estimativas do modelo utilizando <code>stan</code> estão bem próximas dos valores verdadeiros.</p>
 <pre class="r"><code>plot(fit_stan)</code></pre>
 <p><img src="http://curso-r.com/blog/2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
@@ -460,6 +459,19 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
@@ -468,19 +480,6 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
@@ -507,7 +506,7 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
         </div>
         
 
-        <footer id="footer">
+        <footer id="footer" style = 'position: absolute;'>
     <script type = "text/javascript"> 
     var pres = document.getElementsByTagName("pre");
     var codes = document.getElementsByTagName("code");

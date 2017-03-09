@@ -19,9 +19,9 @@
 &lt;p&gt;Neste post, vou mostrar três pacotes do R que ajustam modelos da forma&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ Y_i = \beta_0 + \sum_{k=1}^p\beta_kx_{ik} + \epsilon_i, \ i = 1,\ldots,n\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \epsilon_{i} \sim \textrm{N}(0,\sigma_i), \ i = 1,\ldots,n \ \textrm{independentes, com }\sigma_i^2 = \alpha x_i^2.  \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Além de mostrar como se faz, também vou ilustrar o desempenho dos pacotes em um exemplo simulado. Os modelo que gerará os dados do exemplo terá a seguinte forma funcional&lt;/p&gt;
+&lt;p&gt;Além de mostrar como se faz, também vou ilustrar o desempenho dos pacotes em um exemplo simulado. O modelo que gerará os dados do exemplo terá a seguinte forma funcional&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ Y_i = \beta x_i + \epsilon_i, \ i = 1,...n \]&lt;/span&gt; &lt;span class=&#34;math display&#34;&gt;\[ \epsilon_i \sim N(0, \sigma_i)\text{ independentes, com }\sigma_i = \alpha\sqrt{|x_i|},\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;e os parâmetros do modelo serão os valores &lt;span class=&#34;math inline&#34;&gt;\(\beta = 1\)&lt;/span&gt; e &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 4\)&lt;/span&gt;. Nesse modelo, a heterocedasticidade do modelo faz com que os pontos desenhem um cone ao redor da reta de regressão.&lt;/p&gt;
+&lt;p&gt;e os parâmetros do modelo serão os valores &lt;span class=&#34;math inline&#34;&gt;\(\beta = 1\)&lt;/span&gt; e &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 4\)&lt;/span&gt;. A heterocedasticidade faz com que os pontos desenhem um cone ao redor da reta de regressão.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 
 N &amp;lt;- 1000
@@ -38,7 +38,7 @@ qplot(X,Y) +
 dataset &amp;lt;- data.frame(Y,X,X2)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;usando-o-pacote-gamlss&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Usando o pacote &lt;code&gt;gamlss&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Quando ajusta-se um GAMLSS, você pode modelar os parâmetros de locação, escala e curtose ao mesmo tempo em que escolhe a distribuição dos dados dentre uma grande gama de opções. Escolhendo a distribuição normal e modelando apenas os parâmetros de locação e escala, o GAMLSS ajusta modelos lineares normais com heterocedasticidade.&lt;/p&gt;
+&lt;p&gt;Quando se ajusta um GAMLSS, você pode modelar os parâmetros de locação, escala e curtose ao mesmo tempo em que escolhe a distribuição dos dados dentre uma grande gama de opções. Escolhendo a distribuição normal e modelando apenas os parâmetros de locação e escala, o GAMLSS ajusta modelos lineares normais com heterocedasticidade.&lt;/p&gt;
 &lt;p&gt;No código abaixo, o parâmetro &lt;code&gt;formula = Y ~ X-1&lt;/code&gt; indica que a função de regressão será constiuída por um preditor linear em &lt;code&gt;X&lt;/code&gt; sem intercepto. Já o parâmetro &lt;code&gt;sigma;formula = ~X2-1&lt;/code&gt; indica que o desvio padrão será modelado por um preditor linear em &lt;code&gt;X2&lt;/code&gt; (ou raiz de &lt;code&gt;X&lt;/code&gt;), também sem intercepto.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gamlss)
 
@@ -88,8 +88,8 @@ Global Deviance:     17870.67
 &lt;/div&gt;
 &lt;div id=&#34;usando-o-pacote-dglm&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Usando o pacote &lt;code&gt;dglm&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Quando ajusta-se um Modelo Linear Generalizado Duplo (MLGD em português e DGLM em inglês), você tem uma flexibilidade parecida com a de um GAMLSS. Entretanto, você não pode definir um modelo para a curtose.&lt;/p&gt;
-&lt;p&gt;O código abaixo, similar ao utilizado para ajustar o GAMLSS, ajustam um DGLM aos dados simulados.&lt;/p&gt;
+&lt;p&gt;Quando se ajusta um Modelo Linear Generalizado Duplo (MLGD em português e DGLM em inglês), você tem uma flexibilidade parecida com a de um GAMLSS. Entretanto, você não pode definir um modelo para a curtose e a classe de distribuições disponível é bem menor.&lt;/p&gt;
+&lt;p&gt;O código abaixo, similar ao utilizado para ajustar o GAMLSS, ajusta um DGLM aos dados simulados.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dglm)
 
 fit &amp;lt;- dglm(Y~X-1, dformula = ~X2-1,data = dataset, family = gaussian, method = &amp;#39;reml&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
@@ -121,15 +121,14 @@ Number of Alternating Iterations: 18 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;usando-o-pacote-rstan&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Usando o pacote &lt;code&gt;rstan&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://mc-stan.org/&#34;&gt;Stan&lt;/a&gt; é uma linguagem de programação voltada para descrever e manipular objetos probabilísticos. Essa linguagem foi projetada para tornar intuitivo e simples o ajuste de modelos probabilísticos. A forma de descrever os problemas é particularmente simples em inferência bayesiana.&lt;/p&gt;
-&lt;p&gt;Uma das vantagens do &lt;code&gt;stan&lt;/code&gt; é que ele possui várias interfaces para &lt;code&gt;R&lt;/code&gt;. A mais básica é o &lt;code&gt;rstan&lt;/code&gt;, que será utilizada aqui.&lt;/p&gt;
-&lt;p&gt;Uma chamada a função &lt;code&gt;stan&lt;/code&gt; possui dois componentes básicos:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://mc-stan.org/&#34;&gt;Stan&lt;/a&gt; é uma linguagem de programação voltada para descrever e manipular objetos probabilísticos, como por exemplo variáveis aleatórias, processos estocásticos, distribuições de probabilidades etc. Essa linguagem foi projetada para tornar intuitivo e simples o ajuste de modelos estatísticos. Em particular, a forma de descrever modelos bayesianos é bem cômoda.&lt;/p&gt;
+&lt;p&gt;O &lt;code&gt;stan&lt;/code&gt; possui várias interfaces para &lt;code&gt;R&lt;/code&gt;. A mais básica é o &lt;code&gt;rstan&lt;/code&gt;, que será utilizada aqui. A principal função desse pacote é a função &lt;code&gt;rstan&lt;/code&gt;, que possui dois parâmetros básicos:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;um parâmetro &lt;code&gt;model_code =&lt;/code&gt;, que recebe o código na linguagem &lt;code&gt;stan&lt;/code&gt; que descreve o modelo.&lt;/li&gt;
+&lt;li&gt;um parâmetro &lt;code&gt;model_code =&lt;/code&gt;, que recebe um código que descreve o modelo na linguagem &lt;code&gt;stan&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;um parâmetro &lt;code&gt;data =&lt;/code&gt;, que recebe uma lista contendo os inputs do modelo, tais como dados coletados, parâmetros de distribuições a priori, etc.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Embora esse seja o mínimo que a função precisa, outras componentes também podem ser passadas. O parâmetro &lt;code&gt;verbose = FALSE&lt;/code&gt; faz com que a função não imprima nada enquanto roda e o parâmetro &lt;code&gt;control = list(...)&lt;/code&gt; passa uma lista de parâmetros de controle para o algoritmo de ajuste.&lt;/p&gt;
-&lt;p&gt;O retorno da função &lt;code&gt;stan()&lt;/code&gt; é um objeto do tipo &lt;code&gt;stanfit&lt;/code&gt;, que pode ser sumarizado normalmente, utilizando a função &lt;code&gt;summary()&lt;/code&gt; e a função &lt;code&gt;plot()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Embora esse seja o mínimo que a função precisa, também podemos passar outras componentes. O parâmetro &lt;code&gt;verbose = FALSE&lt;/code&gt; faz com que a função não imprima nada enquanto roda e o parâmetro &lt;code&gt;control = list(...)&lt;/code&gt; passa uma lista de opções de controle para o algoritmo de ajuste.&lt;/p&gt;
+&lt;p&gt;O retorno da função &lt;code&gt;stan()&lt;/code&gt; é um objeto do tipo &lt;code&gt;stanfit&lt;/code&gt;, que pode ser sumarizado da mesma forma que outros modelos em R, utilizando a função &lt;code&gt;summary()&lt;/code&gt; e a função &lt;code&gt;plot()&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;O código abaixo ilustra a aplicação da função &lt;code&gt;stan()&lt;/code&gt; ao nosso exemplo.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rstan)
 
@@ -153,7 +152,7 @@ dados &amp;lt;- list(N = nrow(dataset), y = dataset$Y, x = dataset$X)
 
 fit_stan &amp;lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
              control = list(adapt_delta = 0.99))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâmetro do modelo. O ponto central de cada intervalo representa as estimativas pontuais dos parâmetros. Como se nota, a estimativa do modelo bayesiano utilizando &lt;code&gt;stan&lt;/code&gt; está muito mais próxima das anteriores.&lt;/p&gt;
+&lt;p&gt;A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâmetro do modelo. O ponto central de cada intervalo representa as estimativas pontuais dos parâmetros. Como se nota, as estimativas do modelo utilizando &lt;code&gt;stan&lt;/code&gt; estão bem próximas dos valores verdadeiros.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(fit_stan)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
