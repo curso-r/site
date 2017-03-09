@@ -39,7 +39,7 @@ dataset &amp;lt;- data.frame(Y,X,X2)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;usando-o-pacote-gamlss&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Usando o pacote &lt;code&gt;gamlss&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Quando se ajusta um GAMLSS, você pode modelar os parâmetros de locação, escala e curtose ao mesmo tempo em que escolhe a distribuição dos dados dentre uma grande gama de opções. Escolhendo a distribuição normal e modelando apenas os parâmetros de locação e escala, o GAMLSS ajusta modelos lineares normais com heterocedasticidade.&lt;/p&gt;
-&lt;p&gt;No código abaixo, o parâmetro &lt;code&gt;formula = Y ~ X-1&lt;/code&gt; indica que a função de regressão será constiuída por um preditor linear em &lt;code&gt;X&lt;/code&gt; sem intercepto. Já o parâmetro &lt;code&gt;sigma;formula = ~X2-1&lt;/code&gt; indica que o desvio padrão será modelado por um preditor linear em &lt;code&gt;X2&lt;/code&gt; (ou raiz de &lt;code&gt;X&lt;/code&gt;), também sem intercepto.&lt;/p&gt;
+&lt;p&gt;No código abaixo, o parâmetro &lt;code&gt;formula = Y ~ X-1&lt;/code&gt; indica que a função de regressão será constituída por um preditor linear em &lt;code&gt;X&lt;/code&gt; sem intercepto. Já o parâmetro &lt;code&gt;sigma.formula = ~X2-1&lt;/code&gt; indica que o desvio padrão será modelado por um preditor linear em &lt;code&gt;X2&lt;/code&gt; (ou raiz de &lt;code&gt;X&lt;/code&gt;), também sem intercepto.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gamlss)
 
 fit_gamlss &amp;lt;- gamlss::gamlss(formula = Y ~ X-1,

@@ -196,7 +196,7 @@ dataset &lt;- data.frame(Y,X,X2)</code></pre>
 <div id="usando-o-pacote-gamlss" class="section level3">
 <h3>Usando o pacote <code>gamlss</code></h3>
 <p>Quando se ajusta um GAMLSS, você pode modelar os parâmetros de locação, escala e curtose ao mesmo tempo em que escolhe a distribuição dos dados dentre uma grande gama de opções. Escolhendo a distribuição normal e modelando apenas os parâmetros de locação e escala, o GAMLSS ajusta modelos lineares normais com heterocedasticidade.</p>
-<p>No código abaixo, o parâmetro <code>formula = Y ~ X-1</code> indica que a função de regressão será constiuída por um preditor linear em <code>X</code> sem intercepto. Já o parâmetro <code>sigma;formula = ~X2-1</code> indica que o desvio padrão será modelado por um preditor linear em <code>X2</code> (ou raiz de <code>X</code>), também sem intercepto.</p>
+<p>No código abaixo, o parâmetro <code>formula = Y ~ X-1</code> indica que a função de regressão será constituída por um preditor linear em <code>X</code> sem intercepto. Já o parâmetro <code>sigma.formula = ~X2-1</code> indica que o desvio padrão será modelado por um preditor linear em <code>X2</code> (ou raiz de <code>X</code>), também sem intercepto.</p>
 <pre class="r"><code>library(gamlss)
 
 fit_gamlss &lt;- gamlss::gamlss(formula = Y ~ X-1,
@@ -478,14 +478,14 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
