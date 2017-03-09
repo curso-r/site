@@ -54,7 +54,7 @@ dataset <- data.frame(Y,X,X2)
 
 Quando se ajusta um GAMLSS, você pode modelar os parâmetros de locação, escala e curtose ao mesmo tempo em que escolhe a distribuição dos dados dentre uma grande gama de opções. Escolhendo a distribuição normal e modelando apenas os parâmetros de locação e escala, o GAMLSS ajusta modelos lineares normais com heterocedasticidade.
 
-No código abaixo, o parâmetro `formula = Y ~ X-1` indica que a função de regressão será constiuída por um preditor linear em `X` sem intercepto. Já o parâmetro `sigma;formula = ~X2-1` indica que o desvio padrão será modelado por um preditor linear em `X2` (ou raiz de `X`), também sem intercepto.
+No código abaixo, o parâmetro `formula = Y ~ X-1` indica que a função de regressão será constituída por um preditor linear em `X` sem intercepto. Já o parâmetro `sigma.formula = ~X2-1` indica que o desvio padrão será modelado por um preditor linear em `X2` (ou raiz de `X`), também sem intercepto.
 
 ```{r}
 
