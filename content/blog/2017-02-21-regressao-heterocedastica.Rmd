@@ -14,7 +14,9 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, comment = '', error = FALSE)
 library(magrittr)
 ```
 
-Verificar as suposições dos modelos é muito importante quando fazemos inferência estatística. Em particular, a suposição de homocedasticidade dos modelos de regressão linear é especialmente importante, pois modifica o cálculo de erros padrão, intervalos de confiança e valores-p.
+Verificar as suposições dos modelos é muito importante quando fazemos inferência estatística. Em particular, a suposição de homocedasticidade[^homo_def] dos modelos de regressão linear é especialmente importante, pois modifica o cálculo de erros padrão, intervalos de confiança e valores-p.
+
+[^homo_def]: Uma regressão linear é homocedástica quando a variabilidade dos erros não depende das covariáveis do modelo.
 
 Neste post, vou mostrar três pacotes do R que ajustam modelos da forma
 
