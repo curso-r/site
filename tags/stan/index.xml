@@ -11,10 +11,10 @@
     
     <item>
       <title>Modelando a variância da normal</title>
-      <link>http://curso-r.com/blog/2017/02/21/2017-02-21-regressao-heterocedastica/</link>
-      <pubDate>Tue, 21 Feb 2017 13:07:31 +0200</pubDate>
+      <link>http://curso-r.com/blog/2017/03/09/2017-02-21-regressao-heterocedastica/</link>
+      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
       
-      <guid>http://curso-r.com/blog/2017/02/21/2017-02-21-regressao-heterocedastica/</guid>
+      <guid>http://curso-r.com/blog/2017/03/09/2017-02-21-regressao-heterocedastica/</guid>
       <description>&lt;p&gt;Verificar as suposições dos modelos é muito importante quando fazemos inferência estatística. Em particular, a suposição de homocedasticidade dos modelos de regressão linear é especialmente importante, pois modifica o cálculo de erros padrão, intervalos de confiança e valores-p.&lt;/p&gt;
 &lt;p&gt;Neste post, vou mostrar três pacotes do R que ajustam modelos da forma&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ Y_i = \beta_0 + \sum_{k=1}^p\beta_kx_{ik} + \epsilon_i, \ i = 1,\ldots,n\]&lt;/span&gt;&lt;/p&gt;
