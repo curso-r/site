@@ -172,7 +172,7 @@
                         </p>
                         
                         <div id="post-content">
-                          <p>Verificar as suposições dos modelos é muito importante quando fazemos inferência estatística. Em particular, a suposição de homocedasticidade dos modelos de regressão linear é especialmente importante, pois modifica o cálculo de erros padrão, intervalos de confiança e valores-p.</p>
+                          <p>Verificar as suposições dos modelos é muito importante quando fazemos inferência estatística. Em particular, a suposição de homocedasticidade<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> dos modelos de regressão linear é especialmente importante, pois modifica o cálculo de erros padrão, intervalos de confiança e valores-p.</p>
 <p>Neste post, vou mostrar três pacotes do R que ajustam modelos da forma</p>
 <p><span class="math display">\[ Y_i = \beta_0 + \sum_{k=1}^p\beta_kx_{ik} + \epsilon_i, \ i = 1,\ldots,n\]</span></p>
 <p><span class="math display">\[ \epsilon_{i} \sim \textrm{N}(0,\sigma_i), \ i = 1,\ldots,n \ \textrm{independentes, com }\sigma_i^2 = \alpha x_i^2.  \]</span></p>
@@ -312,6 +312,12 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
 <p>A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâmetro do modelo. O ponto central de cada intervalo representa as estimativas pontuais dos parâmetros. Como se nota, as estimativas do modelo utilizando <code>stan</code> estão bem próximas dos valores verdadeiros.</p>
 <pre class="r"><code>plot(fit_stan)</code></pre>
 <p><img src="http://curso-r.com/blog/2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Uma regressão linear é homocedástica quando a variabilidade dos erros não depende das covariáveis do modelo.<a href="#fnref1">↩</a></p></li>
+</ol>
 </div>
 
                         </div>
@@ -472,14 +478,14 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
