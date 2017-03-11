@@ -50,9 +50,25 @@ Gosto bastante da resposta do Hadley para essa pergunta:
 A segunda pergunta é filosófica, mas o objetivo é saber dos participantes o que 
 os motiva nos trabalhos open-source. J.J. Allaire argumenta que desenvolver software
 *open-source* é muito gratificante porque estes são duráveis, não estão ligados ao 
-sucesso ou fracasso de nenhuma companhia. Ele acha que se você que encontrar significado
+sucesso ou fracasso de nenhuma companhia. Ele acha que se você quer encontrar significado
 no seu trabalho e ver que seu software teve impacto na comunidade não tem nada melhor 
 do que desenvolver *open-source*.
+
+A partir daí as perguntas são abertas ao público (11 min do vídeo). A primeira pergunta é
+bem interessante: Quais são os limites do R? A resposta do J.J. Allaire é muito
+boa e está razoavelmente bem explicada [nessa entrevista](https://www.rstudio.com/rviews/2016/10/12/interview-with-j-j-allaire/) 
+que ele deu para o blog do RStudio em Outubro do ano passado. Basicamente, ele diz que
+se o R for encarado como uma linguagem de programação ele possui limites bem claros, 
+porque o R não foi desenvolvido para ser uma linguagem de programação e sim para ser
+uma interface de usuário. O R, quando ainda era S, foi desenvolvido para ser uma 
+interface para códigos em Fortran. Como interface de usuário, segundo Allaire, o R pode
+ser interligado sempre à melhor ferramenta de computação que existir. Portanto, 
+se pensarmos no R como interface de usuário, não há limites. Ainda nesta pergunta, 
+Joe Cheng fez uma comparação interessante entre R, Python e Go.
+
+
+
+
 
 
 
