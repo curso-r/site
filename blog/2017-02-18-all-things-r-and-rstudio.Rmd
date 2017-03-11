@@ -1,11 +1,11 @@
 ---
 title: "rstudio::conf: Sessão Final"
-date: "2017-02-18T13:07:31+02:00"
+date: "2017-03-11T13:07:31+02:00"
 tags: ["rstudio", "r"]
 categories: ["r"]
 banner: "img/banners/tidyverse.jpg"
 author: ["Daniel"]
-draft: true
+draft: false
 ---
 
 ```{r setup, include=FALSE}
@@ -23,8 +23,8 @@ x <- image_read('img/hadley-meme.jpg')
 plot(x)
 ```
 
-Em termos de conteudo, parece ter
-sido sensacional. Para quem não teve oportunidade de ir, os videos da conferência 
+Em termos de conteúdo, parece que foi
+sensacional. Para quem não teve oportunidade de ir, os videos da conferência 
 foram divulgados [aqui](https://www.rstudio.com/resources/webinars/#rstudioconf) como bem
 lembrado pelo [blog Análise Real](https://analisereal.com/2017/02/16/videos-da-rstudio-conference-disponiveis/).
 

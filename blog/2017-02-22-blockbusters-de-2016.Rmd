@@ -37,27 +37,24 @@ Com essa ideia em mente, nossa lista de _blockbusters_ será obtida considerando
 
 O código que filtra os orçamentos está disponível abaixo
 
-```{r}
+```{r eval=F, warning=FALSE, message=FALSE}
 library(rvest)
 library(dplyr)
+library(readr)
 
-'http://www.the-numbers.com/movie/budgets/all' %>% 
+d <- 'http://www.the-numbers.com/movie/budgets/all' %>% 
   html_session() %>% 
-  html_table() %>% 
+  html_table(fill = TRUE) %>% 
   first()
   
-dollar2number <- function(s){
-  stringr::str_replace_all(s,"[\\$,]","") %>% 
-  as.numeric()
-}
-
-block_busters <-   d %>% 
+block_busters <- d %>% 
   janitor::clean_names() %>% 
+  tibble::as_tibble() %>% 
   filter(!is.na(release_date)) %>% 
   mutate(release_date = lubridate::mdy(release_date),
          release_year = lubridate::year(release_date)) %>% 
-  mutate_at(.cols = vars(production_budget, domestic_gross, worldwide_gross),
-            funs(dollar2number)) %>% 
+  mutate_at(vars(production_budget, domestic_gross, worldwide_gross),
+            funs(parse_number)) %>% 
   filter(release_year >= 2007, release_year <= 2016) %>% 
   group_by(release_year) %>% 
   top_n(20, production_budget)
@@ -66,56 +63,52 @@ block_busters <-   d %>%
 
 ### Tomatômetro
 
-```{r}
+```{r eval=F}
 library(stringr)
 
-meters <- failwith(list(tomato_score = NA),function(page){
-  list( tomato_score = page %>%
-    html_nodes("[id=scorePanel]") %>%
-    html_nodes("[class='critic-score meter']") %>%
-    html_text()  %>%
-    str_extract('[0-9]{1,2}\\%') %>%
-    first,
-
-  audience_score = page %>%
-    html_nodes("[id=scorePanel]") %>%
-    html_nodes("[class='audience-score meter']") %>%
-    html_text() %>%
-    str_extract('[0-9]{1,2}\\%')
+meters <- failwith(list(tomato_score = NA), function(page) {
+  list(tomato_score = page %>%
+         html_nodes("[id=scorePanel]") %>%
+         html_nodes("[class='critic-score meter']") %>%
+         html_text()  %>%
+         str_extract('[0-9]{1,2}\\%') %>%
+         first(),
+       audience_score = page %>%
+         html_nodes("[id=scorePanel]") %>%
+         html_nodes("[class='audience-score meter']") %>%
+         html_text() %>%
+         str_extract('[0-9]{1,2}\\%')
   )
 })
 
 status <- block_busters %>% 
   mutate(clean_name = str_to_lower(movie) %>% 
-                      str_replace_all("[':’,-]","") %>%
-                      str_replace_all("ep.","episode") %>% 
-                      str_replace_all("xmen","x-men") %>% 
-                      str_replace_all("^the","") %>% 
-                      str_replace_all("[.-]","") %>% 
-                      str_replace_all(" ","_") %>% 
-                      str_replace_all("_+","_") %>% 
-                      str_replace_all("^_|_$","") %>% 
-                      str_replace_all("[—]","_"),
-         link = str_c("https://www.rottentomatoes.com/m/",clean_name)) %>% 
+                      str_replace_all("[':’,-]", "") %>%
+                      str_replace_all("ep.", "episode") %>% 
+                      str_replace_all("xmen", "x-men") %>% 
+                      str_replace_all("^the", "") %>% 
+                      str_replace_all("[.-]", "") %>% 
+                      str_replace_all(" ", "_") %>% 
+                      str_replace_all("_+", "_") %>% 
+                      str_replace_all("^_|_$", "") %>% 
+                      str_replace_all("[—]", "_"),
+         link = str_c("https://www.rottentomatoes.com/m/", clean_name)) %>% 
   ungroup() %>% 
-  mutate(id = 1:n()) %>% 
-  group_by(link) %>% 
-  mutate(status = meters(html_session(link))$tomato_score)
-
+  mutate(status = purrr::map(link, ~meters(html_session(.x))$tomato_score))
 ```
 
 ### Resultado
 
-```{r}
+```{r eval=F}
 library(ggplot2)
 
 status %>% 
  rename(tomato_meter = status) %>% 
- mutate(tomato_meter = as.numeric(str_replace_all(tomato_meter,"%",""))) %>% 
+ mutate(tomato_meter = as.numeric(str_replace_all(tomato_meter, "%", ""))) %>% 
   group_by(release_year) %>% 
-  summarise(avgtom = mean(tomato_meter, na.rm = T),
-            maxtom = avgtom + 1*sd(tomato_meter, na.rm = T),
-            mintom = avgtom - 1*sd(tomato_meter, na.rm = T)) %>% 
+  summarise(avgtom = mean(tomato_meter, na.rm = TRUE),
+            maxtom = avgtom + 1 * sd(tomato_meter, na.rm = TRUE),
+            mintom = avgtom - 1 * sd(tomato_meter, na.rm = TRUE)) %>% 
   ggplot(aes(x = release_year, y = avgtom, ymin = mintom, ymax = maxtom)) +
   geom_point() +
   geom_line() +
