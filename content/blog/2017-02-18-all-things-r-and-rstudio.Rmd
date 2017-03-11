@@ -5,7 +5,7 @@ tags: ["rstudio", "r"]
 categories: ["r"]
 banner: "img/banners/tidyverse.jpg"
 author: ["Daniel"]
-draft: false
+draft: true
 ---
 
 ```{r setup, include=FALSE}
