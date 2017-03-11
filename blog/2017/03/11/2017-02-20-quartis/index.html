@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
 
-  <title>rstudio::conf: Sessão Final</title>
+  <title>Medidas-resumo no tidyverse</title>
 
   <meta name="author" content="" />
   <meta name="keywords" content="">
@@ -51,9 +51,9 @@
   <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
   
   
-  <meta property="og:title" content="rstudio::conf: Sessão Final" />
+  <meta property="og:title" content="Medidas-resumo no tidyverse" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/blog/2017/03/11/2017-02-18-all-things-r-and-rstudio//" />
+  <meta property="og:url" content="/blog/2017/03/11/2017-02-20-quartis//" />
   <meta property="og:image" content="img/logo-curso-r.png" />
 
 </head>
@@ -71,8 +71,8 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="http://curso-r.com/">
-                    <img src="http://curso-r.com/img/logo.svg" alt="rstudio::conf: Sessão Final logo" width="50" height="50">
-                    <span class="sr-only">rstudio::conf: Sessão Final - go to homepage</span>
+                    <img src="http://curso-r.com/img/logo.svg" alt="Medidas-resumo no tidyverse logo" width="50" height="50">
+                    <span class="sr-only">Medidas-resumo no tidyverse - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -141,7 +141,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>rstudio::conf: Sessão Final</h1>
+                <h1>Medidas-resumo no tidyverse</h1>
             </div>
         </div>
     </div>
@@ -163,7 +163,7 @@
                             
                             
                               
-                                <a href="http://curso-r.com/author/daniel">Daniel</a>
+                                <a href="http://curso-r.com/author/julio">Julio</a>
                             
                             
                           
@@ -172,17 +172,214 @@
                         </p>
                         
                         <div id="post-content">
-                          <p>No início de Janeiro desse ano ocorreu a primeira <a href="https://www.rstudio.com/conference/">rstudio::conf</a>, uma conferência sobre R promovida pela Rstudio. A conferência parece ter sido bem animada! Teve até um passeio para o parque do Harry Potter na Florida, e surgiram memes como a imagem abaixo.</p>
-<p><img src="http://curso-r.com/blog/2017-02-18-all-things-r-and-rstudio_files/figure-html/hadley-1.png" width="672" /></p>
-<p>Em termos de conteúdo, parece que foi sensacional. Para quem não teve oportunidade de ir, os videos da conferência foram divulgados <a href="https://www.rstudio.com/resources/webinars/#rstudioconf">aqui</a> como bem lembrado pelo <a href="https://analisereal.com/2017/02/16/videos-da-rstudio-conference-disponiveis/">blog Análise Real</a>.</p>
-<p>Eu ainda não tive tempo de passar por todas as palestras e comecei pelo fim. Vi o <a href="https://www.rstudio.com/resources/videos/all-things-r-and-rstudio/">vídeo</a> da última sessão da conferência que era nada mais nada menos do que uma sessão de perguntas com J.J. Allaire, Hadley Wickham e Joe Cheng. Para quem não conhece, o primeiro é fundador do RStudio, outro é o criador do <code>tidyverse</code>, <code>ggplot2</code>, etc e o último é o criador do Shiny.</p>
-<p>A discussão foi muito interessante, tratando de importantes temas sobre o desenvolvimento do R. Vou resumir as minhas impressões nesse post, mas ressalvo que vale muito a pena ver <a href="https://www.rstudio.com/resources/videos/all-things-r-and-rstudio/">o vídeo</a>.</p>
-<hr />
-<p>A sessão começa com 2 perguntas do moderador <a href="https://www.rstudio.com/rviews/author/josephrickert/">Joseph Rickert</a>. A primeira falando sobre a conferência em que J.J., Joe e Hadley, é claro, estão muito satisfeitos. Gosto bastante da resposta do Hadley para essa pergunta:</p>
-<blockquote>
-<p>Nossa métrica de sucesso é o seu sucesso e é muito bom ver vocês usando as ferramentas que desenvolvemos para resolver problemas importantes. Isso é fantástico.</p>
-</blockquote>
-<p>A segunda pergunta é filosófica, mas o objetivo é saber dos participantes o que os motiva nos trabalhos open-source. J.J. Allaire argumenta que desenvolver software <em>open-source</em> é muito gratificante porque estes são duráveis, não estão ligados ao sucesso ou fracasso de nenhuma companhia. Ele acha que se você que encontrar significado no seu trabalho e ver que seu software teve impacto na comunidade não tem nada melhor do que desenvolver <em>open-source</em>.</p>
+                          <!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>Hoje estava fazendo uma análise exploratória e precisava estudar os quartis de uma variável contínua. A solução usando o <code>tidyverse</code> é tão elegante que valeu um post no blog.</p>
+<p>Usaremos os pacotes <code>tibble</code>, <code>dplyr</code>, <code>tidyr</code> e <code>purrr</code>:</p>
+<pre class="r"><code>library(tibble)
+library(dplyr)
+library(tidyr)
+library(purrr)</code></pre>
+<p>Nesse exemplo, usamos a famosa base <code>mtcars</code></p>
+<pre class="r"><code>tab &lt;- mtcars %&gt;% 
+  group_by(am, vs) %&gt;% 
+  nest() %&gt;% 
+  mutate(quartis = map(data, ~enframe(quantile(.x$mpg, 1:3 / 4)))) %&gt;% 
+  unnest(quartis) %&gt;% 
+  spread(name, value)
+tab
+## # A tibble: 4 × 5
+##      am    vs  `25%` `50%`  `75%`
+## * &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1     0     0 14.050 15.20 16.625
+## 2     0     1 18.650 21.40 22.150
+## 3     1     0 16.775 20.35 21.000
+## 4     1     1 25.050 30.40 31.400</code></pre>
+<ul>
+<li>A função <code>dplyr::group_by()</code> faz um grupo para cada combinação de <code>am</code> e <code>vs</code>.</li>
+<li>A função <code>tidyr::nest()</code> guarda os dados de cada grupo numa <em>list-column</em> chamada <code>data</code>.</li>
+<li>A função <code>purrr::map()</code> aplica elegantemente a função <code>quantile()</code> para cada grupo de datas, sendo ajudada pela função <code>tibble::enframe()</code>, que coloca o resultado de <code>quantile()</code> em uma <code>tibble</code>.</li>
+<li>A função <code>tidyr::unnest()</code> coloca os resultados de volta em colunas-vetores.</li>
+<li>Terminamos com <code>tidyr::spread()</code> para espalhar os quartis nas colunas.</li>
+</ul>
+<p>O resultado pode ser jogado diretamente numa tabela:</p>
+<pre class="r"><code>knitr::kable(tab)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">am</th>
+<th align="right">vs</th>
+<th align="right">25%</th>
+<th align="right">50%</th>
+<th align="right">75%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">14.050</td>
+<td align="right">15.20</td>
+<td align="right">16.625</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">18.650</td>
+<td align="right">21.40</td>
+<td align="right">22.150</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">16.775</td>
+<td align="right">20.35</td>
+<td align="right">21.000</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">25.050</td>
+<td align="right">30.40</td>
+<td align="right">31.400</td>
+</tr>
+</tbody>
+</table>
+<p>É possível mudar esse código para ter outras medidas-resumo, por exemplo. Para isso, podemos usar a função <code>summary()</code>, por exemplo, ou criar nossa própria função.</p>
+<pre class="r"><code>mtcars %&gt;%
+  group_by(am, vs) %&gt;% 
+  nest() %&gt;% 
+  mutate(s = map(data, ~enframe(summary(.x$mpg)))) %&gt;% 
+  unnest(s) %&gt;% 
+  spread(name, value) %&gt;% 
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">am</th>
+<th align="right">vs</th>
+<th align="right">1st Qu.</th>
+<th align="right">3rd Qu.</th>
+<th align="right">Max.</th>
+<th align="right">Mean</th>
+<th align="right">Median</th>
+<th align="right">Min.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">14.05</td>
+<td align="right">16.62</td>
+<td align="right">19.2</td>
+<td align="right">15.05</td>
+<td align="right">15.20</td>
+<td align="right">10.4</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">18.65</td>
+<td align="right">22.15</td>
+<td align="right">24.4</td>
+<td align="right">20.74</td>
+<td align="right">21.40</td>
+<td align="right">17.8</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">16.78</td>
+<td align="right">21.00</td>
+<td align="right">26.0</td>
+<td align="right">19.75</td>
+<td align="right">20.35</td>
+<td align="right">15.0</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">25.05</td>
+<td align="right">31.40</td>
+<td align="right">33.9</td>
+<td align="right">28.37</td>
+<td align="right">30.40</td>
+<td align="right">21.4</td>
+</tr>
+</tbody>
+</table>
+<p>Como você resolveria essa task? Escreva nos comentários!</p>
+<p><strong>OBS</strong>: Outra solução para a mesma task, mais concisa, usando <code>dplyr::do()</code>:</p>
+<pre class="r"><code>mtcars %&gt;% 
+  group_by(am, vs) %&gt;% 
+  do(enframe(summary(.$mpg))) %&gt;% 
+  spread(name, value) %&gt;% 
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">am</th>
+<th align="right">vs</th>
+<th align="right">1st Qu.</th>
+<th align="right">3rd Qu.</th>
+<th align="right">Max.</th>
+<th align="right">Mean</th>
+<th align="right">Median</th>
+<th align="right">Min.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">14.05</td>
+<td align="right">16.62</td>
+<td align="right">19.2</td>
+<td align="right">15.05</td>
+<td align="right">15.20</td>
+<td align="right">10.4</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">18.65</td>
+<td align="right">22.15</td>
+<td align="right">24.4</td>
+<td align="right">20.74</td>
+<td align="right">21.40</td>
+<td align="right">17.8</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">16.78</td>
+<td align="right">21.00</td>
+<td align="right">26.0</td>
+<td align="right">19.75</td>
+<td align="right">20.35</td>
+<td align="right">15.0</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">25.05</td>
+<td align="right">31.40</td>
+<td align="right">33.9</td>
+<td align="right">28.37</td>
+<td align="right">30.40</td>
+<td align="right">21.4</td>
+</tr>
+</tbody>
+</table>
+<p>Mas: tome cuidado! Se o Hadley diz…</p>
+<div class="figure">
+<img src="http://lsru.github.io/r_workshop/img/purrr_do.png" alt="" />
+
+</div>
 
                         </div>
                         
@@ -194,9 +391,9 @@
                             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'curso-r-com';
-    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/03\/11\/2017-02-18-all-things-r-and-rstudio\/';
-    var disqus_title = 'rstudio::conf: Sessão Final';
-    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/03\/11\/2017-02-18-all-things-r-and-rstudio\/';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/03\/11\/2017-02-20-quartis\/';
+    var disqus_title = 'Medidas-resumo no tidyverse';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/03\/11\/2017-02-20-quartis\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -302,9 +499,6 @@
             <li><a href="http://curso-r.com/tags/regressao"><i class="fa fa-tags"></i> regressao</a>
             </li>
             
-            <li><a href="http://curso-r.com/tags/rstudio"><i class="fa fa-tags"></i> rstudio</a>
-            </li>
-            
             <li><a href="http://curso-r.com/tags/stan"><i class="fa fa-tags"></i> stan</a>
             </li>
             
@@ -345,14 +539,14 @@
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -416,14 +610,14 @@
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/03/11/2017-02-18-all-things-r-and-rstudio/">
+                        <a href="http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/">
                           
-                            <img src="http://curso-r.com/img/banners/tidyverse.jpg" class="img-responsive" alt="">
+                            <img src="http://curso-r.com/img/banners/quartis.png" class="img-responsive" alt="">
                           
                         </a>
                     </div>
                     <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/03/11/2017-02-18-all-things-r-and-rstudio/">rstudio::conf: Sessão Final</a></h5>
+                        <h5><a href="http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/">Medidas-resumo no tidyverse</a></h5>
                     </div>
                 </div>
                 

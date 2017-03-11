@@ -10,6 +10,223 @@
     <atom:link href="http://curso-r.com/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Medidas-resumo no tidyverse</title>
+      <link>http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/</link>
+      <pubDate>Sat, 11 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;Hoje estava fazendo uma análise exploratória e precisava estudar os quartis de uma variável contínua. A solução usando o &lt;code&gt;tidyverse&lt;/code&gt; é tão elegante que valeu um post no blog.&lt;/p&gt;
+&lt;p&gt;Usaremos os pacotes &lt;code&gt;tibble&lt;/code&gt;, &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;tidyr&lt;/code&gt; e &lt;code&gt;purrr&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
+library(dplyr)
+library(tidyr)
+library(purrr)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nesse exemplo, usamos a famosa base &lt;code&gt;mtcars&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tab &amp;lt;- mtcars %&amp;gt;% 
+  group_by(am, vs) %&amp;gt;% 
+  nest() %&amp;gt;% 
+  mutate(quartis = map(data, ~enframe(quantile(.x$mpg, 1:3 / 4)))) %&amp;gt;% 
+  unnest(quartis) %&amp;gt;% 
+  spread(name, value)
+tab
+## # A tibble: 4 × 5
+##      am    vs  `25%` `50%`  `75%`
+## * &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1     0     0 14.050 15.20 16.625
+## 2     0     1 18.650 21.40 22.150
+## 3     1     0 16.775 20.35 21.000
+## 4     1     1 25.050 30.40 31.400&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;A função &lt;code&gt;dplyr::group_by()&lt;/code&gt; faz um grupo para cada combinação de &lt;code&gt;am&lt;/code&gt; e &lt;code&gt;vs&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;tidyr::nest()&lt;/code&gt; guarda os dados de cada grupo numa &lt;em&gt;list-column&lt;/em&gt; chamada &lt;code&gt;data&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;purrr::map()&lt;/code&gt; aplica elegantemente a função &lt;code&gt;quantile()&lt;/code&gt; para cada grupo de datas, sendo ajudada pela função &lt;code&gt;tibble::enframe()&lt;/code&gt;, que coloca o resultado de &lt;code&gt;quantile()&lt;/code&gt; em uma &lt;code&gt;tibble&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;tidyr::unnest()&lt;/code&gt; coloca os resultados de volta em colunas-vetores.&lt;/li&gt;
+&lt;li&gt;Terminamos com &lt;code&gt;tidyr::spread()&lt;/code&gt; para espalhar os quartis nas colunas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O resultado pode ser jogado diretamente numa tabela:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::kable(tab)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;am&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;vs&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;25%&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;50%&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;75%&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14.050&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.625&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18.650&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;22.150&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.775&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20.35&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25.050&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;30.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;31.400&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;É possível mudar esse código para ter outras medidas-resumo, por exemplo. Para isso, podemos usar a função &lt;code&gt;summary()&lt;/code&gt;, por exemplo, ou criar nossa própria função.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;%
+  group_by(am, vs) %&amp;gt;% 
+  nest() %&amp;gt;% 
+  mutate(s = map(data, ~enframe(summary(.x$mpg)))) %&amp;gt;% 
+  unnest(s) %&amp;gt;% 
+  spread(name, value) %&amp;gt;% 
+  knitr::kable()&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;am&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;vs&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;1st Qu.&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;3rd Qu.&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Max.&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Mean&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Median&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Min.&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14.05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;19.2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18.65&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;22.15&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;24.4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20.74&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;17.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.78&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;26.0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;19.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20.35&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25.05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;31.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;33.9&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;28.37&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;30.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Como você resolveria essa task? Escreva nos comentários!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: Outra solução para a mesma task, mais concisa, usando &lt;code&gt;dplyr::do()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;% 
+  group_by(am, vs) %&amp;gt;% 
+  do(enframe(summary(.$mpg))) %&amp;gt;% 
+  spread(name, value) %&amp;gt;% 
+  knitr::kable()&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;right&#34;&gt;am&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;vs&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;1st Qu.&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;3rd Qu.&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Max.&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Mean&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Median&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Min.&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14.05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;19.2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18.65&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;22.15&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;24.4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20.74&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;17.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.78&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;26.0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;19.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20.35&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25.05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;31.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;33.9&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;28.37&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;30.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Mas: tome cuidado! Se o Hadley diz…&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;http://lsru.github.io/r_workshop/img/purrr_do.png&#34; alt=&#34;&#34; /&gt;
+
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Pacote ggalt</title>
       <link>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</link>
       <pubDate>Sat, 18 Feb 2017 13:07:31 +0200</pubDate>
