@@ -44,5 +44,7 @@ Imports:
     DiagrammeR,
     plotly,
     dygraphs,
-    DT
+    DT,
+    parallel,
+    doParallel
 RoxygenNote: 5.0.1
