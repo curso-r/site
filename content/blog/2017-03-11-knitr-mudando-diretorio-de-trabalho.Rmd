@@ -2,7 +2,7 @@
 title: "Knitr: mudando o diretório de trabalho"
 pubdate: "2017-03-02T23:26:00+03:00"
 date: "2017-03-11T23:26:00+03:00"
-tags: ["r", "knitr" "Rmarkdown"]
+tags: ["r", "knitr", "Rmarkdown"]
 categories: ["r"]
 banner: "img/banners/cat-balls-of-wool.jpg"
 author: ["William"]
