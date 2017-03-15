@@ -66,22 +66,17 @@ ser interligado sempre à melhor ferramenta de computação que existir. Portant
 se pensarmos no R como interface de usuário, não há limites. Ainda nesta pergunta, 
 Joe Cheng fez uma comparação interessante entre R, Python e Go.
 
+Uma outra pergunta interessante é sobre como convencer quem usa a Excel a começar
+a usar o R. As respostas são muito legais! O Hadley pensa que a primeira parte é
+mostrar o como com o R você pode ter facilidade para fazer diversas coisas, apresentar
+as comodidades que ele trás. O JJ Allaire, ressalta que a curva de aprendizado do R
+é muito mais lenta, por isso, educar e ajduar a tornar o processo de aprendizagem mais
+simples é crucial para que a adoção do R aumente quando comparado ao Excel.
 
+Enfim, a palestra passa por muitos outros assuntos interessantes como Deep Learning no R,
+o futuro do R quanto a tipagem (relacionando com TypeScript, etc.), ferramentas de teste
+para Shiny, inovação e empoderamento no R, R Users Group, paralelização, CRAN e Github e
+planos do RStudio para os próximos anos.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Enfim, espero que este post tenha dado vontade de assistir o vídeo. Convido-os a 
+comentar as partes que vocês acharam mais interessantes!
