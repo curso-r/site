@@ -1,9 +1,9 @@
 ---
 title: "rstudio::conf: Sessão Final"
-date: "2017-03-11T13:07:31+02:00"
+date: "2017-03-15T13:07:31+02:00"
 tags: ["rstudio", "r"]
 categories: ["r"]
-banner: "img/banners/tidyverse.jpg"
+banner: "img/banners/banner-all-things-r-rstudio.jpeg"
 author: ["Daniel"]
 draft: true
 ---
