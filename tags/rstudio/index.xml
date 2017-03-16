@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rstudio on Curso-R</title>
+    <link>http://curso-r.com/tags/rstudio/index.xml</link>
+    <description>Recent content in Rstudio on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="http://curso-r.com/tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>rstudio::conf: Sessão Final</title>
+      <link>http://curso-r.com/blog/2017/03/16/2017-02-18-all-things-r-and-rstudio/</link>
+      <pubDate>Thu, 16 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/03/16/2017-02-18-all-things-r-and-rstudio/</guid>
+      <description>&lt;p&gt;No início de Janeiro desse ano ocorreu a primeira &lt;a href=&#34;https://www.rstudio.com/conference/&#34;&gt;rstudio::conf&lt;/a&gt;, uma conferência sobre R promovida pela Rstudio. A conferência parece ter sido bem animada! Teve até um passeio para o parque do Harry Potter na Florida, e surgiram memes como a imagem abaixo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-02-18-all-things-r-and-rstudio_files/figure-html/hadley-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Em termos de conteúdo, parece que foi sensacional. Para quem não teve oportunidade de ir, os videos da conferência foram divulgados &lt;a href=&#34;https://www.rstudio.com/resources/webinars/#rstudioconf&#34;&gt;aqui&lt;/a&gt; como bem lembrado pelo &lt;a href=&#34;https://analisereal.com/2017/02/16/videos-da-rstudio-conference-disponiveis/&#34;&gt;blog Análise Real&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Eu ainda não tive tempo de passar por todas as palestras e comecei pelo fim. Vi o &lt;a href=&#34;https://www.rstudio.com/resources/videos/all-things-r-and-rstudio/&#34;&gt;vídeo&lt;/a&gt; da última sessão da conferência que era nada mais nada menos do que uma sessão de perguntas com J.J. Allaire, Hadley Wickham e Joe Cheng. Para quem não conhece, o primeiro é fundador do RStudio, outro é o criador do &lt;code&gt;tidyverse&lt;/code&gt;, &lt;code&gt;ggplot2&lt;/code&gt;, etc e o último é o criador do Shiny.&lt;/p&gt;
+&lt;p&gt;A discussão foi muito interessante, tratando de importantes temas sobre o desenvolvimento do R. Vou resumir as minhas impressões nesse post, mas ressalvo que vale muito a pena ver &lt;a href=&#34;https://www.rstudio.com/resources/videos/all-things-r-and-rstudio/&#34;&gt;o vídeo&lt;/a&gt;.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;A sessão começa com 2 perguntas do moderador &lt;a href=&#34;https://www.rstudio.com/rviews/author/josephrickert/&#34;&gt;Joseph Rickert&lt;/a&gt;. A primeira falando sobre a conferência em que J.J., Joe e Hadley, é claro, estão muito satisfeitos. Gosto bastante da resposta do Hadley para essa pergunta:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nossa métrica de sucesso é o seu sucesso e é muito bom ver vocês usando as ferramentas que desenvolvemos para resolver problemas importantes. Isso é fantástico.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A segunda pergunta é filosófica, mas o objetivo é saber dos participantes o que os motiva nos trabalhos open-source. J.J. Allaire argumenta que desenvolver software &lt;em&gt;open-source&lt;/em&gt; é muito gratificante porque estes são duráveis, não estão ligados ao sucesso ou fracasso de nenhuma companhia. Ele acha que se você quer encontrar significado no seu trabalho e ver que seu software teve impacto na comunidade não tem nada melhor do que desenvolver &lt;em&gt;open-source&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;A partir daí as perguntas são abertas ao público (11 min do vídeo). A primeira pergunta é bem interessante: Quais são os limites do R? A resposta do J.J. Allaire é muito boa e está razoavelmente bem explicada &lt;a href=&#34;https://www.rstudio.com/rviews/2016/10/12/interview-with-j-j-allaire/&#34;&gt;nessa entrevista&lt;/a&gt; que ele deu para o blog do RStudio em Outubro do ano passado. Basicamente, ele diz que se o R for encarado como uma linguagem de programação ele possui limites bem claros, porque o R não foi desenvolvido para ser uma linguagem de programação e sim para ser uma interface de usuário. O R, quando ainda era S, foi desenvolvido para ser uma interface para códigos em Fortran. Como interface de usuário, segundo Allaire, o R pode ser interligado sempre à melhor ferramenta de computação que existir. Portanto, se pensarmos no R como interface de usuário, não há limites. Ainda nesta pergunta, Joe Cheng fez uma comparação interessante entre R, Python e Go.&lt;/p&gt;
+&lt;p&gt;Uma outra pergunta interessante é sobre como convencer quem usa a Excel a começar a usar o R. As respostas são muito legais! O Hadley pensa que a primeira parte é mostrar o como com o R você pode ter facilidade para fazer diversas coisas, apresentar as comodidades que ele trás. O JJ Allaire, ressalta que a curva de aprendizado do R é muito mais lenta, por isso, educar e ajduar a tornar o processo de aprendizagem mais simples é crucial para que a adoção do R aumente quando comparado ao Excel.&lt;/p&gt;
+&lt;p&gt;Enfim, a palestra passa por muitos outros assuntos interessantes como Deep Learning no R, o futuro do R quanto a tipagem (relacionando com TypeScript, etc.), ferramentas de teste para Shiny, inovação e empoderamento no R, R Users Group, paralelização, CRAN e Github e planos do RStudio para os próximos anos.&lt;/p&gt;
+&lt;p&gt;Enfim, espero que este post tenha dado vontade de assistir o vídeo. Convido-os a comentar as partes que vocês acharam mais interessantes!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
