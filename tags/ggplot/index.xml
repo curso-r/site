@@ -10,6 +10,64 @@
     <atom:link href="http://curso-r.com/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Paralelização no R</title>
+      <link>http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/</link>
+      <pubDate>Sun, 19 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;Programadores eficientes não precisam escrever algoritmos que rodam rápido. Recomendo fortemente a leitura do livro &lt;a href=&#34;https://csgillespie.github.io/efficientR/&#34;&gt;Efficient R&lt;/a&gt;, que discute eficiência com o R de forma exaustiva. Também gosto muito da primeira parte &lt;a href=&#34;https://www.youtube.com/watch?v=wki0BqlztCo&#34;&gt;dessa palestra do Hadley&lt;/a&gt;, onde ele defende que o cientista de dados deve usar seu tempo pensando no problema e não na forma que vai escrever seu código.&lt;/p&gt;
+&lt;p&gt;Com isso em mente, vamos investigar o tema &lt;em&gt;paralelização&lt;/em&gt;. Quando rodamos coisas em paralelo, mandamos os núcleos de processamento da máquina calcularem coisas diferentes ao mesmo tempo. A vantagem disso é que o tempo de execução dos algoritmos é dividido pelo número de núcleos disponíveis, sem exigir grandes mudanças no código utilizado.&lt;/p&gt;
+&lt;p&gt;Vamos mostrar como paralelizar um código usando a função &lt;code&gt;llply()&lt;/code&gt; do pacote &lt;code&gt;plyr&lt;/code&gt;. Essa função funciona de forma idêntica ao &lt;code&gt;lapply()&lt;/code&gt;, ou seja, recebe uma lista ou vetor como input, aplica uma função em cada elemento, e retorna os resultados numa lista com o mesmo comprimento.&lt;/p&gt;
+&lt;p&gt;A função &lt;code&gt;dormir()&lt;/code&gt; manda o R esperar &lt;code&gt;seg&lt;/code&gt; segundos antes de concluir, retornando &lt;code&gt;seg&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dormir &amp;lt;- function(seg = 1) {
+  Sys.sleep(seg)
+  return(seg)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;É intuitivo afirmar que o tempo de execução de &lt;code&gt;dormir()&lt;/code&gt; é compatível com &lt;code&gt;seg&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
+  dormir()
+})
+##    user  system elapsed 
+##   0.000   0.000   1.001&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nosso interesse é aplicar &lt;code&gt;dormir()&lt;/code&gt; em cada elemento do vetor &lt;code&gt;c(1, 2)&lt;/code&gt;. Esse algoritmo demora &lt;code&gt;1 + 2 = 3&lt;/code&gt; segundos.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;segundos &amp;lt;- c(1, 2)
+system.time({
+  plyr::llply(segundos, dormir)
+})
+##    user  system elapsed 
+##   0.004   0.004   3.009&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
+&lt;li&gt;adicionar o parâmetro &lt;code&gt;.parallel = TRUE&lt;/code&gt; no &lt;code&gt;llply()&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;O primeiro passo é resolvido com os pacotes &lt;code&gt;parallel&lt;/code&gt; e &lt;code&gt;doParallel&lt;/code&gt;. Veja como fica o código:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cl &amp;lt;- parallel::makePSOCKcluster(2) # cria as cópias do R que rodam em paralelo
+doParallel::registerDoParallel(cl)  # registra as cópias do R para serem usadas no plyr
+
+system.time({
+  plyr::llply(segundos, dormir, .parallel = TRUE)
+})
+##    user  system elapsed 
+##    0.02    0.00    2.18&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
+  plyr::llply(segundos, dormir, .parallel = TRUE)
+})
+##    user  system elapsed 
+##   0.008   0.000   2.011&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Medidas-resumo no tidyverse</title>
       <link>http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/</link>
       <pubDate>Sat, 11 Mar 2017 13:07:31 +0200</pubDate>
