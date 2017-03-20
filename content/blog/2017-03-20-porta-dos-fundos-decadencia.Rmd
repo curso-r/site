@@ -1,0 +1,125 @@
+---
+title: "O Porta dos fundos está em decadência?"
+pubdate: "2017-03-20T23:26:00+03:00"
+date: "2017-03-20T23:26:00+03:00"
+tags: ["r", "Webscraping", "tuber"]
+categories: ["r"]
+banner: ""
+author: ["William"]
+summary: "TEXTO PRECISA SER MELHORADO. NÃO PUBLICAR."
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Há alguns anos eu acompanho o canal Porta dos fundos no YouTube, assistindo os vídeos quase sempre no dia de lançamento. Entre esquetes boas e ruins, posso me considerar um fã da trupe de humoristas (e Totoro), principalmente pelo humor sarcástico que eles apresentam na maioria dos vídeos. No entanto, nos últimos meses, meu entusiasmo em relação ao canal vem diminuindo gradativamente. Venho achando cada vez menos graça nas piadas, menos interesse nos temas. A necessidade de postar três vídeos por semana para manter o canal rentável me faz perdoar um ou outro conteúdo abaixo da média, mas sinto que o humor rasteiro vem se tornando recorrente.
+
+Então me surgiu a pergunta: a qualidade dos vídeos vem diminuindo ou eu que me cansei e fiquei chato?
+
+Para responder essa pergunta, resolvi scrapear algumas informações do canal e montar algumas visualizações. Abaixo, um passo a passo de como fiz isso e, no fim, a conclusão.
+
+Passo 1: instalar e configurar o pacote `tuber`
+
+
+```{r}
+library(tuber)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(purrr)
+library(ggplot2)
+```
+
+
+Passo 2: buscar os id's dos vídeos do canal
+
+```{r}
+get_videos_porta <- function(dates) {
+  
+  yt_search(term = "", 
+            type = "video",
+            channel_id = "UCEWHPFNilsT0IfQfutVzsag",
+            published_after = dates$start,
+            published_before = dates$end)
+  
+}
+
+get_videos_stats <- function(df_row) {
+  
+  get_stats(video_id = df_row$video_id)
+}
+```
+
+
+```{r}
+dates <- tibble::tibble(start = seq(ymd("2012-01-01"), ymd("2017-01-01"), by = "years"),
+                        end = seq(ymd("2012-12-31"), ymd("2017-12-31"), by = "years")) %>% 
+  mutate(start = paste(start, "T0:00:00Z", sep = ""),
+         end = paste(end, "T0:00:00Z", sep = ""))
+```
+
+
+```{r}
+videos <- by_row(.d = dates, ..f = get_videos_porta, .to = "videos_info")
+```
+
+
+Passo 3: pegar as estatísticas de cada vídeo
+
+
+```{r}
+dados <- bind_rows(videos$videos_info) %>% 
+  select(title, publishedAt, video_id) %>%
+  by_row(..f = get_videos_stats, .to = "videos_stats")
+```
+
+Passo 4: as visualizações
+
+
+```{r}
+
+get_video_info <- function(df, info) {
+  
+  df[info] %>% as.numeric()
+}
+
+
+views <- map(.x = dados$videos_stats, .f = get_video_info, info = "viewCount") %>% 
+  as.numeric()
+
+
+
+dados %>%
+  select(-videos_stats) %>% 
+  mutate(views = views,
+         publishedAt = as_date(publishedAt)) %>% 
+  ggplot(aes(x = publishedAt, y = views)) +
+  geom_line()
+
+
+  
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
