@@ -14,26 +14,54 @@ draft: true
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-Há alguns anos eu acompanho o canal Porta dos fundos no YouTube, assistindo os vídeos quase sempre no dia de lançamento. Entre esquetes boas e ruins, posso me considerar um fã da trupe de humoristas (e Totoro), principalmente pelo humor sarcástico que eles apresentam na maioria dos vídeos. No entanto, nos últimos meses, meu entusiasmo em relação ao canal vem diminuindo gradativamente. Venho achando cada vez menos graça nas piadas, menos interesse nos temas. A necessidade de postar três vídeos por semana para manter o canal rentável me faz perdoar um ou outro conteúdo abaixo da média, mas sinto que o humor rasteiro vem se tornando recorrente.
+Há alguns anos eu acompanho o canal Porta dos fundos no YouTube, assistindo os vídeos quase sempre no dia de lançamento. Mesmo dividido entre esquetes boas e ruins, me considero um fã da trupe de humoristas (e do Totoro também), principalmente pelo humor sarcástico e pelas sátiras com diversos tabus da nossa sociedade.
 
-Então me surgiu a pergunta: a qualidade dos vídeos vem diminuindo ou eu que me cansei e fiquei chato?
+Nos últimos meses, no entanto, meu entusiasmo com o canal vem diminuindo. A necessidade de postar três vídeos por semana para se manter relevante nos sistema de recomendações do YouTube, o que mantém o canal rentável, me faz perdoar um ou outro conteúdo sem graça ou rasteiro, mas sinto que o que era exceção começou a virar regra.
 
-Para responder essa pergunta, resolvi scrapear algumas informações do canal e montar algumas visualizações. Abaixo, um passo a passo de como fiz isso e, no fim, a conclusão.
+Para descobrir se foi eu que fiquei chato ou se a minha opinião é compartilhada por outras pessoas, resolvi scrapear informações do canal e montar algumas visualizações.
 
-Passo 1: instalar e configurar o pacote `tuber`
+Segue um passo a passo de como eu fiz isso utilizando o R.
+
+# Passo 1: instalar e configurar o pacote `tuber`
+
+O pacote `tuber` contém algumas funções que permitem acessar a API do YouTube utilizando o R. Assim, podemos ter acesso a diversas informações como número de likes, número de views, comentários de vídeos, entre outras.
+
+Para instalar o pacote, rode o código `install.packages("tuber")` ou `devtools::install_github("soodoku/tuber", build_vignettes = TRUE)` para baixar a versão de desenvolvimento mais recente.
+
+Para utilizar o `tuber` é preciso um *id* e um *secret* do [Console de Desenvolvimento da Google](https://developers.google.com/youtube/v3/getting-started). Após criar uma conta, você receberá o *id* e o *secret*. Então basta habilitar todas as APIs do YouTube e a Freebase API.
+
+Feito isso, rode o código abaixo para configurar o acesso do `tuber` à API.
 
 
-```{r}
+```{r, eval = F}
+
 library(tuber)
-library(dplyr)
-library(stringr)
-library(lubridate)
-library(purrr)
-library(ggplot2)
+
+yt_oauth(app_id = "seu_app_id", 
+         app_secret = "seu_app_secret")
+
 ```
 
+Se tudo foi configurado corretamente, ele abrirá uma aba no seu navegador confirmando a autenticação, e você poderá voltar ao R para começar a scrapear.
 
-Passo 2: buscar os id's dos vídeos do canal
+# Passo 2: buscar os id's dos vídeos do canal
+
+Para organizar as informações dos vídeos em um banco de dados e gerar as visualizações, vamos utilizar as seguintes bibliotecas.
+
+```{r, eval = F}
+library(dplyr)          # Manipulação de dados
+library(tibble)         # Criação de dataframes
+library(lubridate)      # Manipulação de datas
+library(purrr)          # Funcionais
+library(ggplot2)        # Gráficos
+```
+
+Para baixar as estatísticas de um vídeo, é preciso do seu *id*. Você pode pesquisar por vídeos utilizando a função `tuber::yt_search()`. Se rodarmos `yt_search(term = "Porta dos fundos")`, vamos obter a informação de alguns vídeos do canal, descobrindo que o seu *channel id* é "UCEWHPFNilsT0IfQfutVzsag". 
+
+Por default, a função `yt_search()` retorna no máximo 50 resultados. Contudo, se setarmos os parâmetros `type = "video"` e `channal_id = "id_de_algum_canal"`, o número máximo passa a ser 500 resultados.
+
+Para facilitar o trabalho, eu criei a função `get_videos_porta()` abaixo. Ela recebe uma data de início e de término (em um dataframe com apenas uma linha) e devolve todos os vídeos do canal Porta dos Fundos nesse período.
+
 
 ```{r}
 get_videos_porta <- function(dates) {
@@ -46,27 +74,36 @@ get_videos_porta <- function(dates) {
   
 }
 
+```
+
+O dataframe de datas a seguir representa períodos de um ano, de 2012 a 2017. Isso implica que, em cada busca, vou coletar receber os vídeos do Porta dos Fundos de cada um desses anos. O mutate formata as datas no padrão exigido pela função `yt_search()`. Veja `help(yt_search)` para mais informações.
+
+```{r}
+
+dates <- tibble(start = seq(ymd("2012-01-01"), ymd("2017-01-01"), by = "years"),
+                        end = seq(ymd("2012-12-31"), ymd("2017-12-31"), by = "years")) %>% 
+  mutate(start = paste(start, "T0:00:00Z", sep = ""),
+         end = paste(end, "T0:00:00Z", sep = ""))
+
+```
+
+Por fim, atribuímos ao objeto `videos` as informações de todos os videos do canal de 2012 a 2015.
+
+```{r}
+
+videos <- by_row(.d = dates, ..f = get_videos_porta, .to = "videos_info")
+
+```
+
+
+Passo 3: pegar as estatísticas de cada vídeo
+
+```{r}
 get_videos_stats <- function(df_row) {
   
   get_stats(video_id = df_row$video_id)
 }
 ```
-
-
-```{r}
-dates <- tibble::tibble(start = seq(ymd("2012-01-01"), ymd("2017-01-01"), by = "years"),
-                        end = seq(ymd("2012-12-31"), ymd("2017-12-31"), by = "years")) %>% 
-  mutate(start = paste(start, "T0:00:00Z", sep = ""),
-         end = paste(end, "T0:00:00Z", sep = ""))
-```
-
-
-```{r}
-videos <- by_row(.d = dates, ..f = get_videos_porta, .to = "videos_info")
-```
-
-
-Passo 3: pegar as estatísticas de cada vídeo
 
 
 ```{r}
