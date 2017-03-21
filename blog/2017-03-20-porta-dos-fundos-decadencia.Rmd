@@ -132,7 +132,7 @@ dados %>%
 ```
 
 
-```{r, echo=FALSE, out.height=600, out.width=800}
+```{r, echo=FALSE}
 knitr::include_graphics('img/views_porta_png.png')
 ```
 
@@ -155,7 +155,7 @@ dados %>%
   theme_bw()
 ```
 
-```{r, echo=FALSE, out.height=600, out.width=800}
+```{r, echo=FALSE}
 knitr::include_graphics('img/likes-dislikes_porta_png.png')
 ```
 
