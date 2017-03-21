@@ -6,6 +6,7 @@ categories: ["r"]
 banner: "img/banners/porta.jpg"
 author: ["William"]
 summary: "Há alguns anos eu acompanho o canal Porta dos Fundos no YouTube, assistindo os vídeos quase sempre no dia de lançamento. Nos últimos meses, no entanto, meu entusiasmo com o canal vem diminuindo. Não sei se eu que fiquei chato ou se outras pessoas compartilham a minha opinião de que o conteúdo do Porta piorou. Então resolvi scrapear informações do canal e montar algumas visualizações para tirar essa dúvida."
+draft: true
 ---
 
 ```{r setup, include=FALSE}
@@ -157,7 +158,6 @@ dados %>%
 ```
 
 ```{r, echo=FALSE}
-library(magick)
 x <- image_read('img/likes-dislikes_porta_png.png')
 plot(x)
 ```
