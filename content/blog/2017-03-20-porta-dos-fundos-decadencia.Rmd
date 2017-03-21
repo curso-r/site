@@ -1,5 +1,5 @@
 ---
-title: "O Porta dos fundos está em decadência?"
+title: "O Porta dos Fundos está em decadência?"
 pubdate: "2017-03-20T23:26:00+03:00"
 date: "2017-03-20T23:26:00+03:00"
 tags: ["r", "Webscraping", "tuber"]
