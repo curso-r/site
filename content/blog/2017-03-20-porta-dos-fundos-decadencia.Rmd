@@ -132,9 +132,7 @@ dados %>%
 ```
 
 
-```{r, echo=FALSE}
-knitr::include_graphics('img/banners/views_porta_png.png')
-```
+![](img/views_porta_png.png)
 
 Também fiz um gráfico da proporção likes/dislikes pela data de publicação do vídeo. Parece haver uma leve redução dessa proporção no último ano, mas é arriscado tirar uma conclusão. Refazendo essa análise no fim de 2017, talvez fique mais claro se o público do canal concorda comigo sobre a qualidade do conteúdo nos últimos tempos.
 
@@ -155,9 +153,7 @@ dados %>%
   theme_bw()
 ```
 
-```{r, echo=FALSE}
-knitr::include_graphics('img/banners/likes-dislikes_porta_png.png')
-```
+![](img/likes-dislikes_porta_png.png)
 
 O Porta dos Fundos é sem dúvida um gigante no YouTube, mas os indícios dessa sucinta análise colaboram com a minha opinião de que o canal já viveu dias (bem) melhores. Apesar de essa decadência poder ser só uma fase ruim, nunca é cedo para se reinventar, ter novas ideias, definir as regras do jogo, assim como eles fizeram no início.
 
