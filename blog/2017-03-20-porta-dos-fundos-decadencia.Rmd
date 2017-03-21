@@ -6,7 +6,6 @@ categories: ["r"]
 banner: "img/banners/porta.jpg"
 author: ["William"]
 summary: "Há alguns anos eu acompanho o canal Porta dos Fundos no YouTube, assistindo os vídeos quase sempre no dia de lançamento. Nos últimos meses, no entanto, meu entusiasmo com o canal vem diminuindo. Não sei se eu que fiquei chato ou se outras pessoas compartilham a minha opinião de que o conteúdo do Porta piorou. Então resolvi scrapear informações do canal e montar algumas visualizações para tirar essa dúvida."
-draft: true
 ---
 
 ```{r setup, include=FALSE}
@@ -70,7 +69,6 @@ get_videos_porta <- function(dates) {
             published_before = dates$end)
   
 }
-
 ```
 
 Cada linha do dataframe de datas a seguir representa períodos de um ano, de 2012 a 2017. Isso implica que, em cada busca, vou receber os vídeos do Porta dos Fundos para cada um desses anos. O mutate formata as datas no padrão exigido pela função `yt_search()`. Veja `help(yt_search)` para mais informações.
@@ -132,15 +130,15 @@ dados %>%
   theme_bw()
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.width=50, fig.height=30}
 library(magick)
-x <- image_read('img/views_porta_png.png')
-plot(x)
+library(magrittr)
+image_read('img/views_porta_png.png') %>%
+  plot
 ```
 
+
 Também fiz um gráfico da proporção likes/dislikes pela data de publicação do vídeo. Parece haver uma leve redução dessa proporção no último ano, mas é arriscado tirar uma conclusão. Refazendo essa análise no fim de 2017, talvez fique mais claro se o público do canal concorda comigo sobre a qualidade do conteúdo nos últimos tempos.
-
-
 
 ```{r, eval = F}
 dados %>% 
@@ -157,7 +155,7 @@ dados %>%
   theme_bw()
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.width=50, fig.height=40}
 x <- image_read('img/likes-dislikes_porta_png.png')
 plot(x)
 ```
