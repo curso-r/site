@@ -96,7 +96,10 @@ videos &amp;lt;- by_row(.d = dates, ..f = get_videos_porta, .to = &amp;quot;vide
   geom_line() +
   labs(x = &amp;quot;Data de publicação&amp;quot;, y = &amp;quot;Visualizações&amp;quot;) +
   theme_bw()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;img/banners/views_porta_png.png&#34; alt=&#34;&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;img/views_porta_png.png&#34; alt=&#34;&#34; /&gt;
+
+&lt;/div&gt;
 &lt;p&gt;Também fiz um gráfico da proporção likes/dislikes pela data de publicação do vídeo. Parece haver uma leve redução dessa proporção no último ano, mas é arriscado tirar uma conclusão. Refazendo essa análise no fim de 2017, talvez fique mais claro se o público do canal concorda comigo sobre a qualidade do conteúdo nos últimos tempos.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dados %&amp;gt;% 
   mutate(likes = map(videos_stats, .f = &amp;#39;likeCount&amp;#39;),
@@ -110,7 +113,10 @@ videos &amp;lt;- by_row(.d = dates, ..f = get_videos_porta, .to = &amp;quot;vide
   geom_line(aes(y = prop)) +
   labs(x = &amp;quot;Data de publicação&amp;quot;, y = &amp;quot;Likes/Dislikes&amp;quot;) +
   theme_bw()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;img/banners/likes-dislikes_porta_png.png&#34; alt=&#34;&#34; /&gt;&lt;!-- --&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;img/likes-dislikes_porta_png.png&#34; alt=&#34;&#34; /&gt;
+
+&lt;/div&gt;
 &lt;p&gt;O Porta dos Fundos é sem dúvida um gigante no YouTube, mas os indícios dessa sucinta análise colaboram com a minha opinião de que o canal já viveu dias (bem) melhores. Apesar de essa decadência poder ser só uma fase ruim, nunca é cedo para se reinventar, ter novas ideias, definir as regras do jogo, assim como eles fizeram no início.&lt;/p&gt;
 &lt;p&gt;E se faltar ideias, vídeos com o Totoro são sempre uma boa alternativa.&lt;/p&gt;
 &lt;/div&gt;
