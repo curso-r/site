@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rmarkdown on Curso-R</title>
+    <link>http://curso-r.com/tags/rmarkdown/index.xml</link>
+    <description>Recent content in Rmarkdown on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="http://curso-r.com/tags/rmarkdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Knitr: mudando o diretório de trabalho</title>
+      <link>http://curso-r.com/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho/</link>
+      <pubDate>Sat, 25 Mar 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;O pacote &lt;code&gt;knitr&lt;/code&gt; é um mecanismo rápido, elegante e flexível para gerar relatórios dinâmicos no R. Ele trabalha lado a lado com o &lt;code&gt;rmarkdown&lt;/code&gt; para transformar arquivos &lt;code&gt;.Rmd&lt;/code&gt; em diversos formatos, como html, pdf e até mesmo word. Misturando &lt;em&gt;chunks&lt;/em&gt; de código em R com texto puro, LaTeX e html, a tarefa de criar outputs para análises estatísticas no R ficou muito mais simples.&lt;/p&gt;
+&lt;p&gt;Quando estamos trabalhando com arquivos Rmarkdown no Rstudio, o diretório de trabalho é a própria pasta onde o &lt;code&gt;Rmd&lt;/code&gt; está salvo. Assim, se o nosso relatório tem algum input (banco de dados, arquivos com código em R ou imagens, por exemplo), esses arquivos precisam estar nessa pasta. Isso pode ser uma chateação se você está dentro de um projeto e organizou os arquivos de forma diferente: banco de dados em uma pasta, &lt;code&gt;.R&lt;/code&gt; em outra, imagens em outra, outputs em outra…&lt;/p&gt;
+&lt;p&gt;A primeira ideia que vem à cabeça é usar a função &lt;code&gt;setwd()&lt;/code&gt; dentro de algum chunk para mudar o diretório de trabalho dentro do arquivo &lt;code&gt;Rmd&lt;/code&gt;. No entanto, se fizermos isso, o diretório de trabalho será mudado para aquele chunk, mas voltará a ser a pasta do arquivo &lt;code&gt;.Rmd&lt;/code&gt; após a sua execução. Veja o &lt;code&gt;warning&lt;/code&gt; abaixo.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;setwd(&amp;#39;../&amp;#39;)
+
+# Warning message: you changed the working directory 
+# to C:/novo_diretorio (probably via setwd()). 
+# It will be restored to C:/diretorio_do_Rdm. 
+# See the Note section in ?knitr::knit.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lendo a seção “Note” do &lt;code&gt;?knitr:knit&lt;/code&gt;, verificamos que mudar o diretório de trabalho via &lt;code&gt;setwd()&lt;/code&gt; pode levar a &lt;strong&gt;terríveis consequências&lt;/strong&gt;. Basicamente, figuras e arquivos de cache podem ser salvos no lugar errado, e o seu relatório não será gerado corretamente. Ainda lendo a seção “Note”, encontramos a maneira correta de mudar o diretório de trabalho: setar a opção &lt;code&gt;opts_knit$set(root.dir = ...)&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;opts_knit$set(root.dir = &amp;#39;../&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Vale ainda ressaltar que a mudança do diretório só vai ser definida para os chunks seguintes, isto é, se você fizer a mudança &lt;code&gt;opts_knit$set(root.dir = &#39;../&#39;)&lt;/code&gt; e, no mesmo chunk, tentar ler um arquivo no diretório pai (&lt;code&gt;source(input.R)&lt;/code&gt;, por exemplo), o arquivo não vai ser encontrado.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

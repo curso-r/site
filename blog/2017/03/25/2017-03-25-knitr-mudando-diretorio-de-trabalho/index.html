@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
 
-  <title>Pacote ggalt</title>
+  <title>Knitr: mudando o diretório de trabalho</title>
 
   <meta name="author" content="" />
   <meta name="keywords" content="">
@@ -51,9 +51,9 @@
   <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
   
   
-  <meta property="og:title" content="Pacote ggalt" />
+  <meta property="og:title" content="Knitr: mudando o diretório de trabalho" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/blog/2017/02/18/2017-02-18-ggalt//" />
+  <meta property="og:url" content="/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho//" />
   <meta property="og:image" content="img/logo-curso-r.png" />
 
 </head>
@@ -71,8 +71,8 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="http://curso-r.com/">
-                    <img src="http://curso-r.com/img/logo.svg" alt="Pacote ggalt logo" width="50" height="50">
-                    <span class="sr-only">Pacote ggalt - go to homepage</span>
+                    <img src="http://curso-r.com/img/logo.svg" alt="Knitr: mudando o diretório de trabalho logo" width="50" height="50">
+                    <span class="sr-only">Knitr: mudando o diretório de trabalho - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -141,7 +141,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Pacote ggalt</h1>
+                <h1>Knitr: mudando o diretório de trabalho</h1>
             </div>
         </div>
     </div>
@@ -163,138 +163,32 @@
                             
                             
                               
-                                <a href="http://curso-r.com/author/julio">Julio</a>
+                                <a href="http://curso-r.com/author/william">William</a>
                             
                             
                           
                           
-                          18/02/2017
+                          25/03/2017
                         </p>
                         
                         <div id="post-content">
-                          <p>O pacote <code>ggalt</code> é uma extensão ao <code>ggplot2</code> que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.</p>
-<p>É possível instalar o pacote <code>ggalt</code> usando a função <code>install.packages()</code>:</p>
-<pre class="r"><code>install.packages(&#39;ggalt&#39;)</code></pre>
-<p>Para exemplificar a utilização do <code>ggalt</code>, vamos utilizar os pacotes abaixo.</p>
-<pre class="r"><code>library(dplyr)
-library(ggplot2)
-library(ggalt)
-library(broom)
-library(survival)</code></pre>
-<p>Nesse exemplo, utilizaremos a base de dados <code>lung</code> que vem com o pacote <code>survival</code>. Primeiramente, ajustamos um modelo Kaplan-Meier simples, usando a função <code>survfit()</code>. Esse modelo tenta explicar a sobrevivência de pacientes com câncer de pulmão para cada sexo.</p>
-<pre class="r"><code># modelo kaplan-meier simples
-km &lt;- survfit(Surv(time, status) ~ sex, data = lung)</code></pre>
-<p>A função <code>tidy()</code> do pacote <code>broom</code> transforma o resultado do modelo numa tabela, já preparada para gerar gráficos.</p>
-<pre class="r"><code>d_km &lt;- tidy(km)
+                          <!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
 
-knitr::kable(head(d_km))</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="right">time</th>
-<th align="right">n.risk</th>
-<th align="right">n.event</th>
-<th align="right">n.censor</th>
-<th align="right">estimate</th>
-<th align="right">std.error</th>
-<th align="right">conf.high</th>
-<th align="right">conf.low</th>
-<th align="left">strata</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">11</td>
-<td align="right">138</td>
-<td align="right">3</td>
-<td align="right">0</td>
-<td align="right">0.9782609</td>
-<td align="right">0.0126898</td>
-<td align="right">1.0000000</td>
-<td align="right">0.9542301</td>
-<td align="left">sex=1</td>
-</tr>
-<tr class="even">
-<td align="right">12</td>
-<td align="right">135</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0.9710145</td>
-<td align="right">0.0147075</td>
-<td align="right">0.9994124</td>
-<td align="right">0.9434235</td>
-<td align="left">sex=1</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="right">134</td>
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="right">0.9565217</td>
-<td align="right">0.0181489</td>
-<td align="right">0.9911586</td>
-<td align="right">0.9230952</td>
-<td align="left">sex=1</td>
-</tr>
-<tr class="even">
-<td align="right">15</td>
-<td align="right">132</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0.9492754</td>
-<td align="right">0.0196777</td>
-<td align="right">0.9866017</td>
-<td align="right">0.9133612</td>
-<td align="left">sex=1</td>
-</tr>
-<tr class="odd">
-<td align="right">26</td>
-<td align="right">131</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0.9420290</td>
-<td align="right">0.0211171</td>
-<td align="right">0.9818365</td>
-<td align="right">0.9038355</td>
-<td align="left">sex=1</td>
-</tr>
-<tr class="even">
-<td align="right">30</td>
-<td align="right">130</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0.9347826</td>
-<td align="right">0.0224847</td>
-<td align="right">0.9768989</td>
-<td align="right">0.8944820</td>
-<td align="left">sex=1</td>
-</tr>
-</tbody>
-</table>
-<p>A gráfico da Figura <a href="#fig:ruim">1</a> usa a função <code>geom_ribbon()</code> para gerar os intervalos de confiança. Essa função liga os pontos da faixa diretamente, o que é inadequado do ponto de vista estatístico.</p>
-<pre class="r"><code>ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)</code></pre>
-<div class="figure"><span id="fig:ruim"></span>
-<img src="http://curso-r.com/blog/2017-02-18-ggalt_files/figure-html/ruim-1.png" alt="Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`." width="672" />
-<p class="caption">
-Figure 1: Intervalos de confiança usando apenas <code>ggplot2</code> e <code>geom_ribbon()</code>.
-</p>
-</div>
-<p>Na Figura <a href="#fig:bom">2</a>, adicionamos o parâmetro <code>stat = &quot;stepribbon&quot;</code>, que faz com que o <code>ggplot</code> utilize a função <code>stat_stepribbon()</code> do <code>ggalt</code> para o cálculo da faixa. Isso faz com que os intervalos tenham comportamento de escada, como queríamos.</p>
-<pre class="r"><code>ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              stat = &#39;stepribbon&#39;, alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)</code></pre>
-<div class="figure"><span id="fig:bom"></span>
-<img src="http://curso-r.com/blog/2017-02-18-ggalt_files/figure-html/bom-1.png" alt="Intervalos de confiança usando `stat = 'stepribbon'." width="672" />
-<p class="caption">
-Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
-</p>
-</div>
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>O pacote <code>knitr</code> é um mecanismo rápido, elegante e flexível para gerar relatórios dinâmicos no R. Ele trabalha lado a lado com o <code>rmarkdown</code> para transformar arquivos <code>.Rmd</code> em diversos formatos, como html, pdf e até mesmo word. Misturando <em>chunks</em> de código em R com texto puro, LaTeX e html, a tarefa de criar outputs para análises estatísticas no R ficou muito mais simples.</p>
+<p>Quando estamos trabalhando com arquivos Rmarkdown no Rstudio, o diretório de trabalho é a própria pasta onde o <code>Rmd</code> está salvo. Assim, se o nosso relatório tem algum input (banco de dados, arquivos com código em R ou imagens, por exemplo), esses arquivos precisam estar nessa pasta. Isso pode ser uma chateação se você está dentro de um projeto e organizou os arquivos de forma diferente: banco de dados em uma pasta, <code>.R</code> em outra, imagens em outra, outputs em outra…</p>
+<p>A primeira ideia que vem à cabeça é usar a função <code>setwd()</code> dentro de algum chunk para mudar o diretório de trabalho dentro do arquivo <code>Rmd</code>. No entanto, se fizermos isso, o diretório de trabalho será mudado para aquele chunk, mas voltará a ser a pasta do arquivo <code>.Rmd</code> após a sua execução. Veja o <code>warning</code> abaixo.</p>
+<pre class="r"><code>setwd(&#39;../&#39;)
+
+# Warning message: you changed the working directory 
+# to C:/novo_diretorio (probably via setwd()). 
+# It will be restored to C:/diretorio_do_Rdm. 
+# See the Note section in ?knitr::knit.</code></pre>
+<p>Lendo a seção “Note” do <code>?knitr:knit</code>, verificamos que mudar o diretório de trabalho via <code>setwd()</code> pode levar a <strong>terríveis consequências</strong>. Basicamente, figuras e arquivos de cache podem ser salvos no lugar errado, e o seu relatório não será gerado corretamente. Ainda lendo a seção “Note”, encontramos a maneira correta de mudar o diretório de trabalho: setar a opção <code>opts_knit$set(root.dir = ...)</code>.</p>
+<pre class="r"><code>opts_knit$set(root.dir = &#39;../&#39;)</code></pre>
+<p>Vale ainda ressaltar que a mudança do diretório só vai ser definida para os chunks seguintes, isto é, se você fizer a mudança <code>opts_knit$set(root.dir = '../')</code> e, no mesmo chunk, tentar ler um arquivo no diretório pai (<code>source(input.R)</code>, por exemplo), o arquivo não vai ser encontrado.</p>
 
                         </div>
                         
@@ -306,9 +200,9 @@ Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
                             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'curso-r-com';
-    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/02\/18\/2017-02-18-ggalt\/';
-    var disqus_title = 'Pacote ggalt';
-    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/02\/18\/2017-02-18-ggalt\/';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/03\/25\/2017-03-25-knitr-mudando-diretorio-de-trabalho\/';
+    var disqus_title = 'Knitr: mudando o diretório de trabalho';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/03\/25\/2017-03-25-knitr-mudando-diretorio-de-trabalho\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -456,14 +350,14 @@ Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
          
