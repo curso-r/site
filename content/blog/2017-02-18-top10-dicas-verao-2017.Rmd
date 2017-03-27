@@ -13,19 +13,38 @@ Abaixo segue um compilado das 10 melhores dicas dadas durante este curso.
 
 ### 1. Conheça e domine a filosofia por trás do Tidyverse
 
-O conceito "tidy" deu 
+O conceito "tidy" deu o oriente do curso de verão e não foi à toa: o *tidyverse*, carinhosamente chamado de "universo arrumadinho", está intimamente associado ao dia-a-dia de um analista de dados e sua implementação em R é tida como uma pequena revolução para os R-eiros.
+
+A postagem [Manifesto Tidy](http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/) resume bem os motivos pelos quais valem a pena aprender os princípios e os pacotes do *tidyverse*.
 
 ### 2. R + Shiny é uma grande alternativa às ferramentas de BI e Dashboards
 
+Se você ainda tem alguma dúvida sobre o poder do R em montar dashboards interativos, se dê a chance de visitar alguns exemplos:
 
+- [Polling Data](http://pollingdata.com.br/)
+- [VisCARF](http://shiny.platipus.com.br:3838/platipus/viscarf5)
+- [College Map](https://rich.shinyapps.io/college_map/)
+- [CRAN Dash](https://gallery.shinyapps.io/087-crandash/)
+
+Se você navegou por esses exemplos pôde perceber que é possível fazer de gráficos de barras a mapas a lá Google Maps, ou seja, o potencial é imenso e tudo isso está a disposição de um mero mortal (e não mais apenas de um desenvolvedor de software especialista em web). E quando digo que o potencial é imenso, eu digo que é imenso MESMO. O shiny coloca a disposição ao mesmo tempo inúmeros pacotes JavaScript de visualização e o R inteiro, interagindo entre si e aceitando receber informação de usuários em tempo real. Ah, e todos esses sites foram feitos com R e apenas R, nenhum outro conhecimento foi pré-requisito.
+
+Se restou alguma dúvida se o R + Shiny é uma grande alternativa às ferramentas de BI e Dashboards, por favor jogue nos comentários para discutirmos!
 
 ### 3. ggplot2 e tidyr tem tudo a ver
 
+A função `gather()` do pacote tidyr é frequentemente utilizada para deixar data.frames prontos para serem "plotados". Veja um exemplo:
 
+XXXX
 
 ### 4. Web Scraping é uma habilidade visada no mercado
 
+A internet é uma fonta riquíssima de dados e são as técnicas de *web scrapping* que permite ao analista explorar seu potencial por inteiro. Em resumo, *Web scrapping* é o ato de "raspar" dados disponíveis em sites da internet. 
 
+Os dados são o principal ingrediente para um bom modelo estatístico e faz parte da responsabilidade do cientista de dados utilizar o máximo de informação disponível. 
+
+Cada vez mais as empresas estão reconhecendo o valor que os dados disponíveis publicamente na internet têm. Há empresas especializadas nisso e não é raro encontrar freelances envolvendo extração e estruturação de dados espalhados na rede. 
+
+Os profissinais capazes de encarar esses desafios ainda são escaços, então fica a dica! [Esse webinar](https://www.youtube.com/watch?v=o2fFUw8aSHE) dado pelo nosso professor Julio Trecenti é um bom ponto de partida para aprender como fazer *web scraping* no R.
 
 ### 5. É legal usar vetores booleanos para filtrar data.frames e outros vetores
 
@@ -41,16 +60,54 @@ O conceito "tidy" deu
 
 ### 8. Saber pedir ajuda é o tópico mais importante!
 
+Por mais completo que seja um curso de R, nunca alguém chegará no ponto em que não restará dúvidas sobre como fazer alguma coisa no R, até porque há novidades a cada minuto no mundo do R. Por isso aprender a pedir ajuda é essencial. No curso foram passados os melhores jeitos de se obter ajuda:
 
+- Help / documentação do R (comandos `help(funcao)` ou `?funcao`)
+- Google
+- Stack Overflow
+- Coleginha
 
-### 9. RMarkdown e Github vão bem no dia a dia do R'eiro
+Usem e abusem do fato de a comunidade R ser gigante e ativa!
+
+### 9. RMarkdown e Github vão bem no dia a dia do R-eiro
 
 
 
 ### 10. Aprenda Regex!
 
+**Reg**ular **Ex**pressions servem para descrever padrões de textos. Por exemplo, para pedir para o R encontrar "todas as palavras que comecem com a letra A" em *regex* escrevemos `str_detect(palavras, "^A")`. O pequeno pedaço de símbolos `"^A"` é a maneira de traduzir em regex o padrão "palavras que começam em A".
 
+Para quem quiser se aprofundar no assunto, consulte a documentação do regex no R: `?regex`.
+
+Os pacotes `stringi` e `stringr` tiram proveito do *regex* e valem a pena serem explorados! Data mining passará a ser mamão com açúcar.
 
 ### 11. Dê preferência aos funcionais em vez de fors
+
+Na postagem [Top 10 pacotes para Data Science](http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/) foi destacado o pacote `purrr` e seu impacto ao fim do "for" nos códigos de R.
+
+"Usar funcionais" significa usar funções que aceitam funções como argumentos. Ambos os exemplos abaixo geram uma tabela para cada coluna do data.frame `iris`:
+
+```{r, eval=FALSE}
+tabelas1 <- list()
+nomes_iris <- names(iris)
+for(i in 1:length(iris)){
+  tabelas1[[nomes_iris[i]]] <- table(iris[,i])
+}
+```
+
+```{r, eval=FALSE}
+tabelas2 <- purrr::map(iris, table)
+```
+
+Do exemplo acima notamos que:
+- há um grande ganho de legibilidade do código usando o funcional `map()` em vez de um `for`. 
+- não foi preciso nenhum objeto auxiliar como `tabelas1 <- list()` e `nomes_iris` no segundo exemplo.
+- não há resquícios de índices como o `i` para percorrer vetores.
+
+Quanto mais aptidão em funcionais um usuário tiver, mais ágil e produtivo ele será. Então aprendam funcionais!
+
 ### 12. Coloque seus códigos em funções
+
+
+
 
