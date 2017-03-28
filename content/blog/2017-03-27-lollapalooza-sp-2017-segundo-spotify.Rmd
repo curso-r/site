@@ -7,7 +7,7 @@ author: ["Athos"]
 banner: "img/banners/lolla-spotify.png"
 ---
 
-No dia em que fui no Lollapalooza eu descobri o [Rspotify](https://github.com/tiagomendesdantas/Rspotify), um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.
+No dia em que fui ao Lollapalooza eu descobri o [Rspotify](https://github.com/tiagomendesdantas/Rspotify), um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.
 
 A brincadeira aqui vai envolver
 
@@ -176,7 +176,7 @@ lolla2017 %>% head(8) %>% kable
 ## Resultados
 
 ### Hipótese I
-> **Hipótese I:** A organização usou a estratégia de distribuir a popularidade das bandas uniformemente no dia.
+> **Hipótese I:** a organização usou a estratégia de distribuir a popularidade das bandas uniformemente no dia.
 
 Um dos vários desafios logísticos que o evento tem é a alocação das bandas na grade horária nos quatro diferentes palcos.
 
@@ -202,11 +202,11 @@ lolla2017_grafico %>%
   theme(text = element_text(size = 16))
 ```
 
-O gráfico acima vai de encontro com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o *Cage The Elefant* estava mal posicionado.
+O gráfico acima vai de acordo com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o Cage The Elefant estava mal posicionado.
 
 
 ### Hipótese II
-> **Hipótese II:** Em termos de popularidade das bandas, o dia de domingo estava melhor do que o dia de sábado.
+> **Hipótese II:** em termos de popularidade das bandas, o dia de domingo estava melhor do que o dia de sábado.
 
 Em conversas com amigos e conhecidos reparei que a maioria ou iria no domingo ou preferiria ir no domingo caso tivesse oportunidade. Isso me fez levantar a dúvida se realmente havia maior concentração de bandas boas no domingo.
 
@@ -230,7 +230,7 @@ ggplot(lolla2017) +
 Conclusão: nada indica que houve desbalanceamento. Acho que meu círculo de amigos tem algum viés estranho.
 
 ### Hipótese III
-> **Hipótese III:** A popularidade das bandas nos diferentes palcos estavam equilibradas.
+> **Hipótese III:** a popularidade das bandas nos diferentes palcos estava equilibrada.
 
 Quando me questionei da hipótese I também pensei na dificuldade de posicionar as bandas nos diferentes palcos. Já que teriam milhares de pessoas disputando espaço, seria do interesse da organização deixá-los o mais espalhado possível por vários motivos: melhor fluxo das filas, maior conforto, menos risco de acidentes, entre outros, e um bom jeito de fazer isso seria deixando os palcos igualmente atrativos para não haver uma grande aglomeração em um único ponto.
 
