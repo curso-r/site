@@ -352,7 +352,7 @@ lolla2017_grafico %&amp;gt;%
   facet_wrap(~dia) +
   labs(x = &amp;quot;Hora do dia&amp;quot;, y = &amp;quot;Popularidade média&amp;quot;) +
   theme(text = element_text(size = 16))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;O gráfico acima vai de acordo com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o &lt;em&gt;Cage The Elefant&lt;/em&gt; estava mal posicionado.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;hipotese-ii&#34; class=&#34;section level3&#34;&gt;
@@ -366,12 +366,12 @@ lolla2017_grafico %&amp;gt;%
   geom_bar(aes(x = artist, y = popularity, fill = dia), stat = &amp;quot;identity&amp;quot;, position = &amp;quot;dodge&amp;quot;) +
   theme(text = element_text(size = 16),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(lolla2017) +
  geom_density(aes(fill = dia, x = popularity, colour = dia), fill = NA) +
   theme(text = element_text(size = 16),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Conclusão: nada indica que houve desbalanceamento. Acho que meu círculo de amigos tem algum viés estranho.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;hipotese-iii&#34; class=&#34;section level3&#34;&gt;
@@ -386,7 +386,7 @@ lolla2017_grafico %&amp;gt;%
   theme(text = element_text(size = 16),
         axis.text.x = element_blank()) +
   labs(x = &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;O palco Skol teve menor variação de popularidade, costumou contar sempre com artistas de média a alta popularidade, mas os palcos AXE e Onix foram visitados por artista de peso. O palco Perry’s foi o mais visitado por artistas de menor expressão.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
