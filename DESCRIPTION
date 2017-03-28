@@ -49,6 +49,7 @@ Imports:
     DT,
     parallel,
     doParallel,
-    tuber
+    tuber,
+    Rspotify
     
 RoxygenNote: 5.0.1
