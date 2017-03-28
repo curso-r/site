@@ -196,11 +196,11 @@ library(lubridate)
 library(httr)
 library(rvest)
 library(tidyverse)</code></pre>
-<p>O <code>Rspotify</code> é um pacote novo e que ainda não está no CRAN, mas já está funcional. Ele é um wrapper para R da API do Spotify.</p>
+<p>O <code>Rspotify</code> é um pacote novo e que ainda não está no CRAN, mas já está funcional.</p>
 <p><strong>Conta no Spotify</strong></p>
-<p>Como se pode imaginar, para utilizar a API do Spotify é necessário ter um cadastro no site deles.</p>
+<p>Para utilizar a API do Spotify é necessário ter um cadastro no site deles, como se pode imaginar.</p>
 <p><strong>App no Spotify</strong></p>
-<p>Esse é o pré-requisito mais burocrático de todos. Para você receber um código de acesso para usar a API deles é preciso criar um <em>App</em> dentro da sua conta do Spotify. Eu aprendi a fazer isso seguindo os passos do README do próprio pacote <code>Rspotify</code> no Github <a href="https://github.com/tiagomendesdantas/Rspotify">(veja aqui)</a>.</p>
+<p>Para você receber um código de acesso para usar a API deles é preciso criar um <em>App</em> dentro da sua conta do Spotify, esse é o pré-requisito mais burocrático de todos. Eu aprendi a fazer isso seguindo os passos do README do próprio pacote <code>Rspotify</code> no Github <a href="https://github.com/tiagomendesdantas/Rspotify">(veja aqui)</a>.</p>
 <p>No fim, você terá um <code>app_id</code>, um <code>client_id</code> e um <code>client_secret</code> em mãos.</p>
 </div>
 <div id="extraindo-programacao-do-lollapalooza-sp-2017" class="section level3">
@@ -510,7 +510,7 @@ lolla2017_grafico %&gt;%
   labs(x = &quot;Hora do dia&quot;, y = &quot;Popularidade média&quot;) +
   theme(text = element_text(size = 16))</code></pre>
 <p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<p>O gráfico acima vai de encontro com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o <em>Cage The Elefant</em> estava mal posicionado.</p>
+<p>O gráfico acima vai de acordo com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o <em>Cage The Elefant</em> estava mal posicionado.</p>
 </div>
 <div id="hipotese-ii" class="section level3">
 <h3>Hipótese II</h3>
@@ -735,14 +735,14 @@ lolla2017_grafico %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         

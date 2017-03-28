@@ -39,11 +39,11 @@ library(lubridate)
 library(httr)
 library(rvest)
 library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;O &lt;code&gt;Rspotify&lt;/code&gt; é um pacote novo e que ainda não está no CRAN, mas já está funcional. Ele é um wrapper para R da API do Spotify.&lt;/p&gt;
+&lt;p&gt;O &lt;code&gt;Rspotify&lt;/code&gt; é um pacote novo e que ainda não está no CRAN, mas já está funcional.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Conta no Spotify&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Como se pode imaginar, para utilizar a API do Spotify é necessário ter um cadastro no site deles.&lt;/p&gt;
+&lt;p&gt;Para utilizar a API do Spotify é necessário ter um cadastro no site deles, como se pode imaginar.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;App no Spotify&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Esse é o pré-requisito mais burocrático de todos. Para você receber um código de acesso para usar a API deles é preciso criar um &lt;em&gt;App&lt;/em&gt; dentro da sua conta do Spotify. Eu aprendi a fazer isso seguindo os passos do README do próprio pacote &lt;code&gt;Rspotify&lt;/code&gt; no Github &lt;a href=&#34;https://github.com/tiagomendesdantas/Rspotify&#34;&gt;(veja aqui)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para você receber um código de acesso para usar a API deles é preciso criar um &lt;em&gt;App&lt;/em&gt; dentro da sua conta do Spotify, esse é o pré-requisito mais burocrático de todos. Eu aprendi a fazer isso seguindo os passos do README do próprio pacote &lt;code&gt;Rspotify&lt;/code&gt; no Github &lt;a href=&#34;https://github.com/tiagomendesdantas/Rspotify&#34;&gt;(veja aqui)&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;No fim, você terá um &lt;code&gt;app_id&lt;/code&gt;, um &lt;code&gt;client_id&lt;/code&gt; e um &lt;code&gt;client_secret&lt;/code&gt; em mãos.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;extraindo-programacao-do-lollapalooza-sp-2017&#34; class=&#34;section level3&#34;&gt;
@@ -353,7 +353,7 @@ lolla2017_grafico %&amp;gt;%
   labs(x = &amp;quot;Hora do dia&amp;quot;, y = &amp;quot;Popularidade média&amp;quot;) +
   theme(text = element_text(size = 16))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;O gráfico acima vai de encontro com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o &lt;em&gt;Cage The Elefant&lt;/em&gt; estava mal posicionado.&lt;/p&gt;
+&lt;p&gt;O gráfico acima vai de acordo com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o &lt;em&gt;Cage The Elefant&lt;/em&gt; estava mal posicionado.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;hipotese-ii&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Hipótese II&lt;/h3&gt;

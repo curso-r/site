@@ -48,15 +48,15 @@ library(tidyverse)
 ```
 
 
-O `Rspotify` é um pacote novo e que ainda não está no CRAN, mas já está funcional. Ele é um wrapper para R da API do Spotify.
+O `Rspotify` é um pacote novo e que ainda não está no CRAN, mas já está funcional.
 
 **Conta no Spotify**
 
-Como se pode imaginar, para utilizar a API do Spotify é necessário ter um cadastro no site deles. 
+Para utilizar a API do Spotify é necessário ter um cadastro no site deles, como se pode imaginar. 
 
 **App no Spotify**
 
-Esse é o pré-requisito mais burocrático de todos. Para você receber um código de acesso para usar a API deles é preciso criar um *App* dentro da sua conta do Spotify. Eu aprendi a fazer isso seguindo os passos do README do próprio pacote `Rspotify` no Github [(veja aqui)](https://github.com/tiagomendesdantas/Rspotify).
+Para você receber um código de acesso para usar a API deles é preciso criar um *App* dentro da sua conta do Spotify, esse é o pré-requisito mais burocrático de todos. Eu aprendi a fazer isso seguindo os passos do README do próprio pacote `Rspotify` no Github [(veja aqui)](https://github.com/tiagomendesdantas/Rspotify).
 
 No fim, você terá um `app_id`, um `client_id` e um `client_secret` em mãos.
 
@@ -202,7 +202,7 @@ lolla2017_grafico %>%
   theme(text = element_text(size = 16))
 ```
 
-O gráfico acima vai de encontro com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o *Cage The Elefant* estava mal posicionado.
+O gráfico acima vai de acordo com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o *Cage The Elefant* estava mal posicionado.
 
 
 ### Hipótese II
