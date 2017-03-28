@@ -4,7 +4,7 @@ date: "2017-03-27"
 tags: ["r", "spotify", "lolapalooza", "tidyverse", "web scraping"]
 categories: ["r"]
 author: ["Athos"]
-banner: "img/banners/lolla-spotify.png"
+banner: "img/banners/lolla-spotify_s.png"
 ---
 
 No dia em que fui ao Lollapalooza eu descobri o [Rspotify](https://github.com/tiagomendesdantas/Rspotify), um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.
