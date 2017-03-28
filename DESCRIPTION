@@ -17,7 +17,6 @@ Remotes:
     rstudio/blogdown,
     abjur/abjData,
     tiagomendesdantas/Rspotify
-    
 Imports:
     stringr,
     purrr,
@@ -50,6 +49,6 @@ Imports:
     parallel,
     doParallel,
     tuber,
-    Rspotify
-    
-RoxygenNote: 5.0.1
+    Rspotify,
+    stringi
+RoxygenNote: 6.0.1
