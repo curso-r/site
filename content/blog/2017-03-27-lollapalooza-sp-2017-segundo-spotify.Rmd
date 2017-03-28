@@ -33,6 +33,7 @@ load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/lolla2017_programacao.RDat
 # instala o Rspotify
 if(!require("Rspotify"))
   devtools::install_github("tiagomendesdantas/Rspotify")
+
 ```
 
 ```{r, warning=FALSE, message=FALSE, error=FALSE}

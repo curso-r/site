@@ -17,6 +17,7 @@ Remotes:
     rstudio/blogdown,
     abjur/abjData,
     tiagomendesdantas/Rspotify
+    
 Imports:
     stringr,
     purrr,
