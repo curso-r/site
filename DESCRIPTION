@@ -15,7 +15,8 @@ Encoding: UTF-8
 LazyData: true
 Remotes:
     rstudio/blogdown,
-    abjur/abjData
+    abjur/abjData,
+    tiagomendesdantas/Rspotify
 Imports:
     stringr,
     purrr,
@@ -48,4 +49,5 @@ Imports:
     parallel,
     doParallel,
     tuber
+    
 RoxygenNote: 5.0.1

@@ -29,7 +29,7 @@ load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/artistas_fora_da_playlist.
 load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/lolla2017_programacao.RData")
 ```
 
-```{r, eval = TRUE, message=FALSE, warning=FALSE}
+```{r, eval = FALSE}
 # instala o Rspotify
 if(!require("Rspotify"))
   devtools::install_github("tiagomendesdantas/Rspotify")
