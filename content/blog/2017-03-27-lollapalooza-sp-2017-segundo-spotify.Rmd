@@ -250,4 +250,4 @@ O palco Skol teve menor variação de popularidade, costumou contar sempre com a
 
 O tema tratado aqui não foi útil, concordo, mas passamos por quase todas as etapas existentes em um processo típico de análise de dados. Fizemos web scraping, usamos APIs, arrumamos os dados, estruturamos as informações, criamos variáveis e geramos gráficos. Só ficou de fora a parte de modelagem. E não à toa todos os pacotes do tidyverse foram úteis nesse trabalho.
 
-A lição pra casa é encontrar um dados interessantes na internet e aplicar as etapas que aprendemos aqui!
+A lição pra casa é encontrar uns dados interessantes na internet e aplicar as etapas que aprendemos aqui!
