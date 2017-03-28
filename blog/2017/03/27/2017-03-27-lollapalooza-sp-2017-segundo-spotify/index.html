@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
+
+  <title>Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse</title>
+
+  <meta name="author" content="" />
+  <meta name="keywords" content="">
+
+  
+
+  <meta name="generator" content="Hugo 0.19" />
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="http://curso-r.com/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="http://curso-r.com/css/style.red.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="http://curso-r.com/css/custom.css" rel="stylesheet">
+
+  
+    
+
+  
+  <link rel="shortcut icon" href="http://curso-r.com/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="http://curso-r.com/img/apple-touch-icon.png" />
+  
+
+  <link href="http://curso-r.com/css/owl.carousel.css" rel="stylesheet">
+  <link href="http://curso-r.com/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="http://curso-r.com/index.xml" type="application/rss+xml" title="Curso-R">
+  <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
+  
+  
+  <meta property="og:title" content="Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify//" />
+  <meta property="og:image" content="img/logo-curso-r.png" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://curso-r.com/">
+                    <img src="http://curso-r.com/img/logo.svg" alt="Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse logo" width="50" height="50">
+                    <span class="sr-only">Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/">Home</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/sobre/">Sobre</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/cursos/">Cursos</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/blog/">Blog</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/contact/">Contato</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          
+                            Por 
+                            
+                            
+                              
+                                <a href="http://curso-r.com/author/athos">Athos</a>
+                            
+                            
+                          
+                          
+                          27/03/2017
+                        </p>
+                        
+                        <div id="post-content">
+                          <p>No dia em que fui no Lollapalooza eu descobri o <a href="https://github.com/tiagomendesdantas/Rspotify">Rspotify</a>, um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.</p>
+<p>A brincadeira aqui vai envolver</p>
+<ul>
+<li>Web Scraping - para baixar e estruturar as tabelas de programação do Lolapalooza SP 2017</li>
+<li>API do Spotify - por meio do pacote Rspotify</li>
+<li>todos os pacotes do tidyverse</li>
+</ul>
+<p>Lollapalooza deste ano em São Paulo contou com 47 bandas distribuídas em quatro palcos. A graça é associar a programação do Lolla com as informações de popularidade das bandas fornecidas pelo Spotify. Abaixo eu vou descrever como peguei os dados, listar as três hipóteses que criei e gerar alguns gráficos pra discutí-las.</p>
+<div id="base-de-dados" class="section level2">
+<h2>Base de dados</h2>
+<div id="pre-requisitos" class="section level3">
+<h3>Pré-requisitos</h3>
+<p><strong>Pacotes</strong></p>
+<pre class="r"><code># instala o Rspotify
+if(!require(&quot;Rspotify&quot;))
+  devtools::install_github(&quot;tiagomendesdantas/Rspotify&quot;)</code></pre>
+<pre class="r"><code>library(Rspotify)
+library(magrittr)
+library(forcats)
+library(stringi)
+library(lubridate)
+library(httr)
+library(rvest)
+library(tidyverse)</code></pre>
+<p>O <code>Rspotify</code> é um pacote novo e que ainda não está no CRAN, mas já está funcional. Ele é um wrapper para R da API do Spotify.</p>
+<p><strong>Conta no Spotify</strong></p>
+<p>Como se pode imaginar, para utilizar a API do Spotify é necessário ter um cadastro no site deles.</p>
+<p><strong>App no Spotify</strong></p>
+<p>Esse é o pré-requisito mais burocrático de todos. Para você receber um código de acesso para usar a API deles é preciso criar um <em>App</em> dentro da sua conta do Spotify. Eu aprendi a fazer isso seguindo os passos do README do próprio pacote <code>Rspotify</code> no Github <a href="https://github.com/tiagomendesdantas/Rspotify">(veja aqui)</a>.</p>
+<p>No fim, você terá um <code>app_id</code>, um <code>client_id</code> e um <code>client_secret</code> em mãos.</p>
+</div>
+<div id="extraindo-programacao-do-lollapalooza-sp-2017" class="section level3">
+<h3>Extraindo programação do Lollapalooza SP 2017</h3>
+<p>O objetivo aqui é termos uma versão em <code>data.frame</code> das tabelas contidas no site <a href="https://www.lollapaloozabr.com/lineup-horarios/">lollapaloozabr.com/lineup-horarios/</a>. Lá tem a agenda completa dos dois dias do evento.</p>
+<p>Vamos ao código! Dica: a melhor maneira de aprender o que cada passo do código faz é ir rodando linha a linha e observando o resultado.</p>
+<pre class="r"><code># programacao do site do lollapalooza 2017 ----------------------
+
+lolla2017_programacao &lt;- &quot;https://www.lollapaloozabr.com/lineup-horarios/&quot; %&gt;%
+  GET %&gt;% 
+  read_html %&gt;%
+  html_table %&gt;%
+  set_names(c(&quot;sabado&quot;, &quot;domingo&quot;)) %&gt;%
+  at_depth(2, ~ .x %&gt;% 
+             stri_replace_all_regex(&quot; {2,}&quot;, &quot;&quot;) %&gt;% 
+             stri_replace_all_regex(&quot;[\\n]{1}&quot;, &quot;,&quot;) %&gt;% 
+             stri_replace_all_regex(&quot;[,]{2,}&quot;, &quot;\\\n&quot;) %&gt;% 
+             read.csv(text = ., header = FALSE, col.names = c(&quot;artist&quot;, &quot;hora&quot;))) %&gt;%
+  map(~ .x[-1] %&gt;% 
+        data_frame(palco = names(.), programacao_palco = .) %&gt;% 
+        unnest(programacao_palco)) %&gt;%
+  data_frame(dia = names(.), programacao = .) %&gt;%
+  unnest(programacao) %&gt;%
+  separate(hora, c(&quot;hora_ini&quot;, &quot;hora_fim&quot;), sep = &quot;-&quot;) %&gt;%
+  mutate(artist = artist %&gt;% tolower,
+         hora_ini = paste(if_else(dia %in% &quot;sabado&quot;, &quot;2017-03-25&quot;, &quot;2017-03-26&quot;), hora_ini) %&gt;% ymd_hm,
+         hora_ini = if_else(hour(hora_ini) &lt; 12, hora_ini + hours(12), hora_ini),
+         hora_fim = paste(if_else(dia %in% &quot;sabado&quot;, &quot;2017-03-25&quot;, &quot;2017-03-26&quot;), hora_fim) %&gt;% ymd_hm,
+         hora_fim = if_else(hour(hora_fim) &lt; 12, hora_fim + hours(12), hora_fim),
+         dia = fct_relevel(dia, c(&quot;sabado&quot;, &quot;domingo&quot;)))</code></pre>
+<p><strong>Resultado</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dia</th>
+<th align="left">palco</th>
+<th align="left">artist</th>
+<th align="left">hora_ini</th>
+<th align="left">hora_fim</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">cage the elephant</td>
+<td align="left">2017-03-25 16:25:00</td>
+<td align="left">2017-03-25 17:25:00</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">metallica</td>
+<td align="left">2017-03-25 21:00:00</td>
+<td align="left">2017-03-25 23:00:00</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">doctor pheabes</td>
+<td align="left">2017-03-25 12:05:00</td>
+<td align="left">2017-03-25 13:05:00</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">rancid</td>
+<td align="left">2017-03-25 18:35:00</td>
+<td align="left">2017-03-25 19:35:00</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">suricato</td>
+<td align="left">2017-03-25 14:15:00</td>
+<td align="left">2017-03-25 15:15:00</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the 1975</td>
+<td align="left">2017-03-25 17:30:00</td>
+<td align="left">2017-03-25 18:30:00</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the outs</td>
+<td align="left">2017-03-25 13:10:00</td>
+<td align="left">2017-03-25 14:10:00</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the xx</td>
+<td align="left">2017-03-25 19:40:00</td>
+<td align="left">2017-03-25 20:55:00</td>
+</tr>
+</tbody>
+</table>
+<p>É interessante reparar que para gerar essa simples tabelinha utilizamos os pacotes <code>httr</code>, <code>rvest</code>, <code>purrr</code>, <code>dplyr</code>, <code>tidyr</code>, <code>lubridate</code>, <code>stringi</code> e <code>forcats</code>. Só faltou o <code>ggplot2</code> para zerar o tidyverse.</p>
+<p>OBS: 89 fm não é uma banda, era só um espaço reservado para fins de publicidade da rádio.</p>
+</div>
+<div id="extraindo-a-popularidade-das-bandas-do-lollapalooza-no-spotify" class="section level3">
+<h3>Extraindo a popularidade das bandas do Lollapalooza no Spotify</h3>
+<p>Agora vamos usar o pacote <code>Rspotify</code> para extrair as popularidades das bandas que estão listadas no data.frame <code>lolla2017_programacao</code>. Para tanto, usei uma playlist oficial no Spotify feita pela própria equipe do Lollapalooza. Essa playlist é identificada pelo id <code>1mHoPn6JpbtWtoBuvSXrVm</code> lá no banco de dados do Spotify.</p>
+<pre class="r"><code>meu_token &lt;- spotifyOAuth(app_id, client_id, client_secret) # coloque aqui suas infos fornecidas pelo Spotify.</code></pre>
+<pre class="r"><code>lolla2017_playlist &lt;- getPlaylistSongs(&quot;lollabr&quot;, &quot;1mHoPn6JpbtWtoBuvSXrVm&quot;, token = meu_token) %&gt;%
+  mutate(artistInfo = map(artistId, getArtistinfo),
+         artist = artist %&gt;% tolower) %&gt;%
+  rename(track_popularity = popularity,
+         track_id = id) %&gt;%
+  unnest(artistInfo) %&gt;%
+  select(artist, id, name, popularity, followers)</code></pre>
+<p>Algumas bandas ficaram de fora da playlist e por isso fiz uma pesquisa por nome do artista na própria API do Spotify para recuperar o respectivo id. A função que faz isso é a <code>searchArtist()</code>.</p>
+<pre class="r"><code># recuperando infos dos artistas esquecidos pela playlist ----------------------
+
+possibly_searchArtist &lt;- possibly(searchArtist, NA_character_)
+
+artistas_fora_da_playlist &lt;- lolla2017_programacao %&gt;% 
+  filter(!artist %in% lolla2017_playlist$artist) %$% 
+  artist %&gt;% 
+  data_frame(artist = .) %&gt;%
+  mutate(search_artist = map(artist, ~ .x %&gt;% possibly_searchArtist),
+         artist_info = map2(search_artist, artist, ~ {
+           if(.x %&gt;% is.na) {data.frame(search_artist = NA)} else {
+           .x %&gt;%
+             mutate(name = name %&gt;% tolower) %&gt;%
+             filter(name %in% .y) %&gt;%
+             head(1)
+         }})) %&gt;%
+  select(-search_artist) %&gt;%
+  unnest(artist_info) %&gt;%
+  select(artist, id, name, popularity, followers) </code></pre>
+<p><strong>Resultado</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">artist</th>
+<th align="left">id</th>
+<th align="left">name</th>
+<th align="right">popularity</th>
+<th align="right">followers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ricci</td>
+<td align="left">1EUMh6DZo2CfpolG75YQBL</td>
+<td align="left">ricci</td>
+<td align="right">49</td>
+<td align="right">6116</td>
+</tr>
+<tr class="even">
+<td align="left">jimmy eat world</td>
+<td align="left">3Ayl7mCk0nScecqOzvNp6s</td>
+<td align="left">jimmy eat world</td>
+<td align="right">66</td>
+<td align="right">361785</td>
+</tr>
+<tr class="odd">
+<td align="left">89 fm</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">martin garrix</td>
+<td align="left">60d24wfXkVzDSfLS6hyCjZ</td>
+<td align="left">martin garrix</td>
+<td align="right">85</td>
+<td align="right">2244761</td>
+</tr>
+<tr class="odd">
+<td align="left">illusionize</td>
+<td align="left">3RloA7E4XMItSP4FjMBv3L</td>
+<td align="left">illusionize</td>
+<td align="right">46</td>
+<td align="right">30054</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="juntando-tudo" class="section level3">
+<h3>Juntando tudo</h3>
+<p>Agora vamos juntar a programação do Lolla com as infos do Spotify. A chave é <code>artist</code>.</p>
+<pre class="r"><code>lolla2017 &lt;- left_join(lolla2017_programacao,
+                       lolla2017_playlist %&gt;% bind_rows(artistas_fora_da_playlist),
+                       by = &quot;artist&quot;) %&gt;%
+  select(-id, -name) %&gt;%
+  dplyr::filter(followers %&gt;% is.na %&gt;% not) </code></pre>
+<p><strong>Base final</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dia</th>
+<th align="left">palco</th>
+<th align="left">artist</th>
+<th align="left">hora_ini</th>
+<th align="left">hora_fim</th>
+<th align="right">popularity</th>
+<th align="right">followers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">cage the elephant</td>
+<td align="left">2017-03-25 16:25:00</td>
+<td align="left">2017-03-25 17:25:00</td>
+<td align="right">72</td>
+<td align="right">745453</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">metallica</td>
+<td align="left">2017-03-25 21:00:00</td>
+<td align="left">2017-03-25 23:00:00</td>
+<td align="right">80</td>
+<td align="right">3047126</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">doctor pheabes</td>
+<td align="left">2017-03-25 12:05:00</td>
+<td align="left">2017-03-25 13:05:00</td>
+<td align="right">20</td>
+<td align="right">313</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">rancid</td>
+<td align="left">2017-03-25 18:35:00</td>
+<td align="left">2017-03-25 19:35:00</td>
+<td align="right">60</td>
+<td align="right">220182</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">suricato</td>
+<td align="left">2017-03-25 14:15:00</td>
+<td align="left">2017-03-25 15:15:00</td>
+<td align="right">41</td>
+<td align="right">52326</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the 1975</td>
+<td align="left">2017-03-25 17:30:00</td>
+<td align="left">2017-03-25 18:30:00</td>
+<td align="right">77</td>
+<td align="right">1600845</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the outs</td>
+<td align="left">2017-03-25 13:10:00</td>
+<td align="left">2017-03-25 14:10:00</td>
+<td align="right">28</td>
+<td align="right">3788</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the xx</td>
+<td align="left">2017-03-25 19:40:00</td>
+<td align="left">2017-03-25 20:55:00</td>
+<td align="right">76</td>
+<td align="right">2383923</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="resultados" class="section level2">
+<h2>Resultados</h2>
+<div id="hipotese-i" class="section level3">
+<h3>Hipótese I</h3>
+<blockquote>
+<p><strong>Hipótese I:</strong> A organização usou a estratégia de distribuir a popularidade das bandas uniformemente no dia.</p>
+</blockquote>
+<p>Um dos vários desafios logísticos que o evento tem é a alocação das bandas na grade horária nos quatro diferentes palcos.</p>
+<p>Eu fui no evento no sábado e ouvi falar que a banda <em>Cage The Elephant</em> tinha sido uma das primeiras bandas a se apresentar. Sabia da popularidade da banda (segundo o Spotify, está mais popular do que <em>The Strokes</em>) e na hora estranhei a decisão do evento de colocá-los para tocar tão cedo.</p>
+<pre class="r"><code>lolla2017_grafico &lt;- lolla2017 %&gt;%
+  mutate(hora = map2(hora_ini, hora_fim, ~ seq(.x, .y, 30*60) %&gt;% floor_date(&quot;30 minutes&quot;))) %&gt;%
+  unnest(hora) %&gt;%
+  group_by(dia, hora, palco) %&gt;%
+  summarise(artist = first(artist),
+            n = n(),
+            mean_popularity = mean(popularity))
+
+lolla2017_grafico %&gt;%
+  ggplot(aes(x = ymd_hm(format(hora, &quot;2017-03-26 %H%M&quot;)), y = mean_popularity, colour = palco)) +
+  geom_line() +
+  geom_point() +
+  geom_point(data = lolla2017_grafico %&gt;% filter(artist %in% &quot;cage the elephant&quot;), colour = &quot;red&quot;, size = 2) +
+  geom_text(data = lolla2017_grafico %&gt;% filter(artist %in% &quot;cage the elephant&quot;) %&gt;% head(1), aes(label = artist), colour = &quot;red&quot;, hjust = 0, vjust = -1) +
+  facet_wrap(~dia) +
+  labs(x = &quot;Hora do dia&quot;, y = &quot;Popularidade média&quot;) +
+  theme(text = element_text(size = 16))</code></pre>
+<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>O gráfico acima vai de encontro com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o <em>Cage The Elefant</em> estava mal posicionado.</p>
+</div>
+<div id="hipotese-ii" class="section level3">
+<h3>Hipótese II</h3>
+<blockquote>
+<p><strong>Hipótese II:</strong> Em termos de popularidade das bandas, o dia de domingo estava melhor do que o dia de sábado.</p>
+</blockquote>
+<p>Em conversas com amigos e conhecidos reparei que a maioria ou iria no domingo ou preferiria ir no domingo caso tivesse oportunidade. Isso me fez levantar a dúvida se realmente havia maior concentração de bandas boas no domingo.</p>
+<pre class="r"><code>ggplot(lolla2017 %&gt;%
+         mutate(artist = artist %&gt;% fct_reorder(popularity, .desc = TRUE))) +
+  geom_bar(aes(x = artist, y = popularity, fill = dia), stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
+  theme(text = element_text(size = 16),
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))</code></pre>
+<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(lolla2017) +
+ geom_density(aes(fill = dia, x = popularity, colour = dia), fill = NA) +
+  theme(text = element_text(size = 16),
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))</code></pre>
+<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Conclusão: nada indica que houve desbalanceamento. Acho que meu círculo de amigos tem algum viés estranho.</p>
+</div>
+<div id="hipotese-iii" class="section level3">
+<h3>Hipótese III</h3>
+<blockquote>
+<p><strong>Hipótese III:</strong> A popularidade das bandas nos diferentes palcos estavam equilibradas.</p>
+</blockquote>
+<p>Quando me questionei da hipótese I também pensei na dificuldade de posicionar as bandas nos diferentes palcos. Já que teriam milhares de pessoas disputando espaço, seria do interesse da organização deixá-los o mais espalhado possível por vários motivos: melhor fluxo das filas, maior conforto, menos risco de acidentes, entre outros, e um bom jeito de fazer isso seria deixando os palcos igualmente atrativos para não haver uma grande aglomeração em um único ponto.</p>
+<pre class="r"><code>ggplot(lolla2017 %&gt;%
+         mutate(palco = palco %&gt;% as.factor %&gt;% fct_reorder(popularity, mean))) +
+  geom_boxplot(aes(fill = palco, y = popularity, x = 1)) +
+  theme(text = element_text(size = 16),
+        axis.text.x = element_blank()) +
+  labs(x = &quot;&quot;)</code></pre>
+<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>O palco Skol teve menor variação de popularidade, costumou contar sempre com artistas de média a alta popularidade, mas os palcos AXE e Onix foram visitados por artista de peso. O palco Perry’s foi o mais visitado por artistas de menor expressão.</p>
+</div>
+</div>
+<div id="consideracoes-finais" class="section level2">
+<h2>Considerações finais</h2>
+<p>O tema tratado aqui não foi útil, concordo, mas passamos por quase todas as etapas existentes em um processo típico de análise de dados. Fizemos web scraping, usamos APIs, arrumamos os dados, estruturamos as informações, criamos variáveis e geramos gráficos. Só ficou de fora a parte de modelagem. E não à toa todos os pacotes do tidyverse foram úteis nesse trabalho.</p>
+<p>A lição pra casa é encontrar uns dados interessantes na internet e aplicar as etapas que aprendemos aqui!</p>
+</div>
+
+                        </div>
+                        
+                         <div class="addthis_inline_share_toolbox"></div>
+                        
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'curso-r-com';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/03\/27\/2017-03-27-lollapalooza-sp-2017-segundo-spotify\/';
+    var disqus_title = 'Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/03\/27\/2017-03-27-lollapalooza-sp-2017-segundo-spotify\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Busca</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" results="0" class="form-control" placeholder="Busca">
+                <input type="hidden" name="q" value="site:http://curso-r.com/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Categorias</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="http://curso-r.com/categories/bayes">bayes (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/r">r (13)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot"><i class="fa fa-tags"></i> ggplot</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/knitr"><i class="fa fa-tags"></i> knitr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/leaflet"><i class="fa fa-tags"></i> leaflet</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/lolapalooza"><i class="fa fa-tags"></i> lolapalooza</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regressao"><i class="fa fa-tags"></i> regressao</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rmarkdown"><i class="fa fa-tags"></i> rmarkdown</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rstudio"><i class="fa fa-tags"></i> rstudio</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/spotify"><i class="fa fa-tags"></i> spotify</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/stan"><i class="fa fa-tags"></i> stan</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tidyverse"><i class="fa fa-tags"></i> tidyverse</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/top10"><i class="fa fa-tags"></i> top10</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tuber"><i class="fa fa-tags"></i> tuber</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/web-scraping"><i class="fa fa-tags"></i> web-scraping</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/webscraping"><i class="fa fa-tags"></i> webscraping</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Nossos Cursos</h3>
+    </div>
+
+    <div class="blog-entries">
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="http://curso-r.com/js/prism.js"></script> 
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>Sobre nós</h4>
+
+            <p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+              
+            <h4>Posts Recentes</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify/">
+                          
+                            <img src="http://curso-r.com/img/banners/lolla-spotify.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify/">Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho/">
+                          
+                            <img src="http://curso-r.com/img/banners/cat-balls-of-wool.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho/">Knitr: mudando o diretório de trabalho</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/03/20/2017-03-20-porta-dos-fundos-decadencia/">
+                          
+                            <img src="http://curso-r.com/img/banners/porta.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/03/20/2017-03-20-porta-dos-fundos-decadencia/">O Porta dos Fundos está em decadência?</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            <h4>Contato</h4>
+
+            <a href="http://curso-r.com/contact" class="btn btn-small btn-template-main">Vá para a página de contato</a>
+            <hr>
+            
+            <div>
+              
+              <a href="https://github.com/curso-r">
+                <i class="fa fa-github" style="font-size:50px;"></i>
+              </a>
+              <a href="https://twitter.com/curso_r/">
+                <i class="fa fa-twitter" style="font-size:50px;"></i>
+              </a>
+      
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87272102-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ab4e79943a7e3c"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+MathJax.Hub.Config({
+  "HTML-CSS": {
+    preferredFont: "STIX"  }
+});
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<script src="http://curso-r.com/js/hpneo.gmaps.js"></script>
+<script src="http://curso-r.com/js/gmaps.init.js"></script>
+<script src="http://curso-r.com/js/front.js"></script>
+
+<script src="http://curso-r.com/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>

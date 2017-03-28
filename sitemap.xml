@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho/</loc>
     <lastmod>2017-03-25T23:26:00+03:00</lastmod>
   </url>
@@ -63,7 +68,7 @@
   
   <url>
     <loc>http://curso-r.com/author/athos/</loc>
-    <lastmod>2017-02-21T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -86,7 +91,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-03-25T23:26:00+03:00</lastmod>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -100,7 +105,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-03-25T23:26:00+03:00</lastmod>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -159,6 +164,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/lolapalooza/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/mapas/</loc>
     <lastmod>2017-03-01T23:26:00+03:00</lastmod>
     <priority>0</priority>
@@ -166,13 +177,13 @@
   
   <url>
     <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-03-25T23:26:00+03:00</lastmod>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-03-25T23:26:00+03:00</lastmod>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -203,6 +214,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/spotify/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/stan/</loc>
     <lastmod>2017-03-09T13:07:31+02:00</lastmod>
     <priority>0</priority>
@@ -215,7 +232,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/tidyverse/</loc>
-    <lastmod>2017-02-15T13:07:31+02:00</lastmod>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -228,6 +245,12 @@
   <url>
     <loc>http://curso-r.com/tags/tuber/</loc>
     <lastmod>2017-03-20T23:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/web-scraping/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
