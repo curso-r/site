@@ -1,22 +1,21 @@
 ---
 title: "Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse"
 date: "2017-03-27"
-tags: ["r", "spotify", "lolapalooza", "tidyverse"]
+tags: ["r", "spotify", "lolapalooza", "tidyverse", "web scraping"]
 categories: ["r"]
 author: ["Athos"]
 banner: "img/banners/lolla-spotify.png"
-draft: true
 ---
 
-Lollapalooza é um famoso festival que acontece em vários lugares do mundo e a edição deste ano em São Paulo contou com 47 bandas distribuídas em quatro palcos. Já o Spotify é um serviço de streaming de músicas que fornece uma API muito amigável para acessarmos dados da base de dados deles.
+No dia em que fui no Lollapalooza eu descobri o [Rspotify](https://github.com/tiagomendesdantas/Rspotify), um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.
 
-Daí então achei uma boa ideia brincar com isso para criar um exercício que usa
+A brincadeira aqui vai envolver
 
 - Web Scraping - para baixar e estruturar as tabelas de programação do Lolapalooza SP 2017
 - API do Spotify - por meio do pacote Rspotify
 - todos os pacotes do tidyverse
 
-A graça é associar a programação do Lolla com as informações de popularidade das bandas fornecidas pelo Spotify. Abaixo eu vou descrever como peguei os dados, listar as três hipóteses que criei e como gerei os gráficos para estudá-las.
+Lollapalooza deste ano em São Paulo contou com 47 bandas distribuídas em quatro palcos. A graça é associar a programação do Lolla com as informações de popularidade das bandas fornecidas pelo Spotify. Abaixo eu vou descrever como peguei os dados, listar as três hipóteses que criei e gerar alguns gráficos pra discutí-las.
 
 ## Base de dados
 
@@ -99,6 +98,8 @@ library(knitr)
 lolla2017_programacao %>% head(8) %>% kable
 ```
 
+É interessante reparar que para gerar essa simples tabelinha utilizamos os pacotes `httr`, `rvest`, `purrr`, `dplyr`, `tidyr`, `lubridate`, `stringi` e `forcats`. Só faltou o `ggplot2` para zerar o tidyverse.
+
 OBS: 89 fm não é uma banda, era só um espaço reservado para fins de publicidade da rádio.
 
 ### Extraindo a popularidade das bandas do Lollapalooza no Spotify
@@ -119,7 +120,7 @@ lolla2017_playlist <- getPlaylistSongs("lollabr", "1mHoPn6JpbtWtoBuvSXrVm", toke
   select(artist, id, name, popularity, followers)
 ```
 
-Algumas bandas ficaram de fora da playlist e por isso fiz uma pesquisa por nome do artista na própria API do Spotify para recuperar o respectivo id. A função que faz isso é a `searchArtist()` do `Rspotify`.
+Algumas bandas ficaram de fora da playlist e por isso fiz uma pesquisa por nome do artista na própria API do Spotify para recuperar o respectivo id. A função que faz isso é a `searchArtist()`.
 
 
 ```{r, eval=FALSE}
@@ -245,6 +246,6 @@ O palco Skol teve menor variação de popularidade, costumou contar sempre com a
 
 ## Considerações finais
 
-O tema tratado aqui não foi útil, mas passamos por quase todas as etapas existentes em um processo típico de análise de dados. Fizemos web scraping, usamos APIs, arrumamos os dados, estruturamos as informações, criamos variáveis e geramos gráficos. Só ficou de fora a parte de modelagem. E não à toa todos os pacotes do tidyverse foram úteis nesse trabalho.
+O tema tratado aqui não foi útil, concordo, mas passamos por quase todas as etapas existentes em um processo típico de análise de dados. Fizemos web scraping, usamos APIs, arrumamos os dados, estruturamos as informações, criamos variáveis e geramos gráficos. Só ficou de fora a parte de modelagem. E não à toa todos os pacotes do tidyverse foram úteis nesse trabalho.
 
-A lição pra casa é encontrar um tema mais útil e aplicar as etapas que aprendemos aqui.
+A lição pra casa é encontrar um dados interessantes na internet e aplicar as etapas que aprendemos aqui!
