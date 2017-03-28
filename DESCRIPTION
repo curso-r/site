@@ -53,5 +53,7 @@ Imports:
     Rspotify,
     stringi,
     lubridate,
-    glue
+    glue,
+    rvest,
+    tidyverse
 RoxygenNote: 6.0.1
