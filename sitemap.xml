@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/03/31/2017-03-31-ssl/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify/</loc>
     <lastmod>2017-03-27T00:00:00+00:00</lastmod>
   </url>
@@ -28,11 +33,6 @@
   
   <url>
     <loc>http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/</loc>
-    <lastmod>2017-03-11T13:07:31+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://curso-r.com/blog/2017/03/11/2017-03-14-ssl/</loc>
     <lastmod>2017-03-11T13:07:31+02:00</lastmod>
   </url>
   
@@ -96,7 +96,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -110,7 +110,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -136,7 +136,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/ggplot/</loc>
-    <lastmod>2017-03-19T13:07:31+02:00</lastmod>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -152,7 +152,7 @@
   
   <url>
     <loc>http://curso-r.com/author/julio/</loc>
-    <lastmod>2017-03-19T13:07:31+02:00</lastmod>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -182,13 +182,13 @@
   
   <url>
     <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -10,6 +10,51 @@
     <atom:link href="http://curso-r.com/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Requisições seguras</title>
+      <link>http://curso-r.com/blog/2017/03/31/2017-03-31-ssl/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/03/31/2017-03-31-ssl/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;No mundo do web scraping, muitas vezes precisamos acessar sites &lt;code&gt;HTTPS&lt;/code&gt;, a versão &lt;code&gt;S&lt;/code&gt;egura do &lt;code&gt;HTTP&lt;/code&gt; (Hyper Text Transfer Protocol). Esse protocolo é utilizado para encriptar as mensagens trocadas por usuário e servidor.&lt;/p&gt;
+&lt;p&gt;O pacote &lt;code&gt;httr&lt;/code&gt; utiliza um padrão &lt;code&gt;SSL&lt;/code&gt; (Secure Sockets Layer) para lidar com &lt;code&gt;HTTPS&lt;/code&gt;. O SSL nada mais é que uma forma de informar ao servidor que você é você, garantindo que suas mensagens só possam ser interpretadas por esse servidor, e vice-versa. O padrão do &lt;code&gt;httr&lt;/code&gt; funciona bem para a maioria dos sites, permitindo o acesso sem sofrimento.&lt;/p&gt;
+&lt;p&gt;No entanto, alguns sites dão o seguinte erro:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;)
+## Error in curl::curl_fetch_memory(url, handle = handle): Peer certificate cannot be authenticated with given CA certificates&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A solução para esse problema é bem simples. Basta mandar o &lt;code&gt;httr&lt;/code&gt; ignorar o protocolo &lt;code&gt;SSL&lt;/code&gt; usando a função &lt;code&gt;httr::config()&lt;/code&gt;. Ignorar o SSL costuma ser uma má ideia, pois faz com que as mensagens entre usuário e servidor voltem a ser em texto puro, como se fosse &lt;code&gt;HTTP&lt;/code&gt;. Mas no web scraping isso não é exatamente um problema.&lt;/p&gt;
+&lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
+## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
+##   Date: 2017-03-31 14:51
+##   Status: 200
+##   Content-Type: text/html;charset=ISO-8859-1
+##   Size: 37.3 kB
+## 
+## 
+## 
+## 
+## 
+## 
+## 
+## 
+## &amp;lt;!DOCTYPE html PUBLIC &amp;quot;-//W3C//DTD XHTML 1.0 Transitional//EN&amp;quot; &amp;quot;http://w...
+## 
+## ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;E… Feliz web scraping!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OBS:&lt;/strong&gt; Certa vez um amigo teve problema com SSL mesmo tentando a solução acima numa máquina com Ubuntu Resolvemos o problema reinstalando a biblioteca &lt;code&gt;libcurl4-openssl-dev&lt;/code&gt; via &lt;code&gt;apt-get&lt;/code&gt; e o pacote &lt;code&gt;curl&lt;/code&gt; do R. Assim:&lt;/p&gt;
+&lt;p&gt;No terminal:&lt;/p&gt;
+&lt;pre class=&#34;shell&#34;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install libcurl4-openssl-dev&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No R:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;curl&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Paralelização no R</title>
       <link>http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/</link>
       <pubDate>Sun, 19 Mar 2017 13:07:31 +0200</pubDate>
@@ -33,14 +78,14 @@
   dormir()
 })
 ##    user  system elapsed 
-##   0.000   0.000   1.001&lt;/code&gt;&lt;/pre&gt;
+##   0.000   0.000   1.002&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Nosso interesse é aplicar &lt;code&gt;dormir()&lt;/code&gt; em cada elemento do vetor &lt;code&gt;c(1, 2)&lt;/code&gt;. Esse algoritmo demora &lt;code&gt;1 + 2 = 3&lt;/code&gt; segundos.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;segundos &amp;lt;- c(1, 2)
 system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.008   0.000   3.009&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   3.008&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -54,13 +99,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.020   0.000   2.213&lt;/code&gt;&lt;/pre&gt;
+##   0.020   0.000   2.192&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.008   0.000   2.011&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   2.009&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;
@@ -281,51 +326,6 @@ tab
 &lt;img src=&#34;http://lsru.github.io/r_workshop/img/purrr_do.png&#34; alt=&#34;&#34; /&gt;
 
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Requisições seguras</title>
-      <link>http://curso-r.com/blog/2017/03/11/2017-03-14-ssl/</link>
-      <pubDate>Sat, 11 Mar 2017 13:07:31 +0200</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/03/11/2017-03-14-ssl/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;No mundo do web scraping, muitas vezes precisamos acessar sites &lt;code&gt;HTTPS&lt;/code&gt;, a versão &lt;code&gt;S&lt;/code&gt;egura do &lt;code&gt;HTTP&lt;/code&gt; (Hyper Text Transfer Protocol). Esse protocolo é utilizado para encriptar as mensagens trocadas por usuário e servidor.&lt;/p&gt;
-&lt;p&gt;O pacote &lt;code&gt;httr&lt;/code&gt; utiliza um padrão &lt;code&gt;SSL&lt;/code&gt; (Secure Sockets Layer) para lidar com &lt;code&gt;HTTPS&lt;/code&gt;. O SSL nada mais é que uma forma de informar ao servidor que você é você, garantindo que suas mensagens só possam ser interpretadas por esse servidor, e vice-versa. O padrão do &lt;code&gt;httr&lt;/code&gt; funciona bem para a maioria dos sites, permitindo o acesso sem sofrimento.&lt;/p&gt;
-&lt;p&gt;No entanto, alguns sites dão o seguinte erro:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;)
-## Error in curl::curl_fetch_memory(url, handle = handle): Peer certificate cannot be authenticated with given CA certificates&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A solução para esse problema é bem simples. Basta mandar o &lt;code&gt;httr&lt;/code&gt; ignorar o protocolo &lt;code&gt;SSL&lt;/code&gt; usando a função &lt;code&gt;httr::config()&lt;/code&gt;. Ignorar o SSL costuma ser uma má ideia, pois faz com que as mensagens entre usuário e servidor voltem a ser em texto puro, como se fosse &lt;code&gt;HTTP&lt;/code&gt;. Mas no web scraping isso não é exatamente um problema.&lt;/p&gt;
-&lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
-## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-03-31 14:44
-##   Status: 200
-##   Content-Type: text/html;charset=ISO-8859-1
-##   Size: 37.3 kB
-## 
-## 
-## 
-## 
-## 
-## 
-## 
-## 
-## &amp;lt;!DOCTYPE html PUBLIC &amp;quot;-//W3C//DTD XHTML 1.0 Transitional//EN&amp;quot; &amp;quot;http://w...
-## 
-## ...&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;E… Feliz web scraping!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;OBS:&lt;/strong&gt; Certa vez um amigo teve problema com SSL mesmo tentando a solução acima numa máquina com Ubuntu Resolvemos o problema reinstalando a biblioteca &lt;code&gt;libcurl4-openssl-dev&lt;/code&gt; via &lt;code&gt;apt-get&lt;/code&gt; e o pacote &lt;code&gt;curl&lt;/code&gt; do R. Assim:&lt;/p&gt;
-&lt;p&gt;No terminal:&lt;/p&gt;
-&lt;pre class=&#34;shell&#34;&gt;&lt;code&gt;sudo apt-get update
-sudo apt-get install libcurl4-openssl-dev&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;No R:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;curl&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

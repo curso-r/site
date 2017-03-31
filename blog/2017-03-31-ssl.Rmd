@@ -1,6 +1,6 @@
 ---
 title: "Requisições seguras"
-date: "2017-03-11T13:07:31+02:00"
+date: "2017-03-31"
 tags: ["ggplot", "r"]
 categories: ["r"]
 banner: "img/banners/ssl-error.png"
