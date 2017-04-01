@@ -10,6 +10,241 @@
     <atom:link href="http://curso-r.com/author/daniel/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Multas em São Paulo</title>
+      <link>http://curso-r.com/blog/2017/04/01/2017-04-01-multas-em-sp/</link>
+      <pubDate>Sat, 01 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/01/2017-04-01-multas-em-sp/</guid>
+      <description>&lt;p&gt;Há bastante tempo tenho vontade de fazer análises usando dados de multas de São Paulo. O problema é: estes dados estão disponíveis? Na teoria, sim. Os dados de multas, como quantidade de multas por tipo de infração, dia e horário, e outros são divulgados no &lt;a href=&#34;http://mobilidadesegura.prefeitura.sp.gov.br/QvAJAXZfc/opendoc.htm?document=Painel_Mobilidade_Segura.qvw&amp;amp;host=QVS%40c65v27i&amp;amp;anonymous=true&#34;&gt;portal da Mobilidade Segura&lt;/a&gt; da Prefeitura de São Paulo. Na prática, é um pouco diferente. Apesar do site fornecer uma opção de exportação, a tabela exportada não é completa e muitas informações ficam faltando. Dá bastante trabalho para exportar todas as informações.&lt;/p&gt;
+&lt;p&gt;Para não ter o trabalho de exportar tabela por tabela, fiz uma requisição para a prefeitura, por meio da Lei de Acesso à Informação, pedindo acesso direto ao banco de dados que fornece as informações para o Portal. A resposta foi a seguinte:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Prezado Senhor Daniel, Agradecemos o contato e informamos que o seu pedido foi indeferido com fundamento no art. 16, inciso III, do Decreto nº 53.623/2012, pois a base de dados contém informações pessoais que não podem ser disponibilizadas a terceiros. Os demais dados encontram-se inseridos no Painel Mobilidade Segura para consulta pelos interessados com a possibilidade de exportar arquivos. Informamos ainda que na época da sua solicitação, os painéis se encontravam atualizados, visto que a atualização mensal ocorre após os 70 dias da data da infração&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A resposta ao meu ver é totalmente contraditória: ao mesmo tempo que eu não posso receber os dados porque eles são confidenciais, eu posso obtê-los pelo site, que “oferece possibilidade de exportação de arquivos”. (???)&lt;/p&gt;
+&lt;p&gt;Antes mesmo de pedir acesso ao banco de dados tinha pensado em desenvolver um webscrapper para fazer o download automático das planilhas, mas a tecnologia com a qual o portal foi desenvolvido (QlikView) dificulta muito o desenvolviento.&lt;/p&gt;
+&lt;p&gt;Sobrou fazer o download manual mesmo. Até agora fiz o download de todos as planilhas de 2014 a 2016 contendo infrações capturadas tanto eletrônica quanto manualmente de carros (ainda faltam ônibus, utilitários, etc.) por hora do dia. Isso quer dizer que já temos planilhas suficientes para criar uma tabela:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tipo de veículo (sempre seria carro)&lt;/li&gt;
+&lt;li&gt;data (2014 a 2016)&lt;/li&gt;
+&lt;li&gt;hora do dia&lt;/li&gt;
+&lt;li&gt;eletronica/manual&lt;/li&gt;
+&lt;li&gt;motivo da multa&lt;/li&gt;
+&lt;li&gt;localizacao da multa (quando for um radar)&lt;/li&gt;
+&lt;li&gt;quantidade de multas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Disponibilizei esses dados &lt;a href=&#34;https://github.com/dfalbel/spmultas&#34;&gt;neste repositório&lt;/a&gt; do Github.&lt;/p&gt;
+&lt;p&gt;Agora com as análises a seguir, espero criar curiosidade e interesse para que mais pessoas possam ajudar no download completo dos dados. Na página inicial do repositório, adicionei, um mini-tutorial de como você pode ajudar fazendo os downloads.&lt;/p&gt;
+&lt;p&gt;Vamos às análises.&lt;/p&gt;
+&lt;div id=&#34;obter-os-dados&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Obter os dados&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;download.file(&amp;quot;https://github.com/dfalbel/spmultas/raw/master/data/carros_eletronicas.rda&amp;quot;, &amp;quot;carros_eletronicas.rda&amp;quot;)
+load(&amp;quot;carros_eletronicas.rda&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A partir de agora, você possui carregado um &lt;code&gt;data.frame&lt;/code&gt; chamado &lt;code&gt;carros_eletronicas&lt;/code&gt; que possui as informações das multas para carros de forma eletrônica.&lt;/p&gt;
+&lt;p&gt;Em primeiro lugar, vamos analisar a quantidade de multas por dia em São Paulo desde 2014.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualizar-a-serie&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Visualizar a série&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;carros_eletronicas %&amp;gt;%
+  group_by(data) %&amp;gt;%
+  summarise(qtd = sum(qtd)) %&amp;gt;%
+  ggplot(aes(data, qtd)) +
+  geom_line()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Vemos nesse gráfico que o número de multas (por radar) era sempre por volta de 10.000 durante 2014, em 2015 foi aumentando bastante durante o ano e em 2016 se estabilizou. Vamos ver agora, por tipo de enquadramento, isto é, por motivo da multa.&lt;/p&gt;
+&lt;p&gt;Existem 11 tipos de enquadramentos eletrônicos. Para a visualização ficar mais fácil, vamos primeiro agrupar em grandes temas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Avançar o sinal vermelho&lt;/li&gt;
+&lt;li&gt;Executar conversão proibida&lt;/li&gt;
+&lt;li&gt;Parar sobre faixa de pedestres&lt;/li&gt;
+&lt;li&gt;Rodízio&lt;/li&gt;
+&lt;li&gt;Velocidade&lt;/li&gt;
+&lt;li&gt;Transitar em faixa de ônibus ou exclusiva p/ determinado veículo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O agrupamento final ficou assim:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;depara &amp;lt;- carros_eletronicas %&amp;gt;%
+  group_by(enquadramento) %&amp;gt;%
+  summarise(qtd = sum(qtd)) %&amp;gt;% 
+  arrange(qtd) %&amp;gt;%
+  select(-qtd)
+depara$agrup_enquadramento &amp;lt;- c(&amp;quot;Conversão proibida&amp;quot;, &amp;quot;Velocidade&amp;quot;, &amp;quot;Faixa de Pedestres&amp;quot;, 
+                                &amp;quot;Faixa de ônibus&amp;quot;, &amp;quot;Sinal vermelho&amp;quot;, &amp;quot;Faixa de ônibus&amp;quot;,
+                                &amp;quot;Conversão proibida&amp;quot;, &amp;quot;Faixa de ônibus&amp;quot;, &amp;quot;Velocidade&amp;quot;,
+                                &amp;quot;Rodízio&amp;quot;, &amp;quot;Velocidade&amp;quot;
+                                )
+
+depara %&amp;gt;% knitr::kable()&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;enquadramento&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;agrup_enquadramento&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Executar Operacao De Conversao A Esquerda Em Local Proibido Pela Sinalizacao&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Conversão proibida&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Transitar Em Velocidade Superior A Maxima Permitida Em Mais De 50%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Velocidade&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Parar Sobre Faixa De Pedestres Na Mudanca De Sinal Luminoso (Fisc Eletronica)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Faixa de Pedestres&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Transitar Na Faixa/Pista Da Esquerda Regul Circulacao Exclusiva Determ Veiculo&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Faixa de ônibus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Avancar O Sinal Vermelho Do Semaforo - Fiscalizacao Eletronica&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Sinal vermelho&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Transitar Na Faixa/Pista Da Direita Regul Circulacao Exclusiva Determ Veiculo&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Faixa de ônibus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Executar Operacao De Conversao A Direita Em Local Proibido Pela Sinalizacao&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Conversão proibida&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Transitar Na Faixa Ou Via Exclusiva Regulam P/Transp Publ Coletivo Passag&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Faixa de ônibus&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Transitar Em Velocidade Superior A Maxima Permitida Em Mais De 20% Ate 50%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Velocidade&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Transitar Em Local/Horario Nao Permitido Pela Regulamentacao - Rodizio&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rodízio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Transitar Em Velocidade Superior A Maxima Permitida Em Ate 20%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Velocidade&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;carros_eletronicas %&amp;gt;%
+  left_join(depara, by = &amp;quot;enquadramento&amp;quot;) %&amp;gt;%
+  group_by(data, agrup_enquadramento) %&amp;gt;%
+  summarise(qtd = sum(qtd)) %&amp;gt;%
+  ggplot(aes(data, qtd, color = agrup_enquadramento)) +
+  geom_line()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;No gráfico, vemos que em 2015, o tipo de multa que mais aumentou em quantidade foi velocidade e rodízio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;curiosidades&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Curiosidades&lt;/h2&gt;
+&lt;p&gt;Anteriormente vimos como se comportou o número de multas de maneira geral na cidade. Vamos agora matar algumas curiosidades.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Quais são os horários com mais multas em SP?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;carros_eletronicas %&amp;gt;% 
+  group_by(hora) %&amp;gt;%
+  summarise(qtd = sum(qtd)) %&amp;gt;%
+  ggplot(aes(x = hora, y = qtd)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Notamos que o maior número de multas ocorre justamente na hora do rush. Isto é, entre 7 e 10 da manhã e 17h e 19h. Isso até faz sentido, mas nessas horas o trânsito da cidade está todo parado. Será que a distribuição fica diferente por tipo de multa? Principalmente as de velocidade.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;carros_eletronicas %&amp;gt;% 
+  left_join(depara, by = &amp;quot;enquadramento&amp;quot;) %&amp;gt;%
+  group_by(hora, agrup_enquadramento) %&amp;gt;%
+  summarise(qtd = sum(qtd)) %&amp;gt;%
+  ggplot(aes(x = hora, y = qtd, fill = agrup_enquadramento)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Veja que interessante! O grande responsável pelo pico da hora do rush é o rodízio. (Essa é justamente a hora em que ele está valendo.) As multas de velocidade diminuem um pouco durante o trânsito e acontecem mais durante o dia e não durante a noite como poderíamos imaginar. Vemos também que as multas de farol vermelho acontecem mais durante a madrugada.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Qual é o dia da semana com mais multas?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;carros_eletronicas %&amp;gt;% 
+  left_join(depara, by = &amp;quot;enquadramento&amp;quot;) %&amp;gt;%
+  group_by(dia_da_semana = wday(data), agrup_enquadramento) %&amp;gt;%
+  summarise(qtd = sum(qtd)) %&amp;gt;%
+  ggplot(aes(x = dia_da_semana, y = qtd, fill = agrup_enquadramento)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;O dia da semana com mais multas é quinta feira. Nos finais de semana, aumenta muito o número de multas por excesso de velocidade (claro, as ruas estão mais vazias).&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Quais são os radares que mais multam em SP? E porque?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;top10_locais &amp;lt;- carros_eletronicas %&amp;gt;%
+  group_by(local) %&amp;gt;%
+  summarise(n = sum(qtd)) %&amp;gt;%
+  arrange(desc(n)) %&amp;gt;%
+  slice(1:10)
+knitr::kable(top10_locais)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;local&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Avenida Assis Chateaubriand X Acesso Pte Das Bandeiras, A.Sen/C. Bran&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;321629&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Avenida Assis Chateaubriand (A. Senna/C. Branco), Alca Da Ponte Das Bandeiras&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;318745&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Av Dos Bandeirantes(Marginal/Imigrantes) A Mais 34 Metros Da Av Washington Luis&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;291277&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Av Das Nacoes Unidas-Pista Central-(Interlagos/C.Branco) A Menos 7,3m Do Km 5,5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;162318&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Av Morvan D De Figueiredo (As/Cb), A Mais 3m R Amazonas Da Silva-Fx Excl Onibus&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;153131&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Rua Hungria (Interlagos/Castelo Branco) A Menos 20 Metros Da Avenida Reboucas&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;139048&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Av Morvan Dias De Figueiredo (As/Cb),A Mais 3m R Amazonas Da Silva&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;137064&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Rodovia Presidente Dutra (As/Cb), A Menos 75m Da Pte Pr J Quadros&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;134454&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Av Aricanduva (Bairro/Centro), A Mais15m Da Av Matapi - Fx Exclusiva De Onibus&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;127690&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Av Embaixador Macedo Soares, Sob Ponte Nova Fepasa, Sentido C. Branco/A. Senna&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;124927&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Agora vamos ver os motivos, em cada um desses lugares.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;top10_locais %&amp;gt;%
+  left_join(carros_eletronicas, by = &amp;quot;local&amp;quot;) %&amp;gt;%
+  left_join(depara, by = &amp;quot;enquadramento&amp;quot;) %&amp;gt;%
+  mutate(local = stringr::str_wrap(local, width = 20) %&amp;gt;% 
+           forcats::fct_reorder(-n)) %&amp;gt;%
+  group_by(local, agrup_enquadramento) %&amp;gt;%
+  summarise(qtd = sum(qtd)) %&amp;gt;%
+  ggplot(aes(x = local, y = qtd, fill = agrup_enquadramento)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;1000px&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Por incrível que pareça, nos dois radares com mais multas, o motivo da multa é conversão proibida. A foto de onde fica esse radar saiu em uma &lt;a href=&#34;http://www1.folha.uol.com.br/cotidiano/2015/07/1660793-radar-campeao-aplica-375-mil-multas-em-um-ano-na-ponte-das-bandeiras.shtml&#34;&gt;notícia sobre o mesmo tema&lt;/a&gt; na Folha de São Paulo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>rstudio::conf: Sessão Final</title>
       <link>http://curso-r.com/blog/2017/03/16/2017-02-18-all-things-r-and-rstudio/</link>
       <pubDate>Thu, 16 Mar 2017 13:07:31 +0200</pubDate>
