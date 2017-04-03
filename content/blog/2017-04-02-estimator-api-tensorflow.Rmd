@@ -54,7 +54,7 @@ Ou seja, a função recebe os argumentos `features`, `targets`, `mode` e `params
 configura o modelo, usando as operações do TensorFlow, define a função de perda, 
 define a operação de treino e gera as predições.
 
-```{r}
+```{r, eval = FALSE}
 library(tensorflow)
 model_fn_lib <- tf$contrib$learn$python$learn$estimators$model_fn
 model_fn <- function(features = NULL, targets = NULL, mode = NULL, params = NULL){
@@ -89,13 +89,14 @@ model_fn <- function(features = NULL, targets = NULL, mode = NULL, params = NULL
 tf_lm <- tf$contrib$learn$Estimator(model_fn = model_fn, params = dict(learning_rate = 0.5))
 ```
 
-```{r}
+```{r, eval = FALSE}
 x <- matrix(model.matrix(~ disp + hp + drat, data = mtcars), nrow = 32)
 y <- mtcars$mpg
 x <- tf$constant(x)
 y <- tf$constant(y)
 
 tf_lm$fit(x = x, y = y, steps = 100)
+tf_lm$
 ```
 
 
