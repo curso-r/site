@@ -1,11 +1,10 @@
 ---
 title: "Requisições seguras"
-date: "2017-03-11T13:07:31+02:00"
+date: "2017-03-31"
 tags: ["ggplot", "r"]
 categories: ["r"]
-banner: "img/banners/"
+banner: "img/banners/ssl-error.png"
 author: ["Julio"]
-draft: true
 summary: "No mundo do web scraping, muitas vezes precisamos acessar sites HTTPS, a versão segura do HTTP (Hyper Text Transfer Protocol). Esse protocolo é utilizado para encriptar as mensagens trocadas por usuário e servidor. O pacote httr utiliza um padrão SSL (Secure Sockets Layer) para lidar com HTTPS..."
 ---
 

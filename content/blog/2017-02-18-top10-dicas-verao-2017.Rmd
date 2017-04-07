@@ -34,7 +34,23 @@ Se restou alguma dúvida se o R + Shiny é uma grande alternativa às ferramenta
 
 A função `gather()` do pacote tidyr é frequentemente utilizada para deixar data.frames prontos para serem "plotados". Veja um exemplo:
 
-XXXX
+**Correlação entre a variável `mpg` versus todas as outras do data.frame `mtcars`:**
+
+```{r, warning=FALSE, message=FALSE, fig.width=9}
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+
+mtcars_para_grafico <- mtcars %>%
+  gather(variavel, valor, -mpg)
+
+ggplot(mtcars_para_grafico, aes(x = valor, y = mpg)) +
+  geom_point() +
+  geom_smooth(se = FALSE) +
+  facet_wrap(~variavel, scales = "free_x")
+```
+
+Frequentemente o que se quer é construir um gráfico do mesmo tipo para diferentes colunas, por isso o `gather()` é útil nesses casos. E o `facet_wrap()` do ggplot2 faz o serviço de construir um gráfico para cada coluna.
 
 ### 4. Web Scraping é uma habilidade visada no mercado
 
@@ -56,7 +72,59 @@ Os profissinais capazes de encarar esses desafios ainda são escaços, então fi
 
 ### 7. Avalie muito bem o problema antes de decidir que se trata de um problema de BIG DATA
 
+Big Data é um termo que ainda procura por uma definição oficial, mas já existe uma classe de obstáculos que são devidos a grandes volumes de dados. Então a pergunta primordial aqui é: como saber se seu problema é de Big Data?
 
+> "Big data is extremely overhyped and not terribly well defined. Many people think they have big data, when they actually don't."
+> - Hadley Wickham
+
+Como Hadley Wickham aponta, muitas pessoas acham que possuem um problema de big data quando na verdade não possuem. Ele ainda divide os problemas em três classes:
+
+1) 
+
+
+
+# Pontos de transição
+
+* From in-memory to disk. If your data fits in memory, it's small data. 
+    - And these days you can get 1 TB of ram, so even small data is big! 
+    - Moving from in-memory to on-disk is an important transition because access speeds are so different.
+    - You can do quite naive computations on in-memory data and it’ll be fast enough. 
+    - You need to plan (and index) much more with on-disk data
+
+# Pontos de transição
+
+* From one computer to many computers. 
+    - The next important threshold occurs when you data no longer fits on one disk on one computer.
+    - Moving to a distributed environment makes computation much more challenging because you don’t have all the data needed for a computation in one place. 
+    - Designing distributed algorithms is much harder, and you’re fundamentally limited by the way the data is split up between computers.
+
+# Pontos de transição
+
+* I personally believe it's impossible for one system to span from in-memory to on-disk to distributed. 
+
+    - R is a fantastic environment for the rapid exploration of in-memory data, but there’s no elegant way to scale it to much larger datasets. 
+    - Hadoop/spark works well when you have thousands of computers, but is incredible slow on just one machine. 
+    - Fortunately, I don't think one system needs to solve all big data problems.
+
+# Classes de problemas
+
+1. Big data problems that are actually small data problems, once you have the right subset/sample/summary. 
+    - Inventing numbers on the spot, I’d say 90% of big data problems fall into this category. 
+    - To solve this problem you need a distributed database (like hive, impala, teradata etc), and a tool like `dplyr` to let you rapidly iterate to the right small dataset (which still might be gigabytes in size).
+
+# Classes de problemas
+
+2. Big data problems that are actually lots and lots of small data problems, 
+    - e.g. you need to fit one model per individual for thousands of individuals. 
+    - I’d say ~9% of big data problems fall into this category. 
+    - This sort of problem is known as a trivially parallelisable problem and you need some way to distribute computation over multiple machines. 
+    - The `foreach` package is a nice solution to this problem because it abstracts away the backend, allowing you to focus on the computation, not the details of distributing it.
+
+# Classes de problemas
+
+3. Finally, there are irretrievably big problems where you do need all the data, perhaps because you fitting a complex model. 
+    - An example of this type of problem is recommender systems which really do benefit from lots of data because they need to recognise interactions that occur only rarely. 
+    - These problems tend to be solved by dedicated systems specifically designed to solve a particular problem.
 
 ### 8. Saber pedir ajuda é o tópico mais importante!
 
