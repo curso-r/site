@@ -1,21 +1,29 @@
 ---
 title: "Top 10 dicas do Curso R de verão 2017"
-date: "2017-02-23"
+date: "2017-04-08"
 tags: ["r", "top10"]
 categories: ["r"]
 author: ["Athos"]
 banner: "img/banners/lampada-curso-r.png"
-draft: true
 ---
 
 Em fevereiro desse ano ministramos o Curso de R de Verão 2017, parte do programa dos Cursos de Verão do IME-USP.
 Abaixo segue um compilado das 10 melhores dicas dadas durante este curso.
+
+
+
+
 
 ### 1. Conheça e domine a filosofia por trás do Tidyverse
 
 O conceito "tidy" deu o oriente do curso de verão e não foi à toa: o *tidyverse*, carinhosamente chamado de "universo arrumadinho", está intimamente associado ao dia-a-dia de um analista de dados e sua implementação em R é tida como uma pequena revolução para os R-eiros.
 
 A postagem [Manifesto Tidy](http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/) resume bem os motivos pelos quais valem a pena aprender os princípios e os pacotes do *tidyverse*.
+
+
+
+
+
 
 ### 2. R + Shiny é uma grande alternativa às ferramentas de BI e Dashboards
 
@@ -26,9 +34,18 @@ Se você ainda tem alguma dúvida sobre o poder do R em montar dashboards intera
 - [College Map](https://rich.shinyapps.io/college_map/)
 - [CRAN Dash](https://gallery.shinyapps.io/087-crandash/)
 
-Se você navegou por esses exemplos pôde perceber que é possível fazer de gráficos de barras a mapas a lá Google Maps, ou seja, o potencial é imenso e tudo isso está a disposição de um mero mortal (e não mais apenas de um desenvolvedor de software especialista em web). E quando digo que o potencial é imenso, eu digo que é imenso MESMO. O shiny coloca a disposição ao mesmo tempo inúmeros pacotes JavaScript de visualização e o R inteiro, interagindo entre si e aceitando receber informação de usuários em tempo real. Ah, e todos esses sites foram feitos com R e apenas R, nenhum outro conhecimento foi pré-requisito.
+Esses exemplos mostram que é possível fazer desde simples gráficos de barras até sofisticados mapas a lá Google Maps. Esse potencial é imenso e tudo isso está a disposição de um mero mortal (e não mais apenas de um desenvolvedor de software especialista em web). 
+
+E quando digo que o potencial é imenso, pode acreditar. O shiny coloca a disposição ao mesmo tempo inúmeros pacotes JavaScript de visualização e o R inteiro, interagindo entre si e aceitando receber informação de usuários em tempo real. 
+
+PS: todos esses sites de exemplo foram feitos com R e apenas R, nenhum outro conhecimento foi pré-requisito.
 
 Se restou alguma dúvida se o R + Shiny é uma grande alternativa às ferramentas de BI e Dashboards, por favor jogue nos comentários para discutirmos!
+
+
+
+
+
 
 ### 3. ggplot2 e tidyr tem tudo a ver
 
@@ -45,16 +62,21 @@ mtcars_para_grafico <- mtcars %>%
   gather(variavel, valor, -mpg)
 
 ggplot(mtcars_para_grafico, aes(x = valor, y = mpg)) +
-  geom_point() +
+  geom_point(aes(colour = variavel), show.legend = FALSE) +
   geom_smooth(se = FALSE) +
   facet_wrap(~variavel, scales = "free_x")
 ```
 
 Frequentemente o que se quer é construir um gráfico do mesmo tipo para diferentes colunas, por isso o `gather()` é útil nesses casos. E o `facet_wrap()` do ggplot2 faz o serviço de construir um gráfico para cada coluna.
 
+
+
+
+
+
 ### 4. Web Scraping é uma habilidade visada no mercado
 
-A internet é uma fonta riquíssima de dados e são as técnicas de *web scrapping* que permite ao analista explorar seu potencial por inteiro. Em resumo, *Web scrapping* é o ato de "raspar" dados disponíveis em sites da internet. 
+A internet é uma fonta riquíssima de dados e são as técnicas de *web scraping* que permite ao analista explorar seu potencial por inteiro. Em resumo, *Web scraping* é o ato de "raspar" dados disponíveis em sites da internet. 
 
 Os dados são o principal ingrediente para um bom modelo estatístico e faz parte da responsabilidade do cientista de dados utilizar o máximo de informação disponível. 
 
@@ -62,71 +84,46 @@ Cada vez mais as empresas estão reconhecendo o valor que os dados disponíveis 
 
 Os profissinais capazes de encarar esses desafios ainda são escaços, então fica a dica! [Esse webinar](https://www.youtube.com/watch?v=o2fFUw8aSHE) dado pelo nosso professor Julio Trecenti é um bom ponto de partida para aprender como fazer *web scraping* no R.
 
-### 5. É legal usar vetores booleanos para filtrar data.frames e outros vetores
 
 
 
-### 6. Tudo no R é objeto
 
 
 
-### 7. Avalie muito bem o problema antes de decidir que se trata de um problema de BIG DATA
+### 5. Avalie muito bem o problema antes de decidir que se trata de um problema de BIG DATA
 
 Big Data é um termo que ainda procura por uma definição oficial, mas já existe uma classe de obstáculos que são devidos a grandes volumes de dados. Então a pergunta primordial aqui é: como saber se seu problema é de Big Data?
 
 > "Big data is extremely overhyped and not terribly well defined. Many people think they have big data, when they actually don't."
 > - Hadley Wickham
 
-Como Hadley Wickham aponta, muitas pessoas acham que possuem um problema de big data quando na verdade não possuem. Ele ainda divide os problemas em três classes:
+Como Hadley Wickham aponta, muitas pessoas acham que possuem um problema de big data quando na verdade não possuem. Ele resume o problema em três classes distintas:
 
-1) 
+1. Problema de Big Data que na verdade é um problema comum se for feita uma amostragem/sumarização apropriada. 
+    - Ferramentas apropriadas: hive, impala, terada, dplyr.
+    - 90% dos problemas.
+    
+2. Problema de Big Data que na verdade são vários problemas comuns. Exemplo: ajustar um modelo de regressão por indivíduo, para milhares ou milhões de indivíduos.
+    - Paralelização é o que será necessário.
+    - Ferramentas: foreach, doParallel, doMC, Spark, Hadoop.
+    - 9% dos problemas.
+    
+3. Problemas de Big Data que realmente dependem de todos os dados juntos no mesmo lugar.
+    - Exemplo: sistemas de recomendação em que se faz necessário a procura de relações bem raras e específicas entre transações.
+    - Ferramentas: geralmente sistemas dedicados e próprios para o problema.
+    - 1% dos problemas.
+
+E quanto ao tamanho do dado propriamente dito, para nós usuários de R a regra de bolso é simples:
+
+- Se seus dados cabem na memória, então é "small data".
 
 
 
-# Pontos de transição
 
-* From in-memory to disk. If your data fits in memory, it's small data. 
-    - And these days you can get 1 TB of ram, so even small data is big! 
-    - Moving from in-memory to on-disk is an important transition because access speeds are so different.
-    - You can do quite naive computations on in-memory data and it’ll be fast enough. 
-    - You need to plan (and index) much more with on-disk data
 
-# Pontos de transição
 
-* From one computer to many computers. 
-    - The next important threshold occurs when you data no longer fits on one disk on one computer.
-    - Moving to a distributed environment makes computation much more challenging because you don’t have all the data needed for a computation in one place. 
-    - Designing distributed algorithms is much harder, and you’re fundamentally limited by the way the data is split up between computers.
 
-# Pontos de transição
-
-* I personally believe it's impossible for one system to span from in-memory to on-disk to distributed. 
-
-    - R is a fantastic environment for the rapid exploration of in-memory data, but there’s no elegant way to scale it to much larger datasets. 
-    - Hadoop/spark works well when you have thousands of computers, but is incredible slow on just one machine. 
-    - Fortunately, I don't think one system needs to solve all big data problems.
-
-# Classes de problemas
-
-1. Big data problems that are actually small data problems, once you have the right subset/sample/summary. 
-    - Inventing numbers on the spot, I’d say 90% of big data problems fall into this category. 
-    - To solve this problem you need a distributed database (like hive, impala, teradata etc), and a tool like `dplyr` to let you rapidly iterate to the right small dataset (which still might be gigabytes in size).
-
-# Classes de problemas
-
-2. Big data problems that are actually lots and lots of small data problems, 
-    - e.g. you need to fit one model per individual for thousands of individuals. 
-    - I’d say ~9% of big data problems fall into this category. 
-    - This sort of problem is known as a trivially parallelisable problem and you need some way to distribute computation over multiple machines. 
-    - The `foreach` package is a nice solution to this problem because it abstracts away the backend, allowing you to focus on the computation, not the details of distributing it.
-
-# Classes de problemas
-
-3. Finally, there are irretrievably big problems where you do need all the data, perhaps because you fitting a complex model. 
-    - An example of this type of problem is recommender systems which really do benefit from lots of data because they need to recognise interactions that occur only rarely. 
-    - These problems tend to be solved by dedicated systems specifically designed to solve a particular problem.
-
-### 8. Saber pedir ajuda é o tópico mais importante!
+### 6. Saber pedir ajuda é o tópico mais importante
 
 Por mais completo que seja um curso de R, nunca alguém chegará no ponto em que não restará dúvidas sobre como fazer alguma coisa no R, até porque há novidades a cada minuto no mundo do R. Por isso aprender a pedir ajuda é essencial. No curso foram passados os melhores jeitos de se obter ajuda:
 
@@ -135,13 +132,31 @@ Por mais completo que seja um curso de R, nunca alguém chegará no ponto em que
 - Stack Overflow
 - Coleginha
 
-Usem e abusem do fato de a comunidade R ser gigante e ativa!
-
-### 9. RMarkdown e Github vão bem no dia a dia do R-eiro
+Usem e abusem do fato de a comunidade R ser gigante e ativa.
 
 
 
-### 10. Aprenda Regex!
+
+
+
+### 7. RMarkdown e Github vão bem no dia a dia do R-eiro
+
+A palavra de ordem aqui é **Organização**. RMarkdown ajuda a organizar melhor as ideias e conteúdos e o Github ajuda a organizar melhor os códigos.
+
+Referência para você aprender as ferramentas:
+
+[**RMarkdown**](http://rmarkdown.rstudio.com/), de autoria do nosso queridíssimo RStudio Inc., transforma rascunho de códigos em documentos apresentáveis. Como já dito antes, todas as postagens deste blog são feitas em RMarkdown.
+
+[**Github**](http://github.com/) oferece uma inteligência sobre o versionamento dos códigos de um projeto. Isso permite que diversos colaboradores não se percam nas milhares de contribuições. Não existirão mais os `arquivos_final_final_v5_com_novas_analises_definitivo3.docx` e você ganhará no controle de quem, quando e o que foi alterado em cada uma das versões. 
+
+Hoje em dia ele é amplamente utilizado por empresas de tecnologia e está sendo cada vez mais comum em equipes de empresas mais tradicionais.
+
+
+
+
+
+
+### 8. Aprenda Regex
 
 **Reg**ular **Ex**pressions servem para descrever padrões de textos. Por exemplo, para pedir para o R encontrar "todas as palavras que comecem com a letra A" em *regex* escrevemos `str_detect(palavras, "^A")`. O pequeno pedaço de símbolos `"^A"` é a maneira de traduzir em regex o padrão "palavras que começam em A".
 
@@ -149,7 +164,12 @@ Para quem quiser se aprofundar no assunto, consulte a documentação do regex no
 
 Os pacotes `stringi` e `stringr` tiram proveito do *regex* e valem a pena serem explorados! Data mining passará a ser mamão com açúcar.
 
-### 11. Dê preferência aos funcionais em vez de fors
+
+
+
+
+
+### 9. Dê preferência aos funcionais em vez de for's
 
 Na postagem [Top 10 pacotes para Data Science](http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/) foi destacado o pacote `purrr` e seu impacto ao fim do "for" nos códigos de R.
 
@@ -174,7 +194,18 @@ Do exemplo acima notamos que:
 
 Quanto mais aptidão em funcionais um usuário tiver, mais ágil e produtivo ele será. Então aprendam funcionais!
 
-### 12. Coloque seus códigos em funções
+
+
+
+
+### 10. Coloque seus códigos em funções
+
+Colocar pedaços de códigos, longos ou curtos, beneficia o desenvolvimento, a leitura e a manutenção do código. No R, fazer função é simples e sem burocracia, então não há muito argumento para não fazer!
+Algumas dicas para identificar quando você precisa criar uma função:
+
+- Excesso de CTRL+C/CTRL+V da mesma coisa no código, "só mudando umas coisinhas". Essas "coisinhas" que mudam seriam os argumentos da sua função.
+- Projetos distintos reutilizando partes de código de um projeto mais antigo.
+- Um bloco de código faz uma tarefa muito bem definida e que daria para colocar um nome para ela. Por exemplo, suponha que `x <- c(1:10)`. Seria melhor de entender `x %>% eh_par` do que `x %% 2 == 0`.
 
 
 
