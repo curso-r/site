@@ -55,5 +55,6 @@ Imports:
     lubridate,
     glue,
     rvest,
-    tidyverse
+    tidyverse,
+    microbenchmark
 RoxygenNote: 6.0.1
