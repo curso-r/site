@@ -120,13 +120,20 @@ ggplot(mtcars_para_grafico, aes(x = valor, y = mpg)) +
 &lt;h3&gt;9. Dê preferência aos funcionais em vez de for’s&lt;/h3&gt;
 &lt;p&gt;Na postagem &lt;a href=&#34;http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/&#34;&gt;Top 10 pacotes para Data Science&lt;/a&gt; foi destacado o pacote &lt;code&gt;purrr&lt;/code&gt; e seu impacto ao fim do “for” nos códigos de R.&lt;/p&gt;
 &lt;p&gt;“Usar funcionais” significa usar funções que aceitam funções como argumentos. Ambos os exemplos abaixo geram uma tabela para cada coluna do data.frame &lt;code&gt;iris&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;versão sem funcionais&lt;/strong&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tabelas1 &amp;lt;- list()
 nomes_iris &amp;lt;- names(iris)
 for(i in 1:length(iris)){
   tabelas1[[nomes_iris[i]]] &amp;lt;- table(iris[,i])
 }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;versão com funcionais&lt;/strong&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tabelas2 &amp;lt;- purrr::map(iris, table)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Do exemplo acima notamos que: - há um grande ganho de legibilidade do código usando o funcional &lt;code&gt;map()&lt;/code&gt; em vez de um &lt;code&gt;for&lt;/code&gt;. - não foi preciso nenhum objeto auxiliar como &lt;code&gt;tabelas1 &amp;lt;- list()&lt;/code&gt; e &lt;code&gt;nomes_iris&lt;/code&gt; no segundo exemplo. - não há resquícios de índices como o &lt;code&gt;i&lt;/code&gt; para percorrer vetores.&lt;/p&gt;
+&lt;p&gt;Do exemplo acima notamos que:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;há um grande ganho de legibilidade do código usando o funcional &lt;code&gt;map()&lt;/code&gt; em vez de um &lt;code&gt;for&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;não foi preciso nenhum objeto auxiliar como &lt;code&gt;tabelas1 &amp;lt;- list()&lt;/code&gt; e &lt;code&gt;nomes_iris&lt;/code&gt; no segundo exemplo.&lt;/li&gt;
+&lt;li&gt;não há resquícios de índices como o &lt;code&gt;i&lt;/code&gt; para percorrer vetores.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Quanto mais aptidão em funcionais um usuário tiver, mais ágil e produtivo ele será. Então aprendam funcionais!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;coloque-seus-codigos-em-funcoes&#34; class=&#34;section level3&#34;&gt;

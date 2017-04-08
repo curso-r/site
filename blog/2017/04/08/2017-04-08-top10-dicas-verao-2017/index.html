@@ -277,13 +277,20 @@ ggplot(mtcars_para_grafico, aes(x = valor, y = mpg)) +
 <h3>9. Dê preferência aos funcionais em vez de for’s</h3>
 <p>Na postagem <a href="http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/">Top 10 pacotes para Data Science</a> foi destacado o pacote <code>purrr</code> e seu impacto ao fim do “for” nos códigos de R.</p>
 <p>“Usar funcionais” significa usar funções que aceitam funções como argumentos. Ambos os exemplos abaixo geram uma tabela para cada coluna do data.frame <code>iris</code>:</p>
+<p><strong>versão sem funcionais</strong></p>
 <pre class="r"><code>tabelas1 &lt;- list()
 nomes_iris &lt;- names(iris)
 for(i in 1:length(iris)){
   tabelas1[[nomes_iris[i]]] &lt;- table(iris[,i])
 }</code></pre>
+<p><strong>versão com funcionais</strong></p>
 <pre class="r"><code>tabelas2 &lt;- purrr::map(iris, table)</code></pre>
-<p>Do exemplo acima notamos que: - há um grande ganho de legibilidade do código usando o funcional <code>map()</code> em vez de um <code>for</code>. - não foi preciso nenhum objeto auxiliar como <code>tabelas1 &lt;- list()</code> e <code>nomes_iris</code> no segundo exemplo. - não há resquícios de índices como o <code>i</code> para percorrer vetores.</p>
+<p>Do exemplo acima notamos que:</p>
+<ul>
+<li>há um grande ganho de legibilidade do código usando o funcional <code>map()</code> em vez de um <code>for</code>.</li>
+<li>não foi preciso nenhum objeto auxiliar como <code>tabelas1 &lt;- list()</code> e <code>nomes_iris</code> no segundo exemplo.</li>
+<li>não há resquícios de índices como o <code>i</code> para percorrer vetores.</li>
+</ul>
 <p>Quanto mais aptidão em funcionais um usuário tiver, mais ágil e produtivo ele será. Então aprendam funcionais!</p>
 </div>
 <div id="coloque-seus-codigos-em-funcoes" class="section level3">
@@ -481,14 +488,14 @@ for(i in 1:length(iris)){
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
