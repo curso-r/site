@@ -175,6 +175,8 @@ Na postagem [Top 10 pacotes para Data Science](http://curso-r.com/blog/2017/02/2
 
 "Usar funcionais" significa usar funções que aceitam funções como argumentos. Ambos os exemplos abaixo geram uma tabela para cada coluna do data.frame `iris`:
 
+**versão sem funcionais**
+
 ```{r, eval=FALSE}
 tabelas1 <- list()
 nomes_iris <- names(iris)
@@ -183,11 +185,14 @@ for(i in 1:length(iris)){
 }
 ```
 
+**versão com funcionais**
+
 ```{r, eval=FALSE}
 tabelas2 <- purrr::map(iris, table)
 ```
 
 Do exemplo acima notamos que:
+
 - há um grande ganho de legibilidade do código usando o funcional `map()` em vez de um `for`. 
 - não foi preciso nenhum objeto auxiliar como `tabelas1 <- list()` e `nomes_iris` no segundo exemplo.
 - não há resquícios de índices como o `i` para percorrer vetores.
