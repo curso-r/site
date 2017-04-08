@@ -1,0 +1,182 @@
+---
+title: "As barras do progresso"
+date: "2017-03-11T13:07:31+02:00"
+tags: ["ggplot", "r"]
+categories: ["r"]
+banner: "img/banners/quartis.png"
+author: ["Julio"]
+draft: true
+summary: "Na jornada da ciência de dados, muitas vezes precisamos rodar um mesmo algoritmo em vários objetos distintos. Quando o algoritmo é pesado ou a lista de objetos é longa, é importante saber em que passo estamos e quanto vai demorar para terminar."
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+Na jornada da ciência de dados, muitas vezes precisamos rodar um mesmo algoritmo em vários objetos distintos. Quando o algoritmo é pesado ou a lista de objetos é longa, é importante saber em que passo estamos e quanto vai demorar para terminar.
+
+Uma forma de resolver esse problema é usando o `dplyr::progress_estimated()`. Essa função recebe como argumento o comprimento da nossa lista e retorna um objeto do tipo [*reference class*](http://adv-r.had.co.nz/OO-essentials.html#rc), com um método `tick()` que imprime uma barra de progresso no console. 
+
+No exemplo abaixo, nosso interesse é aplicar a função `funcao_demorada` nos números `1:5` (um de cada vez, sem usar vetorização) e guardá-los numa lista.
+
+```{r}
+funcao_demorada <- function(x) {
+  Sys.sleep(0.5)
+  x ^ 2
+}
+
+nums <- 1:5
+```
+
+Podemos fazer isso com o seguinte código:
+
+```{r}
+resultados <- list()
+barra <- dplyr::progress_estimated(n = length(nums))
+
+for(x in nums) {
+  resultados[[x]] <- funcao_demorada(x)
+  barra$tick()
+  barra$print()
+}
+
+resultados
+```
+
+No entanto, sabemos que os laços `for` e `while` do `R` [são problemáticos](http://stackoverflow.com/questions/7142767/why-are-loops-slow-in-r). A melhor e mais estilosa forma de fazer esse tipo de operação no `R` é usando *funcionais*. 
+
+Funcionais são funções de funções. Usamos esses caras sempre que queremos aplicar uma função a diversos objetos. Eles são alternativas mais concisas, elegantes e muitas vezes mais eficientes do que os conhecidos `for` e `while`.
+
+Exemplos de funcionais são os objetos da família `**ply` (`lapply`, `apply`, `sapply` etc.) Os funcionais do R básico foram completamente substituídos pelo pacote `plyr`, que apresenta uma sintaxe bem organizada e intuitiva.
+
+Uma vantagem do `plyr` é a possibilidade de adicionar barras de progresso como um parâmetro dos funcionais.
+
+```{r}
+plyr::llply(nums, funcao_demorada, .progress = 'text')
+```
+
+Bem melhor, não? 
+
+## Usando `purr::map` no lugar de `plyr::xxply`
+
+Recentemente, boa parte das funções do `plyr` foram substituídas por alternativas nos pacotes `dplyr` (operações envolvendo `data.frame`s) e `purrr` (operações envolvendo vetores e listas). Esses pacotes apresentam uma sintaxe mais próxima da [filosofia `tidy`](http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/) e portanto faz sentido estudá-los!
+
+Infelizmente, as funções do `purrr` ainda[^1] não têm um parâmetro para barras de progresso. Enquanto isso, podemos utilizar o `dplyr::progress_estimated()`.
+
+[^1]: É muito provável que o `purrr` ganhe essa funcionalidade num futuro próximo. Veja uma discussão do tema [aqui](https://github.com/tidyverse/purrr/issues/149).
+
+```{r}
+barra <- dplyr::progress_estimated(length(nums))
+purrr::map(nums, ~{
+  barra$tick()
+  barra$print()
+  funcao_demorada(.x)
+})
+```
+
+o código fica similar à solução usando `for`, mas pelo menos estamos usando os pacotes mais recentes ;)
+
+## Eficiência
+
+As soluções que mostrei acima apresentam diferenças importantes de eficiência. Abaixo, encapsulei os códigos em funções e mudei levemente a operação que queremos fazer:
+
+```{r results="hide", comment=F}
+nums <- 1:1000
+funcao_rapida <- function(x) {
+  x ^ 2
+}
+```
+
+`for`, com progresso:
+
+```{r}
+for_com <- function(nums) {
+  barra <- dplyr::progress_estimated(length(nums))
+  resultados <- list()
+  for(x in nums) {
+    resultados[[x]] <- funcao_rapida(x)
+    print(barra$tick())
+  }
+  resultados
+}
+```
+
+`for`, sem progresso:
+
+```{r}
+for_sem <- function(nums) {
+  resultados <- list()
+  for(x in nums) resultados[[x]] <- funcao_rapida(x)
+  resultados
+}
+```
+
+`plyr`, com e sem progresso:
+
+```{r}
+plyr_com <- function(nums) {
+  plyr::llply(nums, funcao_rapida, .progress = 'text')
+}
+plyr_sem <- function(nums) {
+  plyr::llply(nums, funcao_rapida)
+}
+
+```
+
+`purrr`, com e sem progresso:
+
+```{r}
+purrr_com <- function(nums) {
+  barra <- dplyr::progress_estimated(length(nums))
+  purrr::map(nums, ~{
+    print(barra$tick())
+    funcao_rapida(.x)
+  })
+}
+purrr_sem <- function(nums) {
+  purrr::map(nums, funcao_rapida)
+}
+```
+
+Para testar a eficiência dos algoritmos, utilizamos a função `microbenchmark::microbenchmark`. Essa função calcula o tempo de execução do algoritmo cem vezes e obtém algumas estatísticas básicas dos tempos obtidos.
+
+```{r}
+benchmark <- microbenchmark::microbenchmark(
+  for_com(nums), for_sem(nums),
+  plyr_com(nums), plyr_sem(nums),
+  purrr_com(nums), purrr_sem(nums)
+)
+```
+
+Os resultados da Tabela \@ref(tab:eficiencia) são surpreendentes. Primeiro, as funções que não usam barras de progresso são muito mais rápidas, chegando a quase 10 vezes em alguns casos. A função do `plyr` é mais lenta que a do `for` quando usamos barras de progresso, mas é mais rápida quando não usamos. O `purrr` é o mais rápido nos dos casos.
+
+```{r eficiencia, echo=FALSE}
+knitr::kable(summary(benchmark),
+             caption = 'Resultados do benchmark.')
+```
+
+Mas não leve esses resultados tão a sério. Na prática, a parte mais demorada fica na função aplicada e não no funcional utilizado, implicando que essas diferenças sejam ignoráveis. Só recomendo mesmo abandonar o `for` para operações desse tipo, pois o tempo de execução não cresce linearmente com o tamanho dos objetos, como é possível ver na Figura \@ref(fig:for).
+
+```{r for, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Tempo do for em função do número de inputs', fig.width=8, fig.height=4}
+library(tidyverse)
+m <- microbenchmark::microbenchmark(
+  for_sem(1:100), for_sem(1:1000), for_sem(1:3000), for_sem(1:5000),
+  for_sem(1:7000), for_sem(1:9000), for_sem(1:15000), times = 10
+)
+xises <- as.numeric(stringr::str_match(m$expr, ':([0-9]+)')[,2])
+tibble(itens = xises, y = m$time) %>% 
+  group_by(itens) %>% 
+  ungroup() %>% 
+  ggplot(aes(x = itens, y = y / 1e9)) +
+  geom_point() +
+  geom_smooth(method = 'loess') +
+  labs(x = 'Número de itens', y = 'segundos') +
+  scale_x_continuous(breaks = unique(xises)) +
+  theme_bw()
+```
+
+## Outros links
+
+- [Pacote `progress`](https://github.com/gaborcsardi/progress).
+- [Programação funcional](http://adv-r.had.co.nz/Functional-programming.html).
+
