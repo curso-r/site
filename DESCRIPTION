@@ -56,5 +56,6 @@ Imports:
     glue,
     rvest,
     tidyverse,
-    microbenchmark
+    microbenchmark,
+    progress
 RoxygenNote: 6.0.1
