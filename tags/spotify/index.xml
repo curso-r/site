@@ -53,15 +53,16 @@ library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# programacao do site do lollapalooza 2017 ----------------------
 
 lolla2017_programacao &amp;lt;- &amp;quot;https://www.lollapaloozabr.com/lineup-horarios/&amp;quot; %&amp;gt;%
-  GET %&amp;gt;% 
-  read_html %&amp;gt;%
-  html_table %&amp;gt;%
+  GET() %&amp;gt;% 
+  read_html() %&amp;gt;%
+  html_table() %&amp;gt;%
   set_names(c(&amp;quot;sabado&amp;quot;, &amp;quot;domingo&amp;quot;)) %&amp;gt;%
   at_depth(2, ~ .x %&amp;gt;% 
              stri_replace_all_regex(&amp;quot; {2,}&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;% 
              stri_replace_all_regex(&amp;quot;[\\n]{1}&amp;quot;, &amp;quot;,&amp;quot;) %&amp;gt;% 
              stri_replace_all_regex(&amp;quot;[,]{2,}&amp;quot;, &amp;quot;\\\n&amp;quot;) %&amp;gt;% 
-             read.csv(text = ., header = FALSE, col.names = c(&amp;quot;artist&amp;quot;, &amp;quot;hora&amp;quot;))) %&amp;gt;%
+             read.csv(text = ., header = FALSE, 
+                      col.names = c(&amp;quot;artist&amp;quot;, &amp;quot;hora&amp;quot;))) %&amp;gt;%
   map(~ .x[-1] %&amp;gt;% 
         data_frame(palco = names(.), programacao_palco = .) %&amp;gt;% 
         unnest(programacao_palco)) %&amp;gt;%
@@ -69,9 +70,9 @@ lolla2017_programacao &amp;lt;- &amp;quot;https://www.lollapaloozabr.com/lineup-
   unnest(programacao) %&amp;gt;%
   separate(hora, c(&amp;quot;hora_ini&amp;quot;, &amp;quot;hora_fim&amp;quot;), sep = &amp;quot;-&amp;quot;) %&amp;gt;%
   mutate(artist = artist %&amp;gt;% tolower,
-         hora_ini = paste(if_else(dia %in% &amp;quot;sabado&amp;quot;, &amp;quot;2017-03-25&amp;quot;, &amp;quot;2017-03-26&amp;quot;), hora_ini) %&amp;gt;% ymd_hm,
+         hora_ini = paste(if_else(dia %in% &amp;quot;sabado&amp;quot;, &amp;quot;2017-03-25&amp;quot;, &amp;quot;2017-03-26&amp;quot;), hora_ini) %&amp;gt;% ymd_hm(),
          hora_ini = if_else(hour(hora_ini) &amp;lt; 12, hora_ini + hours(12), hora_ini),
-         hora_fim = paste(if_else(dia %in% &amp;quot;sabado&amp;quot;, &amp;quot;2017-03-25&amp;quot;, &amp;quot;2017-03-26&amp;quot;), hora_fim) %&amp;gt;% ymd_hm,
+         hora_fim = paste(if_else(dia %in% &amp;quot;sabado&amp;quot;, &amp;quot;2017-03-25&amp;quot;, &amp;quot;2017-03-26&amp;quot;), hora_fim) %&amp;gt;% ymd_hm(),
          hora_fim = if_else(hour(hora_fim) &amp;lt; 12, hora_fim + hours(12), hora_fim),
          dia = fct_relevel(dia, c(&amp;quot;sabado&amp;quot;, &amp;quot;domingo&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Resultado&lt;/strong&gt;&lt;/p&gt;

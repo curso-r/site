@@ -210,15 +210,16 @@ library(tidyverse)</code></pre>
 <pre class="r"><code># programacao do site do lollapalooza 2017 ----------------------
 
 lolla2017_programacao &lt;- &quot;https://www.lollapaloozabr.com/lineup-horarios/&quot; %&gt;%
-  GET %&gt;% 
-  read_html %&gt;%
-  html_table %&gt;%
+  GET() %&gt;% 
+  read_html() %&gt;%
+  html_table() %&gt;%
   set_names(c(&quot;sabado&quot;, &quot;domingo&quot;)) %&gt;%
   at_depth(2, ~ .x %&gt;% 
              stri_replace_all_regex(&quot; {2,}&quot;, &quot;&quot;) %&gt;% 
              stri_replace_all_regex(&quot;[\\n]{1}&quot;, &quot;,&quot;) %&gt;% 
              stri_replace_all_regex(&quot;[,]{2,}&quot;, &quot;\\\n&quot;) %&gt;% 
-             read.csv(text = ., header = FALSE, col.names = c(&quot;artist&quot;, &quot;hora&quot;))) %&gt;%
+             read.csv(text = ., header = FALSE, 
+                      col.names = c(&quot;artist&quot;, &quot;hora&quot;))) %&gt;%
   map(~ .x[-1] %&gt;% 
         data_frame(palco = names(.), programacao_palco = .) %&gt;% 
         unnest(programacao_palco)) %&gt;%
@@ -226,9 +227,9 @@ lolla2017_programacao &lt;- &quot;https://www.lollapaloozabr.com/lineup-horarios
   unnest(programacao) %&gt;%
   separate(hora, c(&quot;hora_ini&quot;, &quot;hora_fim&quot;), sep = &quot;-&quot;) %&gt;%
   mutate(artist = artist %&gt;% tolower,
-         hora_ini = paste(if_else(dia %in% &quot;sabado&quot;, &quot;2017-03-25&quot;, &quot;2017-03-26&quot;), hora_ini) %&gt;% ymd_hm,
+         hora_ini = paste(if_else(dia %in% &quot;sabado&quot;, &quot;2017-03-25&quot;, &quot;2017-03-26&quot;), hora_ini) %&gt;% ymd_hm(),
          hora_ini = if_else(hour(hora_ini) &lt; 12, hora_ini + hours(12), hora_ini),
-         hora_fim = paste(if_else(dia %in% &quot;sabado&quot;, &quot;2017-03-25&quot;, &quot;2017-03-26&quot;), hora_fim) %&gt;% ymd_hm,
+         hora_fim = paste(if_else(dia %in% &quot;sabado&quot;, &quot;2017-03-25&quot;, &quot;2017-03-26&quot;), hora_fim) %&gt;% ymd_hm(),
          hora_fim = if_else(hour(hora_fim) &lt; 12, hora_fim + hours(12), hora_fim),
          dia = fct_relevel(dia, c(&quot;sabado&quot;, &quot;domingo&quot;)))</code></pre>
 <p><strong>Resultado</strong></p>
@@ -725,6 +726,19 @@ lolla2017_grafico %&gt;%
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
@@ -733,19 +747,6 @@ lolla2017_grafico %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
