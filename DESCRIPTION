@@ -57,5 +57,7 @@ Imports:
     rvest,
     tidyverse,
     microbenchmark,
-    progress
+    progress,
+    grid,
+    gridExtra
 RoxygenNote: 6.0.1
