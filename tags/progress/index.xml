@@ -69,7 +69,7 @@ for (x in nums) {
 &lt;div id=&#34;usando-purrmap-no-lugar-de-plyrllply&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Usando &lt;code&gt;purr::map&lt;/code&gt; no lugar de &lt;code&gt;plyr::llply&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;Recentemente, boa parte das funções do &lt;code&gt;plyr&lt;/code&gt; foram substituídas por alternativas nos pacotes &lt;code&gt;dplyr&lt;/code&gt; (operações envolvendo &lt;code&gt;data.frame&lt;/code&gt;s) e &lt;code&gt;purrr&lt;/code&gt; (operações envolvendo vetores e listas). Esses pacotes apresentam uma sintaxe mais próxima da &lt;a href=&#34;http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/&#34;&gt;filosofia &lt;code&gt;tidy&lt;/code&gt;&lt;/a&gt; e portanto faz sentido estudá-los!&lt;/p&gt;
-&lt;p&gt;Infelizmente, as funções do &lt;code&gt;purrr&lt;/code&gt; ainda&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; não têm um parâmetro para barras de progresso. Enquanto isso, podemos utilizar o &lt;code&gt;dplyr::progress_estimated()&lt;/code&gt; mesmo.&lt;/p&gt;
+&lt;p&gt;Infelizmente, as funções do &lt;code&gt;purrr&lt;/code&gt; ainda&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; não têm um parâmetro para barras de progresso. Enquanto isso, podemos utilizar o &lt;code&gt;progress::progress_bar&lt;/code&gt; mesmo.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;barra &amp;lt;- progress::progress_bar$new(total = length(nums))
 resultados &amp;lt;- purrr::map(nums, ~{
   barra$tick()

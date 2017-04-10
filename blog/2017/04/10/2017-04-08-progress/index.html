@@ -226,7 +226,7 @@ for (x in nums) {
 <div id="usando-purrmap-no-lugar-de-plyrllply" class="section level2">
 <h2>Usando <code>purr::map</code> no lugar de <code>plyr::llply</code></h2>
 <p>Recentemente, boa parte das funções do <code>plyr</code> foram substituídas por alternativas nos pacotes <code>dplyr</code> (operações envolvendo <code>data.frame</code>s) e <code>purrr</code> (operações envolvendo vetores e listas). Esses pacotes apresentam uma sintaxe mais próxima da <a href="http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/">filosofia <code>tidy</code></a> e portanto faz sentido estudá-los!</p>
-<p>Infelizmente, as funções do <code>purrr</code> ainda<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> não têm um parâmetro para barras de progresso. Enquanto isso, podemos utilizar o <code>dplyr::progress_estimated()</code> mesmo.</p>
+<p>Infelizmente, as funções do <code>purrr</code> ainda<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> não têm um parâmetro para barras de progresso. Enquanto isso, podemos utilizar o <code>progress::progress_bar</code> mesmo.</p>
 <pre class="r"><code>barra &lt;- progress::progress_bar$new(total = length(nums))
 resultados &lt;- purrr::map(nums, ~{
   barra$tick()
@@ -557,14 +557,14 @@ Figure 1: Tempo do for em função do número de inputs
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
