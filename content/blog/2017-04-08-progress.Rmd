@@ -1,11 +1,11 @@
 ---
 title: "As barras do progresso"
-date: "2017-04-08T13:07:31+02:00"
+date: "2017-04-10T13:07:31+02:00"
 tags: ["progress", "r"]
 categories: ["r"]
 banner: "img/banners/progress.png"
 author: ["Julio"]
-draft: true
+draft: false
 summary: "Na jornada da ciência de dados, muitas vezes precisamos rodar um mesmo algoritmo em vários objetos distintos. Quando o algoritmo é pesado ou a lista de objetos é longa, é importante saber em que passo estamos e quanto vai demorar para terminar."
 ---
 
