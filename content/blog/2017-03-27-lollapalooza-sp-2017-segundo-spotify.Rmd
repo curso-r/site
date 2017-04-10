@@ -70,15 +70,16 @@ Vamos ao código! Dica: a melhor maneira de aprender o que cada passo do código
 # programacao do site do lollapalooza 2017 ----------------------
 
 lolla2017_programacao <- "https://www.lollapaloozabr.com/lineup-horarios/" %>%
-  GET %>% 
-  read_html %>%
-  html_table %>%
+  GET() %>% 
+  read_html() %>%
+  html_table() %>%
   set_names(c("sabado", "domingo")) %>%
   at_depth(2, ~ .x %>% 
              stri_replace_all_regex(" {2,}", "") %>% 
              stri_replace_all_regex("[\\n]{1}", ",") %>% 
              stri_replace_all_regex("[,]{2,}", "\\\n") %>% 
-             read.csv(text = ., header = FALSE, col.names = c("artist", "hora"))) %>%
+             read.csv(text = ., header = FALSE, 
+                      col.names = c("artist", "hora"))) %>%
   map(~ .x[-1] %>% 
         data_frame(palco = names(.), programacao_palco = .) %>% 
         unnest(programacao_palco)) %>%
@@ -86,9 +87,9 @@ lolla2017_programacao <- "https://www.lollapaloozabr.com/lineup-horarios/" %>%
   unnest(programacao) %>%
   separate(hora, c("hora_ini", "hora_fim"), sep = "-") %>%
   mutate(artist = artist %>% tolower,
-         hora_ini = paste(if_else(dia %in% "sabado", "2017-03-25", "2017-03-26"), hora_ini) %>% ymd_hm,
+         hora_ini = paste(if_else(dia %in% "sabado", "2017-03-25", "2017-03-26"), hora_ini) %>% ymd_hm(),
          hora_ini = if_else(hour(hora_ini) < 12, hora_ini + hours(12), hora_ini),
-         hora_fim = paste(if_else(dia %in% "sabado", "2017-03-25", "2017-03-26"), hora_fim) %>% ymd_hm,
+         hora_fim = paste(if_else(dia %in% "sabado", "2017-03-25", "2017-03-26"), hora_fim) %>% ymd_hm(),
          hora_fim = if_else(hour(hora_fim) < 12, hora_fim + hours(12), hora_fim),
          dia = fct_relevel(dia, c("sabado", "domingo")))
 ```
@@ -97,7 +98,7 @@ lolla2017_programacao <- "https://www.lollapaloozabr.com/lineup-horarios/" %>%
 
 ```{r, echo=FALSE}
 library(knitr)
-lolla2017_programacao %>% head(8) %>% kable
+lolla2017_programacao %>% head(8) %>% kable()
 ```
 
 É interessante reparar que para gerar essa simples tabelinha utilizamos os pacotes `httr`, `rvest`, `purrr`, `dplyr`, `tidyr`, `lubridate`, `stringi` e `forcats`. Só faltou o `ggplot2` para zerar o tidyverse.
@@ -170,7 +171,7 @@ lolla2017 <- left_join(lolla2017_programacao,
 
 ```{r, echo=FALSE}
 library(knitr)
-lolla2017 %>% head(8) %>% kable
+lolla2017 %>% head(8) %>% kable()
 ```
 
 ## Resultados
