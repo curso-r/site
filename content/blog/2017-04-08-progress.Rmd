@@ -39,7 +39,7 @@ for (x in nums) {
 }
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, comment=T}
 resultados <- list()
 barra <- progress::progress_bar$new(total = length(nums), force = TRUE)
 for(x in nums) {
@@ -72,7 +72,7 @@ Os resultados são idênticos e foram omitidos. Bem mais simples, não?
 
 Recentemente, boa parte das funções do `plyr` foram substituídas por alternativas nos pacotes `dplyr` (operações envolvendo `data.frame`s) e `purrr` (operações envolvendo vetores e listas). Esses pacotes apresentam uma sintaxe mais próxima da [filosofia `tidy`](http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/) e portanto faz sentido estudá-los!
 
-Infelizmente, as funções do `purrr` ainda[^1] não têm um parâmetro para barras de progresso. Enquanto isso, podemos utilizar o `dplyr::progress_estimated()` mesmo.
+Infelizmente, as funções do `purrr` ainda[^1] não têm um parâmetro para barras de progresso. Enquanto isso, podemos utilizar o `progress::progress_bar` mesmo.
 
 [^1]: É provável que o `purrr` ganhe essa funcionalidade num futuro próximo. [Veja essa discussão](https://github.com/tidyverse/purrr/issues/149).
 
@@ -84,7 +84,7 @@ resultados <- purrr::map(nums, ~{
 })
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, comment=T}
 barra <- progress::progress_bar$new(total = length(nums), force = TRUE)
 resultados <- purrr::map(nums, ~{
   barra$tick()
