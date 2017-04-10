@@ -14,10 +14,10 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 ```{r}
-library(tabulizer)
+# library(tabulizer)
 library(tidyverse)
 library(stringr)
-library(abjutils)
+# library(abjutils)
 ```
 
 pdftools
