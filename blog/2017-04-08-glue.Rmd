@@ -1,7 +1,7 @@
 ---
 title: "Colando textos"
 date: "2017-04-08T13:07:31+02:00"
-tags: ["tidyverse", "r"]
+tags: ["tidyverse", "string", "r"]
 categories: ["r"]
 banner: "img/banners/glue.png"
 author: ["Julio"]
