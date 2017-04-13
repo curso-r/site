@@ -46,6 +46,7 @@ Para organizar as informações dos vídeos em um banco de dados e gerar as visu
 
 ```{r, eval = F}
 library(dplyr)          # Manipulação de dados
+library(tidyr)          # Manipulação de dados
 library(tibble)         # Criação de dataframes
 library(lubridate)      # Manipulação de datas
 library(purrr)          # Funcionais

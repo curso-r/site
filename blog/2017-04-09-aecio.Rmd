@@ -10,7 +10,7 @@ summary: "Aécio Neves é um político importante no Brasil. Por muito pouco nã
 ---
 
 ```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, eval = FALSE)
 ```
 
 Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: 'Por quê ele sempre faz tanta cara de dor?'

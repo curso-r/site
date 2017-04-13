@@ -35,6 +35,7 @@ yt_oauth(app_id = &amp;quot;seu_app_id&amp;quot;,
 &lt;h1&gt;Passo 2: buscar o id dos vídeos do canal&lt;/h1&gt;
 &lt;p&gt;Para organizar as informações dos vídeos em um banco de dados e gerar as visualizações, vamos utilizar as seguintes bibliotecas.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)          # Manipulação de dados
+library(tidyr)          # Manipulação de dados
 library(tibble)         # Criação de dataframes
 library(lubridate)      # Manipulação de datas
 library(purrr)          # Funcionais

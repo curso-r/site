@@ -190,14 +190,14 @@
   dormir()
 })
 ##    user  system elapsed 
-##   0.000   0.000   1.001</code></pre>
+##   0.000   0.000   1.002</code></pre>
 <p>Nosso interesse é aplicar <code>dormir()</code> em cada elemento do vetor <code>c(1, 2)</code>. Esse algoritmo demora <code>1 + 2 = 3</code> segundos.</p>
 <pre class="r"><code>segundos &lt;- c(1, 2)
 system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.008   0.000   3.009</code></pre>
+##   0.008   0.000   3.010</code></pre>
 <p>Agora vamos executar o mesmo código usando paralelização. Antes, precisamos</p>
 <ol style="list-style-type: decimal">
 <li>criar e registrar as cópias de R que rodam em paralelo; e</li>
@@ -211,13 +211,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.020   0.000   2.176</code></pre>
+##   0.032   0.000   2.238</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.008   0.000   2.011</code></pre>
+##   0.008   0.000   2.013</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # pára de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
@@ -297,7 +297,7 @@ system.time({
             <li><a href="http://curso-r.com/categories/bayes">bayes (1)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (17)</a>
+            <li><a href="http://curso-r.com/categories/r">r (18)</a>
             </li>
             
         </ul>
@@ -410,14 +410,14 @@ system.time({
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
@@ -481,6 +481,19 @@ system.time({
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/04/10/2017-04-13-o-que-tem-a-um-km/">
+                          
+                            <img src="http://curso-r.com/img/banners/man-with-a-map.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/04/10/2017-04-13-o-que-tem-a-um-km/">Você está a menos de 1 km de um Hambúrguer?</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/04/10/2017-04-08-progress/">
                           
                             <img src="http://curso-r.com/img/banners/progress.png" class="img-responsive" alt="">
@@ -502,19 +515,6 @@ system.time({
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/04/08/2017-04-08-top10-dicas-verao-2017/">Top 10 dicas do Curso R de verão 2017</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/04/01/2017-04-01-multas-em-sp/">
-                          
-                            <img src="http://curso-r.com/img/banners/banner-multas-sp.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/04/01/2017-04-01-multas-em-sp/">Multas em São Paulo</a></h5>
                     </div>
                 </div>
                 
