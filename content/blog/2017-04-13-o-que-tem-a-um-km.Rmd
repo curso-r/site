@@ -1,11 +1,11 @@
 ---
-title: "Você está a menos de 1 km de um hamburguer?"
+title: "Você está a menos de 1 km de um Hambúrguer?"
 date: "2017-04-10T23:26:00+03:00"
 tags: ["r", "Webscraping", "leaflet"]
 categories: ["r"]
 banner: "img/banners/man-with-a-map.jpg"
 author: ["William"]
-summary: "Neste post, veremos como utilizar uma das APIs do Google Maps para obter informações de geolocalização a partir de uma pesquisa simples. Em seguida, vamos utilizar o pacote `leaflet` para criar mapas com os dados coletados."
+summary: "Neste post, veremos como utilizar uma das APIs do Google Maps para obter informações de geolocalização a partir de uma pesquisa simples. Em seguida, vamos utilizar o pacote `leaflet` para criar mapas com os dados coletados e descobrir se estamos a menos de 1 km de hospitais, delagacias, corpos de bombeiros e, o mais importante, de uma hamburgueria."
 ---
 
 ```{r setup, include=FALSE}
@@ -104,7 +104,7 @@ Também podemos utilizar a função `purrr:map_df()` para gerar um data frame co
 ```{r, eval = F}
 places <- c("pronto socorro", "delegacia", "bombeiros", "hamburguer", "pizza")
 
-df <- places %>% 
+df_places <- places %>% 
   purrr::map_df(.f = get_googlemaps_data, key = key)
 ```
 
@@ -168,7 +168,20 @@ df_places %>%
              radius = 1000, color = "blue", fillOpacity = 0.5)
 ```
 
+## Pizzarias
 
-Sem dúvidas, a utilização dos dados aqui foi bem superficial, apenas ilustrativa. O ideal seria juntar essas informações de geolocalização com dados de criminalidade, saúde pública, socioeconômicos etc. Dependendo da disponibilidade de dados, há espaço para muitas análises interessantes. Com certeza voltaremos neste assunto em posts futuros.
+Se a busca devolvesse todos os resultados possíveis, esse mapa teria um círculo azul com ~15 km de raio formado por milhares de círculos menores. =D
 
-Comentários? Sugestões? Críticas? Você está a menos de um quilômetro dos comentários. Deixe a sua mensagem! 
+```{r}
+df_places %>% 
+  dplyr::filter(place == "pizza") %>% 
+  leaflet %>% 
+  addTiles() %>%
+  addCircles(lng = ~long, lat = ~lat, weight = 5,
+             radius = 1000, color = "blue", fillOpacity = 0.5)
+```
+
+
+Sem dúvidas, a utilização dos dados aqui foi bem superficial, apenas ilustrativa. O ideal seria juntar essas informações de geolocalização com dados de criminalidade, saúde pública, socioeconômicos, consumo etc. Dependendo da disponibilidade de dados, há espaço para muitas análises interessantes utilizando essas informações do Google Maps. Com certeza voltaremos neste assunto em posts futuros. =)
+
+Comentários? Sugestões? Críticas? Você está a menos de um quilômetro dos comentários! Deixe a sua mensagem! 
