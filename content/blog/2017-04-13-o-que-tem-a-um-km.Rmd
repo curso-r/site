@@ -1,5 +1,5 @@
 ---
-title: "O que tem a um quilômetro da sua casa?"
+title: "Você está a menos de 1 km de um hamburguer?"
 date: "2017-04-10T23:26:00+03:00"
 tags: ["r", "Webscraping", "leaflet"]
 categories: ["r"]
@@ -27,7 +27,7 @@ Para mais informações sobre os itens 1, 2 e 3, bastar acessar os links acima. 
 
 # Passo 2: baixar os dados da API
 
-A API do Google Places permite fazer [alguns tipos de buscas](https://developers.google.com/places/web-service/search), como estabelecimentos específicos próximos a um local ou dentro de uma região pré-delimitada. Nosso objetivo aqui é requisitar os dados de todos os estabelecimentos, como hospitais, delegacias, supermercados, escolas etc, dentro de um raio de busca em torno de um ponto específico. Neste contexto, a requisação deve ser feita a partir de um link da forma
+A API do Google Places permite fazer [alguns tipos de buscas](https://developers.google.com/places/web-service/search), como estabelecimentos específicos próximos a um local ou dentro de uma região pré-delimitada. Nosso objetivo aqui é requisitar os dados de todos os estabelecimentos, como hospitais, delegacias, supermercados, escolas etc, dentro de um raio de busca em torno de um ponto específico. Neste contexto, a requisição deve ser feita a partir de um link da forma
 
 > https://maps.googleapis.com/maps/api/place/radarsearch/output?parameters
 
@@ -47,7 +47,7 @@ library(leaflet)
 ```
 
 
-O que precisamos fazer é criar a url de requisição, acessá-la, guardar os dados no formato `json` em um objeto e convertê-lo para um dataframe. A função `get_googlemaps_data()` abaixo faz exatamente isso. Mais especificamente, ela recebe os parâmetros de busca, uma chave de API e retorna um dataframe com os dados de geolocalização (latitude e longitude) dos resultados encontrados.
+O que precisamos fazer é criar a url de requisição, acessá-la, guardar os dados no formato `json` em um objeto e convertê-lo para um data frame. A função `get_googlemaps_data()` abaixo faz exatamente isso. Mais especificamente, ela recebe os parâmetros de busca, uma chave de API e retorna um data frame com os dados de geolocalização (latitude e longitude) dos resultados encontrados.
 
 - O argumento `keyword=` recebe o termo a ser pesquisado, isto é, se estivermos pesquisando por escolas, esse argumento receberá a string `'escola'`.
 - O argumento `type=` recebe um termo para filtrar os estabelecimentos pesquisados. Por exemplo: `keyword = 'restaurante'` e `type = 'vegetariano'`.
@@ -99,7 +99,7 @@ get_googlemaps_data <- function(keyword, type = "", central_lat = -23.55052,
 
 Com a função `get_googlemaps_data()` em mão, basta rodar o código `get_googlemaps_data("mercado", key = sua_API_key)` para obter a geolocalização de até 200 mercados em um raio de até 15 Km do centro de São Paulo. Sim, o limite é de 200 resultados. Não encontrei maneiras de aumentar esse limite.
 
-Também podemos utilizar a função `purrr:map_df()` para gerar um dataframe com várias buscas. A funlão *map* mapeia uma determinada função em cada elemento de um vetor/lista, retornando um dataframe. Ainda não estamos construindo os mapas.
+Também podemos utilizar a função `purrr:map_df()` para gerar um data frame com várias buscas. A função *map* mapeia uma determinada função em cada elemento de um vetor/lista, retornando um data frame. Ainda não estamos construindo os mapas.
 
 ```{r, eval = F}
 places <- c("pronto socorro", "delegacia", "bombeiros", "hamburguer", "pizza")
@@ -108,7 +108,7 @@ df <- places %>%
   purrr::map_df(.f = get_googlemaps_data, key = key)
 ```
 
-Às vezes, a requisição pode retornar com algum erro. Não consegui descobrir o porquê isso acontece. Nestes casos, a função `get_googlemaps_data()` também retornará um erro, provavelmente na construção do dataframe. Se isso acontecer, basta rodar a função novamente, gerando uma nova requisição.
+Às vezes, a requisição pode retornar com algum erro. Não consegui descobrir o porquê isso acontece. Nestes casos, a função `get_googlemaps_data()` também retornará um erro, provavelmente na construção do data frame. Se isso acontecer, basta rodar a função novamente, gerando uma nova requisição.
 
 # Passo 3: os mapas
 
@@ -169,6 +169,6 @@ df_places %>%
 ```
 
 
-Sem dúvidas, a utilização dos dados aqui foi bem superficial, apenas ilustrativa. O ideal seria juntar essas informações de geolocalização com dados de criminalidade, saúde pública, socio-econônimos etc. Dependendo da disponibilidade de dados, há espaço para muitas análises interessantes. Com certeza voltaremos neste assunto em posts futuros.
+Sem dúvidas, a utilização dos dados aqui foi bem superficial, apenas ilustrativa. O ideal seria juntar essas informações de geolocalização com dados de criminalidade, saúde pública, socioeconômicos etc. Dependendo da disponibilidade de dados, há espaço para muitas análises interessantes. Com certeza voltaremos neste assunto em posts futuros.
 
 Comentários? Sugestões? Críticas? Você está a menos de um quilômetro dos comentários. Deixe a sua mensagem! 
