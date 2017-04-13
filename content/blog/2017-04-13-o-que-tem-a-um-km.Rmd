@@ -12,9 +12,9 @@ summary: "Neste post, veremos como utilizar uma das APIs do Google Maps para obt
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-Neste post, veremos como utilizar uma das APIs do Google Maps para obter informações de geolocalização a partir de uma pesquisa simples. Em seguida, vamos gerar mapas com o pacote `leaflet` para visualizar os dados coletados.
+Se você estiver no centro de São Paulo, quanto será que você precisa andar para achar uma hamburgueria? Será que a sua casa fica a menos de 1 km de hospitais, delagacias ou corpo de bombeiros? Neste post, veremos como utilizar uma das APIs do Google Maps para obter informações de geolocalização a partir de uma pesquisa simples. Em seguida, vamos gerar mapas com o pacote `leaflet` para visualizar os dados coletados e responder essas perguntas.
 
-# Passo 1: configurar a API do Google Places
+## Passo 1: configurar a API do Google Places
 
 A API que vamos utilizar para acessar os dados do Google Maps é a [Google Places](https://developers.google.com/places/web-service/?hl=pt-br). Para configurá-la, você precisa fazer o seguinte:
 
@@ -25,7 +25,7 @@ A API que vamos utilizar para acessar os dados do Google Maps é a [Google Place
 
 Para mais informações sobre os itens 1, 2 e 3, bastar acessar os links acima. Aqui, vamos focar em como fazer o item 4.
 
-# Passo 2: baixar os dados da API
+## Passo 2: baixar os dados da API
 
 A API do Google Places permite fazer [alguns tipos de buscas](https://developers.google.com/places/web-service/search), como estabelecimentos específicos próximos a um local ou dentro de uma região pré-delimitada. Nosso objetivo aqui é requisitar os dados de todos os estabelecimentos, como hospitais, delegacias, supermercados, escolas etc, dentro de um raio de busca em torno de um ponto específico. Neste contexto, a requisição deve ser feita a partir de um link da forma
 
@@ -110,7 +110,7 @@ df_places <- places %>%
 
 Às vezes, a requisição pode retornar com algum erro. Não consegui descobrir o porquê isso acontece. Nestes casos, a função `get_googlemaps_data()` também retornará um erro, provavelmente na construção do data frame. Se isso acontecer, basta rodar a função novamente, gerando uma nova requisição.
 
-# Passo 3: os mapas
+## Passo 3: os mapas
 
 Para construir os mapas, vamos utilizar a função `leaflet::leaflet()`. A ideia é, para cada ponto da pesquisa, adicionar um círculo de raio igual a 1 Km. Dessa forma, se você estiver fora desses círculos, quer dizer que você estará a mais de um quilômetro de um dos estabelecimentos pesquisados. Veja os exemplos a seguir.
 
@@ -124,7 +124,7 @@ load("2017-04-13-o-que-tem-a-um-km/o-que-tem-a-um-km.RData")
 ```
 
 
-## Hospitais
+### Hospitais
 
 Eu pesquisei por "pronto socorro" porque a pesquisa hospitais também resulta em hospitais veterinários. Um desafio para quem for reproduzir a análise: coletar apenas a geolocalização de hospitais públicos.
 
@@ -138,7 +138,7 @@ df_places %>%
 ```
 
 
-## Delegacias
+### Delegacias
 
 ```{r}
 df_places %>% 
@@ -149,7 +149,7 @@ df_places %>%
              radius = 1000, color = "blue", fillOpacity = 0.5)
 ```
 
-## Bombeiros
+### Bombeiros
 
 ```{r}
 df_places %>% 
@@ -160,7 +160,7 @@ df_places %>%
              radius = 1000, color = "blue", fillOpacity = 0.5)
 ```
 
-## Hamburguerias
+### Hamburguerias
 
 Repare que o único local na região mais central de SP em que você pode ficar a mais de um quilômetro de uma hamburgueria é no meio do parque Ibirapuera.
 
@@ -173,7 +173,7 @@ df_places %>%
              radius = 1000, color = "blue", fillOpacity = 0.5)
 ```
 
-## Pizzarias
+### Pizzarias
 
 Se a busca devolvesse todos os resultados possíveis, esse mapa teria um círculo azul com ~15 km de raio formado por milhares de círculos menores. =D
 
