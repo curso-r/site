@@ -35,7 +35,7 @@ substituindo *output* pelo formato da saída, `xml` ou `json`, e *parameters* pe
 
 Utilizaremos as seguintes bibliotecas nesta análise:
 
-```{r, message = FALSE, warning = FALSE}
+```{r, eval = FALSE}
 library(tibble)
 library(magrittr)
 library(dplyr)
@@ -115,6 +115,11 @@ df_places <- places %>%
 Para construir os mapas, vamos utilizar a função `leaflet::leaflet()`. A ideia é, para cada ponto da pesquisa, adicionar um círculo de raio igual a 1 Km. Dessa forma, se você estiver fora desses círculos, quer dizer que você estará a mais de um quilômetro de um dos estabelecimentos pesquisados. Veja os exemplos a seguir.
 
 ```{r, echo = F, warning = F, message = F}
+library(tibble)
+library(magrittr)
+library(dplyr)
+library(leaflet)
+
 load("2017-04-13-o-que-tem-a-um-km/o-que-tem-a-um-km.RData")
 ```
 
