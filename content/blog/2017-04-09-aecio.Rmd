@@ -13,7 +13,7 @@ summary: "Aécio Neves é um político importante no Brasil. Por muito pouco nã
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: 'Por quê ele sempre faz tanta cara de dor?'
+Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: 'Por que ele sempre faz tanta cara de dor?'
 
 Pensando nisso, decidi pegar algumas fotos famosas dele e aplicar um algoritmo de Inteligência Artificial para reconhecimento de emoções. Se minha hipótese estiver correta, provavelmente esse algoritmo retornaria emoções como "dor", "tristeza" ou "descontentamento". 
 
@@ -47,7 +47,7 @@ library(grid)
 library(gridExtra)
 ```
 
-Para obter os resultados, foi necessário entrar na [página de APIs de visão da Microsoft](https://www.microsoft.com/cognitive-services/en-us/emotion-api) e obter uma chave de acesso, guardando-a no objeto `key`. Depois disso, montei a função `pegar_emocoes()` que recebe a URL de uma imagem da internet e uma chave de acesso, e retorna uma `tibble` com as proporções das emoções em cada coluna.
+Para obter os resultados, foi necessário entrar na [página de APIs de visão da Microsoft](https://www.microsoft.com/cognitive-services/en-us/emotion-api) e obter uma chave de acesso, guardando-a no objeto `key`. Depois disso, montei a função `pegar_emocoes()`, que recebe a URL de uma imagem da internet e uma chave de acesso, e retorna uma `tibble` com as proporções das emoções em cada coluna.
 
 ```{r}
 pegar_emocoes <- function(u_img, key) {
@@ -87,7 +87,7 @@ knitr::kable(d_emocoes)
 
 ## Resultados
 
-A Figura \@ref(fig:media) mostra a média de cada emoção nas seis fotos. Para minha surptesa, a emoção com maior proporção média foi "neutro", com peso de quase 50%. As emoções seguintes são "felicidade", "raiva" e "desdém". A emoção "tristeza", que achei que seria frequente por conta da cara de dor do Aécio, ficou com uma proporção média de apenas 5,5%.
+A Figura \@ref(fig:media) mostra a média de cada emoção nas seis fotos. Para minha surpresa, a emoção com maior proporção média foi "neutro", com peso de quase 50%. As emoções seguintes são "felicidade", "raiva" e "desdém". A emoção "tristeza", que achei que seria frequente por conta da cara de dor do Aécio, ficou com uma proporção média de apenas 5,5%.
 
 ```{r media, fig.width=9, fig.height=4, echo=FALSE, fig.align = 'center', fig.cap='Média de cada emoção nas seis fotos baixadas.'}
 d_plot_sum <- d_emocoes %>% 
