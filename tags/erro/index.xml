@@ -15,7 +15,7 @@
       <pubDate>Sat, 15 Apr 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/04/15/2017-04-09-aecio/</guid>
-      <description>&lt;p&gt;Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: ‘Por quê ele sempre faz tanta cara de dor?’&lt;/p&gt;
+      <description>&lt;p&gt;Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: ‘Por que ele sempre faz tanta cara de dor?’&lt;/p&gt;
 &lt;p&gt;Pensando nisso, decidi pegar algumas fotos famosas dele e aplicar um algoritmo de Inteligência Artificial para reconhecimento de emoções. Se minha hipótese estiver correta, provavelmente esse algoritmo retornaria emoções como “dor”, “tristeza” ou “descontentamento”.&lt;/p&gt;
 &lt;p&gt;A API escolhida para essa tarefa foi a &lt;a href=&#34;https://www.microsoft.com/cognitive-services/en-us/emotion-api&#34;&gt;Microsoft Emotions API&lt;/a&gt;. O motivo por trás da escolha não é nada especial: foi o primeiro resultado que apareceu no Google para mim!&lt;/p&gt;
 &lt;p&gt;As imagens utilizadas para testar o algoritmo contra minha hipótese são essas aqui:&lt;/p&gt;
@@ -28,7 +28,7 @@ library(httr)
 library(forcats)
 library(grid)
 library(gridExtra)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Para obter os resultados, foi necessário entrar na &lt;a href=&#34;https://www.microsoft.com/cognitive-services/en-us/emotion-api&#34;&gt;página de APIs de visão da Microsoft&lt;/a&gt; e obter uma chave de acesso, guardando-a no objeto &lt;code&gt;key&lt;/code&gt;. Depois disso, montei a função &lt;code&gt;pegar_emocoes()&lt;/code&gt; que recebe a URL de uma imagem da internet e uma chave de acesso, e retorna uma &lt;code&gt;tibble&lt;/code&gt; com as proporções das emoções em cada coluna.&lt;/p&gt;
+&lt;p&gt;Para obter os resultados, foi necessário entrar na &lt;a href=&#34;https://www.microsoft.com/cognitive-services/en-us/emotion-api&#34;&gt;página de APIs de visão da Microsoft&lt;/a&gt; e obter uma chave de acesso, guardando-a no objeto &lt;code&gt;key&lt;/code&gt;. Depois disso, montei a função &lt;code&gt;pegar_emocoes()&lt;/code&gt;, que recebe a URL de uma imagem da internet e uma chave de acesso, e retorna uma &lt;code&gt;tibble&lt;/code&gt; com as proporções das emoções em cada coluna.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pegar_emocoes &amp;lt;- function(u_img, key) {
   u_api &amp;lt;- &amp;#39;https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize&amp;#39;
   result &amp;lt;- httr::POST(
@@ -128,7 +128,7 @@ library(gridExtra)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;resultados&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Resultados&lt;/h2&gt;
-&lt;p&gt;A Figura &lt;a href=&#34;#fig:media&#34;&gt;1&lt;/a&gt; mostra a média de cada emoção nas seis fotos. Para minha surptesa, a emoção com maior proporção média foi “neutro”, com peso de quase 50%. As emoções seguintes são “felicidade”, “raiva” e “desdém”. A emoção “tristeza”, que achei que seria frequente por conta da cara de dor do Aécio, ficou com uma proporção média de apenas 5,5%.&lt;/p&gt;
+&lt;p&gt;A Figura &lt;a href=&#34;#fig:media&#34;&gt;1&lt;/a&gt; mostra a média de cada emoção nas seis fotos. Para minha surpresa, a emoção com maior proporção média foi “neutro”, com peso de quase 50%. As emoções seguintes são “felicidade”, “raiva” e “desdém”. A emoção “tristeza”, que achei que seria frequente por conta da cara de dor do Aécio, ficou com uma proporção média de apenas 5,5%.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:media&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/media-1.png&#34; alt=&#34;Média de cada emoção nas seis fotos baixadas.&#34; width=&#34;864&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;

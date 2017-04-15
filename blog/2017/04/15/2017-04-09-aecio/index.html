@@ -172,7 +172,7 @@
                         </p>
                         
                         <div id="post-content">
-                          <p>Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: ‘Por quê ele sempre faz tanta cara de dor?’</p>
+                          <p>Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: ‘Por que ele sempre faz tanta cara de dor?’</p>
 <p>Pensando nisso, decidi pegar algumas fotos famosas dele e aplicar um algoritmo de Inteligência Artificial para reconhecimento de emoções. Se minha hipótese estiver correta, provavelmente esse algoritmo retornaria emoções como “dor”, “tristeza” ou “descontentamento”.</p>
 <p>A API escolhida para essa tarefa foi a <a href="https://www.microsoft.com/cognitive-services/en-us/emotion-api">Microsoft Emotions API</a>. O motivo por trás da escolha não é nada especial: foi o primeiro resultado que apareceu no Google para mim!</p>
 <p>As imagens utilizadas para testar o algoritmo contra minha hipótese são essas aqui:</p>
@@ -185,7 +185,7 @@ library(httr)
 library(forcats)
 library(grid)
 library(gridExtra)</code></pre>
-<p>Para obter os resultados, foi necessário entrar na <a href="https://www.microsoft.com/cognitive-services/en-us/emotion-api">página de APIs de visão da Microsoft</a> e obter uma chave de acesso, guardando-a no objeto <code>key</code>. Depois disso, montei a função <code>pegar_emocoes()</code> que recebe a URL de uma imagem da internet e uma chave de acesso, e retorna uma <code>tibble</code> com as proporções das emoções em cada coluna.</p>
+<p>Para obter os resultados, foi necessário entrar na <a href="https://www.microsoft.com/cognitive-services/en-us/emotion-api">página de APIs de visão da Microsoft</a> e obter uma chave de acesso, guardando-a no objeto <code>key</code>. Depois disso, montei a função <code>pegar_emocoes()</code>, que recebe a URL de uma imagem da internet e uma chave de acesso, e retorna uma <code>tibble</code> com as proporções das emoções em cada coluna.</p>
 <pre class="r"><code>pegar_emocoes &lt;- function(u_img, key) {
   u_api &lt;- &#39;https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize&#39;
   result &lt;- httr::POST(
@@ -285,7 +285,7 @@ library(gridExtra)</code></pre>
 </div>
 <div id="resultados" class="section level2">
 <h2>Resultados</h2>
-<p>A Figura <a href="#fig:media">1</a> mostra a média de cada emoção nas seis fotos. Para minha surptesa, a emoção com maior proporção média foi “neutro”, com peso de quase 50%. As emoções seguintes são “felicidade”, “raiva” e “desdém”. A emoção “tristeza”, que achei que seria frequente por conta da cara de dor do Aécio, ficou com uma proporção média de apenas 5,5%.</p>
+<p>A Figura <a href="#fig:media">1</a> mostra a média de cada emoção nas seis fotos. Para minha surpresa, a emoção com maior proporção média foi “neutro”, com peso de quase 50%. As emoções seguintes são “felicidade”, “raiva” e “desdém”. A emoção “tristeza”, que achei que seria frequente por conta da cara de dor do Aécio, ficou com uma proporção média de apenas 5,5%.</p>
 <div class="figure" style="text-align: center"><span id="fig:media"></span>
 <img src="http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/media-1.png" alt="Média de cada emoção nas seis fotos baixadas." width="864" />
 <p class="caption">
@@ -487,19 +487,6 @@ Figure 2: Emoções do Aécio em cada imagem.
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -508,6 +495,19 @@ Figure 2: Emoções do Aécio em cada imagem.
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
