@@ -5,12 +5,12 @@ tags: ["erro", "r"]
 categories: ["r", "emotion"]
 banner: "img/banners/aecio.jpg"
 author: ["Julio"]
-draft: true
+draft: false
 summary: "Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: 'Por quê ele sempre faz tanta cara de dor?'"
 ---
 
 ```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE, eval = FALSE)
+knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: 'Por quê ele sempre faz tanta cara de dor?'
@@ -30,7 +30,8 @@ u_imagens <- c(
   'https://conteudo.imguol.com.br/c/noticias/6a/2016/10/03/3out2016---em-belo-horizonte-mg-o-presidente-nacional-do-psdb-e-senador-aecio-neves-faz-um-balanco-do-desempenho-do-partido-no-primeiro-turno-das-eleicoes-municipais-de-2016-aecio-se-disse-a-favor-de-1475526309974_615x300.jpg',
   'http://www.revistaforum.com.br/wp-content/uploads/2013/05/neves.jpg'
 )
-knitr::include_graphics(u_imagens)
+p_imagens <- dir('img', full.names = TRUE, pattern = 'aecio')
+knitr::include_graphics(p_imagens)
 ```
 
 ## Obtenção das emoções
