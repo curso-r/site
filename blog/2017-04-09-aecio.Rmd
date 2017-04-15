@@ -31,7 +31,8 @@ u_imagens <- c(
   'http://www.revistaforum.com.br/wp-content/uploads/2013/05/neves.jpg'
 )
 p_imagens <- dir('img', full.names = TRUE, pattern = 'aecio')
-knitr::include_graphics(p_imagens)
+# knitr::include_graphics(p_imagens)
+plyr::l_ply(p_imagens, function(x) plot(magick::image_read(x)))
 ```
 
 ## Obtenção das emoções
