@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/04/15/2017-04-09-aecio/</loc>
+    <lastmod>2017-04-15T13:07:31+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/04/10/2017-04-13-o-que-tem-a-um-km/</loc>
     <lastmod>2017-04-10T23:26:00+03:00</lastmod>
   </url>
@@ -9,11 +14,6 @@
   <url>
     <loc>http://curso-r.com/blog/2017/04/10/2017-04-08-progress/</loc>
     <lastmod>2017-04-10T13:07:31+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://curso-r.com/blog/2017/04/08/2017-04-09-aecio/</loc>
-    <lastmod>2017-04-08T13:07:31+02:00</lastmod>
   </url>
   
   <url>
@@ -108,20 +108,20 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/bayes/</loc>
-    <lastmod>2017-03-09T13:07:31+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://curso-r.com/tags/bayes/</loc>
     <lastmod>2017-03-09T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://curso-r.com/categories/bayes/</loc>
+    <lastmod>2017-03-09T13:07:31+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-04-10T23:26:00+03:00</lastmod>
+    <lastmod>2017-04-15T13:07:31+02:00</lastmod>
   </url>
   
   <url>
@@ -135,7 +135,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-04-10T23:26:00+03:00</lastmod>
+    <lastmod>2017-04-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -161,13 +161,13 @@
   
   <url>
     <loc>http://curso-r.com/categories/emotion/</loc>
-    <lastmod>2017-04-08T13:07:31+02:00</lastmod>
+    <lastmod>2017-04-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/tags/erro/</loc>
-    <lastmod>2017-04-08T13:07:31+02:00</lastmod>
+    <lastmod>2017-04-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -195,7 +195,7 @@
   
   <url>
     <loc>http://curso-r.com/author/julio/</loc>
-    <lastmod>2017-04-10T13:07:31+02:00</lastmod>
+    <lastmod>2017-04-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -230,14 +230,14 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-04-10T23:26:00+03:00</lastmod>
+    <loc>http://curso-r.com/tags/r/</loc>
+    <lastmod>2017-04-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-04-10T23:26:00+03:00</lastmod>
+    <loc>http://curso-r.com/categories/r/</loc>
+    <lastmod>2017-04-15T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
