@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>String on Curso-R</title>
+    <link>http://curso-r.com/tags/string/index.xml</link>
+    <description>Recent content in String on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="http://curso-r.com/tags/string/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Colando textos</title>
+      <link>http://curso-r.com/blog/2017/04/17/2017-04-08-glue/</link>
+      <pubDate>Mon, 17 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/17/2017-04-08-glue/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;Uma tarefa muito comum no &lt;code&gt;R&lt;/code&gt; é colar textos. As funções mais importantes para isso são &lt;code&gt;paste()&lt;/code&gt; e &lt;code&gt;sprintf()&lt;/code&gt;, que vêm com o pacote &lt;code&gt;base&lt;/code&gt;. Nesse artigo, vamos falar dessas duas funções e de um novo pacote do &lt;code&gt;tidyverse&lt;/code&gt;, o &lt;code&gt;glue&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;paste&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;paste()&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;A função &lt;code&gt;paste()&lt;/code&gt; recebe um conjunto indeterminado de objetos como argumento através do &lt;code&gt;...&lt;/code&gt; e vai colando os objetos passados elemento a elemento. Isso significa que se você passar dois vetores de tamanho &lt;code&gt;n&lt;/code&gt;, a função &lt;code&gt;paste()&lt;/code&gt; retornará um vetor de tamanho &lt;code&gt;n&lt;/code&gt; sendo cada posição tem a colagem dos dois vetores nessa posição. A colagem é feita usando-se um espaço simples (&lt;code&gt;&amp;quot; &amp;quot;&lt;/code&gt;). Exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paste(c(1, 2, 3), c(4, 5, 6))
+## [1] &amp;quot;1 4&amp;quot; &amp;quot;2 5&amp;quot; &amp;quot;3 6&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;É possível alterar o separador pelo argumento &lt;code&gt;sep =&lt;/code&gt;. Um atalho interessante para o separador vazio (&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;) é a função &lt;code&gt;paste0&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paste0(c(1, 2, 3), c(4, 5, 6))
+## [1] &amp;quot;14&amp;quot; &amp;quot;25&amp;quot; &amp;quot;36&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Algumas vezes nosso interesse não é juntar vetores elemento a elemento, mas sim passar um vetor e colar todos seus elementos. Isso é feito com o parâmetro &lt;code&gt;collapse =&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paste(c(1, 2, 3, 4, 5, 6), collapse = &amp;#39;@&amp;#39;)
+## [1] &amp;quot;1@2@3@4@5@6&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se você passar mais de um vetor e mandar colapsar os elementos, o &lt;code&gt;paste()&lt;/code&gt; vai primeiro colar e depois colapsar:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paste(c(1, 2, 3), c(4, 5, 6), collapse = &amp;#39;@&amp;#39;)
+## [1] &amp;quot;1 4@2 5@3 6&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;cuidado&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Cuidado&lt;/h3&gt;
+&lt;p&gt;Tenha muito cuidado ao passar vetores com &lt;strong&gt;comprimentos diferentes&lt;/strong&gt; no &lt;code&gt;paste()&lt;/code&gt;! Assim como muitas funções do R, o &lt;code&gt;paste()&lt;/code&gt; faz reciclagem, ou seja, ele copia os elementos do menor vetor até ele ficar com o comprimento do maior vetor&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;. O problema é que o &lt;code&gt;paste()&lt;/code&gt; faz isso silenciosamente, sem te avisar caso você tenha inserido um vetor com comprimento que não é múltiplo dos demais. Veja que resultado bizarro:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paste(5:9, 1:3, 4:5)
+## [1] &amp;quot;5 1 4&amp;quot; &amp;quot;6 2 5&amp;quot; &amp;quot;7 3 4&amp;quot; &amp;quot;8 1 5&amp;quot; &amp;quot;9 2 4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sprintf&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;sprintf()&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;O &lt;code&gt;sprintf()&lt;/code&gt; é similar ao &lt;code&gt;printf&lt;/code&gt; do &lt;code&gt;C&lt;/code&gt;. Primeiro escrevemos um texto com &lt;code&gt;%s&lt;/code&gt; no lugar das coisas que queremos substituir. Depois colocamos esses objetos nos outros argumentos da função, na ordem em que eles aparecem no texto.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sprintf(&amp;#39;Aba%ste&amp;#39;, &amp;#39;ca&amp;#39;)
+## [1] &amp;quot;Abacate&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Quando o argumento é um vetor, a função retorna um vetor com as substituições ponto a ponto.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sprintf(&amp;#39;Aba%ste&amp;#39;, c(&amp;#39;ca&amp;#39;, &amp;#39;ixas&amp;#39;))
+## [1] &amp;quot;Abacate&amp;quot;   &amp;quot;Abaixaste&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se o texto contém mais de um &lt;code&gt;%s&lt;/code&gt; e os objetos correspondentes são vetores, o &lt;code&gt;sprintf()&lt;/code&gt; tenta &lt;em&gt;reciclar&lt;/em&gt; os vetores para ficarem do mesmo tamanho. Isso só funciona quando todos os objetos têm comprimentos que são múltiplos do comprimento do maior objeto.&lt;/p&gt;
+&lt;p&gt;Isso funciona:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sprintf(&amp;#39;Aba%s%s&amp;#39;, c(&amp;#39;ca&amp;#39;), c(&amp;#39;xi&amp;#39;, &amp;#39;te&amp;#39;)) # ca foi reciclado
+## [1] &amp;quot;Abacaxi&amp;quot; &amp;quot;Abacate&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Isso não funciona:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sprintf(&amp;#39;Aba%s%s&amp;#39;, c(&amp;#39;ca&amp;#39;, &amp;#39;ixaste&amp;#39;), c(&amp;#39;xi&amp;#39;, &amp;#39;te&amp;#39;, &amp;#39;.&amp;#39;))
+## Error in sprintf(&amp;quot;Aba%s%s&amp;quot;, c(&amp;quot;ca&amp;quot;, &amp;quot;ixaste&amp;quot;), c(&amp;quot;xi&amp;quot;, &amp;quot;te&amp;quot;, &amp;quot;.&amp;quot;)): arguments cannot be recycled to the same length&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nem sempre queremos substituir pedaços do nosso texto por outros textos. No lugar do &lt;code&gt;%s&lt;/code&gt;, é possível colocar padrões para números, por exemplo. Eu uso bastante o &lt;code&gt;%d&lt;/code&gt;, que recebe inteiros. Uma funcionalidade legal do &lt;code&gt;%d&lt;/code&gt; é a possibilidade de adicionar zeros à esquerda quando um número não atinge certa quantidade de dígitos. Assim, quando ordenamos um vetor de textos que começa com números, a ordenação é a mesma da versão numérica do vetor.&lt;/p&gt;
+&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nums &amp;lt;- 1:11
+sort(as.character(nums))    # ordenado pela string: 10 vem antes de 2
+##  [1] &amp;quot;1&amp;quot;  &amp;quot;10&amp;quot; &amp;quot;11&amp;quot; &amp;quot;2&amp;quot;  &amp;quot;3&amp;quot;  &amp;quot;4&amp;quot;  &amp;quot;5&amp;quot;  &amp;quot;6&amp;quot;  &amp;quot;7&amp;quot;  &amp;quot;8&amp;quot;  &amp;quot;9&amp;quot;
+sort(sprintf(&amp;#39;%02d&amp;#39;, nums)) # ordenado pela string: 02 vem antes de 10
+##  [1] &amp;quot;01&amp;quot; &amp;quot;02&amp;quot; &amp;quot;03&amp;quot; &amp;quot;04&amp;quot; &amp;quot;05&amp;quot; &amp;quot;06&amp;quot; &amp;quot;07&amp;quot; &amp;quot;08&amp;quot; &amp;quot;09&amp;quot; &amp;quot;10&amp;quot; &amp;quot;11&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;glue&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;glue&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;O &lt;code&gt;glue&lt;/code&gt; é um pacote recente. Sua primeira aparição no GitHub foi em 23/12/2016! Isso significa que é provável que algumas funcionalidades mudem, mas isso não nos impede de aproveitar o que a ferramenta tem de bom.&lt;/p&gt;
+&lt;p&gt;A função &lt;code&gt;glue()&lt;/code&gt; é uma generalização do &lt;code&gt;sprintf()&lt;/code&gt;, em que é possível chamar objetos do R diretamente ao invés de utilizar o &lt;code&gt;%s&lt;/code&gt;. Os objetos podem estar no &lt;em&gt;global environment&lt;/em&gt; ou descritos por meio de objetos nomeados nos argumentos do &lt;code&gt;glue()&lt;/code&gt;. Basta inserir os objetos entre chaves &lt;code&gt;{}&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(glue)
+planeta &amp;lt;- &amp;#39;mundo&amp;#39;
+glue(&amp;#39;Olá {planeta} pela {y}a vez&amp;#39;, y = 1)
+## Olá mundo pela 1a vez&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Tembém é possível adicionar expressões dentro das chaves:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- 1.123123123
+glue(&amp;#39;{p * 100}% das pessoas adoram R.&amp;#39;)
+## 112.3123123% das pessoas adoram R.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glue(&amp;#39;{scales::percent(p)} das pessoas adoram R.&amp;#39;)
+## 112% das pessoas adoram R.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A função &lt;code&gt;collapse()&lt;/code&gt; é parecida com o &lt;code&gt;paste()&lt;/code&gt; quando &lt;code&gt;collapse = &#39;&#39;&lt;/code&gt;, mas só aceita um objeto como entrada:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- collapse(1:10)
+x
+## [1] &amp;quot;12345678910&amp;quot;
+all.equal(x, paste(1:10, collapse = &amp;#39;&amp;#39;))
+## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se quiser colar os objetos elemento a elemento e depois colapsar, faça isso explicitamente em duas operações:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glue(&amp;#39;{letters}/{LETTERS}&amp;#39;) %&amp;gt;% 
+  collapse(&amp;#39;, &amp;#39;)
+## [1] &amp;quot;a/A, b/B, c/C, d/D, e/E, f/F, g/G, h/H, i/I, j/J, k/K, l/L, m/M, n/N, o/O, p/P, q/Q, r/R, s/S, t/T, u/U, v/V, w/W, x/X, y/Y, z/Z&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O &lt;code&gt;glue&lt;/code&gt; também tem uma função extra para trabalhar melhor com o &lt;code&gt;%&amp;gt;%&lt;/code&gt;. O primeiro argumento da função &lt;code&gt;glue_data()&lt;/code&gt; é uma lista ou &lt;code&gt;data.frame&lt;/code&gt;, e seus nomes são utilizados como variáveis para alimentar as chaves das strings. Use o &lt;code&gt;.&lt;/code&gt; para fazer operações com toda a base de dados:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;% 
+  head() %&amp;gt;% 
+  glue_data(&amp;#39;O carro {row.names(.)} rende {mpg} milhas por galão.&amp;#39;)
+## O carro Mazda RX4 rende 21 milhas por galão.
+## O carro Mazda RX4 Wag rende 21 milhas por galão.
+## O carro Datsun 710 rende 22.8 milhas por galão.
+## O carro Hornet 4 Drive rende 21.4 milhas por galão.
+## O carro Hornet Sportabout rende 18.7 milhas por galão.
+## O carro Valiant rende 18.1 milhas por galão.&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resumo&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Resumo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;paste()&lt;/code&gt; para colar ou colapsar elementos usando um separador fixado.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;sprintf()&lt;/code&gt; quando quiser colocar objetos dentro de um texto complexo.&lt;/li&gt;
+&lt;li&gt;Em todos os casos existe uma solução usando &lt;code&gt;glue&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Atualmente sempre que tenho um problema desse tipo uso o &lt;code&gt;glue&lt;/code&gt;. Até o momento, não encontrei nenhum problema ou dificuldade. A vida do cientista de dados é mais feliz no &lt;code&gt;tidyverse&lt;/code&gt;!&lt;/p&gt;
+&lt;p&gt;É isso Happy coding ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Mais sobre isso no livro &lt;a href=&#34;http://www.burns-stat.com/pages/Tutor/R_inferno.pdf&#34;&gt;R inferno&lt;/a&gt;&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

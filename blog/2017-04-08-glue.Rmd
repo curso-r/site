@@ -1,11 +1,11 @@
 ---
 title: "Colando textos"
-date: "2017-04-08T13:07:31+02:00"
+date: "2017-04-17T13:07:31+02:00"
 tags: ["tidyverse", "string", "r"]
 categories: ["r"]
 banner: "img/banners/glue.png"
 author: ["Julio"]
-draft: true
+draft: false
 summary: "Uma tarefa muito comum no R é colar textos. As funções mais importantes para isso são paste() e sprintf(), que vêm com o pacote base. Nesse artigo, vamos falar dessas duas funções e de um novo pacote do tidyverse, o glue."
 ---
 
@@ -147,4 +147,4 @@ mtcars %>%
 
 Atualmente sempre que tenho um problema desse tipo uso o `glue`. Até o momento, não encontrei nenhum problema ou dificuldade. A vida do cientista de dados é mais feliz no `tidyverse`!
 
-É isso pessoal. Happy coding ;)
+É isso Happy coding ;)
