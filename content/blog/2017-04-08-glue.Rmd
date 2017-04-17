@@ -93,9 +93,9 @@ sort(sprintf('%02d', nums)) # ordenado pela string: 02 vem antes de 10
 
 ## `glue`
 
-O `glue` é um pacote recente. Sua primeira aparição no GitHub foi em 23/12/2016! Isso significa que é provável que algumas funcionalidades mudem, mas isso não nos impede de aproveitar o que a ferramenta tem de bom.
+O [`glue`](https://github.com/tidyverse/glue) é um pacote recente. Sua primeira aparição no GitHub foi em 23/12/2016! Isso significa que é provável que algumas coisas mudem, mas isso não nos impede de aproveitar o que a ferramenta tem de bom.
 
-A função `glue()` é uma generalização do `sprintf()`, em que é possível chamar objetos do R diretamente ao invés de utilizar o `%s`. Os objetos podem estar no *global environment* ou descritos por meio de objetos nomeados nos argumentos do `glue()`. Basta inserir os objetos entre chaves `{}`:
+A função `glue()` é uma generalização do `sprintf()` que permite chamar objetos do R diretamente ao invés de utilizar o `%s`. Os objetos podem estar no *global environment* ou descritos por meio de objetos nomeados nos argumentos do `glue()`. Basta inserir os objetos entre chaves `{}`:
 
 ```{r}
 library(glue)
@@ -133,7 +133,7 @@ glue('{letters}/{LETTERS}') %>%
   collapse(', ')
 ```
 
-O `glue` também tem uma função extra para trabalhar melhor com o `%>%`. O primeiro argumento da função `glue_data()` é uma lista ou `data.frame`, e seus nomes são utilizados como variáveis para alimentar as chaves das strings. Use o `.` para fazer operações com toda a base de dados:
+O `glue` também tem uma função extra para trabalhar melhor com o `%>%`, o `glue_data()`. O primeiro argumento dessa função é uma lista ou `data.frame`, e seus nomes são utilizados como variáveis para alimentar as chaves das strings. Use o `.` para fazer operações com toda a base de dados:
 
 ```{r}
 mtcars %>% 
@@ -149,4 +149,4 @@ mtcars %>%
 
 Atualmente sempre que tenho um problema desse tipo uso o `glue`. Até o momento, não encontrei nenhum problema ou dificuldade. A vida do cientista de dados é mais feliz no `tidyverse`!
 
-É isso Happy coding ;)
+É isso. Happy coding ;)
