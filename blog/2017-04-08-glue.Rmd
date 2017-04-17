@@ -153,7 +153,7 @@ Atualmente sempre que tenho um problema desse tipo uso o `glue`. Até o momento,
 
 ## Extra:
 
-O [Guilherme Jardim Duarte](https://github.com/duarteguilherme) fez uma ótima sugestão logo após a publicação deste artigo. No pacote `stringi` existe um operador `%s+%` que cola textos iterativamente, numa sintaxe similar à linguagem `python`, que permite a colagem de textos usando um simples `+`. Veja abaixo um exemplo:
+O [Guilherme Jardim Duarte](https://github.com/duarteguilherme) fez uma ótima sugestão logo após a publicação deste artigo. No pacote `stringi` existe um operador `%s+%` que cola textos iterativamente, com uma sintaxe similar à linguagem `python`, que permite a colagem de textos usando um simples `+`. Exemplo:
 
 ```{r}
 library(stringi)
@@ -163,5 +163,5 @@ library(stringi)
   'xi'
 ```
 
-Você pode adicionar esse operador como um atalho no RStudio, como o `Ctrl+Alt+M`, que usamos para escrever o `%>%`. Para isso, veja [esse tutorial sobre RStudio Addins](https://rstudio.github.io/rstudioaddins/).
+Você pode adicionar esse operador como um atalho no RStudio, análogo ao `Ctrl+Shift+M` que usamos para escrever o `%>%`. Para isso, veja [esse tutorial sobre RStudio Addins](https://rstudio.github.io/rstudioaddins/).
 
