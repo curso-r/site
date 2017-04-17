@@ -111,6 +111,17 @@ all.equal(x, paste(1:10, collapse = &amp;#39;&amp;#39;))
 &lt;p&gt;Atualmente sempre que tenho um problema desse tipo uso o &lt;code&gt;glue&lt;/code&gt;. Até o momento, não encontrei nenhum problema ou dificuldade. A vida do cientista de dados é mais feliz no &lt;code&gt;tidyverse&lt;/code&gt;!&lt;/p&gt;
 &lt;p&gt;É isso. Happy coding ;)&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;extra&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Extra:&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&#34;https://github.com/duarteguilherme&#34;&gt;Guilherme Jardim Duarte&lt;/a&gt; fez uma ótima sugestão logo após a publicação deste artigo. No pacote &lt;code&gt;stringi&lt;/code&gt; existe um operador &lt;code&gt;%s+%&lt;/code&gt; que cola textos iterativamente, numa sintaxe similar à linguagem &lt;code&gt;python&lt;/code&gt;, que permite a colagem de textos usando um simples &lt;code&gt;+&lt;/code&gt;. Veja abaixo um exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stringi)
+&amp;#39;a&amp;#39; %s+%
+  &amp;#39;ba&amp;#39; %s+%
+  &amp;#39;ca&amp;#39; %s+%
+  &amp;#39;xi&amp;#39;
+## [1] &amp;quot;abacaxi&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Você pode adicionar esse operador como um atalho no RStudio, como o &lt;code&gt;Ctrl+Alt+M&lt;/code&gt;, que usamos para escrever o &lt;code&gt;%&amp;gt;%&lt;/code&gt;. Para isso, veja &lt;a href=&#34;https://rstudio.github.io/rstudioaddins/&#34;&gt;esse tutorial sobre RStudio Addins&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
