@@ -180,10 +180,10 @@
 <p>Uma tarefa muito comum no <code>R</code> é colar textos. As funções mais importantes para isso são <code>paste()</code> e <code>sprintf()</code>, que vêm com o pacote <code>base</code>. Nesse artigo, vamos falar dessas duas funções e de um novo pacote do <code>tidyverse</code>, o <code>glue</code>.</p>
 <div id="paste" class="section level2">
 <h2><code>paste()</code></h2>
-<p>A função <code>paste()</code> recebe um conjunto indeterminado de objetos como argumento através do <code>...</code> e vai colando os objetos passados elemento a elemento. Isso significa que se você passar dois vetores de tamanho <code>n</code>, a função <code>paste()</code> retornará um vetor de tamanho <code>n</code> sendo cada posição tem a colagem dos dois vetores nessa posição. A colagem é feita usando-se um espaço simples (<code>&quot; &quot;</code>). Exemplo:</p>
+<p>A função <code>paste()</code> recebe um conjunto indeterminado de objetos como argumento através do <code>...</code> e vai colando os objetos passados elemento a elemento. Isso significa que se você passar dois vetores de tamanho <code>n</code>, a função <code>paste()</code> retornará um vetor de tamanho <code>n</code> sendo cada posição a colagem dos dois vetores nessa posição. Por padrão, a colagem é feita com um separador de espaço simples (<code>&quot; &quot;</code>). Exemplo:</p>
 <pre class="r"><code>paste(c(1, 2, 3), c(4, 5, 6))
 ## [1] &quot;1 4&quot; &quot;2 5&quot; &quot;3 6&quot;</code></pre>
-<p>É possível alterar o separador pelo argumento <code>sep =</code>. Um atalho interessante para o separador vazio (<code>&quot;&quot;</code>) é a função <code>paste0</code>:</p>
+<p>É possível alterar o separador pelo argumento <code>sep =</code>. Um atalho útil para o separador vazio (<code>&quot;&quot;</code>) é a função <code>paste0</code>:</p>
 <pre class="r"><code>paste0(c(1, 2, 3), c(4, 5, 6))
 ## [1] &quot;14&quot; &quot;25&quot; &quot;36&quot;</code></pre>
 <p>Algumas vezes nosso interesse não é juntar vetores elemento a elemento, mas sim passar um vetor e colar todos seus elementos. Isso é feito com o parâmetro <code>collapse =</code>:</p>
@@ -194,9 +194,10 @@
 ## [1] &quot;1 4@2 5@3 6&quot;</code></pre>
 <div id="cuidado" class="section level3">
 <h3>Cuidado</h3>
-<p>Tenha muito cuidado ao passar vetores com <strong>comprimentos diferentes</strong> no <code>paste()</code>! Assim como muitas funções do R, o <code>paste()</code> faz reciclagem, ou seja, ele copia os elementos do menor vetor até ele ficar com o comprimento do maior vetor<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. O problema é que o <code>paste()</code> faz isso silenciosamente, sem te avisar caso você tenha inserido um vetor com comprimento que não é múltiplo dos demais. Veja que resultado bizarro:</p>
+<p>Tenha muito cuidado ao passar vetores com <strong>comprimentos diferentes</strong> no <code>paste()</code>! Assim como muitas funções do R, o <code>paste()</code> faz reciclagem, ou seja, ele copia os elementos do menor vetor até ele ficar com o comprimento do maior vetor<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. O problema é que o <code>paste()</code> faz isso silenciosamente e não avisa se você inserir um vetor com comprimento que não é múltiplo dos demais. Veja que resultado bizarro:</p>
 <pre class="r"><code>paste(5:9, 1:3, 4:5)
 ## [1] &quot;5 1 4&quot; &quot;6 2 5&quot; &quot;7 3 4&quot; &quot;8 1 5&quot; &quot;9 2 4&quot;</code></pre>
+<p>Por essas e outras que dizemos que às vezes o R funciona bem demais…</p>
 </div>
 </div>
 <div id="sprintf" class="section level2">
@@ -458,6 +459,19 @@ all.equal(x, paste(1:10, collapse = &#39;&#39;))
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -466,19 +480,6 @@ all.equal(x, paste(1:10, collapse = &#39;&#39;))
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
