@@ -68,8 +68,8 @@ sort(sprintf(&amp;#39;%02d&amp;#39;, nums)) # ordenado pela string: 02 vem antes
 &lt;/div&gt;
 &lt;div id=&#34;glue&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;code&gt;glue&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;O &lt;code&gt;glue&lt;/code&gt; é um pacote recente. Sua primeira aparição no GitHub foi em 23/12/2016! Isso significa que é provável que algumas funcionalidades mudem, mas isso não nos impede de aproveitar o que a ferramenta tem de bom.&lt;/p&gt;
-&lt;p&gt;A função &lt;code&gt;glue()&lt;/code&gt; é uma generalização do &lt;code&gt;sprintf()&lt;/code&gt;, em que é possível chamar objetos do R diretamente ao invés de utilizar o &lt;code&gt;%s&lt;/code&gt;. Os objetos podem estar no &lt;em&gt;global environment&lt;/em&gt; ou descritos por meio de objetos nomeados nos argumentos do &lt;code&gt;glue()&lt;/code&gt;. Basta inserir os objetos entre chaves &lt;code&gt;{}&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&#34;https://github.com/tidyverse/glue&#34;&gt;&lt;code&gt;glue&lt;/code&gt;&lt;/a&gt; é um pacote recente. Sua primeira aparição no GitHub foi em 23/12/2016! Isso significa que é provável que algumas coisas mudem, mas isso não nos impede de aproveitar o que a ferramenta tem de bom.&lt;/p&gt;
+&lt;p&gt;A função &lt;code&gt;glue()&lt;/code&gt; é uma generalização do &lt;code&gt;sprintf()&lt;/code&gt; que permite chamar objetos do R diretamente ao invés de utilizar o &lt;code&gt;%s&lt;/code&gt;. Os objetos podem estar no &lt;em&gt;global environment&lt;/em&gt; ou descritos por meio de objetos nomeados nos argumentos do &lt;code&gt;glue()&lt;/code&gt;. Basta inserir os objetos entre chaves &lt;code&gt;{}&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(glue)
 planeta &amp;lt;- &amp;#39;mundo&amp;#39;
 glue(&amp;#39;Olá {planeta} pela {y}a vez&amp;#39;, y = 1)
@@ -90,7 +90,7 @@ all.equal(x, paste(1:10, collapse = &amp;#39;&amp;#39;))
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glue(&amp;#39;{letters}/{LETTERS}&amp;#39;) %&amp;gt;% 
   collapse(&amp;#39;, &amp;#39;)
 ## [1] &amp;quot;a/A, b/B, c/C, d/D, e/E, f/F, g/G, h/H, i/I, j/J, k/K, l/L, m/M, n/N, o/O, p/P, q/Q, r/R, s/S, t/T, u/U, v/V, w/W, x/X, y/Y, z/Z&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;O &lt;code&gt;glue&lt;/code&gt; também tem uma função extra para trabalhar melhor com o &lt;code&gt;%&amp;gt;%&lt;/code&gt;. O primeiro argumento da função &lt;code&gt;glue_data()&lt;/code&gt; é uma lista ou &lt;code&gt;data.frame&lt;/code&gt;, e seus nomes são utilizados como variáveis para alimentar as chaves das strings. Use o &lt;code&gt;.&lt;/code&gt; para fazer operações com toda a base de dados:&lt;/p&gt;
+&lt;p&gt;O &lt;code&gt;glue&lt;/code&gt; também tem uma função extra para trabalhar melhor com o &lt;code&gt;%&amp;gt;%&lt;/code&gt;, o &lt;code&gt;glue_data()&lt;/code&gt;. O primeiro argumento dessa função é uma lista ou &lt;code&gt;data.frame&lt;/code&gt;, e seus nomes são utilizados como variáveis para alimentar as chaves das strings. Use o &lt;code&gt;.&lt;/code&gt; para fazer operações com toda a base de dados:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;% 
   head() %&amp;gt;% 
   glue_data(&amp;#39;O carro {row.names(.)} rende {mpg} milhas por galão.&amp;#39;)
@@ -109,7 +109,7 @@ all.equal(x, paste(1:10, collapse = &amp;#39;&amp;#39;))
 &lt;li&gt;Em todos os casos existe uma solução usando &lt;code&gt;glue&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Atualmente sempre que tenho um problema desse tipo uso o &lt;code&gt;glue&lt;/code&gt;. Até o momento, não encontrei nenhum problema ou dificuldade. A vida do cientista de dados é mais feliz no &lt;code&gt;tidyverse&lt;/code&gt;!&lt;/p&gt;
-&lt;p&gt;É isso Happy coding ;)&lt;/p&gt;
+&lt;p&gt;É isso. Happy coding ;)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;

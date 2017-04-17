@@ -225,8 +225,8 @@ sort(sprintf(&#39;%02d&#39;, nums)) # ordenado pela string: 02 vem antes de 10
 </div>
 <div id="glue" class="section level2">
 <h2><code>glue</code></h2>
-<p>O <code>glue</code> é um pacote recente. Sua primeira aparição no GitHub foi em 23/12/2016! Isso significa que é provável que algumas funcionalidades mudem, mas isso não nos impede de aproveitar o que a ferramenta tem de bom.</p>
-<p>A função <code>glue()</code> é uma generalização do <code>sprintf()</code>, em que é possível chamar objetos do R diretamente ao invés de utilizar o <code>%s</code>. Os objetos podem estar no <em>global environment</em> ou descritos por meio de objetos nomeados nos argumentos do <code>glue()</code>. Basta inserir os objetos entre chaves <code>{}</code>:</p>
+<p>O <a href="https://github.com/tidyverse/glue"><code>glue</code></a> é um pacote recente. Sua primeira aparição no GitHub foi em 23/12/2016! Isso significa que é provável que algumas coisas mudem, mas isso não nos impede de aproveitar o que a ferramenta tem de bom.</p>
+<p>A função <code>glue()</code> é uma generalização do <code>sprintf()</code> que permite chamar objetos do R diretamente ao invés de utilizar o <code>%s</code>. Os objetos podem estar no <em>global environment</em> ou descritos por meio de objetos nomeados nos argumentos do <code>glue()</code>. Basta inserir os objetos entre chaves <code>{}</code>:</p>
 <pre class="r"><code>library(glue)
 planeta &lt;- &#39;mundo&#39;
 glue(&#39;Olá {planeta} pela {y}a vez&#39;, y = 1)
@@ -247,7 +247,7 @@ all.equal(x, paste(1:10, collapse = &#39;&#39;))
 <pre class="r"><code>glue(&#39;{letters}/{LETTERS}&#39;) %&gt;% 
   collapse(&#39;, &#39;)
 ## [1] &quot;a/A, b/B, c/C, d/D, e/E, f/F, g/G, h/H, i/I, j/J, k/K, l/L, m/M, n/N, o/O, p/P, q/Q, r/R, s/S, t/T, u/U, v/V, w/W, x/X, y/Y, z/Z&quot;</code></pre>
-<p>O <code>glue</code> também tem uma função extra para trabalhar melhor com o <code>%&gt;%</code>. O primeiro argumento da função <code>glue_data()</code> é uma lista ou <code>data.frame</code>, e seus nomes são utilizados como variáveis para alimentar as chaves das strings. Use o <code>.</code> para fazer operações com toda a base de dados:</p>
+<p>O <code>glue</code> também tem uma função extra para trabalhar melhor com o <code>%&gt;%</code>, o <code>glue_data()</code>. O primeiro argumento dessa função é uma lista ou <code>data.frame</code>, e seus nomes são utilizados como variáveis para alimentar as chaves das strings. Use o <code>.</code> para fazer operações com toda a base de dados:</p>
 <pre class="r"><code>mtcars %&gt;% 
   head() %&gt;% 
   glue_data(&#39;O carro {row.names(.)} rende {mpg} milhas por galão.&#39;)
@@ -266,7 +266,7 @@ all.equal(x, paste(1:10, collapse = &#39;&#39;))
 <li>Em todos os casos existe uma solução usando <code>glue</code>.</li>
 </ul>
 <p>Atualmente sempre que tenho um problema desse tipo uso o <code>glue</code>. Até o momento, não encontrei nenhum problema ou dificuldade. A vida do cientista de dados é mais feliz no <code>tidyverse</code>!</p>
-<p>É isso Happy coding ;)</p>
+<p>É isso. Happy coding ;)</p>
 </div>
 <div class="footnotes">
 <hr />
@@ -459,6 +459,19 @@ all.equal(x, paste(1:10, collapse = &#39;&#39;))
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -467,19 +480,6 @@ all.equal(x, paste(1:10, collapse = &#39;&#39;))
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
