@@ -1,11 +1,11 @@
 ---
 title: "Tratando erros: the tidy way"
-date: "2017-04-08T13:07:31+02:00"
+date: "2017-04-20T13:07:31+02:00"
 tags: ["erro", "r"]
 categories: ["r"]
 banner: "img/banners/error.jpg"
 author: ["Julio"]
-draft: true
+draft: false
 summary: "Tratar erros no R é importante para identificar problemas nos códigos e evitar retrabalho. Quem nunca rodou um algoritmo pesadíssimo que deu errado na última iteração? Nesse artigo, veremos como trabalhar com erros no R e a versão tidy dessas soluções."
 ---
 
