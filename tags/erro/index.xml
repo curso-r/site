@@ -43,7 +43,7 @@ x
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;safely()&lt;/code&gt; retorna uma lista com elementos &lt;code&gt;result&lt;/code&gt; e &lt;code&gt;error&lt;/code&gt;. Quando a função não dá erro, &lt;code&gt;error&lt;/code&gt; fica igual a &lt;code&gt;NULL&lt;/code&gt;. Quando a função dá erro, &lt;code&gt;error&lt;/code&gt; guarda a mensagem de erro e &lt;code&gt;result&lt;/code&gt; guarda o valor do parâmetro &lt;code&gt;otherwise =&lt;/code&gt;, que por padrão é &lt;code&gt;NULL&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;possibly()&lt;/code&gt; é uma versão mais otimista do &lt;code&gt;safely()&lt;/code&gt;, que exige a definição de &lt;code&gt;otherwise =&lt;/code&gt; e não guarda as mensagens de erro.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;quietly()&lt;/code&gt; não trata erros (ou seja, ela trava quando dá erro), mas guarda informações sobre warnings e&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;quietly()&lt;/code&gt; não trata erros (ou seja, ela trava quando dá erro), mas guarda informações sobre &lt;em&gt;warnings&lt;/em&gt; e &lt;em&gt;messages&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-5&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;http://curso-r.com/blog/2017-04-09-try_files/figure-html/unnamed-chunk-5-1.png&#34; alt=&#34;Admita, você não imaginava que teria de pensar em gramática para programar em R.&#34; width=&#34;768&#34; /&gt;

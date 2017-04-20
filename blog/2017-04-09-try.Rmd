@@ -45,7 +45,7 @@ Hoje em dia, o jeito mais arrumado de tratar erros é usando as funções `purrr
 
 - `safely()` retorna uma lista com elementos `result` e `error`. Quando a função não dá erro, `error` fica igual a `NULL`. Quando a função dá erro, `error` guarda a mensagem de erro e `result` guarda o valor do parâmetro `otherwise = `, que por padrão é `NULL`.
 - `possibly()` é uma versão mais otimista do `safely()`, que exige a definição de `otherwise = ` e não guarda as mensagens de erro.
-- `quietly()` não trata erros (ou seja, ela trava quando dá erro), mas guarda informações sobre warnings e 
+- `quietly()` não trata erros (ou seja, ela trava quando dá erro), mas guarda informações sobre *warnings* e *messages*.
 
 ```{r, echo=FALSE, fig.cap='Admita, você não imaginava que teria de pensar em gramática para programar em R.', fig.width=8, fig.height=4}
 library(magick)

@@ -43,7 +43,7 @@ x
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;safely()&lt;/code&gt; retorna uma lista com elementos &lt;code&gt;result&lt;/code&gt; e &lt;code&gt;error&lt;/code&gt;. Quando a função não dá erro, &lt;code&gt;error&lt;/code&gt; fica igual a &lt;code&gt;NULL&lt;/code&gt;. Quando a função dá erro, &lt;code&gt;error&lt;/code&gt; guarda a mensagem de erro e &lt;code&gt;result&lt;/code&gt; guarda o valor do parâmetro &lt;code&gt;otherwise =&lt;/code&gt;, que por padrão é &lt;code&gt;NULL&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;possibly()&lt;/code&gt; é uma versão mais otimista do &lt;code&gt;safely()&lt;/code&gt;, que exige a definição de &lt;code&gt;otherwise =&lt;/code&gt; e não guarda as mensagens de erro.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;quietly()&lt;/code&gt; não trata erros (ou seja, ela trava quando dá erro), mas guarda informações sobre warnings e&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;quietly()&lt;/code&gt; não trata erros (ou seja, ela trava quando dá erro), mas guarda informações sobre &lt;em&gt;warnings&lt;/em&gt; e &lt;em&gt;messages&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-5&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;http://curso-r.com/blog/2017-04-09-try_files/figure-html/unnamed-chunk-5-1.png&#34; alt=&#34;Admita, você não imaginava que teria de pensar em gramática para programar em R.&#34; width=&#34;768&#34; /&gt;
@@ -1210,7 +1210,7 @@ knitr::kable(top10_locais)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-04-20 12:49
+##   Date: 2017-04-20 12:55
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.3 kB
@@ -1785,7 +1785,7 @@ system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.012   0.000   3.015&lt;/code&gt;&lt;/pre&gt;
+##   0.000   0.004   3.008&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -1799,13 +1799,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.036   0.000   2.311&lt;/code&gt;&lt;/pre&gt;
+##   0.020   0.000   2.207&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.012   0.004   2.019&lt;/code&gt;&lt;/pre&gt;
+##   0.004   0.004   2.009&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;
