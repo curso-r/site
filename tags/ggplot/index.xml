@@ -29,7 +29,7 @@
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-04-21 16:04
+##   Date: 2017-04-21 22:30
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.3 kB
@@ -78,14 +78,14 @@ sudo apt-get install libcurl4-openssl-dev&lt;/code&gt;&lt;/pre&gt;
   dormir()
 })
 ##    user  system elapsed 
-##   0.000   0.000   1.001&lt;/code&gt;&lt;/pre&gt;
+##   0.000   0.000   1.002&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Nosso interesse é aplicar &lt;code&gt;dormir()&lt;/code&gt; em cada elemento do vetor &lt;code&gt;c(1, 2)&lt;/code&gt;. Esse algoritmo demora &lt;code&gt;1 + 2 = 3&lt;/code&gt; segundos.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;segundos &amp;lt;- c(1, 2)
 system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.004   0.000   3.007&lt;/code&gt;&lt;/pre&gt;
+##   0.004   0.000   3.009&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -99,13 +99,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.028   0.000   2.231&lt;/code&gt;&lt;/pre&gt;
+##    0.02    0.00    2.19&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.008   0.000   2.011&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   2.012&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;
