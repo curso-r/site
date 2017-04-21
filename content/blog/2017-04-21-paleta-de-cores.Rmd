@@ -33,7 +33,7 @@ A imagem lida pelo pacote `jpeg` é representada por um `array` com dimensões:
 Podemos exibir a imagem no R, convertendo o array, primeiro em um obheto do tipo 
 `raster` e depois simplesmente usando a função `plot`.
 
-```{r}
+```{r, fig.height=16, fig.width=16}
 plot(as.raster(img))
 ```
 
@@ -138,7 +138,7 @@ criar_paleta <- function(img, num_cores){
 Vejamos agora o que acontece com essa bela imagem do filme Moonrise Kingdom do
 Wes Anderson, que é famoso por fazer filmes com belas paletas de cores.
 
-```{r}
+```{r, fig.height=8, fig.width=16}
 moonrise <- readJPEG("img/moonrise-kingdom.jpg")
 plot(as.raster(moonrise))
 ```
