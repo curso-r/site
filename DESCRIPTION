@@ -61,5 +61,6 @@ Imports:
     grid,
     gridExtra,
     jpeg,
-    png
+    png,
+    benford.analysis
 RoxygenNote: 6.0.1
