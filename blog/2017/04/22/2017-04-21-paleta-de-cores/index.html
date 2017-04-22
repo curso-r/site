@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
 
-  <title>Webscraping</title>
+  <title>K-means e paleta de cores</title>
 
   <meta name="author" content="" />
   <meta name="keywords" content="">
@@ -51,10 +51,10 @@
   <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
   
   
-  <meta property="og:title" content="Webscraping" />
+  <meta property="og:title" content="K-means e paleta de cores" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/tags/webscraping//" />
-  <meta property="og:image" content="" />
+  <meta property="og:url" content="/blog/2017/04/22/2017-04-21-paleta-de-cores//" />
+  <meta property="og:image" content="img/banners/paleta-cores.png" />
 
 </head>
 
@@ -71,8 +71,8 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="http://curso-r.com/">
-                    <img src="http://curso-r.com/img/logo.svg" alt="Webscraping logo" width="50" height="50">
-                    <span class="sr-only">Webscraping - go to homepage</span>
+                    <img src="http://curso-r.com/img/logo.svg" alt="K-means e paleta de cores logo" width="50" height="50">
+                    <span class="sr-only">K-means e paleta de cores - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -141,7 +141,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Webscraping</h1>
+                <h1>K-means e paleta de cores</h1>
             </div>
         </div>
     </div>
@@ -150,103 +150,146 @@
 
         <div id="content">
             <div class="container">
+
                 <div class="row">
+
                     
 
-                    <div class="col-md-9" id="blog-listing-medium">
+                    <div class="col-md-9" id="blog-post">
 
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          
+                            Por 
+                            
+                            
+                              
+                                <a href="http://curso-r.com/author/daniel">Daniel</a>
+                            
+                            
+                          
+                          
+                          22/04/2017
+                        </p>
+                        
+                        <div id="post-content">
+                          <p>Uma aplicação interessante de algoritmos de clusterização é a obtenção de paletas de cores a partir de imagens. Veja como isso pode ser feito usando o R.</p>
+<p>Em primeiro lugar, vamos ler a imagem como uma matriz para o R. Existem diversas bibliotecas para carregar as imagens, vamos usar aqui a <a href="https://CRAN.R-project.org/package=jpeg"><code>jpeg</code></a>. Para esse caso ela é melhor porque já lê a imagem no formato que precisamos.</p>
+<pre class="r"><code>library(jpeg)
+library(magrittr)
+img &lt;- readJPEG(&quot;img/david-bowie.jpg&quot;)</code></pre>
+<p>A imagem lida pelo pacote <code>jpeg</code> é representada por um <code>array</code> com dimensões: <code>c(altura, largura, n_bandas)</code> que no nosso caso é <code>c(1100, 727, 3)</code>. O número de bandas é 3: R, G e B.</p>
+<p>Podemos exibir a imagem no R, convertendo o array, primeiro em um obheto do tipo <code>raster</code> e depois simplesmente usando a função <code>plot</code>.</p>
+<pre class="r"><code>plot(as.raster(img))</code></pre>
+<p><img src="http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-3-1.png" width="1536" /></p>
+<p>O problema de obter a paleta de cores de uma imagem pode ser formulado como um problema de clusterização: “obter grupos de individuos que possuem a menor diferença dentro de cada um e a maior diferença possível entre os grupos de acordo com algumas características das unidades amostrais”.</p>
+<p>Nesse caso, os indivíduos são os pixels da imagem e as características que estamos interessados são os valores de R, de G e de B (valores que representam a cor do pixel). Para o algortimos de clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão que o trecho de código a seguir realiza.</p>
+<pre class="r"><code>img_matrix &lt;- apply(img, 3, as.numeric)</code></pre>
+<p>Agora temos uma matriz com 3 colunas e 799.700 linhas. Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em um grupo. O K-means pede o número de grupos como input, vamos começar com 6.</p>
+<pre class="r"><code>km &lt;- kmeans(img_matrix, centers = 6)</code></pre>
+<p>O objeto gerado pela função <code>kmeans</code> armazena um vetor chamado <code>cluster</code> (do tamanho do número de linhas da matriz) com um identificador do grupo de cada observação da matriz.</p>
+<p>A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o <code>dplyr</code>.</p>
+<pre class="r"><code>library(tibble)
+library(dplyr)
+## 
+## Attaching package: &#39;dplyr&#39;
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+img_df &lt;- tibble(
+  r = img_matrix[,1], 
+  g = img_matrix[,2], 
+  b = img_matrix[,3],
+  cluster = km$cluster
+  )
+centroides &lt;- img_df %&gt;%
+  group_by(cluster) %&gt;%
+  summarise_all(mean)
+
+centroides
+## # A tibble: 6 × 4
+##   cluster          r         g         b
+##     &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1       1 0.09965226 0.0436630 0.2398620
+## 2       2 0.37889146 0.1185504 0.1558589
+## 3       3 0.88572504 0.7791481 0.6688438
+## 4       4 0.62387801 0.2832790 0.1896923
+## 5       5 0.71951030 0.5487661 0.4097725
+## 6       6 0.27214211 0.3641213 0.4901644</code></pre>
+<p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
+<pre class="r"><code>centroides &lt;- centroides %&gt;%
+  mutate(cor = rgb(r, g, b))
+centroides$cor
+## [1] &quot;#190B3D&quot; &quot;#611E28&quot; &quot;#E2C7AB&quot; &quot;#9F4830&quot; &quot;#B78C68&quot; &quot;#455D7D&quot;</code></pre>
+<p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
+<pre class="r"><code>exibir &lt;- function(x) {
+  n &lt;- length(x)
+  old &lt;- par(mar = c(0.5, 0.5, 0.5, 0.5))
+  on.exit(par(old))
+
+  image(1:n, 1, as.matrix(1:n), col = x,
+        ylab = &quot;&quot;, xaxt = &quot;n&quot;, yaxt = &quot;n&quot;, bty = &quot;n&quot;)
+}
+exibir(sort(centroides$cor))</code></pre>
+<p><img src="http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Assim obtivemos uma paleta de cores da imagem que mostramos anteriormente. Vamos colocar todo o código que fizemos passo a passo aqui em uma única função para podermos facilmente criar a paleta de cores para outras imagens.</p>
+<pre class="r"><code>criar_paleta &lt;- function(img, num_cores){
+  # transforma a imagem em uma matriz
+  img_matrix &lt;- apply(img, 3, as.numeric)
+  # treina o algoritmo de k médias
+  km &lt;- kmeans(img_matrix, centers = num_cores)
+  img_df &lt;- tibble(
+    r = img_matrix[,1], 
+    g = img_matrix[,2], 
+    b = img_matrix[,3],
+    cluster = km$cluster
+  )
+  # calcula os centroides dos grupos
+  centroides &lt;- img_df %&gt;%
+    group_by(cluster) %&gt;%
+    summarise_all(mean)
+  # transforma a cor em hexadecimal
+  centroides &lt;- centroides %&gt;%
+    mutate(cor = rgb(r, g, b))
+  # vetor de cores
+  sort(centroides$cor)
+}</code></pre>
+<p>Vejamos agora o que acontece com essa bela imagem do filme Moonrise Kingdom do Wes Anderson, que é famoso por fazer filmes com belas paletas de cores.</p>
+<pre class="r"><code>moonrise &lt;- readJPEG(&quot;img/moonrise-kingdom.jpg&quot;)
+plot(as.raster(moonrise))</code></pre>
+<p><img src="http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-10-1.png" width="1536" /></p>
+<pre class="r"><code>paleta &lt;- criar_paleta(moonrise, 6)
+exibir(paleta)</code></pre>
+<p><img src="http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>É isso. Se você gostou, tente fazer com outras imagens e compartilhe com a gente os resultados.</p>
+
+                        </div>
+                        
+                         <div class="addthis_inline_share_toolbox"></div>
                         
                         
-                        <section class="post">
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <div class="image">
-                                      <a href="http://curso-r.com/blog/2017/04/10/2017-04-13-o-que-tem-a-um-km/">
-                                          
-                                          <img src="http://curso-r.com/img/banners/man-with-a-map.jpg" class="img-responsive" alt="">
-                                          
-                                      </a>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h2><a href="http://curso-r.com/blog/2017/04/10/2017-04-13-o-que-tem-a-um-km/">Você está a menos de 1 km de um Hambúrguer?</a></h2>
-                                    <div class="clearfix">
-                                        <p class="author-category">
-                                          
-                                          Por 
-                                            
-                                              
-                                                <a href="http://curso-r.com/author/william">William</a>
-                                            
-                                          
-                                          
-                                          
-                                          em <a href="http://curso-r.com/categories/r">r</a>
-                                          
-                                          
-
-                                        </p>
-                                        <p class="date-comments">
-                                            <a href="http://curso-r.com/blog/2017/04/10/2017-04-13-o-que-tem-a-um-km/"><i class="fa fa-calendar-o"></i> 10/04/2017</a>
-                                        </p>
-                                    </div>
-                                    <p class="intro">Neste post, veremos como utilizar uma das APIs do Google Maps para obter informações de geolocalização a partir de uma pesquisa simples. Em seguida, vamos utilizar o pacote `leaflet` para criar mapas com os dados coletados e descobrir se estamos a menos de 1 km de hospitais, delagacias, corpos de bombeiros e, o mais importante, de uma hamburgueria.</p>
-                                    <p class="read-more"><a href="http://curso-r.com/blog/2017/04/10/2017-04-13-o-que-tem-a-um-km/" class="btn btn-template-main">Continue lendo</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
                         
-                        <section class="post">
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <div class="image">
-                                      <a href="http://curso-r.com/blog/2017/03/20/2017-03-20-porta-dos-fundos-decadencia/">
-                                          
-                                          <img src="http://curso-r.com/img/banners/porta.jpg" class="img-responsive" alt="">
-                                          
-                                      </a>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h2><a href="http://curso-r.com/blog/2017/03/20/2017-03-20-porta-dos-fundos-decadencia/">O Porta dos Fundos está em decadência?</a></h2>
-                                    <div class="clearfix">
-                                        <p class="author-category">
-                                          
-                                          Por 
-                                            
-                                              
-                                                <a href="http://curso-r.com/author/william">William</a>
-                                            
-                                          
-                                          
-                                          
-                                          em <a href="http://curso-r.com/categories/r">r</a>
-                                          
-                                          
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'curso-r-com';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/04\/22\/2017-04-21-paleta-de-cores\/';
+    var disqus_title = 'K-means e paleta de cores';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/04\/22\/2017-04-21-paleta-de-cores\/';
 
-                                        </p>
-                                        <p class="date-comments">
-                                            <a href="http://curso-r.com/blog/2017/03/20/2017-03-20-porta-dos-fundos-decadencia/"><i class="fa fa-calendar-o"></i> 20/03/2017</a>
-                                        </p>
-                                    </div>
-                                    <p class="intro">Há alguns anos eu acompanho o canal Porta dos Fundos no YouTube, assistindo os vídeos quase sempre no dia de lançamento. Nos últimos meses, no entanto, meu entusiasmo com o canal vem diminuindo. Não sei se eu que fiquei chato ou se outras pessoas compartilham a minha opinião de que o conteúdo do Porta piorou. Então resolvi scrapear informações do canal e montar algumas visualizações para tirar essa dúvida.</p>
-                                    <p class="read-more"><a href="http://curso-r.com/blog/2017/03/20/2017-03-20-porta-dos-fundos-decadencia/" class="btn btn-template-main">Continue lendo</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
                         
 
-                        <ul class="pager">
-                            
-                            <li class="previous disabled"><a href="#">&larr; Mais Novos</a></li>
-                            
-
-                            
-                            <li class="next disabled"><a href="#">Mais Antigos &rarr;</a></li>
-                            
-                        </ul>
                     </div>
                     
 
@@ -409,19 +452,6 @@
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -430,6 +460,19 @@
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
@@ -450,6 +493,7 @@
 
                 </div>
                 
+
             </div>
             
         </div>

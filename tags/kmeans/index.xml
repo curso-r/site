@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kmeans on Curso-R</title>
+    <link>http://curso-r.com/tags/kmeans/index.xml</link>
+    <description>Recent content in Kmeans on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="http://curso-r.com/tags/kmeans/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>K-means e paleta de cores</title>
+      <link>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</link>
+      <pubDate>Sat, 22 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</guid>
+      <description>&lt;p&gt;Uma aplicação interessante de algoritmos de clusterização é a obtenção de paletas de cores a partir de imagens. Veja como isso pode ser feito usando o R.&lt;/p&gt;
+&lt;p&gt;Em primeiro lugar, vamos ler a imagem como uma matriz para o R. Existem diversas bibliotecas para carregar as imagens, vamos usar aqui a &lt;a href=&#34;https://CRAN.R-project.org/package=jpeg&#34;&gt;&lt;code&gt;jpeg&lt;/code&gt;&lt;/a&gt;. Para esse caso ela é melhor porque já lê a imagem no formato que precisamos.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(jpeg)
+library(magrittr)
+img &amp;lt;- readJPEG(&amp;quot;img/david-bowie.jpg&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A imagem lida pelo pacote &lt;code&gt;jpeg&lt;/code&gt; é representada por um &lt;code&gt;array&lt;/code&gt; com dimensões: &lt;code&gt;c(altura, largura, n_bandas)&lt;/code&gt; que no nosso caso é &lt;code&gt;c(1100, 727, 3)&lt;/code&gt;. O número de bandas é 3: R, G e B.&lt;/p&gt;
+&lt;p&gt;Podemos exibir a imagem no R, convertendo o array, primeiro em um obheto do tipo &lt;code&gt;raster&lt;/code&gt; e depois simplesmente usando a função &lt;code&gt;plot&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(as.raster(img))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;1536&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;O problema de obter a paleta de cores de uma imagem pode ser formulado como um problema de clusterização: “obter grupos de individuos que possuem a menor diferença dentro de cada um e a maior diferença possível entre os grupos de acordo com algumas características das unidades amostrais”.&lt;/p&gt;
+&lt;p&gt;Nesse caso, os indivíduos são os pixels da imagem e as características que estamos interessados são os valores de R, de G e de B (valores que representam a cor do pixel). Para o algortimos de clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão que o trecho de código a seguir realiza.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_matrix &amp;lt;- apply(img, 3, as.numeric)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agora temos uma matriz com 3 colunas e 799.700 linhas. Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em um grupo. O K-means pede o número de grupos como input, vamos começar com 6.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;km &amp;lt;- kmeans(img_matrix, centers = 6)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O objeto gerado pela função &lt;code&gt;kmeans&lt;/code&gt; armazena um vetor chamado &lt;code&gt;cluster&lt;/code&gt; (do tamanho do número de linhas da matriz) com um identificador do grupo de cada observação da matriz.&lt;/p&gt;
+&lt;p&gt;A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o &lt;code&gt;dplyr&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
+library(dplyr)
+## 
+## Attaching package: &amp;#39;dplyr&amp;#39;
+## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag
+## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union
+img_df &amp;lt;- tibble(
+  r = img_matrix[,1], 
+  g = img_matrix[,2], 
+  b = img_matrix[,3],
+  cluster = km$cluster
+  )
+centroides &amp;lt;- img_df %&amp;gt;%
+  group_by(cluster) %&amp;gt;%
+  summarise_all(mean)
+
+centroides
+## # A tibble: 6 × 4
+##   cluster          r         g         b
+##     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1       1 0.09965226 0.0436630 0.2398620
+## 2       2 0.37889146 0.1185504 0.1558589
+## 3       3 0.88572504 0.7791481 0.6688438
+## 4       4 0.62387801 0.2832790 0.1896923
+## 5       5 0.71951030 0.5487661 0.4097725
+## 6       6 0.27214211 0.3641213 0.4901644&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
+  mutate(cor = rgb(r, g, b))
+centroides$cor
+## [1] &amp;quot;#190B3D&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#B78C68&amp;quot; &amp;quot;#455D7D&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
+  n &amp;lt;- length(x)
+  old &amp;lt;- par(mar = c(0.5, 0.5, 0.5, 0.5))
+  on.exit(par(old))
+
+  image(1:n, 1, as.matrix(1:n), col = x,
+        ylab = &amp;quot;&amp;quot;, xaxt = &amp;quot;n&amp;quot;, yaxt = &amp;quot;n&amp;quot;, bty = &amp;quot;n&amp;quot;)
+}
+exibir(sort(centroides$cor))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Assim obtivemos uma paleta de cores da imagem que mostramos anteriormente. Vamos colocar todo o código que fizemos passo a passo aqui em uma única função para podermos facilmente criar a paleta de cores para outras imagens.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;criar_paleta &amp;lt;- function(img, num_cores){
+  # transforma a imagem em uma matriz
+  img_matrix &amp;lt;- apply(img, 3, as.numeric)
+  # treina o algoritmo de k médias
+  km &amp;lt;- kmeans(img_matrix, centers = num_cores)
+  img_df &amp;lt;- tibble(
+    r = img_matrix[,1], 
+    g = img_matrix[,2], 
+    b = img_matrix[,3],
+    cluster = km$cluster
+  )
+  # calcula os centroides dos grupos
+  centroides &amp;lt;- img_df %&amp;gt;%
+    group_by(cluster) %&amp;gt;%
+    summarise_all(mean)
+  # transforma a cor em hexadecimal
+  centroides &amp;lt;- centroides %&amp;gt;%
+    mutate(cor = rgb(r, g, b))
+  # vetor de cores
+  sort(centroides$cor)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Vejamos agora o que acontece com essa bela imagem do filme Moonrise Kingdom do Wes Anderson, que é famoso por fazer filmes com belas paletas de cores.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;moonrise &amp;lt;- readJPEG(&amp;quot;img/moonrise-kingdom.jpg&amp;quot;)
+plot(as.raster(moonrise))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;1536&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paleta &amp;lt;- criar_paleta(moonrise, 6)
+exibir(paleta)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;É isso. Se você gostou, tente fazer com outras imagens e compartilhe com a gente os resultados.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

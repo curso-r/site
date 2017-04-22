@@ -7,8 +7,109 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 20 Apr 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 22 Apr 2017 13:07:31 +0200</lastBuildDate>
     <atom:link href="http://curso-r.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>K-means e paleta de cores</title>
+      <link>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</link>
+      <pubDate>Sat, 22 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</guid>
+      <description>&lt;p&gt;Uma aplicação interessante de algoritmos de clusterização é a obtenção de paletas de cores a partir de imagens. Veja como isso pode ser feito usando o R.&lt;/p&gt;
+&lt;p&gt;Em primeiro lugar, vamos ler a imagem como uma matriz para o R. Existem diversas bibliotecas para carregar as imagens, vamos usar aqui a &lt;a href=&#34;https://CRAN.R-project.org/package=jpeg&#34;&gt;&lt;code&gt;jpeg&lt;/code&gt;&lt;/a&gt;. Para esse caso ela é melhor porque já lê a imagem no formato que precisamos.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(jpeg)
+library(magrittr)
+img &amp;lt;- readJPEG(&amp;quot;img/david-bowie.jpg&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A imagem lida pelo pacote &lt;code&gt;jpeg&lt;/code&gt; é representada por um &lt;code&gt;array&lt;/code&gt; com dimensões: &lt;code&gt;c(altura, largura, n_bandas)&lt;/code&gt; que no nosso caso é &lt;code&gt;c(1100, 727, 3)&lt;/code&gt;. O número de bandas é 3: R, G e B.&lt;/p&gt;
+&lt;p&gt;Podemos exibir a imagem no R, convertendo o array, primeiro em um obheto do tipo &lt;code&gt;raster&lt;/code&gt; e depois simplesmente usando a função &lt;code&gt;plot&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(as.raster(img))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;1536&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;O problema de obter a paleta de cores de uma imagem pode ser formulado como um problema de clusterização: “obter grupos de individuos que possuem a menor diferença dentro de cada um e a maior diferença possível entre os grupos de acordo com algumas características das unidades amostrais”.&lt;/p&gt;
+&lt;p&gt;Nesse caso, os indivíduos são os pixels da imagem e as características que estamos interessados são os valores de R, de G e de B (valores que representam a cor do pixel). Para o algortimos de clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão que o trecho de código a seguir realiza.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_matrix &amp;lt;- apply(img, 3, as.numeric)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agora temos uma matriz com 3 colunas e 799.700 linhas. Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em um grupo. O K-means pede o número de grupos como input, vamos começar com 6.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;km &amp;lt;- kmeans(img_matrix, centers = 6)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O objeto gerado pela função &lt;code&gt;kmeans&lt;/code&gt; armazena um vetor chamado &lt;code&gt;cluster&lt;/code&gt; (do tamanho do número de linhas da matriz) com um identificador do grupo de cada observação da matriz.&lt;/p&gt;
+&lt;p&gt;A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o &lt;code&gt;dplyr&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
+library(dplyr)
+## 
+## Attaching package: &amp;#39;dplyr&amp;#39;
+## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag
+## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union
+img_df &amp;lt;- tibble(
+  r = img_matrix[,1], 
+  g = img_matrix[,2], 
+  b = img_matrix[,3],
+  cluster = km$cluster
+  )
+centroides &amp;lt;- img_df %&amp;gt;%
+  group_by(cluster) %&amp;gt;%
+  summarise_all(mean)
+
+centroides
+## # A tibble: 6 × 4
+##   cluster          r         g         b
+##     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1       1 0.09965226 0.0436630 0.2398620
+## 2       2 0.37889146 0.1185504 0.1558589
+## 3       3 0.88572504 0.7791481 0.6688438
+## 4       4 0.62387801 0.2832790 0.1896923
+## 5       5 0.71951030 0.5487661 0.4097725
+## 6       6 0.27214211 0.3641213 0.4901644&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
+  mutate(cor = rgb(r, g, b))
+centroides$cor
+## [1] &amp;quot;#190B3D&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#B78C68&amp;quot; &amp;quot;#455D7D&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
+  n &amp;lt;- length(x)
+  old &amp;lt;- par(mar = c(0.5, 0.5, 0.5, 0.5))
+  on.exit(par(old))
+
+  image(1:n, 1, as.matrix(1:n), col = x,
+        ylab = &amp;quot;&amp;quot;, xaxt = &amp;quot;n&amp;quot;, yaxt = &amp;quot;n&amp;quot;, bty = &amp;quot;n&amp;quot;)
+}
+exibir(sort(centroides$cor))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Assim obtivemos uma paleta de cores da imagem que mostramos anteriormente. Vamos colocar todo o código que fizemos passo a passo aqui em uma única função para podermos facilmente criar a paleta de cores para outras imagens.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;criar_paleta &amp;lt;- function(img, num_cores){
+  # transforma a imagem em uma matriz
+  img_matrix &amp;lt;- apply(img, 3, as.numeric)
+  # treina o algoritmo de k médias
+  km &amp;lt;- kmeans(img_matrix, centers = num_cores)
+  img_df &amp;lt;- tibble(
+    r = img_matrix[,1], 
+    g = img_matrix[,2], 
+    b = img_matrix[,3],
+    cluster = km$cluster
+  )
+  # calcula os centroides dos grupos
+  centroides &amp;lt;- img_df %&amp;gt;%
+    group_by(cluster) %&amp;gt;%
+    summarise_all(mean)
+  # transforma a cor em hexadecimal
+  centroides &amp;lt;- centroides %&amp;gt;%
+    mutate(cor = rgb(r, g, b))
+  # vetor de cores
+  sort(centroides$cor)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Vejamos agora o que acontece com essa bela imagem do filme Moonrise Kingdom do Wes Anderson, que é famoso por fazer filmes com belas paletas de cores.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;moonrise &amp;lt;- readJPEG(&amp;quot;img/moonrise-kingdom.jpg&amp;quot;)
+plot(as.raster(moonrise))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;1536&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paleta &amp;lt;- criar_paleta(moonrise, 6)
+exibir(paleta)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;É isso. Se você gostou, tente fazer com outras imagens e compartilhe com a gente os resultados.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Tratando erros: the tidy way</title>
@@ -1211,7 +1312,7 @@ knitr::kable(top10_locais)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-04-21 22:30
+##   Date: 2017-04-22 14:24
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.3 kB
@@ -1779,14 +1880,14 @@ videos &amp;lt;- by_row(.d = dates, ..f = get_videos_porta, .to = &amp;quot;vide
   dormir()
 })
 ##    user  system elapsed 
-##   0.000   0.000   1.002&lt;/code&gt;&lt;/pre&gt;
+##   0.000   0.000   1.001&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Nosso interesse é aplicar &lt;code&gt;dormir()&lt;/code&gt; em cada elemento do vetor &lt;code&gt;c(1, 2)&lt;/code&gt;. Esse algoritmo demora &lt;code&gt;1 + 2 = 3&lt;/code&gt; segundos.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;segundos &amp;lt;- c(1, 2)
 system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.004   0.000   3.009&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   3.009&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -1800,13 +1901,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##    0.02    0.00    2.19&lt;/code&gt;&lt;/pre&gt;
+##   0.020   0.004   2.217&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.008   0.000   2.012&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   2.011&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;
@@ -2050,162 +2151,6 @@ tab
 &lt;div class=&#34;figure&#34;&gt;
 &lt;img src=&#34;http://lsru.github.io/r_workshop/img/purrr_do.png&#34; alt=&#34;&#34; /&gt;
 
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Modelando a variância da normal</title>
-      <link>http://curso-r.com/blog/2017/03/09/2017-02-21-regressao-heterocedastica/</link>
-      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/03/09/2017-02-21-regressao-heterocedastica/</guid>
-      <description>&lt;p&gt;Verificar as suposições dos modelos é muito importante quando fazemos inferência estatística. Em particular, a suposição de homocedasticidade&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; dos modelos de regressão linear é especialmente importante, pois modifica o cálculo de erros padrão, intervalos de confiança e valores-p.&lt;/p&gt;
-&lt;p&gt;Neste post, vou mostrar três pacotes do R que ajustam modelos da forma&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ Y_i = \beta_0 + \sum_{k=1}^p\beta_kx_{ik} + \epsilon_i, \ i = 1,\ldots,n\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \epsilon_{i} \sim \textrm{N}(0,\sigma_i), \ i = 1,\ldots,n \ \textrm{independentes, com }\sigma_i^2 = \alpha x_i^2.  \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Além de mostrar como se faz, também vou ilustrar o desempenho dos pacotes em um exemplo simulado. O modelo que gerará os dados do exemplo terá a seguinte forma funcional&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ Y_i = \beta x_i + \epsilon_i, \ i = 1,...n \]&lt;/span&gt; &lt;span class=&#34;math display&#34;&gt;\[ \epsilon_i \sim N(0, \sigma_i)\text{ independentes, com }\sigma_i = \alpha\sqrt{|x_i|},\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;e os parâmetros do modelo serão os valores &lt;span class=&#34;math inline&#34;&gt;\(\beta = 1\)&lt;/span&gt; e &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 4\)&lt;/span&gt;. A heterocedasticidade faz com que os pontos desenhem um cone ao redor da reta de regressão.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
-
-N &amp;lt;- 1000
-
-set.seed(11071995)
-X &amp;lt;- sample((N/100):(N*3), N)
-Y &amp;lt;- rnorm(N,X,4*sqrt(X))
-
-qplot(X,Y) + 
-  theme_bw(15) + 
-  geom_point(color = &amp;#39;darkorange&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;X2 &amp;lt;- sqrt(X)
-dataset &amp;lt;- data.frame(Y,X,X2)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;usando-o-pacote-gamlss&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Usando o pacote &lt;code&gt;gamlss&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Quando se ajusta um GAMLSS, você pode modelar os parâmetros de locação, escala e curtose ao mesmo tempo em que escolhe a distribuição dos dados dentre uma grande gama de opções. Escolhendo a distribuição normal e modelando apenas os parâmetros de locação e escala, o GAMLSS ajusta modelos lineares normais com heterocedasticidade.&lt;/p&gt;
-&lt;p&gt;No código abaixo, o parâmetro &lt;code&gt;formula = Y ~ X-1&lt;/code&gt; indica que a função de regressão será constituída por um preditor linear em &lt;code&gt;X&lt;/code&gt; sem intercepto. Já o parâmetro &lt;code&gt;sigma.formula = ~X2-1&lt;/code&gt; indica que o desvio padrão será modelado por um preditor linear em &lt;code&gt;X2&lt;/code&gt; (ou raiz de &lt;code&gt;X&lt;/code&gt;), também sem intercepto.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gamlss)
-
-fit_gamlss &amp;lt;- gamlss::gamlss(formula = Y ~ X-1,
-                             sigma.formula = ~X2-1,
-                             data = dataset,
-                             family = NO())&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;GAMLSS-RS iteration 1: Global Deviance = 17872.29 
-GAMLSS-RS iteration 2: Global Deviance = 17870.67 
-GAMLSS-RS iteration 3: Global Deviance = 17870.67 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Conforme descrito no sumário abaixo, a estimativa de alfa está muito abaixo do valor simulado.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(fit_gamlss)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;******************************************************************
-Family:  c(&amp;quot;NO&amp;quot;, &amp;quot;Normal&amp;quot;) 
-
-Call:  gamlss::gamlss(formula = Y ~ X - 1, sigma.formula = ~X2 -  
-    1, family = NO(), data = dataset) 
-
-Fitting method: RS() 
-
-------------------------------------------------------------------
-Mu link function:  identity
-Mu Coefficients:
-  Estimate Std. Error t value Pr(&amp;gt;|t|)    
-X 0.996942   0.005131   194.3   &amp;lt;2e-16 ***
----
-Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
-
-------------------------------------------------------------------
-Sigma link function:  log
-Sigma Coefficients:
-    Estimate Std. Error t value Pr(&amp;gt;|t|)    
-X2 0.1791449  0.0009606   186.5   &amp;lt;2e-16 ***
----
-Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
-
-------------------------------------------------------------------
-No. of observations in the fit:  1000 
-Degrees of Freedom for the fit:  2
-      Residual Deg. of Freedom:  998 
-                      at cycle:  3 
- 
-Global Deviance:     17870.67 
-            AIC:     17874.67 
-            SBC:     17884.49 
-******************************************************************&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;usando-o-pacote-dglm&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Usando o pacote &lt;code&gt;dglm&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Quando se ajusta um Modelo Linear Generalizado Duplo (MLGD em português e DGLM em inglês), você tem uma flexibilidade parecida com a de um GAMLSS. Entretanto, você não pode definir um modelo para a curtose e a classe de distribuições disponível é bem menor.&lt;/p&gt;
-&lt;p&gt;O código abaixo, similar ao utilizado para ajustar o GAMLSS, ajusta um DGLM aos dados simulados.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dglm)
-
-fit &amp;lt;- dglm(Y~X-1, dformula = ~X2-1,data = dataset, family = gaussian, method = &amp;#39;reml&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Warning: glm.fit: algorithm did not converge&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Novamente, verifica-se que o alfa estimado está muito distante do verdadeiro alfa.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;
-Call: dglm(formula = Y ~ X - 1, dformula = ~X2 - 1, family = gaussian, 
-    data = dataset, method = &amp;quot;reml&amp;quot;)
-
-Mean Coefficients:
-   Estimate  Std. Error t value Pr(&amp;gt;|t|)
-X 0.9969432 0.008981392 111.001        0
-(Dispersion Parameters for gaussian family estimated as below )
-
-    Scaled Null Deviance: 27197.48 on 1000 degrees of freedom
-Scaled Residual Deviance: 3090.08 on 999 degrees of freedom
-
-Dispersion Coefficients:
-    Estimate  Std. Error  z value Pr(&amp;gt;|z|)
-X2 0.3577322 0.001166004 306.8019        0
-(Dispersion parameter for Gamma family taken to be 2 )
-
-    Scaled Null Deviance: 1628.301 on 1000 degrees of freedom
-Scaled Residual Deviance: 6526.59 on 999 degrees of freedom
-
-Minus Twice the Log-Likelihood: 17870.76 
-Number of Alternating Iterations: 18 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;usando-o-pacote-rstan&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Usando o pacote &lt;code&gt;rstan&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://mc-stan.org/&#34;&gt;Stan&lt;/a&gt; é uma linguagem de programação voltada para descrever e manipular objetos probabilísticos, como por exemplo variáveis aleatórias, processos estocásticos, distribuições de probabilidades etc. Essa linguagem foi projetada para tornar intuitivo e simples o ajuste de modelos estatísticos. Em particular, a forma de descrever modelos bayesianos é bem cômoda.&lt;/p&gt;
-&lt;p&gt;O &lt;code&gt;stan&lt;/code&gt; possui várias interfaces para &lt;code&gt;R&lt;/code&gt;. A mais básica é o &lt;code&gt;rstan&lt;/code&gt;, que será utilizada aqui. A principal função desse pacote é a função &lt;code&gt;rstan&lt;/code&gt;, que possui dois parâmetros básicos:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;um parâmetro &lt;code&gt;model_code =&lt;/code&gt;, que recebe um código que descreve o modelo na linguagem &lt;code&gt;stan&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;um parâmetro &lt;code&gt;data =&lt;/code&gt;, que recebe uma lista contendo os inputs do modelo, tais como dados coletados, parâmetros de distribuições a priori, etc.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Embora esse seja o mínimo que a função precisa, também podemos passar outras componentes. O parâmetro &lt;code&gt;verbose = FALSE&lt;/code&gt; faz com que a função não imprima nada enquanto roda e o parâmetro &lt;code&gt;control = list(...)&lt;/code&gt; passa uma lista de opções de controle para o algoritmo de ajuste.&lt;/p&gt;
-&lt;p&gt;O retorno da função &lt;code&gt;stan()&lt;/code&gt; é um objeto do tipo &lt;code&gt;stanfit&lt;/code&gt;, que pode ser sumarizado da mesma forma que outros modelos em R, utilizando a função &lt;code&gt;summary()&lt;/code&gt; e a função &lt;code&gt;plot()&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;O código abaixo ilustra a aplicação da função &lt;code&gt;stan()&lt;/code&gt; ao nosso exemplo.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rstan)
-
-scode &amp;lt;- &amp;quot;data {
-  int&amp;lt;lower=0&amp;gt; N;
-  vector[N] y;
-  vector[N] x;
-}
-parameters {
-  real beta;
-  real&amp;lt;lower=0&amp;gt; alpha;
-}
-model {
-  beta ~ normal(0,10);
-  alpha ~ gamma(1,1);
-
-  y ~ normal(beta * x, alpha * sqrt(x));
-}&amp;quot;
-
-dados &amp;lt;- list(N = nrow(dataset), y = dataset$Y, x = dataset$X)
-
-fit_stan &amp;lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
-             control = list(adapt_delta = 0.99))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâmetro do modelo. O ponto central de cada intervalo representa as estimativas pontuais dos parâmetros. Como se nota, as estimativas do modelo utilizando &lt;code&gt;stan&lt;/code&gt; estão bem próximas dos valores verdadeiros.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(fit_stan)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Uma regressão linear é homocedástica quando a variabilidade dos erros não depende das covariáveis do modelo.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
