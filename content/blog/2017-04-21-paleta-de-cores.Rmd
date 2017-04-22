@@ -5,7 +5,9 @@ tags: ["r", "kmeans"]
 categories: ["r"]
 banner: "img/banners/paleta-cores.png"
 author: ["Daniel"]
-draft: true
+summary: "Uma aplicação interessante de algoritmos de clusterização é a obtenção de 
+paletas de cores a partir de imagens. Veja como isso pode ser feito usando
+o R."
 ---
 
 ```{r echo=F}
