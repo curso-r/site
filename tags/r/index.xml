@@ -55,17 +55,17 @@ centroides
 ## # A tibble: 6 × 4
 ##   cluster          r         g         b
 ##     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.09965226 0.0436630 0.2398620
+## 1       1 0.27214211 0.3641213 0.4901644
 ## 2       2 0.37889146 0.1185504 0.1558589
 ## 3       3 0.88572504 0.7791481 0.6688438
-## 4       4 0.62387801 0.2832790 0.1896923
+## 4       4 0.09965226 0.0436630 0.2398620
 ## 5       5 0.71951030 0.5487661 0.4097725
-## 6       6 0.27214211 0.3641213 0.4901644&lt;/code&gt;&lt;/pre&gt;
+## 6       6 0.62387801 0.2832790 0.1896923&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#190B3D&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#B78C68&amp;quot; &amp;quot;#455D7D&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#455D7D&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#190B3D&amp;quot; &amp;quot;#B78C68&amp;quot; &amp;quot;#9F4830&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
@@ -1311,7 +1311,7 @@ knitr::kable(top10_locais)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-04-22 14:24
+##   Date: 2017-04-22 22:29
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.3 kB
@@ -1886,7 +1886,7 @@ system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.008   0.000   3.009&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   3.010&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -1900,13 +1900,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.020   0.004   2.217&lt;/code&gt;&lt;/pre&gt;
+##   0.016   0.004   2.187&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.008   0.000   2.011&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.004   2.012&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;
