@@ -21,7 +21,7 @@ A versão 3.4 do R foi lançada nesse final de semana! A atualização tem foco 
 
 Para uma lista completa de mudanças, [veja esse post](https://www.r-bloggers.com/r-3-4-0-is-released-with-new-speed-upgrades-and-bug-fixes/).
 
-```{r, echo=FALSE, fig.cap='R mais rápido! Imagem obtida [aqui](https://github.com/RcppCore).', fig.align='center'}
+```{r, echo=FALSE, fig.cap='R mais rápido! Imagem emprestada do time do [Rcpp](https://github.com/RcppCore).', fig.align='center'}
 plot(magick::image_read('img/fastr.jpg'))
 ```
 
