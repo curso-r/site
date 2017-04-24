@@ -27,7 +27,7 @@ plot(magick::image_read('img/fastr.jpg'))
 
 # Mais sobre o JIT compiler {#jit}
 
-Veja esse exemplo extraído do livro [Efficient R](https://csgillespie.github.io/efficientR/programming.html). Observe a existência de um `<bytecode ...>` na parte de baixo de uma das funções. Isso significa que o pacote `compiler` converteu essa função que pode ser interpretada de forma mais rápida.
+Veja esse exemplo extraído do livro [Efficient R](https://csgillespie.github.io/efficientR/programming.html). Observe a existência de um `<bytecode ...>` na parte de baixo de uma das funções. Isso significa que o pacote `compiler` converteu essa função que pode ser interpretada mais rápido.
 
 ```{r}
 mean_r = function(x) {
