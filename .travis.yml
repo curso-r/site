@@ -6,6 +6,7 @@ addons:
       - librsvg2-dev
       - libwebp-dev
       - libpoppler-cpp-dev
+      - libhdf5-serial-dev
       - libgdal-dev
       - libgdal1-dev
       - libproj-dev
