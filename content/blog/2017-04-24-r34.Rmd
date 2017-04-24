@@ -1,11 +1,11 @@
 ---
-title: "R 3.4"
-date: "2017-04-22T13:07:31+02:00"
+title: "R 3.4 disponível!"
+date: "2017-04-24T13:07:31+02:00"
 tags: ["r", "kmeans"]
 categories: ["r"]
 banner: "img/banners/fastr.jpg"
 author: ["Julio"]
-summary: "A versão 3.4 do R foi lançada nesse final de semana! A atualização tem foco principal na performance. Veja as mudanças."
+summary: "A versão 3.4 do R foi lançada nesse final de semana! A atualização tem foco principal em performance. Veja as mudanças."
 ---
 
 ```{r echo=F}
