@@ -53,19 +53,19 @@ centroides &amp;lt;- img_df %&amp;gt;%
 
 centroides
 ## # A tibble: 6 × 4
-##   cluster          r         g         b
-##     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.27214211 0.3641213 0.4901644
-## 2       2 0.37889146 0.1185504 0.1558589
-## 3       3 0.88572504 0.7791481 0.6688438
-## 4       4 0.09965226 0.0436630 0.2398620
-## 5       5 0.71951030 0.5487661 0.4097725
-## 6       6 0.62387801 0.2832790 0.1896923&lt;/code&gt;&lt;/pre&gt;
+##   cluster         r          g         b
+##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1       1 0.0996826 0.04366903 0.2398452
+## 2       2 0.3789830 0.11857741 0.1558412
+## 3       3 0.8857289 0.77915257 0.6688482
+## 4       4 0.2721465 0.36412137 0.4901613
+## 5       5 0.6239192 0.28335790 0.1897367
+## 6       6 0.7195362 0.54881786 0.4098359&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#455D7D&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#190B3D&amp;quot; &amp;quot;#B78C68&amp;quot; &amp;quot;#9F4830&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#190B3D&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#455D7D&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#B78C69&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
@@ -107,6 +107,113 @@ plot(as.raster(moonrise))&lt;/code&gt;&lt;/pre&gt;
 exibir(paleta)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;É isso. Se você gostou, tente fazer com outras imagens e compartilhe com a gente os resultados.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R 3.4</title>
+      <link>http://curso-r.com/blog/2017/04/22/2017-04-24-r34/</link>
+      <pubDate>Sat, 22 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/22/2017-04-24-r34/</guid>
+      <description>&lt;p&gt;A versão 3.4 do R foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Agora temos um compilador JIT (Just In Time) como padrão! Isso significa que você não precisará mais usar a função &lt;code&gt;compiler::cmpfun()&lt;/code&gt; para acelerar suas funções na maioria dos casos. Mais sobre isso abaixo.&lt;/li&gt;
+&lt;li&gt;O &lt;code&gt;for&lt;/code&gt; ficou mais eficiente. Agora a alocação dinâmica de vetores está mais rápida, diminuindo ainda mais a diferença entre utilizar &lt;code&gt;for&lt;/code&gt; e funcionais como &lt;code&gt;sapply()&lt;/code&gt;, que trabalham com um vetor pré alocado. Mais sobre isso abaixo.&lt;/li&gt;
+&lt;li&gt;Otimizações em operações com matrizes. Não vou entrar em detalhes, mas talvez vocês notem algumas melhorias.&lt;/li&gt;
+&lt;li&gt;Agora o método padrão para ordenar vetores é &lt;code&gt;radix&lt;/code&gt;, o que pode aumentar a velocidade de ordenações para vetores com mais de mil entradas.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Para uma lista completa de mudanças, &lt;a href=&#34;https://www.r-bloggers.com/r-3-4-0-is-released-with-new-speed-upgrades-and-bug-fixes/&#34;&gt;veja esse post&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;http://curso-r.com/blog/2017-04-24-r34_files/figure-html/unnamed-chunk-2-1.png&#34; alt=&#34;R mais rápido! Imagem emprestada do time do [Rcpp](https://github.com/RcppCore).&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: R mais rápido! Imagem emprestada do time do &lt;a href=&#34;https://github.com/RcppCore&#34;&gt;Rcpp&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;jit&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Mais sobre o JIT compiler&lt;/h1&gt;
+&lt;p&gt;Veja esse exemplo extraído do livro &lt;a href=&#34;https://csgillespie.github.io/efficientR/programming.html&#34;&gt;Efficient R&lt;/a&gt;. Observe a existência de um &lt;code&gt;&amp;lt;bytecode ...&amp;gt;&lt;/code&gt; na parte de baixo de uma das funções. Isso significa que o pacote &lt;code&gt;compiler&lt;/code&gt; converteu essa função que pode ser interpretada mais rápido.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean_r = function(x) {
+  m = 0
+  n = length(x)
+  for(i in seq_len(n))
+    m = m + x[i] / n
+  m
+}
+cmp_mean_r &amp;lt;- compiler::cmpfun(mean_r)
+
+mean_r
+## function(x) {
+##   m = 0
+##   n = length(x)
+##   for(i in seq_len(n))
+##     m = m + x[i] / n
+##   m
+## }
+cmp_mean_r
+## function(x) {
+##   m = 0
+##   n = length(x)
+##   for(i in seq_len(n))
+##     m = m + x[i] / n
+##   m
+## }
+## &amp;lt;bytecode: 0x39fb290&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas.&lt;/p&gt;
+&lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+x &amp;lt;- rnorm(5000)
+microbenchmark::microbenchmark(mean_r(x), cmp_mean_r(x), mean(x))
+# Unit: microseconds
+#           expr      min       lq       mean    median        uq      max neval
+#      mean_r(x) 1931.835 2010.295 2302.82298 2102.5995 2357.6715 6186.706   100
+#  cmp_mean_r(x)  308.847  311.045  333.26221  314.8935  334.7330  569.117   100
+#        mean(x)   14.593   15.443   19.94897   19.0410   21.0405   51.375   100&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No meu computador com o R 3.4, o resultado foi esse. Agora, a diferença entre a função sem compilar e compilada é praticamente impoerceptível. Esse é o efeito do JIT compiler.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+x &amp;lt;- rnorm(5000)
+microbenchmark::microbenchmark(mean_r(x), cmp_mean_r(x), mean(x))
+# Unit: microseconds
+#           expr     min       lq     mean   median       uq     max neval
+#      mean_r(x) 332.322 332.7220 336.2287 333.0125 334.3785 395.954   100
+#  cmp_mean_r(x) 332.305 332.7345 337.0889 333.1460 337.0930 381.306   100
+#        mean(x)  13.807  14.0960  14.7349  14.3060  14.5540  30.313   100&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;for&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Mais sobre o for&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
+input &amp;lt;- lapply(1:100, function(x) runif(1000))
+
+mean_for &amp;lt;- function(x) {
+  vet &amp;lt;- c()
+  for(i in seq_along(x)) {
+    vet[i] &amp;lt;- mean(x[[i]])
+  }
+}
+mean_sapply &amp;lt;- function(x) {
+  sapply(x, mean)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Veja como o desempenho do &lt;code&gt;for&lt;/code&gt; é assustadoramente inferior.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;microbenchmark::microbenchmark(mean_for(x), mean_sapply(x))
+# Unit: milliseconds
+#            expr      min       lq     mean   median       uq      max neval
+#     mean_for(x) 41.28675 43.22318 47.39574 44.02713 45.59184 84.80818   100
+#  mean_sapply(x) 14.78590 15.46421 16.36619 16.23018 17.28495 19.70854   100&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No meu computador com o R 3.4, o resultado foi esse. Agora o &lt;code&gt;for&lt;/code&gt; está praticamente empatado!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;microbenchmark::microbenchmark(mean_for(x), mean_sapply(x))
+# Unit: milliseconds
+#            expr      min       lq     mean   median       uq      max neval
+#     mean_for(x) 15.16583 15.45924 16.71064 16.14545 17.51002 25.61860   100
+#  mean_sapply(x) 14.43704 14.90485 16.20864 15.53319 16.56801 27.36536   100 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Mas cuidado! o &lt;code&gt;for&lt;/code&gt; continua sendo uma ideia ruim no R, não só por desempenho, mas por questões de &lt;em&gt;design&lt;/em&gt;. Utilizar funcionais ajuda na performance do computador e torna a vida do cientista de dados mais fácil (veja &lt;a href=&#34;http://curso-r.com/blog/2017/04/10/2017-04-08-progress/&#34;&gt;esse&lt;/a&gt; e &lt;a href=&#34;http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/&#34;&gt;esse&lt;/a&gt; posts que discutem um pouco sobre isso.)&lt;/p&gt;
+&lt;div id=&#34;instalacao&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Instalação&lt;/h2&gt;
+&lt;p&gt;Se você usa Windows, uma dica é usar o pacote &lt;code&gt;installr&lt;/code&gt;. Basta rodar isso aqui e ser feliz:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;installr&amp;quot;)
+installr::updateR()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;É isso! Happy coding ;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
