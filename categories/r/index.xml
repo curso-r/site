@@ -15,7 +15,7 @@
       <pubDate>Mon, 24 Apr 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/04/24/2017-04-24-r34/</guid>
-      <description>&lt;p&gt;A versão 3.4 do R foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:&lt;/p&gt;
+      <description>&lt;p&gt;A versão 3.4 do R (You Stupid Darkness) foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Agora temos um compilador JIT (Just In Time) como padrão! Isso significa que você não precisará mais usar a função &lt;code&gt;compiler::cmpfun()&lt;/code&gt; para acelerar suas funções na maioria dos casos. Mais sobre isso abaixo.&lt;/li&gt;
 &lt;li&gt;O &lt;code&gt;for&lt;/code&gt; ficou mais eficiente. Agora a alocação dinâmica de vetores está mais rápida, diminuindo ainda mais a diferença entre utilizar &lt;code&gt;for&lt;/code&gt; e funcionais como &lt;code&gt;sapply()&lt;/code&gt;, que trabalham com um vetor pré alocado. Mais sobre isso abaixo.&lt;/li&gt;
@@ -57,7 +57,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x3122ef8&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## &amp;lt;bytecode: 0x38c1e50&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -80,6 +80,7 @@ microbenchmark::microbenchmark(mean_r(x), cmp_mean_r(x), mean(x))
 &lt;/div&gt;
 &lt;div id=&#34;for&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Mais sobre o for&lt;/h1&gt;
+&lt;p&gt;Veja esse código que calcula a média de mil valores em 100 entradas de uma lista.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
 input &amp;lt;- lapply(1:100, function(x) runif(1000))
 
@@ -111,6 +112,13 @@ mean_sapply &amp;lt;- function(x) {
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;installr&amp;quot;)
 installr::updateR()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;É isso! Happy coding ;)&lt;/p&gt;
+&lt;p&gt;OBS: Se você ficou curiosa sobre o nome da versão, encontrei essa tirinha de 1965 do Peanuts. Acho que foi isso que deu origem ao nome!&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-10&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;http://curso-r.com/blog/2017-04-24-r34_files/figure-html/unnamed-chunk-10-1.png&#34; alt=&#34;You Stupid Darknes! http://www.gocomics.com/peanuts/1965/09/09.&#34; width=&#34;960&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: You Stupid Darknes! &lt;a href=&#34;http://www.gocomics.com/peanuts/1965/09/09&#34; class=&#34;uri&#34;&gt;http://www.gocomics.com/peanuts/1965/09/09&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -160,19 +168,19 @@ centroides &amp;lt;- img_df %&amp;gt;%
 
 centroides
 ## # A tibble: 6 × 4
-##   cluster         r          g         b
-##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.8768120 0.76211694 0.6453261
-## 2       2 0.1242676 0.04329523 0.2157608
-## 3       3 0.7016494 0.46722267 0.3238223
-## 4       4 0.3541964 0.46238302 0.5494433
-## 5       5 0.2212878 0.27343708 0.4408806
-## 6       6 0.5005264 0.18317492 0.1587960&lt;/code&gt;&lt;/pre&gt;
+##   cluster          r         g         b
+##     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1       1 0.88572504 0.7791481 0.6688438
+## 2       2 0.62387801 0.2832790 0.1896923
+## 3       3 0.71951030 0.5487661 0.4097725
+## 4       4 0.09965226 0.0436630 0.2398620
+## 5       5 0.27214211 0.3641213 0.4901644
+## 6       6 0.37889146 0.1185504 0.1558589&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#E0C2A5&amp;quot; &amp;quot;#200B37&amp;quot; &amp;quot;#B37753&amp;quot; &amp;quot;#5A768C&amp;quot; &amp;quot;#384670&amp;quot; &amp;quot;#802F28&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#E2C7AB&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#B78C68&amp;quot; &amp;quot;#190B3D&amp;quot; &amp;quot;#455D7D&amp;quot; &amp;quot;#611E28&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
@@ -1418,7 +1426,7 @@ knitr::kable(top10_locais)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-04-24 16:03
+##   Date: 2017-04-24 17:45
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.3 kB
@@ -1993,7 +2001,7 @@ system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.000   0.004   3.009&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   3.013&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -2007,13 +2015,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.020   0.000   2.211&lt;/code&gt;&lt;/pre&gt;
+##   0.032   0.000   2.240&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.012   0.000   2.015&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   2.013&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;

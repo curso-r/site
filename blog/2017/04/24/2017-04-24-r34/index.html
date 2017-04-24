@@ -172,7 +172,7 @@
                         </p>
                         
                         <div id="post-content">
-                          <p>A versão 3.4 do R foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:</p>
+                          <p>A versão 3.4 do R (You Stupid Darkness) foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:</p>
 <ol style="list-style-type: decimal">
 <li>Agora temos um compilador JIT (Just In Time) como padrão! Isso significa que você não precisará mais usar a função <code>compiler::cmpfun()</code> para acelerar suas funções na maioria dos casos. Mais sobre isso abaixo.</li>
 <li>O <code>for</code> ficou mais eficiente. Agora a alocação dinâmica de vetores está mais rápida, diminuindo ainda mais a diferença entre utilizar <code>for</code> e funcionais como <code>sapply()</code>, que trabalham com um vetor pré alocado. Mais sobre isso abaixo.</li>
@@ -214,7 +214,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &lt;bytecode: 0x3122ef8&gt;</code></pre>
+## &lt;bytecode: 0x38c1e50&gt;</code></pre>
 <p>Para mostrar a mudança, vamos comparar o desempenho das funções usando <code>microbenchmark()</code>. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.</p>
 <p>No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.</p>
 <pre class="r"><code>set.seed(1)
@@ -237,6 +237,7 @@ microbenchmark::microbenchmark(mean_r(x), cmp_mean_r(x), mean(x))
 </div>
 <div id="for" class="section level1">
 <h1>Mais sobre o for</h1>
+<p>Veja esse código que calcula a média de mil valores em 100 entradas de uma lista.</p>
 <pre class="r"><code>set.seed(1)
 input &lt;- lapply(1:100, function(x) runif(1000))
 
@@ -268,6 +269,13 @@ mean_sapply &lt;- function(x) {
 <pre class="r"><code>install.packages(&quot;installr&quot;)
 installr::updateR()</code></pre>
 <p>É isso! Happy coding ;)</p>
+<p>OBS: Se você ficou curiosa sobre o nome da versão, encontrei essa tirinha de 1965 do Peanuts. Acho que foi isso que deu origem ao nome!</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="http://curso-r.com/blog/2017-04-24-r34_files/figure-html/unnamed-chunk-10-1.png" alt="You Stupid Darknes! http://www.gocomics.com/peanuts/1965/09/09." width="960" />
+<p class="caption">
+Figure 2: You Stupid Darknes! <a href="http://www.gocomics.com/peanuts/1965/09/09" class="uri">http://www.gocomics.com/peanuts/1965/09/09</a>.
+</p>
+</div>
 </div>
 </div>
 
@@ -458,19 +466,6 @@ installr::updateR()</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -479,6 +474,19 @@ installr::updateR()</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
