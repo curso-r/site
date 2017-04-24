@@ -212,17 +212,17 @@ centroides
 ## # A tibble: 6 × 4
 ##   cluster         r          g         b
 ##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.0996826 0.04366903 0.2398452
-## 2       2 0.3789830 0.11857741 0.1558412
-## 3       3 0.8857289 0.77915257 0.6688482
-## 4       4 0.2721465 0.36412137 0.4901613
-## 5       5 0.6239192 0.28335790 0.1897367
-## 6       6 0.7195362 0.54881786 0.4098359</code></pre>
+## 1       1 0.8768120 0.76211694 0.6453261
+## 2       2 0.5005265 0.18317569 0.1587972
+## 3       3 0.1242676 0.04329523 0.2157608
+## 4       4 0.7016587 0.46722512 0.3238206
+## 5       5 0.2212860 0.27343498 0.4408806
+## 6       6 0.3542030 0.46237875 0.5494285</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#190B3D&quot; &quot;#611E28&quot; &quot;#E2C7AB&quot; &quot;#455D7D&quot; &quot;#9F4830&quot; &quot;#B78C69&quot;</code></pre>
+## [1] &quot;#E0C2A5&quot; &quot;#802F28&quot; &quot;#200B37&quot; &quot;#B37753&quot; &quot;#384670&quot; &quot;#5A768C&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -452,19 +452,6 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/r4ds/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
@@ -473,6 +460,19 @@ exibir(paleta)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -536,6 +536,19 @@ exibir(paleta)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/04/24/2017-04-24-r34/">
+                          
+                            <img src="http://curso-r.com/img/banners/fastr.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/04/24/2017-04-24-r34/">R 3.4 disponível!</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/">
                           
                             <img src="http://curso-r.com/img/banners/paleta-cores.png" class="img-responsive" alt="">
@@ -544,19 +557,6 @@ exibir(paleta)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/">K-means e paleta de cores</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/04/22/2017-04-24-r34/">
-                          
-                            <img src="http://curso-r.com/img/banners/fastr.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/04/22/2017-04-24-r34/">R 3.4</a></h5>
                     </div>
                 </div>
                 

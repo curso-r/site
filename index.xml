@@ -7,116 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 22 Apr 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 24 Apr 2017 13:07:31 +0200</lastBuildDate>
     <atom:link href="http://curso-r.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>K-means e paleta de cores</title>
-      <link>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</link>
-      <pubDate>Sat, 22 Apr 2017 13:07:31 +0200</pubDate>
+      <title>R 3.4 disponível!</title>
+      <link>http://curso-r.com/blog/2017/04/24/2017-04-24-r34/</link>
+      <pubDate>Mon, 24 Apr 2017 13:07:31 +0200</pubDate>
       
-      <guid>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</guid>
-      <description>&lt;p&gt;Uma aplicação interessante de algoritmos de clusterização é a obtenção de paletas de cores a partir de imagens. Veja como isso pode ser feito usando o R.&lt;/p&gt;
-&lt;p&gt;Em primeiro lugar, vamos ler a imagem como uma matriz para o R. Existem diversas bibliotecas para carregar as imagens, vamos usar aqui a &lt;a href=&#34;https://CRAN.R-project.org/package=jpeg&#34;&gt;&lt;code&gt;jpeg&lt;/code&gt;&lt;/a&gt;. Para esse caso ela é melhor porque já lê a imagem no formato que precisamos.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(jpeg)
-library(magrittr)
-img &amp;lt;- readJPEG(&amp;quot;img/david-bowie.jpg&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A imagem lida pelo pacote &lt;code&gt;jpeg&lt;/code&gt; é representada por um &lt;code&gt;array&lt;/code&gt; com dimensões: &lt;code&gt;c(altura, largura, n_bandas)&lt;/code&gt; que no nosso caso é &lt;code&gt;c(1100, 727, 3)&lt;/code&gt;. O número de bandas é 3: R, G e B.&lt;/p&gt;
-&lt;p&gt;Podemos exibir a imagem no R, convertendo o array, primeiro em um obheto do tipo &lt;code&gt;raster&lt;/code&gt; e depois simplesmente usando a função &lt;code&gt;plot&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(as.raster(img))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;1536&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;O problema de obter a paleta de cores de uma imagem pode ser formulado como um problema de clusterização: “obter grupos de individuos que possuem a menor diferença dentro de cada um e a maior diferença possível entre os grupos de acordo com algumas características das unidades amostrais”.&lt;/p&gt;
-&lt;p&gt;Nesse caso, os indivíduos são os pixels da imagem e as características que estamos interessados são os valores de R, de G e de B (valores que representam a cor do pixel). Para o algortimos de clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão que o trecho de código a seguir realiza.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_matrix &amp;lt;- apply(img, 3, as.numeric)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Agora temos uma matriz com 3 colunas e 799.700 linhas. Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em um grupo. O K-means pede o número de grupos como input, vamos começar com 6.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;km &amp;lt;- kmeans(img_matrix, centers = 6)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;O objeto gerado pela função &lt;code&gt;kmeans&lt;/code&gt; armazena um vetor chamado &lt;code&gt;cluster&lt;/code&gt; (do tamanho do número de linhas da matriz) com um identificador do grupo de cada observação da matriz.&lt;/p&gt;
-&lt;p&gt;A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o &lt;code&gt;dplyr&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
-library(dplyr)
-## 
-## Attaching package: &amp;#39;dplyr&amp;#39;
-## The following objects are masked from &amp;#39;package:stats&amp;#39;:
-## 
-##     filter, lag
-## The following objects are masked from &amp;#39;package:base&amp;#39;:
-## 
-##     intersect, setdiff, setequal, union
-img_df &amp;lt;- tibble(
-  r = img_matrix[,1], 
-  g = img_matrix[,2], 
-  b = img_matrix[,3],
-  cluster = km$cluster
-  )
-centroides &amp;lt;- img_df %&amp;gt;%
-  group_by(cluster) %&amp;gt;%
-  summarise_all(mean)
-
-centroides
-## # A tibble: 6 × 4
-##   cluster         r          g         b
-##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.0996826 0.04366903 0.2398452
-## 2       2 0.3789830 0.11857741 0.1558412
-## 3       3 0.8857289 0.77915257 0.6688482
-## 4       4 0.2721465 0.36412137 0.4901613
-## 5       5 0.6239192 0.28335790 0.1897367
-## 6       6 0.7195362 0.54881786 0.4098359&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
-  mutate(cor = rgb(r, g, b))
-centroides$cor
-## [1] &amp;quot;#190B3D&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#455D7D&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#B78C69&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
-  n &amp;lt;- length(x)
-  old &amp;lt;- par(mar = c(0.5, 0.5, 0.5, 0.5))
-  on.exit(par(old))
-
-  image(1:n, 1, as.matrix(1:n), col = x,
-        ylab = &amp;quot;&amp;quot;, xaxt = &amp;quot;n&amp;quot;, yaxt = &amp;quot;n&amp;quot;, bty = &amp;quot;n&amp;quot;)
-}
-exibir(sort(centroides$cor))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Assim obtivemos uma paleta de cores da imagem que mostramos anteriormente. Vamos colocar todo o código que fizemos passo a passo aqui em uma única função para podermos facilmente criar a paleta de cores para outras imagens.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;criar_paleta &amp;lt;- function(img, num_cores){
-  # transforma a imagem em uma matriz
-  img_matrix &amp;lt;- apply(img, 3, as.numeric)
-  # treina o algoritmo de k médias
-  km &amp;lt;- kmeans(img_matrix, centers = num_cores)
-  img_df &amp;lt;- tibble(
-    r = img_matrix[,1], 
-    g = img_matrix[,2], 
-    b = img_matrix[,3],
-    cluster = km$cluster
-  )
-  # calcula os centroides dos grupos
-  centroides &amp;lt;- img_df %&amp;gt;%
-    group_by(cluster) %&amp;gt;%
-    summarise_all(mean)
-  # transforma a cor em hexadecimal
-  centroides &amp;lt;- centroides %&amp;gt;%
-    mutate(cor = rgb(r, g, b))
-  # vetor de cores
-  sort(centroides$cor)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Vejamos agora o que acontece com essa bela imagem do filme Moonrise Kingdom do Wes Anderson, que é famoso por fazer filmes com belas paletas de cores.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;moonrise &amp;lt;- readJPEG(&amp;quot;img/moonrise-kingdom.jpg&amp;quot;)
-plot(as.raster(moonrise))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;1536&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paleta &amp;lt;- criar_paleta(moonrise, 6)
-exibir(paleta)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;É isso. Se você gostou, tente fazer com outras imagens e compartilhe com a gente os resultados.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>R 3.4</title>
-      <link>http://curso-r.com/blog/2017/04/22/2017-04-24-r34/</link>
-      <pubDate>Sat, 22 Apr 2017 13:07:31 +0200</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/04/22/2017-04-24-r34/</guid>
+      <guid>http://curso-r.com/blog/2017/04/24/2017-04-24-r34/</guid>
       <description>&lt;p&gt;A versão 3.4 do R foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Agora temos um compilador JIT (Just In Time) como padrão! Isso significa que você não precisará mais usar a função &lt;code&gt;compiler::cmpfun()&lt;/code&gt; para acelerar suas funções na maioria dos casos. Mais sobre isso abaixo.&lt;/li&gt;
@@ -159,7 +58,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x39fb290&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## &amp;lt;bytecode: 0x2a16c28&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -215,6 +114,107 @@ installr::updateR()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;É isso! Happy coding ;)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>K-means e paleta de cores</title>
+      <link>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</link>
+      <pubDate>Sat, 22 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</guid>
+      <description>&lt;p&gt;Uma aplicação interessante de algoritmos de clusterização é a obtenção de paletas de cores a partir de imagens. Veja como isso pode ser feito usando o R.&lt;/p&gt;
+&lt;p&gt;Em primeiro lugar, vamos ler a imagem como uma matriz para o R. Existem diversas bibliotecas para carregar as imagens, vamos usar aqui a &lt;a href=&#34;https://CRAN.R-project.org/package=jpeg&#34;&gt;&lt;code&gt;jpeg&lt;/code&gt;&lt;/a&gt;. Para esse caso ela é melhor porque já lê a imagem no formato que precisamos.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(jpeg)
+library(magrittr)
+img &amp;lt;- readJPEG(&amp;quot;img/david-bowie.jpg&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A imagem lida pelo pacote &lt;code&gt;jpeg&lt;/code&gt; é representada por um &lt;code&gt;array&lt;/code&gt; com dimensões: &lt;code&gt;c(altura, largura, n_bandas)&lt;/code&gt; que no nosso caso é &lt;code&gt;c(1100, 727, 3)&lt;/code&gt;. O número de bandas é 3: R, G e B.&lt;/p&gt;
+&lt;p&gt;Podemos exibir a imagem no R, convertendo o array, primeiro em um obheto do tipo &lt;code&gt;raster&lt;/code&gt; e depois simplesmente usando a função &lt;code&gt;plot&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(as.raster(img))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;1536&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;O problema de obter a paleta de cores de uma imagem pode ser formulado como um problema de clusterização: “obter grupos de individuos que possuem a menor diferença dentro de cada um e a maior diferença possível entre os grupos de acordo com algumas características das unidades amostrais”.&lt;/p&gt;
+&lt;p&gt;Nesse caso, os indivíduos são os pixels da imagem e as características que estamos interessados são os valores de R, de G e de B (valores que representam a cor do pixel). Para o algortimos de clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão que o trecho de código a seguir realiza.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_matrix &amp;lt;- apply(img, 3, as.numeric)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agora temos uma matriz com 3 colunas e 799.700 linhas. Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em um grupo. O K-means pede o número de grupos como input, vamos começar com 6.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;km &amp;lt;- kmeans(img_matrix, centers = 6)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O objeto gerado pela função &lt;code&gt;kmeans&lt;/code&gt; armazena um vetor chamado &lt;code&gt;cluster&lt;/code&gt; (do tamanho do número de linhas da matriz) com um identificador do grupo de cada observação da matriz.&lt;/p&gt;
+&lt;p&gt;A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o &lt;code&gt;dplyr&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
+library(dplyr)
+## 
+## Attaching package: &amp;#39;dplyr&amp;#39;
+## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag
+## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union
+img_df &amp;lt;- tibble(
+  r = img_matrix[,1], 
+  g = img_matrix[,2], 
+  b = img_matrix[,3],
+  cluster = km$cluster
+  )
+centroides &amp;lt;- img_df %&amp;gt;%
+  group_by(cluster) %&amp;gt;%
+  summarise_all(mean)
+
+centroides
+## # A tibble: 6 × 4
+##   cluster         r          g         b
+##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1       1 0.8768120 0.76211694 0.6453261
+## 2       2 0.5005265 0.18317569 0.1587972
+## 3       3 0.1242676 0.04329523 0.2157608
+## 4       4 0.7016587 0.46722512 0.3238206
+## 5       5 0.2212860 0.27343498 0.4408806
+## 6       6 0.3542030 0.46237875 0.5494285&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
+  mutate(cor = rgb(r, g, b))
+centroides$cor
+## [1] &amp;quot;#E0C2A5&amp;quot; &amp;quot;#802F28&amp;quot; &amp;quot;#200B37&amp;quot; &amp;quot;#B37753&amp;quot; &amp;quot;#384670&amp;quot; &amp;quot;#5A768C&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
+  n &amp;lt;- length(x)
+  old &amp;lt;- par(mar = c(0.5, 0.5, 0.5, 0.5))
+  on.exit(par(old))
+
+  image(1:n, 1, as.matrix(1:n), col = x,
+        ylab = &amp;quot;&amp;quot;, xaxt = &amp;quot;n&amp;quot;, yaxt = &amp;quot;n&amp;quot;, bty = &amp;quot;n&amp;quot;)
+}
+exibir(sort(centroides$cor))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Assim obtivemos uma paleta de cores da imagem que mostramos anteriormente. Vamos colocar todo o código que fizemos passo a passo aqui em uma única função para podermos facilmente criar a paleta de cores para outras imagens.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;criar_paleta &amp;lt;- function(img, num_cores){
+  # transforma a imagem em uma matriz
+  img_matrix &amp;lt;- apply(img, 3, as.numeric)
+  # treina o algoritmo de k médias
+  km &amp;lt;- kmeans(img_matrix, centers = num_cores)
+  img_df &amp;lt;- tibble(
+    r = img_matrix[,1], 
+    g = img_matrix[,2], 
+    b = img_matrix[,3],
+    cluster = km$cluster
+  )
+  # calcula os centroides dos grupos
+  centroides &amp;lt;- img_df %&amp;gt;%
+    group_by(cluster) %&amp;gt;%
+    summarise_all(mean)
+  # transforma a cor em hexadecimal
+  centroides &amp;lt;- centroides %&amp;gt;%
+    mutate(cor = rgb(r, g, b))
+  # vetor de cores
+  sort(centroides$cor)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Vejamos agora o que acontece com essa bela imagem do filme Moonrise Kingdom do Wes Anderson, que é famoso por fazer filmes com belas paletas de cores.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;moonrise &amp;lt;- readJPEG(&amp;quot;img/moonrise-kingdom.jpg&amp;quot;)
+plot(as.raster(moonrise))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;1536&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paleta &amp;lt;- criar_paleta(moonrise, 6)
+exibir(paleta)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-21-paleta-de-cores_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;É isso. Se você gostou, tente fazer com outras imagens e compartilhe com a gente os resultados.&lt;/p&gt;
 </description>
     </item>
     
@@ -1419,7 +1419,7 @@ knitr::kable(top10_locais)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-04-24 15:40
+##   Date: 2017-04-24 15:45
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.3 kB
@@ -1994,7 +1994,7 @@ system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.004   0.000   3.010&lt;/code&gt;&lt;/pre&gt;
+##   0.004   0.000   3.009&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -2008,13 +2008,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.024   0.000   2.230&lt;/code&gt;&lt;/pre&gt;
+##   0.024   0.000   2.228&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.012   0.000   2.012&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   2.011&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;
