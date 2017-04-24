@@ -31,7 +31,7 @@ Figure 1: R mais rápido! Imagem emprestada do time do &lt;a href=&#34;https://g
 &lt;/div&gt;
 &lt;div id=&#34;jit&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Mais sobre o JIT compiler&lt;/h1&gt;
-&lt;p&gt;Veja esse exemplo extraído do livro &lt;a href=&#34;https://csgillespie.github.io/efficientR/programming.html&#34;&gt;Efficient R&lt;/a&gt;. Observe a existência de um &lt;code&gt;&amp;lt;bytecode ...&amp;gt;&lt;/code&gt; na parte de baixo de uma das funções. Isso significa que o pacote &lt;code&gt;compiler&lt;/code&gt; converteu essa função que pode ser interpretada mais rápido.&lt;/p&gt;
+&lt;p&gt;Veja esse exemplo extraído do livro &lt;a href=&#34;https://csgillespie.github.io/efficientR/programming.html&#34;&gt;Efficient R&lt;/a&gt;. Observe a existência de um &lt;code&gt;&amp;lt;bytecode ...&amp;gt;&lt;/code&gt; na parte de baixo de uma das funções. Isso significa que o pacote &lt;code&gt;compiler&lt;/code&gt; converteu essa função em um código que pode ser interpretado mais rápido.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean_r = function(x) {
   m = 0
   n = length(x)
@@ -57,8 +57,8 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x2a16c28&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas.&lt;/p&gt;
+## &amp;lt;bytecode: 0x3122ef8&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
 x &amp;lt;- rnorm(5000)
@@ -777,7 +777,7 @@ Figure 1: Tempo do for em função do número de inputs
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-04-24 15:45
+##   Date: 2017-04-24 16:03
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.3 kB
@@ -833,7 +833,7 @@ system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.004   0.000   3.009&lt;/code&gt;&lt;/pre&gt;
+##   0.000   0.004   3.009&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -847,13 +847,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.024   0.000   2.228&lt;/code&gt;&lt;/pre&gt;
+##   0.020   0.000   2.211&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.008   0.000   2.011&lt;/code&gt;&lt;/pre&gt;
+##   0.012   0.000   2.015&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;

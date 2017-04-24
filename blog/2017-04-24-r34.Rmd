@@ -27,7 +27,7 @@ plot(magick::image_read('img/fastr.jpg'))
 
 # Mais sobre o JIT compiler {#jit}
 
-Veja esse exemplo extraído do livro [Efficient R](https://csgillespie.github.io/efficientR/programming.html). Observe a existência de um `<bytecode ...>` na parte de baixo de uma das funções. Isso significa que o pacote `compiler` converteu essa função que pode ser interpretada mais rápido.
+Veja esse exemplo extraído do livro [Efficient R](https://csgillespie.github.io/efficientR/programming.html). Observe a existência de um `<bytecode ...>` na parte de baixo de uma das funções. Isso significa que o pacote `compiler` converteu essa função em um código que pode ser interpretado mais rápido.
 
 ```{r}
 mean_r = function(x) {
@@ -43,7 +43,7 @@ mean_r
 cmp_mean_r
 ```
 
-Para mostrar a mudança, vamos comparar o desempenho das funções usando `microbenchmark()`. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas.
+Para mostrar a mudança, vamos comparar o desempenho das funções usando `microbenchmark()`. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.
 
 No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.
 

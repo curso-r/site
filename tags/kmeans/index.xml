@@ -31,7 +31,7 @@ Figure 1: R mais rápido! Imagem emprestada do time do &lt;a href=&#34;https://g
 &lt;/div&gt;
 &lt;div id=&#34;jit&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Mais sobre o JIT compiler&lt;/h1&gt;
-&lt;p&gt;Veja esse exemplo extraído do livro &lt;a href=&#34;https://csgillespie.github.io/efficientR/programming.html&#34;&gt;Efficient R&lt;/a&gt;. Observe a existência de um &lt;code&gt;&amp;lt;bytecode ...&amp;gt;&lt;/code&gt; na parte de baixo de uma das funções. Isso significa que o pacote &lt;code&gt;compiler&lt;/code&gt; converteu essa função que pode ser interpretada mais rápido.&lt;/p&gt;
+&lt;p&gt;Veja esse exemplo extraído do livro &lt;a href=&#34;https://csgillespie.github.io/efficientR/programming.html&#34;&gt;Efficient R&lt;/a&gt;. Observe a existência de um &lt;code&gt;&amp;lt;bytecode ...&amp;gt;&lt;/code&gt; na parte de baixo de uma das funções. Isso significa que o pacote &lt;code&gt;compiler&lt;/code&gt; converteu essa função em um código que pode ser interpretado mais rápido.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean_r = function(x) {
   m = 0
   n = length(x)
@@ -57,8 +57,8 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x2a16c28&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas.&lt;/p&gt;
+## &amp;lt;bytecode: 0x3122ef8&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
 x &amp;lt;- rnorm(5000)
@@ -163,16 +163,16 @@ centroides
 ##   cluster         r          g         b
 ##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
 ## 1       1 0.8768120 0.76211694 0.6453261
-## 2       2 0.5005265 0.18317569 0.1587972
-## 3       3 0.1242676 0.04329523 0.2157608
-## 4       4 0.7016587 0.46722512 0.3238206
-## 5       5 0.2212860 0.27343498 0.4408806
-## 6       6 0.3542030 0.46237875 0.5494285&lt;/code&gt;&lt;/pre&gt;
+## 2       2 0.1242676 0.04329523 0.2157608
+## 3       3 0.7016494 0.46722267 0.3238223
+## 4       4 0.3541964 0.46238302 0.5494433
+## 5       5 0.2212878 0.27343708 0.4408806
+## 6       6 0.5005264 0.18317492 0.1587960&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#E0C2A5&amp;quot; &amp;quot;#802F28&amp;quot; &amp;quot;#200B37&amp;quot; &amp;quot;#B37753&amp;quot; &amp;quot;#384670&amp;quot; &amp;quot;#5A768C&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#E0C2A5&amp;quot; &amp;quot;#200B37&amp;quot; &amp;quot;#B37753&amp;quot; &amp;quot;#5A768C&amp;quot; &amp;quot;#384670&amp;quot; &amp;quot;#802F28&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
