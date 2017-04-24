@@ -12,7 +12,7 @@ summary: "A versão 3.4 do R foi lançada nesse final de semana! A atualização
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-A versão 3.4 do R foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:
+A versão 3.4 do R (You Stupid Darkness) foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:
 
 1. Agora temos um compilador JIT (Just In Time) como padrão! Isso significa que você não precisará mais usar a função `compiler::cmpfun()` para acelerar suas funções na maioria dos casos. Mais sobre isso abaixo.
 1. O `for` ficou mais eficiente. Agora a alocação dinâmica de vetores está mais rápida, diminuindo ainda mais a diferença entre utilizar `for` e funcionais como `sapply()`, que trabalham com um vetor pré alocado. Mais sobre isso abaixo.
@@ -73,6 +73,8 @@ microbenchmark::microbenchmark(mean_r(x), cmp_mean_r(x), mean(x))
 
 # Mais sobre o for {#for}
 
+Veja esse código que calcula a média de mil valores em 100 entradas de uma lista.
+
 ```{r eval=FALSE}
 set.seed(1)
 input <- lapply(1:100, function(x) runif(1000))
@@ -120,3 +122,11 @@ installr::updateR()
 ```
 
 É isso! Happy coding ;)
+
+OBS: Se você ficou curiosa sobre o nome da versão, encontrei essa tirinha de 1965 do Peanuts. Acho que foi isso que deu origem ao nome!
+
+```{r, echo=FALSE, fig.cap='You Stupid Darknes! http://www.gocomics.com/peanuts/1965/09/09.', fig.align='center', fig.height=2, fig.width=10}
+par(mai = rep(0, 4), mar = rep(0, 4))
+plot(magick::image_read('img/darkness.jpg'))
+```
+
