@@ -6,6 +6,8 @@ addons:
       - librsvg2-dev
       - libwebp-dev
       - libpoppler-cpp-dev
+      - libgdal1-dev
+      - libproj-dev
       
 cache: packages
 
