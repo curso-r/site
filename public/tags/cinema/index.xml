@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cinema on Curso-R</title>
+    <link>/tags/cinema/index.xml</link>
+    <description>Recent content in Cinema on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="/tags/cinema/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Blockbusters de 2016</title>
+      <link>/blog/2017/02/22/2017-02-22-blockbusters-de-2016/</link>
+      <pubDate>Wed, 22 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>/blog/2017/02/22/2017-02-22-blockbusters-de-2016/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;Em 2016, tive a impressão de que os &lt;em&gt;blockbusters&lt;/em&gt; estão um pouco piores do que o usual. Se não fossem as companhias e os litros de manteiga na pipoca do cinemark, muitas das minhas visitas ao cinema teriam sido um completo desperdício de dinheiro.&lt;/p&gt;
+&lt;p&gt;Será que os filmes estão piores ou eu que fiquei mais chato? Neste post vamos deixar os dados responderem a essa questão!&lt;/p&gt;
+&lt;div id=&#34;preparando-o-terreno&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Preparando o terreno&lt;/h3&gt;
+&lt;p&gt;Responder perguntas usando dados de vez quando é uma tarefa ingrata: ou é muito fácil ou é muito difícil. Para me certificar de que estou fazendo a coisa do jeito fácil, vou construir minha resposta em tres passos.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Quais dados vou usar?
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Uma lista de &lt;em&gt;blockbusters&lt;/em&gt; contendo
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Anos de lançamento&lt;/li&gt;
+&lt;li&gt;Índices de qualidade.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Como vou obtê-los?
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;em&gt;scrapeando&lt;/em&gt; o box-office mojo e o rotten tomatoes usando os pacotes do &lt;code&gt;tidyverse&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;O que vou fazer com eles?
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Um gráfico com anos no eixo das abscissas e índices de qualidades no eixo das ordenadas.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;o-que-e-blockbuster&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;O que é blockbuster?&lt;/h3&gt;
+&lt;p&gt;Um &lt;em&gt;blockbuster&lt;/em&gt; é um filme que &lt;em&gt;almeja&lt;/em&gt; atingir uma parcela significativa do público. Na prática, o que realmente determina se um filme é um blockbuster é a &lt;em&gt;escala&lt;/em&gt; dos seus custos.&lt;/p&gt;
+&lt;p&gt;Com essa ideia em mente, nossa lista de &lt;em&gt;blockbusters&lt;/em&gt; será obtida considerando os 20 maiores orçamentos dos filmes dos últimos 10 anos. A listagem completa do orçamento dos filmes está disponível em &lt;a href=&#34;http://www.the-numbers.com/movie/budgets/all&#34; class=&#34;uri&#34;&gt;http://www.the-numbers.com/movie/budgets/all&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O código que filtra os orçamentos está disponível abaixo&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)
+library(dplyr)
+library(readr)
+
+d &amp;lt;- &amp;#39;http://www.the-numbers.com/movie/budgets/all&amp;#39; %&amp;gt;% 
+  html_session() %&amp;gt;% 
+  html_table(fill = TRUE) %&amp;gt;% 
+  first()
+  
+block_busters &amp;lt;- d %&amp;gt;% 
+  janitor::clean_names() %&amp;gt;% 
+  tibble::as_tibble() %&amp;gt;% 
+  filter(!is.na(release_date)) %&amp;gt;% 
+  mutate(release_date = lubridate::mdy(release_date),
+         release_year = lubridate::year(release_date)) %&amp;gt;% 
+  mutate_at(vars(production_budget, domestic_gross, worldwide_gross),
+            funs(parse_number)) %&amp;gt;% 
+  filter(release_year &amp;gt;= 2007, release_year &amp;lt;= 2016) %&amp;gt;% 
+  group_by(release_year) %&amp;gt;% 
+  top_n(20, production_budget)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tomatometro&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Tomatômetro&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stringr)
+
+meters &amp;lt;- failwith(list(tomato_score = NA), function(page) {
+  list(tomato_score = page %&amp;gt;%
+         html_nodes(&amp;quot;[id=scorePanel]&amp;quot;) %&amp;gt;%
+         html_nodes(&amp;quot;[class=&amp;#39;critic-score meter&amp;#39;]&amp;quot;) %&amp;gt;%
+         html_text()  %&amp;gt;%
+         str_extract(&amp;#39;[0-9]{1,2}\\%&amp;#39;) %&amp;gt;%
+         first(),
+       audience_score = page %&amp;gt;%
+         html_nodes(&amp;quot;[id=scorePanel]&amp;quot;) %&amp;gt;%
+         html_nodes(&amp;quot;[class=&amp;#39;audience-score meter&amp;#39;]&amp;quot;) %&amp;gt;%
+         html_text() %&amp;gt;%
+         str_extract(&amp;#39;[0-9]{1,2}\\%&amp;#39;)
+  )
+})
+
+status &amp;lt;- block_busters %&amp;gt;% 
+  mutate(clean_name = str_to_lower(movie) %&amp;gt;% 
+                      str_replace_all(&amp;quot;[&amp;#39;:’,-]&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;%
+                      str_replace_all(&amp;quot;ep.&amp;quot;, &amp;quot;episode&amp;quot;) %&amp;gt;% 
+                      str_replace_all(&amp;quot;xmen&amp;quot;, &amp;quot;x-men&amp;quot;) %&amp;gt;% 
+                      str_replace_all(&amp;quot;^the&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;% 
+                      str_replace_all(&amp;quot;[.-]&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;% 
+                      str_replace_all(&amp;quot; &amp;quot;, &amp;quot;_&amp;quot;) %&amp;gt;% 
+                      str_replace_all(&amp;quot;_+&amp;quot;, &amp;quot;_&amp;quot;) %&amp;gt;% 
+                      str_replace_all(&amp;quot;^_|_$&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;% 
+                      str_replace_all(&amp;quot;[—]&amp;quot;, &amp;quot;_&amp;quot;),
+         link = str_c(&amp;quot;https://www.rottentomatoes.com/m/&amp;quot;, clean_name)) %&amp;gt;% 
+  ungroup() %&amp;gt;% 
+  mutate(status = purrr::map(link, ~meters(html_session(.x))$tomato_score))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resultado&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Resultado&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+
+status %&amp;gt;% 
+ rename(tomato_meter = status) %&amp;gt;% 
+ mutate(tomato_meter = as.numeric(str_replace_all(tomato_meter, &amp;quot;%&amp;quot;, &amp;quot;&amp;quot;))) %&amp;gt;% 
+  group_by(release_year) %&amp;gt;% 
+  summarise(avgtom = mean(tomato_meter, na.rm = TRUE),
+            maxtom = avgtom + 1 * sd(tomato_meter, na.rm = TRUE),
+            mintom = avgtom - 1 * sd(tomato_meter, na.rm = TRUE)) %&amp;gt;% 
+  ggplot(aes(x = release_year, y = avgtom, ymin = mintom, ymax = maxtom)) +
+  geom_point() +
+  geom_line() +
+  geom_ribbon(alpha = 0.1) +
+  scale_x_continuous(breaks = 2007:2016) +
+  theme_bw(15) +
+  xlab(&amp;quot;Ano de lançamento&amp;quot;) +
+  ylab(&amp;quot;Tomatoscore médio&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Pelos dados que levantei parece que fiquei mais chato mesmo! Em 2016 a opinião geral sobre os filmes até deu uma aumentada.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

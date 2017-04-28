@@ -1,0 +1,143 @@
+---
+title: "População do município de São Paulo"
+date: "2017-04-08T13:07:31+02:00"
+tags: ["erro", "r"]
+categories: ["r", "emotion"]
+banner: "img/banners/aecio.jpg"
+author: ["Julio"]
+draft: true
+summary: ""
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>São Paulo tem 12 milhões de habitantes. Esse número é tão gigante que temos um paulistano para cada 17 brasileiros!</p>
+<pre class="r"><code># devtools::install_github(&#39;edzer/sfr&#39;)
+library(sf)
+library(magrittr)
+library(tidyverse)
+
+nc &lt;- st_read(&quot;~/Downloads/dados/BRMUE250GC_SIR.shp&quot;, quiet = TRUE) %&gt;% 
+  janitor::clean_names() %&gt;% 
+  mutate(cd_geocmu = as.character(cd_geocmu))
+
+data(pnud_muni, package = &#39;abjData&#39;)
+pnud_muni %&lt;&gt;%
+  filter(ano == 2010) %&gt;% 
+  mutate(cd_geocmu = as.character(codmun7)) %&gt;% 
+  select(cd_geocmu, popt)
+
+data(cadmun, package = &#39;abjData&#39;)
+loc &lt;- readr::locale(decimal_mark = &#39;,&#39;, grouping_mark = &#39;.&#39;)
+cadmun %&lt;&gt;% 
+  transmute(cd_geocmu = as.character(MUNCODDV), 
+            area = readr::parse_number(AREA, locale = loc))</code></pre>
+<pre class="r"><code>sf2 &lt;- nc %&gt;% 
+  inner_join(pnud_muni, &#39;cd_geocmu&#39;) %&gt;% 
+  inner_join(cadmun, &#39;cd_geocmu&#39;) %&gt;% 
+  arrange(desc(area)) %&gt;% 
+  mutate(popt_acu = cumsum(popt)) %&gt;% 
+  filter(popt_acu &lt;= max(popt) | popt == max(popt)) %&gt;% 
+  mutate(sp = if_else(nm_municip == &#39;SÃO PAULO&#39;, &#39;São Paulo&#39;, &#39;Outros&#39;),
+         sp = forcats::fct_rev(sp))
+
+sf3 &lt;- nc %&gt;% 
+  inner_join(pnud_muni, &#39;cd_geocmu&#39;) %&gt;% 
+  inner_join(cadmun, &#39;cd_geocmu&#39;) %&gt;% 
+  arrange(popt) %&gt;% 
+  mutate(popt_acu = cumsum(popt)) %&gt;% 
+  filter(popt_acu &lt;= max(popt) | popt == max(popt)) %&gt;% 
+  mutate(sp = if_else(nm_municip == &#39;SÃO PAULO&#39;, &#39;São Paulo&#39;, &#39;Outros&#39;),
+         sp = forcats::fct_rev(sp))
+
+sf &lt;- nc %&gt;% 
+  inner_join(pnud_muni, &#39;cd_geocmu&#39;) %&gt;% 
+  inner_join(cadmun, &#39;cd_geocmu&#39;)
+
+# library(lpSolveAPI)
+# n &lt;- nrow(sf)
+# model &lt;- make.lp(0, n)
+# set.objfn(model, - sf$area / sf$popt)
+# add.constraint(model, rep(1, n), &quot;&lt;=&quot;, n - 236)
+# add.constraint(model, sf$popt, &quot;&lt;=&quot;, max(sf$popt))
+# set.bounds(model, lower = rep(0, n), upper = rep(1, n))
+# solve(model)
+# get.objective(model)
+# get.constraints(model)
+# ind &lt;- c(which(get.variables(model) &gt; .99), 
+#          which(sf$nm_municip == &#39;SÃO PAULO&#39;))
+# sf4 &lt;- sf[ind,] %&gt;% 
+#   mutate(sp = if_else(nm_municip == &#39;SÃO PAULO&#39;, &#39;São Paulo&#39;, &#39;Outros&#39;),
+#          sp = forcats::fct_rev(sp))
+
+sf5 &lt;- nc %&gt;% 
+  inner_join(pnud_muni, &#39;cd_geocmu&#39;) %&gt;% 
+  inner_join(cadmun, &#39;cd_geocmu&#39;) %&gt;% 
+  arrange(desc(area / popt)) %&gt;% 
+  mutate(popt_acu = cumsum(popt)) %&gt;% 
+  filter(popt_acu &lt;= max(popt) | popt == max(popt)) %&gt;% 
+  mutate(sp = if_else(nm_municip == &#39;SÃO PAULO&#39;, &#39;São Paulo&#39;, &#39;Outros&#39;),
+         sp = forcats::fct_rev(sp))</code></pre>
+<pre class="r"><code>areas &lt;- c(
+  sum(sf2$area) - sf2[sf2$nm_municip == &#39;SÃO PAULO&#39;,]$area,
+  sum(sf4$area) - sf4[sf4$nm_municip == &#39;SÃO PAULO&#39;,]$area,
+  sum(sf5$area) - sf5[sf5$nm_municip == &#39;SÃO PAULO&#39;,]$area
+)
+pops &lt;- c(sum(sf2$popt) - max(sf$popt), 
+          sum(sf4$popt) - max(sf$popt),
+          sum(sf5$popt) - max(sf$popt))
+pops_sp &lt;- rep(max(sf$popt), 3)
+f &lt;- function(x) format(x, big.mark = &#39;.&#39;, decimal.mark = &#39;,&#39;)
+subss &lt;- glue::glue(
+  &quot;Area = {f(areas)}&quot;, &quot;Pop = {f(pops)}&quot;, 
+  &quot;Pop de SP: {f(pops_sp)}&quot;, .sep = &#39;, &#39;
+)
+
+p1 &lt;- ggplot(sf2, aes(fill = sp)) +
+  geom_sf(size = .1, colour = &#39;gray70&#39;, fill = &#39;transparent&#39;, data = nc) +
+  geom_sf(size = .1, alpha = .5, colour = &#39;black&#39;) +
+  theme_minimal(14) +
+  labs(fill = &#39;Município&#39;) +
+  theme(legend.position = c(0.12, 0.12),
+        legend.background = element_blank(),
+        legend.key.size = unit(.03, &#39;npc&#39;),
+        legend.title = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        axis.text = element_blank()) +
+  ggtitle(&#39;Ad-hoc&#39;, subtitle = as.character(subss[1]))
+
+p2 &lt;- ggplot(sf4, aes(fill = sp)) +
+  geom_sf(size = .1, colour = &#39;gray70&#39;, fill = &#39;transparent&#39;, data = nc) +
+  geom_sf(size = .1, alpha = .5, colour = &#39;black&#39;) +
+  theme_minimal(14) +
+  labs(fill = &#39;Município&#39;) +
+  theme(legend.position = c(0.12, 0.12),
+        legend.background = element_blank(),
+        legend.key.size = unit(.03, &#39;npc&#39;),
+        legend.title = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        axis.text = element_blank()) +
+  ggtitle(&#39;Ótimo&#39;, subtitle = as.character(subss[2]))
+
+
+p3 &lt;- ggplot(sf5, aes(fill = sp)) +
+  geom_sf(size = .1, colour = &#39;gray70&#39;, fill = &#39;transparent&#39;, data = nc) +
+  geom_sf(size = .1, alpha = .5, colour = &#39;black&#39;) +
+  theme_minimal(14) +
+  labs(fill = &#39;Município&#39;) +
+  theme(legend.position = c(0.12, 0.12),
+        legend.background = element_blank(),
+        legend.key.size = unit(.03, &#39;npc&#39;),
+        legend.title = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        axis.text = element_blank()) +
+  ggtitle(&#39;Ótimo - Razão&#39;, subtitle = as.character(subss[3]))
+
+# gridExtra::grid.arrange(p1, p3, ncol = 2)
+
+ggsave(&#39;~/adhoc.png&#39;, p1)
+ggsave(&#39;~/otimo.png&#39;, p2)
+ggsave(&#39;~/otimo-raz.png&#39;, p3)</code></pre>

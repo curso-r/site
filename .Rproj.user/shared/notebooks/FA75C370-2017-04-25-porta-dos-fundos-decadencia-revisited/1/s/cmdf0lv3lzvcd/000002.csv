@@ -1,0 +1,6 @@
+"0","library(dplyr)          # Manipulação de dados"
+"0","library(tidyr)          # Manipulação de dados"
+"0","library(tibble)         # Criação de dataframes"
+"0","library(lubridate)      # Manipulação de datas"
+"0","library(purrr)          # Funcionais"
+"0","library(ggplot2)        # Gráficos"

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cursos on Curso-R</title>
+    <link>http://curso-r.com/cursos/index.xml</link>
+    <description>Recent content in Cursos on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="http://curso-r.com/cursos/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dashboards</title>
+      <link>http://curso-r.com/cursos/dashboards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/cursos/dashboards/</guid>
+      <description>
+
+&lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
+
+&lt;p&gt;Trabalhos de análise estatística possuem três outputs possíveis: i) relatórios analíticos, ii) dashboards de visualização e iii) APIs (Application Programming Interfaces). Neste curso, falaremos do tópico ii).&lt;/p&gt;
+
+&lt;p&gt;Como base, abordaremos o Shiny e htmlwidgets.&lt;/p&gt;
+
+&lt;p&gt;O Shiny é um sistema para desenvolvimento de aplicações web usando o R, um pacote do R e um servidor web. Abordaremos conceitos web como &lt;strong&gt;server side&lt;/strong&gt; e &lt;strong&gt;user side&lt;/strong&gt;. Entenderemos também porque o Shiny não é uma página web, não é um substituto para sistemas mais gerais, como Ruby on Rails e Django.&lt;/p&gt;
+
+&lt;p&gt;As bibliotecas baseadas em htmlwidgets trazem o melhor da visualização de dados da web para o R. Além de embutir widgets em relatórios e aplicações em Shiny, é possível criar novos widgets utilizando um ambiente que constrói perfeitamente uma ponte entre o R e o JavaScript. Vamos utilizar bibliotecas como: &lt;code&gt;dygraphs&lt;/code&gt;, para visualização de séries temporais, &lt;code&gt;DT&lt;/code&gt;, para visualização de tabelas e &lt;code&gt;leaflet&lt;/code&gt;, para a produção de mapas.&lt;/p&gt;
+
+&lt;h2 id=&#34;público-alvo&#34;&gt;Público Alvo&lt;/h2&gt;
+
+&lt;p&gt;Estudantes e profissionais com &lt;strong&gt;conhecimento intermediário de programação&lt;/strong&gt; que tenham interesse em comunicar as suas análises de maneira interativa e dinâmica.&lt;/p&gt;
+
+&lt;h3 id=&#34;requisitos&#34;&gt;Requisitos&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/introducao-programacao-r/&#34;&gt;R básico&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/r4ds/&#34;&gt;R para Data Science&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
+
+&lt;p&gt;O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;R - &lt;a href=&#34;https://www.r-project.org/&#34;&gt;Instale pelo site da R foundation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;RStudio - Faça o download. &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;aqui&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Pacotes - &lt;code&gt;shiny&lt;/code&gt;, &lt;code&gt;flexdashboard&lt;/code&gt; e &lt;code&gt;htmlwidgets&lt;/code&gt;, entre outros.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introdução à Programação em R</title>
+      <link>http://curso-r.com/cursos/introducao-programacao-r/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/cursos/introducao-programacao-r/</guid>
+      <description>
+
+&lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
+
+&lt;p&gt;No curso você aprenderá a se ambientar com o R e RStudio. A partir daí serão
+introduzidos alguns conceitos do R sobre operações, &lt;em&gt;subseting&lt;/em&gt;, tipos de objeto
+e controles de fluxo (&lt;em&gt;for&lt;/em&gt; e &lt;em&gt;while&lt;/em&gt;). Serão apresentados conceitos de funções e
+um vocabulário de funções úteis no R.&lt;/p&gt;
+
+&lt;p&gt;Depois dessa introdução, o aluno aprenderá a carregar um banco de dados para dentro
+do R e fazer cálculos e gráficos usando as variáveis do banco de dados. Durante as
+aulas o aluno será exposto ao RMarkdown, ferramenta que permite a elaboração de
+relatórios e dashboards usando o R.&lt;/p&gt;
+
+&lt;h2 id=&#34;público-alvo&#34;&gt;Público Alvo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Estudantes de graduação em estatística que desejam ganhar tempo nos trabalhos da faculdade e entrar no mercado de trabalho com bons diferenciais.&lt;/li&gt;
+&lt;li&gt;Profissionais do mercado de trabalho que desejam inserir o R no fluxo de atividades do setor/empresa.&lt;/li&gt;
+&lt;li&gt;Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
+
+&lt;p&gt;O curso utiliza extensivamente softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;R - Instale pelo site do CRAN.&lt;/li&gt;
+&lt;li&gt;RStudio - Faça o download aqui.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R para Data Science</title>
+      <link>http://curso-r.com/cursos/r4ds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/cursos/r4ds/</guid>
+      <description>
+
+&lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
+
+&lt;p&gt;O curso aprofunda os conhecimentos em manipulação de dados aprimorando o conhecimento
+do pacote &lt;code&gt;dplyr&lt;/code&gt; e introduzindo pacotes como:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tidyr&lt;/code&gt;: para manipulações mais complexas como pivotagem e aninhamento&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stringr&lt;/code&gt;: para manipulação de textos&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lubridate&lt;/code&gt;: para manipulação de datas&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Após passar pela manipulação, o curso abordará o ajuste e verificação de modelos
+estatísticos conhecidos como Regressão Logística e Árvores de Decisão usando o R.&lt;/p&gt;
+
+&lt;p&gt;Por fim, serão introduzidas ferramentas como o &lt;code&gt;shiny&lt;/code&gt; e &lt;code&gt;flexdashboard&lt;/code&gt; que são úteis
+para a comunicação das análises feitas em R.&lt;/p&gt;
+
+&lt;h2 id=&#34;público-alvo&#34;&gt;Público Alvo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Estudantes de graduação em estatística que desejam se aprofundar no conhecimento do R.&lt;/li&gt;
+&lt;li&gt;Profissionais do mercado de trabalho que usam o R casualmente e desejam aprimorar os seus conhecimentos.&lt;/li&gt;
+&lt;li&gt;Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;requisitos&#34;&gt;Requisitos&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/introducao-programacao-r/&#34;&gt;R básico&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
+
+&lt;p&gt;O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;R - Instale pelo site do CRAN.&lt;/li&gt;
+&lt;li&gt;RStudio - Faça o download aqui.&lt;/li&gt;
+&lt;li&gt;tidyverse - No console do R, digite o código abaixo.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Web scraping com R</title>
+      <link>http://curso-r.com/cursos/webscraping/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/cursos/webscraping/</guid>
+      <description>
+
+&lt;h2 id=&#34;ementa&#34;&gt;Ementa&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Web scraping&lt;/em&gt; é a tarefa de extrair dados de sites da internet de forma automatizada, sendo direta (usando o protocolo HTTP) ou por meio de um browser. Para construir um web scraper geralmente é necessário estudar&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;como o site a ser acessado foi construído, se tem limites de requisições, utilização de cookies, sessões etc;&lt;/li&gt;
+&lt;li&gt;como e com que frequência o site é atualizado, tanto em relação à sua interface como em relação aos dados que queremos extrair;&lt;/li&gt;
+&lt;li&gt;qual o caminho percorrido para acessar uma página específica.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O curso aborda os seguintes tópicos:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;noções do protocolo HTTP e acesso a páginas web;&lt;/li&gt;
+&lt;li&gt;pacote &lt;code&gt;httr&lt;/code&gt; para fazer requisições HTTP com o R e baixar arquivos;&lt;/li&gt;
+&lt;li&gt;pacotes &lt;code&gt;xml2&lt;/code&gt;, &lt;code&gt;rvest&lt;/code&gt; e &lt;code&gt;jsonlite&lt;/code&gt; para obter informações estruturadas de arquivos &lt;code&gt;.xml&lt;/code&gt;, &lt;code&gt;.html&lt;/code&gt; e &lt;code&gt;json&lt;/code&gt;; e&lt;/li&gt;
+&lt;li&gt;utilização do &lt;code&gt;selenium&lt;/code&gt; para controlar um browser por intermédio do R.&lt;/li&gt;
+&lt;li&gt;utilização de APIs como Facebook, Twitter e traders de bitcoin.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;público-alvo&#34;&gt;Público Alvo&lt;/h2&gt;
+
+&lt;p&gt;Estudantes e profissionais com &lt;strong&gt;conhecimento intermediário de programação de R&lt;/strong&gt; que tenham interesse em aprender a extrair dados de sites da internet.&lt;/p&gt;
+
+&lt;h3 id=&#34;requisitos&#34;&gt;Requisitos&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/introducao-programacao-r/&#34;&gt;R básico&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Conteúdo do curso &lt;a href=&#34;http://curso-r.com/cursos/r4ds/&#34;&gt;R para Data Science&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;softwares&#34;&gt;Softwares&lt;/h2&gt;
+
+&lt;p&gt;O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;R - &lt;a href=&#34;https://www.r-project.org/&#34;&gt;Instale pelo site da R foundation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;RStudio - Faça o download. &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;aqui&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Pacotes - &lt;code&gt;tidyverse&lt;/code&gt;, &lt;code&gt;httr&lt;/code&gt;, &lt;code&gt;rvest&lt;/code&gt; e &lt;code&gt;jsonlite&lt;/code&gt;, entre outros.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

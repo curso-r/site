@@ -1,0 +1,5 @@
+"0","funcao_demorada <- function(x) {"
+"0","  Sys.sleep(0.5)"
+"0","  x ^ 2"
+"0","}"
+"0","nums <- 1:5"

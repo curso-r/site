@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emotion on Curso-R</title>
+    <link>http://curso-r.com/categories/emotion/index.xml</link>
+    <description>Recent content in Emotion on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="http://curso-r.com/categories/emotion/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Análise das emoções de Aécio Neves</title>
+      <link>http://curso-r.com/blog/2017/04/15/2017-04-09-aecio/</link>
+      <pubDate>Sat, 15 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/15/2017-04-09-aecio/</guid>
+      <description>&lt;p&gt;Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: ‘Por que ele sempre faz tanta cara de dor?’&lt;/p&gt;
+&lt;p&gt;Pensando nisso, decidi pegar algumas fotos famosas dele e aplicar um algoritmo de Inteligência Artificial para reconhecimento de emoções. Se minha hipótese estiver correta, provavelmente esse algoritmo retornaria emoções como “dor”, “tristeza” ou “descontentamento”.&lt;/p&gt;
+&lt;p&gt;A API escolhida para essa tarefa foi a &lt;a href=&#34;https://www.microsoft.com/cognitive-services/en-us/emotion-api&#34;&gt;Microsoft Emotions API&lt;/a&gt;. O motivo por trás da escolha não é nada especial: foi o primeiro resultado que apareceu no Google para mim!&lt;/p&gt;
+&lt;p&gt;As imagens utilizadas para testar o algoritmo contra minha hipótese são essas aqui:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;33%&#34; /&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;33%&#34; /&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/unnamed-chunk-2-3.png&#34; width=&#34;33%&#34; /&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/unnamed-chunk-2-4.png&#34; width=&#34;33%&#34; /&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/unnamed-chunk-2-5.png&#34; width=&#34;33%&#34; /&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/unnamed-chunk-2-6.png&#34; width=&#34;33%&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;obtencao-das-emocoes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Obtenção das emoções&lt;/h2&gt;
+&lt;p&gt;Pacotes carregados para essa análise:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(httr)
+library(forcats)
+library(grid)
+library(gridExtra)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para obter os resultados, foi necessário entrar na &lt;a href=&#34;https://www.microsoft.com/cognitive-services/en-us/emotion-api&#34;&gt;página de APIs de visão da Microsoft&lt;/a&gt; e obter uma chave de acesso, guardando-a no objeto &lt;code&gt;key&lt;/code&gt;. Depois disso, montei a função &lt;code&gt;pegar_emocoes()&lt;/code&gt;, que recebe a URL de uma imagem da internet e uma chave de acesso, e retorna uma &lt;code&gt;tibble&lt;/code&gt; com as proporções das emoções em cada coluna.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pegar_emocoes &amp;lt;- function(u_img, key) {
+  u_api &amp;lt;- &amp;#39;https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize&amp;#39;
+  result &amp;lt;- httr::POST(
+    url = u_api,
+    httr::content_type(&amp;#39;application/json&amp;#39;), 
+    httr::add_headers(.headers = c(&amp;#39;Ocp-Apim-Subscription-Key&amp;#39; = key)),
+    body = list(url = u_img),
+    encode = &amp;#39;json&amp;#39;
+  )
+  tibble::as_tibble(httr::content(result, &amp;#39;parsed&amp;#39;)[[1]]$scores)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finalmente, apliquei a função num vetor de links usando o funcional &lt;code&gt;purrr::map_df&lt;/code&gt;. Como resultado, temos essa base de dados:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_emocoes &amp;lt;- map_df(u_imagens, pegar_emocoes, key = key, .id = &amp;#39;id&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;id&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;anger&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;contempt&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;disgust&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;fear&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;happiness&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;neutral&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;sadness&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;surprise&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0004080&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000004&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000960&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000001&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9994901&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000018&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000025&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000011&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1466579&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1385524&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1392320&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000411&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.2569676&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.3143989&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0032987&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0008515&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0759952&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0321533&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0072514&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000727&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0007214&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.6251250&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.2585501&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0001311&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0772784&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1994352&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0216270&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0008681&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0124632&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.6709319&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0042846&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0131115&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0476197&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0467561&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0026372&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000568&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0008743&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.8483697&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0532359&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0004504&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;6&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.2786264&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0922678&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0087203&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0119777&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0000222&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4820632&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.0069891&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1193333&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resultados&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Resultados&lt;/h2&gt;
+&lt;p&gt;A Figura &lt;a href=&#34;#fig:media&#34;&gt;1&lt;/a&gt; mostra a média de cada emoção nas seis fotos. Para minha surpresa, a emoção com maior proporção média foi “neutro”, com peso de quase 50%. As emoções seguintes são “felicidade”, “raiva” e “desdém”. A emoção “tristeza”, que achei que seria frequente por conta da cara de dor do Aécio, ficou com uma proporção média de apenas 5,5%.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:media&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/media-1.png&#34; alt=&#34;Média de cada emoção nas seis fotos baixadas.&#34; width=&#34;864&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Média de cada emoção nas seis fotos baixadas.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;A Figura &lt;a href=&#34;#fig:each&#34;&gt;2&lt;/a&gt; mostra os resultados individuais das imagens. O primeiro resultado faz sentido, já que o Aécio está nitidamente rindo. Em todos os casos, é possível interpretar os resultados olhando a imagem. Por exemplo, o caso com “tristeza” mais alto é o que observamos as sombrancelhas mais caídas.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:each&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;http://curso-r.com/blog/2017-04-09-aecio_files/figure-html/each-1.png&#34; alt=&#34;Emoções do Aécio em cada imagem.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: Emoções do Aécio em cada imagem.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusao&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Aparentemente minha hipótese estava errada. Aécio é um cara neutro e feliz, com acessos raiva de vez em quando (por favor, não interprete isso seriamente, é uma brincadeira!). Mas, sinceramente, achei que faltou na API uma emoção “cara de dor” para captar perfeitamente a expressão do Aécio. De qualquer forma, foi uma análise rápida e muito divertida de fazer. Se quiser replicá-la para outras imagens, acesse o &lt;a href=&#34;https://github.com/curso-r/site&#34;&gt;código fonte no repositório do GitHub que gera esse site&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;É isso. Happy coding ;)&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

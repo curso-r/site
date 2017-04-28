@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Athos on Curso-R</title>
+    <link>http://curso-r.com/author/athos/index.xml</link>
+    <description>Recent content in Athos on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="http://curso-r.com/author/athos/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Top 10 dicas do Curso R de verão 2017</title>
+      <link>http://curso-r.com/blog/2017/04/08/2017-04-08-top10-dicas-verao-2017/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/08/2017-04-08-top10-dicas-verao-2017/</guid>
+      <description>&lt;p&gt;Em fevereiro desse ano ministramos o Curso de R de Verão 2017, parte do programa dos Cursos de Verão do IME-USP. Abaixo segue um compilado das 10 melhores dicas dadas durante este curso.&lt;/p&gt;
+&lt;div id=&#34;conheca-e-domine-a-filosofia-por-tras-do-tidyverse&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1. Conheça e domine a filosofia por trás do Tidyverse&lt;/h3&gt;
+&lt;p&gt;O conceito “tidy” deu o oriente do curso de verão e não foi à toa: o &lt;em&gt;tidyverse&lt;/em&gt;, carinhosamente chamado de “universo arrumadinho”, está intimamente associado ao dia-a-dia de um analista de dados e sua implementação em R é tida como uma pequena revolução para os R-eiros.&lt;/p&gt;
+&lt;p&gt;A postagem &lt;a href=&#34;http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/&#34;&gt;Manifesto Tidy&lt;/a&gt; resume bem os motivos pelos quais valem a pena aprender os princípios e os pacotes do &lt;em&gt;tidyverse&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-shiny-e-uma-grande-alternativa-as-ferramentas-de-bi-e-dashboards&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2. R + Shiny é uma grande alternativa às ferramentas de BI e Dashboards&lt;/h3&gt;
+&lt;p&gt;Se você ainda tem alguma dúvida sobre o poder do R em montar dashboards interativos, se dê a chance de visitar alguns exemplos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://pollingdata.com.br/&#34;&gt;Polling Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://shiny.platipus.com.br:3838/platipus/viscarf5&#34;&gt;VisCARF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rich.shinyapps.io/college_map/&#34;&gt;College Map&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gallery.shinyapps.io/087-crandash/&#34;&gt;CRAN Dash&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esses exemplos mostram que é possível fazer desde simples gráficos de barras até sofisticados mapas a lá Google Maps. Esse potencial é imenso e tudo isso está a disposição de um mero mortal (e não mais apenas de um desenvolvedor de software especialista em web).&lt;/p&gt;
+&lt;p&gt;E quando digo que o potencial é imenso, pode acreditar. O shiny coloca a disposição ao mesmo tempo inúmeros pacotes JavaScript de visualização e o R inteiro, interagindo entre si e aceitando receber informação de usuários em tempo real.&lt;/p&gt;
+&lt;p&gt;PS: todos esses sites de exemplo foram feitos com R e apenas R, nenhum outro conhecimento foi pré-requisito.&lt;/p&gt;
+&lt;p&gt;Se restou alguma dúvida se o R + Shiny é uma grande alternativa às ferramentas de BI e Dashboards, por favor jogue nos comentários para discutirmos!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ggplot2-e-tidyr-tem-tudo-a-ver&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3. ggplot2 e tidyr tem tudo a ver&lt;/h3&gt;
+&lt;p&gt;A função &lt;code&gt;gather()&lt;/code&gt; do pacote tidyr é frequentemente utilizada para deixar data.frames prontos para serem “plotados”. Veja um exemplo:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Correlação entre a variável &lt;code&gt;mpg&lt;/code&gt; versus todas as outras do data.frame &lt;code&gt;mtcars&lt;/code&gt;:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyr)
+library(ggplot2)
+library(dplyr)
+
+mtcars_para_grafico &amp;lt;- mtcars %&amp;gt;%
+  gather(variavel, valor, -mpg)
+
+ggplot(mtcars_para_grafico, aes(x = valor, y = mpg)) +
+  geom_point(aes(colour = variavel), show.legend = FALSE) +
+  geom_smooth(se = FALSE) +
+  facet_wrap(~variavel, scales = &amp;quot;free_x&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-08-top10-dicas-verao-2017_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Frequentemente o que se quer é construir um gráfico do mesmo tipo para diferentes colunas, por isso o &lt;code&gt;gather()&lt;/code&gt; é útil nesses casos. E o &lt;code&gt;facet_wrap()&lt;/code&gt; do ggplot2 faz o serviço de construir um gráfico para cada coluna.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;web-scraping-e-uma-habilidade-visada-no-mercado&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;4. Web Scraping é uma habilidade visada no mercado&lt;/h3&gt;
+&lt;p&gt;A internet é uma fonta riquíssima de dados e são as técnicas de &lt;em&gt;web scraping&lt;/em&gt; que permite ao analista explorar seu potencial por inteiro. Em resumo, &lt;em&gt;Web scraping&lt;/em&gt; é o ato de “raspar” dados disponíveis em sites da internet.&lt;/p&gt;
+&lt;p&gt;Os dados são o principal ingrediente para um bom modelo estatístico e faz parte da responsabilidade do cientista de dados utilizar o máximo de informação disponível.&lt;/p&gt;
+&lt;p&gt;Cada vez mais as empresas estão reconhecendo o valor que os dados disponíveis publicamente na internet têm. Há empresas especializadas nisso e não é raro encontrar freelances envolvendo extração e estruturação de dados espalhados na rede.&lt;/p&gt;
+&lt;p&gt;Os profissinais capazes de encarar esses desafios ainda são escaços, então fica a dica! &lt;a href=&#34;https://www.youtube.com/watch?v=o2fFUw8aSHE&#34;&gt;Esse webinar&lt;/a&gt; dado pelo nosso professor Julio Trecenti é um bom ponto de partida para aprender como fazer &lt;em&gt;web scraping&lt;/em&gt; no R.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;avalie-muito-bem-o-problema-antes-de-decidir-que-se-trata-de-um-problema-de-big-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;5. Avalie muito bem o problema antes de decidir que se trata de um problema de BIG DATA&lt;/h3&gt;
+&lt;p&gt;Big Data é um termo que ainda procura por uma definição oficial, mas já existe uma classe de obstáculos que são devidos a grandes volumes de dados. Então a pergunta primordial aqui é: como saber se seu problema é de Big Data?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Big data is extremely overhyped and not terribly well defined. Many people think they have big data, when they actually don’t.” - Hadley Wickham&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Como Hadley Wickham aponta, muitas pessoas acham que possuem um problema de big data quando na verdade não possuem. Ele resume o problema em três classes distintas:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Problema de Big Data que na verdade é um problema comum se for feita uma amostragem/sumarização apropriada.
+&lt;ul&gt;
+&lt;li&gt;Ferramentas apropriadas: hive, impala, terada, dplyr.&lt;/li&gt;
+&lt;li&gt;90% dos problemas.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Problema de Big Data que na verdade são vários problemas comuns. Exemplo: ajustar um modelo de regressão por indivíduo, para milhares ou milhões de indivíduos.
+&lt;ul&gt;
+&lt;li&gt;Paralelização é o que será necessário.&lt;/li&gt;
+&lt;li&gt;Ferramentas: foreach, doParallel, doMC, Spark, Hadoop.&lt;/li&gt;
+&lt;li&gt;9% dos problemas.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Problemas de Big Data que realmente dependem de todos os dados juntos no mesmo lugar.
+&lt;ul&gt;
+&lt;li&gt;Exemplo: sistemas de recomendação em que se faz necessário a procura de relações bem raras e específicas entre transações.&lt;/li&gt;
+&lt;li&gt;Ferramentas: geralmente sistemas dedicados e próprios para o problema.&lt;/li&gt;
+&lt;li&gt;1% dos problemas.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;E quanto ao tamanho do dado propriamente dito, para nós usuários de R a regra de bolso é simples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se seus dados cabem na memória, então é “small data”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;saber-pedir-ajuda-e-o-topico-mais-importante&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;6. Saber pedir ajuda é o tópico mais importante&lt;/h3&gt;
+&lt;p&gt;Por mais completo que seja um curso de R, nunca alguém chegará no ponto em que não restará dúvidas sobre como fazer alguma coisa no R, até porque há novidades a cada minuto no mundo do R. Por isso aprender a pedir ajuda é essencial. No curso foram passados os melhores jeitos de se obter ajuda:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Help / documentação do R (comandos &lt;code&gt;help(funcao)&lt;/code&gt; ou &lt;code&gt;?funcao&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Google&lt;/li&gt;
+&lt;li&gt;Stack Overflow&lt;/li&gt;
+&lt;li&gt;Coleginha&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Usem e abusem do fato de a comunidade R ser gigante e ativa.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rmarkdown-e-github-vao-bem-no-dia-a-dia-do-r-eiro&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;7. RMarkdown e Github vão bem no dia a dia do R-eiro&lt;/h3&gt;
+&lt;p&gt;A palavra de ordem aqui é &lt;strong&gt;Organização&lt;/strong&gt;. RMarkdown ajuda a organizar melhor as ideias e conteúdos e o Github ajuda a organizar melhor os códigos.&lt;/p&gt;
+&lt;p&gt;Referência para você aprender as ferramentas:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://rmarkdown.rstudio.com/&#34;&gt;&lt;strong&gt;RMarkdown&lt;/strong&gt;&lt;/a&gt;, de autoria do nosso queridíssimo RStudio Inc., transforma rascunho de códigos em documentos apresentáveis. Como já dito antes, todas as postagens deste blog são feitas em RMarkdown.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://github.com/&#34;&gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;/a&gt; oferece uma inteligência sobre o versionamento dos códigos de um projeto. Isso permite que diversos colaboradores não se percam nas milhares de contribuições. Não existirão mais os &lt;code&gt;arquivos_final_final_v5_com_novas_analises_definitivo3.docx&lt;/code&gt; e você ganhará no controle de quem, quando e o que foi alterado em cada uma das versões.&lt;/p&gt;
+&lt;p&gt;Hoje em dia ele é amplamente utilizado por empresas de tecnologia e está sendo cada vez mais comum em equipes de empresas mais tradicionais.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;aprenda-regex&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8. Aprenda Regex&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Reg&lt;/strong&gt;ular &lt;strong&gt;Ex&lt;/strong&gt;pressions servem para descrever padrões de textos. Por exemplo, para pedir para o R encontrar “todas as palavras que comecem com a letra A” em &lt;em&gt;regex&lt;/em&gt; escrevemos &lt;code&gt;str_detect(palavras, &amp;quot;^A&amp;quot;)&lt;/code&gt;. O pequeno pedaço de símbolos &lt;code&gt;&amp;quot;^A&amp;quot;&lt;/code&gt; é a maneira de traduzir em regex o padrão “palavras que começam em A”.&lt;/p&gt;
+&lt;p&gt;Para quem quiser se aprofundar no assunto, consulte a documentação do regex no R: &lt;code&gt;?regex&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Os pacotes &lt;code&gt;stringi&lt;/code&gt; e &lt;code&gt;stringr&lt;/code&gt; tiram proveito do &lt;em&gt;regex&lt;/em&gt; e valem a pena serem explorados! Data mining passará a ser mamão com açúcar.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;de-preferencia-aos-funcionais-em-vez-de-fors&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;9. Dê preferência aos funcionais em vez de for’s&lt;/h3&gt;
+&lt;p&gt;Na postagem &lt;a href=&#34;http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/&#34;&gt;Top 10 pacotes para Data Science&lt;/a&gt; foi destacado o pacote &lt;code&gt;purrr&lt;/code&gt; e seu impacto ao fim do “for” nos códigos de R.&lt;/p&gt;
+&lt;p&gt;“Usar funcionais” significa usar funções que aceitam funções como argumentos. Ambos os exemplos abaixo geram uma tabela para cada coluna do data.frame &lt;code&gt;iris&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;versão sem funcionais&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tabelas1 &amp;lt;- list()
+nomes_iris &amp;lt;- names(iris)
+for(i in 1:length(iris)){
+  tabelas1[[nomes_iris[i]]] &amp;lt;- table(iris[,i])
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;versão com funcionais&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tabelas2 &amp;lt;- purrr::map(iris, table)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Do exemplo acima notamos que:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;há um grande ganho de legibilidade do código usando o funcional &lt;code&gt;map()&lt;/code&gt; em vez de um &lt;code&gt;for&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;não foi preciso nenhum objeto auxiliar como &lt;code&gt;tabelas1 &amp;lt;- list()&lt;/code&gt; e &lt;code&gt;nomes_iris&lt;/code&gt; no segundo exemplo.&lt;/li&gt;
+&lt;li&gt;não há resquícios de índices como o &lt;code&gt;i&lt;/code&gt; para percorrer vetores.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Quanto mais aptidão em funcionais um usuário tiver, mais ágil e produtivo ele será. Então aprendam funcionais!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;coloque-seus-codigos-em-funcoes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;10. Coloque seus códigos em funções&lt;/h3&gt;
+&lt;p&gt;Colocar pedaços de códigos, longos ou curtos, beneficia o desenvolvimento, a leitura e a manutenção do código. No R, fazer função é simples e sem burocracia, então não há muito argumento para não fazer! Algumas dicas para identificar quando você precisa criar uma função:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Excesso de CTRL+C/CTRL+V da mesma coisa no código, “só mudando umas coisinhas”. Essas “coisinhas” que mudam seriam os argumentos da sua função.&lt;/li&gt;
+&lt;li&gt;Projetos distintos reutilizando partes de código de um projeto mais antigo.&lt;/li&gt;
+&lt;li&gt;Um bloco de código faz uma tarefa muito bem definida e que daria para colocar um nome para ela. Por exemplo, suponha que &lt;code&gt;x &amp;lt;- c(1:10)&lt;/code&gt;. Seria melhor de entender &lt;code&gt;x %&amp;gt;% eh_par&lt;/code&gt; do que &lt;code&gt;x %% 2 == 0&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse</title>
+      <link>http://curso-r.com/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify/</guid>
+      <description>&lt;p&gt;No dia em que fui ao Lollapalooza eu descobri o &lt;a href=&#34;https://github.com/tiagomendesdantas/Rspotify&#34;&gt;Rspotify&lt;/a&gt;, um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.&lt;/p&gt;
+&lt;p&gt;A brincadeira aqui vai envolver&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Web Scraping - para baixar e estruturar as tabelas de programação do Lolapalooza SP 2017&lt;/li&gt;
+&lt;li&gt;API do Spotify - por meio do pacote Rspotify&lt;/li&gt;
+&lt;li&gt;todos os pacotes do tidyverse&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lollapalooza deste ano em São Paulo contou com 47 bandas distribuídas em quatro palcos. A graça é associar a programação do Lolla com as informações de popularidade das bandas fornecidas pelo Spotify. Abaixo eu vou descrever como peguei os dados, listar as três hipóteses que criei e gerar alguns gráficos pra discutí-las.&lt;/p&gt;
+&lt;div id=&#34;base-de-dados&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Base de dados&lt;/h2&gt;
+&lt;div id=&#34;pre-requisitos&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pré-requisitos&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Pacotes&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# instala o Rspotify
+if(!require(&amp;quot;Rspotify&amp;quot;))
+  devtools::install_github(&amp;quot;tiagomendesdantas/Rspotify&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(Rspotify)
+library(magrittr)
+library(forcats)
+library(stringi)
+library(lubridate)
+library(httr)
+library(rvest)
+library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O &lt;code&gt;Rspotify&lt;/code&gt; é um pacote novo e que ainda não está no CRAN, mas já está funcional.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conta no Spotify&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para utilizar a API do Spotify é necessário ter um cadastro no site deles, como se pode imaginar.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;App no Spotify&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para você receber um código de acesso para usar a API deles é preciso criar um &lt;em&gt;App&lt;/em&gt; dentro da sua conta do Spotify, esse é o pré-requisito mais burocrático de todos. Eu aprendi a fazer isso seguindo os passos do README do próprio pacote &lt;code&gt;Rspotify&lt;/code&gt; no Github &lt;a href=&#34;https://github.com/tiagomendesdantas/Rspotify&#34;&gt;(veja aqui)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;No fim, você terá um &lt;code&gt;app_id&lt;/code&gt;, um &lt;code&gt;client_id&lt;/code&gt; e um &lt;code&gt;client_secret&lt;/code&gt; em mãos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extraindo-programacao-do-lollapalooza-sp-2017&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Extraindo programação do Lollapalooza SP 2017&lt;/h3&gt;
+&lt;p&gt;O objetivo aqui é termos uma versão em &lt;code&gt;data.frame&lt;/code&gt; das tabelas contidas no site &lt;a href=&#34;https://www.lollapaloozabr.com/lineup-horarios/&#34;&gt;lollapaloozabr.com/lineup-horarios/&lt;/a&gt;. Lá tem a agenda completa dos dois dias do evento.&lt;/p&gt;
+&lt;p&gt;Vamos ao código! Dica: a melhor maneira de aprender o que cada passo do código faz é ir rodando linha a linha e observando o resultado.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# programacao do site do lollapalooza 2017 ----------------------
+
+lolla2017_programacao &amp;lt;- &amp;quot;https://www.lollapaloozabr.com/lineup-horarios/&amp;quot; %&amp;gt;%
+  GET() %&amp;gt;% 
+  read_html() %&amp;gt;%
+  html_table() %&amp;gt;%
+  set_names(c(&amp;quot;sabado&amp;quot;, &amp;quot;domingo&amp;quot;)) %&amp;gt;%
+  at_depth(2, ~ .x %&amp;gt;% 
+             stri_replace_all_regex(&amp;quot; {2,}&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;% 
+             stri_replace_all_regex(&amp;quot;[\\n]{1}&amp;quot;, &amp;quot;,&amp;quot;) %&amp;gt;% 
+             stri_replace_all_regex(&amp;quot;[,]{2,}&amp;quot;, &amp;quot;\\\n&amp;quot;) %&amp;gt;% 
+             read.csv(text = ., header = FALSE, 
+                      col.names = c(&amp;quot;artist&amp;quot;, &amp;quot;hora&amp;quot;))) %&amp;gt;%
+  map(~ .x[-1] %&amp;gt;% 
+        data_frame(palco = names(.), programacao_palco = .) %&amp;gt;% 
+        unnest(programacao_palco)) %&amp;gt;%
+  data_frame(dia = names(.), programacao = .) %&amp;gt;%
+  unnest(programacao) %&amp;gt;%
+  separate(hora, c(&amp;quot;hora_ini&amp;quot;, &amp;quot;hora_fim&amp;quot;), sep = &amp;quot;-&amp;quot;) %&amp;gt;%
+  mutate(artist = artist %&amp;gt;% tolower,
+         hora_ini = paste(if_else(dia %in% &amp;quot;sabado&amp;quot;, &amp;quot;2017-03-25&amp;quot;, &amp;quot;2017-03-26&amp;quot;), hora_ini) %&amp;gt;% ymd_hm(),
+         hora_ini = if_else(hour(hora_ini) &amp;lt; 12, hora_ini + hours(12), hora_ini),
+         hora_fim = paste(if_else(dia %in% &amp;quot;sabado&amp;quot;, &amp;quot;2017-03-25&amp;quot;, &amp;quot;2017-03-26&amp;quot;), hora_fim) %&amp;gt;% ymd_hm(),
+         hora_fim = if_else(hour(hora_fim) &amp;lt; 12, hora_fim + hours(12), hora_fim),
+         dia = fct_relevel(dia, c(&amp;quot;sabado&amp;quot;, &amp;quot;domingo&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Resultado&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;dia&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;palco&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;artist&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;hora_ini&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;hora_fim&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;cage the elephant&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 16:25:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 17:25:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;metallica&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 21:00:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 23:00:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;doctor pheabes&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 12:05:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 13:05:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;rancid&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 18:35:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 19:35:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;suricato&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 14:15:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 15:15:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Onix&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;the 1975&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 17:30:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 18:30:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Onix&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;the outs&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 13:10:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 14:10:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Onix&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;the xx&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 19:40:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 20:55:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;É interessante reparar que para gerar essa simples tabelinha utilizamos os pacotes &lt;code&gt;httr&lt;/code&gt;, &lt;code&gt;rvest&lt;/code&gt;, &lt;code&gt;purrr&lt;/code&gt;, &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;tidyr&lt;/code&gt;, &lt;code&gt;lubridate&lt;/code&gt;, &lt;code&gt;stringi&lt;/code&gt; e &lt;code&gt;forcats&lt;/code&gt;. Só faltou o &lt;code&gt;ggplot2&lt;/code&gt; para zerar o tidyverse.&lt;/p&gt;
+&lt;p&gt;OBS: 89 fm não é uma banda, era só um espaço reservado para fins de publicidade da rádio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extraindo-a-popularidade-das-bandas-do-lollapalooza-no-spotify&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Extraindo a popularidade das bandas do Lollapalooza no Spotify&lt;/h3&gt;
+&lt;p&gt;Agora vamos usar o pacote &lt;code&gt;Rspotify&lt;/code&gt; para extrair as popularidades das bandas que estão listadas no data.frame &lt;code&gt;lolla2017_programacao&lt;/code&gt;. Para tanto, usei uma playlist oficial no Spotify feita pela própria equipe do Lollapalooza. Essa playlist é identificada pelo id &lt;code&gt;1mHoPn6JpbtWtoBuvSXrVm&lt;/code&gt; lá no banco de dados do Spotify.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;meu_token &amp;lt;- spotifyOAuth(app_id, client_id, client_secret) # coloque aqui suas infos fornecidas pelo Spotify.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lolla2017_playlist &amp;lt;- getPlaylistSongs(&amp;quot;lollabr&amp;quot;, &amp;quot;1mHoPn6JpbtWtoBuvSXrVm&amp;quot;, token = meu_token) %&amp;gt;%
+  mutate(artistInfo = map(artistId, getArtistinfo),
+         artist = artist %&amp;gt;% tolower) %&amp;gt;%
+  rename(track_popularity = popularity,
+         track_id = id) %&amp;gt;%
+  unnest(artistInfo) %&amp;gt;%
+  select(artist, id, name, popularity, followers)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Algumas bandas ficaram de fora da playlist e por isso fiz uma pesquisa por nome do artista na própria API do Spotify para recuperar o respectivo id. A função que faz isso é a &lt;code&gt;searchArtist()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# recuperando infos dos artistas esquecidos pela playlist ----------------------
+
+possibly_searchArtist &amp;lt;- possibly(searchArtist, NA_character_)
+
+artistas_fora_da_playlist &amp;lt;- lolla2017_programacao %&amp;gt;% 
+  filter(!artist %in% lolla2017_playlist$artist) %$% 
+  artist %&amp;gt;% 
+  data_frame(artist = .) %&amp;gt;%
+  mutate(search_artist = map(artist, ~ .x %&amp;gt;% possibly_searchArtist),
+         artist_info = map2(search_artist, artist, ~ {
+           if(.x %&amp;gt;% is.na) {data.frame(search_artist = NA)} else {
+           .x %&amp;gt;%
+             mutate(name = name %&amp;gt;% tolower) %&amp;gt;%
+             filter(name %in% .y) %&amp;gt;%
+             head(1)
+         }})) %&amp;gt;%
+  select(-search_artist) %&amp;gt;%
+  unnest(artist_info) %&amp;gt;%
+  select(artist, id, name, popularity, followers) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Resultado&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;artist&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;id&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;name&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;popularity&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;followers&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;ricci&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1EUMh6DZo2CfpolG75YQBL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ricci&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;49&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6116&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;jimmy eat world&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;3Ayl7mCk0nScecqOzvNp6s&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;jimmy eat world&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;66&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;361785&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;89 fm&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;NA&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;NA&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;martin garrix&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;60d24wfXkVzDSfLS6hyCjZ&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;martin garrix&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;85&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2244761&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;illusionize&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;3RloA7E4XMItSP4FjMBv3L&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;illusionize&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;46&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;30054&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;juntando-tudo&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Juntando tudo&lt;/h3&gt;
+&lt;p&gt;Agora vamos juntar a programação do Lolla com as infos do Spotify. A chave é &lt;code&gt;artist&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lolla2017 &amp;lt;- left_join(lolla2017_programacao,
+                       lolla2017_playlist %&amp;gt;% bind_rows(artistas_fora_da_playlist),
+                       by = &amp;quot;artist&amp;quot;) %&amp;gt;%
+  select(-id, -name) %&amp;gt;%
+  dplyr::filter(followers %&amp;gt;% is.na %&amp;gt;% not) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Base final&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;dia&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;palco&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;artist&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;hora_ini&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;hora_fim&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;popularity&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;followers&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;cage the elephant&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 16:25:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 17:25:00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;72&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;745453&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;metallica&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 21:00:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 23:00:00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;80&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3047126&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;doctor pheabes&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 12:05:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 13:05:00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;313&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;rancid&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 18:35:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 19:35:00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;60&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;220182&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Skol&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;suricato&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 14:15:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 15:15:00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;41&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;52326&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Onix&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;the 1975&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 17:30:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 18:30:00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;77&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1600845&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Onix&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;the outs&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 13:10:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 14:10:00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;28&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3788&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sabado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Palco Onix&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;the xx&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 19:40:00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2017-03-25 20:55:00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;76&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2383923&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resultados&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Resultados&lt;/h2&gt;
+&lt;div id=&#34;hipotese-i&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Hipótese I&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hipótese I:&lt;/strong&gt; a organização usou a estratégia de distribuir a popularidade das bandas uniformemente no dia.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Um dos vários desafios logísticos que o evento tem é a alocação das bandas na grade horária nos quatro diferentes palcos.&lt;/p&gt;
+&lt;p&gt;Eu fui no evento no sábado e ouvi falar que a banda &lt;em&gt;Cage The Elephant&lt;/em&gt; tinha sido uma das primeiras bandas a se apresentar. Sabia da popularidade da banda (segundo o Spotify, está mais popular do que &lt;em&gt;The Strokes&lt;/em&gt;) e na hora estranhei a decisão do evento de colocá-los para tocar tão cedo.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lolla2017_grafico &amp;lt;- lolla2017 %&amp;gt;%
+  mutate(hora = map2(hora_ini, hora_fim, ~ seq(.x, .y, 30*60) %&amp;gt;% floor_date(&amp;quot;30 minutes&amp;quot;))) %&amp;gt;%
+  unnest(hora) %&amp;gt;%
+  group_by(dia, hora, palco) %&amp;gt;%
+  summarise(artist = first(artist),
+            n = n(),
+            mean_popularity = mean(popularity))
+
+lolla2017_grafico %&amp;gt;%
+  ggplot(aes(x = ymd_hm(format(hora, &amp;quot;2017-03-26 %H%M&amp;quot;)), y = mean_popularity, colour = palco)) +
+  geom_line() +
+  geom_point() +
+  geom_point(data = lolla2017_grafico %&amp;gt;% filter(artist %in% &amp;quot;cage the elephant&amp;quot;), colour = &amp;quot;red&amp;quot;, size = 2) +
+  geom_text(data = lolla2017_grafico %&amp;gt;% filter(artist %in% &amp;quot;cage the elephant&amp;quot;) %&amp;gt;% head(1), aes(label = artist), colour = &amp;quot;red&amp;quot;, hjust = 0, vjust = -1) +
+  facet_wrap(~dia) +
+  labs(x = &amp;quot;Hora do dia&amp;quot;, y = &amp;quot;Popularidade média&amp;quot;) +
+  theme(text = element_text(size = 16))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;O gráfico acima vai de acordo com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o &lt;em&gt;Cage The Elefant&lt;/em&gt; estava mal posicionado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hipotese-ii&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Hipótese II&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hipótese II:&lt;/strong&gt; em termos de popularidade das bandas, o dia de domingo estava melhor do que o dia de sábado.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em conversas com amigos e conhecidos reparei que a maioria ou iria no domingo ou preferiria ir no domingo caso tivesse oportunidade. Isso me fez levantar a dúvida se realmente havia maior concentração de bandas boas no domingo.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(lolla2017 %&amp;gt;%
+         mutate(artist = artist %&amp;gt;% fct_reorder(popularity, .desc = TRUE))) +
+  geom_bar(aes(x = artist, y = popularity, fill = dia), stat = &amp;quot;identity&amp;quot;, position = &amp;quot;dodge&amp;quot;) +
+  theme(text = element_text(size = 16),
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(lolla2017) +
+ geom_density(aes(fill = dia, x = popularity, colour = dia), fill = NA) +
+  theme(text = element_text(size = 16),
+        axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Conclusão: nada indica que houve desbalanceamento. Acho que meu círculo de amigos tem algum viés estranho.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hipotese-iii&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Hipótese III&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hipótese III:&lt;/strong&gt; a popularidade das bandas nos diferentes palcos estava equilibrada.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Quando me questionei da hipótese I também pensei na dificuldade de posicionar as bandas nos diferentes palcos. Já que teriam milhares de pessoas disputando espaço, seria do interesse da organização deixá-los o mais espalhado possível por vários motivos: melhor fluxo das filas, maior conforto, menos risco de acidentes, entre outros, e um bom jeito de fazer isso seria deixando os palcos igualmente atrativos para não haver uma grande aglomeração em um único ponto.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(lolla2017 %&amp;gt;%
+         mutate(palco = palco %&amp;gt;% as.factor %&amp;gt;% fct_reorder(popularity, mean))) +
+  geom_boxplot(aes(fill = palco, y = popularity, x = 1)) +
+  theme(text = element_text(size = 16),
+        axis.text.x = element_blank()) +
+  labs(x = &amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;O palco Skol teve menor variação de popularidade, costumou contar sempre com artistas de média a alta popularidade, mas os palcos AXE e Onix foram visitados por artista de peso. O palco Perry’s foi o mais visitado por artistas de menor expressão.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;consideracoes-finais&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O tema tratado aqui não foi útil, concordo, mas passamos por quase todas as etapas existentes em um processo típico de análise de dados. Fizemos web scraping, usamos APIs, arrumamos os dados, estruturamos as informações, criamos variáveis e geramos gráficos. Só ficou de fora a parte de modelagem. E não à toa todos os pacotes do tidyverse foram úteis nesse trabalho.&lt;/p&gt;
+&lt;p&gt;A lição pra casa é encontrar uns dados interessantes na internet e aplicar as etapas que aprendemos aqui!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Top 10 pacotes para data science</title>
+      <link>http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/</link>
+      <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;O R mudou muito nos últimos 5 anos graças a criações de novos pacotes focados nas questões mais práticas do dia a dia de um cientista de dados. Abaixo coloquei meu top 10 de pacotes que revolucionaram o jeito de programar em R e fizeram meu trabalho mais ágil e prazeroso:&lt;/p&gt;
+&lt;div id=&#34;purrr-manipulacao-de-vetores-e-listas&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://jennybc.github.io/purrr-tutorial&#34;&gt;10. purrr&lt;/a&gt; (manipulação de vetores e listas)&lt;/h3&gt;
+&lt;p&gt;Nosso décimo lugar colocou o &lt;code&gt;for&lt;/code&gt; em perigo de extinção. Com ele, aplicar funções em vetores, listas ou combinações dos dois é uma tarefa de poucas linhas e sem a necessidade de índices i, j, k’s confusos. E ainda, com o advento das &lt;a href=&#34;https://cran.r-project.org/web/packages/tibble/tibble.pdf&#34;&gt;tibbles&lt;/a&gt;, seus data.frames ganharam potencial de guardar muito mais do que meros números e strings e o purrr é seu mais forte aliado na hora de criar as chamadas &lt;a href=&#34;https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html&#34;&gt;&lt;em&gt;list-columns&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;caret-modelagem-estatistica&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;http://caret.r-forge.r-project.org/&#34;&gt;9. caret&lt;/a&gt; (modelagem estatística)&lt;/h3&gt;
+&lt;p&gt;Se você procura modelagem estatística (ferramenta básica do cientista de dados), dê chance ao &lt;a href=&#34;http://caret.r-forge.r-project.org/&#34;&gt;caret&lt;/a&gt;. Esse pacote compilou os mais consagrados algoritmos de modelos preditivos (vulgo &lt;em&gt;machine learning&lt;/em&gt;) já feitos no R e ainda implementou ferramentas típicas de um processo de construção de modelos, por exemplo, cross-validation, ajuste de hiperparâmetros, bases treino/teste, pré-processamentos e até paralelização. Além das diferentes técnicas de ajuste de modelos, os seus respectivos diagnósticos e visualizações também foram convenientemente compiladas, tudo num mesmo lugar, fazendo a procura de peças no gigantesco balde do R ser menos custosa.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;knitrrmarkdown-relatorios&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://yihui.name/knitr/&#34;&gt;8. knitr/rmarkdown&lt;/a&gt; (relatórios)&lt;/h3&gt;
+&lt;p&gt;A dupla &lt;a href=&#34;https://yihui.name/knitr/&#34;&gt;knitr&lt;/a&gt; e &lt;a href=&#34;http://rmarkdown.rstudio.com/&#34;&gt;rmarkdown&lt;/a&gt; fizeram do R de patinho feio para o rei dos holofotes. Depois deles, relatórios no R são fáceis, bonitos e flexíveis. Escrever em RMarkdown é como escrever um rascunho, que depois é transformado em um arquivo decente em qualquer formato: pdf, word e html são os mais comuns. A ideologia por trás do RMarkdown é trazer o foco para a análise e deixar as perfumarias para segundo plano o máximo possível.&lt;/p&gt;
+&lt;p&gt;OBS: todos os posts desse blog são feitos em RMarkdown!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;stringr-manipulacao-de-strings&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html&#34;&gt;7. stringr&lt;/a&gt; (manipulação de strings)&lt;/h3&gt;
+&lt;p&gt;Stringr te dá tudo para extrair, criar e transformar strings. As funções aceitam &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html&#34;&gt;regex&lt;/a&gt; extremamente versáril e eficiente. Mineração de texto vira brincadeira.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lubridate-manipulacao-de-datas&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html&#34;&gt;6. lubridate&lt;/a&gt; (manipulação de datas)&lt;/h3&gt;
+&lt;p&gt;Se tem uma coisa que dá para dar dor de cabeça infinita são datas. Por isso inventaram o &lt;a href=&#34;https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html&#34;&gt;lubridate&lt;/a&gt;. Tudo o que você gostaria de fazer com datas e horas esse pacote fornece, desde soma e subtração até comparações lógicas e arredondamentos. É a ferramenta ideal para lidar com tempo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;shiny-criacao-de-aplicativos-web&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;5. shiny&lt;/a&gt; (criação de aplicativos web)&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;Shiny&lt;/a&gt; dá o poder de fazer aplicações na web a um analista de dados sem nenhum conhecimento prévio de html, css e javascript. Acredite se quiser, agora, fazer sites interativos e orientados por dados não é mais exclusividade dos desenvolvedores web. Com uma curva de aprendizagem ligeiramente alongada, pode-se criar de dashboards estáticos a mapas personalizados a lá google maps! É uma ótima maneira de apresentar resultados e serve muito bem como produto final de ferramentas de gestão.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tidyr-transformacao-de-data.frames&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://blog.rstudio.org/2014/07/22/introducing-tidyr/&#34;&gt;4. tidyr&lt;/a&gt; (transformação de data.frames)&lt;/h3&gt;
+&lt;p&gt;As principais funções são &lt;code&gt;gather()&lt;/code&gt; e &lt;code&gt;spread()&lt;/code&gt;. Elas pivotam/despivotam data.frames, ou derretem/condensam data.frames. Ela merece nosso quarto lugar porque possui uma grande sinergia com os terceiro e segundo lugares. Não raramente precisamos rearranjar conjunto de colunas em um par de colunas chave/valor ou vice-versa. Pivotar/despivotar é particularmente muito chato de fazer em SQL e o &lt;a href=&#34;https://blog.rstudio.org/2014/07/22/introducing-tidyr/&#34;&gt;tidyr&lt;/a&gt; faz isso parecer trivial. Ele também possui outras funções úteis que recomendo dar uma olhada (ex: &lt;code&gt;unite()&lt;/code&gt;, &lt;code&gt;separete()&lt;/code&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dplyr-manipulacao-de-data.frames&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html&#34;&gt;3. dplyr&lt;/a&gt; (manipulação de data.frames)&lt;/h3&gt;
+&lt;p&gt;Nossa medalha de bronze vai para &lt;a href=&#34;https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html&#34;&gt;dplyr&lt;/a&gt; porque ele trouxe os verbos de manipulação de base de dados para o nível mais simples e intuitivo. São eles:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;filter()&lt;/code&gt; filtra linhas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange()&lt;/code&gt; ordena linhas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select()&lt;/code&gt; seleciona colunas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;distinct()&lt;/code&gt; retira linhas duplicadas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate()&lt;/code&gt; constrói novas colunas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;group_by()&lt;/code&gt; + &lt;code&gt;summarise()&lt;/code&gt; sumariza valores por um ou mais fatores&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;E o pacote vai muito além desses verbos. Vale a pena explorar suas funções se você precisa deixar sua base pronta para analisar.&lt;/p&gt;
+&lt;p&gt;OBS: foi feito para funcionar com o &lt;em&gt;“pipe”&lt;/em&gt; (%&amp;gt;%).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ggplot2-visualizacao&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;2. ggplot2&lt;/a&gt; (visualização)&lt;/h3&gt;
+&lt;p&gt;A medalha de prata eu acho que é o pacote mais famoso do R.&lt;/p&gt;
+&lt;p&gt;O R é conhecido pela sua rica capacidade gráfica, mas foi o &lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;ggplot2&lt;/a&gt; que trouxe a alegria de viver para os usuários minimamente preocupados com a boa aparência de suas visualizações. O &lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;ggplot2&lt;/a&gt; permite usar a “gramática de gráficos” (&lt;a href=&#34;http://vita.had.co.nz/papers/layered-grammar.pdf&#34;&gt;&lt;em&gt;grammar of graphics&lt;/em&gt;&lt;/a&gt;) para construir gráficos em camadas e customizáveis. Há uma pequena curva de aprendizado, mas o tempo investido se paga no primeiro gráfico gerado. Gráficos que seriam veradeiras obras da engenharia se feitas no R-base não passariam de 5 linhas de &lt;a href=&#34;http://docs.ggplot2.org/current/&#34;&gt;ggplot2&lt;/a&gt; e ainda ficariam mais bonitos!&lt;/p&gt;
+&lt;p&gt;Indispensável na caixa de ferramentas de qualquer cientista de dados.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;magrittr-pipe&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;a href=&#34;https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html&#34;&gt;1. magrittr&lt;/a&gt; (pipe!)&lt;/h3&gt;
+&lt;p&gt;A medalha de ouro nos fornece o tal do &lt;em&gt;pipe&lt;/em&gt; (%&amp;gt;%). Em vez de &lt;code&gt;h(g(f(x)))&lt;/code&gt;, escreva &lt;code&gt;x %&amp;gt;% f %&amp;gt;% g %&amp;gt;% h&lt;/code&gt;. Pronto! É tudo o que o &lt;em&gt;pipe&lt;/em&gt; faz. Você pode se perguntar por que raios isso merece o nosso primeiro lugar, mas acredite: o &lt;em&gt;pipe&lt;/em&gt; é revolucionário. Ele mudou o jeito de se programar em R. Com ele o ganho em legibilidade dos códigos e agilidade na programação é inimaginável. E ainda abriu portas para desenvolvimento de pacotes que sem ele não seriam viáveis, incluindo o dplyr e tidyr.&lt;/p&gt;
+&lt;p&gt;E por isso que ele merece estar no primeiro lugar na nossa lista e no logo da nossa página.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mencoes-honrosas&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Menções honrosas&lt;/h3&gt;
+&lt;p&gt;Outros pacotes também merecem destaque! As medálhas de honra ao mérito vão para:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;forcats&lt;/strong&gt; (utilidades para fatores)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rcpp&lt;/strong&gt; (R para C++)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FactoMiner&lt;/strong&gt; (análise multivariada)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RODBC&lt;/strong&gt; (conexão com banco de dados)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;httr/xml2/rvest&lt;/strong&gt; (ferramentas para web)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;flexdashboard&lt;/strong&gt; (rmarkdown para formato de dashboard)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;janitor&lt;/strong&gt; (limpeza de dados para modelagem)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;plyr&lt;/strong&gt; (manipulação de vetores, listas e data.frames)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;roxygen2&lt;/strong&gt; (criação de pacotes de R)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;devtools&lt;/strong&gt; (ferramentas diversas)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;htmlwidgets&lt;/strong&gt; (integração entre R e bibliotecas JavaScript)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;leaflet&lt;/strong&gt; (mapas interativos)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;E você, concorda? Coloque nos comentários os pacotes que moram em seu coração! =)&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>O blog do Curso R</title>
+      <link>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</link>
+      <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;p&gt;Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.&lt;/p&gt;
+&lt;p&gt;O Curso-R surgiu em 2015 no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP). o curso foi chamado de “Programação em R: do casual ao avançado”. Desde o começo, nós abraçamos a filosofia &lt;em&gt;Open Source&lt;/em&gt; - todo material que desenvolvemos fica disponível em nossa conta do &lt;a href=&#34;https://github.com/curso-r/&#34;&gt;Github&lt;/a&gt; de forma aberta para quem quiser usar. Em 2016 e 2017, ministramos novamente o curso no programa de verão e, depois de mais de 100 alunos formados, decidimos aumentar a gama de cursos e a frequência de ocorrência para que possamos atingir muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.&lt;/p&gt;
+&lt;p&gt;Esperamos que aprendam bastante e, principalmente, divirtam-se bastante lendo este blog!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

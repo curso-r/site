@@ -1,0 +1,38 @@
+"0","library(dplyr)          # Manipulação de dados"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(tidyr)          # Manipulação de dados"
+"0","library(tibble)         # Criação de dataframes"
+"0","library(lubridate)      # Manipulação de datas"
+"2","
+Attaching package: ‘lubridate’
+
+"
+"2","The following object is masked from ‘package:base’:
+
+    date
+
+"
+"0","library(purrr)          # Funcionais"
+"2","
+Attaching package: ‘purrr’
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    contains, order_by
+
+"
+"0","library(ggplot2)        # Gráficos"

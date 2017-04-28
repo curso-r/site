@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(tuber) \nlibrary(rvest)\nlibrary(dplyr)\n\nyt_oauth(\"1065062178036-p13k4dgco2vv6m53f80pm7jht5ufici5.apps.googleusercontent.com\",\n         \"3JaxpUJLZkMmwMmxmkjmTD7r\")\n\ncapts <- get_captions(video_id=\"gFT6WO44kZs\", lang = 'pt')\n\nstart <- capts %>% \n  xml2::xml_children() %>% \n  xml2::xml_attr(\"start\")\n\ndur <- capts %>% \nxml2::xml_children() %>% \nxml2::xml_attr(\"dur\")\n\ntextos <- capts %>%\n  xml2::xml_children() %>% \n  xml2::xml_text()\n\nlegendas <- data.frame(start, dur, textos, stringsAsFactors = F) %>% \n  mutate(start = as.numeric(start),\n         dur = as.numeric(dur))\n\ncomentarios <- get_comment_threads(filter=c(video_id=\"gFT6WO44kZs\"),\n                                  max_results = 100)\n\ncomentarios <- comentarios %>%\n  rename(autor = authorDisplayName,\n         texto = textDisplay,\n         likes = likeCount,\n         publicacao = publishedAt,\n         ult_update = updatedAt) %>% \n  select(autor, texto, likes, publicacao, ult_update)\n\nwrite.csv(legendas[1:19,], file = \"inputs/legendas_pt_1.csv\")\nwrite.csv2(legendas[20:38,], file = \"inputs/legendas_pt_2.csv\")\n\nopenxlsx::write.xlsx(comentarios[1:50,], \"inputs/comentarios_pt_1.xlsx\")\nopenxlsx::write.xlsx(comentarios[51:100,], \"inputs/comentarios_pt_2.xlsx\")\n\n",
+    "created" : 1493091061846.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1323313777",
+    "id" : "A6D541AF",
+    "lastKnownWriteTime" : 1485894940,
+    "last_content_update" : 1485894940,
+    "path" : "~/Área de Trabalho/Área de Trabalho/Projects/tuber_analysis/fernando_files/download_code.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

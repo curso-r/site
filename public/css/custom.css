@@ -1,0 +1,15 @@
+/* your styles go here */
+
+.box-image-text .image {
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.box-simple {
+  min-height: 230px;
+}
+
+span.has-jax {font-size: 90%;
+              background: inherit;
+              border: inherit;
+              color: #333;}

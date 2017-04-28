@@ -1,0 +1,5 @@
+"0","dados <- bind_rows(videos$videos_info) %>% "
+"0","  select(title, publishedAt, video_id) %>%"
+"0","  by_row(..f = get_videos_stats, .to = ""videos_stats"")"
+"2","Erro: não foi possível encontrar a função ""%>%""
+"
