@@ -15,12 +15,7 @@
       <pubDate>Mon, 17 Apr 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/04/17/2017-04-08-glue/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;Uma tarefa muito comum no &lt;code&gt;R&lt;/code&gt; é colar textos. As funções mais importantes para isso são &lt;code&gt;paste()&lt;/code&gt; e &lt;code&gt;sprintf()&lt;/code&gt;, que vêm com o pacote &lt;code&gt;base&lt;/code&gt;. Nesse artigo, vamos falar dessas duas funções e de um novo pacote do &lt;code&gt;tidyverse&lt;/code&gt;, o &lt;code&gt;glue&lt;/code&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;Uma tarefa muito comum no &lt;code&gt;R&lt;/code&gt; é colar textos. As funções mais importantes para isso são &lt;code&gt;paste()&lt;/code&gt; e &lt;code&gt;sprintf()&lt;/code&gt;, que vêm com o pacote &lt;code&gt;base&lt;/code&gt;. Nesse artigo, vamos falar dessas duas funções e de um novo pacote do &lt;code&gt;tidyverse&lt;/code&gt;, o &lt;code&gt;glue&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;paste&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;code&gt;paste()&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;A função &lt;code&gt;paste()&lt;/code&gt; recebe um conjunto indeterminado de objetos como argumento através do &lt;code&gt;...&lt;/code&gt; e vai colando os objetos passados elemento a elemento. Isso significa que se você passar dois vetores de tamanho &lt;code&gt;n&lt;/code&gt;, a função &lt;code&gt;paste()&lt;/code&gt; retornará um vetor de tamanho &lt;code&gt;n&lt;/code&gt; sendo cada posição a colagem dos dois vetores nessa posição. Por padrão, a colagem é feita com um separador de espaço simples (&lt;code&gt;&amp;quot; &amp;quot;&lt;/code&gt;). Exemplo:&lt;/p&gt;
@@ -57,7 +52,7 @@
 ## [1] &amp;quot;Abacaxi&amp;quot; &amp;quot;Abacate&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Isso não funciona:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sprintf(&amp;#39;Aba%s%s&amp;#39;, c(&amp;#39;ca&amp;#39;, &amp;#39;ixaste&amp;#39;), c(&amp;#39;xi&amp;#39;, &amp;#39;te&amp;#39;, &amp;#39;.&amp;#39;))
-## Error in sprintf(&amp;quot;Aba%s%s&amp;quot;, c(&amp;quot;ca&amp;quot;, &amp;quot;ixaste&amp;quot;), c(&amp;quot;xi&amp;quot;, &amp;quot;te&amp;quot;, &amp;quot;.&amp;quot;)): argumentos não podem ser reciclados para o mesmo tamanho&lt;/code&gt;&lt;/pre&gt;
+## Error in sprintf(&amp;quot;Aba%s%s&amp;quot;, c(&amp;quot;ca&amp;quot;, &amp;quot;ixaste&amp;quot;), c(&amp;quot;xi&amp;quot;, &amp;quot;te&amp;quot;, &amp;quot;.&amp;quot;)): arguments cannot be recycled to the same length&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Nem sempre queremos substituir pedaços do nosso texto por outros textos. No lugar do &lt;code&gt;%s&lt;/code&gt;, é possível colocar padrões para números, por exemplo. Eu uso bastante o &lt;code&gt;%d&lt;/code&gt;, que recebe inteiros. Uma funcionalidade legal do &lt;code&gt;%d&lt;/code&gt; é a possibilidade de adicionar zeros à esquerda quando um número não atinge certa quantidade de dígitos. Assim, quando ordenamos um vetor de textos que começa com números, a ordenação é a mesma da versão numérica do vetor.&lt;/p&gt;
 &lt;p&gt;Exemplo:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nums &amp;lt;- 1:11
@@ -527,12 +522,7 @@ lolla2017_grafico %&amp;gt;%
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;O &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html&#34;&gt;manifesto das ferramentas tidy&lt;/a&gt; do Hadley Wickham é um dos documentos mais importantes sobre R dos últimos tempos. Esse documento formaliza uma série de princípios que norteiam o desenvolvimento do &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;O &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html&#34;&gt;manifesto das ferramentas tidy&lt;/a&gt; do Hadley Wickham é um dos documentos mais importantes sobre R dos últimos tempos. Esse documento formaliza uma série de princípios que norteiam o desenvolvimento do &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;O &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;, também chamado por muitos de &lt;em&gt;hadleyverse&lt;/em&gt;, é um conjunto de pacotes que, por compartilharem esses princípios do manifesto tidy, podem ser utilizados naturalmente em conjunto. Pode-se dizer que existe o R antes do &lt;code&gt;tidyverse&lt;/code&gt; e o R depois do &lt;code&gt;tidyverse&lt;/code&gt;. A linguagem mudou muito, a comunidade abraçou fortemente o uso desses princípios e tem muita gente criando pacotes para conversar uns com os outros dessa forma. No entanto, usar a filosofia &lt;em&gt;tidy&lt;/em&gt; não é a única forma de fazer pacotes do R, existem muitos pacotes excelentes que não utilizam essa filosofia. Como o próprio texto diz “O contrário de &lt;em&gt;tidyverse&lt;/em&gt; não é o &lt;strong&gt;messy&lt;/strong&gt;verse, e sim muitos outros universos de pacotes interconectados.”.&lt;/p&gt;
 &lt;p&gt;Os princípios fundamentais do &lt;code&gt;tidyverse&lt;/code&gt; são:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;

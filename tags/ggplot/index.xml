@@ -15,12 +15,7 @@
       <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>http://curso-r.com/blog/2017/03/31/2017-03-31-ssl/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;No mundo do web scraping, muitas vezes precisamos acessar sites &lt;code&gt;HTTPS&lt;/code&gt;, a versão &lt;code&gt;S&lt;/code&gt;egura do &lt;code&gt;HTTP&lt;/code&gt; (Hyper Text Transfer Protocol). Esse protocolo é utilizado para encriptar as mensagens trocadas por usuário e servidor.&lt;/p&gt;
+      <description>&lt;p&gt;No mundo do web scraping, muitas vezes precisamos acessar sites &lt;code&gt;HTTPS&lt;/code&gt;, a versão &lt;code&gt;S&lt;/code&gt;egura do &lt;code&gt;HTTP&lt;/code&gt; (Hyper Text Transfer Protocol). Esse protocolo é utilizado para encriptar as mensagens trocadas por usuário e servidor.&lt;/p&gt;
 &lt;p&gt;O pacote &lt;code&gt;httr&lt;/code&gt; utiliza um padrão &lt;code&gt;SSL&lt;/code&gt; (Secure Sockets Layer) para lidar com &lt;code&gt;HTTPS&lt;/code&gt;. O SSL nada mais é que uma forma de informar ao servidor que você é você, garantindo que suas mensagens só possam ser interpretadas por esse servidor, e vice-versa. O padrão do &lt;code&gt;httr&lt;/code&gt; funciona bem para a maioria dos sites, permitindo o acesso sem sofrimento.&lt;/p&gt;
 &lt;p&gt;No entanto, alguns sites dão o seguinte erro:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;)
@@ -29,7 +24,7 @@
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-04-28 03:16
+##   Date: 2017-04-28 13:32
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.3 kB
@@ -60,12 +55,7 @@ sudo apt-get install libcurl4-openssl-dev&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sun, 19 Mar 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;Programadores eficientes não precisam escrever algoritmos que rodam rápido. Recomendo fortemente a leitura do livro &lt;a href=&#34;https://csgillespie.github.io/efficientR/&#34;&gt;Efficient R&lt;/a&gt;, que discute eficiência com o R de forma exaustiva. Também gosto muito da primeira parte &lt;a href=&#34;https://www.youtube.com/watch?v=wki0BqlztCo&#34;&gt;dessa palestra do Hadley&lt;/a&gt;, onde ele defende que o cientista de dados deve usar seu tempo pensando no problema e não na forma que vai escrever seu código.&lt;/p&gt;
+      <description>&lt;p&gt;Programadores eficientes não precisam escrever algoritmos que rodam rápido. Recomendo fortemente a leitura do livro &lt;a href=&#34;https://csgillespie.github.io/efficientR/&#34;&gt;Efficient R&lt;/a&gt;, que discute eficiência com o R de forma exaustiva. Também gosto muito da primeira parte &lt;a href=&#34;https://www.youtube.com/watch?v=wki0BqlztCo&#34;&gt;dessa palestra do Hadley&lt;/a&gt;, onde ele defende que o cientista de dados deve usar seu tempo pensando no problema e não na forma que vai escrever seu código.&lt;/p&gt;
 &lt;p&gt;Com isso em mente, vamos investigar o tema &lt;em&gt;paralelização&lt;/em&gt;. Quando rodamos coisas em paralelo, mandamos os núcleos de processamento da máquina calcularem coisas diferentes ao mesmo tempo. A vantagem disso é que o tempo de execução dos algoritmos é dividido pelo número de núcleos disponíveis, sem exigir grandes mudanças no código utilizado.&lt;/p&gt;
 &lt;p&gt;Vamos mostrar como paralelizar um código usando a função &lt;code&gt;llply()&lt;/code&gt; do pacote &lt;code&gt;plyr&lt;/code&gt;. Essa função funciona de forma idêntica ao &lt;code&gt;lapply()&lt;/code&gt;, ou seja, recebe uma lista ou vetor como input, aplica uma função em cada elemento, e retorna os resultados numa lista com o mesmo comprimento.&lt;/p&gt;
 &lt;p&gt;A função &lt;code&gt;dormir()&lt;/code&gt; manda o R esperar &lt;code&gt;seg&lt;/code&gt; segundos antes de concluir, retornando &lt;code&gt;seg&lt;/code&gt;.&lt;/p&gt;
@@ -77,15 +67,15 @@ sudo apt-get install libcurl4-openssl-dev&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   dormir()
 })
-##   usuário   sistema decorrido 
-##     0.000     0.000     1.001&lt;/code&gt;&lt;/pre&gt;
+##    user  system elapsed 
+##   0.000   0.000   1.001&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Nosso interesse é aplicar &lt;code&gt;dormir()&lt;/code&gt; em cada elemento do vetor &lt;code&gt;c(1, 2)&lt;/code&gt;. Esse algoritmo demora &lt;code&gt;1 + 2 = 3&lt;/code&gt; segundos.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;segundos &amp;lt;- c(1, 2)
 system.time({
   plyr::llply(segundos, dormir)
 })
-##   usuário   sistema decorrido 
-##     0.004     0.000     3.010&lt;/code&gt;&lt;/pre&gt;
+##    user  system elapsed 
+##   0.008   0.000   3.011&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -98,14 +88,14 @@ doParallel::registerDoParallel(cl)  # registra as cópias do R para serem usadas
 system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
-##   usuário   sistema decorrido 
-##     0.024     0.004     2.226&lt;/code&gt;&lt;/pre&gt;
+##    user  system elapsed 
+##   0.200   0.000   2.398&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
-##   usuário   sistema decorrido 
-##     0.016     0.000     2.015&lt;/code&gt;&lt;/pre&gt;
+##    user  system elapsed 
+##   0.168   0.000   2.276&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;
@@ -118,12 +108,7 @@ system.time({
       <pubDate>Sat, 11 Mar 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;Hoje estava fazendo uma análise exploratória e precisava estudar os quartis de uma variável contínua. A solução usando o &lt;code&gt;tidyverse&lt;/code&gt; é tão elegante que valeu um post no blog.&lt;/p&gt;
+      <description>&lt;p&gt;Hoje estava fazendo uma análise exploratória e precisava estudar os quartis de uma variável contínua. A solução usando o &lt;code&gt;tidyverse&lt;/code&gt; é tão elegante que valeu um post no blog.&lt;/p&gt;
 &lt;p&gt;Usaremos os pacotes &lt;code&gt;tibble&lt;/code&gt;, &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;tidyr&lt;/code&gt; e &lt;code&gt;purrr&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
 library(dplyr)
@@ -219,40 +204,40 @@ tab
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;14.05&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14.050&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.625&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;19.2&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;15.05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.05000&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;15.20&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;10.4&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;18.65&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;22.15&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18.650&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;22.150&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;24.4&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;20.74&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20.74286&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;21.40&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;17.8&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.78&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.775&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.000&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;26.0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;19.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;19.75000&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;20.35&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;15.0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;25.05&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;31.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25.050&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;31.400&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;33.9&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;28.37&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;28.37143&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;30.40&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;21.4&lt;/td&gt;
 &lt;/tr&gt;
@@ -282,40 +267,40 @@ tab
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;14.05&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14.050&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.625&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;19.2&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;15.05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15.05000&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;15.20&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;10.4&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;18.65&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;22.15&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18.650&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;22.150&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;24.4&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;20.74&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20.74286&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;21.40&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;17.8&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.78&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16.775&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21.000&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;26.0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;19.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;19.75000&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;20.35&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;15.0&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;25.05&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;31.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25.050&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;31.400&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;33.9&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;28.37&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;28.37143&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;30.40&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;21.4&lt;/td&gt;
 &lt;/tr&gt;
@@ -323,7 +308,7 @@ tab
 &lt;/table&gt;
 &lt;p&gt;Mas: tome cuidado! Se o Hadley diz…&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://lsru.github.io/r_workshop/img/purrr_do.png&#34; /&gt;
+&lt;img src=&#34;http://lsru.github.io/r_workshop/img/purrr_do.png&#34; alt=&#34;&#34; /&gt;
 
 &lt;/div&gt;
 </description>

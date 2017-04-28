@@ -55,7 +55,7 @@ Figure 1: Admita, você não imaginava que teria de pensar em gramática para pr
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;log(10)
 ## [1] 2.302585
 log(-1)
-## Warning in log(-1): NaNs produzidos
+## Warning in log(-1): NaNs produced
 ## [1] NaN
 log(&amp;#39;a&amp;#39;)
 ## Error in log(&amp;quot;a&amp;quot;): non-numeric argument to mathematical function&lt;/code&gt;&lt;/pre&gt;
@@ -69,14 +69,14 @@ quiet_log &amp;lt;- quietly(log)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora, os resultados:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Esse código vai travar
 map(entradas, log) 
-## Warning in .f(.x[[i]], ...): NaNs produzidos
+## Warning in .f(.x[[i]], ...): NaNs produced
 ## Error in .f(.x[[i]], ...): non-numeric argument to mathematical function&lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;safely()&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Retorna uma lista com erros e resultados NULL
 map(entradas, safe_log)
-## Warning in .f(...): NaNs produzidos
+## Warning in .f(...): NaNs produced
 ## [[1]]
 ## [[1]]$result
 ## [1] 2.302585
@@ -104,7 +104,7 @@ map(entradas, safe_log)
 &lt;/ul&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Retorna uma lista com os resultados que deram certo
 map(entradas, possible_log)
-## Warning in .f(...): NaNs produzidos
+## Warning in .f(...): NaNs produced
 ## [[1]]
 ## [1] 2.302585
 ## 
@@ -144,7 +144,7 @@ map(entradas[1:2], quiet_log)
 ## [1] &amp;quot;&amp;quot;
 ## 
 ## [[2]]$warnings
-## [1] &amp;quot;NaNs produzidos&amp;quot;
+## [1] &amp;quot;NaNs produced&amp;quot;
 ## 
 ## [[2]]$messages
 ## character(0)&lt;/code&gt;&lt;/pre&gt;

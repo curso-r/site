@@ -53,19 +53,19 @@ centroides &amp;lt;- img_df %&amp;gt;%
 
 centroides
 ## # A tibble: 6 × 4
-##   cluster          r         g         b
-##     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.71951030 0.5487661 0.4097725
-## 2       2 0.27214211 0.3641213 0.4901644
-## 3       3 0.37889146 0.1185504 0.1558589
-## 4       4 0.62387801 0.2832790 0.1896923
-## 5       5 0.88572504 0.7791481 0.6688438
-## 6       6 0.09965226 0.0436630 0.2398620&lt;/code&gt;&lt;/pre&gt;
+##   cluster         r          g         b
+##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1       1 0.6239192 0.28335790 0.1897367
+## 2       2 0.2721465 0.36412137 0.4901613
+## 3       3 0.7195362 0.54881786 0.4098359
+## 4       4 0.8857289 0.77915257 0.6688482
+## 5       5 0.3789830 0.11857741 0.1558412
+## 6       6 0.0996826 0.04366903 0.2398452&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#B78C68&amp;quot; &amp;quot;#455D7D&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#190B3D&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#9F4830&amp;quot; &amp;quot;#455D7D&amp;quot; &amp;quot;#B78C69&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#190B3D&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
@@ -375,12 +375,7 @@ knitr::kable(top10_locais)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;O &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html&#34;&gt;manifesto das ferramentas tidy&lt;/a&gt; do Hadley Wickham é um dos documentos mais importantes sobre R dos últimos tempos. Esse documento formaliza uma série de princípios que norteiam o desenvolvimento do &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;O &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html&#34;&gt;manifesto das ferramentas tidy&lt;/a&gt; do Hadley Wickham é um dos documentos mais importantes sobre R dos últimos tempos. Esse documento formaliza uma série de princípios que norteiam o desenvolvimento do &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;O &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;, também chamado por muitos de &lt;em&gt;hadleyverse&lt;/em&gt;, é um conjunto de pacotes que, por compartilharem esses princípios do manifesto tidy, podem ser utilizados naturalmente em conjunto. Pode-se dizer que existe o R antes do &lt;code&gt;tidyverse&lt;/code&gt; e o R depois do &lt;code&gt;tidyverse&lt;/code&gt;. A linguagem mudou muito, a comunidade abraçou fortemente o uso desses princípios e tem muita gente criando pacotes para conversar uns com os outros dessa forma. No entanto, usar a filosofia &lt;em&gt;tidy&lt;/em&gt; não é a única forma de fazer pacotes do R, existem muitos pacotes excelentes que não utilizam essa filosofia. Como o próprio texto diz “O contrário de &lt;em&gt;tidyverse&lt;/em&gt; não é o &lt;strong&gt;messy&lt;/strong&gt;verse, e sim muitos outros universos de pacotes interconectados.”.&lt;/p&gt;
 &lt;p&gt;Os princípios fundamentais do &lt;code&gt;tidyverse&lt;/code&gt; são:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
@@ -428,12 +423,7 @@ knitr::kable(top10_locais)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.&lt;/p&gt;
+      <description>&lt;p&gt;Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.&lt;/p&gt;
 &lt;p&gt;O Curso-R surgiu em 2015 no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP). o curso foi chamado de “Programação em R: do casual ao avançado”. Desde o começo, nós abraçamos a filosofia &lt;em&gt;Open Source&lt;/em&gt; - todo material que desenvolvemos fica disponível em nossa conta do &lt;a href=&#34;https://github.com/curso-r/&#34;&gt;Github&lt;/a&gt; de forma aberta para quem quiser usar. Em 2016 e 2017, ministramos novamente o curso no programa de verão e, depois de mais de 100 alunos formados, decidimos aumentar a gama de cursos e a frequência de ocorrência para que possamos atingir muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.&lt;/p&gt;
 &lt;p&gt;Esperamos que aprendam bastante e, principalmente, divirtam-se bastante lendo este blog!&lt;/p&gt;
 </description>

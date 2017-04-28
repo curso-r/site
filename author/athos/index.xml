@@ -544,12 +544,7 @@ lolla2017_grafico %&amp;gt;%
       <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;O R mudou muito nos últimos 5 anos graças a criações de novos pacotes focados nas questões mais práticas do dia a dia de um cientista de dados. Abaixo coloquei meu top 10 de pacotes que revolucionaram o jeito de programar em R e fizeram meu trabalho mais ágil e prazeroso:&lt;/p&gt;
+      <description>&lt;p&gt;O R mudou muito nos últimos 5 anos graças a criações de novos pacotes focados nas questões mais práticas do dia a dia de um cientista de dados. Abaixo coloquei meu top 10 de pacotes que revolucionaram o jeito de programar em R e fizeram meu trabalho mais ágil e prazeroso:&lt;/p&gt;
 &lt;div id=&#34;purrr-manipulacao-de-vetores-e-listas&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;&lt;a href=&#34;https://jennybc.github.io/purrr-tutorial&#34;&gt;10. purrr&lt;/a&gt; (manipulação de vetores e listas)&lt;/h3&gt;
 &lt;p&gt;Nosso décimo lugar colocou o &lt;code&gt;for&lt;/code&gt; em perigo de extinção. Com ele, aplicar funções em vetores, listas ou combinações dos dois é uma tarefa de poucas linhas e sem a necessidade de índices i, j, k’s confusos. E ainda, com o advento das &lt;a href=&#34;https://cran.r-project.org/web/packages/tibble/tibble.pdf&#34;&gt;tibbles&lt;/a&gt;, seus data.frames ganharam potencial de guardar muito mais do que meros números e strings e o purrr é seu mais forte aliado na hora de criar as chamadas &lt;a href=&#34;https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html&#34;&gt;&lt;em&gt;list-columns&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -632,12 +627,7 @@ lolla2017_grafico %&amp;gt;%
       <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
-      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
-
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;p&gt;Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.&lt;/p&gt;
+      <description>&lt;p&gt;Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.&lt;/p&gt;
 &lt;p&gt;O Curso-R surgiu em 2015 no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP). o curso foi chamado de “Programação em R: do casual ao avançado”. Desde o começo, nós abraçamos a filosofia &lt;em&gt;Open Source&lt;/em&gt; - todo material que desenvolvemos fica disponível em nossa conta do &lt;a href=&#34;https://github.com/curso-r/&#34;&gt;Github&lt;/a&gt; de forma aberta para quem quiser usar. Em 2016 e 2017, ministramos novamente o curso no programa de verão e, depois de mais de 100 alunos formados, decidimos aumentar a gama de cursos e a frequência de ocorrência para que possamos atingir muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.&lt;/p&gt;
 &lt;p&gt;Esperamos que aprendam bastante e, principalmente, divirtam-se bastante lendo este blog!&lt;/p&gt;
 </description>

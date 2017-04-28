@@ -1,4 +1,0 @@
-"0","get_videos_stats <- function(df_row) {"
-"0","  "
-"0","  get_stats(video_id = df_row$video_id)"
-"0","}"

@@ -1,4 +1,0 @@
-"0","dates <- tibble(start = seq(ymd(""2012-01-01""), ymd(""2017-01-01""), by = ""years""),"
-"0","                        end = seq(ymd(""2012-12-31""), ymd(""2017-12-31""), by = ""years"")) %>% "
-"0","  mutate(start = paste(start, ""T0:00:00Z"", sep = """"),"
-"0","         end = paste(end, ""T0:00:00Z"", sep = """"))"

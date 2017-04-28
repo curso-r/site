@@ -1,6 +1,0 @@
-"0","plyr_com <- function(nums) {"
-"0","  plyr::llply(nums, funcao_rapida, .progress = 'text')"
-"0","}"
-"0","plyr_sem <- function(nums) {"
-"0","  plyr::llply(nums, funcao_rapida)"
-"0","}"

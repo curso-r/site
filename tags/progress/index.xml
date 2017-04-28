@@ -31,12 +31,6 @@ for (x in nums) {
   barra$tick() # dá um passo
   resultados[[x]] &amp;lt;- funcao_demorada(x)
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;TRUE 
-[==========================----------------------------------------]  40%
-[========================================--------------------------]  60%
-[=====================================================-------------]  80%
-[==================================================================] 100%
-                                                                         &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Como resultados, temos:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;resultados
 ## [[1]]
@@ -81,12 +75,6 @@ resultados &amp;lt;- purrr::map(nums, ~{
   barra$tick()
   funcao_demorada(.x)
 })&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;TRUE 
-[==========================----------------------------------------]  40%
-[========================================--------------------------]  60%
-[=====================================================-------------]  80%
-[==================================================================] 100%
-                                                                         &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O código fica parecido com solução usando &lt;code&gt;for()&lt;/code&gt;, mas pelo menos estamos usando os pacotes mais recentes ;)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;eficiencia&#34; class=&#34;section level2&#34;&gt;
