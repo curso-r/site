@@ -1,6 +1,6 @@
 ---
 title: "O Porta dos Fundos está em decadência? (REVISITED)"
-date: "2017-04-24T23:26:00+03:00"
+date: "2017-04-28T23:26:00+03:00"
 tags: ["r", "Webscraping", "tuber"]
 categories: ["r"]
 banner: "img/banners/porta.jpg"
@@ -88,7 +88,7 @@ dados <- bind_rows(videos$videos_info) %>%
 ```
 
 ```{r, eval = T, echo = F}
-dados <- readRDS("2017-04-25-porta-dos-fundos-decadencia-revisited/dados.rds")
+dados <- readRDS("2017-04-28-porta-dos-fundos-decadencia-revisited/dados.rds")
 ```
 
 
