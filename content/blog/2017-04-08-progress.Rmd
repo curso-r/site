@@ -169,7 +169,7 @@ benchmark <- readRDS('benchmark_progress.rds')
 benchmark %>% 
   microbenchmark:::summary.microbenchmark() %>% 
   as_tibble() %>% 
-  dplyr::select(-lq, -uq, -neval) %>% 
+  dplyr::select(-lq, -uq, -neval, -cld) %>% 
   dplyr::mutate_if(is.numeric, dplyr::funs(round(./1e3, 3))) %>% 
   purrr::set_names(c('Função', 'Min', 'Média', 'Mediana', 'Máximo')) %>% 
   knitr::kable(caption = 'Resultados do benchmark. Os tempos estão em milisegundos.')
