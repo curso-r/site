@@ -185,8 +185,7 @@ img &lt;- readJPEG(&quot;img/david-bowie.jpg&quot;)</code></pre>
 <p>Nesse caso, os indivíduos são os pixels da imagem e as características que estamos interessados são os valores de R, de G e de B (valores que representam a cor do pixel). Para o algortimos de clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão que o trecho de código a seguir realiza.</p>
 <pre class="r"><code>img_matrix &lt;- apply(img, 3, as.numeric)</code></pre>
 <p>Agora temos uma matriz com 3 colunas e 799.700 linhas. Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em um grupo. O K-means pede o número de grupos como input, vamos começar com 6.</p>
-<pre class="r"><code>km &lt;- kmeans(img_matrix, centers = 6)
-## Warning: Quick-TRANSfer stage steps exceeded maximum (= 39985000)</code></pre>
+<pre class="r"><code>km &lt;- kmeans(img_matrix, centers = 6)</code></pre>
 <p>O objeto gerado pela função <code>kmeans</code> armazena um vetor chamado <code>cluster</code> (do tamanho do número de linhas da matriz) com um identificador do grupo de cada observação da matriz.</p>
 <p>A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o <code>dplyr</code>.</p>
 <pre class="r"><code>library(tibble)
@@ -213,17 +212,17 @@ centroides
 ## # A tibble: 6 × 4
 ##   cluster         r          g         b
 ##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.2181363 0.27270060 0.4425292
-## 2       2 0.3588201 0.46139810 0.5442318
-## 3       3 0.1055599 0.03990384 0.2222492
-## 4       4 0.4608025 0.15803183 0.1550721
-## 5       5 0.6877549 0.43239902 0.2959289
-## 6       6 0.8715372 0.75418694 0.6351614</code></pre>
+## 1       1 0.7016587 0.46722512 0.3238206
+## 2       2 0.1242676 0.04329523 0.2157608
+## 3       3 0.5005265 0.18317569 0.1587972
+## 4       4 0.2212860 0.27343498 0.4408806
+## 5       5 0.8768120 0.76211694 0.6453261
+## 6       6 0.3542030 0.46237875 0.5494285</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#384671&quot; &quot;#5B768B&quot; &quot;#1B0A39&quot; &quot;#762828&quot; &quot;#AF6E4B&quot; &quot;#DEC0A2&quot;</code></pre>
+## [1] &quot;#B37753&quot; &quot;#200B37&quot; &quot;#802F28&quot; &quot;#384670&quot; &quot;#E0C2A5&quot; &quot;#5A768C&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -456,6 +455,19 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/r4ds/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
@@ -464,19 +476,6 @@ exibir(paleta)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
