@@ -55,7 +55,7 @@ library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
 grid.newpage()
 invisible(draw.single.venn(numero_de_pessoas_que_gostam_de_cachorros,
                  #Número de elementos do conjunto
-                 category = &amp;quot;Pessoas que gostam de cahorros&amp;quot;,
+                 category = &amp;quot;Pessoas que gostam de cachorros&amp;quot;,
                  #Nome do conjunto
                  lty = &amp;quot;blank&amp;quot;,
                  #Grossura da borda dos conjuntos.&amp;quot;blank&amp;quot; quer dizer que não vai ter borda
@@ -100,7 +100,7 @@ invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
                    #Constrói as áreas sem escala
                    ))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;A falta de escalas deixou esse gráfico simétrico e esteticamente agradável. Entretanto, em algumas situçaões é mais legal representar os conjuntos em escala.&lt;/p&gt;
+&lt;p&gt;A falta de escalas deixou esse gráfico simétrico e esteticamente agradável. Entretanto, em algumas situações é mais legal representar os conjuntos em escala.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;numero_de_pessoas_que_gostam_de_cachorros &amp;lt;- dataset %&amp;gt;% 
   dplyr::filter(Dog == 1) %&amp;gt;% 
   nrow()
@@ -135,7 +135,7 @@ invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
                    #Constrói as áreas sem escala
                    ))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Até aqui tudo vai mais ou menos bem, mas a coisa fica bem mais chata quando você precisa representar um diagrama com três conjuntos. Você precisa vai precisar passar todos os pedacinhos pra função.&lt;/p&gt;
+&lt;p&gt;Até aqui tudo vai mais ou menos bem, mas a coisa fica bem mais chata quando você precisa representar um diagrama com três conjuntos. Você vai precisar passar pra função o tamanho de todos os pedacinhos.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;numero_de_pessoas_que_gostam_de_gatos &amp;lt;- dataset %&amp;gt;% 
   dplyr::filter(Cat == 1) %&amp;gt;% 
   nrow()

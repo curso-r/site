@@ -212,7 +212,7 @@ library(tidyverse)</code></pre>
 grid.newpage()
 invisible(draw.single.venn(numero_de_pessoas_que_gostam_de_cachorros,
                  #Número de elementos do conjunto
-                 category = &quot;Pessoas que gostam de cahorros&quot;,
+                 category = &quot;Pessoas que gostam de cachorros&quot;,
                  #Nome do conjunto
                  lty = &quot;blank&quot;,
                  #Grossura da borda dos conjuntos.&quot;blank&quot; quer dizer que não vai ter borda
@@ -257,7 +257,7 @@ invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
                    #Constrói as áreas sem escala
                    ))</code></pre>
 <p><img src="http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>A falta de escalas deixou esse gráfico simétrico e esteticamente agradável. Entretanto, em algumas situçaões é mais legal representar os conjuntos em escala.</p>
+<p>A falta de escalas deixou esse gráfico simétrico e esteticamente agradável. Entretanto, em algumas situações é mais legal representar os conjuntos em escala.</p>
 <pre class="r"><code>numero_de_pessoas_que_gostam_de_cachorros &lt;- dataset %&gt;% 
   dplyr::filter(Dog == 1) %&gt;% 
   nrow()
@@ -292,7 +292,7 @@ invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
                    #Constrói as áreas sem escala
                    ))</code></pre>
 <p><img src="http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>Até aqui tudo vai mais ou menos bem, mas a coisa fica bem mais chata quando você precisa representar um diagrama com três conjuntos. Você precisa vai precisar passar todos os pedacinhos pra função.</p>
+<p>Até aqui tudo vai mais ou menos bem, mas a coisa fica bem mais chata quando você precisa representar um diagrama com três conjuntos. Você vai precisar passar pra função o tamanho de todos os pedacinhos.</p>
 <pre class="r"><code>numero_de_pessoas_que_gostam_de_gatos &lt;- dataset %&gt;% 
   dplyr::filter(Cat == 1) %&gt;% 
   nrow()
@@ -530,6 +530,19 @@ invisible(draw.triple.venn(area1 = numero_de_pessoas_que_gostam_de_gatos,
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -538,19 +551,6 @@ invisible(draw.triple.venn(area1 = numero_de_pessoas_que_gostam_de_gatos,
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
