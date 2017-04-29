@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/04/29/2017-04-29-diagramas-de-venn/</loc>
+    <lastmod>2017-04-29T23:26:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/04/28/2017-04-28-porta-dos-fundos-decadencia-revisited/</loc>
     <lastmod>2017-04-28T23:26:00+03:00</lastmod>
   </url>
@@ -122,6 +127,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/</loc>
+    <lastmod>2017-04-29T23:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/author/athos/</loc>
     <lastmod>2017-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -146,7 +157,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-04-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-04-29T23:26:00+03:00</lastmod>
   </url>
   
   <url>
@@ -160,7 +171,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-04-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-04-29T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -198,7 +209,7 @@
   
   <url>
     <loc>http://curso-r.com/author/fernando/</loc>
-    <lastmod>2017-04-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-04-29T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -262,13 +273,13 @@
   
   <url>
     <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-04-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-04-29T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-04-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-04-29T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

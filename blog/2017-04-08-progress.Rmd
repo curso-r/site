@@ -171,7 +171,7 @@ benchmark %>%
   as_tibble() %>% 
   dplyr::select(-lq, -uq, -neval) %>% 
   dplyr::mutate_if(is.numeric, dplyr::funs(round(./1e3, 3))) %>% 
-  purrr::set_names(c('Função', 'Min', 'Média', 'Mediana', 'Máximo')) %>% 
+  #purrr::set_names(c('Função', 'Min', 'Média', 'Mediana', 'Máximo')) %>% 
   knitr::kable(caption = 'Resultados do benchmark. Os tempos estão em milisegundos.')
 ```
 

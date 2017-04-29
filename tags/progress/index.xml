@@ -128,11 +128,11 @@ purrr_sem &amp;lt;- function(nums) {
 &lt;caption&gt;&lt;span id=&#34;tab:eficiencia&#34;&gt;Table 1: &lt;/span&gt;Resultados do benchmark. Os tempos estão em milisegundos.&lt;/caption&gt;
 &lt;thead&gt;
 &lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;left&#34;&gt;Função&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Min&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Média&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Mediana&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Máximo&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;expr&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;min&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;mean&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;median&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;max&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
