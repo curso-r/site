@@ -28,7 +28,7 @@
 &lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Considerando esse diagrama, O Gelman até sugere uma prece mais cuidadosa:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Lord, grant me the serenity to accept things that cannot be changes, courage to change things that must be changes; discernment to ignore things that don’t need changing; acceptance that some things I need to change, i can’t; And the wisdom to understand Venn Diagrams.&lt;/p&gt;
+&lt;p&gt;Lord, grant me the serenity to accept things that cannot be changed, courage to change things that must be changed; discernment to ignore things that don’t need changing; acceptance that some things I need to change, i can’t; And the wisdom to understand Venn Diagrams.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!--É claro que existem diagramas complicados demais para serem úteis, mas, assim como slides ruins, a complexidade pode ser superada se houver muita boa vontade. O pior que pode acontecer é alguém--&gt;
 &lt;p&gt;A despeito da utilidade de Diagramas de Venn bem feitos, o R oferece poucas maneiras de construí-los. No CRAN, existem apenas três pacotes especializados em construir esses gráficos, mas duas delas são um pouco insatisfatórias. Neste post, vamos descobrir como fazer diagramas de Venn usando o pacote &lt;code&gt;VennDiagram&lt;/code&gt;.&lt;/p&gt;
