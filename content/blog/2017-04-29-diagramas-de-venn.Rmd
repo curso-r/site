@@ -6,7 +6,6 @@ categories: ["r"]
 banner: "img/banners/venn.png"
 author: ["Fernando"]
 summary: "Diagramas de Venn são representações eficientes das conjuntas de quantidades moderadas de variáveis binárias. Neste post você vai aprender a construir os principais tipos de diagramas de Venn que estão implementados em R."
-draft: TRUE
 ---
 
 Diagramas de Venn são como slides de PowerPoint. Se eles tem poucos elementos concisos em uma ordem inteligente, um leitor consegue conectar as ideias expostas e aprender alguma coisa. Em caso contrário, o excesso de informação se transforma um obstáculo para a comunicação.
