@@ -147,7 +147,7 @@ numero_de_pessoas_que_gostam_de_cachorros <- dataset %>%
 grid.newpage()
 invisible(draw.single.venn(numero_de_pessoas_que_gostam_de_cachorros,
                  #Número de elementos do conjunto
-                 category = "Pessoas que gostam de cahorros",
+                 category = "Pessoas que gostam de cachorros",
                  #Nome do conjunto
                  lty = "blank",
                  #Grossura da borda dos conjuntos."blank" quer dizer que não vai ter borda
@@ -196,7 +196,7 @@ invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
                    ))
 ```
 
-A falta de escalas deixou esse gráfico simétrico e esteticamente agradável. Entretanto, em algumas situçaões é mais legal representar os conjuntos em escala.
+A falta de escalas deixou esse gráfico simétrico e esteticamente agradável. Entretanto, em algumas situações é mais legal representar os conjuntos em escala.
 
 ```{r, fig.width=5, fig.align='center'}
 numero_de_pessoas_que_gostam_de_cachorros <- dataset %>% 
@@ -234,7 +234,7 @@ invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
                    ))
 ```
 
-Até aqui tudo vai mais ou menos bem, mas a coisa fica bem mais chata quando você precisa representar um diagrama com três conjuntos. Você precisa vai precisar passar todos os pedacinhos pra função.
+Até aqui tudo vai mais ou menos bem, mas a coisa fica bem mais chata quando você precisa representar um diagrama com três conjuntos. Você vai precisar passar pra função o tamanho de todos os pedacinhos.
 
 ```{r, fig.width=5, fig.align='center'}
 
