@@ -80,7 +80,7 @@ A despeito da utilidade de Diagramas de Venn bem feitos, o R oferece poucas mane
 
 ## O Dataset
 
-Para não nos distrairmos com bases de dados complicadas, vamos usar uma tabela artifical inspirada [nesse link](https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html). Cada linha dessa base representa as preferências por animais de estimação de uma pessoa hipotética. No total temos 34 pessoas na base e as opções possíveis são "Cães","Gatos","Lagrtos" e "Serpentes".
+Para não nos distrairmos com bases de dados complicadas, vamos usar uma tabela artifical inspirada [nesse link](https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html). Cada linha dessa base representa as preferências por animais de estimação de uma pessoa hipotética. No total temos 34 pessoas na base e as opções possíveis são "Cães","Gatos","Lagartos" e "Serpentes".
 
 O data.frame está disponível no código fonte desse post. 
 

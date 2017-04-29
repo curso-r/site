@@ -34,7 +34,7 @@
 &lt;p&gt;A despeito da utilidade de Diagramas de Venn bem feitos, o R oferece poucas maneiras de construí-los. No CRAN, existem apenas três pacotes especializados em construir esses gráficos, mas duas delas são um pouco insatisfatórias. Neste post, vamos descobrir como fazer diagramas de Venn usando o pacote &lt;code&gt;VennDiagram&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;o-dataset&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;O Dataset&lt;/h2&gt;
-&lt;p&gt;Para não nos distrairmos com bases de dados complicadas, vamos usar uma tabela artifical inspirada &lt;a href=&#34;https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html&#34;&gt;nesse link&lt;/a&gt;. Cada linha dessa base representa as preferências por animais de estimação de uma pessoa hipotética. No total temos 34 pessoas na base e as opções possíveis são “Cães”,“Gatos”,“Lagrtos” e “Serpentes”.&lt;/p&gt;
+&lt;p&gt;Para não nos distrairmos com bases de dados complicadas, vamos usar uma tabela artifical inspirada &lt;a href=&#34;https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html&#34;&gt;nesse link&lt;/a&gt;. Cada linha dessa base representa as preferências por animais de estimação de uma pessoa hipotética. No total temos 34 pessoas na base e as opções possíveis são “Cães”,“Gatos”,“Lagartos” e “Serpentes”.&lt;/p&gt;
 &lt;p&gt;O data.frame está disponível no código fonte desse post.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;pacotes&#34; class=&#34;section level2&#34;&gt;
