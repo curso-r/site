@@ -69,8 +69,8 @@ plot(vd, main = "Tipos de coisas")
 
 Considerando esse diagrama, O Gelman até sugere uma prece mais cuidadosa:
 
-> Lord, grant me the serenity to accept things that cannot be changes,
-> courage to change things that must be changes;
+> Lord, grant me the serenity to accept things that cannot be changed,
+> courage to change things that must be changed;
 > discernment to ignore things that don't need changing;
 > acceptance that some things I need to change, i can't;
 > And the wisdom to understand Venn Diagrams.
