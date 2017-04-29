@@ -28,7 +28,8 @@ img &amp;lt;- readJPEG(&amp;quot;img/david-bowie.jpg&amp;quot;)&lt;/code&gt;&lt;
 &lt;p&gt;Nesse caso, os indivíduos são os pixels da imagem e as características que estamos interessados são os valores de R, de G e de B (valores que representam a cor do pixel). Para o algortimos de clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão que o trecho de código a seguir realiza.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_matrix &amp;lt;- apply(img, 3, as.numeric)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora temos uma matriz com 3 colunas e 799.700 linhas. Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em um grupo. O K-means pede o número de grupos como input, vamos começar com 6.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;km &amp;lt;- kmeans(img_matrix, centers = 6)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;km &amp;lt;- kmeans(img_matrix, centers = 6)
+## Warning: Quick-TRANSfer stage steps exceeded maximum (= 39985000)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O objeto gerado pela função &lt;code&gt;kmeans&lt;/code&gt; armazena um vetor chamado &lt;code&gt;cluster&lt;/code&gt; (do tamanho do número de linhas da matriz) com um identificador do grupo de cada observação da matriz.&lt;/p&gt;
 &lt;p&gt;A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o &lt;code&gt;dplyr&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
@@ -55,17 +56,17 @@ centroides
 ## # A tibble: 6 × 4
 ##   cluster         r          g         b
 ##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.0996826 0.04366903 0.2398452
-## 2       2 0.6239192 0.28335790 0.1897367
-## 3       3 0.7195362 0.54881786 0.4098359
-## 4       4 0.8857289 0.77915257 0.6688482
-## 5       5 0.2721465 0.36412137 0.4901613
-## 6       6 0.3789830 0.11857741 0.1558412&lt;/code&gt;&lt;/pre&gt;
+## 1       1 0.2181363 0.27270060 0.4425292
+## 2       2 0.3588201 0.46139810 0.5442318
+## 3       3 0.1055599 0.03990384 0.2222492
+## 4       4 0.4608025 0.15803183 0.1550721
+## 5       5 0.6877549 0.43239902 0.2959289
+## 6       6 0.8715372 0.75418694 0.6351614&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#190B3D&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#B78C69&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#455D7D&amp;quot; &amp;quot;#611E28&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#384671&amp;quot; &amp;quot;#5B768B&amp;quot; &amp;quot;#1B0A39&amp;quot; &amp;quot;#762828&amp;quot; &amp;quot;#AF6E4B&amp;quot; &amp;quot;#DEC0A2&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
