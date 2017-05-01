@@ -17,8 +17,8 @@
       <guid>http://curso-r.com/blog/2017/05/01/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/</guid>
       <description>&lt;p&gt;A cor é uma diferença notável entre os filmes da Marvel e da DC. Enquanto a Disney/Marvel Studios costuma lançar filmes com tons mais claros e alegres, a Warner tem optado por cenários escuros, com um aspecto mais sombrios. Essas escolhas são um reflexo do clima das histórias de cada universo: aventuras engraçaralhas com um drama superficial vs seja lá o que passa na cabeça do &lt;a href=&#34;http://retalhoclub.com.br/wp-content/uploads/2017/03/03.jpg&#34;&gt;Zack Snyder&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Para estudar melhor a paleta de cores utilizadas nos filmes, vamos aplicar a análise introduzida pelo Dani &lt;a href=&#34;http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/&#34;&gt;neste post&lt;/a&gt;, com pequenas alterações. Como amostra, selecionei 10 imagens de Batman vs Superman e 10 do Capitão América: guerra civil. Tentando deixar a análise o menos subjetiva possível, escolhi imagens de cenas emblemáticas e dos principais personagens. Abaixo as imagens que peguei de cada filme.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;4800&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;4800&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Seguindo a análise do Dani, vamos utilizar as seguintes bibliotecas para a análise.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(jpeg)
 library(tidyverse)
@@ -69,22 +69,22 @@ exibir &amp;lt;- function(x) {
 &lt;p&gt;Assim, basta aplicar essas funções aos objetos &lt;code&gt;img_bvs&lt;/code&gt; e &lt;code&gt;img_cw&lt;/code&gt; para obter as paletas. Primeiro para o Batman vs Superman:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paleta_bvs &amp;lt;- criar_paleta(img_bvs, 10)
 exibir(paleta_bvs)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;3840&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;E agora para o Capitão América:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paleta_cw &amp;lt;- criar_paleta(img_cw, 10)
 exibir(paleta_cw)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;3840&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Observe que o filme da DC tem cores mais escuras e fortes, com vários tons de azul, indicando as cenas noturnas e de chuva. Já a paleta da Marvel apresenta cores mais claras, com vários tons representando o céu pálido das cenas externas.&lt;/p&gt;
 &lt;p&gt;Podemos fazer a análise agora para o pôster de cada filme (o que aparece no IMDB):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;4800&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_bvs &amp;lt;- ler_imagem(&amp;quot;images/bvs_poster.jpg&amp;quot;)
 paleta_bvs &amp;lt;- criar_paleta(img_bvs, 10)
 exibir(paleta_bvs)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;3840&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_cw &amp;lt;- ler_imagem(&amp;quot;images/cw_poster.jpg&amp;quot;)
 paleta_cw &amp;lt;- criar_paleta(img_cw, 10)
 exibir(paleta_cw)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;3840&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Veja que os diferentes tons de azul se repete no pôster do Batman vs Superman. Já o pôster do Capitão América é bem cinzento, com metade da paleta representando &lt;a href=&#34;http://media.melty.com.br/article-6991-ratio265_1020/filme-50-tons-de-cinza-jamie-dornan-christian.jpg&#34;&gt;tons de cinza&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Fica então o desafio de repetir a análise para outros filmes e compartilhar o resultado com a gente. Comentários? Sugestões? Críticas? Mande a sua opinião!&lt;/p&gt;
 </description>
@@ -138,7 +138,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x50fff50&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## &amp;lt;bytecode: 0x3fa1f50&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -251,17 +251,17 @@ centroides
 ## # A tibble: 6 × 4
 ##   cluster         r          g         b
 ##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.0996826 0.04366903 0.2398452
-## 2       2 0.6239192 0.28335790 0.1897367
-## 3       3 0.8857289 0.77915257 0.6688482
-## 4       4 0.3789830 0.11857741 0.1558412
-## 5       5 0.2721465 0.36412137 0.4901613
-## 6       6 0.7195362 0.54881786 0.4098359&lt;/code&gt;&lt;/pre&gt;
+## 1       1 0.3542002 0.46238363 0.5494375
+## 2       2 0.8768120 0.76211694 0.6453261
+## 3       3 0.2212878 0.27343708 0.4408806
+## 4       4 0.1242676 0.04329523 0.2157608
+## 5       5 0.5005265 0.18317569 0.1587972
+## 6       6 0.7016549 0.46722370 0.3238213&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#190B3D&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#455D7D&amp;quot; &amp;quot;#B78C69&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#5A768C&amp;quot; &amp;quot;#E0C2A5&amp;quot; &amp;quot;#384670&amp;quot; &amp;quot;#200B37&amp;quot; &amp;quot;#802F28&amp;quot; &amp;quot;#B37753&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
