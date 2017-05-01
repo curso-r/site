@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Imagens on Curso-R</title>
+    <link>http://curso-r.com/tags/imagens/index.xml</link>
+    <description>Recent content in Imagens on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="http://curso-r.com/tags/imagens/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>As cores da Marvel vs DC</title>
+      <link>http://curso-r.com/blog/2017/05/01/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/</link>
+      <pubDate>Mon, 01 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/05/01/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/</guid>
+      <description>&lt;p&gt;A cor é uma diferença notável entre os filmes da Marvel e da DC. Enquanto a Disney/Marvel Studios costuma lançar filmes com tons mais claros e alegres, a Warner tem optado por cenários escuros, com um aspecto mais sombrios. Essas escolhas são um reflexo do clima das histórias de cada universo: aventuras engraçaralhas com um drama superficial vs seja lá o que passa na cabeça do &lt;a href=&#34;http://retalhoclub.com.br/wp-content/uploads/2017/03/03.jpg&#34;&gt;Zack Snyder&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para estudar melhor a paleta de cores utilizadas nos filmes, vamos aplicar a análise introduzida pelo Dani &lt;a href=&#34;http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/&#34;&gt;neste post&lt;/a&gt;, com pequenas alterações. Como amostra, selecionei 10 imagens de Batman vs Superman e 10 do Capitão América: guerra civil. Tentando deixar a análise o menos subjetiva possível, escolhi imagens de cenas emblemáticas e dos principais personagens. Segue abaixo as imagens que peguei de cada filme.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;4800&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;4800&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Seguindo a análise do Dani, vamos utilizar as seguintes bibliotecas para a análise.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(jpeg)
+library(tidyverse)
+library(glue)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Eu salvei as imagens em arquivos do tipo “bvs_n.jpg” e “cw_n.jpg”, com n variando de 1 a 10. Isso facilitou a leitura desses arquivos. O código abaixo mostra como criar um vetor com o caminho das 10 imagens de cada filme. Se você quiser saber mais sobre a função &lt;code&gt;glue()&lt;/code&gt;, visite &lt;a href=&#34;http://curso-r.com/blog/2017/04/17/2017-04-08-glue/&#34;&gt;este post&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arquivos_bvs &amp;lt;- glue(&amp;quot;images/bvs_{n}.jpg&amp;quot;, n = 1:10)
+arquivos_cw &amp;lt;- glue(&amp;quot;images/cw_{n}.jpg&amp;quot;, n = 1:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como vamos trabalhar com mais de uma imagem, eu criei a função &lt;code&gt;ler_imagem()&lt;/code&gt; para ler os arquivos.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ler_imagem &amp;lt;- function(caminho) {
+  img &amp;lt;- readJPEG(caminho) %&amp;gt;% 
+    apply(3, as.numeric)
+  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Podemos então usar a função &lt;code&gt;map()&lt;/code&gt; para aplicá-la a todos os 10 arquivos. A função &lt;code&gt;reduce(rbind)&lt;/code&gt; transforma as 10 matrizes de pixels em uma matriz só, como se as imagens estivessem coladas uma embaixo da outra.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_bvs &amp;lt;- map(arquivos_bvs, ler_imagem) %&amp;gt;% reduce(rbind)
+img_cw &amp;lt;- map(arquivos_cw, ler_imagem) %&amp;gt;% reduce(rbind)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Abaixo estão as funções &lt;code&gt;cria_paleta()&lt;/code&gt; e &lt;code&gt;exibir()&lt;/code&gt; do post do Dani. A única diferença aqui é que a função &lt;code&gt;cria_paleta()&lt;/code&gt; já recebe a matriz representando a imagem.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;criar_paleta &amp;lt;- function(img_matrix, num_cores){
+  
+  km &amp;lt;- kmeans(img_matrix, centers = num_cores)
+  
+  img_df &amp;lt;- tibble(
+    r = img_matrix[,1], 
+    g = img_matrix[,2], 
+    b = img_matrix[,3],
+    cluster = km$cluster
+  )
+  
+  centroides &amp;lt;- img_df %&amp;gt;%
+    group_by(cluster) %&amp;gt;%
+    summarise_all(mean)
+
+  centroides &amp;lt;- centroides %&amp;gt;%
+    mutate(cor = rgb(r, g, b))
+
+  sort(centroides$cor)
+}
+
+exibir &amp;lt;- function(x) {
+  n &amp;lt;- length(x)
+  old &amp;lt;- par(mar = c(0.5, 0.5, 0.5, 0.5))
+  on.exit(par(old))
+  
+  image(1:n, 1, as.matrix(1:n), col = x,
+        ylab = &amp;quot;&amp;quot;, xaxt = &amp;quot;n&amp;quot;, yaxt = &amp;quot;n&amp;quot;, bty = &amp;quot;n&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Assim, basta aplicar essas funções aos objetos &lt;code&gt;img_bvs&lt;/code&gt; e &lt;code&gt;img_cw&lt;/code&gt; para obter as paletas. Primeiro para o Batman vs Superman:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paleta_bvs &amp;lt;- criar_paleta(img_bvs, 10)
+exibir(paleta_bvs)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;E agora para o Capitão América:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paleta_cw &amp;lt;- criar_paleta(img_cw, 10)
+exibir(paleta_cw)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Observe que o filme da DC tem cores mais escuras e fortes, com vários tons de azul, indicando as cenas noturnas e de chuva. Já a paleta da Marvel apresenta cores mais claras, com vários tons representando o céu pálido das cenas externas.&lt;/p&gt;
+&lt;p&gt;Podemos fazer a análise agora para o pôster de cada filme (o que aparece no IMDB):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;4800&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_bvs &amp;lt;- ler_imagem(&amp;quot;images/bvs_poster.jpg&amp;quot;)
+paleta_bvs &amp;lt;- criar_paleta(img_bvs, 10)
+exibir(paleta_bvs)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;4800&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_cw &amp;lt;- ler_imagem(&amp;quot;images/cw_poster.jpg&amp;quot;)
+paleta_cw &amp;lt;- criar_paleta(img_cw, 10)
+exibir(paleta_cw)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;4800&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Veja que os diferentes tons de azul se repete no pôster do Batman vs Superman. Já o pôster do Capitão América é bem cinzento, com metade da paleta representando &lt;a href=&#34;http://media.melty.com.br/article-6991-ratio265_1020/filme-50-tons-de-cinza-jamie-dornan-christian.jpg&#34;&gt;tons de cinza&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Fica então o desafio de repetir a análise para outros filmes e compartilhar o resultado com a gente. Comentários? Sugestões? Críticas? Mande a sua opinião!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
