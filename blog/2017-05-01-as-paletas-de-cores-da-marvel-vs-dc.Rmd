@@ -102,7 +102,7 @@ paleta_bvs <- criar_paleta(img_bvs, 10)
 exibir(paleta_bvs)
 ```
 
-```{r, echo=FALSE, fig.width=50, fig.height=40, eval = TRUE}
+```{r, echo=FALSE, fig.width=40, fig.height=20, eval = TRUE}
 x <- image_read('img/paleta_bvs.jpeg')
 plot(x)
 ```
@@ -114,7 +114,7 @@ paleta_cw <- criar_paleta(img_cw, 10)
 exibir(paleta_cw)
 ```
 
-```{r, echo=FALSE, fig.width=50, fig.height=40, eval = TRUE}
+```{r, echo=FALSE, fig.width=40, fig.height=20, eval = TRUE}
 x <- image_read('img/paleta_cw.jpeg')
 plot(x)
 ```
@@ -134,7 +134,7 @@ paleta_bvs <- criar_paleta(img_bvs, 10)
 exibir(paleta_bvs)
 ```
 
-```{r, echo=FALSE, fig.width=50, fig.height=40, eval = TRUE}
+```{r, echo=FALSE, fig.width=40, fig.height=20, eval = TRUE}
 x <- image_read('img/paleta_poster_bvs.jpeg')
 plot(x)
 ```
@@ -145,7 +145,7 @@ paleta_cw <- criar_paleta(img_cw, 10)
 exibir(paleta_cw)
 ```
 
-```{r, echo=FALSE, fig.width=50, fig.height=40, eval = TRUE}
+```{r, echo=FALSE, fig.width=40, fig.height=20, eval = TRUE}
 x <- image_read('img/paleta_poster_cw.jpeg')
 plot(x)
 ```
