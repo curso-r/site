@@ -3,7 +3,7 @@ title: "Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos"
 date: "2017-05-04T23:26:00+03:00"
 tags: ["r", "imagens", "kmeans"]
 categories: ["r"]
-banner: "img/banners/mapas_tematicos_rapidos.jpg"
+banner: "img/banners/mapas_tematicos_rapidos.png"
 author: ["Fernando"]
 summary: "Impressionar é muito mais fácil se você usa mapas. Neste post vamos aprender a construir mapas temáicos do Brasil com muita agilidade."
 ---
@@ -29,9 +29,9 @@ constroi_mapa_tematico <- function(dataset){
 ```
 
 
-De todas as visualizações, mapas são aquelas que impressionam mais. É muito mais fácil alguém se maravilhar com o mapa mais simples do que com o `ggplot2` mais complicado. Felizmente, considerando essa comparação, o R disponibiliza muitos recursos para construir mapas. É possível fazer mapas interativos ou estáticos com simplicidade. 
+De todas as visualizações, mapas são aquelas que impressionam mais. É muito mais fácil alguém se maravilhar com o mapa mais simples do que com o `ggplot2` mais complicado. Felizmente, considerando essa comparação, o R disponibiliza muitos recursos para construir mapas.
 
-Dentro do `tidyverse` é possível construir mapas usando a função `geom_map`, do pacote `ggplot2`. Está fora do escopo deste post explicar como ela funciona, mas vamos descobrir como usá-la para agilizar a construção de um gráfico simples.
+Dentro do `tidyverse` é possível construir mapas usando a função `geom_map`, do pacote `ggplot2`, mas está fora do escopo deste post explicar como ela funciona. Aqui vamos apenas descobrir como usá-la para agilizar a construção de um gráfico simples.
 
 Na Associação Brasileira de Jurimetria, nós temos um tipo favorito de mapa. Tipicamente temos interesse em diferenciar as unidades da federação por alguma variável quantitativa, seja ela categorizada ou não, e a ferramenta certa para isso é um mapa temático dos estados. Essa necessidade é tão frequente que as ferramentas mais importantes para construção desses gráficos estão num pacote chamado `abjData`.
 
