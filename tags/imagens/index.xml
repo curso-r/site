@@ -10,6 +10,92 @@
     <atom:link href="http://curso-r.com/tags/imagens/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos</title>
+      <link>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</link>
+      <pubDate>Thu, 04 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</guid>
+      <description>&lt;p&gt;De todas as visualizações, mapas são aquelas que impressionam mais. É muito mais fácil alguém se maravilhar com o mapa mais simples do que com o &lt;code&gt;ggplot2&lt;/code&gt; mais complicado. Felizmente, considerando essa comparação, o R disponibiliza muitos recursos para construir mapas. É possível fazer mapas interativos ou estáticos com simplicidade.&lt;/p&gt;
+&lt;p&gt;Dentro do &lt;code&gt;tidyverse&lt;/code&gt; é possível construir mapas usando a função &lt;code&gt;geom_map&lt;/code&gt;, do pacote &lt;code&gt;ggplot2&lt;/code&gt;. Está fora do escopo deste post explicar como ela funciona, mas vamos descobrir como usá-la para agilizar a construção de um gráfico simples.&lt;/p&gt;
+&lt;p&gt;Na Associação Brasileira de Jurimetria, nós temos um tipo favorito de mapa. Tipicamente temos interesse em diferenciar as unidades da federação por alguma variável quantitativa, seja ela categorizada ou não, e a ferramenta certa para isso é um mapa temático dos estados. Essa necessidade é tão frequente que as ferramentas mais importantes para construção desses gráficos estão num pacote chamado &lt;code&gt;abjData&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;As coisas estão dispostas de tal forma que, a partir de uma tabela que relaciona uma variavel e os estados brasileiros, construir um gráfico similar ao mapa abaixo pode ser feito chamando apenas uma função[^FBSP].&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dataset %&amp;gt;% 
+  constroi_mapa_tematico()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Neste post, vamos construir a função &lt;code&gt;constroi_mapa_tematico&lt;/code&gt; e aprender a implementar alguns &lt;code&gt;tweaks&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;a-funcao&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A função&lt;/h2&gt;
+&lt;p&gt;O &lt;code&gt;geom_map&lt;/code&gt; é uma função do &lt;code&gt;ggplot2&lt;/code&gt; que renderiza coordenadas de mapas. Ela pega um data_frame especial que diz quais coordenadas usar (e como usá-las) e plota no gráfico. Esse mapa normalmente é obtido aplicando a função &lt;code&gt;fortify&lt;/code&gt; em um conjunto de dados geospaciais.&lt;/p&gt;
+&lt;p&gt;Para os gráficos que vamos construir aqui, não vai ser necessário aplicar a função &lt;code&gt;fortify&lt;/code&gt;, pois o resultado desse passo já está disponível no pacote &lt;code&gt;abjData&lt;/code&gt; e ele é o data_frame &lt;code&gt;br_uf_map&lt;/code&gt;. Tudo que vamos precisar fazer é pedir que o &lt;code&gt;geom_map&lt;/code&gt; use esse cara.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;abjur/abjData&amp;#39;)
+#instala o pacote&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;constroi_mapa_tematico &amp;lt;- function(dataset){
+  dataset %&amp;gt;% 
+  inner_join(abjData::br_uf_map) %&amp;gt;% {
+    ggplot(.) +
+    geom_map(aes(x = long, y = lat,
+                 map_id = id, fill = variavel),
+             color = &amp;#39;gray30&amp;#39;, map = ., data = .) + 
+    theme_void() +
+    coord_equal()
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O &lt;code&gt;input&lt;/code&gt; da função é uma tabela &lt;code&gt;dataset&lt;/code&gt; com duas colunas&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;id&lt;/code&gt;, que representa as unidades da federação abreviada;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;variavel&lt;/code&gt;, variável numérica (ou fator) que vai colorir o gráfico.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No exemplo acima essa tabela era:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dataset %&amp;gt;% 
+  head(10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;FALSE # A tibble: 10 × 2
+FALSE       id  variavel
+FALSE    &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt;
+FALSE 1     TO  94.93079
+FALSE 2     SP 278.79676
+FALSE 3     SE  35.50231
+FALSE 4     SC 204.85650
+FALSE 5     RS 169.19369
+FALSE 6     RR 114.90413
+FALSE 7     RO 152.47085
+FALSE 8     RN  26.22847
+FALSE 9     RJ 107.42855
+FALSE 10    PR 148.47011&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;os-tweaks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Os tweaks&lt;/h2&gt;
+&lt;p&gt;A função &lt;code&gt;constroi_mapa_tematico&lt;/code&gt; devolve um &lt;code&gt;ggplot2&lt;/code&gt;, então ainda dá pra mexer em alguns parâmetros estéticos após a construção do mapa. As três coisas que vamos aprender a fazer são&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Adicionar labels e títulos&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dataset %&amp;gt;% 
+  constroi_mapa_tematico() +
+  ggtitle(&amp;quot;Roubos de carros no Brasil em 2014&amp;quot;) +
+  scale_fill_continuous(name = &amp;quot;Taxa/100 mil hab.&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Alterar as cores da escala&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dataset %&amp;gt;% 
+  constroi_mapa_tematico() +
+  ggtitle(&amp;quot;Roubos de carros no Brasil em 2014&amp;quot;) +
+  scale_fill_continuous(name = &amp;quot;Taxa/100 mil hab.&amp;quot;, low = &amp;#39;white&amp;#39;, high = &amp;#39;red&amp;#39;,
+                        na.value = &amp;#39;white&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Alterar valores&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dataset %&amp;gt;% 
+  constroi_mapa_tematico() +
+  ggtitle(&amp;quot;Roubos de carros no Brasil em 2014&amp;quot;) +
+  scale_fill_continuous(name = &amp;quot;Taxa/100 mil hab.&amp;quot;, low = &amp;#39;green&amp;#39;, high = &amp;#39;red&amp;#39;,
+                        na.value = &amp;#39;white&amp;#39;, breaks = seq(0,300,50))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>As cores da Marvel vs DC</title>
       <link>http://curso-r.com/blog/2017/05/01/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/</link>
       <pubDate>Mon, 01 May 2017 23:26:00 +0300</pubDate>
