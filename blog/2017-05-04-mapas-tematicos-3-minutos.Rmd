@@ -37,7 +37,7 @@ Na Associação Brasileira de Jurimetria, nós temos um tipo favorito de mapa. T
 
 As coisas estão dispostas de tal forma que, a partir de uma tabela que relaciona uma variavel e os estados brasileiros, construir um gráfico similar ao mapa abaixo pode ser feito chamando apenas uma função[^FBSP].
 
-[^FBST]: Os dados foram levantados pelo Fórum Brasileiro de Segurança Pública e obtidos via download no seu site http://www.forumseguranca.org.br/estatisticas/introducao/.
+[^FBSP]: Os dados foram levantados pelo Fórum Brasileiro de Segurança Pública e obtidos via download no seu site http://www.forumseguranca.org.br/estatisticas/introducao/.
 
 ```{r, echo = FALSE, comment = FALSE, message = FALSE}
 dataset <- read_csv("2017-05-04-mapas-tematicos-3-minutos/dados.csv")

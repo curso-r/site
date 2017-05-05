@@ -18,7 +18,7 @@
       <description>&lt;p&gt;De todas as visualizações, mapas são aquelas que impressionam mais. É muito mais fácil alguém se maravilhar com o mapa mais simples do que com o &lt;code&gt;ggplot2&lt;/code&gt; mais complicado. Felizmente, considerando essa comparação, o R disponibiliza muitos recursos para construir mapas.&lt;/p&gt;
 &lt;p&gt;Dentro do &lt;code&gt;tidyverse&lt;/code&gt; é possível construir mapas usando a função &lt;code&gt;geom_map&lt;/code&gt;, do pacote &lt;code&gt;ggplot2&lt;/code&gt;, mas está fora do escopo deste post explicar como ela funciona. Aqui vamos apenas descobrir como usá-la para agilizar a construção de um gráfico simples.&lt;/p&gt;
 &lt;p&gt;Na Associação Brasileira de Jurimetria, nós temos um tipo favorito de mapa. Tipicamente temos interesse em diferenciar as unidades da federação por alguma variável quantitativa, seja ela categorizada ou não, e a ferramenta certa para isso é um mapa temático dos estados. Essa necessidade é tão frequente que as ferramentas mais importantes para construção desses gráficos estão num pacote chamado &lt;code&gt;abjData&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;As coisas estão dispostas de tal forma que, a partir de uma tabela que relaciona uma variavel e os estados brasileiros, construir um gráfico similar ao mapa abaixo pode ser feito chamando apenas uma função[^FBSP].&lt;/p&gt;
+&lt;p&gt;As coisas estão dispostas de tal forma que, a partir de uma tabela que relaciona uma variavel e os estados brasileiros, construir um gráfico similar ao mapa abaixo pode ser feito chamando apenas uma função&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dataset %&amp;gt;% 
   constroi_mapa_tematico()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
@@ -91,6 +91,12 @@ FALSE 10    PR 148.47011&lt;/code&gt;&lt;/pre&gt;
   scale_fill_continuous(name = &amp;quot;Taxa/100 mil hab.&amp;quot;, low = &amp;#39;green&amp;#39;, high = &amp;#39;red&amp;#39;,
                         na.value = &amp;#39;white&amp;#39;, breaks = seq(0,300,50))&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Os dados foram levantados pelo Fórum Brasileiro de Segurança Pública e obtidos via download no seu site &lt;a href=&#34;http://www.forumseguranca.org.br/estatisticas/introducao/&#34; class=&#34;uri&#34;&gt;http://www.forumseguranca.org.br/estatisticas/introducao/&lt;/a&gt;.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -224,7 +230,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x469db70&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## &amp;lt;bytecode: 0x41d3b70&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -337,17 +343,17 @@ centroides
 ## # A tibble: 6 × 4
 ##   cluster         r          g         b
 ##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.1242676 0.04329523 0.2157608
-## 2       2 0.7016494 0.46722267 0.3238223
-## 3       3 0.5005264 0.18317492 0.1587960
-## 4       4 0.2212878 0.27343708 0.4408806
-## 5       5 0.3541964 0.46238302 0.5494433
-## 6       6 0.8768120 0.76211694 0.6453261&lt;/code&gt;&lt;/pre&gt;
+## 1       1 0.0996826 0.04366903 0.2398452
+## 2       2 0.7195362 0.54881786 0.4098359
+## 3       3 0.8857289 0.77915257 0.6688482
+## 4       4 0.6239192 0.28335790 0.1897367
+## 5       5 0.3789830 0.11857741 0.1558412
+## 6       6 0.2721465 0.36412137 0.4901613&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#200B37&amp;quot; &amp;quot;#B37753&amp;quot; &amp;quot;#802F28&amp;quot; &amp;quot;#384670&amp;quot; &amp;quot;#5A768C&amp;quot; &amp;quot;#E0C2A5&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#190B3D&amp;quot; &amp;quot;#B78C69&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#455D7D&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
