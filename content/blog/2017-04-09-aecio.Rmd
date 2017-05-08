@@ -110,7 +110,8 @@ A Figura \@ref(fig:each) mostra os resultados individuais das imagens. O primeir
 
 ```{r each, fig.height=8, fig.width=7, fig.align = 'center', echo=FALSE, fig.cap='Emoções do Aécio em cada imagem.'}
 plotar_img <- function(d, i) {
-  img <- httr::content(httr::GET(u_imagens[i]))
+  # img <- httr::content(httr::GET(u_imagens[i]))
+  img <- jpeg::readJPEG(p_imagens[i])
   g <- grid::rasterGrob(img, interpolate = TRUE)
   d_plot <- d %>% 
     gather(emotion, val, -id) %>% 
