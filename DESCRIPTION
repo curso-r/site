@@ -22,6 +22,8 @@ Imports:
     stringr,
     purrr,
     httr,
+    venneuler,
+    VennDiagram,
     magrittr,
     bookdown,
     devtools,

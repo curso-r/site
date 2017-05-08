@@ -6,3 +6,4 @@ blogdown/
 public/
 carros_eletronicas.rda
 DS_Store
+.httr-oauth
