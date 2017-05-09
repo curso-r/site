@@ -53,19 +53,19 @@ centroides &amp;lt;- img_df %&amp;gt;%
 
 centroides
 ## # A tibble: 6 × 4
-##   cluster         r          g         b
-##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.2212875 0.27343423 0.4408795
-## 2       2 0.8768970 0.76224179 0.6454794
-## 3       3 0.7017989 0.46751128 0.3240634
-## 4       4 0.1243380 0.04330185 0.2157165
-## 5       5 0.5006902 0.18330624 0.1588547
-## 6       6 0.3542115 0.46236909 0.5494132&lt;/code&gt;&lt;/pre&gt;
+##   cluster          r         g         b
+##     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1       1 0.27214211 0.3641213 0.4901644
+## 2       2 0.37889146 0.1185504 0.1558589
+## 3       3 0.62387801 0.2832790 0.1896923
+## 4       4 0.09965226 0.0436630 0.2398620
+## 5       5 0.71951030 0.5487661 0.4097725
+## 6       6 0.88572504 0.7791481 0.6688438&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#384670&amp;quot; &amp;quot;#E0C2A5&amp;quot; &amp;quot;#B37753&amp;quot; &amp;quot;#200B37&amp;quot; &amp;quot;#802F29&amp;quot; &amp;quot;#5A768C&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#455D7D&amp;quot; &amp;quot;#611E28&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#190B3D&amp;quot; &amp;quot;#B78C68&amp;quot; &amp;quot;#E2C7AB&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
