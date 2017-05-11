@@ -230,7 +230,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x3af96f8&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## &amp;lt;bytecode: 0x48326f8&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -316,8 +316,7 @@ img &amp;lt;- readJPEG(&amp;quot;img/david-bowie.jpg&amp;quot;)&lt;/code&gt;&lt;
 &lt;p&gt;Nesse caso, os indivíduos são os pixels da imagem e as características que estamos interessados são os valores de R, de G e de B (valores que representam a cor do pixel). Para o algortimos de clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão que o trecho de código a seguir realiza.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;img_matrix &amp;lt;- apply(img, 3, as.numeric)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora temos uma matriz com 3 colunas e 799.700 linhas. Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em um grupo. O K-means pede o número de grupos como input, vamos começar com 6.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;km &amp;lt;- kmeans(img_matrix, centers = 6)
-## Warning: Quick-TRANSfer stage steps exceeded maximum (= 39985000)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;km &amp;lt;- kmeans(img_matrix, centers = 6)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O objeto gerado pela função &lt;code&gt;kmeans&lt;/code&gt; armazena um vetor chamado &lt;code&gt;cluster&lt;/code&gt; (do tamanho do número de linhas da matriz) com um identificador do grupo de cada observação da matriz.&lt;/p&gt;
 &lt;p&gt;A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o &lt;code&gt;dplyr&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
@@ -344,17 +343,17 @@ centroides
 ## # A tibble: 6 × 4
 ##   cluster         r          g         b
 ##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.4947148 0.18260623 0.1621511
-## 2       2 0.7034766 0.46841842 0.3240872
-## 3       3 0.2102636 0.26149256 0.4412365
-## 4       4 0.8744335 0.76156994 0.6466555
-## 5       5 0.3455306 0.44904107 0.5343625
-## 6       6 0.1204738 0.04157139 0.2143120&lt;/code&gt;&lt;/pre&gt;
+## 1       1 0.5005264 0.18317492 0.1587960
+## 2       2 0.3541964 0.46238302 0.5494433
+## 3       3 0.7016494 0.46722267 0.3238223
+## 4       4 0.1242676 0.04329523 0.2157608
+## 5       5 0.8768120 0.76211694 0.6453261
+## 6       6 0.2212878 0.27343708 0.4408806&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#7E2F29&amp;quot; &amp;quot;#B37753&amp;quot; &amp;quot;#364371&amp;quot; &amp;quot;#DFC2A5&amp;quot; &amp;quot;#587388&amp;quot; &amp;quot;#1F0B37&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#802F28&amp;quot; &amp;quot;#5A768C&amp;quot; &amp;quot;#B37753&amp;quot; &amp;quot;#200B37&amp;quot; &amp;quot;#E0C2A5&amp;quot; &amp;quot;#384670&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)
