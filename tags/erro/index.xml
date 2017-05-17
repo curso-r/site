@@ -168,7 +168,7 @@ d_result &amp;lt;- entradas %&amp;gt;%
   as_tibble()
 
 d_result
-## # A tibble: 3 × 2
+## # A tibble: 3 x 2
 ##     result             error
 ##      &amp;lt;dbl&amp;gt;            &amp;lt;list&amp;gt;
 ## 1 2.302585            &amp;lt;NULL&amp;gt;

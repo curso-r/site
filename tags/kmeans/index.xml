@@ -48,18 +48,18 @@
 &lt;p&gt;No exemplo acima essa tabela era:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dataset %&amp;gt;% 
   head(10)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;FALSE # A tibble: 10 × 2
+&lt;pre&gt;&lt;code&gt;FALSE # A tibble: 10 x 2
 FALSE       id  variavel
 FALSE    &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt;
-FALSE 1     TO  94.93079
-FALSE 2     SP 278.79676
-FALSE 3     SE  35.50231
-FALSE 4     SC 204.85650
-FALSE 5     RS 169.19369
-FALSE 6     RR 114.90413
-FALSE 7     RO 152.47085
-FALSE 8     RN  26.22847
-FALSE 9     RJ 107.42855
+FALSE  1    TO  94.93079
+FALSE  2    SP 278.79676
+FALSE  3    SE  35.50231
+FALSE  4    SC 204.85650
+FALSE  5    RS 169.19369
+FALSE  6    RR 114.90413
+FALSE  7    RO 152.47085
+FALSE  8    RN  26.22847
+FALSE  9    RJ 107.42855
 FALSE 10    PR 148.47011&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;os-tweaks&#34; class=&#34;section level2&#34;&gt;
@@ -230,7 +230,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x3db1c50&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## &amp;lt;bytecode: 0x533f308&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -340,20 +340,20 @@ centroides &amp;lt;- img_df %&amp;gt;%
   summarise_all(mean)
 
 centroides
-## # A tibble: 6 × 4
-##   cluster          r         g         b
-##     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.37889146 0.1185504 0.1558589
-## 2       2 0.88572504 0.7791481 0.6688438
-## 3       3 0.09965226 0.0436630 0.2398620
-## 4       4 0.71951030 0.5487661 0.4097725
-## 5       5 0.27214211 0.3641213 0.4901644
-## 6       6 0.62387801 0.2832790 0.1896923&lt;/code&gt;&lt;/pre&gt;
+## # A tibble: 6 x 4
+##   cluster         r          g         b
+##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1       1 0.3542115 0.46236909 0.5494132
+## 2       2 0.1243380 0.04330185 0.2157165
+## 3       3 0.5006902 0.18330624 0.1588547
+## 4       4 0.2212875 0.27343423 0.4408795
+## 5       5 0.8768970 0.76224179 0.6454794
+## 6       6 0.7017989 0.46751128 0.3240634&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#611E28&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#190B3D&amp;quot; &amp;quot;#B78C68&amp;quot; &amp;quot;#455D7D&amp;quot; &amp;quot;#9F4830&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#5A768C&amp;quot; &amp;quot;#200B37&amp;quot; &amp;quot;#802F29&amp;quot; &amp;quot;#384670&amp;quot; &amp;quot;#E0C2A5&amp;quot; &amp;quot;#B37753&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)

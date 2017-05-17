@@ -48,18 +48,18 @@
 &lt;p&gt;No exemplo acima essa tabela era:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dataset %&amp;gt;% 
   head(10)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;FALSE # A tibble: 10 × 2
+&lt;pre&gt;&lt;code&gt;FALSE # A tibble: 10 x 2
 FALSE       id  variavel
 FALSE    &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt;
-FALSE 1     TO  94.93079
-FALSE 2     SP 278.79676
-FALSE 3     SE  35.50231
-FALSE 4     SC 204.85650
-FALSE 5     RS 169.19369
-FALSE 6     RR 114.90413
-FALSE 7     RO 152.47085
-FALSE 8     RN  26.22847
-FALSE 9     RJ 107.42855
+FALSE  1    TO  94.93079
+FALSE  2    SP 278.79676
+FALSE  3    SE  35.50231
+FALSE  4    SC 204.85650
+FALSE  5    RS 169.19369
+FALSE  6    RR 114.90413
+FALSE  7    RO 152.47085
+FALSE  8    RN  26.22847
+FALSE  9    RJ 107.42855
 FALSE 10    PR 148.47011&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;os-tweaks&#34; class=&#34;section level2&#34;&gt;
