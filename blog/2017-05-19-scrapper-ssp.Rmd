@@ -5,7 +5,7 @@ tags: ["r", "web-scraping", "dados-abertos"]
 categories: ["r"]
 banner: "img/banners/scrapper-ssp.png"
 author: ["Fernando"]
-summary: "Ao contrário de outros usos pro R, web-scrapping não tem uma receita bem definida. Mesmo definindo passos intermediários, alguns scrappers usam ideias que funcionam apenas em casos específicos. Neste post vamos estudar a construção de um Web Scraping com ideias facilmente generalizáveis."
+summary: "Ao contrário de outros usos pro R, web-scrapping não tem uma receita bem definida. Mesmo definindo passos intermediários, alguns scrapers usam ideias que funcionam apenas em casos específicos. Neste post vamos estudar a construção de um Web Scraping com ideias facilmente generalizáveis."
 ---
 
 ```{r setup, include=FALSE}
@@ -17,9 +17,9 @@ Quando eu trabalhei no Núcleo de Estudos da Violência da USP, obter informaç�
 
 Depois dessa época eu nunca mais mexi com esses dados. Eu sempre tive vontade de implementar uma solução em R, mas sempre faltou motivação. Felizmente, na ultima semana minha namorada precisou dos dados da SSP para um trabalho que está fazendo, só que dessa vez o interesse era em todos os 645 municípios do estado de São Paulo nos anos entre 2013 a 2016. Como não há como baixar todas essas informações de uma vez e downloads individuais tomam muito tempo, eu me senti motivado o suficiente para atacar o problema.<!--Pensamos um pouco e construímos um _scrapper_ da SSP em R.-->
 
-Pra ser sincero, foi bem mais fácil do que eu achei que seria. A construção do programa foi tão simples que cabe até mesmo neste post de blog, mas não é só por isso que ela está aqui. <!--De fato, _scrappers_ não vêm em muitas dificuldades (ou são ou muito fáceis, ou são muito difíceis),-->  Esse é um exemplo minimal de todas as fases de construção de um _scrapper_.<!--e neste post vou mostrar como raspar o site da SSP de São Paulo em R.-->
+Pra ser sincero, foi bem mais fácil do que eu achei que seria. A construção do programa foi tão simples que cabe até mesmo neste post de blog, mas não é só por isso que ela está aqui. <!--De fato, _scrappers_ não vêm em muitas dificuldades (ou são ou muito fáceis, ou são muito difíceis),-->  Esse é um exemplo minimal de todas as fases de construção de um _scraper_.<!--e neste post vou mostrar como raspar o site da SSP de São Paulo em R.-->
 
-## Os quatro passo para construir um scrapper
+## Os quatro passo para construir um _scraper_
 
 Em um esquema aproximado, eu acredito que raspar (ou _scrappear_) um site pode ser feito em 4 passos:
 
@@ -28,7 +28,7 @@ Em um esquema aproximado, eu acredito que raspar (ou _scrappear_) um site pode s
 3. Construa um programa que _imite_ as requisições que você faria manualmente;
 4. Repita o passo 3. quantas vezes quiser.
 
-Mesmo que existam _scrappers_ mais complicados, é verdade que seguir esses passos pelo menos te ajuda a chegar mais perto do que você realmente precisará fazer depois.
+Mesmo que existam _scrapers_ mais complicados, é verdade que seguir esses passos pelo menos te ajuda a chegar mais perto do que você realmente precisará fazer depois.
 
 ## Defina o que você quer
 
@@ -36,7 +36,7 @@ Tanto o NEV quanto a minha namorada tinham interesse nas tabelas que apareciam n
 
 ## Identifique o que o site faz por trás
 
-Identificar o que o site faz por trás provavelmente é a fase mais complicada da construção de um scrapper. A dificuldade é que não existe um algoritmo que faça isso pra você. Normalmente eu sigo alguns passos, mas eles exigem uma dose de _insight_ para funcionar, o que implica que talvez não seja possível seguir todos os passos em sequência. 
+Identificar o que o site faz por trás provavelmente é a fase mais complicada da construção de um _scraper_. A dificuldade é que não existe um algoritmo que faça isso pra você. Normalmente eu sigo alguns passos, mas eles exigem uma dose de _insight_ para funcionar, o que implica que talvez não seja possível seguir todos os passos em sequência. 
 
 1. Entre na página imediatamente anterior à página que você quer acessar.
 2. Abra as ferramentas de desenvolvedor dos seu navegador (isso normalmente é equivalente à "aperte F12").

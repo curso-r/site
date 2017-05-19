@@ -174,9 +174,9 @@
                         <div id="post-content">
                           <p>Quando eu trabalhei no Núcleo de Estudos da Violência da USP, obter informações da Secretaria de Segurança Pública de São Paulo (SSP) era uma tarefa meio esotérica. Coletávamos os dados de todos os DP’s de São Paulo, que são aproximadamente 100, e, como fazer isso manualmente era demorado, aplicávamos uma solução automática em dois passos. Primeiro <em>raspávamos</em> o site da SSP em Python<!--, com um script desenvolvido antes da minha entrada,--> e depois rodávamos uma macro em VBA chamada “Mestre Dos Magos”, que era responsável por consolidar as séries históricas em excel. Eu achava o procedimento um pouco hermético porque nenhum deles tinha sido feito por mim ou pela minha equipe, era uma herança que a gente não sabia como consertar se desse algum problema. Para dar um exemplo, no final da minha breve estadia no NEV o script não funcionava mais, então era necessário baixar tudo manualmente.</p>
 <p>Depois dessa época eu nunca mais mexi com esses dados. Eu sempre tive vontade de implementar uma solução em R, mas sempre faltou motivação. Felizmente, na ultima semana minha namorada precisou dos dados da SSP para um trabalho que está fazendo, só que dessa vez o interesse era em todos os 645 municípios do estado de São Paulo nos anos entre 2013 a 2016. Como não há como baixar todas essas informações de uma vez e downloads individuais tomam muito tempo, eu me senti motivado o suficiente para atacar o problema.<!--Pensamos um pouco e construímos um _scrapper_ da SSP em R.--></p>
-<p>Pra ser sincero, foi bem mais fácil do que eu achei que seria. A construção do programa foi tão simples que cabe até mesmo neste post de blog, mas não é só por isso que ela está aqui. <!--De fato, _scrappers_ não vêm em muitas dificuldades (ou são ou muito fáceis, ou são muito difíceis),--> Esse é um exemplo minimal de todas as fases de construção de um <em>scrapper</em>.<!--e neste post vou mostrar como raspar o site da SSP de São Paulo em R.--></p>
-<div id="os-quatro-passo-para-construir-um-scrapper" class="section level2">
-<h2>Os quatro passo para construir um scrapper</h2>
+<p>Pra ser sincero, foi bem mais fácil do que eu achei que seria. A construção do programa foi tão simples que cabe até mesmo neste post de blog, mas não é só por isso que ela está aqui. <!--De fato, _scrappers_ não vêm em muitas dificuldades (ou são ou muito fáceis, ou são muito difíceis),--> Esse é um exemplo minimal de todas as fases de construção de um <em>scraper</em>.<!--e neste post vou mostrar como raspar o site da SSP de São Paulo em R.--></p>
+<div id="os-quatro-passo-para-construir-um-scraper" class="section level2">
+<h2>Os quatro passo para construir um <em>scraper</em></h2>
 <p>Em um esquema aproximado, eu acredito que raspar (ou <em>scrappear</em>) um site pode ser feito em 4 passos:</p>
 <ol style="list-style-type: decimal">
 <li>Defina a página que você quer raspar;</li>
@@ -184,7 +184,7 @@
 <li>Construa um programa que <em>imite</em> as requisições que você faria manualmente;</li>
 <li>Repita o passo 3. quantas vezes quiser.</li>
 </ol>
-<p>Mesmo que existam <em>scrappers</em> mais complicados, é verdade que seguir esses passos pelo menos te ajuda a chegar mais perto do que você realmente precisará fazer depois.</p>
+<p>Mesmo que existam <em>scrapers</em> mais complicados, é verdade que seguir esses passos pelo menos te ajuda a chegar mais perto do que você realmente precisará fazer depois.</p>
 </div>
 <div id="defina-o-que-voce-quer" class="section level2">
 <h2>Defina o que você quer</h2>
@@ -192,7 +192,7 @@
 </div>
 <div id="identifique-o-que-o-site-faz-por-tras" class="section level2">
 <h2>Identifique o que o site faz por trás</h2>
-<p>Identificar o que o site faz por trás provavelmente é a fase mais complicada da construção de um scrapper. A dificuldade é que não existe um algoritmo que faça isso pra você. Normalmente eu sigo alguns passos, mas eles exigem uma dose de <em>insight</em> para funcionar, o que implica que talvez não seja possível seguir todos os passos em sequência.</p>
+<p>Identificar o que o site faz por trás provavelmente é a fase mais complicada da construção de um <em>scraper</em>. A dificuldade é que não existe um algoritmo que faça isso pra você. Normalmente eu sigo alguns passos, mas eles exigem uma dose de <em>insight</em> para funcionar, o que implica que talvez não seja possível seguir todos os passos em sequência.</p>
 <ol style="list-style-type: decimal">
 <li>Entre na página imediatamente anterior à página que você quer acessar.</li>
 <li>Abra as ferramentas de desenvolvedor dos seu navegador (isso normalmente é equivalente à “aperte F12”).</li>
@@ -550,14 +550,14 @@ D &lt;- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = &quot;ocorrencias&quot
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
