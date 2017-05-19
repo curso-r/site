@@ -23,7 +23,7 @@
 &lt;p&gt;Em um esquema aproximado, eu acredito que raspar (ou &lt;em&gt;scrappear&lt;/em&gt;) um site pode ser feito em 4 passos:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Defina a página que você quer raspar;&lt;/li&gt;
-&lt;li&gt;Identifique &lt;em&gt;exatamente&lt;/em&gt; que requisições que produzem o que você quer;&lt;/li&gt;
+&lt;li&gt;Identifique &lt;em&gt;exatamente&lt;/em&gt; as requisições que produzem o que você quer;&lt;/li&gt;
 &lt;li&gt;Construa um programa que &lt;em&gt;imite&lt;/em&gt; as requisições que você faria manualmente;&lt;/li&gt;
 &lt;li&gt;Repita o passo 3. quantas vezes quiser.&lt;/li&gt;
 &lt;/ol&gt;
