@@ -24,7 +24,7 @@ Pra ser sincero, foi bem mais fácil do que eu achei que seria. A construção d
 Em um esquema aproximado, eu acredito que raspar (ou _scrappear_) um site pode ser feito em 4 passos:
 
 1. Defina a página que você quer raspar;
-2. Identifique _exatamente_ que requisições que produzem o que você quer;
+2. Identifique _exatamente_ as requisições que produzem o que você quer;
 3. Construa um programa que _imite_ as requisições que você faria manualmente;
 4. Repita o passo 3. quantas vezes quiser.
 
