@@ -19,7 +19,7 @@ Depois dessa época eu nunca mais mexi com esses dados. Eu sempre tive vontade d
 
 Pra ser sincero, foi bem mais fácil do que eu achei que seria. A construção do programa foi tão simples que cabe até mesmo neste post de blog, mas não é só por isso que ela está aqui. <!--De fato, _scrappers_ não vêm em muitas dificuldades (ou são ou muito fáceis, ou são muito difíceis),-->  Esse é um exemplo minimal de todas as fases de construção de um _scraper_.<!--e neste post vou mostrar como raspar o site da SSP de São Paulo em R.-->
 
-## Os quatro passo para construir um _scraper_
+## Os quatro passos para construir um _scraper_
 
 Em um esquema aproximado, eu acredito que raspar (ou _scrappear_) um site pode ser feito em 4 passos:
 
