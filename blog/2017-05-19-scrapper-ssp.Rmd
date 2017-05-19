@@ -13,7 +13,7 @@ library(tidyverse)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Quando eu trabalhei no Núcleo de Estudos da Violência da USP, obter informações da Secretaria de Segurança Pública de São Paulo (SSP) era uma tarefa meio esotérica. Coletávamos os dados de todos os DP's de São Paulo, que são aproximadamente 100, e, como fazer isso manualmente era demorado, aplicávamos uma solução automática em dois passos. Primeiro _raspávamos_ o site da SSP em Python, com um script desenvolvido antes da minha entrada, e depois rodávamos uma macro em VBA chamada "Mestre Dos Magos", que era responsável por consolidar as séries históricas em excel. Eu achava o procedimento um pouco hermético porque nenhum deles tinha sido feito por mim ou pela minha equipe, era uma herança que a gente não sabia como consertar se desse algum problema. Para dar um exemplo, no final da minha breve estadia no NEV o script não funcionava mais, então era necessário baixar tudo manualmente.
+Quando eu trabalhei no Núcleo de Estudos da Violência da USP, obter informações da Secretaria de Segurança Pública de São Paulo (SSP) era uma tarefa meio esotérica. Coletávamos os dados de todos os DP's de São Paulo, que são aproximadamente 100, e, como fazer isso manualmente era demorado, aplicávamos uma solução automática em dois passos. Primeiro _raspávamos_ o site da SSP em Python<!--, com um script desenvolvido antes da minha entrada,--> e depois rodávamos uma macro em VBA chamada "Mestre Dos Magos", que era responsável por consolidar as séries históricas em excel. Eu achava o procedimento um pouco hermético porque nenhum deles tinha sido feito por mim ou pela minha equipe, era uma herança que a gente não sabia como consertar se desse algum problema. Para dar um exemplo, no final da minha breve estadia no NEV o script não funcionava mais, então era necessário baixar tudo manualmente.
 
 Depois dessa época eu nunca mais mexi com esses dados. Eu sempre tive vontade de implementar uma solução em R, mas sempre faltou motivação. Felizmente, na ultima semana minha namorada precisou dos dados da SSP para um trabalho que está fazendo, só que dessa vez o interesse era em todos os 645 municípios do estado de São Paulo nos anos entre 2013 a 2016. Como não há como baixar todas essas informações de uma vez e downloads individuais tomam muito tempo, eu me senti motivado o suficiente para atacar o problema.<!--Pensamos um pouco e construímos um _scrapper_ da SSP em R.-->
 
@@ -28,11 +28,11 @@ Em um esquema aproximado, eu acredito que raspar (ou _scrappear_) um site pode s
 3. Construa um programa que _imite_ as requisições que você faria manualmente;
 4. Repita o passo 3. quantas vezes quiser.
 
-Mesmo que existam _scrappers_ mais complicado, é verdade que seguir esses passos pelo menos te ajudam a chegar mais perto do que você realmente precisará fazer depois.
+Mesmo que existam _scrappers_ mais complicados, é verdade que seguir esses passos pelo menos te ajuda a chegar mais perto do que você realmente precisará fazer depois.
 
 ## Defina o que você quer
 
-Tanto o NEV quanto a minha namorada tinham interesse nas tabelas que apareciam numa URL específica do site: http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx. A lógica por trás da divulgação dessas informações é a seguinte: você escolhe um ano, uma localidade geográfica/admnistrativa e um tipo de informação e ele te devolve uma tabela. Os anos disponíveis são os anos de 2001 a 2017, as localidades são os cruzamentos entre Municípios, Regiões e Delegacias (notando que você sempre pode escolher "Todos") e os tipos de informação são taxas de delito, ocorrências registradas por ano, ocorrências registradas por mês e produtividade policial. Nesta aplicação vamos procurar contagens de ocorrências registradas por mês.
+Tanto o NEV quanto a minha namorada tinham interesse nas tabelas que apareciam numa URL específica do site: http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx. A lógica por trás da divulgação dessas informações é a seguinte: você escolhe um ano, uma localidade geográfica/administrativa e um tipo de informação e ele te devolve uma tabela. Os anos disponíveis são os anos de 2001 a 2017, as localidades são os cruzamentos entre Municípios, Regiões e Delegacias (notando que você sempre pode escolher "Todos") e os tipos de informação são taxas de delito, ocorrências registradas por ano, ocorrências registradas por mês e produtividade policial. Nesta aplicação vamos procurar contagens de ocorrências registradas por mês.
 
 ## Identifique o que o site faz por trás
 
@@ -79,7 +79,7 @@ a <- magick::image_read('2017-05-19-scrapper-ssp/print_3.png')
 plot(a)
 ```
 
-Quando inspecionamos essa requisição "POST", identificamos que as coisas que são relevantes para o conteúdo da página estão nesses parâmetros. De fato, pensando ingenuamente, clicar apenas em "2017" deve mexer nos parâmetros que tem a ver com isso mas deve deixar os demais parâmetros fixos. Por sorte, os parâmetros observados batem com essa expectativa: "__EVENTTARGET" é `ctl00$conteudo$$ddlAnos` é um _placeholder_ que tem a ver com a caixa de seleção em que mexemos, os dois próximos parâmetros estão zerados, "__VIEWSTATE" e "__EVENTVALIDATION" são parãmetros da sessão, e, por fim, temos os parâmetros da consulta, que estão todos zerados com exceção de `ctl00$conteudo$$ddlAnos`.
+Quando inspecionamos essa requisição "POST", identificamos que as coisas que são relevantes para o conteúdo da página estão nesses parâmetros. De fato, pensando ingenuamente, clicar apenas em "2017" deve mexer nos parâmetros que tem a ver com isso mas deve deixar os demais parâmetros fixos. Por sorte, os parâmetros observados batem com essa expectativa: "__EVENTTARGET" é `ctl00$conteudo$$ddlAnos` é um _placeholder_ que tem a ver com a caixa de seleção em que mexemos, os dois próximos parâmetros estão zerados, "__VIEWSTATE" e "__EVENTVALIDATION" são parâmetros da sessão, e, por fim, temos os parâmetros da consulta, que estão todos zerados com exceção de `ctl00$conteudo$$ddlAnos`.
 
 Parece que os parâmetros tem tudo a ver com a saída. Será que mexer apenas neles basta para copiar a requisição do navegador?
 
@@ -164,7 +164,7 @@ resposta <- httr::POST(url,
   rvest::html_table()
 ```
 
-Exatamente a tabelinha que queríamos! Entretanto, nem tudo são flores. Como eu mencionei alí em cima, tanto a minha namorada quanto o NEV tinham interesse no número de BO's, que não é o que obtivemos fazendo a requisição via R. Fuçando um pouco, é fácil ver que o que obtivemos são os números de produtividade policial. Será que é fácil mexer nos parâmetros pra obter os números de BO's?
+Exatamente a tabelinha que queríamos! Entretanto, nem tudo são flores. Como eu mencionei ali em cima, tanto a minha namorada quanto o NEV tinham interesse no número de BO's, que não é o que obtivemos fazendo a requisição via R. Fuçando um pouco, é fácil ver que o que obtivemos são os números de produtividade policial. Será que é fácil mexer nos parâmetros pra obter os números de BO's?
 
 Felizmente, a resposta é sim, mas não é tão simples quanto parece. Se de outra tela qualquer você clicar em "Ocorrências Registradas por Mês" você vai perceber que o "__EVENTTARGET" mudou para `ctl00$conteudo$$btnMes`, mas, a despeito do que se poderia imaginar, os outros parâmetros permaneceram com os nomes intactos. 
 

@@ -172,7 +172,7 @@
                         </p>
                         
                         <div id="post-content">
-                          <p>Quando eu trabalhei no Núcleo de Estudos da Violência da USP, obter informações da Secretaria de Segurança Pública de São Paulo (SSP) era uma tarefa meio esotérica. Coletávamos os dados de todos os DP’s de São Paulo, que são aproximadamente 100, e, como fazer isso manualmente era demorado, aplicávamos uma solução automática em dois passos. Primeiro <em>raspávamos</em> o site da SSP em Python, com um script desenvolvido antes da minha entrada, e depois rodávamos uma macro em VBA chamada “Mestre Dos Magos”, que era responsável por consolidar as séries históricas em excel. Eu achava o procedimento um pouco hermético porque nenhum deles tinha sido feito por mim ou pela minha equipe, era uma herança que a gente não sabia como consertar se desse algum problema. Para dar um exemplo, no final da minha breve estadia no NEV o script não funcionava mais, então era necessário baixar tudo manualmente.</p>
+                          <p>Quando eu trabalhei no Núcleo de Estudos da Violência da USP, obter informações da Secretaria de Segurança Pública de São Paulo (SSP) era uma tarefa meio esotérica. Coletávamos os dados de todos os DP’s de São Paulo, que são aproximadamente 100, e, como fazer isso manualmente era demorado, aplicávamos uma solução automática em dois passos. Primeiro <em>raspávamos</em> o site da SSP em Python<!--, com um script desenvolvido antes da minha entrada,--> e depois rodávamos uma macro em VBA chamada “Mestre Dos Magos”, que era responsável por consolidar as séries históricas em excel. Eu achava o procedimento um pouco hermético porque nenhum deles tinha sido feito por mim ou pela minha equipe, era uma herança que a gente não sabia como consertar se desse algum problema. Para dar um exemplo, no final da minha breve estadia no NEV o script não funcionava mais, então era necessário baixar tudo manualmente.</p>
 <p>Depois dessa época eu nunca mais mexi com esses dados. Eu sempre tive vontade de implementar uma solução em R, mas sempre faltou motivação. Felizmente, na ultima semana minha namorada precisou dos dados da SSP para um trabalho que está fazendo, só que dessa vez o interesse era em todos os 645 municípios do estado de São Paulo nos anos entre 2013 a 2016. Como não há como baixar todas essas informações de uma vez e downloads individuais tomam muito tempo, eu me senti motivado o suficiente para atacar o problema.<!--Pensamos um pouco e construímos um _scrapper_ da SSP em R.--></p>
 <p>Pra ser sincero, foi bem mais fácil do que eu achei que seria. A construção do programa foi tão simples que cabe até mesmo neste post de blog, mas não é só por isso que ela está aqui. <!--De fato, _scrappers_ não vêm em muitas dificuldades (ou são ou muito fáceis, ou são muito difíceis),--> Esse é um exemplo minimal de todas as fases de construção de um <em>scrapper</em>.<!--e neste post vou mostrar como raspar o site da SSP de São Paulo em R.--></p>
 <div id="os-quatro-passo-para-construir-um-scrapper" class="section level2">
@@ -184,11 +184,11 @@
 <li>Construa um programa que <em>imite</em> as requisições que você faria manualmente;</li>
 <li>Repita o passo 3. quantas vezes quiser.</li>
 </ol>
-<p>Mesmo que existam <em>scrappers</em> mais complicado, é verdade que seguir esses passos pelo menos te ajudam a chegar mais perto do que você realmente precisará fazer depois.</p>
+<p>Mesmo que existam <em>scrappers</em> mais complicados, é verdade que seguir esses passos pelo menos te ajuda a chegar mais perto do que você realmente precisará fazer depois.</p>
 </div>
 <div id="defina-o-que-voce-quer" class="section level2">
 <h2>Defina o que você quer</h2>
-<p>Tanto o NEV quanto a minha namorada tinham interesse nas tabelas que apareciam numa URL específica do site: <a href="http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx" class="uri">http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx</a>. A lógica por trás da divulgação dessas informações é a seguinte: você escolhe um ano, uma localidade geográfica/admnistrativa e um tipo de informação e ele te devolve uma tabela. Os anos disponíveis são os anos de 2001 a 2017, as localidades são os cruzamentos entre Municípios, Regiões e Delegacias (notando que você sempre pode escolher “Todos”) e os tipos de informação são taxas de delito, ocorrências registradas por ano, ocorrências registradas por mês e produtividade policial. Nesta aplicação vamos procurar contagens de ocorrências registradas por mês.</p>
+<p>Tanto o NEV quanto a minha namorada tinham interesse nas tabelas que apareciam numa URL específica do site: <a href="http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx" class="uri">http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx</a>. A lógica por trás da divulgação dessas informações é a seguinte: você escolhe um ano, uma localidade geográfica/administrativa e um tipo de informação e ele te devolve uma tabela. Os anos disponíveis são os anos de 2001 a 2017, as localidades são os cruzamentos entre Municípios, Regiões e Delegacias (notando que você sempre pode escolher “Todos”) e os tipos de informação são taxas de delito, ocorrências registradas por ano, ocorrências registradas por mês e produtividade policial. Nesta aplicação vamos procurar contagens de ocorrências registradas por mês.</p>
 </div>
 <div id="identifique-o-que-o-site-faz-por-tras" class="section level2">
 <h2>Identifique o que o site faz por trás</h2>
@@ -218,7 +218,7 @@
 <p>Antes de prosseguir, é necessário fazer uma inspeção meticulosa de todas as requisições que aparecem, mas vou encurtar a discussão afirmando que a primeira delas é a mais importante. Existem muitas maneiras de deduzir que ela é uma boa candidata, como por exemplo olhando que ela é a única requisição <em>relevante</em> que recebe html, mas vou pular essa parte.</p>
 <p>Segundo o nosso dedo duro, a requisição utiliza o método “POST” e, quando clicamos nela, temos informações sobre ela no painel ao lado. Como eu falei acima, uma requisição é um arquivo .html que “pede” alguma ao servidor com base no seu conteúdo. No geral, um bom lugar para procurar o que a requisição está pedindo é o seu conjunto de parâmetros, na aba “Params” do painel de detalhamento da requisição.</p>
 <p><img src="http://curso-r.com/blog/2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
-<p>Quando inspecionamos essa requisição “POST”, identificamos que as coisas que são relevantes para o conteúdo da página estão nesses parâmetros. De fato, pensando ingenuamente, clicar apenas em “2017” deve mexer nos parâmetros que tem a ver com isso mas deve deixar os demais parâmetros fixos. Por sorte, os parâmetros observados batem com essa expectativa: “__EVENTTARGET&quot; é <code>ctl00$conteudo$$ddlAnos</code> é um <em>placeholder</em> que tem a ver com a caixa de seleção em que mexemos, os dois próximos parâmetros estão zerados, “__VIEWSTATE&quot; e “__EVENTVALIDATION&quot; são parãmetros da sessão, e, por fim, temos os parâmetros da consulta, que estão todos zerados com exceção de <code>ctl00$conteudo$$ddlAnos</code>.</p>
+<p>Quando inspecionamos essa requisição “POST”, identificamos que as coisas que são relevantes para o conteúdo da página estão nesses parâmetros. De fato, pensando ingenuamente, clicar apenas em “2017” deve mexer nos parâmetros que tem a ver com isso mas deve deixar os demais parâmetros fixos. Por sorte, os parâmetros observados batem com essa expectativa: “__EVENTTARGET&quot; é <code>ctl00$conteudo$$ddlAnos</code> é um <em>placeholder</em> que tem a ver com a caixa de seleção em que mexemos, os dois próximos parâmetros estão zerados, “__VIEWSTATE&quot; e “__EVENTVALIDATION&quot; são parâmetros da sessão, e, por fim, temos os parâmetros da consulta, que estão todos zerados com exceção de <code>ctl00$conteudo$$ddlAnos</code>.</p>
 <p>Parece que os parâmetros tem tudo a ver com a saída. Será que mexer apenas neles basta para copiar a requisição do navegador?</p>
 </div>
 </div>
@@ -275,7 +275,7 @@ event_validation &lt;- httr::POST(url) %&gt;%
                        encode = &#39;form&#39;) %&gt;% 
     xml2::read_html() %&gt;% 
   rvest::html_table()</code></pre>
-<p>Exatamente a tabelinha que queríamos! Entretanto, nem tudo são flores. Como eu mencionei alí em cima, tanto a minha namorada quanto o NEV tinham interesse no número de BO’s, que não é o que obtivemos fazendo a requisição via R. Fuçando um pouco, é fácil ver que o que obtivemos são os números de produtividade policial. Será que é fácil mexer nos parâmetros pra obter os números de BO’s?</p>
+<p>Exatamente a tabelinha que queríamos! Entretanto, nem tudo são flores. Como eu mencionei ali em cima, tanto a minha namorada quanto o NEV tinham interesse no número de BO’s, que não é o que obtivemos fazendo a requisição via R. Fuçando um pouco, é fácil ver que o que obtivemos são os números de produtividade policial. Será que é fácil mexer nos parâmetros pra obter os números de BO’s?</p>
 <p>Felizmente, a resposta é sim, mas não é tão simples quanto parece. Se de outra tela qualquer você clicar em “Ocorrências Registradas por Mês” você vai perceber que o “__EVENTTARGET&quot; mudou para <code>ctl00$conteudo$$btnMes</code>, mas, a despeito do que se poderia imaginar, os outros parâmetros permaneceram com os nomes intactos.</p>
 <p><img src="http://curso-r.com/blog/2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
 <p>Como essa requisição sugere, você consegue variar os tipos de informação simplesmente variando o “__EVENTTARGET“. Com isso, uma requisição para obter as”Ocorrências Registradas por Mês&quot; ficaria:</p>
@@ -550,14 +550,14 @@ D &lt;- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = &quot;ocorrencias&quot
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
