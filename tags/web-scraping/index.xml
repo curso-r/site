@@ -175,7 +175,7 @@ params &amp;lt;- list(`__EVENTTARGET` = &amp;quot;ctl00$conteudo$$btnMes&amp;quo
   dplyr::mutate(municipio = municipio,
                 ano = ano) 
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Pra ilustar um grande loop, vamos baixar os BO’s de todos os municípios, no ano de 2016. A função demora um pouco pra rodar, então quem quiser ver como fica o resultado final pode clicar neste link.&lt;/p&gt;
+&lt;p&gt;Pra ilustar um grande loop, vamos baixar os BO’s de todos os municípios, no ano de 2016. A função demora um pouco pra rodar, então quem quiser ver como fica o resultado final pode clicar &lt;a href=&#34;https://github.com/curso-r/site/blob/master/content/blog/2017-05-19-scrapper-ssp/dados_ssp.rds&#34;&gt;neste link&lt;/a&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;GRID &amp;lt;- expand.grid(municipio = 1:645, ano = &amp;#39;2016&amp;#39;, stringsAsFactors = F)
 
 D &amp;lt;- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = &amp;quot;ocorrencias&amp;quot;) %&amp;gt;% 

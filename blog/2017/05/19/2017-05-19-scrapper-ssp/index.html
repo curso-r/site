@@ -332,7 +332,7 @@ params &lt;- list(`__EVENTTARGET` = &quot;ctl00$conteudo$$btnMes&quot;,
   dplyr::mutate(municipio = municipio,
                 ano = ano) 
 }</code></pre>
-<p>Pra ilustar um grande loop, vamos baixar os BO’s de todos os municípios, no ano de 2016. A função demora um pouco pra rodar, então quem quiser ver como fica o resultado final pode clicar neste link.</p>
+<p>Pra ilustar um grande loop, vamos baixar os BO’s de todos os municípios, no ano de 2016. A função demora um pouco pra rodar, então quem quiser ver como fica o resultado final pode clicar <a href="https://github.com/curso-r/site/blob/master/content/blog/2017-05-19-scrapper-ssp/dados_ssp.rds">neste link</a>.</p>
 <pre class="r"><code>GRID &lt;- expand.grid(municipio = 1:645, ano = &#39;2016&#39;, stringsAsFactors = F)
 
 D &lt;- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = &quot;ocorrencias&quot;) %&gt;% 
@@ -550,14 +550,14 @@ D &lt;- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = &quot;ocorrencias&quot
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
