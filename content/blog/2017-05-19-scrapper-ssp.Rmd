@@ -249,10 +249,16 @@ D <- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = "ocorrencias") %>%
 
 Com esses dados dá pra fazer muitas coisas legais. É possível, por exemplo, fazer mapas como esse, que representa o número de homicídios em 2016, por município. Ele foi feito em R, mas como fazê-lo é assunto pra outro post!
 
-```{r, echo = FALSE, message=F, warning=F, comment=F, fig.align='center'}
-library(tidyverse)
+```{r, echo = FALSE, fig.align='center'}
+x <- magick::image_read('2017-05-19-scrapper-ssp/cscrapper-ssp.png')
+plot(x)
+```
 
-D <- readRDS("2017-05-19-scrapper-ssp/dados_ssp.rds")
+
+```{r, echo = FALSE, message=F, warning=F, comment=F, fig.align='center'}
+# library(tidyverse)
+# 
+# D <- readRDS("2017-05-19-scrapper-ssp/dados_ssp.rds")
 
 # tabela_munis <- rvest::html_session('https://pt.wikipedia.org/wiki/Lista_de_munic%C3%ADpios_de_S%C3%A3o_Paulo_por_popula%C3%A7%C3%A3o') %>% 
 #   rvest::html_table(fill = T, header = T) %>% 
@@ -266,33 +272,33 @@ D <- readRDS("2017-05-19-scrapper-ssp/dados_ssp.rds")
 #   dplyr::select(-`posição`) %>% 
 #   dplyr::mutate(pop = as.numeric(str_replace_all(`estimativa_2016`,"[:space:]|,","")))
 
-tabela_munis <- readRDS("2017-05-19-scrapper-ssp/tabela_muni.rds")
-
-D_resumo <- D %>%
-  filter(str_detect(Natureza, regex("homic[ií]d", ignore_case = T))) %>% 
-  group_by(municipio) %>%
-  summarise(valor = sum(Total)) %>% 
-  mutate(municipio = as.numeric(municipio)) %>% 
-  filter(municipio < 645) %>% 
-  left_join(tabela_munis, by = c('municipio'='id')) %>% 
-  mutate(valor_abs = valor,
-    valor = 10^4*valor/pop)
+# tabela_munis <- readRDS("2017-05-19-scrapper-ssp/tabela_muni.rds")
+# 
+# D_resumo <- D %>%
+#   filter(str_detect(Natureza, regex("homic[ií]d", ignore_case = T))) %>% 
+#   group_by(municipio) %>%
+#   summarise(valor = sum(Total)) %>% 
+#   mutate(municipio = as.numeric(municipio)) %>% 
+#   filter(municipio < 645) %>% 
+#   left_join(tabela_munis, by = c('municipio'='id')) %>% 
+#   mutate(valor_abs = valor,
+#     valor = 10^4*valor/pop)
 
 #library(raster)
 #br <- getData("GADM", country = "BRA", level = 2) 
-br <- readRDS("2017-05-19-scrapper-ssp/mapa.rds")
-
-K <- which(br$NAME_1 == "São Paulo")
-br_sp <- br[K,]
-br_sp <- br_sp[rank(br_sp$NAME_2),]
-br_sp$ID <- 1:nrow(br_sp)
-br2 <- tmaptools::append_data(br_sp, D_resumo, key.shp = 'ID', key.data = "municipio")
-library(tmap)
-quebras <- as.numeric(round(quantile(D_resumo$valor, na.rm = T, prob = seq(0,1,0.15)),1))
-tm_shape(br2)+ 
-  tm_fill(col="valor", breaks = quebras, title = "Homicídios/10 mil habs") +
-  tm_borders(col="white", alpha=.8) +
-  tm_scale_bar() + 
-  tm_compass(position=c("RIGHT","TOP"),type="4star")
+# br <- readRDS("2017-05-19-scrapper-ssp/mapa.rds")
+# 
+# K <- which(br$NAME_1 == "São Paulo")
+# br_sp <- br[K,]
+# br_sp <- br_sp[rank(br_sp$NAME_2),]
+# br_sp$ID <- 1:nrow(br_sp)
+# br2 <- tmaptools::append_data(br_sp, D_resumo, key.shp = 'ID', key.data = "municipio")
+# library(tmap)
+# quebras <- as.numeric(round(quantile(D_resumo$valor, na.rm = T, prob = seq(0,1,0.15)),1))
+# tm_shape(br2)+ 
+#   tm_fill(col="valor", breaks = quebras, title = "Homicídios/10 mil habs") +
+#   tm_borders(col="white", alpha=.8) +
+#   tm_scale_bar() + 
+#   tm_compass(position=c("RIGHT","TOP"),type="4star")
 
 ```
