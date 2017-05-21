@@ -1,0 +1,27 @@
+---
+title: "Contrastes no R: um guia de como domar e interpretar seus parâmetros"
+date: "2017-05-22T21:12:00+03:00"
+tags: ["r", "contrastes", "formula", "interpretação"]
+categories: ["r"]
+banner: "img/banners/contrastes.png"
+author: ["Athos"]
+summary: "Na modelagem estatística, muitas vezes brigamos com os parâmetros em vez de compreendê-los. Nesse post iremos aprender a interpretá-los e a domá-los para usá-los em nosso benefício."
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = FALSE)
+```
+
+```{r, echo = F, message=FALSE, warning=FALSE, comment=FALSE}
+library(tidyverse)
+```
+
+```{r, echo = FALSE, comment = FALSE, message = FALSE}
+dataset <- read_csv("2017-05-21-contrastes-em-r/dados.csv")
+```
+
+
+## A função
+
+
+## Os tweaks
