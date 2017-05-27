@@ -81,8 +81,17 @@ Você pode brincar com o HTML usando o pacote `rvest`:
 
 ```{r}
 library(rvest)
-html <- pdf_html(pdf)
+```
 
+```{r eval=FALSE}
+html <- pdf_html(pdf)
+```
+
+```{r echo=FALSE}
+html <- readRDS('2017-05-27-ocr/html_pdf.rds')
+```
+
+```{r}
 html %>% 
   read_html() %>% 
   html_nodes('div') %>% 
