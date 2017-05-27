@@ -44,12 +44,13 @@ Para instalar no Linux, siga as instruções [desse link](https://github.com/rop
 
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
+library(stringr)
 library(pdftools)
 pdf <- '2017-05-27-ocr/pdf_digital.pdf'
 txt <- pdf_text(pdf)
 
 # imprimindo só os 500 primeiros caracteres da primeira página
-cat(stringr::str_trunc(txt[1], 500))
+cat(str_trunc(txt[1], 500))
 ```
 
 ### PDF para HTML ou XML
@@ -194,11 +195,11 @@ library(tesseract)
 txt <- ocr('2017-05-27-ocr/pdf_digitalizado_img.png')
 
 # imprimindo só os 300 primeiros caracteres do resultado
-cat(stringr::str_trunc(txt, 300))
+cat(str_trunc(txt, 300))
 ```
 
 ```{r echo=FALSE}
-cat(stringr::str_trunc(readRDS("2017-05-27-ocr/txt_ocr.rds"), 300))
+cat(str_trunc(readRDS("2017-05-27-ocr/txt_ocr.rds"), 300))
 ```
 
 
