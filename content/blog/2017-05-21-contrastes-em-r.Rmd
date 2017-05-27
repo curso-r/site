@@ -9,7 +9,8 @@ summary: "Na modelagem estatística, muitas vezes brigamos com os parâmetros em
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = FALSE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = FALSE,
+                      eval=FALSE)
 ```
 
 ```{r, echo = F, message=FALSE, warning=FALSE, comment=FALSE}
