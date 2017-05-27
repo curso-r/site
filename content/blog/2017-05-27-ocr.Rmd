@@ -180,13 +180,18 @@ png::writePNG(img, '2017-05-27-ocr/pdf_digitalizado_img.png')
 
 Se o PDF tiver mais páginas, você pode fazer um loop para salvar várias imagens. Agora, usamos a função `ocr()` no arquivo salvo.
 
-```{r}
+```{r eval=FALSE}
 library(tesseract)
 txt <- ocr('2017-05-27-ocr/pdf_digitalizado_img.png')
 
 # imprimindo só os 300 primeiros caracteres do resultado
 cat(str_trunc(txt, 300))
 ```
+
+```{r echo=FALSE}
+cat(str_trunc(readRDS("2017-05-27-ocr/txt_ocr.rds"), 300))
+```
+
 
 ## Wrap-up
 
