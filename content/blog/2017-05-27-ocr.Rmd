@@ -93,12 +93,12 @@ html %>%
 
 Apesar de depender do odiado `rJava`, um pacote chato de instalar e configurar, o `tabulizer` é capaz de extrair os dados diretamente para tabelas, de forma simples e intuitiva.
 
-Exemplo: Uma vez montei esse código para estruturar um pdf contendo gastos em obras públicas. Além de usar o `tabulizer`, usei os pacotes usuais do `tidyverse` e a função `abjutils::rm_accent()` para tirar os acentos do texto.
+Para instalar o `tabulizer`, siga as instruções [dessa página](https://github.com/ropensci/tabulizer). Já adianto que pode não ser uma tarefa fácil, principalmente por conta do `rJava`.
 
-```{r warning=FALSE, message=FALSE}
+**Exemplo**: Uma vez montei esse código para estruturar um pdf contendo gastos em obras públicas. Além de usar o `tabulizer`, usei os pacotes usuais do `tidyverse` e a função `abjutils::rm_accent()` para tirar os acentos do texto.
+
+```{r warning=FALSE, message=FALSE, eval=FALSE}
 library(tabulizer)
-library(tidyverse)
-library(abjutils)
 ```
 
 Vamos usar esse pdf de exemplo:
@@ -124,7 +124,7 @@ arrumar_nomes <- function(x) {
     str_replace_all('[[:space:]]+', '_') %>% 
     str_replace_all('%', 'p') %>% 
     str_replace_all('r\\$', '') %>% 
-    rm_accent()
+    abjutils::rm_accent()
 }
 ```
 
@@ -151,7 +151,6 @@ A Tabela \@ref(tab:tabela) mostra as primeiras cinco linhas do resultado.
 ```{r echo=FALSE}
 knitr::kable(head(tab_tidy, 5), caption = 'Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.')
 ```
-
 
 ## Pacote `tesseract` para PDFs digitalizados
 
