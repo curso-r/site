@@ -5,7 +5,7 @@ tags: ["r", "imagens", "kmeans"]
 categories: ["r"]
 banner: "img/banners/mapas_tematicos_rapidos.png"
 author: ["Fernando"]
-summary: "Impressionar é muito mais fácil se você usa mapas. Neste post vamos aprender a construir mapas temáicos do Brasil com muita agilidade."
+summary: "Impressionar é muito mais fácil se você usa mapas. Neste post vamos aprender a construir mapas temáticos do Brasil com muita agilidade."
 ---
 
 ```{r setup, include=FALSE}

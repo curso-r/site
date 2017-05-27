@@ -185,14 +185,14 @@
   dormir()
 })
 ##    user  system elapsed 
-##   0.000   0.000   1.001</code></pre>
+##   0.000   0.000   1.002</code></pre>
 <p>Nosso interesse é aplicar <code>dormir()</code> em cada elemento do vetor <code>c(1, 2)</code>. Esse algoritmo demora <code>1 + 2 = 3</code> segundos.</p>
 <pre class="r"><code>segundos &lt;- c(1, 2)
 system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.004   0.000   3.011</code></pre>
+##   0.008   0.000   3.012</code></pre>
 <p>Agora vamos executar o mesmo código usando paralelização. Antes, precisamos</p>
 <ol style="list-style-type: decimal">
 <li>criar e registrar as cópias de R que rodam em paralelo; e</li>
@@ -206,13 +206,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.156   0.016   2.299</code></pre>
+##   0.160   0.012   2.320</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.152   0.000   2.243</code></pre>
+##   0.152   0.000   2.254</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # pára de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
@@ -295,7 +295,10 @@ system.time({
             <li><a href="http://curso-r.com/categories/emotion">emotion (1)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (28)</a>
+            <li><a href="http://curso-r.com/categories/import">import (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/r">r (30)</a>
             </li>
             
         </ul>
@@ -323,10 +326,16 @@ system.time({
             <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/contrastes"><i class="fa fa-tags"></i> contrastes</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/erro"><i class="fa fa-tags"></i> erro</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/formula"><i class="fa fa-tags"></i> formula</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/ggplot"><i class="fa fa-tags"></i> ggplot</a>
@@ -336,6 +345,9 @@ system.time({
             </li>
             
             <li><a href="http://curso-r.com/tags/imagens"><i class="fa fa-tags"></i> imagens</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/interpreta%c3%a7%c3%a3o"><i class="fa fa-tags"></i> interpretação</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/kmeans"><i class="fa fa-tags"></i> kmeans</a>
@@ -351,6 +363,12 @@ system.time({
             </li>
             
             <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ocr"><i class="fa fa-tags"></i> ocr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pdf"><i class="fa fa-tags"></i> pdf</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/progress"><i class="fa fa-tags"></i> progress</a>
@@ -410,27 +428,27 @@ system.time({
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -494,6 +512,32 @@ system.time({
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/">
+                          
+                            <img src="http://curso-r.com/img/banners/pdf-to-text.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/">PDF e OCR</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/05/22/2017-05-21-contrastes-em-r/">
+                          
+                            <img src="http://curso-r.com/img/banners/contrastes.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/05/22/2017-05-21-contrastes-em-r/">Contrastes no R: um guia de como domar e interpretar seus parâmetros</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/05/19/2017-05-19-scrapper-ssp/">
                           
                             <img src="http://curso-r.com/img/banners/scrapper-ssp.png" class="img-responsive" alt="">
@@ -502,32 +546,6 @@ system.time({
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/05/19/2017-05-19-scrapper-ssp/">Web scraping do site da Secretaria de Segurança Pública de São Paulo</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/">
-                          
-                            <img src="http://curso-r.com/img/banners/mapas_tematicos_rapidos.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/">Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/05/01/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/">
-                          
-                            <img src="http://curso-r.com/img/banners/marvel_vs_dc.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/05/01/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/">As cores da Marvel vs DC</a></h5>
                     </div>
                 </div>
                 

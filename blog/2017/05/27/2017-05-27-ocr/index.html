@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
+
+  <title>PDF e OCR</title>
+
+  <meta name="author" content="" />
+  <meta name="keywords" content="">
+
+  
+
+  <meta name="generator" content="Hugo 0.19" />
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="http://curso-r.com/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="http://curso-r.com/css/style.red.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="http://curso-r.com/css/custom.css" rel="stylesheet">
+
+  
+    
+
+  
+  <link rel="shortcut icon" href="http://curso-r.com/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="http://curso-r.com/img/apple-touch-icon.png" />
+  
+
+  <link href="http://curso-r.com/css/owl.carousel.css" rel="stylesheet">
+  <link href="http://curso-r.com/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="http://curso-r.com/index.xml" type="application/rss+xml" title="Curso-R">
+  <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
+  
+  
+  <meta property="og:title" content="PDF e OCR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/blog/2017/05/27/2017-05-27-ocr//" />
+  <meta property="og:image" content="img/banners/pdf-to-text.jpg" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://curso-r.com/">
+                    <img src="http://curso-r.com/img/logo.svg" alt="PDF e OCR logo" width="50" height="50">
+                    <span class="sr-only">PDF e OCR - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/">Home</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/sobre/">Sobre</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/cursos/">Cursos</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/blog/">Blog</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/contact/">Contato</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>PDF e OCR</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          
+                            Por 
+                            
+                            
+                              
+                                <a href="http://curso-r.com/author/julio">Julio</a>
+                            
+                            
+                          
+                          
+                          27/05/2017
+                        </p>
+                        
+                        <div id="post-content">
+                          <p>Já precisou extrair dados de arquivos pdf? Bom, eu já. Eu trabalho com <a href="http://abj.org.br">jurimetria</a> e preciso extrair dados de diários oficiais, petições, sentenças, então já viu né…</p>
+<p>A primeira pergunta que você precisa fazer antes de ler um pdf é: o arquivo é <em>digital</em> ou <em>digitalizado</em>?</p>
+<ul>
+<li>Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo <code>data.frame</code>s diretamente.</li>
+</ul>
+<object data="/blog/2017-05-27-ocr/pdf_digital.pdf" width="100%" height="375" type="application/pdf">
+</object>
+<ul>
+<li>Se for digitalizado, você precisará passar um algoritmo de OCR (Optical Character Recognition) para extrair os dados. Provavelmente seu output nesse caso será sempre texto.</li>
+</ul>
+<object data="/blog/2017-05-27-ocr/pdf_digitalizado.pdf" width="100%" height="375" type="application/pdf">
+</object>
+<p><strong>Obs:</strong> é possível que seu arquivo seja digitalizado, mas já com uma OCR passada no próprio arquivo. Nesse caso, você pode tratar o documento como digital.</p>
+<p>Os créditos dos pacotes abaixo vão todos para o <a href="https://github.com/jeroen">Jeroen Ooms</a>, um dos maiores autores de pacotes da comunidade <code>R</code> nos últimos dez anos. Sou fã desse cara!</p>
+<div id="pacote-pdftools-para-pdfs-digitais" class="section level2">
+<h2>Pacote <code>pdftools</code> para PDFs digitais</h2>
+<p>Para instalar o <code>pdftools</code> no Windows e no Mac, basta rodar</p>
+<pre class="r"><code>install.packages(&quot;pdftools&quot;)</code></pre>
+<p>Para instalar no Linux, siga as instruções <a href="https://github.com/ropensci/pdftools">desse link</a>.</p>
+<div id="pdf-para-texto" class="section level3">
+<h3>PDF para texto</h3>
+<pre class="r"><code>library(tidyverse)
+library(stringr)
+library(pdftools)
+pdf &lt;- &#39;2017-05-27-ocr/pdf_digital.pdf&#39;
+txt &lt;- pdf_text(pdf)
+
+# imprimindo só os 500 primeiros caracteres da primeira página
+cat(str_trunc(txt[1], 500))
+## TJ/SP - Comarca de São Paulo
+## Movimento Judiciário
+## Referência: Janeiro de 2011
+## Foro: ADAMANTINA
+## Unidade: 02 CUMULATIVA
+## Planilha: CIVEL
+## Dados da Unidade
+## 1. Total de feitos em andamento                                           2756
+## 2. Precatórias                                                               6
+## 3. Processos
+##    3.1 Processos cíveis                                                   2078
+##      3.1.1 De Conhecimento                                                1111
+##    3.1.2 De Execu...</code></pre>
+</div>
+<div id="pdf-para-html-ou-xml" class="section level3">
+<h3>PDF para HTML ou XML</h3>
+<p>Muitas vezes queremos pegar estruturas no texto que dependem da posição dos elementos. Por exemplo, o texto em um PDF pode estar dividido em várias colunas. Para isso, o ideal seria transformar</p>
+<p>Infelizmente, o <code>pdftools</code> ainda não transforma em HTML nem XML. Para soltar um HTML, vamos montar uma função que chama <code>pdftohtml</code> do <code>poppler</code> por command line.</p>
+<pre class="r"><code>pdf_html &lt;- function(pdf) {
+  infos &lt;- pdf_info(pdf)              # pega infos do pdf
+  html &lt;- tempfile(fileext = &#39;.html&#39;) # cria arquivo temporário
+  
+  # monta comando a ser executado. 
+  # não sei se funciona em Windows ;)
+  command &lt;- sprintf(&#39;pdftohtml -f 1 -l %s -q -i -s -noframes %s %s&#39;, 
+                     infos$pages,
+                     normalizePath(pdf),
+                     html)
+  
+  system(command)                     # roda comando e salva
+  txt &lt;- readr::read_file(html)       # lê arquivo salvo
+  file.remove(html)                   # remove arquivo temporário
+  txt
+}</code></pre>
+<p>Você pode brincar com o HTML usando o pacote <code>rvest</code>:</p>
+<pre class="r"><code>library(rvest)
+## Loading required package: xml2
+## 
+## Attaching package: &#39;rvest&#39;
+## The following object is masked from &#39;package:readr&#39;:
+## 
+##     guess_encoding</code></pre>
+<pre class="r"><code>html &lt;- pdf_html(pdf)</code></pre>
+<pre class="r"><code>html %&gt;% 
+  read_html() %&gt;% 
+  html_nodes(&#39;div&#39;) %&gt;% 
+  head()
+## {xml_nodeset (6)}
+## [1] &lt;div id=&quot;page1-div&quot; style=&quot;position:relative;width:1263px;height:892 ...
+## [2] &lt;div id=&quot;page2-div&quot; style=&quot;position:relative;width:1263px;height:892 ...
+## [3] &lt;div id=&quot;page3-div&quot; style=&quot;position:relative;width:1263px;height:892 ...
+## [4] &lt;div id=&quot;page4-div&quot; style=&quot;position:relative;width:1263px;height:892 ...
+## [5] &lt;div id=&quot;page5-div&quot; style=&quot;position:relative;width:1263px;height:892 ...
+## [6] &lt;div id=&quot;page6-div&quot; style=&quot;position:relative;width:1263px;height:892 ...</code></pre>
+</div>
+<div id="pdf-para-tabelas" class="section level3">
+<h3>PDF para tabelas</h3>
+<p>Apesar de depender do odiado <code>rJava</code>, um pacote chato de instalar e configurar, o <code>tabulizer</code> é capaz de extrair os dados diretamente para tabelas, de forma simples e intuitiva.</p>
+<p>Para instalar o <code>tabulizer</code>, siga as instruções <a href="https://github.com/ropensci/tabulizer">dessa página</a>. Já adianto que pode não ser uma tarefa fácil, principalmente por conta do <code>rJava</code>.</p>
+<p><strong>Exemplo</strong>: Uma vez montei esse código para estruturar um pdf contendo gastos em obras públicas. Além de usar o <code>tabulizer</code>, usei os pacotes usuais do <code>tidyverse</code> e a função <code>abjutils::rm_accent()</code> para tirar os acentos do texto.</p>
+<pre class="r"><code>library(tabulizer)</code></pre>
+<p>Vamos usar esse pdf de exemplo:</p>
+<object data="/blog/2017-05-27-ocr/pdf_compras.pdf" width="100%" height="375" type="application/pdf">
+</object>
+<pre class="r"><code># No meu pc demorou 40 segundos.
+tab &lt;- extract_tables(&#39;2017-05-27-ocr/pdf_compras.pdf&#39;)</code></pre>
+<p>Essa função serve para arrumar os nomes zuados que vêm no arquivo</p>
+<pre class="r"><code>arrumar_nomes &lt;- function(x) {
+  x %&gt;% 
+    tolower() %&gt;% 
+    str_trim() %&gt;% 
+    str_replace_all(&#39;[[:space:]]+&#39;, &#39;_&#39;) %&gt;% 
+    str_replace_all(&#39;%&#39;, &#39;p&#39;) %&gt;% 
+    str_replace_all(&#39;r\\$&#39;, &#39;&#39;) %&gt;% 
+    abjutils::rm_accent()
+}</code></pre>
+<p>Agora veja a magia do <code>tidyverse</code> posta em prática:</p>
+<pre class="r"><code>tab_tidy &lt;- tab %&gt;% 
+  # transforma matrizes em tibbles
+  map(as_tibble) %&gt;% 
+  # empilha
+  bind_rows() %&gt;% 
+  # arruma nomes a partir da primeira linha
+  set_names(arrumar_nomes(.[1,])) %&gt;%
+  # tira primeira linha
+  slice(-1) %&gt;% 
+  # tira espaços extras
+  mutate_all(funs(str_replace_all(., &#39;[[:space:]]+&#39;, &#39; &#39;))) %&gt;% 
+  # tira espaços nas bordas
+  mutate_all(str_trim) </code></pre>
+<p>A Tabela <a href="#tab:tabela"><strong>??</strong></a> mostra as primeiras cinco linhas do resultado.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-14">Table 1: </span>Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.</caption>
+<thead>
+<tr class="header">
+<th align="left">uf</th>
+<th align="left">municipios_atendidos</th>
+<th align="left">tipo</th>
+<th align="left">subtipo</th>
+<th align="left">nome_do_empreendimento</th>
+<th align="left">p_de_execucao</th>
+<th align="left">total_pac__milhoes</th>
+<th align="left">orgao</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">BA</td>
+<td align="left">ILHÉUS/BA</td>
+<td align="left">Aeroporto</td>
+<td align="left">Terminal de Passageiros</td>
+<td align="left">Aeroporto de Ilhéus - PROJETO DE INFRAESTRUTURA E IMPLANTAÇÃO DO MOP</td>
+<td align="left">Menor que 50%</td>
+<td align="left">2,1</td>
+<td align="left">Empresa Brasileira de Infraestrutura Aeroportuária</td>
+</tr>
+<tr class="even">
+<td align="left">PR</td>
+<td align="left">LONDRINA/PR</td>
+<td align="left">Aeroporto</td>
+<td align="left">Terminal de Passageiros</td>
+<td align="left">Aeroporto de Londrina - IMPLANTAÇÃO DO MÓDULO OPERACIONAL - MOP NO PROCESSAMENTO DE EMBARQUE</td>
+<td align="left">Maior que 50%</td>
+<td align="left">4,0</td>
+<td align="left">Empresa Brasileira de Infraestrutura Aeroportuária</td>
+</tr>
+<tr class="odd">
+<td align="left">PA</td>
+<td align="left">MARABÁ/PA</td>
+<td align="left">Aeroporto</td>
+<td align="left">Terminal de Passageiros</td>
+<td align="left">Aeroporto de Marabá - REFORMA COM AMPLIAÇÃO DO TPS EXISTENTE</td>
+<td align="left">Maior que 50%</td>
+<td align="left">7,1</td>
+<td align="left">Empresa Brasileira de Infraestrutura Aeroportuária</td>
+</tr>
+<tr class="even">
+<td align="left">CE</td>
+<td align="left">ACOPIARA/CE</td>
+<td align="left">Centro de Artes e Esportes Unificados</td>
+<td align="left">Modelo 3000m²</td>
+<td align="left">Praças - Acopiara - CE - Modelo 3000m²</td>
+<td align="left">Menor que 50%</td>
+<td align="left">2,0</td>
+<td align="left">Ministério da Cultura</td>
+</tr>
+<tr class="odd">
+<td align="left">SP</td>
+<td align="left">AMERICANA/SP</td>
+<td align="left">Centro de Artes e Esportes Unificados</td>
+<td align="left">Modelo 3000m²</td>
+<td align="left">Praças - Americana - SP - Modelo 3000m²</td>
+<td align="left">Menor que 50%</td>
+<td align="left">2,4</td>
+<td align="left">Ministério da Cultura</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="pacote-tesseract-para-pdfs-digitalizados" class="section level2">
+<h2>Pacote <code>tesseract</code> para PDFs digitalizados</h2>
+<p>O <code>tesseract</code> é uma biblioteca escrita em <code>C</code> e é uma das mais famosas ferramentas abertas para extração de textos. O pacote em <code>R</code> de mesmo nome serve para usar essa biblioteca pelo <code>R</code> sem causar dores de cabeça.</p>
+<p>Para instalar o <code>tesseract</code> no Windows, basta rodar</p>
+<pre class="r"><code>install.packages(&#39;tesseract&#39;)</code></pre>
+<p>Para Mac e Linux, siga as instruções <a href="https://github.com/ropensci/tesseract">dessa página</a>.</p>
+<p>A principal função do pacote <code>tesseract</code> é a <code>ocr()</code>. Seu input é uma imagem (pdf, jpeg, tiff, entre outras) e seu output é um texto. Logo, nosso primeiro passo é transformar o pdf em imagem.</p>
+<pre class="r"><code>pdf &lt;- &#39;2017-05-27-ocr/pdf_digitalizado.pdf&#39;
+img &lt;- pdf_render_page(
+  pdf = pdf,    # caminho do arquivo
+  page = 1,     # índice da página
+  dpi = 300     # resolução (pontos por polegada)
+)
+
+# salvando imagem num arquivo png
+png::writePNG(img, &#39;2017-05-27-ocr/pdf_digitalizado_img.png&#39;)</code></pre>
+<p>Se o PDF tiver mais páginas, você pode fazer um loop para salvar várias imagens. Agora, usamos a função <code>ocr()</code> no arquivo salvo.</p>
+<pre class="r"><code>library(tesseract)
+txt &lt;- ocr(&#39;2017-05-27-ocr/pdf_digitalizado_img.png&#39;)
+
+# imprimindo só os 300 primeiros caracteres do resultado
+cat(str_trunc(txt, 300))</code></pre>
+<pre><code>## This is a sample document to test the PDF Image+Text OCR Engine.
+## This is a sample document to test the PDF Image+Text OCR Engine.
+## This is a sample document to test the PDF Image+Text OCR Engine.
+## This is a sample document to test the PDF Image+Text OCR Engine.
+## This is a sample document to test the...</code></pre>
+</div>
+<div id="wrap-up" class="section level2">
+<h2>Wrap-up</h2>
+<ul>
+<li>Se seu pdf for digital, use <code>pdftools::pdf_text()</code>.</li>
+<li>Se seu pdf for digitalizado, use <code>pdftools::pdf_render_page()</code>, depois <code>png::writePNG()</code> e por fim <code>tesseract::ocr()</code>.</li>
+</ul>
+<p>É isso. Happy coding ;)</p>
+</div>
+
+                        </div>
+                        
+                         <div class="addthis_inline_share_toolbox"></div>
+                        
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'curso-r-com';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/05\/27\/2017-05-27-ocr\/';
+    var disqus_title = 'PDF e OCR';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/05\/27\/2017-05-27-ocr\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Busca</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" results="0" class="form-control" placeholder="Busca">
+                <input type="hidden" name="q" value="site:http://curso-r.com/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Categorias</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="http://curso-r.com/categories/bayes">bayes (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/emotion">emotion (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/import">import (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/r">r (30)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="http://curso-r.com/tags/"><i class="fa fa-tags"></i> </a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/contrastes"><i class="fa fa-tags"></i> contrastes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/erro"><i class="fa fa-tags"></i> erro</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/formula"><i class="fa fa-tags"></i> formula</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot"><i class="fa fa-tags"></i> ggplot</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/imagens"><i class="fa fa-tags"></i> imagens</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/interpreta%c3%a7%c3%a3o"><i class="fa fa-tags"></i> interpretação</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/kmeans"><i class="fa fa-tags"></i> kmeans</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/knitr"><i class="fa fa-tags"></i> knitr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/leaflet"><i class="fa fa-tags"></i> leaflet</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/lolapalooza"><i class="fa fa-tags"></i> lolapalooza</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ocr"><i class="fa fa-tags"></i> ocr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pdf"><i class="fa fa-tags"></i> pdf</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/progress"><i class="fa fa-tags"></i> progress</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regressao"><i class="fa fa-tags"></i> regressao</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rmarkdown"><i class="fa fa-tags"></i> rmarkdown</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rstudio"><i class="fa fa-tags"></i> rstudio</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/spotify"><i class="fa fa-tags"></i> spotify</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/stan"><i class="fa fa-tags"></i> stan</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/string"><i class="fa fa-tags"></i> string</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tidyverse"><i class="fa fa-tags"></i> tidyverse</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/top10"><i class="fa fa-tags"></i> top10</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tuber"><i class="fa fa-tags"></i> tuber</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/web-scraping"><i class="fa fa-tags"></i> web-scraping</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/webscraping"><i class="fa fa-tags"></i> webscraping</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Nossos Cursos</h3>
+    </div>
+
+    <div class="blog-entries">
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="http://curso-r.com/js/prism.js"></script> 
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>Sobre nós</h4>
+
+            <p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+              
+            <h4>Posts Recentes</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/">
+                          
+                            <img src="http://curso-r.com/img/banners/pdf-to-text.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/">PDF e OCR</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/05/22/2017-05-21-contrastes-em-r/">
+                          
+                            <img src="http://curso-r.com/img/banners/contrastes.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/05/22/2017-05-21-contrastes-em-r/">Contrastes no R: um guia de como domar e interpretar seus parâmetros</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/05/19/2017-05-19-scrapper-ssp/">
+                          
+                            <img src="http://curso-r.com/img/banners/scrapper-ssp.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/05/19/2017-05-19-scrapper-ssp/">Web scraping do site da Secretaria de Segurança Pública de São Paulo</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            <h4>Contato</h4>
+
+            <a href="http://curso-r.com/contact" class="btn btn-small btn-template-main">Vá para a página de contato</a>
+            <hr>
+            
+            <div>
+              
+              <a href="https://github.com/curso-r">
+                <i class="fa fa-github" style="font-size:50px;"></i>
+              </a>
+              <a href="https://twitter.com/curso_r/">
+                <i class="fa fa-twitter" style="font-size:50px;"></i>
+              </a>
+      
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87272102-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ab4e79943a7e3c"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+MathJax.Hub.Config({
+  "HTML-CSS": {
+    preferredFont: "STIX"  }
+});
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<script src="http://curso-r.com/js/hpneo.gmaps.js"></script>
+<script src="http://curso-r.com/js/gmaps.init.js"></script>
+<script src="http://curso-r.com/js/front.js"></script>
+
+<script src="http://curso-r.com/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>

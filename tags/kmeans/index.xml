@@ -230,7 +230,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x43cd848&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## &amp;lt;bytecode: 0x434b568&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -341,19 +341,19 @@ centroides &amp;lt;- img_df %&amp;gt;%
 
 centroides
 ## # A tibble: 6 x 4
-##   cluster          r         g         b
-##     &amp;lt;int&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1       1 0.09965226 0.0436630 0.2398620
-## 2       2 0.27214668 0.3641234 0.4901637
-## 3       3 0.88572504 0.7791481 0.6688438
-## 4       4 0.71951757 0.5487688 0.4097711
-## 5       5 0.62387801 0.2832790 0.1896923
-## 6       6 0.37889146 0.1185504 0.1558589&lt;/code&gt;&lt;/pre&gt;
+##   cluster         r          g         b
+##     &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1       1 0.2212960 0.27343981 0.4408775
+## 2       2 0.5005333 0.18317808 0.1587975
+## 3       3 0.1242676 0.04329523 0.2157608
+## 4       4 0.8768478 0.76214788 0.6453526
+## 5       5 0.7016197 0.46726770 0.3238928
+## 6       6 0.3541370 0.46238659 0.5494919&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;centroides &amp;lt;- centroides %&amp;gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &amp;quot;#190B3D&amp;quot; &amp;quot;#455D7D&amp;quot; &amp;quot;#E2C7AB&amp;quot; &amp;quot;#B78C68&amp;quot; &amp;quot;#9F4830&amp;quot; &amp;quot;#611E28&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;#384670&amp;quot; &amp;quot;#802F28&amp;quot; &amp;quot;#200B37&amp;quot; &amp;quot;#E0C2A5&amp;quot; &amp;quot;#B37753&amp;quot; &amp;quot;#5A768C&amp;quot;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada &lt;a href=&#34;https://github.com/karthik/wesanderson&#34;&gt;daqui&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;exibir &amp;lt;- function(x) {
   n &amp;lt;- length(x)

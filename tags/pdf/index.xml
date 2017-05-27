@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pdf on Curso-R</title>
+    <link>http://curso-r.com/tags/pdf/index.xml</link>
+    <description>Recent content in Pdf on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <atom:link href="http://curso-r.com/tags/pdf/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PDF e OCR</title>
+      <link>http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/</link>
+      <pubDate>Sat, 27 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/</guid>
+      <description>&lt;p&gt;Já precisou extrair dados de arquivos pdf? Bom, eu já. Eu trabalho com &lt;a href=&#34;http://abj.org.br&#34;&gt;jurimetria&lt;/a&gt; e preciso extrair dados de diários oficiais, petições, sentenças, então já viu né…&lt;/p&gt;
+&lt;p&gt;A primeira pergunta que você precisa fazer antes de ler um pdf é: o arquivo é &lt;em&gt;digital&lt;/em&gt; ou &lt;em&gt;digitalizado&lt;/em&gt;?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo &lt;code&gt;data.frame&lt;/code&gt;s diretamente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_digital.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#34;application/pdf&#34;&gt;
+&lt;/object&gt;
+&lt;ul&gt;
+&lt;li&gt;Se for digitalizado, você precisará passar um algoritmo de OCR (Optical Character Recognition) para extrair os dados. Provavelmente seu output nesse caso será sempre texto.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_digitalizado.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#34;application/pdf&#34;&gt;
+&lt;/object&gt;
+&lt;p&gt;&lt;strong&gt;Obs:&lt;/strong&gt; é possível que seu arquivo seja digitalizado, mas já com uma OCR passada no próprio arquivo. Nesse caso, você pode tratar o documento como digital.&lt;/p&gt;
+&lt;p&gt;Os créditos dos pacotes abaixo vão todos para o &lt;a href=&#34;https://github.com/jeroen&#34;&gt;Jeroen Ooms&lt;/a&gt;, um dos maiores autores de pacotes da comunidade &lt;code&gt;R&lt;/code&gt; nos últimos dez anos. Sou fã desse cara!&lt;/p&gt;
+&lt;div id=&#34;pacote-pdftools-para-pdfs-digitais&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pacote &lt;code&gt;pdftools&lt;/code&gt; para PDFs digitais&lt;/h2&gt;
+&lt;p&gt;Para instalar o &lt;code&gt;pdftools&lt;/code&gt; no Windows e no Mac, basta rodar&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;quot;pdftools&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para instalar no Linux, siga as instruções &lt;a href=&#34;https://github.com/ropensci/pdftools&#34;&gt;desse link&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;pdf-para-texto&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;PDF para texto&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(stringr)
+library(pdftools)
+pdf &amp;lt;- &amp;#39;2017-05-27-ocr/pdf_digital.pdf&amp;#39;
+txt &amp;lt;- pdf_text(pdf)
+
+# imprimindo só os 500 primeiros caracteres da primeira página
+cat(str_trunc(txt[1], 500))
+## TJ/SP - Comarca de São Paulo
+## Movimento Judiciário
+## Referência: Janeiro de 2011
+## Foro: ADAMANTINA
+## Unidade: 02 CUMULATIVA
+## Planilha: CIVEL
+## Dados da Unidade
+## 1. Total de feitos em andamento                                           2756
+## 2. Precatórias                                                               6
+## 3. Processos
+##    3.1 Processos cíveis                                                   2078
+##      3.1.1 De Conhecimento                                                1111
+##    3.1.2 De Execu...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pdf-para-html-ou-xml&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;PDF para HTML ou XML&lt;/h3&gt;
+&lt;p&gt;Muitas vezes queremos pegar estruturas no texto que dependem da posição dos elementos. Por exemplo, o texto em um PDF pode estar dividido em várias colunas. Para isso, o ideal seria transformar&lt;/p&gt;
+&lt;p&gt;Infelizmente, o &lt;code&gt;pdftools&lt;/code&gt; ainda não transforma em HTML nem XML. Para soltar um HTML, vamos montar uma função que chama &lt;code&gt;pdftohtml&lt;/code&gt; do &lt;code&gt;poppler&lt;/code&gt; por command line.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pdf_html &amp;lt;- function(pdf) {
+  infos &amp;lt;- pdf_info(pdf)              # pega infos do pdf
+  html &amp;lt;- tempfile(fileext = &amp;#39;.html&amp;#39;) # cria arquivo temporário
+  
+  # monta comando a ser executado. 
+  # não sei se funciona em Windows ;)
+  command &amp;lt;- sprintf(&amp;#39;pdftohtml -f 1 -l %s -q -i -s -noframes %s %s&amp;#39;, 
+                     infos$pages,
+                     normalizePath(pdf),
+                     html)
+  
+  system(command)                     # roda comando e salva
+  txt &amp;lt;- readr::read_file(html)       # lê arquivo salvo
+  file.remove(html)                   # remove arquivo temporário
+  txt
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Você pode brincar com o HTML usando o pacote &lt;code&gt;rvest&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)
+## Loading required package: xml2
+## 
+## Attaching package: &amp;#39;rvest&amp;#39;
+## The following object is masked from &amp;#39;package:readr&amp;#39;:
+## 
+##     guess_encoding&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;html &amp;lt;- pdf_html(pdf)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;html %&amp;gt;% 
+  read_html() %&amp;gt;% 
+  html_nodes(&amp;#39;div&amp;#39;) %&amp;gt;% 
+  head()
+## {xml_nodeset (6)}
+## [1] &amp;lt;div id=&amp;quot;page1-div&amp;quot; style=&amp;quot;position:relative;width:1263px;height:892 ...
+## [2] &amp;lt;div id=&amp;quot;page2-div&amp;quot; style=&amp;quot;position:relative;width:1263px;height:892 ...
+## [3] &amp;lt;div id=&amp;quot;page3-div&amp;quot; style=&amp;quot;position:relative;width:1263px;height:892 ...
+## [4] &amp;lt;div id=&amp;quot;page4-div&amp;quot; style=&amp;quot;position:relative;width:1263px;height:892 ...
+## [5] &amp;lt;div id=&amp;quot;page5-div&amp;quot; style=&amp;quot;position:relative;width:1263px;height:892 ...
+## [6] &amp;lt;div id=&amp;quot;page6-div&amp;quot; style=&amp;quot;position:relative;width:1263px;height:892 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pdf-para-tabelas&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;PDF para tabelas&lt;/h3&gt;
+&lt;p&gt;Apesar de depender do odiado &lt;code&gt;rJava&lt;/code&gt;, um pacote chato de instalar e configurar, o &lt;code&gt;tabulizer&lt;/code&gt; é capaz de extrair os dados diretamente para tabelas, de forma simples e intuitiva.&lt;/p&gt;
+&lt;p&gt;Para instalar o &lt;code&gt;tabulizer&lt;/code&gt;, siga as instruções &lt;a href=&#34;https://github.com/ropensci/tabulizer&#34;&gt;dessa página&lt;/a&gt;. Já adianto que pode não ser uma tarefa fácil, principalmente por conta do &lt;code&gt;rJava&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;: Uma vez montei esse código para estruturar um pdf contendo gastos em obras públicas. Além de usar o &lt;code&gt;tabulizer&lt;/code&gt;, usei os pacotes usuais do &lt;code&gt;tidyverse&lt;/code&gt; e a função &lt;code&gt;abjutils::rm_accent()&lt;/code&gt; para tirar os acentos do texto.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tabulizer)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Vamos usar esse pdf de exemplo:&lt;/p&gt;
+&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_compras.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#34;application/pdf&#34;&gt;
+&lt;/object&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# No meu pc demorou 40 segundos.
+tab &amp;lt;- extract_tables(&amp;#39;2017-05-27-ocr/pdf_compras.pdf&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Essa função serve para arrumar os nomes zuados que vêm no arquivo&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;arrumar_nomes &amp;lt;- function(x) {
+  x %&amp;gt;% 
+    tolower() %&amp;gt;% 
+    str_trim() %&amp;gt;% 
+    str_replace_all(&amp;#39;[[:space:]]+&amp;#39;, &amp;#39;_&amp;#39;) %&amp;gt;% 
+    str_replace_all(&amp;#39;%&amp;#39;, &amp;#39;p&amp;#39;) %&amp;gt;% 
+    str_replace_all(&amp;#39;r\\$&amp;#39;, &amp;#39;&amp;#39;) %&amp;gt;% 
+    abjutils::rm_accent()
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agora veja a magia do &lt;code&gt;tidyverse&lt;/code&gt; posta em prática:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tab_tidy &amp;lt;- tab %&amp;gt;% 
+  # transforma matrizes em tibbles
+  map(as_tibble) %&amp;gt;% 
+  # empilha
+  bind_rows() %&amp;gt;% 
+  # arruma nomes a partir da primeira linha
+  set_names(arrumar_nomes(.[1,])) %&amp;gt;%
+  # tira primeira linha
+  slice(-1) %&amp;gt;% 
+  # tira espaços extras
+  mutate_all(funs(str_replace_all(., &amp;#39;[[:space:]]+&amp;#39;, &amp;#39; &amp;#39;))) %&amp;gt;% 
+  # tira espaços nas bordas
+  mutate_all(str_trim) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A Tabela &lt;a href=&#34;#tab:tabela&#34;&gt;&lt;strong&gt;??&lt;/strong&gt;&lt;/a&gt; mostra as primeiras cinco linhas do resultado.&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-14&#34;&gt;Table 1: &lt;/span&gt;Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;uf&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;municipios_atendidos&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;tipo&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;subtipo&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;nome_do_empreendimento&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;p_de_execucao&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;total_pac__milhoes&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;orgao&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;BA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ILHÉUS/BA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Aeroporto&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Terminal de Passageiros&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Aeroporto de Ilhéus - PROJETO DE INFRAESTRUTURA E IMPLANTAÇÃO DO MOP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Menor que 50%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2,1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Empresa Brasileira de Infraestrutura Aeroportuária&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;PR&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;LONDRINA/PR&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Aeroporto&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Terminal de Passageiros&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Aeroporto de Londrina - IMPLANTAÇÃO DO MÓDULO OPERACIONAL - MOP NO PROCESSAMENTO DE EMBARQUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Maior que 50%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;4,0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Empresa Brasileira de Infraestrutura Aeroportuária&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;PA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;MARABÁ/PA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Aeroporto&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Terminal de Passageiros&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Aeroporto de Marabá - REFORMA COM AMPLIAÇÃO DO TPS EXISTENTE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Maior que 50%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;7,1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Empresa Brasileira de Infraestrutura Aeroportuária&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;CE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ACOPIARA/CE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Centro de Artes e Esportes Unificados&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Modelo 3000m²&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Praças - Acopiara - CE - Modelo 3000m²&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Menor que 50%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2,0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Ministério da Cultura&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;SP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;AMERICANA/SP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Centro de Artes e Esportes Unificados&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Modelo 3000m²&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Praças - Americana - SP - Modelo 3000m²&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Menor que 50%&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2,4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Ministério da Cultura&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pacote-tesseract-para-pdfs-digitalizados&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Pacote &lt;code&gt;tesseract&lt;/code&gt; para PDFs digitalizados&lt;/h2&gt;
+&lt;p&gt;O &lt;code&gt;tesseract&lt;/code&gt; é uma biblioteca escrita em &lt;code&gt;C&lt;/code&gt; e é uma das mais famosas ferramentas abertas para extração de textos. O pacote em &lt;code&gt;R&lt;/code&gt; de mesmo nome serve para usar essa biblioteca pelo &lt;code&gt;R&lt;/code&gt; sem causar dores de cabeça.&lt;/p&gt;
+&lt;p&gt;Para instalar o &lt;code&gt;tesseract&lt;/code&gt; no Windows, basta rodar&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;tesseract&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para Mac e Linux, siga as instruções &lt;a href=&#34;https://github.com/ropensci/tesseract&#34;&gt;dessa página&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A principal função do pacote &lt;code&gt;tesseract&lt;/code&gt; é a &lt;code&gt;ocr()&lt;/code&gt;. Seu input é uma imagem (pdf, jpeg, tiff, entre outras) e seu output é um texto. Logo, nosso primeiro passo é transformar o pdf em imagem.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pdf &amp;lt;- &amp;#39;2017-05-27-ocr/pdf_digitalizado.pdf&amp;#39;
+img &amp;lt;- pdf_render_page(
+  pdf = pdf,    # caminho do arquivo
+  page = 1,     # índice da página
+  dpi = 300     # resolução (pontos por polegada)
+)
+
+# salvando imagem num arquivo png
+png::writePNG(img, &amp;#39;2017-05-27-ocr/pdf_digitalizado_img.png&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se o PDF tiver mais páginas, você pode fazer um loop para salvar várias imagens. Agora, usamos a função &lt;code&gt;ocr()&lt;/code&gt; no arquivo salvo.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tesseract)
+txt &amp;lt;- ocr(&amp;#39;2017-05-27-ocr/pdf_digitalizado_img.png&amp;#39;)
+
+# imprimindo só os 300 primeiros caracteres do resultado
+cat(str_trunc(txt, 300))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## This is a sample document to test the PDF Image+Text OCR Engine.
+## This is a sample document to test the PDF Image+Text OCR Engine.
+## This is a sample document to test the PDF Image+Text OCR Engine.
+## This is a sample document to test the PDF Image+Text OCR Engine.
+## This is a sample document to test the...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrap-up&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Wrap-up&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Se seu pdf for digital, use &lt;code&gt;pdftools::pdf_text()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Se seu pdf for digitalizado, use &lt;code&gt;pdftools::pdf_render_page()&lt;/code&gt;, depois &lt;code&gt;png::writePNG()&lt;/code&gt; e por fim &lt;code&gt;tesseract::ocr()&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;É isso. Happy coding ;)&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
