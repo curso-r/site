@@ -20,7 +20,8 @@
 &lt;ul&gt;
 &lt;li&gt;Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo &lt;code&gt;data.frame&lt;/code&gt;s diretamente.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_digital.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#34;application/pdf&#34;&gt;
+&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_digital.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#39;application/pdf&#39;&gt;
+&lt;embed src=&#34;http://curso-r.com/blog/2017-05-27-ocr/pdf_digital.pdf&#34; type=&#34;application/pdf&#34; /&gt;
 &lt;/object&gt;
 &lt;ul&gt;
 &lt;li&gt;Se for digitalizado, você precisará passar um algoritmo de OCR (Optical Character Recognition) para extrair os dados. Provavelmente seu output nesse caso será sempre texto.&lt;/li&gt;
@@ -285,7 +286,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x4a68568&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## &amp;lt;bytecode: 0x4cde568&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -1003,7 +1004,7 @@ Figure 1: Tempo do for em função do número de inputs
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-05-28 00:08
+##   Date: 2017-05-28 19:54
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.7 kB
@@ -1068,13 +1069,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.156   0.008   2.313&lt;/code&gt;&lt;/pre&gt;
+##   0.216   0.008   2.380&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.144   0.000   2.228&lt;/code&gt;&lt;/pre&gt;
+##   0.176   0.000   2.277&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;

@@ -20,7 +20,8 @@
 &lt;ul&gt;
 &lt;li&gt;Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo &lt;code&gt;data.frame&lt;/code&gt;s diretamente.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_digital.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#34;application/pdf&#34;&gt;
+&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_digital.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#39;application/pdf&#39;&gt;
+&lt;embed src=&#34;http://curso-r.com/blog/2017-05-27-ocr/pdf_digital.pdf&#34; type=&#34;application/pdf&#34; /&gt;
 &lt;/object&gt;
 &lt;ul&gt;
 &lt;li&gt;Se for digitalizado, você precisará passar um algoritmo de OCR (Optical Character Recognition) para extrair os dados. Provavelmente seu output nesse caso será sempre texto.&lt;/li&gt;
