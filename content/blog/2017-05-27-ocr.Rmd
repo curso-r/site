@@ -1,6 +1,6 @@
 ---
 title: "PDF e OCR"
-date: "2017-05-27T13:07:31+02:00"
+date: "2017-05-28T13:07:31+02:00"
 tags: ["r", "pdf", "ocr"]
 categories: ["r", "import"]
 banner: "img/banners/pdf-to-text.jpg"
