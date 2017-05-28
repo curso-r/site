@@ -5,6 +5,7 @@ tags: ["r", "contrastes", "formula", "interpretação"]
 categories: ["r"]
 banner: "img/banners/contrastes.png"
 author: ["Athos"]
+draft: true
 summary: "Na modelagem estatística, muitas vezes brigamos com os parâmetros em vez de compreendê-los. Nesse post iremos aprender a interpretá-los e a domá-los para usá-los em nosso benefício."
 ---
 
