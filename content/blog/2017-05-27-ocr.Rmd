@@ -20,13 +20,11 @@ A primeira pergunta que você precisa fazer antes de ler um pdf é: o arquivo é
 
 - Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo `data.frame`s diretamente. 
 
-
-<iframe src="https://docs.google.com/gview?embedded=true&url=https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digital.pdf" seamless="seamless" width="100%" frameBorder="0"  style="height:375px;"></iframe>
-
+[Vamos usar esse exemplo de PDF digital](https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digital.pdf) 
 
 - Se for digitalizado, você precisará passar um algoritmo de OCR (Optical Character Recognition) para extrair os dados. Provavelmente seu output nesse caso será sempre texto.
 
-<iframe src="https://docs.google.com/gview?embedded=true&url=https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digitalizado.pdf" seamless="seamless" width="100%" frameBorder="0"  style="height:375px;"></iframe>
+[Vamos usar esse exemplo de PDF digitalizado](https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digitalizado.pdf)
 
 **Obs:** é possível que seu arquivo seja digitalizado, mas já com uma OCR passada no próprio arquivo. Nesse caso, você pode tratar o documento como digital.
 
@@ -113,9 +111,7 @@ Para instalar o `tabulizer`, siga as instruções [dessa página](https://github
 library(tabulizer)
 ```
 
-Vamos usar esse pdf de exemplo:
-
-<iframe src="https://docs.google.com/gview?embedded=true&url=https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_compras.pdf" seamless="seamless" width="100%" frameBorder="0"  style="height:375px;"></iframe>
+Vamos usar [esse pdf de exemplo](https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_compras.pdf). 
 
 ```{r eval=FALSE}
 # No meu pc demorou 40 segundos.
