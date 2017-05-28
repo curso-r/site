@@ -20,11 +20,11 @@ A primeira pergunta que você precisa fazer antes de ler um pdf é: o arquivo é
 
 - Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo `data.frame`s diretamente. 
 
-<object data="htt<i>ps://</i>docs.google.com/gview?embedded=true&url=htt<i>ps://</i>github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digital.pdf" width="100%" height="375"></object>
+<object data="htt<span>ps://</span>docs.google.com/gview?embedded=true&url=htt<span>ps://</span>github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digital.pdf" width="100%" height="375"></object>
 
 - Se for digitalizado, você precisará passar um algoritmo de OCR (Optical Character Recognition) para extrair os dados. Provavelmente seu output nesse caso será sempre texto.
 
-<object data="htt<i>ps://</i>docs.google.com/gview?embedded=true&url=htt<i>ps://</i>github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digitalizado.pdf" width="100%" height="375"></object>
+<object data="htt<span>ps://</span>docs.google.com/gview?embedded=true&url=htt<span>ps://</span>github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digitalizado.pdf" width="100%" height="375"></object>
 
 **Obs:** é possível que seu arquivo seja digitalizado, mas já com uma OCR passada no próprio arquivo. Nesse caso, você pode tratar o documento como digital.
 
@@ -113,7 +113,7 @@ library(tabulizer)
 
 Vamos usar esse pdf de exemplo:
 
-<object data="htt<i>ps://</i>docs.google.com/gview?embedded=true&url=htt<i>ps://</i>github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_compras.pdf" width="100%" height="375"></object>
+<object data="htt<span>ps://</span>docs.google.com/gview?embedded=true&url=htt<span>ps://</span>github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_compras.pdf" width="100%" height="375"></object>
 
 ```{r eval=FALSE}
 # No meu pc demorou 40 segundos.
