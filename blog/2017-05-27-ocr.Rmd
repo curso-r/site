@@ -80,7 +80,7 @@ pdf_html <- function(pdf) {
 
 Você pode brincar com o HTML usando o pacote `rvest`:
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 library(rvest)
 ```
 
@@ -158,7 +158,7 @@ tab_tidy <- tab %>%
 
 A Tabela \@ref(tab:tabela) mostra as primeiras cinco linhas do resultado.
 
-```{r echo=FALSE}
+```{r tabela, echo=FALSE}
 knitr::kable(head(tab_tidy, 5), caption = 'Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.')
 ```
 

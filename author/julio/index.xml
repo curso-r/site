@@ -79,13 +79,7 @@ cat(str_trunc(txt[1], 500))
   txt
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Você pode brincar com o HTML usando o pacote &lt;code&gt;rvest&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)
-## Loading required package: xml2
-## 
-## Attaching package: &amp;#39;rvest&amp;#39;
-## The following object is masked from &amp;#39;package:readr&amp;#39;:
-## 
-##     guess_encoding&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;html &amp;lt;- pdf_html(pdf)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;html %&amp;gt;% 
   read_html() %&amp;gt;% 
@@ -134,9 +128,9 @@ tab &amp;lt;- extract_tables(&amp;#39;2017-05-27-ocr/pdf_compras.pdf&amp;#39;)&l
   mutate_all(funs(str_replace_all(., &amp;#39;[[:space:]]+&amp;#39;, &amp;#39; &amp;#39;))) %&amp;gt;% 
   # tira espaços nas bordas
   mutate_all(str_trim) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A Tabela &lt;a href=&#34;#tab:tabela&#34;&gt;&lt;strong&gt;??&lt;/strong&gt;&lt;/a&gt; mostra as primeiras cinco linhas do resultado.&lt;/p&gt;
+&lt;p&gt;A Tabela &lt;a href=&#34;#tab:tabela&#34;&gt;1&lt;/a&gt; mostra as primeiras cinco linhas do resultado.&lt;/p&gt;
 &lt;table&gt;
-&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-14&#34;&gt;Table 1: &lt;/span&gt;Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.&lt;/caption&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:tabela&#34;&gt;Table 1: &lt;/span&gt;Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.&lt;/caption&gt;
 &lt;thead&gt;
 &lt;tr class=&#34;header&#34;&gt;
 &lt;th align=&#34;left&#34;&gt;uf&lt;/th&gt;
@@ -291,7 +285,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &amp;lt;bytecode: 0x434b568&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+## &amp;lt;bytecode: 0x4a68568&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Para mostrar a mudança, vamos comparar o desempenho das funções usando &lt;code&gt;microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.&lt;/p&gt;
 &lt;p&gt;No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(1)
@@ -1009,7 +1003,7 @@ Figure 1: Tempo do for em função do número de inputs
 &lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
 ## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-05-27 23:50
+##   Date: 2017-05-28 00:08
 ##   Status: 200
 ##   Content-Type: text/html;charset=ISO-8859-1
 ##   Size: 37.7 kB
@@ -1053,14 +1047,14 @@ sudo apt-get install libcurl4-openssl-dev&lt;/code&gt;&lt;/pre&gt;
   dormir()
 })
 ##    user  system elapsed 
-##   0.000   0.000   1.002&lt;/code&gt;&lt;/pre&gt;
+##   0.000   0.000   1.001&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Nosso interesse é aplicar &lt;code&gt;dormir()&lt;/code&gt; em cada elemento do vetor &lt;code&gt;c(1, 2)&lt;/code&gt;. Esse algoritmo demora &lt;code&gt;1 + 2 = 3&lt;/code&gt; segundos.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;segundos &amp;lt;- c(1, 2)
 system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.008   0.000   3.012&lt;/code&gt;&lt;/pre&gt;
+##   0.008   0.000   3.010&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
@@ -1074,13 +1068,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.160   0.012   2.320&lt;/code&gt;&lt;/pre&gt;
+##   0.156   0.008   2.313&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.152   0.000   2.254&lt;/code&gt;&lt;/pre&gt;
+##   0.144   0.000   2.228&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;

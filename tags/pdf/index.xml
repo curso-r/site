@@ -79,13 +79,7 @@ cat(str_trunc(txt[1], 500))
   txt
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Você pode brincar com o HTML usando o pacote &lt;code&gt;rvest&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)
-## Loading required package: xml2
-## 
-## Attaching package: &amp;#39;rvest&amp;#39;
-## The following object is masked from &amp;#39;package:readr&amp;#39;:
-## 
-##     guess_encoding&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;html &amp;lt;- pdf_html(pdf)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;html %&amp;gt;% 
   read_html() %&amp;gt;% 
@@ -134,9 +128,9 @@ tab &amp;lt;- extract_tables(&amp;#39;2017-05-27-ocr/pdf_compras.pdf&amp;#39;)&l
   mutate_all(funs(str_replace_all(., &amp;#39;[[:space:]]+&amp;#39;, &amp;#39; &amp;#39;))) %&amp;gt;% 
   # tira espaços nas bordas
   mutate_all(str_trim) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A Tabela &lt;a href=&#34;#tab:tabela&#34;&gt;&lt;strong&gt;??&lt;/strong&gt;&lt;/a&gt; mostra as primeiras cinco linhas do resultado.&lt;/p&gt;
+&lt;p&gt;A Tabela &lt;a href=&#34;#tab:tabela&#34;&gt;1&lt;/a&gt; mostra as primeiras cinco linhas do resultado.&lt;/p&gt;
 &lt;table&gt;
-&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-14&#34;&gt;Table 1: &lt;/span&gt;Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.&lt;/caption&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:tabela&#34;&gt;Table 1: &lt;/span&gt;Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.&lt;/caption&gt;
 &lt;thead&gt;
 &lt;tr class=&#34;header&#34;&gt;
 &lt;th align=&#34;left&#34;&gt;uf&lt;/th&gt;

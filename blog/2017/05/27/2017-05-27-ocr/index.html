@@ -236,13 +236,7 @@ cat(str_trunc(txt[1], 500))
   txt
 }</code></pre>
 <p>Você pode brincar com o HTML usando o pacote <code>rvest</code>:</p>
-<pre class="r"><code>library(rvest)
-## Loading required package: xml2
-## 
-## Attaching package: &#39;rvest&#39;
-## The following object is masked from &#39;package:readr&#39;:
-## 
-##     guess_encoding</code></pre>
+<pre class="r"><code>library(rvest)</code></pre>
 <pre class="r"><code>html &lt;- pdf_html(pdf)</code></pre>
 <pre class="r"><code>html %&gt;% 
   read_html() %&gt;% 
@@ -291,9 +285,9 @@ tab &lt;- extract_tables(&#39;2017-05-27-ocr/pdf_compras.pdf&#39;)</code></pre>
   mutate_all(funs(str_replace_all(., &#39;[[:space:]]+&#39;, &#39; &#39;))) %&gt;% 
   # tira espaços nas bordas
   mutate_all(str_trim) </code></pre>
-<p>A Tabela <a href="#tab:tabela"><strong>??</strong></a> mostra as primeiras cinco linhas do resultado.</p>
+<p>A Tabela <a href="#tab:tabela">1</a> mostra as primeiras cinco linhas do resultado.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-14">Table 1: </span>Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.</caption>
+<caption><span id="tab:tabela">Table 1: </span>Base arrumada a partir de arquivo pdf, usando o pacote tabulizer.</caption>
 <thead>
 <tr class="header">
 <th align="left">uf</th>
