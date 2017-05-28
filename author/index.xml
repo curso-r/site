@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Author on Curso-R</title>
+    <link>http://curso-r.com/author/</link>
+    <description>Recent content in Author on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 08 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/author/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Athos</title>
+      <link>http://curso-r.com/author/athos/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/author/athos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Daniel</title>
+      <link>http://curso-r.com/author/daniel/</link>
+      <pubDate>Sat, 22 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/author/daniel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fernando</title>
+      <link>http://curso-r.com/author/fernando/</link>
+      <pubDate>Fri, 19 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/author/fernando/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Julio</title>
+      <link>http://curso-r.com/author/julio/</link>
+      <pubDate>Sat, 27 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/author/julio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>William</title>
+      <link>http://curso-r.com/author/william/</link>
+      <pubDate>Mon, 01 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/author/william/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

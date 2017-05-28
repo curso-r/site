@@ -1,188 +1,258 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Curso-R</title>
-    <link>http://curso-r.com/tags/index.xml</link>
-    <description>Recent content on Curso-R</description>
+    <title>Tags on Curso-R</title>
+    <link>http://curso-r.com/tags/</link>
+    <description>Recent content in Tags on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <atom:link href="http://curso-r.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Apr 2017 23:26:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
-      <title>Diagramas de Venn em R</title>
-      <link>http://curso-r.com/blog/2017/04/29/2017-04-29-diagramas-de-venn/</link>
+      <title></title>
+      <link>http://curso-r.com/tags/</link>
       <pubDate>Sat, 29 Apr 2017 23:26:00 +0300</pubDate>
       
-      <guid>http://curso-r.com/blog/2017/04/29/2017-04-29-diagramas-de-venn/</guid>
-      <description>&lt;p&gt;Diagramas de Venn são como slides de PowerPoint. Se eles tem poucos elementos concisos em uma ordem inteligente, um leitor consegue conectar as ideias expostas e aprender alguma coisa. Em caso contrário, o excesso de informação se transforma em um obstáculo para a comunicação.&lt;/p&gt;
-&lt;p&gt;Bons diagramas de Venn são capazes de te fazer perceber cruzamentos que não estão no seu radar. &lt;a href=&#34;http://andrewgelman.com/2006/03/29/the_serenity_pr/&#34;&gt;No blog do Andrew Gelman&lt;/a&gt; tem um exemplo interessante. Ele considera uma oração, em inglês, que pede:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;God give me the serenity to accept things which cannot be changed; Give me courage to change things which must be changed; And the wisdom to distinguish one from the other.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Pelo jeito em que ela foi escrita, parece que só existem dois tipos de coisas: aquelas que não podem ser modificadas e aquelas que nós devemos mudar. Entretanto, esse não é o caso:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Se uma coisa pode ser modificada e eu não devo mudá-la, ela não é importante.&lt;/li&gt;
-&lt;li&gt;Se uma coisa coisa não pode ser modificada e eu devo mudá-la, eu preciso aceitá-la.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Considerando esse diagrama, O Gelman até sugere uma prece mais cuidadosa:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Lord, grant me the serenity to accept things that cannot be changed, courage to change things that must be changed; discernment to ignore things that don’t need changing; acceptance that some things I need to change, i can’t; And the wisdom to understand Venn Diagrams.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;!--É claro que existem diagramas complicados demais para serem úteis, mas, assim como slides ruins, a complexidade pode ser superada se houver muita boa vontade. O pior que pode acontecer é alguém--&gt;
-&lt;p&gt;A despeito da utilidade de Diagramas de Venn bem feitos, o R oferece poucas maneiras de construí-los. No CRAN, existem apenas três pacotes especializados em construir esses gráficos, mas duas delas são um pouco insatisfatórias. Neste post, vamos descobrir como fazer diagramas de Venn usando o pacote &lt;code&gt;VennDiagram&lt;/code&gt;.&lt;/p&gt;
-&lt;div id=&#34;o-dataset&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;O Dataset&lt;/h2&gt;
-&lt;p&gt;Para não nos distrairmos com bases de dados complicadas, vamos usar uma tabela artifical inspirada &lt;a href=&#34;https://rstudio-pubs-static.s3.amazonaws.com/13301_6641d73cfac741a59c0a851feb99e98b.html&#34;&gt;nesse link&lt;/a&gt;. Cada linha dessa base representa as preferências por animais de estimação de uma pessoa hipotética. No total temos 34 pessoas na base e as opções possíveis são “Cães”,“Gatos”,“Lagartos” e “Serpentes”.&lt;/p&gt;
-&lt;p&gt;O data.frame está disponível no código fonte desse post.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;pacotes&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Pacotes&lt;/h2&gt;
-&lt;p&gt;Codificar os gráficos no pacote &lt;code&gt;VennDiagram&lt;/code&gt; é um pouco chato, por isso vamos precisar de outros pacotes pra ajudar. No geral, apenas as coisas do &lt;code&gt;tidyverse&lt;/code&gt; já vão servir.&lt;/p&gt;
-&lt;p&gt;O comando abaixo chama os pacotes que vamos usar neste post.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(VennDiagram)
-library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;diagramas-de-venn-usando-o-pacote-venndiagram&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Diagramas de Venn usando o pacote &lt;code&gt;VennDiagram&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;Como eu já disse antes, esse pacote é bem chato, pois em todos os gráficos você precisa escrever diretamente o número de elementos em cada pedaço dos conjuntos e os parâmetros gráficos detalhados demais. Pra funcionar bem, você tem que dizer exatamente o que quer fazer.&lt;/p&gt;
-&lt;p&gt;Vamos começar fazendo um diagrama simples. Ele vai representar o conjunto de pessoas que gostam de cachorros.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;numero_de_pessoas_que_gostam_de_cachorros &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Dog == 1) %&amp;gt;% 
-  nrow()
-
-grid.newpage()
-invisible(draw.single.venn(numero_de_pessoas_que_gostam_de_cachorros,
-                 #Número de elementos do conjunto
-                 category = &amp;quot;Pessoas que gostam de cachorros&amp;quot;,
-                 #Nome do conjunto
-                 lty = &amp;quot;blank&amp;quot;,
-                 #Grossura da borda dos conjuntos.&amp;quot;blank&amp;quot; quer dizer que não vai ter borda
-                 fill = &amp;quot;light blue&amp;quot;,
-                 #Cor do conjunto
-                 alpha = 0.5
-                 #Transparência do conjunto. Varia de 0 a 1
-                 ))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Complicando um pouco mais, dessa vez vamos fazer um diagrama que represente as pessoas que gostam de gatos ou de cachorros.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;numero_de_pessoas_que_gostam_de_cachorros &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Dog == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_gatos &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Cat == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_gatos_e_de_cachorros &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Dog == 1 &amp;amp; Cat == 1) %&amp;gt;% 
-  nrow()
-
-grid.newpage()
-invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
-                   #Número de elementos da primeira categoria
-                   area2 = numero_de_pessoas_que_gostam_de_gatos,
-                   #Número de elementos da segunda categoria
-                   cross.area = numero_de_pessoas_que_gostam_de_gatos_e_de_cachorros,
-                   #Número de elementos na intersecção
-                   category = c(&amp;quot;Pessoas que gostam\nde cachorros&amp;quot;,
-                                &amp;quot;Pessoas que gostam\nde gatos&amp;quot;),
-                   #Nome das categorias
-                   lty = c(&amp;quot;blank&amp;quot;, &amp;quot;blank&amp;quot;),
-                   #Grossura das bordas
-                   fill = c(&amp;quot;light blue&amp;quot;, &amp;quot;pink&amp;quot;),
-                   #Cores das bordas
-                   alpha = c(0.5, 0.5),
-                   #Transparência das bordas
-                   cat.pos = c(0, 0),
-                   #Posição dos títulos com relação aos círculos. 0 quer dizer &amp;quot;em cima&amp;quot;
-                   scaled = F
-                   #Constrói as áreas sem escala
-                   ))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;A falta de escalas deixou esse gráfico simétrico e esteticamente agradável. Entretanto, em algumas situações é mais legal representar os conjuntos em escala.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;numero_de_pessoas_que_gostam_de_cachorros &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Dog == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_serpentes &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Snake == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_cachorros_e_de_serpentes &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Dog == 1 &amp;amp; Snake == 1) %&amp;gt;% 
-  nrow()
-
-grid.newpage()
-invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
-                   #Número de elementos da primeira categoria
-                   area2 = numero_de_pessoas_que_gostam_de_serpentes,
-                   #Número de elementos da segunda categoria
-                   cross.area = numero_de_pessoas_que_gostam_de_cachorros_e_de_serpentes,
-                   #Número de elementos na intersecção
-                   category = c(&amp;quot;Pessoas que gostam\nde cachorros&amp;quot;,
-                                &amp;quot;Pessoas que gostam\nde serpentes&amp;quot;),
-                   #Nome das categorias
-                   lty = c(&amp;quot;blank&amp;quot;, &amp;quot;blank&amp;quot;),
-                   #Grossura das bordas
-                   fill = c(&amp;quot;light blue&amp;quot;, &amp;quot;light green&amp;quot;),
-                   #Cores das bordas
-                   alpha = c(0.5, 0.5),
-                   #Transparência das bordas
-                   cat.pos = c(0, 0),
-                   #Posição dos títulos com relação aos círculos. 0 quer dizer &amp;quot;em cima&amp;quot;
-                   scaled = T
-                   #Constrói as áreas sem escala
-                   ))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Até aqui tudo vai mais ou menos bem, mas a coisa fica bem mais chata quando você precisa representar um diagrama com três conjuntos. Você vai precisar passar pra função o tamanho de todos os pedacinhos.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;numero_de_pessoas_que_gostam_de_gatos &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Cat == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_serpentes &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Snake == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_lagartos &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Lizard == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_gatos_e_de_serpentes &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Cat == 1 &amp;amp; Snake == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_gatos_e_de_lagartos &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Cat == 1 &amp;amp; Lizard == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_serpentes_e_de_lagartos &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Lizard == 1 &amp;amp; Snake == 1) %&amp;gt;% 
-  nrow()
-
-numero_de_pessoas_que_gostam_de_serpentes_e_lagartos_e_gatos &amp;lt;- dataset %&amp;gt;% 
-  dplyr::filter(Lizard == 1 &amp;amp; Snake == 1 &amp;amp; Cat == 1) %&amp;gt;% 
-  nrow()
-
-
-grid.newpage()
-invisible(draw.triple.venn(area1 = numero_de_pessoas_que_gostam_de_gatos,
-                 area2 = numero_de_pessoas_que_gostam_de_serpentes,
-                 area3 = numero_de_pessoas_que_gostam_de_lagartos,
-                 n12 = numero_de_pessoas_que_gostam_de_gatos_e_de_serpentes,
-                 n23 = numero_de_pessoas_que_gostam_de_serpentes_e_de_lagartos,
-                 n13 = numero_de_pessoas_que_gostam_de_gatos_e_de_lagartos, 
-                 n123 = numero_de_pessoas_que_gostam_de_serpentes_e_lagartos_e_gatos,
-                 category = c(&amp;quot;Gatos&amp;quot;,
-                              &amp;quot;Serpentes&amp;quot;,
-                              &amp;quot;Lagartos&amp;quot;),
-                 lty = &amp;quot;blank&amp;quot;, 
-                 fill = c(&amp;quot;light blue&amp;quot;, &amp;quot;green&amp;quot;, &amp;quot;light green&amp;quot;),
-                 cat.pos = c(45,45,45),
-                 scaled = T))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <guid>http://curso-r.com/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayes</title>
+      <link>http://curso-r.com/tags/bayes/</link>
+      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/bayes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dados Abertos</title>
+      <link>http://curso-r.com/tags/dados-abertos/</link>
+      <pubDate>Fri, 19 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/dados-abertos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Erro</title>
+      <link>http://curso-r.com/tags/erro/</link>
+      <pubDate>Thu, 20 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/erro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ggplot</title>
+      <link>http://curso-r.com/tags/ggplot/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/tags/ggplot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ggplot2</title>
+      <link>http://curso-r.com/tags/ggplot2/</link>
+      <pubDate>Mon, 20 Feb 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Imagens</title>
+      <link>http://curso-r.com/tags/imagens/</link>
+      <pubDate>Thu, 04 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/imagens/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kmeans</title>
+      <link>http://curso-r.com/tags/kmeans/</link>
+      <pubDate>Thu, 04 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/kmeans/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Knitr</title>
+      <link>http://curso-r.com/tags/knitr/</link>
+      <pubDate>Sat, 25 Mar 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/knitr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Leaflet</title>
+      <link>http://curso-r.com/tags/leaflet/</link>
+      <pubDate>Mon, 10 Apr 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/leaflet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lolapalooza</title>
+      <link>http://curso-r.com/tags/lolapalooza/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/tags/lolapalooza/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mapas</title>
+      <link>http://curso-r.com/tags/mapas/</link>
+      <pubDate>Wed, 01 Mar 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/mapas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ocr</title>
+      <link>http://curso-r.com/tags/ocr/</link>
+      <pubDate>Sat, 27 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/ocr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pdf</title>
+      <link>http://curso-r.com/tags/pdf/</link>
+      <pubDate>Sat, 27 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Progress</title>
+      <link>http://curso-r.com/tags/progress/</link>
+      <pubDate>Mon, 10 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/progress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>http://curso-r.com/tags/r/</link>
+      <pubDate>Sat, 27 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regressao</title>
+      <link>http://curso-r.com/tags/regressao/</link>
+      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/regressao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rmarkdown</title>
+      <link>http://curso-r.com/tags/rmarkdown/</link>
+      <pubDate>Sat, 25 Mar 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rstudio</title>
+      <link>http://curso-r.com/tags/rstudio/</link>
+      <pubDate>Thu, 16 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spotify</title>
+      <link>http://curso-r.com/tags/spotify/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/tags/spotify/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stan</title>
+      <link>http://curso-r.com/tags/stan/</link>
+      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/stan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>String</title>
+      <link>http://curso-r.com/tags/string/</link>
+      <pubDate>Mon, 17 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/string/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tidyverse</title>
+      <link>http://curso-r.com/tags/tidyverse/</link>
+      <pubDate>Mon, 17 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Top10</title>
+      <link>http://curso-r.com/tags/top10/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/tags/top10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tuber</title>
+      <link>http://curso-r.com/tags/tuber/</link>
+      <pubDate>Fri, 28 Apr 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/tuber/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Scraping</title>
+      <link>http://curso-r.com/tags/web-scraping/</link>
+      <pubDate>Fri, 19 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/web-scraping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webscraping</title>
+      <link>http://curso-r.com/tags/webscraping/</link>
+      <pubDate>Fri, 28 Apr 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/webscraping/</guid>
+      <description></description>
     </item>
     
   </channel>

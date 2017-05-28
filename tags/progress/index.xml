@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Progress on Curso-R</title>
-    <link>http://curso-r.com/tags/progress/index.xml</link>
+    <link>http://curso-r.com/tags/progress/</link>
     <description>Recent content in Progress on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <atom:link href="http://curso-r.com/tags/progress/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Apr 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/progress/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>As barras do progresso</title>
@@ -15,203 +18,8 @@
       <pubDate>Mon, 10 Apr 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/04/10/2017-04-08-progress/</guid>
-      <description>&lt;p&gt;Na jornada da ciência de dados, muitas vezes precisamos rodar um mesmo algoritmo em vários objetos distintos. Quando o algoritmo é pesado ou a lista de objetos é longa, é importante saber em que passo estamos e quanto vai demorar para terminar.&lt;/p&gt;
-&lt;p&gt;Uma forma de resolver esse problema é usando o pacote &lt;code&gt;progress&lt;/code&gt;. O objeto &lt;code&gt;progress_bar&lt;/code&gt; desse pacote é do tipo &lt;a href=&#34;https://cran.r-project.org/web/packages/R6/vignettes/Introduction.html&#34;&gt;&lt;code&gt;R6&lt;/code&gt;&lt;/a&gt; e tem um método &lt;code&gt;new()&lt;/code&gt; para criar objetos do tipo “barra”. Uma barra criada também é do tipo &lt;code&gt;R6&lt;/code&gt; e possui o método &lt;code&gt;tick()&lt;/code&gt; para imprimir uma barra de progresso no console.&lt;/p&gt;
-&lt;p&gt;No exemplo abaixo, nosso interesse é aplicar a função &lt;code&gt;funcao_demorada&lt;/code&gt; nos números &lt;code&gt;1:5&lt;/code&gt; (um de cada vez, sem usar vetorização) e guardá-los numa lista.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;funcao_demorada &amp;lt;- function(x) {
-  Sys.sleep(0.5)
-  x ^ 2
-}
-nums &amp;lt;- 1:5&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Podemos fazer isso usando o pacote &lt;code&gt;progress&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;barra &amp;lt;- progress::progress_bar$new(total = length(nums)) # cria a barra
-
-resultados &amp;lt;- list()
-for (x in nums) {
-  barra$tick() # dá um passo
-  resultados[[x]] &amp;lt;- funcao_demorada(x)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Como resultados, temos:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;resultados
-## [[1]]
-## [1] 1
-## 
-## [[2]]
-## [1] 4
-## 
-## [[3]]
-## [1] 9
-## 
-## [[4]]
-## [1] 16
-## 
-## [[5]]
-## [1] 25&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;No entanto, sabemos que os laços &lt;code&gt;for&lt;/code&gt; e &lt;code&gt;while&lt;/code&gt; do &lt;code&gt;R&lt;/code&gt; &lt;a href=&#34;http://stackoverflow.com/questions/7142767/why-are-loops-slow-in-r&#34;&gt;são problemáticos&lt;/a&gt;. A melhor e mais estilosa forma de fazer esse tipo de operação no &lt;code&gt;R&lt;/code&gt; é usando &lt;em&gt;funcionais&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Funcionais são funções de funções. Usamos esses caras sempre que queremos aplicar uma função a diversos objetos. Eles são alternativas mais concisas, elegantes e muitas vezes mais eficientes do que os conhecidos &lt;code&gt;for&lt;/code&gt; e &lt;code&gt;while&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Exemplos de funcionais são os objetos da família &lt;code&gt;**ply&lt;/code&gt; (&lt;code&gt;lapply&lt;/code&gt;, &lt;code&gt;apply&lt;/code&gt;, &lt;code&gt;sapply&lt;/code&gt; etc.) Os funcionais do R básico foram generalizados no pacote &lt;code&gt;plyr&lt;/code&gt;, que apresenta uma sintaxe organizada e intuitiva.&lt;/p&gt;
-&lt;p&gt;Uma vantagem do &lt;code&gt;plyr&lt;/code&gt; é a possibilidade de adicionar barras de progresso como um parâmetro dos funcionais.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;resultados &amp;lt;- plyr::llply(nums, funcao_demorada, .progress = &amp;#39;text&amp;#39;)
-## 
-  |                                                                       
-  |                                                                 |   0%
-  |                                                                       
-  |=============                                                    |  20%
-  |                                                                       
-  |==========================                                       |  40%
-  |                                                                       
-  |=======================================                          |  60%
-  |                                                                       
-  |====================================================             |  80%
-  |                                                                       
-  |=================================================================| 100%&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Os resultados são idênticos e foram omitidos. Bem mais simples, não?&lt;/p&gt;
-&lt;div id=&#34;usando-purrmap-no-lugar-de-plyrllply&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Usando &lt;code&gt;purr::map&lt;/code&gt; no lugar de &lt;code&gt;plyr::llply&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;Recentemente, boa parte das funções do &lt;code&gt;plyr&lt;/code&gt; foram substituídas por alternativas nos pacotes &lt;code&gt;dplyr&lt;/code&gt; (operações envolvendo &lt;code&gt;data.frame&lt;/code&gt;s) e &lt;code&gt;purrr&lt;/code&gt; (operações envolvendo vetores e listas). Esses pacotes apresentam uma sintaxe mais próxima da &lt;a href=&#34;http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/&#34;&gt;filosofia &lt;code&gt;tidy&lt;/code&gt;&lt;/a&gt; e portanto faz sentido estudá-los!&lt;/p&gt;
-&lt;p&gt;Infelizmente, as funções do &lt;code&gt;purrr&lt;/code&gt; ainda&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; não têm um parâmetro para barras de progresso. Enquanto isso, podemos utilizar o &lt;code&gt;progress::progress_bar&lt;/code&gt; mesmo.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;barra &amp;lt;- progress::progress_bar$new(total = length(nums))
-resultados &amp;lt;- purrr::map(nums, ~{
-  barra$tick()
-  funcao_demorada(.x)
-})&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;O código fica parecido com solução usando &lt;code&gt;for()&lt;/code&gt;, mas pelo menos estamos usando os pacotes mais recentes ;)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;eficiencia&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Eficiência&lt;/h2&gt;
-&lt;p&gt;As soluções que mostrei acima apresentam diferenças importantes de eficiência. Abaixo, encapsulei os códigos em funções e mudei levemente a operação que queremos fazer:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nums &amp;lt;- 1:100
-funcao_rapida &amp;lt;- function(x) {
-  x ^ 2
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;for()&lt;/code&gt;, com e sem progresso:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for_com &amp;lt;- function(nums) {
-  barra &amp;lt;- progress::progress_bar$new(total = length(nums))
-  resultados &amp;lt;- list()
-  for(x in nums) {
-    barra$tick()
-    resultados[[x]] &amp;lt;- funcao_rapida(x)
-  }
-  resultados
-}
-for_sem &amp;lt;- function(nums) {
-  resultados &amp;lt;- list()
-  for(x in nums) resultados[[x]] &amp;lt;- funcao_rapida(x)
-  resultados
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;plyr::llply()&lt;/code&gt;, com e sem progresso:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plyr_com &amp;lt;- function(nums) {
-  plyr::llply(nums, funcao_rapida, .progress = &amp;#39;text&amp;#39;)
-}
-plyr_sem &amp;lt;- function(nums) {
-  plyr::llply(nums, funcao_rapida)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;purrr::map()&lt;/code&gt;, com e sem progresso:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;purrr_com &amp;lt;- function(nums) {
-  barra &amp;lt;- progress::progress_bar$new(total = length(nums))
-  purrr::map(nums, ~{
-    barra$tick()
-    funcao_rapida(.x)
-  })
-}
-purrr_sem &amp;lt;- function(nums) {
-  purrr::map(nums, funcao_rapida)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Para testar a eficiência dos algoritmos, utilizamos a função &lt;code&gt;microbenchmark::microbenchmark()&lt;/code&gt;. Essa função calcula o tempo de execução do algoritmo cem vezes e obtém algumas estatísticas básicas dos tempos obtidos.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;benchmark &amp;lt;- microbenchmark::microbenchmark(
-  for_com(nums), for_sem(nums),
-  plyr_com(nums), plyr_sem(nums),
-  purrr_com(nums), purrr_sem(nums)
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Os resultados da Tabela &lt;a href=&#34;#tab:eficiencia&#34;&gt;1&lt;/a&gt; são surpreendentes. Primeiro, as funções que não usam barras de progresso são muito mais rápidas, chegando a quase 10 vezes em alguns casos. A função do &lt;code&gt;plyr&lt;/code&gt; é mais lenta que o &lt;code&gt;for()&lt;/code&gt; quando usamos barras de progresso, mas é mais rápida quando não usamos. O &lt;code&gt;purrr&lt;/code&gt; é o mais rápido nos dois casos.&lt;/p&gt;
-&lt;table&gt;
-&lt;caption&gt;&lt;span id=&#34;tab:eficiencia&#34;&gt;Table 1: &lt;/span&gt;Resultados do benchmark. Os tempos estão em milisegundos.&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;left&#34;&gt;expr&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;min&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;mean&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;median&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;max&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;for_com(nums)&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;8.666&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;10.367&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;9.952&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;17.155&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;for_sem(nums)&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.161&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.219&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.196&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;2.211&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;plyr_com(nums)&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;9.193&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;10.754&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;10.511&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;18.386&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;plyr_sem(nums)&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.116&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.155&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.156&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.271&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;purrr_com(nums)&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;8.776&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;10.376&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;9.982&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;14.424&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;purrr_sem(nums)&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.092&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.131&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.124&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.538&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Mas não leve esses resultados tão a sério. Na prática, a parte mais demorada fica na função aplicada e não no funcional utilizado, implicando que essas diferenças sejam ignoráveis. Só recomendo mesmo abandonar o &lt;code&gt;for()&lt;/code&gt; para operações desse tipo, pois o tempo de execução não cresce &lt;strong&gt;linearmente&lt;/strong&gt; com o tamanho dos objetos, como é possível ver na Figura &lt;a href=&#34;#fig:for&#34;&gt;1&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:for&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;http://curso-r.com/blog/2017-04-08-progress_files/figure-html/for-1.png&#34; alt=&#34;Tempo do for em função do número de inputs&#34; width=&#34;768&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: Tempo do for em função do número de inputs
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;resumo&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Resumo&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Use o objeto &lt;code&gt;progress::progress_bar&lt;/code&gt; sempre que quiser fazer barras de progresso.&lt;/li&gt;
-&lt;li&gt;Use o método &lt;code&gt;$new(total = n)&lt;/code&gt; para criar uma barra.&lt;/li&gt;
-&lt;li&gt;Use o método &lt;code&gt;$tick()&lt;/code&gt; dentro do loop para mostrar que andou um passo do algoritmo.&lt;/li&gt;
-&lt;li&gt;Tome cuidado com a eficiência do algoritmo quando usa barras de progresso.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;outros-links&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Outros links&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Veja &lt;code&gt;?dplyr::progress_estimated&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/gaborcsardi/progress&#34;&gt;Pacote &lt;code&gt;progress&lt;/code&gt;&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://adv-r.had.co.nz/Functional-programming.html&#34;&gt;Programação funcional&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;É provável que o &lt;code&gt;purrr&lt;/code&gt; ganhe essa funcionalidade num futuro próximo. &lt;a href=&#34;https://github.com/tidyverse/purrr/issues/149&#34;&gt;Veja essa discussão&lt;/a&gt;.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
+      <description>Na jornada da ciência de dados, muitas vezes precisamos rodar um mesmo algoritmo em vários objetos distintos. Quando o algoritmo é pesado ou a lista de objetos é longa, é importante saber em que passo estamos e quanto vai demorar para terminar.
+Uma forma de resolver esse problema é usando o pacote progress. O objeto progress_bar desse pacote é do tipo R6 e tem um método new() para criar objetos do tipo “barra”.</description>
     </item>
     
   </channel>

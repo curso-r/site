@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bayes on Curso-R</title>
-    <link>http://curso-r.com/categories/bayes/index.xml</link>
+    <link>http://curso-r.com/categories/bayes/</link>
     <description>Recent content in Bayes on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <atom:link href="http://curso-r.com/categories/bayes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/categories/bayes/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Modelando a variância da normal</title>
@@ -15,154 +18,10 @@
       <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/03/09/2017-02-21-regressao-heterocedastica/</guid>
-      <description>&lt;p&gt;Verificar as suposições dos modelos é muito importante quando fazemos inferência estatística. Em particular, a suposição de homocedasticidade&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; dos modelos de regressão linear é especialmente importante, pois modifica o cálculo de erros padrão, intervalos de confiança e valores-p.&lt;/p&gt;
-&lt;p&gt;Neste post, vou mostrar três pacotes do R que ajustam modelos da forma&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ Y_i = \beta_0 + \sum_{k=1}^p\beta_kx_{ik} + \epsilon_i, \ i = 1,\ldots,n\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \epsilon_{i} \sim \textrm{N}(0,\sigma_i), \ i = 1,\ldots,n \ \textrm{independentes, com }\sigma_i^2 = \alpha x_i^2.  \]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Além de mostrar como se faz, também vou ilustrar o desempenho dos pacotes em um exemplo simulado. O modelo que gerará os dados do exemplo terá a seguinte forma funcional&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ Y_i = \beta x_i + \epsilon_i, \ i = 1,...n \]&lt;/span&gt; &lt;span class=&#34;math display&#34;&gt;\[ \epsilon_i \sim N(0, \sigma_i)\text{ independentes, com }\sigma_i = \alpha\sqrt{|x_i|},\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;e os parâmetros do modelo serão os valores &lt;span class=&#34;math inline&#34;&gt;\(\beta = 1\)&lt;/span&gt; e &lt;span class=&#34;math inline&#34;&gt;\(\alpha = 4\)&lt;/span&gt;. A heterocedasticidade faz com que os pontos desenhem um cone ao redor da reta de regressão.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
-
-N &amp;lt;- 1000
-
-set.seed(11071995)
-X &amp;lt;- sample((N/100):(N*3), N)
-Y &amp;lt;- rnorm(N,X,4*sqrt(X))
-
-qplot(X,Y) + 
-  theme_bw(15) + 
-  geom_point(color = &amp;#39;darkorange&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;X2 &amp;lt;- sqrt(X)
-dataset &amp;lt;- data.frame(Y,X,X2)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;usando-o-pacote-gamlss&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Usando o pacote &lt;code&gt;gamlss&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Quando se ajusta um GAMLSS, você pode modelar os parâmetros de locação, escala e curtose ao mesmo tempo em que escolhe a distribuição dos dados dentre uma grande gama de opções. Escolhendo a distribuição normal e modelando apenas os parâmetros de locação e escala, o GAMLSS ajusta modelos lineares normais com heterocedasticidade.&lt;/p&gt;
-&lt;p&gt;No código abaixo, o parâmetro &lt;code&gt;formula = Y ~ X-1&lt;/code&gt; indica que a função de regressão será constituída por um preditor linear em &lt;code&gt;X&lt;/code&gt; sem intercepto. Já o parâmetro &lt;code&gt;sigma.formula = ~X2-1&lt;/code&gt; indica que o desvio padrão será modelado por um preditor linear em &lt;code&gt;X2&lt;/code&gt; (ou raiz de &lt;code&gt;X&lt;/code&gt;), também sem intercepto.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(gamlss)
-
-fit_gamlss &amp;lt;- gamlss::gamlss(formula = Y ~ X-1,
-                             sigma.formula = ~X2-1,
-                             data = dataset,
-                             family = NO())&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;GAMLSS-RS iteration 1: Global Deviance = 17872.29 
-GAMLSS-RS iteration 2: Global Deviance = 17870.67 
-GAMLSS-RS iteration 3: Global Deviance = 17870.67 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Conforme descrito no sumário abaixo, a estimativa de alfa está muito abaixo do valor simulado.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(fit_gamlss)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;******************************************************************
-Family:  c(&amp;quot;NO&amp;quot;, &amp;quot;Normal&amp;quot;) 
-
-Call:  gamlss::gamlss(formula = Y ~ X - 1, sigma.formula = ~X2 -  
-    1, family = NO(), data = dataset) 
-
-Fitting method: RS() 
-
-------------------------------------------------------------------
-Mu link function:  identity
-Mu Coefficients:
-  Estimate Std. Error t value Pr(&amp;gt;|t|)    
-X 0.996942   0.005131   194.3   &amp;lt;2e-16 ***
----
-Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
-
-------------------------------------------------------------------
-Sigma link function:  log
-Sigma Coefficients:
-    Estimate Std. Error t value Pr(&amp;gt;|t|)    
-X2 0.1791449  0.0009606   186.5   &amp;lt;2e-16 ***
----
-Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
-
-------------------------------------------------------------------
-No. of observations in the fit:  1000 
-Degrees of Freedom for the fit:  2
-      Residual Deg. of Freedom:  998 
-                      at cycle:  3 
- 
-Global Deviance:     17870.67 
-            AIC:     17874.67 
-            SBC:     17884.49 
-******************************************************************&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;usando-o-pacote-dglm&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Usando o pacote &lt;code&gt;dglm&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Quando se ajusta um Modelo Linear Generalizado Duplo (MLGD em português e DGLM em inglês), você tem uma flexibilidade parecida com a de um GAMLSS. Entretanto, você não pode definir um modelo para a curtose e a classe de distribuições disponível é bem menor.&lt;/p&gt;
-&lt;p&gt;O código abaixo, similar ao utilizado para ajustar o GAMLSS, ajusta um DGLM aos dados simulados.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dglm)
-
-fit &amp;lt;- dglm(Y~X-1, dformula = ~X2-1,data = dataset, family = gaussian, method = &amp;#39;reml&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;Warning: glm.fit: algorithm did not converge&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Novamente, verifica-se que o alfa estimado está muito distante do verdadeiro alfa.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;
-Call: dglm(formula = Y ~ X - 1, dformula = ~X2 - 1, family = gaussian, 
-    data = dataset, method = &amp;quot;reml&amp;quot;)
-
-Mean Coefficients:
-   Estimate  Std. Error t value Pr(&amp;gt;|t|)
-X 0.9969432 0.008981392 111.001        0
-(Dispersion Parameters for gaussian family estimated as below )
-
-    Scaled Null Deviance: 27197.48 on 1000 degrees of freedom
-Scaled Residual Deviance: 3090.08 on 999 degrees of freedom
-
-Dispersion Coefficients:
-    Estimate  Std. Error  z value Pr(&amp;gt;|z|)
-X2 0.3577322 0.001166004 306.8019        0
-(Dispersion parameter for Gamma family taken to be 2 )
-
-    Scaled Null Deviance: 1628.301 on 1000 degrees of freedom
-Scaled Residual Deviance: 6526.59 on 999 degrees of freedom
-
-Minus Twice the Log-Likelihood: 17870.76 
-Number of Alternating Iterations: 18 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;usando-o-pacote-rstan&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Usando o pacote &lt;code&gt;rstan&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://mc-stan.org/&#34;&gt;Stan&lt;/a&gt; é uma linguagem de programação voltada para descrever e manipular objetos probabilísticos, como por exemplo variáveis aleatórias, processos estocásticos, distribuições de probabilidades etc. Essa linguagem foi projetada para tornar intuitivo e simples o ajuste de modelos estatísticos. Em particular, a forma de descrever modelos bayesianos é bem cômoda.&lt;/p&gt;
-&lt;p&gt;O &lt;code&gt;stan&lt;/code&gt; possui várias interfaces para &lt;code&gt;R&lt;/code&gt;. A mais básica é o &lt;code&gt;rstan&lt;/code&gt;, que será utilizada aqui. A principal função desse pacote é a função &lt;code&gt;rstan&lt;/code&gt;, que possui dois parâmetros básicos:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;um parâmetro &lt;code&gt;model_code =&lt;/code&gt;, que recebe um código que descreve o modelo na linguagem &lt;code&gt;stan&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;um parâmetro &lt;code&gt;data =&lt;/code&gt;, que recebe uma lista contendo os inputs do modelo, tais como dados coletados, parâmetros de distribuições a priori, etc.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Embora esse seja o mínimo que a função precisa, também podemos passar outras componentes. O parâmetro &lt;code&gt;verbose = FALSE&lt;/code&gt; faz com que a função não imprima nada enquanto roda e o parâmetro &lt;code&gt;control = list(...)&lt;/code&gt; passa uma lista de opções de controle para o algoritmo de ajuste.&lt;/p&gt;
-&lt;p&gt;O retorno da função &lt;code&gt;stan()&lt;/code&gt; é um objeto do tipo &lt;code&gt;stanfit&lt;/code&gt;, que pode ser sumarizado da mesma forma que outros modelos em R, utilizando a função &lt;code&gt;summary()&lt;/code&gt; e a função &lt;code&gt;plot()&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;O código abaixo ilustra a aplicação da função &lt;code&gt;stan()&lt;/code&gt; ao nosso exemplo.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rstan)
-
-scode &amp;lt;- &amp;quot;data {
-  int&amp;lt;lower=0&amp;gt; N;
-  vector[N] y;
-  vector[N] x;
-}
-parameters {
-  real beta;
-  real&amp;lt;lower=0&amp;gt; alpha;
-}
-model {
-  beta ~ normal(0,10);
-  alpha ~ gamma(1,1);
-
-  y ~ normal(beta * x, alpha * sqrt(x));
-}&amp;quot;
-
-dados &amp;lt;- list(N = nrow(dataset), y = dataset$Y, x = dataset$X)
-
-fit_stan &amp;lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
-             control = list(adapt_delta = 0.99))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâmetro do modelo. O ponto central de cada intervalo representa as estimativas pontuais dos parâmetros. Como se nota, as estimativas do modelo utilizando &lt;code&gt;stan&lt;/code&gt; estão bem próximas dos valores verdadeiros.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(fit_stan)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://curso-r.com/blog/2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Uma regressão linear é homocedástica quando a variabilidade dos erros não depende das covariáveis do modelo.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
+      <description>Verificar as suposições dos modelos é muito importante quando fazemos inferência estatística. Em particular, a suposição de homocedasticidade1 dos modelos de regressão linear é especialmente importante, pois modifica o cálculo de erros padrão, intervalos de confiança e valores-p.
+Neste post, vou mostrar três pacotes do R que ajustam modelos da forma
+\[ Y_i = \beta_0 + \sum_{k=1}^p\beta_kx_{ik} + \epsilon_i, \ i = 1,\ldots,n\]
+\[ \epsilon_{i} \sim \textrm{N}(0,\sigma_i), \ i = 1,\ldots,n \ \textrm{independentes, com }\sigma_i^2 = \alpha x_i^2.</description>
     </item>
     
   </channel>

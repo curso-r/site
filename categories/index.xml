@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Curso-R</title>
+    <link>http://curso-r.com/categories/</link>
+    <description>Recent content in Categories on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 09 Mar 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bayes</title>
+      <link>http://curso-r.com/categories/bayes/</link>
+      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/categories/bayes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Emotion</title>
+      <link>http://curso-r.com/categories/emotion/</link>
+      <pubDate>Sat, 15 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/categories/emotion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Import</title>
+      <link>http://curso-r.com/categories/import/</link>
+      <pubDate>Sat, 27 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/categories/import/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>http://curso-r.com/categories/r/</link>
+      <pubDate>Sat, 27 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/categories/r/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

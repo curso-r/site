@@ -2,12 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ggplot on Curso-R</title>
-    <link>http://curso-r.com/tags/ggplot/index.xml</link>
+    <link>http://curso-r.com/tags/ggplot/</link>
     <description>Recent content in Ggplot on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <atom:link href="http://curso-r.com/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Requisições seguras</title>
@@ -15,38 +18,8 @@
       <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>http://curso-r.com/blog/2017/03/31/2017-03-31-ssl/</guid>
-      <description>&lt;p&gt;No mundo do web scraping, muitas vezes precisamos acessar sites &lt;code&gt;HTTPS&lt;/code&gt;, a versão &lt;code&gt;S&lt;/code&gt;egura do &lt;code&gt;HTTP&lt;/code&gt; (Hyper Text Transfer Protocol). Esse protocolo é utilizado para encriptar as mensagens trocadas por usuário e servidor.&lt;/p&gt;
-&lt;p&gt;O pacote &lt;code&gt;httr&lt;/code&gt; utiliza um padrão &lt;code&gt;SSL&lt;/code&gt; (Secure Sockets Layer) para lidar com &lt;code&gt;HTTPS&lt;/code&gt;. O SSL nada mais é que uma forma de informar ao servidor que você é você, garantindo que suas mensagens só possam ser interpretadas por esse servidor, e vice-versa. O padrão do &lt;code&gt;httr&lt;/code&gt; funciona bem para a maioria dos sites, permitindo o acesso sem sofrimento.&lt;/p&gt;
-&lt;p&gt;No entanto, alguns sites dão o seguinte erro:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;)
-## Error in curl::curl_fetch_memory(url, handle = handle): Peer certificate cannot be authenticated with given CA certificates&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A solução para esse problema é bem simples. Basta mandar o &lt;code&gt;httr&lt;/code&gt; ignorar o protocolo &lt;code&gt;SSL&lt;/code&gt; usando a função &lt;code&gt;httr::config()&lt;/code&gt;. Ignorar o SSL costuma ser uma má ideia, pois faz com que as mensagens entre usuário e servidor voltem a ser em texto puro, como se fosse &lt;code&gt;HTTP&lt;/code&gt;. Mas no web scraping isso não é exatamente um problema.&lt;/p&gt;
-&lt;p&gt;Para solucionar o problema acima, rode:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;httr::GET(&amp;quot;https://esaj.tjsp.jus.br&amp;quot;, httr::config(ssl_verifypeer = FALSE))
-## Response [https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000]
-##   Date: 2017-05-28 21:04
-##   Status: 200
-##   Content-Type: text/html;charset=ISO-8859-1
-##   Size: 37.7 kB
-## 
-## 
-## 
-## 
-## 
-## 
-## 
-## 
-## &amp;lt;!DOCTYPE html PUBLIC &amp;quot;-//W3C//DTD XHTML 1.0 Transitional//EN&amp;quot; &amp;quot;http://w...
-## 
-## ...&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;E… Feliz web scraping!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;OBS:&lt;/strong&gt; Certa vez um amigo teve problema com SSL mesmo tentando a solução acima numa máquina com Ubuntu Resolvemos o problema reinstalando a biblioteca &lt;code&gt;libcurl4-openssl-dev&lt;/code&gt; via &lt;code&gt;apt-get&lt;/code&gt; e o pacote &lt;code&gt;curl&lt;/code&gt; do R. Assim:&lt;/p&gt;
-&lt;p&gt;No terminal:&lt;/p&gt;
-&lt;pre class=&#34;shell&#34;&gt;&lt;code&gt;sudo apt-get update
-sudo apt-get install libcurl4-openssl-dev&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;No R:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;curl&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>No mundo do web scraping, muitas vezes precisamos acessar sites HTTPS, a versão Segura do HTTP (Hyper Text Transfer Protocol). Esse protocolo é utilizado para encriptar as mensagens trocadas por usuário e servidor.
+O pacote httr utiliza um padrão SSL (Secure Sockets Layer) para lidar com HTTPS. O SSL nada mais é que uma forma de informar ao servidor que você é você, garantindo que suas mensagens só possam ser interpretadas por esse servidor, e vice-versa.</description>
     </item>
     
     <item>
@@ -55,51 +28,8 @@ sudo apt-get install libcurl4-openssl-dev&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sun, 19 Mar 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/</guid>
-      <description>&lt;p&gt;Programadores eficientes não precisam escrever algoritmos que rodam rápido. Recomendo fortemente a leitura do livro &lt;a href=&#34;https://csgillespie.github.io/efficientR/&#34;&gt;Efficient R&lt;/a&gt;, que discute eficiência com o R de forma exaustiva. Também gosto muito da primeira parte &lt;a href=&#34;https://www.youtube.com/watch?v=wki0BqlztCo&#34;&gt;dessa palestra do Hadley&lt;/a&gt;, onde ele defende que o cientista de dados deve usar seu tempo pensando no problema e não na forma que vai escrever seu código.&lt;/p&gt;
-&lt;p&gt;Com isso em mente, vamos investigar o tema &lt;em&gt;paralelização&lt;/em&gt;. Quando rodamos coisas em paralelo, mandamos os núcleos de processamento da máquina calcularem coisas diferentes ao mesmo tempo. A vantagem disso é que o tempo de execução dos algoritmos é dividido pelo número de núcleos disponíveis, sem exigir grandes mudanças no código utilizado.&lt;/p&gt;
-&lt;p&gt;Vamos mostrar como paralelizar um código usando a função &lt;code&gt;llply()&lt;/code&gt; do pacote &lt;code&gt;plyr&lt;/code&gt;. Essa função funciona de forma idêntica ao &lt;code&gt;lapply()&lt;/code&gt;, ou seja, recebe uma lista ou vetor como input, aplica uma função em cada elemento, e retorna os resultados numa lista com o mesmo comprimento.&lt;/p&gt;
-&lt;p&gt;A função &lt;code&gt;dormir()&lt;/code&gt; manda o R esperar &lt;code&gt;seg&lt;/code&gt; segundos antes de concluir, retornando &lt;code&gt;seg&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dormir &amp;lt;- function(seg = 1) {
-  Sys.sleep(seg)
-  return(seg)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;É intuitivo afirmar que o tempo de execução de &lt;code&gt;dormir()&lt;/code&gt; é compatível com &lt;code&gt;seg&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
-  dormir()
-})
-##    user  system elapsed 
-##   0.000   0.000   1.001&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Nosso interesse é aplicar &lt;code&gt;dormir()&lt;/code&gt; em cada elemento do vetor &lt;code&gt;c(1, 2)&lt;/code&gt;. Esse algoritmo demora &lt;code&gt;1 + 2 = 3&lt;/code&gt; segundos.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;segundos &amp;lt;- c(1, 2)
-system.time({
-  plyr::llply(segundos, dormir)
-})
-##    user  system elapsed 
-##   0.008   0.000   3.012&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Agora vamos executar o mesmo código usando paralelização. Antes, precisamos&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;criar e registrar as cópias de R que rodam em paralelo; e&lt;/li&gt;
-&lt;li&gt;adicionar o parâmetro &lt;code&gt;.parallel = TRUE&lt;/code&gt; no &lt;code&gt;llply()&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;O primeiro passo é resolvido com os pacotes &lt;code&gt;parallel&lt;/code&gt; e &lt;code&gt;doParallel&lt;/code&gt;. Veja como fica o código:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cl &amp;lt;- parallel::makePSOCKcluster(2) # cria as cópias do R que rodam em paralelo
-doParallel::registerDoParallel(cl)  # registra as cópias do R para serem usadas no plyr
-
-system.time({
-  plyr::llply(segundos, dormir, .parallel = TRUE)
-})
-##    user  system elapsed 
-##   0.192   0.012   2.402&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;O tempo total de execução foi de ~2.2 segundos, um pouco mais do que &lt;code&gt;dormir(2)&lt;/code&gt;. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;system.time({
-  plyr::llply(segundos, dormir, .parallel = TRUE)
-})
-##    user  system elapsed 
-##   0.292   0.004   2.419&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Se quiser parar de rodar coisas em paralelo, basta rodar &lt;code&gt;stopCluster()&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;parallel::stopCluster(cl) # pára de rodar coisas em paralelo&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;E é isso, caros errantes. Rappy coding :)&lt;/p&gt;
-</description>
+      <description>Programadores eficientes não precisam escrever algoritmos que rodam rápido. Recomendo fortemente a leitura do livro Efficient R, que discute eficiência com o R de forma exaustiva. Também gosto muito da primeira parte dessa palestra do Hadley, onde ele defende que o cientista de dados deve usar seu tempo pensando no problema e não na forma que vai escrever seu código.
+Com isso em mente, vamos investigar o tema paralelização. Quando rodamos coisas em paralelo, mandamos os núcleos de processamento da máquina calcularem coisas diferentes ao mesmo tempo.</description>
     </item>
     
     <item>
@@ -108,210 +38,10 @@ system.time({
       <pubDate>Sat, 11 Mar 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/</guid>
-      <description>&lt;p&gt;Hoje estava fazendo uma análise exploratória e precisava estudar os quartis de uma variável contínua. A solução usando o &lt;code&gt;tidyverse&lt;/code&gt; é tão elegante que valeu um post no blog.&lt;/p&gt;
-&lt;p&gt;Usaremos os pacotes &lt;code&gt;tibble&lt;/code&gt;, &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;tidyr&lt;/code&gt; e &lt;code&gt;purrr&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
-library(dplyr)
-library(tidyr)
-library(purrr)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Nesse exemplo, usamos a famosa base &lt;code&gt;mtcars&lt;/code&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tab &amp;lt;- mtcars %&amp;gt;% 
-  group_by(am, vs) %&amp;gt;% 
-  nest() %&amp;gt;% 
-  mutate(quartis = map(data, ~enframe(quantile(.x$mpg, 1:3 / 4)))) %&amp;gt;% 
-  unnest(quartis) %&amp;gt;% 
-  spread(name, value)
-tab
-## # A tibble: 4 x 5
-##      am    vs  `25%` `50%`  `75%`
-## * &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
-## 1     0     0 14.050 15.20 16.625
-## 2     0     1 18.650 21.40 22.150
-## 3     1     0 16.775 20.35 21.000
-## 4     1     1 25.050 30.40 31.400&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;A função &lt;code&gt;dplyr::group_by()&lt;/code&gt; faz um grupo para cada combinação de &lt;code&gt;am&lt;/code&gt; e &lt;code&gt;vs&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;A função &lt;code&gt;tidyr::nest()&lt;/code&gt; guarda os dados de cada grupo numa &lt;em&gt;list-column&lt;/em&gt; chamada &lt;code&gt;data&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;A função &lt;code&gt;purrr::map()&lt;/code&gt; aplica elegantemente a função &lt;code&gt;quantile()&lt;/code&gt; para cada grupo de datas, sendo ajudada pela função &lt;code&gt;tibble::enframe()&lt;/code&gt;, que coloca o resultado de &lt;code&gt;quantile()&lt;/code&gt; em uma &lt;code&gt;tibble&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;A função &lt;code&gt;tidyr::unnest()&lt;/code&gt; coloca os resultados de volta em colunas-vetores.&lt;/li&gt;
-&lt;li&gt;Terminamos com &lt;code&gt;tidyr::spread()&lt;/code&gt; para espalhar os quartis nas colunas.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;O resultado pode ser jogado diretamente numa tabela:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::kable(tab)&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;right&#34;&gt;am&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;vs&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;25%&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;50%&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;75%&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;14.050&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;15.20&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.625&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;18.650&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.40&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;22.150&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.775&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;20.35&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.000&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;25.050&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;30.40&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;31.400&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;É possível mudar esse código para ter outras medidas-resumo, por exemplo. Para isso, podemos usar a função &lt;code&gt;summary()&lt;/code&gt;, por exemplo, ou criar nossa própria função.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;%
-  group_by(am, vs) %&amp;gt;% 
-  nest() %&amp;gt;% 
-  mutate(s = map(data, ~enframe(summary(.x$mpg)))) %&amp;gt;% 
-  unnest(s) %&amp;gt;% 
-  spread(name, value) %&amp;gt;% 
-  knitr::kable()&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;right&#34;&gt;am&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;vs&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;1st Qu.&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;3rd Qu.&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Max.&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Mean&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Median&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Min.&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;14.050&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.625&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;19.2&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;15.05000&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;15.20&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;10.4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;18.650&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;22.150&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;24.4&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;20.74286&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.40&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;17.8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.775&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.000&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;26.0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;19.75000&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;20.35&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;15.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;25.050&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;31.400&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;33.9&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;28.37143&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;30.40&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Como você resolveria essa task? Escreva nos comentários!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: Outra solução para a mesma task, mais concisa, usando &lt;code&gt;dplyr::do()&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mtcars %&amp;gt;% 
-  group_by(am, vs) %&amp;gt;% 
-  do(enframe(summary(.$mpg))) %&amp;gt;% 
-  spread(name, value) %&amp;gt;% 
-  knitr::kable()&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;right&#34;&gt;am&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;vs&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;1st Qu.&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;3rd Qu.&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Max.&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Mean&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Median&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Min.&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;14.050&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.625&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;19.2&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;15.05000&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;15.20&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;10.4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;18.650&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;22.150&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;24.4&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;20.74286&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.40&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;17.8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;16.775&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.000&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;26.0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;19.75000&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;20.35&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;15.0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;25.050&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;31.400&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;33.9&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;28.37143&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;30.40&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;21.4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Mas: tome cuidado! Se o Hadley diz…&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://lsru.github.io/r_workshop/img/purrr_do.png&#34; alt=&#34;&#34; /&gt;
-
-&lt;/div&gt;
-</description>
+      <description>Hoje estava fazendo uma análise exploratória e precisava estudar os quartis de uma variável contínua. A solução usando o tidyverse é tão elegante que valeu um post no blog.
+Usaremos os pacotes tibble, dplyr, tidyr e purrr:
+library(tibble) library(dplyr) library(tidyr) library(purrr) Nesse exemplo, usamos a famosa base mtcars
+tab &amp;lt;- mtcars %&amp;gt;% group_by(am, vs) %&amp;gt;% nest() %&amp;gt;% mutate(quartis = map(data, ~enframe(quantile(.x$mpg, 1:3 / 4)))) %&amp;gt;% unnest(quartis) %&amp;gt;% spread(name, value) tab ## # A tibble: 4 x 5 ## am vs `25%` `50%` `75%` ## * &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; ## 1 0 0 14.</description>
     </item>
     
     <item>
@@ -320,130 +50,10 @@ tab
       <pubDate>Sat, 18 Feb 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</guid>
-      <description>&lt;p&gt;O pacote &lt;code&gt;ggalt&lt;/code&gt; é uma extensão ao &lt;code&gt;ggplot2&lt;/code&gt; que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.&lt;/p&gt;
-&lt;p&gt;É possível instalar o pacote &lt;code&gt;ggalt&lt;/code&gt; usando a função &lt;code&gt;install.packages()&lt;/code&gt;:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;ggalt&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Para exemplificar a utilização do &lt;code&gt;ggalt&lt;/code&gt;, vamos utilizar os pacotes abaixo.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
-library(ggplot2)
-library(ggalt)
-library(broom)
-library(survival)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Nesse exemplo, utilizaremos a base de dados &lt;code&gt;lung&lt;/code&gt; que vem com o pacote &lt;code&gt;survival&lt;/code&gt;. Primeiramente, ajustamos um modelo Kaplan-Meier simples, usando a função &lt;code&gt;survfit()&lt;/code&gt;. Esse modelo tenta explicar a sobrevivência de pacientes com câncer de pulmão para cada sexo.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# modelo kaplan-meier simples
-km &amp;lt;- survfit(Surv(time, status) ~ sex, data = lung)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A função &lt;code&gt;tidy()&lt;/code&gt; do pacote &lt;code&gt;broom&lt;/code&gt; transforma o resultado do modelo numa tabela, já preparada para gerar gráficos.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_km &amp;lt;- tidy(km)
-
-knitr::kable(head(d_km))&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;right&#34;&gt;time&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;n.risk&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;n.event&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;n.censor&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;estimate&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;std.error&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;conf.high&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;conf.low&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;strata&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;11&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;138&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9782609&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.0126898&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.0000000&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9542301&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;12&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;135&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9710145&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.0147075&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9994124&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9434235&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;13&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;134&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9565217&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.0181489&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9911586&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9230952&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;15&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;132&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9492754&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.0196777&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9866017&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9133612&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;26&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;131&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9420290&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.0211171&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9818365&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9038355&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;right&#34;&gt;30&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;130&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9347826&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.0224847&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.9768989&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.8944820&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;sex=1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;A gráfico da Figura &lt;a href=&#34;#fig:ruim&#34;&gt;1&lt;/a&gt; usa a função &lt;code&gt;geom_ribbon()&lt;/code&gt; para gerar os intervalos de confiança. Essa função liga os pontos da faixa diretamente, o que é inadequado do ponto de vista estatístico.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:ruim&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;http://curso-r.com/blog/2017-02-18-ggalt_files/figure-html/ruim-1.png&#34; alt=&#34;Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: Intervalos de confiança usando apenas &lt;code&gt;ggplot2&lt;/code&gt; e &lt;code&gt;geom_ribbon()&lt;/code&gt;.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Na Figura &lt;a href=&#34;#fig:bom&#34;&gt;2&lt;/a&gt;, adicionamos o parâmetro &lt;code&gt;stat = &amp;quot;stepribbon&amp;quot;&lt;/code&gt;, que faz com que o &lt;code&gt;ggplot&lt;/code&gt; utilize a função &lt;code&gt;stat_stepribbon()&lt;/code&gt; do &lt;code&gt;ggalt&lt;/code&gt; para o cálculo da faixa. Isso faz com que os intervalos tenham comportamento de escada, como queríamos.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = strata), 
-              stat = &amp;#39;stepribbon&amp;#39;, alpha = .1, size = .1) +
-  geom_step() +
-  theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:bom&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;http://curso-r.com/blog/2017-02-18-ggalt_files/figure-html/bom-1.png&#34; alt=&#34;Intervalos de confiança usando `stat = &#39;stepribbon&#39;.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 2: Intervalos de confiança usando `stat = ‘stepribbon’.
-&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <description>O pacote ggalt é uma extensão ao ggplot2 que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.
+É possível instalar o pacote ggalt usando a função install.packages():
+install.packages(&amp;#39;ggalt&amp;#39;) Para exemplificar a utilização do ggalt, vamos utilizar os pacotes abaixo.
+library(dplyr) library(ggplot2) library(ggalt) library(broom) library(survival) Nesse exemplo, utilizaremos a base de dados lung que vem com o pacote survival.</description>
     </item>
     
   </channel>
