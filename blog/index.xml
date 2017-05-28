@@ -20,7 +20,7 @@
       <guid>http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/</guid>
       <description>Já precisou extrair dados de arquivos pdf? Bom, eu já. Eu trabalho com jurimetria e preciso extrair dados de diários oficiais, petições, sentenças, então já viu né…
 A primeira pergunta que você precisa fazer antes de ler um pdf é: o arquivo é digital ou digitalizado?
- Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo data.frames diretamente.  &amp;lt;iframe src=“https://docs.</description>
+ Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo data.frames diretamente.  Vamos usar esse exemplo de PDF digital</description>
     </item>
     
     <item>
