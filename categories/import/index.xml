@@ -20,14 +20,11 @@
 &lt;ul&gt;
 &lt;li&gt;Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo &lt;code&gt;data.frame&lt;/code&gt;s diretamente.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_digital.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#39;application/pdf&#39;&gt;
-&lt;embed src=&#34;http://curso-r.com/blog/2017-05-27-ocr/pdf_digital.pdf&#34; type=&#34;application/pdf&#34; /&gt;
-&lt;/object&gt;
+&lt;p&gt;&amp;lt;object data=“&lt;a href=&#34;https://docs.google.com/gview?embedded=true&amp;amp;url=https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digital.pdf&#34; class=&#34;uri&#34;&gt;https://docs.google.com/gview?embedded=true&amp;amp;url=https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digital.pdf&lt;/a&gt;” width=“100%” height=“375”&amp;gt;&lt;/object&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Se for digitalizado, você precisará passar um algoritmo de OCR (Optical Character Recognition) para extrair os dados. Provavelmente seu output nesse caso será sempre texto.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_digitalizado.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#34;application/pdf&#34;&gt;
-&lt;/object&gt;
+&lt;p&gt;&amp;lt;object data=“&lt;a href=&#34;https://docs.google.com/gview?embedded=true&amp;amp;url=https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digitalizado.pdf&#34; class=&#34;uri&#34;&gt;https://docs.google.com/gview?embedded=true&amp;amp;url=https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digitalizado.pdf&lt;/a&gt;” width=“100%” height=“375”&amp;gt;&lt;/object&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Obs:&lt;/strong&gt; é possível que seu arquivo seja digitalizado, mas já com uma OCR passada no próprio arquivo. Nesse caso, você pode tratar o documento como digital.&lt;/p&gt;
 &lt;p&gt;Os créditos dos pacotes abaixo vão todos para o &lt;a href=&#34;https://github.com/jeroen&#34;&gt;Jeroen Ooms&lt;/a&gt;, um dos maiores autores de pacotes da comunidade &lt;code&gt;R&lt;/code&gt; nos últimos dez anos. Sou fã desse cara!&lt;/p&gt;
 &lt;div id=&#34;pacote-pdftools-para-pdfs-digitais&#34; class=&#34;section level2&#34;&gt;
@@ -101,8 +98,7 @@ cat(str_trunc(txt[1], 500))
 &lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;: Uma vez montei esse código para estruturar um pdf contendo gastos em obras públicas. Além de usar o &lt;code&gt;tabulizer&lt;/code&gt;, usei os pacotes usuais do &lt;code&gt;tidyverse&lt;/code&gt; e a função &lt;code&gt;abjutils::rm_accent()&lt;/code&gt; para tirar os acentos do texto.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tabulizer)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Vamos usar esse pdf de exemplo:&lt;/p&gt;
-&lt;object data=&#34;/blog/2017-05-27-ocr/pdf_compras.pdf&#34; width=&#34;100%&#34; height=&#34;375&#34; type=&#34;application/pdf&#34;&gt;
-&lt;/object&gt;
+&lt;p&gt;&amp;lt;object data=“&lt;a href=&#34;https://docs.google.com/gview?embedded=true&amp;amp;url=https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_compras.pdf&#34; class=&#34;uri&#34;&gt;https://docs.google.com/gview?embedded=true&amp;amp;url=https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_compras.pdf&lt;/a&gt;” width=“100%” height=“375”&amp;gt;&lt;/object&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# No meu pc demorou 40 segundos.
 tab &amp;lt;- extract_tables(&amp;#39;2017-05-27-ocr/pdf_compras.pdf&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Essa função serve para arrumar os nomes zuados que vêm no arquivo&lt;/p&gt;
