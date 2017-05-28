@@ -7,11 +7,6 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/blog/2017/05/22/2017-05-21-contrastes-em-r/</loc>
-    <lastmod>2017-05-22T21:12:00+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://curso-r.com/blog/2017/05/19/2017-05-19-scrapper-ssp/</loc>
     <lastmod>2017-05-19T23:26:00+03:00</lastmod>
   </url>
@@ -159,7 +154,7 @@
   
   <url>
     <loc>http://curso-r.com/author/athos/</loc>
-    <lastmod>2017-05-22T21:12:00+03:00</lastmod>
+    <lastmod>2017-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -192,12 +187,6 @@
   
   <url>
     <loc>http://curso-r.com/contact/</loc>
-  </url>
-  
-  <url>
-    <loc>http://curso-r.com/tags/contrastes/</loc>
-    <lastmod>2017-05-22T21:12:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -245,12 +234,6 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/formula/</loc>
-    <lastmod>2017-05-22T21:12:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://curso-r.com/tags/ggplot/</loc>
     <lastmod>2017-03-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -271,12 +254,6 @@
   <url>
     <loc>http://curso-r.com/categories/import/</loc>
     <lastmod>2017-05-27T13:07:31+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://curso-r.com/tags/interpreta%C3%A7%C3%A3o/</loc>
-    <lastmod>2017-05-22T21:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

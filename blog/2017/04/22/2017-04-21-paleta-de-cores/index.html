@@ -212,17 +212,17 @@ centroides
 ## # A tibble: 6 x 4
 ##   cluster         r          g         b
 ##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.7195362 0.54881786 0.4098359
-## 2       2 0.2721465 0.36412137 0.4901613
-## 3       3 0.0996826 0.04366903 0.2398452
+## 1       1 0.0996826 0.04366903 0.2398452
+## 2       2 0.8857289 0.77915257 0.6688482
+## 3       3 0.7195362 0.54881786 0.4098359
 ## 4       4 0.6239192 0.28335790 0.1897367
-## 5       5 0.8857289 0.77915257 0.6688482
-## 6       6 0.3789830 0.11857741 0.1558412</code></pre>
+## 5       5 0.3789830 0.11857741 0.1558412
+## 6       6 0.2721465 0.36412137 0.4901613</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#B78C69&quot; &quot;#455D7D&quot; &quot;#190B3D&quot; &quot;#9F4830&quot; &quot;#E2C7AB&quot; &quot;#611E28&quot;</code></pre>
+## [1] &quot;#190B3D&quot; &quot;#E2C7AB&quot; &quot;#B78C69&quot; &quot;#9F4830&quot; &quot;#611E28&quot; &quot;#455D7D&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -346,7 +346,7 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/categories/import">import (1)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (30)</a>
+            <li><a href="http://curso-r.com/categories/r">r (29)</a>
             </li>
             
         </ul>
@@ -374,16 +374,10 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
             </li>
             
-            <li><a href="http://curso-r.com/tags/contrastes"><i class="fa fa-tags"></i> contrastes</a>
-            </li>
-            
             <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/erro"><i class="fa fa-tags"></i> erro</a>
-            </li>
-            
-            <li><a href="http://curso-r.com/tags/formula"><i class="fa fa-tags"></i> formula</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/ggplot"><i class="fa fa-tags"></i> ggplot</a>
@@ -393,9 +387,6 @@ exibir(paleta)</code></pre>
             </li>
             
             <li><a href="http://curso-r.com/tags/imagens"><i class="fa fa-tags"></i> imagens</a>
-            </li>
-            
-            <li><a href="http://curso-r.com/tags/interpreta%c3%a7%c3%a3o"><i class="fa fa-tags"></i> interpretação</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/kmeans"><i class="fa fa-tags"></i> kmeans</a>
@@ -476,6 +467,19 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -484,19 +488,6 @@ exibir(paleta)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
@@ -573,19 +564,6 @@ exibir(paleta)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/05/22/2017-05-21-contrastes-em-r/">
-                          
-                            <img src="http://curso-r.com/img/banners/contrastes.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/05/22/2017-05-21-contrastes-em-r/">Contrastes no R: um guia de como domar e interpretar seus parâmetros</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/05/19/2017-05-19-scrapper-ssp/">
                           
                             <img src="http://curso-r.com/img/banners/scrapper-ssp.png" class="img-responsive" alt="">
@@ -594,6 +572,19 @@ exibir(paleta)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/05/19/2017-05-19-scrapper-ssp/">Web scraping do site da Secretaria de Segurança Pública de São Paulo</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/">
+                          
+                            <img src="http://curso-r.com/img/banners/mapas_tematicos_rapidos.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/">Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos</a></h5>
                     </div>
                 </div>
                 
