@@ -7,17 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 27 May 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 28 May 2017 13:07:31 +0200</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/tags/pdf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PDF e OCR</title>
-      <link>http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/</link>
-      <pubDate>Sat, 27 May 2017 13:07:31 +0200</pubDate>
+      <link>http://curso-r.com/blog/2017/05/28/2017-05-27-ocr/</link>
+      <pubDate>Sun, 28 May 2017 13:07:31 +0200</pubDate>
       
-      <guid>http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/</guid>
+      <guid>http://curso-r.com/blog/2017/05/28/2017-05-27-ocr/</guid>
       <description>Já precisou extrair dados de arquivos pdf? Bom, eu já. Eu trabalho com jurimetria e preciso extrair dados de diários oficiais, petições, sentenças, então já viu né…
 A primeira pergunta que você precisa fazer antes de ler um pdf é: o arquivo é digital ou digitalizado?
  Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo data.frames diretamente.  Vamos usar esse exemplo de PDF digital</description>

@@ -53,7 +53,7 @@
   
   <meta property="og:title" content="PDF e OCR" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/blog/2017/05/27/2017-05-27-ocr//" />
+  <meta property="og:url" content="/blog/2017/05/28/2017-05-27-ocr//" />
   <meta property="og:image" content="img/banners/pdf-to-text.jpg" />
 
 </head>
@@ -168,7 +168,7 @@
                             
                           
                           
-                          27/05/2017
+                          28/05/2017
                         </p>
                         
                         <div id="post-content">
@@ -178,10 +178,16 @@
 <li>Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo <code>data.frame</code>s diretamente.</li>
 </ul>
 <p><a href="https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digital.pdf">Vamos usar esse exemplo de PDF digital</a></p>
+<p>Se estiver no desktop, é possível ver o documento abaixo:</p>
+<object data="/blog/2017-05-27-ocr/pdf_digital.pdf" width="100%" height="375" type="application/pdf">
+</object>
 <ul>
 <li>Se for digitalizado, você precisará passar um algoritmo de OCR (Optical Character Recognition) para extrair os dados. Provavelmente seu output nesse caso será sempre texto.</li>
 </ul>
 <p><a href="https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_digitalizado.pdf">Vamos usar esse exemplo de PDF digitalizado</a></p>
+<p>Se estiver no desktop, é possível ver o documento abaixo:</p>
+<object data="/blog/2017-05-27-ocr/pdf_digitalizado.pdf" width="100%" height="375" type="application/pdf">
+</object>
 <p><strong>Obs:</strong> é possível que seu arquivo seja digitalizado, mas já com uma OCR passada no próprio arquivo. Nesse caso, você pode tratar o documento como digital.</p>
 <p>Os créditos dos pacotes abaixo vão todos para o <a href="https://github.com/jeroen">Jeroen Ooms</a>, um dos maiores autores de pacotes da comunidade <code>R</code> nos últimos dez anos. Sou fã desse cara!</p>
 <div id="pacote-pdftools-para-pdfs-digitais" class="section level2">
@@ -255,6 +261,9 @@ cat(str_trunc(txt[1], 500))
 <p><strong>Exemplo</strong>: Uma vez montei esse código para estruturar um pdf contendo gastos em obras públicas. Além de usar o <code>tabulizer</code>, usei os pacotes usuais do <code>tidyverse</code> e a função <code>abjutils::rm_accent()</code> para tirar os acentos do texto.</p>
 <pre class="r"><code>library(tabulizer)</code></pre>
 <p>Vamos usar <a href="https://github.com/curso-r/site/raw/master/content/blog/2017-05-27-ocr/pdf_compras.pdf">esse pdf de exemplo</a>.</p>
+<p>Se estiver no desktop, é possível ver o documento abaixo:</p>
+<object data="/blog/2017-05-27-ocr/pdf_compras.pdf" width="100%" type="application/pdf" height="375">
+</object>
 <pre class="r"><code># No meu pc demorou 40 segundos.
 tab &lt;- extract_tables(&#39;2017-05-27-ocr/pdf_compras.pdf&#39;)</code></pre>
 <p>Essa função serve para arrumar os nomes zuados que vêm no arquivo</p>
@@ -398,9 +407,9 @@ cat(str_trunc(txt, 300))</code></pre>
                             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'curso-r-com';
-    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/05\/27\/2017-05-27-ocr\/';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/05\/28\/2017-05-27-ocr\/';
     var disqus_title = 'PDF e OCR';
-    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/05\/27\/2017-05-27-ocr\/';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/05\/28\/2017-05-27-ocr\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -590,27 +599,27 @@ cat(str_trunc(txt, 300))</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -674,14 +683,14 @@ cat(str_trunc(txt, 300))</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/">
+                        <a href="http://curso-r.com/blog/2017/05/28/2017-05-27-ocr/">
                           
                             <img src="http://curso-r.com/img/banners/pdf-to-text.jpg" class="img-responsive" alt="">
                           
                         </a>
                     </div>
                     <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/05/27/2017-05-27-ocr/">PDF e OCR</a></h5>
+                        <h5><a href="http://curso-r.com/blog/2017/05/28/2017-05-27-ocr/">PDF e OCR</a></h5>
                     </div>
                 </div>
                 
