@@ -185,7 +185,7 @@
   dormir()
 })
 ##    user  system elapsed 
-##   0.000   0.000   1.001</code></pre>
+##   0.000   0.000   1.002</code></pre>
 <p>Nosso interesse é aplicar <code>dormir()</code> em cada elemento do vetor <code>c(1, 2)</code>. Esse algoritmo demora <code>1 + 2 = 3</code> segundos.</p>
 <pre class="r"><code>segundos &lt;- c(1, 2)
 system.time({
@@ -206,13 +206,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.212   0.004   2.386</code></pre>
+##   0.180   0.012   2.392</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.176   0.000   2.270</code></pre>
+##   0.152   0.000   2.242</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # pára de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
@@ -419,19 +419,6 @@ system.time({
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -440,6 +427,19 @@ system.time({
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
