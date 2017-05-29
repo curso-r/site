@@ -109,7 +109,7 @@ html %>%
 
 ### PDF para tabelas
 
-Apesar de depender do odiado `rJava`, um pacote chato de instalar e configurar, o `tabulizer` é capaz de extrair os dados diretamente para tabelas, de forma simples e intuitiva.
+Use o `tabulizer`! Apesar de depender do odiado `rJava` (que é um pacote chato de instalar e configurar) o `tabulizer` é capaz de extrair os dados diretamente para tabelas, de forma simples e intuitiva.
 
 Para instalar o `tabulizer`, siga as instruções [dessa página](https://github.com/ropensci/tabulizer). Já adianto que pode não ser uma tarefa fácil, principalmente por conta do `rJava`.
 
@@ -134,7 +134,7 @@ tab <- extract_tables('2017-05-27-ocr/pdf_compras.pdf')
 tab <- readRDS('2017-05-27-ocr/tab_raw.rds')
 ```
 
-Essa função serve para arrumar os nomes zuados que vêm no arquivo
+Essa função serve para arrumar os nomes zoados que vêm no arquivo:
 
 ```{r}
 arrumar_nomes <- function(x) {
@@ -174,7 +174,7 @@ knitr::kable(head(tab_tidy, 5), caption = 'Base arrumada a partir de arquivo pdf
 
 ## Pacote `tesseract` para PDFs digitalizados
 
-O `tesseract` é uma biblioteca escrita em `C` e é uma das mais famosas ferramentas abertas para extração de textos. O pacote em `R` de mesmo nome serve para usar essa biblioteca pelo `R` sem causar dores de cabeça.
+O `tesseract` é uma biblioteca escrita em `C` e é uma das mais famosas ferramentas abertas para extração de textos a partir de imagens. O pacote em `R` de mesmo nome serve para usar essa biblioteca pelo `R` sem causar dores de cabeça.
 
 Para instalar o `tesseract` no Windows, basta rodar
 
@@ -184,7 +184,7 @@ install.packages('tesseract')
 
 Para Mac e Linux, siga as instruções [dessa página](https://github.com/ropensci/tesseract).
 
-A principal função do pacote `tesseract` é a `ocr()`. Seu input é uma imagem (pdf, jpeg, tiff, entre outras) e seu output é um texto. Logo, nosso primeiro passo é transformar o pdf em imagem.
+A principal função do pacote `tesseract` é a `ocr()`. Seu input é o caminho de uma imagem (pdf, jpeg, tiff, entre outras) e seu output é um texto. Logo, nosso primeiro passo é transformar o pdf em imagem.
 
 ```{r}
 pdf <- '2017-05-27-ocr/pdf_digitalizado.pdf'
