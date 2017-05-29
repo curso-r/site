@@ -221,7 +221,7 @@ cat(str_trunc(txt[1], 500))
 </div>
 <div id="pdf-para-html-ou-xml" class="section level3">
 <h3>PDF para HTML ou XML</h3>
-<p>Muitas vezes queremos pegar estruturas no texto que dependem da posição dos elementos. Por exemplo, o texto em um PDF pode estar dividido em várias colunas. Para isso, o ideal seria transformar</p>
+<p>Muitas vezes queremos pegar estruturas no texto que dependem da posição dos elementos. Por exemplo, o texto em um PDF pode estar dividido em várias colunas. Para isso, o ideal seria transformar o arquivo em dados semi-estruturados como HTML ou XML, que separam os elementos do conteúdo do PDF em <em>tags</em>.</p>
 <p>Infelizmente, o <code>pdftools</code> ainda não transforma em HTML nem XML. Para soltar um HTML, vamos montar uma função que chama <code>pdftohtml</code> do <code>poppler</code> por command line.</p>
 <pre class="r"><code>pdf_html &lt;- function(pdf) {
   infos &lt;- pdf_info(pdf)              # pega infos do pdf
@@ -256,7 +256,7 @@ cat(str_trunc(txt[1], 500))
 </div>
 <div id="pdf-para-tabelas" class="section level3">
 <h3>PDF para tabelas</h3>
-<p>Apesar de depender do odiado <code>rJava</code>, um pacote chato de instalar e configurar, o <code>tabulizer</code> é capaz de extrair os dados diretamente para tabelas, de forma simples e intuitiva.</p>
+<p>Use o <code>tabulizer</code>! Apesar de depender do odiado <code>rJava</code> (que é um pacote chato de instalar e configurar) o <code>tabulizer</code> é capaz de extrair os dados diretamente para tabelas, de forma simples e intuitiva.</p>
 <p>Para instalar o <code>tabulizer</code>, siga as instruções <a href="https://github.com/ropensci/tabulizer">dessa página</a>. Já adianto que pode não ser uma tarefa fácil, principalmente por conta do <code>rJava</code>.</p>
 <p><strong>Exemplo</strong>: Uma vez montei esse código para estruturar um pdf contendo gastos em obras públicas. Além de usar o <code>tabulizer</code>, usei os pacotes usuais do <code>tidyverse</code> e a função <code>abjutils::rm_accent()</code> para tirar os acentos do texto.</p>
 <pre class="r"><code>library(tabulizer)</code></pre>
@@ -266,7 +266,7 @@ cat(str_trunc(txt[1], 500))
 </object>
 <pre class="r"><code># No meu pc demorou 40 segundos.
 tab &lt;- extract_tables(&#39;2017-05-27-ocr/pdf_compras.pdf&#39;)</code></pre>
-<p>Essa função serve para arrumar os nomes zuados que vêm no arquivo</p>
+<p>Essa função serve para arrumar os nomes zoados que vêm no arquivo:</p>
 <pre class="r"><code>arrumar_nomes &lt;- function(x) {
   x %&gt;% 
     tolower() %&gt;% 
@@ -362,11 +362,11 @@ tab &lt;- extract_tables(&#39;2017-05-27-ocr/pdf_compras.pdf&#39;)</code></pre>
 </div>
 <div id="pacote-tesseract-para-pdfs-digitalizados" class="section level2">
 <h2>Pacote <code>tesseract</code> para PDFs digitalizados</h2>
-<p>O <code>tesseract</code> é uma biblioteca escrita em <code>C</code> e é uma das mais famosas ferramentas abertas para extração de textos. O pacote em <code>R</code> de mesmo nome serve para usar essa biblioteca pelo <code>R</code> sem causar dores de cabeça.</p>
+<p>O <code>tesseract</code> é uma biblioteca escrita em <code>C</code> e é uma das mais famosas ferramentas abertas para extração de textos a partir de imagens. O pacote em <code>R</code> de mesmo nome serve para usar essa biblioteca pelo <code>R</code> sem causar dores de cabeça.</p>
 <p>Para instalar o <code>tesseract</code> no Windows, basta rodar</p>
 <pre class="r"><code>install.packages(&#39;tesseract&#39;)</code></pre>
 <p>Para Mac e Linux, siga as instruções <a href="https://github.com/ropensci/tesseract">dessa página</a>.</p>
-<p>A principal função do pacote <code>tesseract</code> é a <code>ocr()</code>. Seu input é uma imagem (pdf, jpeg, tiff, entre outras) e seu output é um texto. Logo, nosso primeiro passo é transformar o pdf em imagem.</p>
+<p>A principal função do pacote <code>tesseract</code> é a <code>ocr()</code>. Seu input é o caminho de uma imagem (pdf, jpeg, tiff, entre outras) e seu output é um texto. Logo, nosso primeiro passo é transformar o pdf em imagem.</p>
 <pre class="r"><code>pdf &lt;- &#39;2017-05-27-ocr/pdf_digitalizado.pdf&#39;
 img &lt;- pdf_render_page(
   pdf = pdf,    # caminho do arquivo
@@ -599,14 +599,14 @@ cat(str_trunc(txt, 300))</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          
