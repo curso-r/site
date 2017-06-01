@@ -18,9 +18,9 @@
       <pubDate>Thu, 01 Jun 2017 23:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/06/01/2017-06-01-a-kind-of-magick/</guid>
-      <description>Já vimos como o Rstudio se torna uma ferramenta poderoso quando combinado com certos pacotes, como o knitr e shiny, ou outros recursos, como o markdown e o git. Hoje, veremos como transformar o Rstudio em um elegante e interativo editor de imagens utilizando o pacote magick.
+      <description>Já vimos como o Rstudio se torna uma ferramenta poderosa quando combinado com certos pacotes, como o knitr e shiny, ou outros recursos, como o markdown e o git. Hoje, veremos como transformar o Rstudio num elegante e interativo editor de imagens utilizando o pacote magick.
 Este post é um breve resumo das funcionalidades do magick. Para uma apresentação completa, visite o vignette do pacote.
-Já usamos o Magick em outros posts do blog (às vezes por trás das cortinas) para tratar imagens.</description>
+Já usamos o magick em outros posts do blog (às vezes por trás das cortinas) para tratar imagens.</description>
     </item>
     
   </channel>
