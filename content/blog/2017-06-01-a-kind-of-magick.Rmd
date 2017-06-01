@@ -51,7 +51,7 @@ freddie <- image_read('img/freddie-mercury.jpeg')
 image_info(freddie)
 ```
 
-Já a função `image_write()` exporta imagens em qualquer um dos formatos suportados.
+A função `image_write()` exporta imagens em qualquer um dos formatos suportados.
 
 ```{r, eval = F}
 image_write(freddie, path = "freddie_png.png", format = "png")
