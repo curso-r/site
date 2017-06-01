@@ -191,7 +191,7 @@ library(magrittr)</code></pre>
 <p>A função <code>image_read()</code> lê imagens de arquivos, como <code>.jpg</code> ou <code>png</code>. Diversas outras extensões são suportadas. Utilize <code>str(magick::magick_config())</code> para verificar quais formatos estão disponíveis na sua versão do ImageMagick.</p>
 <pre><code>##   format width height colorspace filesize
 ## 1   JPEG  2745   1780        RGB   662239</code></pre>
-<p>Já a função <code>image_write()</code> exporta imagens em qualquer um dos formatos suportados.</p>
+<p>A função <code>image_write()</code> exporta imagens em qualquer um dos formatos suportados.</p>
 <pre class="r"><code>image_write(freddie, path = &quot;freddie_png.png&quot;, format = &quot;png&quot;)</code></pre>
 <p><strong>Dica</strong>: no Rstudio, pasta rodar o objeto <code>freddie</code> para visualizar a imagem no painel <em>Viewer</em>.</p>
 </div>
@@ -244,14 +244,12 @@ image_info(freddie_resized)
 <h1>Filtros e efeitos</h1>
 <p>Agora vamos aplicar alguns filtros e efeitos.</p>
 <pre class="r"><code>image_blur(freddie_resized, 10, 5)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-19-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <pre class="r"><code>image_noise(freddie_resized)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-21-1.png" width="768" /></p>
-<pre class="r"><code>image_charcoal(freddie_resized)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-23-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <pre class="r"><code>image_annotate(freddie_resized, &quot;Farrokh Bulsara&quot;, size = 30, color = &quot;red&quot;, 
                boxcolor = &quot;white&quot;, degrees = 9, location = &quot;+60+30&quot;)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-25-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 </div>
 <div id="o-que-mais-da-para-fazer" class="section level1">
 <h1>O que mais dá para fazer?</h1>
@@ -263,7 +261,7 @@ qplot(speed, dist, data = cars, geom = c(&quot;point&quot;, &quot;smooth&quot;))
 grid.raster(freddie_cropped, width = 0.15, height = 0.3,
             hjust = -2, vjust = 1)</code></pre>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 </div>
 
                         </div>
@@ -484,14 +482,14 @@ grid.raster(freddie_cropped, width = 0.15, height = 0.3,
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
