@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 04 May 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 01 Jun 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/tags/imagens/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A kind of magick</title>
+      <link>http://curso-r.com/blog/2017/06/01/2017-06-01-a-kind-of-magick/</link>
+      <pubDate>Thu, 01 Jun 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/01/2017-06-01-a-kind-of-magick/</guid>
+      <description>Já vimos como o Rstudio se torna uma ferramenta poderoso quando combinado com certos pacotes, como o knitr e shiny, ou outros recursos, como o markdown e o git. Hoje, veremos como transformar o Rstudio em um elegante e interativo editor de imagens utilizando o pacote magick.
+Este post é um breve resumo das funcionalidades do magick. Para uma apresentação completa, visite o vignette do pacote.
+Já usamos o Magick em outros posts do blog (às vezes por trás das cortinas) para tratar imagens.</description>
+    </item>
     
     <item>
       <title>Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos</title>
