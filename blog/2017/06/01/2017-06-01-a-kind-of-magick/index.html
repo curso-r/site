@@ -225,13 +225,13 @@ image_info(freddie_resized)
 <p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-9-1.png" width="384" /></p>
 <p>Colocar uma borda.</p>
 <pre class="r"><code>image_border(freddie_resized, &quot;purple&quot;, &quot;20x10&quot;)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-11-1.png" width="384" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
 <p>Girá-la de ponta-cabeça.</p>
 <pre class="r"><code>image_flip(freddie_resized)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-13-1.png" width="384" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-13-1.png" width="768" /></p>
 <p>E inverter a direção.</p>
 <pre class="r"><code>image_flop(freddie_resized)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-15-1.png" width="384" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-15-1.png" width="768" /></p>
 <p>Com o pipe, fica fácil aplicar todas as funções ao mesmo tempo.</p>
 <pre class="r"><code>freddie_resized %&gt;% 
   image_crop(&quot;100x150+280+30&quot;) %&gt;% 
@@ -243,9 +243,8 @@ image_info(freddie_resized)
 <div id="filtros-e-efeitos" class="section level1">
 <h1>Filtros e efeitos</h1>
 <p>Agora vamos aplicar alguns filtros e efeitos.</p>
-<pre class="r"><code>image_blur(freddie_resized, 10, 5) %&gt;% plot</code></pre>
-<pre><code>##   format width height colorspace filesize
-## 1   JPEG   500    324        RGB    38007</code></pre>
+<pre class="r"><code>image_blur(freddie_resized, 10, 5)</code></pre>
+<p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-19-1.png" width="768" /></p>
 <pre class="r"><code>image_noise(freddie_resized)</code></pre>
 <p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-21-1.png" width="768" /></p>
 <pre class="r"><code>image_charcoal(freddie_resized)</code></pre>
@@ -472,27 +471,27 @@ grid.raster(freddie_cropped, width = 0.15, height = 0.3,
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         

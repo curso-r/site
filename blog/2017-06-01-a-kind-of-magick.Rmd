@@ -107,7 +107,7 @@ Colocar uma borda.
 image_border(freddie_resized, "purple", "20x10")
 ```
 
-```{r, echo = FALSE, fig.width = 4, fig.height = 3}
+```{r, echo = FALSE, fig.width = 8, fig.height = 7}
 image_read(path = "img/freddie_2.jpg") %>% plot
 ```
 
@@ -117,7 +117,7 @@ Girá-la de ponta-cabeça.
 image_flip(freddie_resized)
 ```
 
-```{r, echo = FALSE, fig.width = 4, fig.height = 3}
+```{r, echo = FALSE, fig.width = 8, fig.height = 7}
 image_read(path = "img/freddie_3.jpg") %>% plot
 ```
 
@@ -127,7 +127,7 @@ E inverter a direção.
 image_flop(freddie_resized)
 ```
 
-```{r, echo = FALSE, fig.width = 4, fig.height = 3}
+```{r, echo = FALSE, fig.width = 8, fig.height = 7}
 image_read(path = "img/freddie_4.jpg") %>% plot
 ```
 
@@ -150,11 +150,11 @@ image_read(path = "img/freddie_5.jpg") %>% plot
 Agora vamos aplicar alguns filtros e efeitos.
 
 ```{r, eval = FALSE}
-image_blur(freddie_resized, 10, 5) %>% plot
+image_blur(freddie_resized, 10, 5)
 ```
 
 ```{r, echo = FALSE, fig.width = 8, fig.height = 7}
-image_read(path = "img/freddie_6.jpg")
+image_read(path = "img/freddie_6.jpg")  %>% plot
 ```
 
 ```{r, eval = FALSE}
@@ -169,7 +169,7 @@ image_read(path = "img/freddie_7.jpg") %>% plot
 image_charcoal(freddie_resized)
 ```
 
-```{r, echo = FALSE,fig.width = 8, fig.height = 7}
+```{r, echo = FALSE, fig.width = 8, fig.height = 7}
 image_read(path = "img/freddie_8.jpg") %>% plot
 ```
 
