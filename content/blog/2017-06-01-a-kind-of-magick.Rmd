@@ -5,7 +5,7 @@ tags: ["r", "imagens", "magick"]
 categories: ["r"]
 banner: "img/banners/freddie-mercury.jpeg"
 author: ["William"]
-summary: "Já vimos como o Rstudio se torna uma ferramanta poderoso quando combinado com certos pacotes, como o knitr e shiny, ou outros recursos, como o markdown e o git. Hoje, veremos como transformar o Rstudio em um elegante e interativo editor de imagens utilizando o pacote magick."
+summary: "Já vimos como o Rstudio se torna uma ferramanta poderosa quando combinado com certos pacotes, como o knitr e shiny, ou outros recursos, como o markdown e o git. Hoje, veremos como transformar o Rstudio em um elegante e interativo editor de imagens utilizando o pacote magick."
 ---
 
 ```{r setup, include=FALSE}
@@ -16,7 +16,7 @@ Já vimos como o Rstudio se torna uma ferramenta poderosa quando combinado com c
 
 Este *post* é um breve resumo das funcionalidades do `magick`. Para uma apresentação completa, visite o [vignette do pacote](https://cran.r-project.org/web/packages/magick/vignettes/intro.html).
 
-Já usamos o Magick em outros posts do blog (às vezes por trás das cortinas) para tratar imagens. Esse pacote é um *wrapper* da biblioteca [ImageMagick](https://www.imagemagick.org/Magick++/STL.html), provavelmente a biblioteca *open-source* para processamento de imagens mais amigável disponível hoje em dia.
+Já usamos o magick em outros posts do blog (às vezes por trás das cortinas) para tratar imagens. Esse pacote é um *wrapper* da biblioteca [ImageMagick](https://www.imagemagick.org/Magick++/STL.html), provavelmente a biblioteca *open-source* para processamento de imagens mais amigável disponível hoje em dia.
 
 ## Instalação
 
