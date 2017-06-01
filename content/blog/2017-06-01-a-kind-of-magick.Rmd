@@ -153,7 +153,7 @@ Agora vamos aplicar alguns filtros e efeitos.
 image_blur(freddie_resized, 10, 5)
 ```
 
-```{r, echo = FALSE, fig.width = 8, fig.height = 7}
+```{r, echo = FALSE, fig.width = 7, fig.height = 5}
 image_read(path = "img/freddie_6.jpg")  %>% plot
 ```
 
@@ -161,24 +161,17 @@ image_read(path = "img/freddie_6.jpg")  %>% plot
 image_noise(freddie_resized)
 ```
 
-```{r, echo = FALSE, fig.width = 8, fig.height = 7}
+```{r, echo = FALSE, fig.width = 7, fig.height = 5}
 image_read(path = "img/freddie_7.jpg") %>% plot
 ```
 
-```{r, eval = FALSE}
-image_charcoal(freddie_resized)
-```
-
-```{r, echo = FALSE, fig.width = 8, fig.height = 7}
-image_read(path = "img/freddie_8.jpg") %>% plot
-```
 
 ```{r, eval = FALSE}
 image_annotate(freddie_resized, "Farrokh Bulsara", size = 30, color = "red", 
                boxcolor = "white", degrees = 9, location = "+60+30")
 ```
 
-```{r, echo = FALSE, fig.width = 8, fig.height = 7}
+```{r, echo = FALSE, fig.width = 7, fig.height = 5}
 image_read(path = "img/freddie_9.jpg") %>% plot
 ```
 
