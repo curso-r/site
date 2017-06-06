@@ -40,11 +40,11 @@ Description: Interface to 'Keras', a high-level neural networks API which
 ...
 ```
 
-Além do Daniel, temos como autores desse pacote nada menos que [JJ Allaire (CEO do RSTudio)](https://en.wikipedia.org/wiki/Joseph_J._Allaire), [Yuan Tang (um dos principais desenvolvedores do TensorFlow)](https://github.com/tensorflow/tensorflow/graphs/contributors) e [François Chollet](http://www.esade.edu/faculty/francois.collet), o próprio [RStudio](https://rstudio.com) e a Google (essa não precisa de link).
+Além do Daniel, temos como autores desse pacote nada menos que [JJ Allaire (CEO do RStudio)](https://en.wikipedia.org/wiki/Joseph_J._Allaire), [Yuan Tang (um dos principais desenvolvedores do TensorFlow)](https://github.com/tensorflow/tensorflow/graphs/contributors) e [François Chollet](http://www.esade.edu/faculty/francois.collet), o próprio [RStudio](https://rstudio.com) e a Google (essa não precisa de link).
 
 Muito orgulho de ter esse cara como amigo e sócio na Curso-R. Parabéns!
 
-No futuro, postaremos tutoriais sobre o Keras e como estamos utilizando essa biblioteca para quebrar CAPTCHAs usando métodos bastante inovadores. Enquanto isso, você pode olhar um [tutorial para o pacote `keras` nesse link](https://rstudio.github.io/keras/).
+No futuro, postaremos tutoriais sobre o `keras` e mostraremos como estamos utilizando o pacote para quebrar CAPTCHAs usando métodos bastante inovadores. Enquanto isso, você pode olhar um [tutorial para o pacote `keras` nesse link](https://rstudio.github.io/keras/).
 
 É isso. Happy coding ;)
 
