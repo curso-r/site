@@ -18,8 +18,9 @@
       <pubDate>Thu, 08 Jun 2017 21:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/06/08/2017-06-08-keras-no-ubuntu/</guid>
-      <description>Esse tutorial ensinará como instalar o Anaconda com Python 3.5 em um servidor Ubuntu 16.04 + Keras para R. Compilei um passo a passo mais simplificado dos posts que usei pra conseguir usar o Keras. Então ao final desse post você terá o Keras para R pronto para abalar os profundos mares da aprendizagem de máquinas.
-Pré-requisitos O tutorial supõe que você possui um servidor Ubuntu 16.04 com R 3.4.0 ou versão superior instalado.</description>
+      <description>Compilei um passo a passo mais simplificado dos posts que usei pra conseguir usar o Keras num servidor Ubuntu.
+Esse tutorial ensinará como instalar o Anaconda com Python 3.5 em um servidor Ubuntu 16.04 + Keras para R. Então ao final desse post você terá o Keras direto do seu R pronto para abalar os profundos mares da aprendizagem de máquinas.
+Pré-requisitos O tutorial supõe que você possui um servidor Ubuntu 16.</description>
     </item>
     
     <item>

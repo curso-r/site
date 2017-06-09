@@ -172,7 +172,8 @@
                         </p>
                         
                         <div id="post-content">
-                          <p>Esse tutorial ensinará como instalar o <a href="https://docs.continuum.io/">Anaconda</a> com Python 3.5 em um servidor Ubuntu 16.04 + Keras para R. Compilei um passo a passo mais simplificado dos posts que usei pra conseguir usar o Keras. Então ao final desse post você terá o Keras para R pronto para abalar os profundos mares da aprendizagem de máquinas.</p>
+                          <p>Compilei um passo a passo mais simplificado dos posts que usei pra conseguir usar o Keras num servidor Ubuntu.</p>
+<p>Esse tutorial ensinará como instalar o <a href="https://docs.continuum.io/">Anaconda</a> com Python 3.5 em um servidor Ubuntu 16.04 + Keras para R. Então ao final desse post você terá o Keras direto do seu R pronto para abalar os profundos mares da aprendizagem de máquinas.</p>
 <div id="pre-requisitos" class="section level2">
 <h2>Pré-requisitos</h2>
 <p>O tutorial supõe que você possui um servidor Ubuntu 16.04 com R 3.4.0 ou versão superior instalado.</p>
@@ -194,7 +195,7 @@ agreement.
 Please, press ENTER to continue</code></pre>
 <p><strong>Passo 5)</strong> Daí vai apertando mais ENTER para ir até o final dos termos de uso. Quando chegar lá embaixo, vai perguntar se vc aceita o termos.</p>
 <pre class="bash"><code>Do you approve the license terms? [yes|no]</code></pre>
-<p><strong>Passo 6)</strong> Escreva <code>yes</code> para aceitar os termos. Deve aparecer um prompt como o mostrado abaixo: hora de escolha o local de instalação.</p>
+<p><strong>Passo 6)</strong> Escreva <code>yes</code> para aceitar os termos. Deve aparecer um prompt como o mostrado abaixo: hora de escolha o local de instalação. Solte um ENTER caso goste do local padrão oferecido.</p>
 <pre class="bash"><code>Anaconda3 will now be installed into this location:
   /home/athos/anaconda3
 
@@ -203,11 +204,11 @@ Please, press ENTER to continue</code></pre>
 - Or specify a different location below
 
 [/home/athos/anaconda3] &gt;&gt;&gt; </code></pre>
-<p><strong>Passo 7)</strong> Solte um ENTER caso goste do local padrão oferecido. Daí a pergunta seguinte é para saber se você gostaria de fazer o comando <code>conda</code> funcionar quando for chamado no terminal. Pode aceitar.</p>
+<p><strong>Passo 7)</strong> Daí a pergunta seguinte é para saber se você gostaria de fazer o comando <code>conda</code> funcionar quando for chamado no terminal. Pode aceitar.</p>
 <pre class="bash"><code>...
 installation finished.
 Do you wish the installer to prepend the Anaconda3 install location
-to PATH in your /home/sammy/.bashrc ? [yes|no]
+to PATH in your /home/athos/.bashrc ? [yes|no]
 [no] &gt;&gt;&gt; </code></pre>
 <p>Neste momento você terá o Anaconda 4.2.0 pronto para rodar.</p>
 <p><strong>Agora, ao R!</strong></p>
@@ -444,6 +445,19 @@ keras::install_tensorflow() # instalar o Tensorflow</code></pre>
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
@@ -452,19 +466,6 @@ keras::install_tensorflow() # instalar o Tensorflow</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
