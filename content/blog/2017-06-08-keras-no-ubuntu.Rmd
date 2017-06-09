@@ -12,8 +12,10 @@ summary: "Passo a passo de como preparar o Keras para R no Ubuntu 16.04 em cima 
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = FALSE,
                       eval=FALSE)
 ```
-  
-Esse tutorial ensinará como instalar o [Anaconda](https://docs.continuum.io/) com Python 3.5 em um servidor Ubuntu 16.04 + Keras para R. Compilei um passo a passo mais simplificado dos posts que usei pra conseguir usar o Keras. Então ao final desse post você terá o Keras para R pronto para abalar os profundos mares da aprendizagem de máquinas.
+
+Compilei um passo a passo mais simplificado dos posts que usei pra conseguir usar o Keras num servidor Ubuntu. 
+
+Esse tutorial ensinará como instalar o [Anaconda](https://docs.continuum.io/) com Python 3.5 em um servidor Ubuntu 16.04 + Keras para R. Então ao final desse post você terá o Keras direto do seu R pronto para abalar os profundos mares da aprendizagem de máquinas.
 
 ## Pré-requisitos
 
@@ -51,13 +53,13 @@ agreement.
 Please, press ENTER to continue
 ```
 
-**Passo 5)** Daí vai apertando mais ENTER para ir até o final dos termos de uso. Quando chegar lá embaixo, vai perguntar se vc aceita o termos.
+**Passo 5)** Daí vai apertando mais ENTER para ir até o final dos termos de uso. Quando chegar lá embaixo, vai perguntar se vc aceita o termos. 
 
 ```{bash}
 Do you approve the license terms? [yes|no]
 ```
 
-**Passo 6)** Escreva `yes` para aceitar os termos. Deve aparecer um prompt como o mostrado abaixo: hora de escolha o local de instalação.
+**Passo 6)** Escreva `yes` para aceitar os termos. Deve aparecer um prompt como o mostrado abaixo: hora de escolha o local de instalação. Solte um ENTER caso goste do local padrão oferecido. 
 
 ```{bash}
 Anaconda3 will now be installed into this location:
@@ -68,17 +70,17 @@ Anaconda3 will now be installed into this location:
 - Or specify a different location below
 
 [/home/athos/anaconda3] >>> 
-  ```
+```
 
-**Passo 7)** Solte um ENTER caso goste do local padrão oferecido. Daí a pergunta seguinte é para saber se você gostaria de fazer o comando `conda` funcionar quando for chamado no terminal. Pode aceitar.
+**Passo 7)** Daí a pergunta seguinte é para saber se você gostaria de fazer o comando `conda` funcionar quando for chamado no terminal. Pode aceitar.
 
 ```{bash}
 ...
 installation finished.
 Do you wish the installer to prepend the Anaconda3 install location
-to PATH in your /home/sammy/.bashrc ? [yes|no]
+to PATH in your /home/athos/.bashrc ? [yes|no]
 [no] >>> 
-  ```
+```
 Neste momento você terá o Anaconda 4.2.0 pronto para rodar. 
 
 **Agora, ao R!**
