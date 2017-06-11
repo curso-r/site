@@ -18,6 +18,17 @@
   <meta name="generator" content="Hugo 0.21" />
 
   <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  
+
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6479521664471475",
+      enable_page_level_ads: true
+    });
+  </script>
 
   
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -185,7 +196,8 @@ img &lt;- readJPEG(&quot;img/david-bowie.jpg&quot;)</code></pre>
 <p>Nesse caso, os indivíduos são os pixels da imagem e as características que estamos interessados são os valores de R, de G e de B (valores que representam a cor do pixel). Para o algortimos de clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão que o trecho de código a seguir realiza.</p>
 <pre class="r"><code>img_matrix &lt;- apply(img, 3, as.numeric)</code></pre>
 <p>Agora temos uma matriz com 3 colunas e 799.700 linhas. Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em um grupo. O K-means pede o número de grupos como input, vamos começar com 6.</p>
-<pre class="r"><code>km &lt;- kmeans(img_matrix, centers = 6)</code></pre>
+<pre class="r"><code>km &lt;- kmeans(img_matrix, centers = 6)
+## Warning: Quick-TRANSfer stage steps exceeded maximum (= 39985000)</code></pre>
 <p>O objeto gerado pela função <code>kmeans</code> armazena um vetor chamado <code>cluster</code> (do tamanho do número de linhas da matriz) com um identificador do grupo de cada observação da matriz.</p>
 <p>A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o <code>dplyr</code>.</p>
 <pre class="r"><code>library(tibble)
@@ -212,17 +224,17 @@ centroides
 ## # A tibble: 6 x 4
 ##   cluster         r          g         b
 ##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.0996826 0.04366903 0.2398452
-## 2       2 0.6239192 0.28335790 0.1897367
-## 3       3 0.8857289 0.77915257 0.6688482
-## 4       4 0.2721465 0.36412137 0.4901613
-## 5       5 0.3789830 0.11857741 0.1558412
-## 6       6 0.7195362 0.54881786 0.4098359</code></pre>
+## 1       1 0.1175119 0.04253211 0.2199641
+## 2       2 0.4754028 0.16566003 0.1548975
+## 3       3 0.6949140 0.42026498 0.2792096
+## 4       4 0.8679457 0.74966801 0.6294652
+## 5       5 0.2246133 0.28411512 0.4462488
+## 6       6 0.3923888 0.47786446 0.5409067</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#190B3D&quot; &quot;#9F4830&quot; &quot;#E2C7AB&quot; &quot;#455D7D&quot; &quot;#611E28&quot; &quot;#B78C69&quot;</code></pre>
+## [1] &quot;#1E0B38&quot; &quot;#792A27&quot; &quot;#B16B47&quot; &quot;#DDBFA1&quot; &quot;#394872&quot; &quot;#647A8A&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -488,14 +500,14 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          

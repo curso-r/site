@@ -61,3 +61,11 @@ dash %>%
   image_crop('1200x780') %>% 
   image_scale('!1000x!760') %>%
   image_write('static/img/banners/banner-dashboards2.png')
+
+
+dash <- image_read('static/img/banners/keras_no_ubuntu.png')
+dash %>% 
+  image_scale('x!690') %>%
+  image_write('static/img/banners/keras_no_ubuntu2.png')
+
+
