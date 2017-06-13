@@ -246,13 +246,17 @@ glue(&#39;{p * 100}% das pessoas adoram R.&#39;)
 <p>A função <code>collapse()</code> é parecida com o <code>paste()</code> quando <code>collapse = ''</code>, mas só aceita um objeto como entrada:</p>
 <pre class="r"><code>x &lt;- collapse(1:10)
 x
-## [1] &quot;12345678910&quot;
+## 12345678910
 all.equal(x, paste(1:10, collapse = &#39;&#39;))
-## [1] TRUE</code></pre>
+## [1] &quot;Attributes: &lt; Modes: list, NULL &gt;&quot;                   
+## [2] &quot;Attributes: &lt; Lengths: 1, 0 &gt;&quot;                       
+## [3] &quot;Attributes: &lt; names for target but not for current &gt;&quot;
+## [4] &quot;Attributes: &lt; current is not list-like &gt;&quot;            
+## [5] &quot;target is glue, current is character&quot;</code></pre>
 <p>Se quiser colar os objetos elemento a elemento e depois colapsar, faça isso explicitamente em duas operações:</p>
 <pre class="r"><code>glue(&#39;{letters}/{LETTERS}&#39;) %&gt;% 
   collapse(&#39;, &#39;)
-## [1] &quot;a/A, b/B, c/C, d/D, e/E, f/F, g/G, h/H, i/I, j/J, k/K, l/L, m/M, n/N, o/O, p/P, q/Q, r/R, s/S, t/T, u/U, v/V, w/W, x/X, y/Y, z/Z&quot;</code></pre>
+## a/A, b/B, c/C, d/D, e/E, f/F, g/G, h/H, i/I, j/J, k/K, l/L, m/M, n/N, o/O, p/P, q/Q, r/R, s/S, t/T, u/U, v/V, w/W, x/X, y/Y, z/Z</code></pre>
 <p>O <code>glue</code> também tem uma função extra para trabalhar melhor com o <code>%&gt;%</code>, o <code>glue_data()</code>. O primeiro argumento dessa função é uma lista ou <code>data.frame</code>, e seus nomes são utilizados como variáveis para alimentar as chaves das strings. Use o <code>.</code> para fazer operações com toda a base de dados:</p>
 <pre class="r"><code>mtcars %&gt;% 
   head() %&gt;% 
