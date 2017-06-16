@@ -15,28 +15,8 @@ No entanto, a febre da ciência de dados também trouxe falsos profetas. A utili
 
 Por isso, decidimos começar uma série de posts mostrando alguns erros feios que podemos cometer ao tratar a estatística de forma inadequada. 
 
-O primeiro exemplo que montamos é o mais simples de todos
+O primeiro exemplo que montamos tem a ver com normalização de variáveis explicativas num modelo de regressão linear simples.
 
+## Pergunta
 
-É isso. Happy coding ;)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Quero ajustar um modelo

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
+
+  <title>Skimr: estatísticas básicas com ❤️</title>
+
+  <meta name="author" content="" />
+  <meta name="keywords" content="">
+
+  
+
+  <meta name="generator" content="Hugo 0.21" />
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6479521664471475",
+      enable_page_level_ads: true
+    });
+  </script>
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="http://curso-r.com/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="http://curso-r.com/css/style.red.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="http://curso-r.com/css/custom.css" rel="stylesheet">
+
+  
+    
+
+  
+  <link rel="shortcut icon" href="http://curso-r.com/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="http://curso-r.com/img/apple-touch-icon.png" />
+  
+
+  <link href="http://curso-r.com/css/owl.carousel.css" rel="stylesheet">
+  <link href="http://curso-r.com/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="http://curso-r.com/index.xml" type="application/rss+xml" title="Curso-R">
+  <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
+  
+  
+  <meta property="og:title" content="Skimr: estatísticas básicas com ❤️" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/blog/2017/06/17/2017-06-17-skimr//" />
+  <meta property="og:image" content="img/banners/skimr.png" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://curso-r.com/">
+                    <img src="http://curso-r.com/img/logo.svg" alt="Skimr: estatísticas básicas com ❤️ logo" width="50" height="50">
+                    <span class="sr-only">Skimr: estatísticas básicas com ❤️ - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/">Home</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/sobre/">Sobre</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/cursos/">Cursos</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/blog/">Blog</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/contact/">Contato</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Skimr: estatísticas básicas com ❤️</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          
+                            Por 
+                            
+                            
+                              
+                                <a href="http://curso-r.com/author/julio">Julio</a>
+                            
+                            
+                          
+                          
+                          17/06/2017
+                        </p>
+                        
+                        <div id="post-content">
+                          <p>Entre os dias 25 e 27 de maio aconteceu a <a href="http://unconf17.ropensci.org/">ROpenSci Unconf 2017</a>. O encontro reuniu vários pop stars da comunidade R como <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://github.com/jcheng5">Joe Cheng</a> (criador do shiny), <a href="https://github.com/jeroen">Jeroen Ooms</a> (criador do OpenCPU e autor de vários pacotes bacanas), <a href="https://github.com/jennybc">Jenny Bryan</a> (autora de vários pacotes bacanas como <code>googlesheets</code>), várias pessoas do <a href="http://rladies.org/">#R-Ladies</a> e muito mais.</p>
+<p>Uma coisa muito legal dessa conferência é que ela funcionou como uma hackathon. Foi criada uma nova organização no github chamada <a href="https://github.com/ropenscilabs">ROpenSci Labs</a>, e os presentes simplesmente começaram a subir pacotes fantásticos lá dentro. Recomendo muito dar uma olhada.</p>
+<p>Dentre os pacotes que olhei, o que mais me chamou atenção foi o <a href="https://github.com/ropenscilabs/skimr"><code>skimr</code></a> e por isso estou fazendo esse post! O propósito do <code>skimr</code> é simples: fazer algumas estatísticas básicas univariadas de uma base de dados.</p>
+<p>O <code>skimr</code> ainda não está no CRAN, então para instalar recomendamos utilizar o <code>devtools</code> para instalar direto do GitHub, conforme códico abaixo. Note que também será necessário instalar o pacote <code>colformat</code> do Hadley.</p>
+<pre class="r"><code>devtools::install_github(&quot;hadley/colformat&quot;)
+devtools::install_github(&quot;ropenscilabs/skimr&quot;)</code></pre>
+<p>A função <code>skim()</code> calcula estatísticas básicas das variáveis e imprime no seu console. Note que a função separa estatísticas para variáveis numéricas ou fatores.</p>
+<pre class="r"><code>library(tidyverse)
+library(skimr)
+skim(iris)
+## Numeric Variables
+## # A tibble: 4 x 13
+##            var    type missing complete     n     mean        sd   min
+##          &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
+## 1 Petal.Length numeric       0      150   150 3.758000 1.7652982   1.0
+## 2  Petal.Width numeric       0      150   150 1.199333 0.7622377   0.1
+## 3 Sepal.Length numeric       0      150   150 5.843333 0.8280661   4.3
+## 4  Sepal.Width numeric       0      150   150 3.057333 0.4358663   2.0
+## # ... with 5 more variables: `25% quantile` &lt;dbl&gt;, median &lt;dbl&gt;, `75%
+## #   quantile` &lt;dbl&gt;, max &lt;dbl&gt;, hist &lt;chr&gt;
+## 
+## Factor Variables
+## # A tibble: 1 x 7
+##       var   type complete missing     n n_unique
+##     &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Species factor      150       0   150        3
+## # ... with 1 more variables: stat &lt;chr&gt;</code></pre>
+<p>E tem mais! O mais legal do <code>skimr</code> é que ele usa a função <code>colformat::spark_bar()</code> para desenhar histogramas direto no seu console!</p>
+<pre class="r"><code>skim(iris) %&gt;% 
+  filter(stat == &#39;hist&#39;) %&gt;% 
+  knitr::kable(caption = &#39;HISTOGRAMA NA TABELA PORQUE SIM!&#39;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 1: </span>HISTOGRAMA NA TABELA PORQUE SIM!</caption>
+<thead>
+<tr class="header">
+<th align="left">var</th>
+<th align="left">type</th>
+<th align="left">stat</th>
+<th align="left">level</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Sepal.Length</td>
+<td align="left">numeric</td>
+<td align="left">hist</td>
+<td align="left">▂▇▅▇▆▆▅▂▂▂</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Sepal.Width</td>
+<td align="left">numeric</td>
+<td align="left">hist</td>
+<td align="left">▁▁▃▃▇▃▂▂▁▁</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">Petal.Length</td>
+<td align="left">numeric</td>
+<td align="left">hist</td>
+<td align="left">▇▃▁▁▂▆▆▃▂▁</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">Petal.Width</td>
+<td align="left">numeric</td>
+<td align="left">hist</td>
+<td align="left">▇▂▁▂▅▃▁▅▂▃</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p>O <code>skimr</code> também possui padrões de estatísticas básicas para cada tipo de variável. Você pode checar esses tipos com <code>show_skimmers()</code>:</p>
+<pre class="r"><code>show_skimmers() %&gt;% 
+  map_df(enframe, .id = &#39;tipo&#39;) %&gt;% 
+  group_by(tipo) %&gt;% 
+  summarise(stats = glue::collapse(value, sep = &#39;, &#39;)) %&gt;% 
+  knitr::kable(caption = &#39;Estatísticas básicas para cada tipo de variável.&#39;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-5">Table 2: </span>Estatísticas básicas para cada tipo de variável.</caption>
+<thead>
+<tr class="header">
+<th align="left">tipo</th>
+<th align="left">stats</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">character</td>
+<td align="left">missing, complete, n, min, max, empty, n_unique</td>
+</tr>
+<tr class="even">
+<td align="left">complex</td>
+<td align="left">missing, complete, n</td>
+</tr>
+<tr class="odd">
+<td align="left">date</td>
+<td align="left">missing, complete, n, min, max, median, n_unique</td>
+</tr>
+<tr class="even">
+<td align="left">Date</td>
+<td align="left">missing, complete, n, min, max, median, n_unique</td>
+</tr>
+<tr class="odd">
+<td align="left">factor</td>
+<td align="left">missing, complete, n, count, n_unique</td>
+</tr>
+<tr class="even">
+<td align="left">integer</td>
+<td align="left">missing, complete, n, mean, sd, min, median, quantile, max, hist</td>
+</tr>
+<tr class="odd">
+<td align="left">logical</td>
+<td align="left">missing, complete, n, count, mean</td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">missing, complete, n, mean, sd, min, median, quantile, max, hist</td>
+</tr>
+<tr class="odd">
+<td align="left">ordered</td>
+<td align="left">missing, complete, n, count, n_unique</td>
+</tr>
+<tr class="even">
+<td align="left">POSIXct</td>
+<td align="left">missing, complete, n, min, max, median, n_unique</td>
+</tr>
+<tr class="odd">
+<td align="left">ts</td>
+<td align="left">missing, complete, n, start, end, frequency, deltat, mean, sd, min, max, median</td>
+</tr>
+</tbody>
+</table>
+<div id="criando-suas-proprias-funcoes" class="section level2">
+<h2>Criando suas próprias funções</h2>
+<p>Você também pode usar funções próprias com o <code>skimr</code>. Por exemplo, digamos que você queira calcular o coeficiente de variação. Primeiro, adicione sua função dentro de uma lista:</p>
+<pre class="r"><code>funs &lt;- list(cv = function(x) sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE))</code></pre>
+<p>e depois aplicar a função <code>skim_with()</code>:</p>
+<pre class="r"><code># append adiciona as suas funcoes nas existentes
+skim_with(numeric = funs, append = TRUE)</code></pre>
+<p>E pronto! agora você pode rodar <code>skim()</code> novamente:</p>
+<pre class="r"><code>skim(iris) %&gt;% 
+  filter(stat %in% c(&#39;hist&#39;, &#39;cv&#39;)) %&gt;% 
+  knitr::kable(caption = &#39;Histograma e coeficiente de variação.&#39;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-8">Table 3: </span>Histograma e coeficiente de variação.</caption>
+<thead>
+<tr class="header">
+<th align="left">var</th>
+<th align="left">type</th>
+<th align="left">stat</th>
+<th align="left">level</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Sepal.Length</td>
+<td align="left">numeric</td>
+<td align="left">hist</td>
+<td align="left">▂▇▅▇▆▆▅▂▂▂</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Sepal.Length</td>
+<td align="left">numeric</td>
+<td align="left">cv</td>
+<td align="left">.all</td>
+<td align="right">0.1417113</td>
+</tr>
+<tr class="odd">
+<td align="left">Sepal.Width</td>
+<td align="left">numeric</td>
+<td align="left">hist</td>
+<td align="left">▁▁▃▃▇▃▂▂▁▁</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Sepal.Width</td>
+<td align="left">numeric</td>
+<td align="left">cv</td>
+<td align="left">.all</td>
+<td align="right">0.1425642</td>
+</tr>
+<tr class="odd">
+<td align="left">Petal.Length</td>
+<td align="left">numeric</td>
+<td align="left">hist</td>
+<td align="left">▇▃▁▁▂▆▆▃▂▁</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Petal.Length</td>
+<td align="left">numeric</td>
+<td align="left">cv</td>
+<td align="left">.all</td>
+<td align="right">0.4697441</td>
+</tr>
+<tr class="odd">
+<td align="left">Petal.Width</td>
+<td align="left">numeric</td>
+<td align="left">hist</td>
+<td align="left">▇▂▁▂▅▃▁▅▂▃</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Petal.Width</td>
+<td align="left">numeric</td>
+<td align="left">cv</td>
+<td align="left">.all</td>
+<td align="right">0.6355511</td>
+</tr>
+</tbody>
+</table>
+<p>Para retornar ao <code>skim()</code> padrão, rode <code>skim_with_defaults()</code>.</p>
+</div>
+<div id="wrap-up" class="section level2">
+<h2>Wrap up</h2>
+<ul>
+<li>Instale usando <code>devtools::install_github()</code></li>
+<li>Rode a função <code>skim()</code>. Use <code>dplyr::filter()</code> para filtrar as estatísticas de interesse.</li>
+<li>Você pode adicionar suas próprias estatísticas com <code>skim_with()</code></li>
+<li>Acompanhe a evolução do <code>skimr</code> <a href="https://github.com/ropenscilabs/skimr">nesta página</a>.</li>
+</ul>
+<p>O pacote ainda vai evoluir muito e não duvido nada que seja um bom candidado a entrar no <code>tidyverse</code>. O que vocês acham? Escrevam nos comentários!</p>
+<p>É isso. Happy coding ;)</p>
+</div>
+
+                        </div>
+                        
+                         <div class="addthis_inline_share_toolbox"></div>
+                        
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'curso-r-com';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/06\/17\/2017-06-17-skimr\/';
+    var disqus_title = 'Skimr: estatísticas básicas com ❤️';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/06\/17\/2017-06-17-skimr\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Busca</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" results="0" class="form-control" placeholder="Busca">
+                <input type="hidden" name="q" value="site:http://curso-r.com/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Categorias</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="http://curso-r.com/categories/bayes">bayes (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/deep">deep (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/emotion">emotion (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/import">import (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/learning">learning (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/r">r (32)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/summary">summary (1)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="http://curso-r.com/tags/"><i class="fa fa-tags"></i> </a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/anaconda"><i class="fa fa-tags"></i> anaconda</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/erro"><i class="fa fa-tags"></i> erro</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot"><i class="fa fa-tags"></i> ggplot</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/imagens"><i class="fa fa-tags"></i> imagens</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/keras"><i class="fa fa-tags"></i> keras</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/kmeans"><i class="fa fa-tags"></i> kmeans</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/knitr"><i class="fa fa-tags"></i> knitr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/leaflet"><i class="fa fa-tags"></i> leaflet</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/lolapalooza"><i class="fa fa-tags"></i> lolapalooza</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/magick"><i class="fa fa-tags"></i> magick</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ocr"><i class="fa fa-tags"></i> ocr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pdf"><i class="fa fa-tags"></i> pdf</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/progress"><i class="fa fa-tags"></i> progress</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regressao"><i class="fa fa-tags"></i> regressao</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rmarkdown"><i class="fa fa-tags"></i> rmarkdown</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rstudio"><i class="fa fa-tags"></i> rstudio</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/spotify"><i class="fa fa-tags"></i> spotify</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/stan"><i class="fa fa-tags"></i> stan</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/string"><i class="fa fa-tags"></i> string</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tensorflow"><i class="fa fa-tags"></i> tensorflow</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tidyverse"><i class="fa fa-tags"></i> tidyverse</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/top10"><i class="fa fa-tags"></i> top10</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tuber"><i class="fa fa-tags"></i> tuber</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ubuntu"><i class="fa fa-tags"></i> ubuntu</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/web-scraping"><i class="fa fa-tags"></i> web-scraping</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/webscraping"><i class="fa fa-tags"></i> webscraping</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Nossos Cursos</h3>
+    </div>
+
+    <div class="blog-entries">
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="http://curso-r.com/js/prism.js"></script> 
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>Sobre nós</h4>
+
+            <p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+              
+            <h4>Posts Recentes</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/06/17/2017-06-17-skimr/">
+                          
+                            <img src="http://curso-r.com/img/banners/skimr.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/06/17/2017-06-17-skimr/">Skimr: estatísticas básicas com ❤️</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/06/08/2017-06-08-keras-no-ubuntu/">
+                          
+                            <img src="http://curso-r.com/img/banners/keras_no_ubuntu2.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/06/08/2017-06-08-keras-no-ubuntu/">Instalando Anaconda &#43; TensorFlow &#43; Keras para R no Ubuntu 16.04 Server</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/06/05/2017-06-05-keras/">
+                          
+                            <img src="http://curso-r.com/img/banners/keras.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/06/05/2017-06-05-keras/">Keras: colocando deep learning no pipeline</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            <h4>Contato</h4>
+
+            <a href="http://curso-r.com/contact" class="btn btn-small btn-template-main">Vá para a página de contato</a>
+            <hr>
+            
+            <div>
+              
+              <a href="https://github.com/curso-r">
+                <i class="fa fa-github" style="font-size:50px;"></i>
+              </a>
+              <a href="https://twitter.com/curso_r/">
+                <i class="fa fa-twitter" style="font-size:50px;"></i>
+              </a>
+      
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87272102-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ab4e79943a7e3c"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+MathJax.Hub.Config({
+  "HTML-CSS": {
+    preferredFont: "STIX"  }
+});
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<script src="http://curso-r.com/js/hpneo.gmaps.js"></script>
+<script src="http://curso-r.com/js/gmaps.init.js"></script>
+<script src="http://curso-r.com/js/front.js"></script>
+
+<script src="http://curso-r.com/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>

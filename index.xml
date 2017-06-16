@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 08 Jun 2017 21:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 17 Jun 2017 13:07:31 +0200</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Skimr: estatísticas básicas com ❤️</title>
+      <link>http://curso-r.com/blog/2017/06/17/2017-06-17-skimr/</link>
+      <pubDate>Sat, 17 Jun 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/17/2017-06-17-skimr/</guid>
+      <description>Entre os dias 25 e 27 de maio aconteceu a ROpenSci Unconf 2017. O encontro reuniu vários pop stars da comunidade R como Hadley Wickham, Joe Cheng (criador do shiny), Jeroen Ooms (criador do OpenCPU e autor de vários pacotes bacanas), Jenny Bryan (autora de vários pacotes bacanas como googlesheets), várias pessoas do #R-Ladies e muito mais.
+Uma coisa muito legal dessa conferência é que ela funcionou como uma hackathon. Foi criada uma nova organização no github chamada ROpenSci Labs, e os presentes simplesmente começaram a subir pacotes fantásticos lá dentro.</description>
+    </item>
     
     <item>
       <title>Instalando Anaconda &#43; TensorFlow &#43; Keras para R no Ubuntu 16.04 Server</title>
