@@ -5,7 +5,7 @@ tags: ["r"]
 categories: ["summary"]
 banner: "img/banners/skimr.png"
 author: ["Julio"]
-draft: true
+draft: false
 summary: "Uma coisa muito legal da ROpenSci Unconf 2017 é que ela funcionou como uma hackathon mega produtiva. Dentre os novos pacotes que olhei, o que mais me chamou atenção foi o skimr..."
 ---
 
