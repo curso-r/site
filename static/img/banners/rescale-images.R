@@ -69,3 +69,14 @@ dash %>%
   image_write('static/img/banners/keras_no_ubuntu2.png')
 
 
+image_read('static/img/banners/skimr.jpg') %>% 
+  image_annotate('d_milk %>% \n    skim()', 
+                 size = 50, font = 'ubuntu',
+                 location = '+10+50') %>% 
+  image_annotate('<3 <3 <3 <3', size = 50, font = 'ubuntu',
+                 color = 'red',
+                 location = '+350+260') %>% 
+  image_scale('600x400') %>%
+  image_write("static/img/banners/skimr.png")
+
+
