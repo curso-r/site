@@ -185,7 +185,7 @@
                           <p>Entre os dias 25 e 27 de maio aconteceu a <a href="http://unconf17.ropensci.org/">ROpenSci Unconf 2017</a>. O encontro reuniu vários pop stars da comunidade R como <a href="http://hadley.nz">Hadley Wickham</a>, <a href="https://github.com/jcheng5">Joe Cheng</a> (criador do shiny), <a href="https://github.com/jeroen">Jeroen Ooms</a> (criador do OpenCPU e autor de vários pacotes bacanas), <a href="https://github.com/jennybc">Jenny Bryan</a> (autora de vários pacotes bacanas como <code>googlesheets</code>), várias pessoas do <a href="http://rladies.org/">#R-Ladies</a> e muito mais.</p>
 <p>Uma coisa muito legal dessa conferência é que ela funcionou como uma hackathon. Foi criada uma nova organização no github chamada <a href="https://github.com/ropenscilabs">ROpenSci Labs</a>, e os presentes simplesmente começaram a subir pacotes fantásticos lá dentro. Recomendo muito dar uma olhada.</p>
 <p>Dentre os pacotes que olhei, o que mais me chamou atenção foi o <a href="https://github.com/ropenscilabs/skimr"><code>skimr</code></a> e por isso estou fazendo esse post! O propósito do <code>skimr</code> é simples: fazer algumas estatísticas básicas univariadas de uma base de dados.</p>
-<p>O <code>skimr</code> ainda não está no CRAN, então para instalar recomendamos utilizar o <code>devtools</code> para instalar direto do GitHub, conforme códico abaixo. Note que também será necessário instalar o pacote <code>colformat</code> do Hadley.</p>
+<p>O <code>skimr</code> ainda não está no CRAN, então para instalar recomendamos utilizar o <code>devtools</code> para instalar direto do GitHub, conforme código abaixo. Note que também será necessário instalar o pacote <code>colformat</code> do Hadley.</p>
 <pre class="r"><code>devtools::install_github(&quot;hadley/colformat&quot;)
 devtools::install_github(&quot;ropenscilabs/skimr&quot;)</code></pre>
 <p>A função <code>skim()</code> calcula estatísticas básicas das variáveis e imprime no seu console. Note que a função separa estatísticas para variáveis numéricas ou fatores.</p>
@@ -320,10 +320,10 @@ skim(iris)
 <h2>Criando suas próprias funções</h2>
 <p>Você também pode usar funções próprias com o <code>skimr</code>. Por exemplo, digamos que você queira calcular o coeficiente de variação. Primeiro, adicione sua função dentro de uma lista:</p>
 <pre class="r"><code>funs &lt;- list(cv = function(x) sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE))</code></pre>
-<p>e depois aplicar a função <code>skim_with()</code>:</p>
+<p>e depois aplique a função <code>skim_with()</code>:</p>
 <pre class="r"><code># append adiciona as suas funcoes nas existentes
 skim_with(numeric = funs, append = TRUE)</code></pre>
-<p>E pronto! agora você pode rodar <code>skim()</code> novamente:</p>
+<p>E pronto! Agora você pode rodar <code>skim()</code> novamente:</p>
 <pre class="r"><code>skim(iris) %&gt;% 
   filter(stat %in% c(&#39;hist&#39;, &#39;cv&#39;)) %&gt;% 
   knitr::kable(caption = &#39;Histograma e coeficiente de variação.&#39;)</code></pre>
@@ -404,7 +404,7 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
 <ul>
 <li>Instale usando <code>devtools::install_github()</code></li>
 <li>Rode a função <code>skim()</code>. Use <code>dplyr::filter()</code> para filtrar as estatísticas de interesse.</li>
-<li>Você pode adicionar suas próprias estatísticas com <code>skim_with()</code></li>
+<li>Você pode adicionar suas próprias estatísticas com <code>skim_with()</code>.</li>
 <li>Acompanhe a evolução do <code>skimr</code> <a href="https://github.com/ropenscilabs/skimr">nesta página</a>.</li>
 </ul>
 <p>O pacote ainda vai evoluir muito e não duvido nada que seja um bom candidado a entrar no <code>tidyverse</code>. O que vocês acham? Escrevam nos comentários!</p>
@@ -637,6 +637,19 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -645,19 +658,6 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
