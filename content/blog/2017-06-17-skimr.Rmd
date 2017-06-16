@@ -19,7 +19,7 @@ Uma coisa muito legal dessa conferência é que ela funcionou como uma hackathon
 
 Dentre os pacotes que olhei, o que mais me chamou atenção foi o [`skimr`](https://github.com/ropenscilabs/skimr) e por isso estou fazendo esse post! O propósito do `skimr` é simples: fazer algumas estatísticas básicas univariadas de uma base de dados.
 
-O `skimr` ainda não está no CRAN, então para instalar recomendamos utilizar o `devtools` para instalar direto do GitHub, conforme códico abaixo. Note que também será necessário instalar o pacote `colformat` do Hadley.
+O `skimr` ainda não está no CRAN, então para instalar recomendamos utilizar o `devtools` para instalar direto do GitHub, conforme código abaixo. Note que também será necessário instalar o pacote `colformat` do Hadley.
 
 ```{r eval=F}
 devtools::install_github("hadley/colformat")
@@ -61,14 +61,14 @@ Você também pode usar funções próprias com o `skimr`. Por exemplo, digamos 
 funs <- list(cv = function(x) sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE))
 ```
 
-e depois aplicar a função `skim_with()`:
+e depois aplique a função `skim_with()`:
 
 ```{r}
 # append adiciona as suas funcoes nas existentes
 skim_with(numeric = funs, append = TRUE)
 ```
 
-E pronto! agora você pode rodar `skim()` novamente:
+E pronto! Agora você pode rodar `skim()` novamente:
 
 ```{r}
 skim(iris) %>% 
@@ -82,7 +82,7 @@ Para retornar ao `skim()` padrão, rode `skim_with_defaults()`.
 
 - Instale usando `devtools::install_github()`
 - Rode a função `skim()`. Use `dplyr::filter()` para filtrar as estatísticas de interesse.
-- Você pode adicionar suas próprias estatísticas com `skim_with()`
+- Você pode adicionar suas próprias estatísticas com `skim_with()`.
 - Acompanhe a evolução do `skimr` [nesta página](https://github.com/ropenscilabs/skimr).
 
 O pacote ainda vai evoluir muito e não duvido nada que seja um bom candidado a entrar no `tidyverse`. O que vocês acham? Escrevam nos comentários!
