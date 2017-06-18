@@ -20,7 +20,8 @@ Remotes:
     tidyverse/glue,
     hadley/colformat,
     ropenscilabs/skimr,
-    decryptr/decryptr
+    decryptr/decryptr,
+    hadley/emo
 Imports:
     stringr,
     purrr,
@@ -72,5 +73,6 @@ Imports:
     skimr,
     colformat,
     decryptr,
-    randomForest
+    randomForest,
+    emo
 RoxygenNote: 6.0.1
