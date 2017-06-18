@@ -1,0 +1,23 @@
+---
+title: "Quebrando CAPTCHAs parte I - Trabalhando com a imagem completa"
+date: "2017-06-05T13:07:31+02:00"
+tags: ["r", "captcha"]
+categories: ["r"]
+banner: "img/banners/keras.jpg"
+author: ["Julio"]
+draft: true
+summary: ""
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, collapse = TRUE)
+```
+
+No último post sobre CAPTCHAs nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.
+
+Será que 
+
+Nesse post, vamos discutir como é possível 
+
+
+
