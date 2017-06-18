@@ -19,7 +19,7 @@ Remotes:
     tiagomendesdantas/Rspotify,
     tidyverse/glue,
     hadley/colformat,
-    ropenscilabs/skimr
+    ropenscilabs/skimr,
     decryptr/decryptr
 Imports:
     stringr,
