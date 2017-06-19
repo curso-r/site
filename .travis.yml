@@ -13,6 +13,7 @@ addons:
       - tesseract-ocr-eng
       - tesseract-ocr-por
       - tesseract-ocr
+      - libudunits2.a
 
 cache: packages
 
