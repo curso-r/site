@@ -222,19 +222,19 @@ centroides &lt;- img_df %&gt;%
 
 centroides
 ## # A tibble: 6 x 4
-##   cluster         r          g         b
-##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.3541964 0.46238302 0.5494433
-## 2       2 0.8768120 0.76211694 0.6453261
-## 3       3 0.7016494 0.46722267 0.3238223
-## 4       4 0.1242676 0.04329523 0.2157608
-## 5       5 0.2212878 0.27343708 0.4408806
-## 6       6 0.5005264 0.18317492 0.1587960</code></pre>
+##   cluster          r          g         b
+##     &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+## 1       1 0.88572504 0.77914805 0.6688438
+## 2       2 0.27214668 0.36412336 0.4901637
+## 3       3 0.71951757 0.54876883 0.4097711
+## 4       4 0.09966944 0.04366565 0.2398531
+## 5       5 0.37892054 0.11856346 0.1558584
+## 6       6 0.62388183 0.28327996 0.1896910</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#5A768C&quot; &quot;#E0C2A5&quot; &quot;#B37753&quot; &quot;#200B37&quot; &quot;#384670&quot; &quot;#802F28&quot;</code></pre>
+## [1] &quot;#E2C7AB&quot; &quot;#455D7D&quot; &quot;#B78C68&quot; &quot;#190B3D&quot; &quot;#611E28&quot; &quot;#9F4830&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -509,6 +509,19 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/r4ds/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
@@ -517,19 +530,6 @@ exibir(paleta)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         

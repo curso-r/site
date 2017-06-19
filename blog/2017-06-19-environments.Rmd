@@ -5,7 +5,7 @@ tags: ["r", "environments"]
 categories: ["r", "tutorial"]
 banner: "img/banners/parallel-universe.jpg"
 author: ["William"]
-summary: "Se você já utilizou o R algumas vezes, com certeza já se deparou com o termo environment. Neste post, vamos tentar responder as três perguntas básicas para entendermos alguma coisa no R: 1. o que é? 2. para que serve? e 3. como NÃO usar?"
+summary: "Se você já utilizou o R algumas vezes, com certeza já se deparou com o termo environment. Neste post, vamos tentar responder as três perguntas básicas para entendermos alguma coisa no R: 1. o que é? 2. para que serve? e 3. o que não fazer?"
 ---
 
 ```{r include=FALSE}
@@ -131,7 +131,7 @@ f(108)
 
 Neste caso, como o R não encontrou o símbolo `a` dentro do *environment* de avaliação, ele foi buscar no pai, o *global*.
 
-## Como não usar?
+## O que não fazer?
 
 Agora que temos uma visão ao menos superficial da estrutura de *environments*, podemos entender melhor porque usar a função `attach()` é uma prática não recomendada ao programar em R. 
 
@@ -189,7 +189,7 @@ search()
 O pacote `survival` também tem um objeto chamado *cancer*. Assim, ao carregá-lo, o *environment survival* ficará na frente do *environment dados* na árvore e, se não prestarmos atenção com o *warning*, esse será o nosso novo objeto `cancer`.
 
 ```{r}
-head(cancer)
+cancer
 ```
 
 Assim, se for utilizar a função `attach()` é preciso ter muito cuidado com o que se está fazendo. E a melhor dica é **não use**.
