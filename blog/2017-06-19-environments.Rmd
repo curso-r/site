@@ -5,7 +5,7 @@ tags: ["r", "environments"]
 categories: ["r", "tutorial"]
 banner: "img/banners/parallel-universe.jpg"
 author: ["William"]
-summary: "Se você já utilizou o R algumas vezes, com certeza já se deparou com o termo *environment*. Neste post, vamos tentar responder as três perguntas básicas para entendermos alguma coisa no R: 1. o que é? 2. para que serve? e 3. o que não fazer?"
+summary: "Se você já utilizou o R algumas vezes, com certeza já se deparou com o termo environment. Neste post, vamos tentar responder as três perguntas básicas para entendermos alguma coisa no R: 1. o que é? 2. para que serve? e 3. o que não fazer?"
 ---
 
 ```{r include=FALSE}

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Curso-R</title>
+    <title>Tags on Curso-R</title>
     <link>http://curso-r.com/tags/</link>
-    <description>Recent content on Curso-R</description>
+    <description>Recent content in Tags on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
@@ -13,13 +13,300 @@
     
     
     <item>
-      <title>Diagramas de Venn em R</title>
-      <link>http://curso-r.com/blog/2017/04/29/2017-04-29-diagramas-de-venn/</link>
+      <title></title>
+      <link>http://curso-r.com/tags/</link>
       <pubDate>Sat, 29 Apr 2017 23:26:00 +0300</pubDate>
       
-      <guid>http://curso-r.com/blog/2017/04/29/2017-04-29-diagramas-de-venn/</guid>
-      <description>Diagramas de Venn são como slides de PowerPoint. Se eles tem poucos elementos concisos em uma ordem inteligente, um leitor consegue conectar as ideias expostas e aprender alguma coisa. Em caso contrário, o excesso de informação se transforma em um obstáculo para a comunicação.
-Bons diagramas de Venn são capazes de te fazer perceber cruzamentos que não estão no seu radar. No blog do Andrew Gelman tem um exemplo interessante. Ele considera uma oração, em inglês, que pede:</description>
+      <guid>http://curso-r.com/tags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Anaconda</title>
+      <link>http://curso-r.com/tags/anaconda/</link>
+      <pubDate>Thu, 08 Jun 2017 21:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/anaconda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayes</title>
+      <link>http://curso-r.com/tags/bayes/</link>
+      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/bayes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dados Abertos</title>
+      <link>http://curso-r.com/tags/dados-abertos/</link>
+      <pubDate>Fri, 19 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/dados-abertos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Environments</title>
+      <link>http://curso-r.com/tags/environments/</link>
+      <pubDate>Mon, 19 Jun 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/environments/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Erro</title>
+      <link>http://curso-r.com/tags/erro/</link>
+      <pubDate>Thu, 20 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/erro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ggplot</title>
+      <link>http://curso-r.com/tags/ggplot/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/tags/ggplot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ggplot2</title>
+      <link>http://curso-r.com/tags/ggplot2/</link>
+      <pubDate>Mon, 20 Feb 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Imagens</title>
+      <link>http://curso-r.com/tags/imagens/</link>
+      <pubDate>Thu, 01 Jun 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/imagens/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Keras</title>
+      <link>http://curso-r.com/tags/keras/</link>
+      <pubDate>Thu, 08 Jun 2017 21:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/keras/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kmeans</title>
+      <link>http://curso-r.com/tags/kmeans/</link>
+      <pubDate>Thu, 04 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/kmeans/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Knitr</title>
+      <link>http://curso-r.com/tags/knitr/</link>
+      <pubDate>Sat, 25 Mar 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/knitr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Leaflet</title>
+      <link>http://curso-r.com/tags/leaflet/</link>
+      <pubDate>Mon, 10 Apr 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/leaflet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lolapalooza</title>
+      <link>http://curso-r.com/tags/lolapalooza/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/tags/lolapalooza/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Magick</title>
+      <link>http://curso-r.com/tags/magick/</link>
+      <pubDate>Thu, 01 Jun 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/magick/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mapas</title>
+      <link>http://curso-r.com/tags/mapas/</link>
+      <pubDate>Wed, 01 Mar 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/mapas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ocr</title>
+      <link>http://curso-r.com/tags/ocr/</link>
+      <pubDate>Sun, 28 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/ocr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pdf</title>
+      <link>http://curso-r.com/tags/pdf/</link>
+      <pubDate>Sun, 28 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Progress</title>
+      <link>http://curso-r.com/tags/progress/</link>
+      <pubDate>Mon, 10 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/progress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>http://curso-r.com/tags/r/</link>
+      <pubDate>Mon, 19 Jun 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regressao</title>
+      <link>http://curso-r.com/tags/regressao/</link>
+      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/regressao/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rmarkdown</title>
+      <link>http://curso-r.com/tags/rmarkdown/</link>
+      <pubDate>Sat, 25 Mar 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rstudio</title>
+      <link>http://curso-r.com/tags/rstudio/</link>
+      <pubDate>Thu, 16 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spotify</title>
+      <link>http://curso-r.com/tags/spotify/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/tags/spotify/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stan</title>
+      <link>http://curso-r.com/tags/stan/</link>
+      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/stan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>String</title>
+      <link>http://curso-r.com/tags/string/</link>
+      <pubDate>Mon, 17 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/string/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tensorflow</title>
+      <link>http://curso-r.com/tags/tensorflow/</link>
+      <pubDate>Thu, 08 Jun 2017 21:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tidyverse</title>
+      <link>http://curso-r.com/tags/tidyverse/</link>
+      <pubDate>Mon, 17 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Top10</title>
+      <link>http://curso-r.com/tags/top10/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/tags/top10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tuber</title>
+      <link>http://curso-r.com/tags/tuber/</link>
+      <pubDate>Fri, 28 Apr 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/tuber/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>http://curso-r.com/tags/ubuntu/</link>
+      <pubDate>Thu, 08 Jun 2017 21:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Scraping</title>
+      <link>http://curso-r.com/tags/web-scraping/</link>
+      <pubDate>Fri, 19 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/web-scraping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webscraping</title>
+      <link>http://curso-r.com/tags/webscraping/</link>
+      <pubDate>Fri, 28 Apr 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/webscraping/</guid>
+      <description></description>
     </item>
     
   </channel>
