@@ -8,6 +8,11 @@ author: ["William"]
 summary: "Se você já utilizou o R algumas vezes, com certeza já se deparou com o termo *environment*. Neste post, vamos tentar responder as três perguntas básicas para entendermos alguma coisa no R: 1. o que é? 2. para que serve? e 3. o que não fazer?"
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
 Se você utiliza o R regularmente, com certeza já se deparou com o termo *environment*. Ele aparece como um painel do RStudio, quando acessamos o código de uma função e (implicitamente) quando carregamos pacotes. Neste post, vamos tentar responder as três perguntas básicas sobre qualquer coisa no R: 1. o que é? 2. para que serve? e 3. como NÃO usar?
 
 ## O que é?
