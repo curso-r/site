@@ -17,7 +17,11 @@ Remotes:
     rstudio/blogdown,
     abjur/abjData,
     tiagomendesdantas/Rspotify,
-    tidyverse/glue
+    tidyverse/glue,
+    hadley/colformat,
+    ropenscilabs/skimr,
+    decryptr/decryptr,
+    hadley/emo
 Imports:
     stringr,
     purrr,
@@ -65,5 +69,11 @@ Imports:
     jpeg,
     png,
     benford.analysis,
-    pdftools
+    pdftools,
+    skimr,
+    colformat,
+    decryptr,
+    randomForest,
+    emo,
+    ggforce
 RoxygenNote: 6.0.1
