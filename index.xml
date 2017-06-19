@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 17 Jun 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 19 Jun 2017 13:07:31 +0200</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>bR Bloggers está no ar</title>
+      <link>http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/</link>
+      <pubDate>Mon, 19 Jun 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/</guid>
+      <description>Está no ar o bR Bloggers! bR Bloggers é um agregador de blogs sobre R escritos em língua portuguesa.
+Atualmente uma das melhores formas de aprender R e de ficar a par da comunidade R é ler o R-Bloggers. O R-Bloggers é um agregador que conta com mais de 700 blogs, que escrevem aproximadamente 300 posts por mês. Lendo tudo isso, não tem como você não aprender muito R!
+No entanto, para muitas pessoas, uma barreira para ler os posts do R-Bloggers pode ser o fato de que todos os posts estão em inglês.</description>
+    </item>
     
     <item>
       <title>Skimr: estatísticas básicas com ❤️</title>

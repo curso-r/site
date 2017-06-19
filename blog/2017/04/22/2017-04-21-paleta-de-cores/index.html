@@ -224,17 +224,17 @@ centroides
 ## # A tibble: 6 x 4
 ##   cluster         r          g         b
 ##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.5005264 0.18317492 0.1587960
-## 2       2 0.7016494 0.46722267 0.3238223
-## 3       3 0.8768120 0.76211694 0.6453261
-## 4       4 0.3541964 0.46238302 0.5494433
-## 5       5 0.2212878 0.27343708 0.4408806
-## 6       6 0.1242676 0.04329523 0.2157608</code></pre>
+## 1       1 0.3542115 0.46236909 0.5494132
+## 2       2 0.5006902 0.18330624 0.1588547
+## 3       3 0.1243380 0.04330185 0.2157165
+## 4       4 0.2212875 0.27343423 0.4408795
+## 5       5 0.8768970 0.76224179 0.6454794
+## 6       6 0.7017989 0.46751128 0.3240634</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#802F28&quot; &quot;#B37753&quot; &quot;#E0C2A5&quot; &quot;#5A768C&quot; &quot;#384670&quot; &quot;#200B37&quot;</code></pre>
+## [1] &quot;#5A768C&quot; &quot;#802F29&quot; &quot;#200B37&quot; &quot;#384670&quot; &quot;#E0C2A5&quot; &quot;#B37753&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -364,7 +364,7 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/categories/learning">learning (1)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (32)</a>
+            <li><a href="http://curso-r.com/categories/r">r (33)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/summary">summary (1)</a>
@@ -587,6 +587,19 @@ exibir(paleta)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/">
+                          
+                            <img src="http://curso-r.com/img/banners/banner-brbloggers.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/">bR Bloggers está no ar</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/06/17/2017-06-17-skimr/">
                           
                             <img src="http://curso-r.com/img/banners/skimr.png" class="img-responsive" alt="">
@@ -608,19 +621,6 @@ exibir(paleta)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/06/08/2017-06-08-keras-no-ubuntu/">Instalando Anaconda &#43; TensorFlow &#43; Keras para R no Ubuntu 16.04 Server</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/06/05/2017-06-05-keras/">
-                          
-                            <img src="http://curso-r.com/img/banners/keras.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/06/05/2017-06-05-keras/">Keras: colocando deep learning no pipeline</a></h5>
                     </div>
                 </div>
                 
