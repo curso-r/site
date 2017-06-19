@@ -224,7 +224,7 @@ cmp_mean_r
 ##     m = m + x[i] / n
 ##   m
 ## }
-## &lt;bytecode: 0x3a94a98&gt;</code></pre>
+## &lt;bytecode: 0x4871a98&gt;</code></pre>
 <p>Para mostrar a mudança, vamos comparar o desempenho das funções usando <code>microbenchmark()</code>. Essa função calcula o tempo de execução de uma expressão cem vezes e calcula estatísticas básicas dos tempos obtidos.</p>
 <p>No meu servidor, que ainda está com o R 3.3.2, o resultado foi esse. Observe que o tempo da função compilada é quase dez vezes o tempo da função sem compilar.</p>
 <pre class="r"><code>set.seed(1)
