@@ -186,10 +186,9 @@
 <p>Atualmente uma das melhores formas de aprender R e de ficar a par da comunidade R é ler o <a href="https://www.r-bloggers.com/">R-Bloggers</a>. O R-Bloggers é um agregador que conta com mais de 700 blogs, que escrevem aproximadamente 300 posts por mês. Lendo tudo isso, não tem como você não aprender muito R!</p>
 <p>No entanto, para muitas pessoas, uma barreira para ler os posts do R-Bloggers pode ser o fato de que todos os posts estão em inglês. Por isso, a criação do bR Bloggers.</p>
 <p>A ideia de um agregador de blogs para o português não é original, hoje mesmo descobri esse link: <a href="https://www.r-bloggers.com/lang/-/portuguese" class="uri">https://www.r-bloggers.com/lang/-/portuguese</a>: Uma versão do R-Bloggers em português mantida pelo próprio criador do R-Bloggers. No entanto, a última postagem data de 2012: 5 anos atrás. Ainda não existia nem o <code>dplyr</code>(que é de Jan/2014). Não se falava em <code>tidyverse</code> e nem nada disso também. Pelo menos o <code>ggplot2</code> já tinha seus 5 anos. Ou seja, tudo no R era diferente, menos a melhor forma de fazer os seus gráficos.</p>
-<p>Recentemente o <a href="https://github.com/sillasgonzaga">Sillas Gonzaga</a> autor do <a href="https://sillasgonzaga.github.io/">Paixão por Dados</a> criou o <a href="https://github.com/sillasgonzaga/rbloggers-BR">R-Bloggers BR</a> um bot do twitter que “twita” toda vez que algum blog da lista tem um novo post. Também temos uma lista</p>
-<p>Também temos uma <a href="https://github.com/marcosvital/blogs-de-R-no-Brasil">lista de blogs</a> de R em português mantida pelo <a href="https://github.com/marcosvital">Marcos Vital</a> do <a href="https://cantinhodor.wordpress.com/">Cantinho do R</a>.</p>
+<p>Recentemente o <a href="https://github.com/sillasgonzaga">Sillas Gonzaga</a> autor do <a href="https://sillasgonzaga.github.io/">Paixão por Dados</a> criou o <a href="https://github.com/sillasgonzaga/rbloggers-BR">R-Bloggers BR</a> um bot do twitter que “twita” toda vez que algum blog da lista tem um novo post. Também temos uma <a href="https://github.com/marcosvital/blogs-de-R-no-Brasil">lista de blogs</a> de R em português mantida pelo <a href="https://github.com/marcosvital">Marcos Vital</a> do <a href="https://cantinhodor.wordpress.com/">Cantinho do R</a>.</p>
 <p>Esses foram bons avanços para a comunidade R brasileira, mas ainda assim, dado o sucesso do R-Bloggers, sentíamos falta de um agregador no mesmo estilo para blogs em português. Por isso surgiu o <a href="https://brbloggers.com.br">bR Bloggers</a>.</p>
-<p>Esperamos que o bR Bloggers incentive a comunidade a escrever bastante conteúdo sobre R em português! Que ele seja uma vitrine para que todos possam mostrar os seus trabalhos e que ajude muitas pessoas a aprenderem R.</p>
+<p>Esperamos que o bR Bloggers incentive a comunidade a escrever bastante conteúdo sobre R em português! Que ele seja uma vitrine para que todos possam mostrar os seus trabalhos e que ajude muitas pessoas a aprender R.</p>
 <div id="como-funciona" class="section level1">
 <h1>Como funciona?</h1>
 <p>O br Bloggers foi feito em R. E todo o código fonte está disponível em uma organização do Github: <a href="https://github.com/brbloggers" class="uri">https://github.com/brbloggers</a>. São dois repositórios:</p>
@@ -210,39 +209,41 @@
 </div>
 <div id="o-logo-do-br-bloggers" class="section level1">
 <h1>O logo do bR Bloggers</h1>
-<p>O logo do bR Bloggers foio criado pelo <a href="https://github.com/jtrecenti">Julio</a> usando o R. O código está dispopnível abaixo:</p>
+<p>O logo do bR Bloggers foio criado pelo <a href="http://curso-r.com/author/julio">Julio</a> usando o R. O código está disponível abaixo:</p>
 <pre class="r"><code>library(tidyverse)
-## Warning: Installed Rcpp (0.12.11.3) different from Rcpp used to build dplyr (0.12.11.2).
-## Please reinstall dplyr to avoid random crashes or undefined behavior.
-## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
-## Loading tidyverse: tidyr
-## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr
-## Conflicts with tidy packages ----------------------------------------------
-## filter(): dplyr, stats
-## lag():    dplyr, stats
 library(ggforce)
 # https://pt.wikipedia.org/wiki/Bandeira_do_Brasil#Cores
-cores_br &lt;- list(verde = &#39;#009C3B&#39;, amarelo = &#39;#FFDF00&#39;, 
-                 azul = &#39;#002776&#39;, branco = &quot;#FFFFFF&quot;)
+cores_br &lt;- list(verde = &#39;#009C3B&#39;, 
+                 amarelo = &#39;#FFDF00&#39;, 
+                 azul = &#39;#002776&#39;, 
+                 branco = &quot;#FFFFFF&quot;)
+
 p &lt;- tibble(x = 1, y = 1, lab1 = &#39;b&#39;, lab2 = &#39;R&#39;) %&gt;% 
   ggplot(aes(x0 = x, y0 = y, r = y)) +
-  geom_circle(size = 5, n = 5.5, 
-              fill = &#39;transparent&#39;, color = cores_br$verde, linetype = 1) +
-  geom_circle(size = 4, n = 5.5, 
-              fill = &#39;transparent&#39;, color = cores_br$amarelo, linetype = 2) +
+  geom_circle(size = 5, 
+              n = 5.5, 
+              fill = &#39;transparent&#39;, 
+              color = cores_br$verde, 
+              linetype = 1) +
+  geom_circle(size = 4, 
+              n = 5.5, 
+              fill = &#39;transparent&#39;, 
+              color = cores_br$amarelo, 
+              linetype = 2) +
   geom_text(aes(x, y, label = lab1),
-            family = &quot;Ubuntu&quot;, size = 45, 
-            nudge_x = -.3, nudge_y = -.1, colour = cores_br$azul) +
+            family = &quot;Ubuntu&quot;, 
+            size = 45, 
+            nudge_x = -.3, 
+            nudge_y = -.1, 
+            colour = cores_br$azul) +
   geom_text(aes(x, y, label = lab2),
-            family = &quot;Century&quot;, size = 60, 
-            nudge_x = .3, colour = cores_br$azul,fontface = &#39;bold&#39;) +
+            family = &quot;Century&quot;, 
+            size = 60, 
+            nudge_x = .3, 
+            colour = cores_br$azul,
+            fontface = &#39;bold&#39;) +
   coord_equal() +
-  theme_minimal(0) +
-  theme(panel.background = element_rect(fill = &#39;transparent&#39;, colour = NA),
-        plot.background = element_rect(fill = &#39;transparent&#39;, colour = NA))
+  theme_minimal(0)
 p</code></pre>
 <p><img src="http://curso-r.com/blog/2017-06-19-brbloggers_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
@@ -486,14 +487,14 @@ p</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         

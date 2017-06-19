@@ -27,6 +27,17 @@ A tarefa de classificação sequencial se subdivide em três tipos:
 
 Nosso interesse reside em (2).
 
+## Redes neurais
+
+Dois tipos
+
+- Feed-forward NN -> perceptron
+- Recurrent NN
+
+## Perceptron
+
+
+
 ### Exemplo
 
 ## Layers utilizados no modelo
