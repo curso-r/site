@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/06/19/2017-06-19-environments/</loc>
+    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/</loc>
     <lastmod>2017-06-19T13:07:31+02:00</lastmod>
   </url>
@@ -197,20 +202,20 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/bayes/</loc>
-    <lastmod>2017-03-09T13:07:31+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://curso-r.com/tags/bayes/</loc>
     <lastmod>2017-03-09T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://curso-r.com/categories/bayes/</loc>
+    <lastmod>2017-03-09T13:07:31+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-06-19T13:07:31+02:00</lastmod>
+    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
   </url>
   
   <url>
@@ -225,7 +230,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-06-19T13:07:31+02:00</lastmod>
+    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -258,6 +263,12 @@
   <url>
     <loc>http://curso-r.com/categories/emotion/</loc>
     <lastmod>2017-04-15T13:07:31+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/environments/</loc>
+    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -374,14 +385,14 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-06-19T13:07:31+02:00</lastmod>
+    <loc>http://curso-r.com/tags/r/</loc>
+    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-06-19T13:07:31+02:00</lastmod>
+    <loc>http://curso-r.com/categories/r/</loc>
+    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -466,6 +477,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/categories/tutorial/</loc>
+    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/ubuntu/</loc>
     <lastmod>2017-06-08T21:12:00+03:00</lastmod>
     <priority>0</priority>
@@ -489,7 +506,7 @@
   
   <url>
     <loc>http://curso-r.com/author/william/</loc>
-    <lastmod>2017-06-01T23:26:00+03:00</lastmod>
+    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

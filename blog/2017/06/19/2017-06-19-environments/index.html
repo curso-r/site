@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
+
+  <title>Environments</title>
+
+  <meta name="author" content="" />
+  <meta name="keywords" content="">
+
+  
+
+  <meta name="generator" content="Hugo 0.21" />
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6479521664471475",
+      enable_page_level_ads: true
+    });
+  </script>
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="http://curso-r.com/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="http://curso-r.com/css/style.red.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="http://curso-r.com/css/custom.css" rel="stylesheet">
+
+  
+    
+
+  
+  <link rel="shortcut icon" href="http://curso-r.com/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="http://curso-r.com/img/apple-touch-icon.png" />
+  
+
+  <link href="http://curso-r.com/css/owl.carousel.css" rel="stylesheet">
+  <link href="http://curso-r.com/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="http://curso-r.com/index.xml" type="application/rss+xml" title="Curso-R">
+  <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
+  
+  
+  <meta property="og:title" content="Environments" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/blog/2017/06/19/2017-06-19-environments//" />
+  <meta property="og:image" content="img/banners/parallel-universe.jpg" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://curso-r.com/">
+                    <img src="http://curso-r.com/img/logo.svg" alt="Environments logo" width="50" height="50">
+                    <span class="sr-only">Environments - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/">Home</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/sobre/">Sobre</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/cursos/">Cursos</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/blog/">Blog</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/contact/">Contato</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Environments</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          
+                            Por 
+                            
+                            
+                              
+                                <a href="http://curso-r.com/author/william">William</a>
+                            
+                            
+                          
+                          
+                          19/06/2017
+                        </p>
+                        
+                        <div id="post-content">
+                          <p>Se você utiliza o R regularmente, com certeza já se deparou com o termo <em>environment</em>. Ele aparece como um painel do RStudio, quando acessamos o código de uma função e (implicitamente) quando carregamos pacotes. Neste post, vamos tentar responder as três perguntas básicas sobre qualquer coisa no R: 1. o que é? 2. para que serve? e 3. como NÃO usar?</p>
+<div id="o-que-e" class="section level2">
+<h2>O que é?</h2>
+<p>Definindo de uma maneira bem simples, <em>environments</em> são locais onde objetos são armazenados, isto é, conjuntos de ligações entre símbolos e valores. Por exemplo, quando fazemos a atribuição abaixo,</p>
+<pre class="r"><code>a &lt;- 4</code></pre>
+<p>estamos criando uma associação do símbolo <code>a</code> ao valor <code>4</code>, que, por padrão, é guardada dentro do <em>global environment</em>.</p>
+<pre class="r"><code>ls(globalenv())</code></pre>
+<pre><code>## [1] &quot;a&quot;</code></pre>
+<p>Assim, quando rodarmos o símbolo <code>a</code>, o R, por padrão, vai procurar dentro desse <em>environment</em> um valor para devolver. No caso, o valor <code>4</code>.</p>
+<pre class="r"><code>a</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>Mais formalmente, <em>environments</em> podem ser definidos como a junção de duas coisas: um conjunto de pares (símbolo, valor); e um ponteiro para um outro <em>environment</em>. Quando o R não encontra um valor para um símbolo no <em>environment</em> em que está procurando, ele passa a procurar no próximo, o <em>environment</em> para qual o primeiro está apontando, chamado de <em>environment pai</em>. Assim, os <em>environments</em> se estruturam como uma árvore, cuja raiz é um <em>environment</em> vazio.</p>
+<pre class="r"><code>emptyenv()</code></pre>
+<pre><code>## &lt;environment: R_EmptyEnv&gt;</code></pre>
+</div>
+<div id="o-que-faz" class="section level2">
+<h2>O que faz?</h2>
+<p>É possível criar novos <em>environments</em> com a função <code>new.env()</code></p>
+<pre class="r"><code>magrathea &lt;- new.env()</code></pre>
+<p>e criar objetos dentro desse <em>environments</em> com a função <code>assign()</code></p>
+<pre class="r"><code>assign(&quot;a&quot;, 8, envir = magrathea)</code></pre>
+<pre class="r"><code>ls(magrathea)</code></pre>
+<pre><code>## [1] &quot;a&quot;</code></pre>
+<p>Agora temos um objeto chamado <code>a</code> no <em>global environment</em> e no <em>magrathea</em>, que nós criamos. Note que o R inicia a busca no <em>global environment</em>.</p>
+<pre class="r"><code>a</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>Vamos agora criar outro objeto dentro de <em>magrathea</em>.</p>
+<pre class="r"><code>assign(&quot;b&quot;, 15, envir = magrathea)</code></pre>
+<p>Observe que se procurarmos simplesmente por <code>b</code>, o R não vai encontrar um valor para associar.</p>
+<pre class="r"><code>b</code></pre>
+<p>Acontece que <code>magrathea</code> é um <em>environment</em> “abaixo” do <em>global</em> na hierarquia, e o R só estende a sua busca para <em>environments</em> acima (sim, estou pensando numa árvore de ponta-cabeça).</p>
+<pre class="r"><code>parent.env(magrathea)</code></pre>
+<pre><code>## &lt;environment: R_GlobalEnv&gt;</code></pre>
+<p>Se criarmos agora um objeto no <em>global</em></p>
+<pre class="r"><code>c &lt;- 16</code></pre>
+<p>e usarmos a função <code>get()</code> para procurá-lo no <em>environment</em> que criamos, o R irá encontrá-lo porque o <em>global</em> é o <em>environment</em> pai de <em>magrathea</em>.</p>
+<pre class="r"><code>get(&quot;c&quot;, envir = magrathea)</code></pre>
+<pre><code>## [1] 16</code></pre>
+<p>Essa estrutura é muito útil na hora de utilizar funções. Sempre que uma função é chamada, um novo <em>environment</em> é criado, o <em>environment</em> de avaliação, que contém os objetos usados como argumento da função, os objetos criados dentro da função e aponta para o <em>environment</em> onde a função foi criada (geralmente o <em>global</em>).</p>
+<pre class="r"><code>f &lt;- function(a, b) {
+  
+  c &lt;- a + b
+  
+  return(c)
+  
+}
+
+environment(f)</code></pre>
+<pre><code>## &lt;environment: R_GlobalEnv&gt;</code></pre>
+<p>Esse comportamento nos permite fazer duas coisas. Primeiro, os cálculos realizados dentro das funções não modificam os objetos do <em>global</em>.</p>
+<pre class="r"><code>f(23, 42)</code></pre>
+<pre><code>## [1] 65</code></pre>
+<pre class="r"><code>c</code></pre>
+<pre><code>## [1] 16</code></pre>
+<p>Segundo, podemos utilizar objetos dentro da função sem defini-los lá dentro.</p>
+<pre class="r"><code>f &lt;- function(b) { 
+
+  return(a + b)
+    
+}
+
+f(108)</code></pre>
+<pre><code>## [1] 112</code></pre>
+<p>Neste caso, como o R não encontrou o símbolo <code>a</code> dentro do <em>environment</em> de avaliação, ele foi buscar no pai, o <em>global</em>.</p>
+</div>
+<div id="o-que-nao-fazer" class="section level2">
+<h2>O que não fazer?</h2>
+<p>Agora que temos uma visão ao menos superficial da estrutura de <em>environments</em>, podemos entender melhor porque usar a função <code>attach()</code> é uma prática não recomendada ao programar em R.</p>
+<p>Se utilizarmos a função <code>search()</code>, ela nos devolverá o “caminho” de <em>environments</em>, começando do <em>global</em> (<em>magrathea</em> não será exibido).</p>
+<pre class="r"><code>search()</code></pre>
+<pre><code>## [1] &quot;.GlobalEnv&quot;        &quot;package:stats&quot;     &quot;package:graphics&quot; 
+## [4] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
+## [7] &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
+<p>Repare que os pacotes carregados geram um novo <em>environment</em> na árvore.</p>
+<pre class="r"><code>library(ggplot2)
+search()</code></pre>
+<pre><code>## [1] &quot;.GlobalEnv&quot;        &quot;package:ggplot2&quot;   &quot;package:stats&quot;    
+## [4] &quot;package:graphics&quot;  &quot;package:grDevices&quot; &quot;package:utils&quot;    
+## [7] &quot;package:datasets&quot;  &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
+<p>É por isso que, ao carregar um pacote, podemos utilizar as suas funções sem a necessidade de escrever coisas do tipo <code>ggplot2::geom_point()</code>. Agora, veja o que acontece quando usamos a função <code>attach()</code></p>
+<pre class="r"><code>mighty &lt;- list(&quot;Jason&quot; = &quot;vermelho&quot;, &quot;Zach&quot; = &quot;Preto&quot;, &quot;Billy&quot; = &quot;Azul&quot;, 
+     &quot;Trini&quot; = &quot;Amarela&quot;, &quot;Kimberly&quot; = &quot;Rosa&quot;, &quot;Thomas&quot; = &quot;Verde&quot;)
+
+attach(mighty)
+search()</code></pre>
+<pre><code>##  [1] &quot;.GlobalEnv&quot;        &quot;mighty&quot;            &quot;package:ggplot2&quot;  
+##  [4] &quot;package:stats&quot;     &quot;package:graphics&quot;  &quot;package:grDevices&quot;
+##  [7] &quot;package:utils&quot;     &quot;package:datasets&quot;  &quot;Autoloads&quot;        
+## [10] &quot;package:base&quot;</code></pre>
+<p>Um novo <em>environment mighty</em> é criado acima do <em>global</em>! Isso quer dizer que se você não tiver total conhecimento dos objetos que estão sendo anexados, você estará criando uma lista de objetos “invisíveis” que podem ser avaliados mesmo dentro de funções. E veja o que acontece quando carregamos mais pacotes</p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## Warning: Installed Rcpp (0.12.11.3) different from Rcpp used to build dplyr (0.12.11.2).
+## Please reinstall dplyr to avoid random crashes or undefined behavior.</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>search()</code></pre>
+<pre><code>##  [1] &quot;.GlobalEnv&quot;        &quot;package:dplyr&quot;     &quot;mighty&quot;           
+##  [4] &quot;package:ggplot2&quot;   &quot;package:stats&quot;     &quot;package:graphics&quot; 
+##  [7] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
+## [10] &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
+<p>O <em>environment</em> do pacote <code>dplyr</code> aparece antes do <code>mighty</code>. Isso quer dizer que os objetos do <em>mighty</em> podem ser mascarados por todos os pacotes que você carregar a seguir. Veja um simples exemplo de como as coisas podem dar errado.</p>
+<pre class="r"><code>dados &lt;- tibble::tibble(paciente = 1:30, 
+                        cancer = rbinom(30, size = 1, prob = 0.5))
+
+attach(dados)
+cancer</code></pre>
+<pre><code>##  [1] 1 0 1 0 0 1 0 0 1 0 1 1 1 0 0 0 1 0 0 1 1 1 1 1 0 0 0 0 0 1</code></pre>
+<p>Com o código acima, criamos um banco de dados representando 30 pacientes com (1) ou sem (0) um certo tipo de câncer. As variáveis <code>paciente</code> e <code>cancer</code> foram anexadas ao rodarmos <code>attach(dados)</code>.</p>
+<p>Agora, imagine se esse banco de dados tiver informações de tempo até a remissão do câncer e quisermos rodar modelos de sobrevivência. Um passo natural seria carregar a biblioteca <code>survival</code>.</p>
+<pre class="r"><code>library(survival)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;survival&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;dados&#39;:
+## 
+##     cancer</code></pre>
+<pre class="r"><code>search()</code></pre>
+<pre><code>##  [1] &quot;.GlobalEnv&quot;        &quot;package:survival&quot;  &quot;dados&quot;            
+##  [4] &quot;package:dplyr&quot;     &quot;mighty&quot;            &quot;package:ggplot2&quot;  
+##  [7] &quot;package:stats&quot;     &quot;package:graphics&quot;  &quot;package:grDevices&quot;
+## [10] &quot;package:utils&quot;     &quot;package:datasets&quot;  &quot;Autoloads&quot;        
+## [13] &quot;package:base&quot;</code></pre>
+<p>O pacote <code>survival</code> também tem um objeto chamado <em>cancer</em>. Assim, ao carregá-lo, o <em>environment survival</em> ficará na frente do <em>environment dados</em> na árvore e, se não prestarmos atenção com o <em>warning</em>, esse será o nosso novo objeto <code>cancer</code>.</p>
+<pre class="r"><code>cancer</code></pre>
+<pre><code>##     inst time status age sex ph.ecog ph.karno pat.karno meal.cal wt.loss
+## 1      3  306      2  74   1       1       90       100     1175      NA
+## 2      3  455      2  68   1       0       90        90     1225      15
+## 3      3 1010      1  56   1       0       90        90       NA      15
+## 4      5  210      2  57   1       1       90        60     1150      11
+## 5      1  883      2  60   1       0      100        90       NA       0
+## 6     12 1022      1  74   1       1       50        80      513       0
+## 7      7  310      2  68   2       2       70        60      384      10
+## 8     11  361      2  71   2       2       60        80      538       1
+## 9      1  218      2  53   1       1       70        80      825      16
+## 10     7  166      2  61   1       2       70        70      271      34
+## 11     6  170      2  57   1       1       80        80     1025      27
+## 12    16  654      2  68   2       2       70        70       NA      23
+## 13    11  728      2  68   2       1       90        90       NA       5
+## 14    21   71      2  60   1      NA       60        70     1225      32
+## 15    12  567      2  57   1       1       80        70     2600      60
+## 16     1  144      2  67   1       1       80        90       NA      15
+## 17    22  613      2  70   1       1       90       100     1150      -5
+## 18    16  707      2  63   1       2       50        70     1025      22
+## 19     1   61      2  56   2       2       60        60      238      10
+## 20    21   88      2  57   1       1       90        80     1175      NA
+## 21    11  301      2  67   1       1       80        80     1025      17
+## 22     6   81      2  49   2       0      100        70     1175      -8
+## 23    11  624      2  50   1       1       70        80       NA      16
+## 24    15  371      2  58   1       0       90       100      975      13
+## 25    12  394      2  72   1       0       90        80       NA       0
+## 26    12  520      2  70   2       1       90        80      825       6
+## 27     4  574      2  60   1       0      100       100     1025     -13
+## 28    13  118      2  70   1       3       60        70     1075      20
+## 29    13  390      2  53   1       1       80        70      875      -7
+## 30     1   12      2  74   1       2       70        50      305      20
+## 31    12  473      2  69   2       1       90        90     1025      -1
+## 32     1   26      2  73   1       2       60        70      388      20
+## 33     7  533      2  48   1       2       60        80       NA     -11
+## 34    16  107      2  60   2       2       50        60      925     -15
+## 35    12   53      2  61   1       2       70       100     1075      10
+## 36     1  122      2  62   2       2       50        50     1025      NA
+## 37    22  814      2  65   1       2       70        60      513      28
+## 38    15  965      1  66   2       1       70        90      875       4
+## 39     1   93      2  74   1       2       50        40     1225      24
+## 40     1  731      2  64   2       1       80       100     1175      15
+## 41     5  460      2  70   1       1       80        60      975      10
+## 42    11  153      2  73   2       2       60        70     1075      11
+## 43    10  433      2  59   2       0       90        90      363      27
+## 44    12  145      2  60   2       2       70        60       NA      NA
+## 45     7  583      2  68   1       1       60        70     1025       7
+## 46     7   95      2  76   2       2       60        60      625     -24
+## 47     1  303      2  74   1       0       90        70      463      30
+## 48     3  519      2  63   1       1       80        70     1025      10
+## 49    13  643      2  74   1       0       90        90     1425       2
+## 50    22  765      2  50   2       1       90       100     1175       4
+## 51     3  735      2  72   2       1       90        90       NA       9
+## 52    12  189      2  63   1       0       80        70       NA       0
+## 53    21   53      2  68   1       0       90       100     1025       0
+## 54     1  246      2  58   1       0      100        90     1175       7
+## 55     6  689      2  59   1       1       90        80     1300      15
+## 56     1   65      2  62   1       0       90        80      725      NA
+## 57     5    5      2  65   2       0      100        80      338       5
+## 58    22  132      2  57   1       2       70        60       NA      18
+## 59     3  687      2  58   2       1       80        80     1225      10
+## 60     1  345      2  64   2       1       90        80     1075      -3
+## 61    22  444      2  75   2       2       70        70      438       8
+## 62    12  223      2  48   1       1       90        80     1300      68
+## 63    21  175      2  73   1       1       80       100     1025      NA
+## 64    11   60      2  65   2       1       90        80     1025       0
+## 65     3  163      2  69   1       1       80        60     1125       0
+## 66     3   65      2  68   1       2       70        50      825       8
+## 67    16  208      2  67   2       2       70        NA      538       2
+## 68     5  821      1  64   2       0       90        70     1025       3
+## 69    22  428      2  68   1       0      100        80     1039       0
+## 70     6  230      2  67   1       1       80       100      488      23
+## 71    13  840      1  63   1       0       90        90     1175      -1
+## 72     3  305      2  48   2       1       80        90      538      29
+## 73     5   11      2  74   1       2       70       100     1175       0
+## 74     2  132      2  40   1       1       80        80       NA       3
+## 75    21  226      2  53   2       1       90        80      825       3
+## 76    12  426      2  71   2       1       90        90     1075      19
+## 77     1  705      2  51   2       0      100        80     1300       0
+## 78     6  363      2  56   2       1       80        70     1225      -2
+## 79     3   11      2  81   1       0       90        NA      731      15
+## 80     1  176      2  73   1       0       90        70      169      30
+## 81     4  791      2  59   1       0      100        80      768       5
+## 82    13   95      2  55   1       1       70        90     1500      15
+## 83    11  196      1  42   1       1       80        80     1425       8
+## 84    21  167      2  44   2       1       80        90      588      -1
+## 85    16  806      1  44   1       1       80        80     1025       1
+## 86     6  284      2  71   1       1       80        90     1100      14
+## 87    22  641      2  62   2       1       80        80     1150       1
+## 88    21  147      2  61   1       0      100        90     1175       4
+## 89    13  740      1  44   2       1       90        80      588      39
+## 90     1  163      2  72   1       2       70        70      910       2
+## 91    11  655      2  63   1       0      100        90      975      -1
+## 92    22  239      2  70   1       1       80       100       NA      23
+## 93     5   88      2  66   1       1       90        80      875       8
+## 94    10  245      2  57   2       1       80        60      280      14
+## 95     1  588      1  69   2       0      100        90       NA      13
+## 96    12   30      2  72   1       2       80        60      288       7
+## 97     3  179      2  69   1       1       80        80       NA      25
+## 98    12  310      2  71   1       1       90       100       NA       0
+## 99    11  477      2  64   1       1       90       100      910       0
+## 100    3  166      2  70   2       0       90        70       NA      10
+## 101    1  559      1  58   2       0      100       100      710      15
+## 102    6  450      2  69   2       1       80        90     1175       3
+## 103   13  364      2  56   1       1       70        80       NA       4
+## 104    6  107      2  63   1       1       90        70       NA       0
+## 105   13  177      2  59   1       2       50        NA       NA      32
+## 106   12  156      2  66   1       1       80        90      875      14
+## 107   26  529      1  54   2       1       80       100      975      -3
+## 108    1   11      2  67   1       1       90        90      925      NA
+## 109   21  429      2  55   1       1      100        80      975       5
+## 110    3  351      2  75   2       2       60        50      925      11
+## 111   13   15      2  69   1       0       90        70      575      10
+## 112    1  181      2  44   1       1       80        90     1175       5
+## 113   10  283      2  80   1       1       80       100     1030       6
+## 114    3  201      2  75   2       0       90       100       NA       1
+## 115    6  524      2  54   2       1       80       100       NA      15
+## 116    1   13      2  76   1       2       70        70      413      20
+## 117    3  212      2  49   1       2       70        60      675      20
+## 118    1  524      2  68   1       2       60        70     1300      30
+## 119   16  288      2  66   1       2       70        60      613      24
+## 120   15  363      2  80   1       1       80        90      346      11
+## 121   22  442      2  75   1       0       90        90       NA       0
+## 122   26  199      2  60   2       2       70        80      675      10
+## 123    3  550      2  69   2       1       70        80      910       0
+## 124   11   54      2  72   1       2       60        60      768      -3
+## 125    1  558      2  70   1       0       90        90     1025      17
+## 126   22  207      2  66   1       1       80        80      925      20
+## 127    7   92      2  50   1       1       80        60     1075      13
+## 128   12   60      2  64   1       1       80        90      993       0
+## 129   16  551      1  77   2       2       80        60      750      28
+## 130   12  543      1  48   2       0       90        60       NA       4
+## 131    4  293      2  59   2       1       80        80      925      52
+## 132   16  202      2  53   1       1       80        80       NA      20
+## 133    6  353      2  47   1       0      100        90     1225       5
+## 134   13  511      1  55   2       1       80        70       NA      49
+## 135    1  267      2  67   1       0       90        70      313       6
+## 136   22  511      1  74   2       2       60        40       96      37
+## 137   12  371      2  58   2       1       80        70       NA       0
+## 138   13  387      2  56   1       2       80        60     1075      NA
+## 139    1  457      2  54   1       1       90        90      975      -5
+## 140    5  337      2  56   1       0      100       100     1500      15
+## 141   21  201      2  73   2       2       70        60     1225     -16
+## 142    3  404      1  74   1       1       80        70      413      38
+## 143   26  222      2  76   1       2       70        70     1500       8
+## 144    1   62      2  65   2       1       80        90     1075       0
+## 145   11  458      1  57   1       1       80       100      513      30
+## 146   26  356      1  53   2       1       90        90       NA       2
+## 147   16  353      2  71   1       0      100        80      775       2
+## 148   16  163      2  54   1       1       90        80     1225      13
+## 149   12   31      2  82   1       0      100        90      413      27
+## 150   13  340      2  59   2       0      100        90       NA       0
+## 151   13  229      2  70   1       1       70        60     1175      -2
+## 152   22  444      1  60   1       0       90       100       NA       7
+## 153    5  315      1  62   2       0       90        90       NA       0
+## 154   16  182      2  53   2       1       80        60       NA       4
+## 155   32  156      2  55   1       2       70        30     1025      10
+## 156   NA  329      2  69   1       2       70        80      713      20
+## 157   26  364      1  68   2       1       90        90       NA       7
+## 158    4  291      2  62   1       2       70        60      475      27
+## 159   12  179      2  63   1       1       80        70      538      -2
+## 160    1  376      1  56   2       1       80        90      825      17
+## 161   32  384      1  62   2       0       90        90      588       8
+## 162   10  268      2  44   2       1       90       100     2450       2
+## 163   11  292      1  69   1       2       60        70     2450      36
+## 164    6  142      2  63   1       1       90        80      875       2
+## 165    7  413      1  64   1       1       80        70      413      16
+## 166   16  266      1  57   2       0       90        90     1075       3
+## 167   11  194      2  60   2       1       80        60       NA      33
+## 168   21  320      2  46   1       0      100       100      860       4
+## 169    6  181      2  61   1       1       90        90      730       0
+## 170   12  285      2  65   1       0      100        90     1025       0
+## 171   13  301      1  61   1       1       90       100      825       2
+## 172    2  348      2  58   2       0       90        80     1225      10
+## 173    2  197      2  56   1       1       90        60      768      37
+## 174   16  382      1  43   2       0      100        90      338       6
+## 175    1  303      1  53   1       1       90        80     1225      12
+## 176   13  296      1  59   2       1       80       100     1025       0
+## 177    1  180      2  56   1       2       60        80     1225      -2
+## 178   13  186      2  55   2       1       80        70       NA      NA
+## 179    1  145      2  53   2       1       80        90      588      13
+## 180    7  269      1  74   2       0      100       100      588       0
+## 181   13  300      1  60   1       0      100       100      975       5
+## 182    1  284      1  39   1       0      100        90     1225      -5
+## 183   16  350      2  66   2       0       90       100     1025      NA
+## 184   32  272      1  65   2       1       80        90       NA      -1
+## 185   12  292      1  51   2       0       90        80     1225       0
+## 186   12  332      1  45   2       0       90       100      975       5
+## 187    2  285      2  72   2       2       70        90      463      20
+## 188    3  259      1  58   1       0       90        80     1300       8
+## 189   15  110      2  64   1       1       80        60     1025      12
+## 190   22  286      2  53   1       0       90        90     1225       8
+## 191   16  270      2  72   1       1       80        90      488      14
+## 192   16   81      2  52   1       2       60        70     1075      NA
+## 193   12  131      2  50   1       1       90        80      513      NA
+## 194    1  225      1  64   1       1       90        80      825      33
+## 195   22  269      2  71   1       1       90        90     1300      -2
+## 196   12  225      1  70   1       0      100       100     1175       6
+## 197   32  243      1  63   2       1       80        90      825       0
+## 198   21  279      1  64   1       1       90        90       NA       4
+## 199    1  276      1  52   2       0      100        80      975       0
+## 200   32  135      2  60   1       1       90        70     1275       0
+## 201   15   79      2  64   2       1       90        90      488      37
+## 202   22   59      2  73   1       1       60        60     2200       5
+## 203   32  240      1  63   2       0       90       100     1025       0
+## 204    3  202      1  50   2       0      100       100      635       1
+## 205   26  235      1  63   2       0      100        90      413       0
+## 206   33  105      2  62   1       2       NA        70       NA      NA
+## 207    5  224      1  55   2       0       80        90       NA      23
+## 208   13  239      2  50   2       2       60        60     1025      -3
+## 209   21  237      1  69   1       1       80        70       NA      NA
+## 210   33  173      1  59   2       1       90        80       NA      10
+## 211    1  252      1  60   2       0      100        90      488      -2
+## 212    6  221      1  67   1       1       80        70      413      23
+## 213   15  185      1  69   1       1       90        70     1075       0
+## 214   11   92      1  64   2       2       70       100       NA      31
+## 215   11   13      2  65   1       1       80        90       NA      10
+## 216   11  222      1  65   1       1       90        70     1025      18
+## 217   13  192      1  41   2       1       90        80       NA     -10
+## 218   21  183      2  76   1       2       80        60      825       7
+## 219   11  211      1  70   2       2       70        30      131       3
+## 220    2  175      1  57   2       0       80        80      725      11
+## 221   22  197      1  67   1       1       80        90     1500       2
+## 222   11  203      1  71   2       1       80        90     1025       0
+## 223    1  116      2  76   1       1       80        80       NA       0
+## 224    1  188      1  77   1       1       80        60       NA       3
+## 225   13  191      1  39   1       0       90        90     2350      -5
+## 226   32  105      1  75   2       2       60        70     1025       5
+## 227    6  174      1  66   1       1       90       100     1075       1
+## 228   22  177      1  58   2       1       80        90     1060       0</code></pre>
+<p>Assim, se for utilizar a função <code>attach()</code> é preciso ter muito cuidado com o que se está fazendo. E a melhor dica é <strong>não use</strong>.</p>
+<p>Esse post foi apenas uma introdução sobre como os <em>environments</em> funcionam. Ainda existe muito mais coisa por trás, como o conceito de <em>namespaces</em>. Se você quiser saber mais, recomendo como primeira parada <a href="https://www.r-bloggers.com/environments-in-r/">esse post</a>, do qual tirei boa parte das informações passadas aqui. Também vale a pena dar uma olhada nas definições <a href="https://cran.r-project.org/doc/manuals/R-lang.html#Environment-objects">nesse link</a>.</p>
+<p>Sugestões, dúvidas e críticas, deixe um comentário!</p>
+</div>
+
+                        </div>
+                        
+                         <div class="addthis_inline_share_toolbox"></div>
+                        
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'curso-r-com';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/06\/19\/2017-06-19-environments\/';
+    var disqus_title = 'Environments';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/06\/19\/2017-06-19-environments\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Busca</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" results="0" class="form-control" placeholder="Busca">
+                <input type="hidden" name="q" value="site:http://curso-r.com/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Categorias</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="http://curso-r.com/categories/bayes">bayes (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/deep">deep (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/emotion">emotion (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/import">import (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/learning">learning (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/r">r (34)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/summary">summary (1)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/tutorial">tutorial (1)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="http://curso-r.com/tags/"><i class="fa fa-tags"></i> </a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/anaconda"><i class="fa fa-tags"></i> anaconda</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/environments"><i class="fa fa-tags"></i> environments</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/erro"><i class="fa fa-tags"></i> erro</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot"><i class="fa fa-tags"></i> ggplot</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/imagens"><i class="fa fa-tags"></i> imagens</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/keras"><i class="fa fa-tags"></i> keras</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/kmeans"><i class="fa fa-tags"></i> kmeans</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/knitr"><i class="fa fa-tags"></i> knitr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/leaflet"><i class="fa fa-tags"></i> leaflet</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/lolapalooza"><i class="fa fa-tags"></i> lolapalooza</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/magick"><i class="fa fa-tags"></i> magick</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ocr"><i class="fa fa-tags"></i> ocr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pdf"><i class="fa fa-tags"></i> pdf</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/progress"><i class="fa fa-tags"></i> progress</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regressao"><i class="fa fa-tags"></i> regressao</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rmarkdown"><i class="fa fa-tags"></i> rmarkdown</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rstudio"><i class="fa fa-tags"></i> rstudio</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/spotify"><i class="fa fa-tags"></i> spotify</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/stan"><i class="fa fa-tags"></i> stan</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/string"><i class="fa fa-tags"></i> string</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tensorflow"><i class="fa fa-tags"></i> tensorflow</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tidyverse"><i class="fa fa-tags"></i> tidyverse</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/top10"><i class="fa fa-tags"></i> top10</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tuber"><i class="fa fa-tags"></i> tuber</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ubuntu"><i class="fa fa-tags"></i> ubuntu</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/web-scraping"><i class="fa fa-tags"></i> web-scraping</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/webscraping"><i class="fa fa-tags"></i> webscraping</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Nossos Cursos</h3>
+    </div>
+
+    <div class="blog-entries">
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="http://curso-r.com/js/prism.js"></script> 
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>Sobre nós</h4>
+
+            <p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+              
+            <h4>Posts Recentes</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/06/19/2017-06-19-environments/">
+                          
+                            <img src="http://curso-r.com/img/banners/parallel-universe.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/06/19/2017-06-19-environments/">Environments</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/">
+                          
+                            <img src="http://curso-r.com/img/banners/banner-brbloggers.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/">bR Bloggers está no ar</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/06/17/2017-06-17-skimr/">
+                          
+                            <img src="http://curso-r.com/img/banners/skimr.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/06/17/2017-06-17-skimr/">Skimr: estatísticas básicas com ❤️</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            <h4>Contato</h4>
+
+            <a href="http://curso-r.com/contact" class="btn btn-small btn-template-main">Vá para a página de contato</a>
+            <hr>
+            
+            <div>
+              
+              <a href="https://github.com/curso-r">
+                <i class="fa fa-github" style="font-size:50px;"></i>
+              </a>
+              <a href="https://twitter.com/curso_r/">
+                <i class="fa fa-twitter" style="font-size:50px;"></i>
+              </a>
+      
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87272102-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ab4e79943a7e3c"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+
+MathJax.Hub.Config({
+  "HTML-CSS": {
+    preferredFont: "STIX"  }
+});
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<script src="http://curso-r.com/js/hpneo.gmaps.js"></script>
+<script src="http://curso-r.com/js/gmaps.init.js"></script>
+<script src="http://curso-r.com/js/front.js"></script>
+
+<script src="http://curso-r.com/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>
