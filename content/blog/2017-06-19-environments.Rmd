@@ -68,7 +68,7 @@ assign("b", 15, envir = magrathea)
 
 Observe que se procurarmos simplesmente por `b`, o R não vai encontrar um valor para associar.
 
-```{r}
+```{r, eval = F}
 b
 ```
 
