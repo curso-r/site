@@ -1,8 +1,8 @@
 ---
 title: "Environments"
 date: "2017-06-19T23:26:00+03:00"
-tags: ["r", "environments"]
-categories: ["r", "tutorial"]
+tags: ["environments"]
+categories: ["r", "conceito"]
 banner: "img/banners/parallel-universe.jpg"
 author: ["William"]
 summary: "Se você já utilizou o R algumas vezes, com certeza já se deparou com o termo environment. Neste post, vamos tentar responder as três perguntas básicas para entendermos alguma coisa no R: 1. o que é? 2. para que serve? e 3. como NÃO usar?"

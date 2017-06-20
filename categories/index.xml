@@ -7,53 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 09 Mar 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 19 May 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Bayes</title>
-      <link>http://curso-r.com/categories/bayes/</link>
-      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
+      <title>Análise</title>
+      <link>http://curso-r.com/categories/an%C3%A1lise/</link>
+      <pubDate>Fri, 19 May 2017 23:26:00 +0300</pubDate>
       
-      <guid>http://curso-r.com/categories/bayes/</guid>
+      <guid>http://curso-r.com/categories/an%C3%A1lise/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Deep</title>
-      <link>http://curso-r.com/categories/deep/</link>
-      <pubDate>Mon, 05 Jun 2017 13:07:31 +0200</pubDate>
+      <title>Análises</title>
+      <link>http://curso-r.com/categories/an%C3%A1lises/</link>
+      <pubDate>Mon, 01 May 2017 23:26:00 +0300</pubDate>
       
-      <guid>http://curso-r.com/categories/deep/</guid>
+      <guid>http://curso-r.com/categories/an%C3%A1lises/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Emotion</title>
-      <link>http://curso-r.com/categories/emotion/</link>
-      <pubDate>Sat, 15 Apr 2017 13:07:31 +0200</pubDate>
+      <title>Conceito</title>
+      <link>http://curso-r.com/categories/conceito/</link>
+      <pubDate>Mon, 19 Jun 2017 23:26:00 +0300</pubDate>
       
-      <guid>http://curso-r.com/categories/emotion/</guid>
+      <guid>http://curso-r.com/categories/conceito/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Import</title>
-      <link>http://curso-r.com/categories/import/</link>
-      <pubDate>Sun, 28 May 2017 13:07:31 +0200</pubDate>
+      <title>Divulgação</title>
+      <link>http://curso-r.com/categories/divulga%C3%A7%C3%A3o/</link>
+      <pubDate>Mon, 19 Jun 2017 13:07:31 +0200</pubDate>
       
-      <guid>http://curso-r.com/categories/import/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Learning</title>
-      <link>http://curso-r.com/categories/learning/</link>
-      <pubDate>Mon, 05 Jun 2017 13:07:31 +0200</pubDate>
-      
-      <guid>http://curso-r.com/categories/learning/</guid>
+      <guid>http://curso-r.com/categories/divulga%C3%A7%C3%A3o/</guid>
       <description></description>
     </item>
     
@@ -67,18 +58,18 @@
     </item>
     
     <item>
-      <title>Summary</title>
-      <link>http://curso-r.com/categories/summary/</link>
-      <pubDate>Sat, 17 Jun 2017 13:07:31 +0200</pubDate>
+      <title>Top 10</title>
+      <link>http://curso-r.com/categories/top-10/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://curso-r.com/categories/summary/</guid>
+      <guid>http://curso-r.com/categories/top-10/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tutorial</title>
       <link>http://curso-r.com/categories/tutorial/</link>
-      <pubDate>Mon, 19 Jun 2017 23:26:00 +0300</pubDate>
+      <pubDate>Sat, 17 Jun 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/categories/tutorial/</guid>
       <description></description>

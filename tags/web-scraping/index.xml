@@ -22,14 +22,13 @@
     </item>
     
     <item>
-      <title>Lollapalooza segundo Spotify - Web Scraping, API do Spotify e tidyverse</title>
-      <link>http://curso-r.com/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify/</link>
-      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      <title>Requisições seguras</title>
+      <link>http://curso-r.com/blog/2017/03/31/2017-03-31-ssl/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://curso-r.com/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify/</guid>
-      <description>No dia em que fui ao Lollapalooza eu descobri o Rspotify, um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.
-A brincadeira aqui vai envolver
- Web Scraping - para baixar e estruturar as tabelas de programação do Lolapalooza SP 2017 API do Spotify - por meio do pacote Rspotify todos os pacotes do tidyverse  Lollapalooza deste ano em São Paulo contou com 47 bandas distribuídas em quatro palcos.</description>
+      <guid>http://curso-r.com/blog/2017/03/31/2017-03-31-ssl/</guid>
+      <description>No mundo do web scraping, muitas vezes precisamos acessar sites HTTPS, a versão Segura do HTTP (Hyper Text Transfer Protocol). Esse protocolo é utilizado para encriptar as mensagens trocadas por usuário e servidor.
+O pacote httr utiliza um padrão SSL (Secure Sockets Layer) para lidar com HTTPS. O SSL nada mais é que uma forma de informar ao servidor que você é você, garantindo que suas mensagens só possam ser interpretadas por esse servidor, e vice-versa.</description>
     </item>
     
   </channel>

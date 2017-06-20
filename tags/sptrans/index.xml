@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sptrans on Curso-R</title>
+    <link>http://curso-r.com/tags/sptrans/</link>
+    <description>Recent content in Sptrans on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 01 Apr 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/sptrans/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Multas em São Paulo</title>
+      <link>http://curso-r.com/blog/2017/04/01/2017-04-01-multas-em-sp/</link>
+      <pubDate>Sat, 01 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/01/2017-04-01-multas-em-sp/</guid>
+      <description>Há bastante tempo tenho vontade de fazer análises usando dados de multas de São Paulo. O problema é: estes dados estão disponíveis? Na teoria, sim. Os dados de multas, como quantidade de multas por tipo de infração, dia e horário, e outros são divulgados no portal da Mobilidade Segura da Prefeitura de São Paulo. Na prática, é um pouco diferente. Apesar do site fornecer uma opção de exportação, a tabela exportada não é completa e muitas informações ficam faltando.</description>
+    </item>
+    
+  </channel>
+</rss>

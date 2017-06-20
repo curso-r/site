@@ -23,5 +23,16 @@ Esse tutorial ensinará como instalar o Anaconda com Python 3.5 em um servidor U
 Pré-requisitos O tutorial supõe que você possui um servidor Ubuntu 16.</description>
     </item>
     
+    <item>
+      <title>Keras: colocando deep learning no pipeline</title>
+      <link>http://curso-r.com/blog/2017/06/05/2017-06-05-keras/</link>
+      <pubDate>Mon, 05 Jun 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/05/2017-06-05-keras/</guid>
+      <description>Esse é o Daniel Falbel, um dos sócios da Curso-R e autor de diversos posts no nosso blog. Boa pinta, não?
+Mas esse não é só um rostinho bonito. Recente, o Dani fez uma contribuição PROFUNDA para a comunidade R: ele é um dos responsáveis pelo pacote keras, que faz uma interface com a biblioteca de mesmo nome utilizada para ajustar modelos de deep learning usando TensorFlow.
+Veja o arquivo DESCRIPTION (metadados) desse pacote:</description>
+    </item>
+    
   </channel>
 </rss>

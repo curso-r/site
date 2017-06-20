@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pacotes on Curso-R</title>
+    <link>http://curso-r.com/tags/pacotes/</link>
+    <description>Recent content in Pacotes on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 17 Jun 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/pacotes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Skimr: estatísticas básicas com ❤️</title>
+      <link>http://curso-r.com/blog/2017/06/17/2017-06-17-skimr/</link>
+      <pubDate>Sat, 17 Jun 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/17/2017-06-17-skimr/</guid>
+      <description>Entre os dias 25 e 27 de maio aconteceu a ROpenSci Unconf 2017. O encontro reuniu vários pop stars da comunidade R como Hadley Wickham, Joe Cheng (criador do shiny), Jeroen Ooms (criador do OpenCPU e autor de vários pacotes bacanas), Jenny Bryan (autora de vários pacotes bacanas como googlesheets), várias pessoas do #R-Ladies e muito mais.
+Uma coisa muito legal dessa conferência é que ela funcionou como uma hackathon. Foi criada uma nova organização no github chamada ROpenSci Labs, e os presentes simplesmente começaram a subir pacotes fantásticos lá dentro.</description>
+    </item>
+    
+    <item>
+      <title>A kind of magick</title>
+      <link>http://curso-r.com/blog/2017/06/01/2017-06-01-a-kind-of-magick/</link>
+      <pubDate>Thu, 01 Jun 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/01/2017-06-01-a-kind-of-magick/</guid>
+      <description>Já vimos como o Rstudio se torna uma ferramenta poderosa quando combinado com certos pacotes, como o knitr e shiny, ou outros recursos, como o markdown e o git. Hoje, veremos como transformar o Rstudio num elegante e interativo editor de imagens utilizando o pacote magick.
+Este post é um breve resumo das funcionalidades do magick. Para uma apresentação completa, visite o vignette do pacote.
+Já usamos o magick em outros posts do blog (às vezes por trás das cortinas) para tratar imagens.</description>
+    </item>
+    
+    <item>
+      <title>PDF e OCR</title>
+      <link>http://curso-r.com/blog/2017/05/28/2017-05-27-ocr/</link>
+      <pubDate>Sun, 28 May 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/05/28/2017-05-27-ocr/</guid>
+      <description>Já precisou extrair dados de arquivos pdf? Bom, eu já. Eu trabalho com jurimetria e preciso extrair dados de diários oficiais, petições, sentenças, então já viu né…
+A primeira pergunta que você precisa fazer antes de ler um pdf é: o arquivo é digital ou digitalizado?
+ Se for digital, significa que ele pode ser transcrito diretamente para vários formatos: texto, html, xml e até mesmo data.frames diretamente.  Vamos usar esse exemplo de PDF digital</description>
+    </item>
+    
+    <item>
+      <title>Diagramas de Venn em R</title>
+      <link>http://curso-r.com/blog/2017/04/29/2017-04-29-diagramas-de-venn/</link>
+      <pubDate>Sat, 29 Apr 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/29/2017-04-29-diagramas-de-venn/</guid>
+      <description>Diagramas de Venn são como slides de PowerPoint. Se eles tem poucos elementos concisos em uma ordem inteligente, um leitor consegue conectar as ideias expostas e aprender alguma coisa. Em caso contrário, o excesso de informação se transforma em um obstáculo para a comunicação.
+Bons diagramas de Venn são capazes de te fazer perceber cruzamentos que não estão no seu radar. No blog do Andrew Gelman tem um exemplo interessante. Ele considera uma oração, em inglês, que pede:</description>
+    </item>
+    
+    <item>
+      <title>Tratando erros: the tidy way</title>
+      <link>http://curso-r.com/blog/2017/04/20/2017-04-09-try/</link>
+      <pubDate>Thu, 20 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/20/2017-04-09-try/</guid>
+      <description>Tratar erros no R é importante para identificar problemas nos códigos e evitar retrabalho. Quem nunca rodou um algoritmo pesadíssimo que deu errado na última iteração? Nesse artigo, veremos como trabalhar com erros no R e a versão tidy dessas soluções.
+Usando try() e tryCatch() A forma tradicional de tratar erros no R é com a função tryCatch(). Essa função tem como primeiro argumento uma expressão a ser avaliada e argumentos diversos para trabalhar com os erros.</description>
+    </item>
+    
+    <item>
+      <title>Colando textos</title>
+      <link>http://curso-r.com/blog/2017/04/17/2017-04-08-glue/</link>
+      <pubDate>Mon, 17 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/17/2017-04-08-glue/</guid>
+      <description>Uma tarefa muito comum no R é colar textos. As funções mais importantes para isso são paste() e sprintf(), que vêm com o pacote base. Nesse artigo, vamos falar dessas duas funções e de um novo pacote do tidyverse, o glue.
+paste() A função paste() recebe um conjunto indeterminado de objetos como argumento através do ... e vai colando os objetos passados elemento a elemento. Isso significa que se você passar dois vetores de tamanho n, a função paste() retornará um vetor de tamanho n sendo cada posição a colagem dos dois vetores nessa posição.</description>
+    </item>
+    
+    <item>
+      <title>As barras do progresso</title>
+      <link>http://curso-r.com/blog/2017/04/10/2017-04-08-progress/</link>
+      <pubDate>Mon, 10 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/10/2017-04-08-progress/</guid>
+      <description>Na jornada da ciência de dados, muitas vezes precisamos rodar um mesmo algoritmo em vários objetos distintos. Quando o algoritmo é pesado ou a lista de objetos é longa, é importante saber em que passo estamos e quanto vai demorar para terminar.
+Uma forma de resolver esse problema é usando o pacote progress. O objeto progress_bar desse pacote é do tipo R6 e tem um método new() para criar objetos do tipo “barra”.</description>
+    </item>
+    
+    <item>
+      <title>Top 10 pacotes para data science</title>
+      <link>http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/</link>
+      <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/</guid>
+      <description>O R mudou muito nos últimos 5 anos graças a criações de novos pacotes focados nas questões mais práticas do dia a dia de um cientista de dados. Abaixo coloquei meu top 10 de pacotes que revolucionaram o jeito de programar em R e fizeram meu trabalho mais ágil e prazeroso:
+10. purrr (manipulação de vetores e listas) Nosso décimo lugar colocou o for em perigo de extinção. Com ele, aplicar funções em vetores, listas ou combinações dos dois é uma tarefa de poucas linhas e sem a necessidade de índices i, j, k’s confusos.</description>
+    </item>
+    
+    <item>
+      <title>Pacote ggalt</title>
+      <link>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</link>
+      <pubDate>Sat, 18 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</guid>
+      <description>O pacote ggalt é uma extensão ao ggplot2 que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.
+É possível instalar o pacote ggalt usando a função install.packages():
+install.packages(&amp;#39;ggalt&amp;#39;) Para exemplificar a utilização do ggalt, vamos utilizar os pacotes abaixo.
+library(dplyr) library(ggplot2) library(ggalt) library(broom) library(survival) Nesse exemplo, utilizaremos a base de dados lung que vem com o pacote survival.</description>
+    </item>
+    
+  </channel>
+</rss>

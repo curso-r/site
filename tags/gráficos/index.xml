@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gráficos on Curso-R</title>
+    <link>http://curso-r.com/tags/gr%C3%A1ficos/</link>
+    <description>Recent content in Gráficos on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 04 May 2017 23:26:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/gr%C3%A1ficos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos</title>
+      <link>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</link>
+      <pubDate>Thu, 04 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</guid>
+      <description>De todas as visualizações, mapas são aquelas que impressionam mais. É muito mais fácil alguém se maravilhar com o mapa mais simples do que com o ggplot2 mais complicado. Felizmente, considerando essa comparação, o R disponibiliza muitos recursos para construir mapas.
+Dentro do tidyverse é possível construir mapas usando a função geom_map, do pacote ggplot2, mas está fora do escopo deste post explicar como ela funciona. Aqui vamos apenas descobrir como usá-la para agilizar a construção de um gráfico simples.</description>
+    </item>
+    
+    <item>
+      <title>Diagramas de Venn em R</title>
+      <link>http://curso-r.com/blog/2017/04/29/2017-04-29-diagramas-de-venn/</link>
+      <pubDate>Sat, 29 Apr 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/29/2017-04-29-diagramas-de-venn/</guid>
+      <description>Diagramas de Venn são como slides de PowerPoint. Se eles tem poucos elementos concisos em uma ordem inteligente, um leitor consegue conectar as ideias expostas e aprender alguma coisa. Em caso contrário, o excesso de informação se transforma em um obstáculo para a comunicação.
+Bons diagramas de Venn são capazes de te fazer perceber cruzamentos que não estão no seu radar. No blog do Andrew Gelman tem um exemplo interessante. Ele considera uma oração, em inglês, que pede:</description>
+    </item>
+    
+    <item>
+      <title>O que é um gráfico estatístico?</title>
+      <link>http://curso-r.com/blog/2017/02/20/2017-02-20-o-que-e-um-grafico-estatistico/</link>
+      <pubDate>Mon, 20 Feb 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/20/2017-02-20-o-que-e-um-grafico-estatistico/</guid>
+      <description>Os gráficos são técnicas de visualização de dados amplamente utilizadas em todas as áreas da pesquisa. A sua popularidade se deve à maneira como elucidam informações que estavam escondidas nas colunas do banco de dados, sendo que muitos deles podem ser compreendidos até mesmo por leigos no assunto que está sendo discutido.
+Mas será que podemos definir formalmente o que é um gráfico estatístico?
+Graças ao estatístico norte-americano Leland Wilkinson, a resposta é sim.</description>
+    </item>
+    
+    <item>
+      <title>Pacote ggalt</title>
+      <link>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</link>
+      <pubDate>Sat, 18 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</guid>
+      <description>O pacote ggalt é uma extensão ao ggplot2 que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.
+É possível instalar o pacote ggalt usando a função install.packages():
+install.packages(&amp;#39;ggalt&amp;#39;) Para exemplificar a utilização do ggalt, vamos utilizar os pacotes abaixo.
+library(dplyr) library(ggplot2) library(ggalt) library(broom) library(survival) Nesse exemplo, utilizaremos a base de dados lung que vem com o pacote survival.</description>
+    </item>
+    
+  </channel>
+</rss>

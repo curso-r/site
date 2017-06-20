@@ -21,14 +21,5 @@
       <description>Quando eu trabalhei no Núcleo de Estudos da Violência da USP, obter informações da Secretaria de Segurança Pública de São Paulo (SSP) era uma tarefa meio esotérica. Coletávamos os dados de todos os DP’s de São Paulo, que são aproximadamente 100, e, como fazer isso manualmente era demorado, aplicávamos uma solução automática em dois passos. Primeiro raspávamos o site da SSP em Pythone depois rodávamos uma macro em VBA chamada “Mestre Dos Magos”, que era responsável por consolidar as séries históricas em excel.</description>
     </item>
     
-    <item>
-      <title>Multas em São Paulo</title>
-      <link>http://curso-r.com/blog/2017/04/01/2017-04-01-multas-em-sp/</link>
-      <pubDate>Sat, 01 Apr 2017 13:07:31 +0200</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/04/01/2017-04-01-multas-em-sp/</guid>
-      <description>Há bastante tempo tenho vontade de fazer análises usando dados de multas de São Paulo. O problema é: estes dados estão disponíveis? Na teoria, sim. Os dados de multas, como quantidade de multas por tipo de infração, dia e horário, e outros são divulgados no portal da Mobilidade Segura da Prefeitura de São Paulo. Na prática, é um pouco diferente. Apesar do site fornecer uma opção de exportação, a tabela exportada não é completa e muitas informações ficam faltando.</description>
-    </item>
-    
   </channel>
 </rss>

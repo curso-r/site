@@ -1,8 +1,8 @@
 ---
 title: "Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos"
 date: "2017-05-04T23:26:00+03:00"
-tags: ["r", "imagens", "kmeans"]
-categories: ["r"]
+tags: ["mapas", "gráficos", "ggplot2"]
+categories: ["r", "tutorial"]
 banner: "img/banners/mapas_tematicos_rapidos.png"
 author: ["Fernando"]
 summary: "Impressionar é muito mais fácil se você usa mapas. Neste post vamos aprender a construir mapas temáticos do Brasil com muita agilidade."

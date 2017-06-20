@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coding on Curso-R</title>
+    <link>http://curso-r.com/tags/coding/</link>
+    <description>Recent content in Coding on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 20 Apr 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/coding/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tratando erros: the tidy way</title>
+      <link>http://curso-r.com/blog/2017/04/20/2017-04-09-try/</link>
+      <pubDate>Thu, 20 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/20/2017-04-09-try/</guid>
+      <description>Tratar erros no R é importante para identificar problemas nos códigos e evitar retrabalho. Quem nunca rodou um algoritmo pesadíssimo que deu errado na última iteração? Nesse artigo, veremos como trabalhar com erros no R e a versão tidy dessas soluções.
+Usando try() e tryCatch() A forma tradicional de tratar erros no R é com a função tryCatch(). Essa função tem como primeiro argumento uma expressão a ser avaliada e argumentos diversos para trabalhar com os erros.</description>
+    </item>
+    
+    <item>
+      <title>As barras do progresso</title>
+      <link>http://curso-r.com/blog/2017/04/10/2017-04-08-progress/</link>
+      <pubDate>Mon, 10 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/10/2017-04-08-progress/</guid>
+      <description>Na jornada da ciência de dados, muitas vezes precisamos rodar um mesmo algoritmo em vários objetos distintos. Quando o algoritmo é pesado ou a lista de objetos é longa, é importante saber em que passo estamos e quanto vai demorar para terminar.
+Uma forma de resolver esse problema é usando o pacote progress. O objeto progress_bar desse pacote é do tipo R6 e tem um método new() para criar objetos do tipo “barra”.</description>
+    </item>
+    
+  </channel>
+</rss>

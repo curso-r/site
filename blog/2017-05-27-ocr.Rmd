@@ -1,8 +1,8 @@
 ---
 title: "PDF e OCR"
 date: "2017-05-28T13:07:31+02:00"
-tags: ["r", "pdf", "ocr"]
-categories: ["r", "import"]
+tags: ["pdf", "pacotes", "ocr"]
+categories: ["r", "tutorial"]
 banner: "img/banners/pdf-to-text.jpg"
 author: ["Julio"]
 draft: false

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paralelização on Curso-R</title>
+    <link>http://curso-r.com/tags/paraleliza%C3%A7%C3%A3o/</link>
+    <description>Recent content in Paralelização on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Sun, 19 Mar 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/paraleliza%C3%A7%C3%A3o/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Paralelização no R</title>
+      <link>http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/</link>
+      <pubDate>Sun, 19 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/</guid>
+      <description>Programadores eficientes não precisam escrever algoritmos que rodam rápido. Recomendo fortemente a leitura do livro Efficient R, que discute eficiência com o R de forma exaustiva. Também gosto muito da primeira parte dessa palestra do Hadley, onde ele defende que o cientista de dados deve usar seu tempo pensando no problema e não na forma que vai escrever seu código.
+Com isso em mente, vamos investigar o tema paralelização. Quando rodamos coisas em paralelo, mandamos os núcleos de processamento da máquina calcularem coisas diferentes ao mesmo tempo.</description>
+    </item>
+    
+  </channel>
+</rss>

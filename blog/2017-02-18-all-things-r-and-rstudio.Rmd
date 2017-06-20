@@ -1,8 +1,8 @@
 ---
 title: "rstudio::conf: Sessão Final"
 date: "2017-03-16T13:07:31+02:00"
-tags: ["rstudio", "r"]
-categories: ["r"]
+tags: ["rstudio"]
+categories: ["r", "divulgação"]
 banner: "img/banners/banner-all-things-r-rstudio.jpeg"
 author: ["Daniel"]
 ---

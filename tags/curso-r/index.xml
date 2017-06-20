@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Curso R on Curso-R</title>
+    <link>http://curso-r.com/tags/curso-r/</link>
+    <description>Recent content in Curso R on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 19 Jun 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/curso-r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>bR Bloggers está no ar</title>
+      <link>http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/</link>
+      <pubDate>Mon, 19 Jun 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/</guid>
+      <description>Está no ar o bR Bloggers! bR Bloggers é um agregador de blogs sobre R escritos em língua portuguesa.
+Atualmente uma das melhores formas de aprender R e de ficar a par da comunidade R é ler o R-Bloggers. O R-Bloggers é um agregador que conta com mais de 700 blogs, que escrevem aproximadamente 300 posts por mês. Lendo tudo isso, não tem como você não aprender muito R!
+No entanto, para muitas pessoas, uma barreira para ler os posts do R-Bloggers pode ser o fato de que todos os posts estão em inglês.</description>
+    </item>
+    
+    <item>
+      <title>Top 10 dicas do Curso R de verão 2017</title>
+      <link>http://curso-r.com/blog/2017/04/08/2017-04-08-top10-dicas-verao-2017/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/08/2017-04-08-top10-dicas-verao-2017/</guid>
+      <description>Em fevereiro desse ano ministramos o Curso de R de Verão 2017, parte do programa dos Cursos de Verão do IME-USP. Abaixo segue um compilado das 10 melhores dicas dadas durante este curso.
+1. Conheça e domine a filosofia por trás do Tidyverse O conceito “tidy” deu o oriente do curso de verão e não foi à toa: o tidyverse, carinhosamente chamado de “universo arrumadinho”, está intimamente associado ao dia-a-dia de um analista de dados e sua implementação em R é tida como uma pequena revolução para os R-eiros.</description>
+    </item>
+    
+    <item>
+      <title>O blog do Curso R</title>
+      <link>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</link>
+      <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
+      <description>Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.
+O Curso-R surgiu em 2015 no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP).</description>
+    </item>
+    
+  </channel>
+</rss>

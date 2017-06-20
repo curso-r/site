@@ -1,8 +1,8 @@
 ---
 title: "Diagramas de Venn em R"
 date: "2017-04-29T23:26:00+03:00"
-tags: ["r", ""]
-categories: ["r"]
+tags: ["gráficos", "pacotes", "venneuler"]
+categories: ["r", "tutorial"]
 banner: "img/banners/venn.png"
 author: ["Fernando"]
 summary: "Diagramas de Venn são representações eficientes das conjuntas de quantidades moderadas de variáveis binárias. Neste post você vai aprender a construir os principais tipos de diagramas de Venn que estão implementados em R."

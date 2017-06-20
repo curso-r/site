@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cluster on Curso-R</title>
+    <link>http://curso-r.com/tags/cluster/</link>
+    <description>Recent content in Cluster on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 22 Apr 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/cluster/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>K-means e paleta de cores</title>
+      <link>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</link>
+      <pubDate>Sat, 22 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</guid>
+      <description>Uma aplicação interessante de algoritmos de clusterização é a obtenção de paletas de cores a partir de imagens. Veja como isso pode ser feito usando o R.
+Em primeiro lugar, vamos ler a imagem como uma matriz para o R. Existem diversas bibliotecas para carregar as imagens, vamos usar aqui a jpeg. Para esse caso ela é melhor porque já lê a imagem no formato que precisamos.
+library(jpeg) library(magrittr) img &amp;lt;- readJPEG(&amp;quot;img/david-bowie.</description>
+    </item>
+    
+  </channel>
+</rss>

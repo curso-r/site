@@ -1,8 +1,8 @@
 ---
 title: "O Porta dos Fundos está em decadência? (REVISITED)"
 date: "2017-04-28T23:26:00+03:00"
-tags: ["r", "Webscraping", "tuber"]
-categories: ["r"]
+tags: ["Porta dos Fundos","API", "YouTube"]
+categories: ["r", "análise"]
 banner: "img/banners/porta.jpg"
 author: ["Fernando"]
 summary: "Às vezes a venda de uma empresa é um sinal de que algo não vai bem. Além disso, a briga entre as novas mídias e as velhas mídias é brutal, então se um conglomerado televisivo compra um dos gigantes da internet brasileira deve ter acontecido algum um tipo de canibalismo. Motivados pela nova casa do PDF, neste post revisitamos a análise sobre a decadência do Porta dos Fundos."

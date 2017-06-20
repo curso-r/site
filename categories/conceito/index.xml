@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conceito on Curso-R</title>
+    <link>http://curso-r.com/categories/conceito/</link>
+    <description>Recent content in Conceito on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 19 Jun 2017 23:26:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/categories/conceito/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Environments</title>
+      <link>http://curso-r.com/blog/2017/06/19/2017-06-19-environments/</link>
+      <pubDate>Mon, 19 Jun 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/19/2017-06-19-environments/</guid>
+      <description>Se você utiliza o R regularmente, com certeza já se deparou com o termo environment. Ele aparece como um painel do RStudio, quando acessamos o código de uma função e (implicitamente) quando carregamos pacotes. Neste post, vamos tentar responder as três perguntas básicas sobre qualquer coisa no R: 1. o que é? 2. para que serve? e 3. como NÃO usar?
+O que é? Definindo de uma maneira bem simples, environments são locais onde objetos são armazenados, isto é, conjuntos de ligações entre símbolos e valores.</description>
+    </item>
+    
+    <item>
+      <title>Requisições seguras</title>
+      <link>http://curso-r.com/blog/2017/03/31/2017-03-31-ssl/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/03/31/2017-03-31-ssl/</guid>
+      <description>No mundo do web scraping, muitas vezes precisamos acessar sites HTTPS, a versão Segura do HTTP (Hyper Text Transfer Protocol). Esse protocolo é utilizado para encriptar as mensagens trocadas por usuário e servidor.
+O pacote httr utiliza um padrão SSL (Secure Sockets Layer) para lidar com HTTPS. O SSL nada mais é que uma forma de informar ao servidor que você é você, garantindo que suas mensagens só possam ser interpretadas por esse servidor, e vice-versa.</description>
+    </item>
+    
+    <item>
+      <title>O que é um gráfico estatístico?</title>
+      <link>http://curso-r.com/blog/2017/02/20/2017-02-20-o-que-e-um-grafico-estatistico/</link>
+      <pubDate>Mon, 20 Feb 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/20/2017-02-20-o-que-e-um-grafico-estatistico/</guid>
+      <description>Os gráficos são técnicas de visualização de dados amplamente utilizadas em todas as áreas da pesquisa. A sua popularidade se deve à maneira como elucidam informações que estavam escondidas nas colunas do banco de dados, sendo que muitos deles podem ser compreendidos até mesmo por leigos no assunto que está sendo discutido.
+Mas será que podemos definir formalmente o que é um gráfico estatístico?
+Graças ao estatístico norte-americano Leland Wilkinson, a resposta é sim.</description>
+    </item>
+    
+    <item>
+      <title>Manifesto tidy</title>
+      <link>http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/</link>
+      <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/15/2017-02-16-manifesto-tidy/</guid>
+      <description>O manifesto das ferramentas tidy do Hadley Wickham é um dos documentos mais importantes sobre R dos últimos tempos. Esse documento formaliza uma série de princípios que norteiam o desenvolvimento do tidyverse.
+O tidyverse, também chamado por muitos de hadleyverse, é um conjunto de pacotes que, por compartilharem esses princípios do manifesto tidy, podem ser utilizados naturalmente em conjunto. Pode-se dizer que existe o R antes do tidyverse e o R depois do tidyverse.</description>
+    </item>
+    
+  </channel>
+</rss>

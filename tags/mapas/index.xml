@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 01 Mar 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 04 May 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/tags/mapas/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos</title>
+      <link>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</link>
+      <pubDate>Thu, 04 May 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</guid>
+      <description>De todas as visualizações, mapas são aquelas que impressionam mais. É muito mais fácil alguém se maravilhar com o mapa mais simples do que com o ggplot2 mais complicado. Felizmente, considerando essa comparação, o R disponibiliza muitos recursos para construir mapas.
+Dentro do tidyverse é possível construir mapas usando a função geom_map, do pacote ggplot2, mas está fora do escopo deste post explicar como ela funciona. Aqui vamos apenas descobrir como usá-la para agilizar a construção de um gráfico simples.</description>
+    </item>
     
     <item>
       <title>leaflet com markerCluster</title>

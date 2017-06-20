@@ -24,16 +24,6 @@ Já usamos o magick em outros posts do blog (às vezes por trás das cortinas) p
     </item>
     
     <item>
-      <title>Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos</title>
-      <link>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</link>
-      <pubDate>Thu, 04 May 2017 23:26:00 +0300</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</guid>
-      <description>De todas as visualizações, mapas são aquelas que impressionam mais. É muito mais fácil alguém se maravilhar com o mapa mais simples do que com o ggplot2 mais complicado. Felizmente, considerando essa comparação, o R disponibiliza muitos recursos para construir mapas.
-Dentro do tidyverse é possível construir mapas usando a função geom_map, do pacote ggplot2, mas está fora do escopo deste post explicar como ela funciona. Aqui vamos apenas descobrir como usá-la para agilizar a construção de um gráfico simples.</description>
-    </item>
-    
-    <item>
       <title>As cores da Marvel vs DC</title>
       <link>http://curso-r.com/blog/2017/05/01/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/</link>
       <pubDate>Mon, 01 May 2017 23:26:00 +0300</pubDate>
@@ -41,6 +31,17 @@ Dentro do tidyverse é possível construir mapas usando a função geom_map, do 
       <guid>http://curso-r.com/blog/2017/05/01/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/</guid>
       <description>A cor é uma diferença notável entre os filmes da Marvel e da DC. Enquanto a Disney/Marvel Studios costuma lançar filmes com tons mais claros e alegres, a Warner tem optado por cenários escuros, com um aspecto mais sombrios. Essas escolhas são um reflexo do clima das histórias de cada universo: aventuras engraçaralhas com um drama superficial vs seja lá o que passa na cabeça do Zack Snyder.
 Para estudar melhor a paleta de cores utilizadas nos filmes, vamos aplicar a análise introduzida pelo Dani neste post, com pequenas alterações.</description>
+    </item>
+    
+    <item>
+      <title>K-means e paleta de cores</title>
+      <link>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</link>
+      <pubDate>Sat, 22 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/</guid>
+      <description>Uma aplicação interessante de algoritmos de clusterização é a obtenção de paletas de cores a partir de imagens. Veja como isso pode ser feito usando o R.
+Em primeiro lugar, vamos ler a imagem como uma matriz para o R. Existem diversas bibliotecas para carregar as imagens, vamos usar aqui a jpeg. Para esse caso ela é melhor porque já lê a imagem no formato que precisamos.
+library(jpeg) library(magrittr) img &amp;lt;- readJPEG(&amp;quot;img/david-bowie.</description>
     </item>
     
   </channel>

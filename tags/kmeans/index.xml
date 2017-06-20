@@ -7,20 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 04 May 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 01 May 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/tags/kmeans/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Gráficos miojo: Mapas temáticos do Brasil em 3 minutos ou menos</title>
-      <link>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</link>
-      <pubDate>Thu, 04 May 2017 23:26:00 +0300</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/05/04/2017-05-04-mapas-tematicos-3-minutos/</guid>
-      <description>De todas as visualizações, mapas são aquelas que impressionam mais. É muito mais fácil alguém se maravilhar com o mapa mais simples do que com o ggplot2 mais complicado. Felizmente, considerando essa comparação, o R disponibiliza muitos recursos para construir mapas.
-Dentro do tidyverse é possível construir mapas usando a função geom_map, do pacote ggplot2, mas está fora do escopo deste post explicar como ela funciona. Aqui vamos apenas descobrir como usá-la para agilizar a construção de um gráfico simples.</description>
-    </item>
     
     <item>
       <title>As cores da Marvel vs DC</title>
@@ -30,16 +20,6 @@ Dentro do tidyverse é possível construir mapas usando a função geom_map, do 
       <guid>http://curso-r.com/blog/2017/05/01/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/</guid>
       <description>A cor é uma diferença notável entre os filmes da Marvel e da DC. Enquanto a Disney/Marvel Studios costuma lançar filmes com tons mais claros e alegres, a Warner tem optado por cenários escuros, com um aspecto mais sombrios. Essas escolhas são um reflexo do clima das histórias de cada universo: aventuras engraçaralhas com um drama superficial vs seja lá o que passa na cabeça do Zack Snyder.
 Para estudar melhor a paleta de cores utilizadas nos filmes, vamos aplicar a análise introduzida pelo Dani neste post, com pequenas alterações.</description>
-    </item>
-    
-    <item>
-      <title>R 3.4 disponível!</title>
-      <link>http://curso-r.com/blog/2017/04/24/2017-04-24-r34/</link>
-      <pubDate>Mon, 24 Apr 2017 13:07:31 +0200</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/04/24/2017-04-24-r34/</guid>
-      <description>A versão 3.4 do R (You Stupid Darkness) foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:
-Agora temos um compilador JIT (Just In Time) como padrão! Isso significa que você não precisará mais usar a função compiler::cmpfun() para acelerar suas funções na maioria dos casos. Mais sobre isso abaixo. O for ficou mais eficiente. Agora a alocação dinâmica de vetores está mais rápida, diminuindo ainda mais a diferença entre utilizar for e funcionais como sapply(), que trabalham com um vetor pré alocado.</description>
     </item>
     
     <item>

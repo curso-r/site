@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Survival on Curso-R</title>
+    <link>http://curso-r.com/tags/survival/</link>
+    <description>Recent content in Survival on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 18 Feb 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/survival/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pacote ggalt</title>
+      <link>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</link>
+      <pubDate>Sat, 18 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/</guid>
+      <description>O pacote ggalt é uma extensão ao ggplot2 que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.
+É possível instalar o pacote ggalt usando a função install.packages():
+install.packages(&amp;#39;ggalt&amp;#39;) Para exemplificar a utilização do ggalt, vamos utilizar os pacotes abaixo.
+library(dplyr) library(ggplot2) library(ggalt) library(broom) library(survival) Nesse exemplo, utilizaremos a base de dados lung que vem com o pacote survival.</description>
+    </item>
+    
+  </channel>
+</rss>

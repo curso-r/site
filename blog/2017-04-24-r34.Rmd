@@ -1,8 +1,8 @@
 ---
 title: "R 3.4 disponível!"
 date: "2017-04-24T13:07:31+02:00"
-tags: ["r", "kmeans"]
-categories: ["r"]
+tags: ["r", "versão"]
+categories: ["r", "divulgação"]
 banner: "img/banners/fastr.jpg"
 author: ["Julio"]
 summary: "A versão 3.4 do R foi lançada nesse final de semana! A atualização tem foco principal em performance. Veja as mudanças."

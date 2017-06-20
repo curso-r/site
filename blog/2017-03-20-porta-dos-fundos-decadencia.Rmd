@@ -1,8 +1,8 @@
 ---
 title: "O Porta dos Fundos está em decadência?"
 date: "2017-03-20T23:26:00+03:00"
-tags: ["r", "Webscraping", "tuber"]
-categories: ["r"]
+tags: ["Porta dos Fundos","API", "YouTube"]
+categories: ["r", "análise"]
 banner: "img/banners/porta.jpg"
 author: ["William"]
 summary: "Há alguns anos eu acompanho o canal Porta dos Fundos no YouTube, assistindo os vídeos quase sempre no dia de lançamento. Nos últimos meses, no entanto, meu entusiasmo com o canal vem diminuindo. Não sei se eu que fiquei chato ou se outras pessoas compartilham a minha opinião de que o conteúdo do Porta piorou. Então resolvi scrapear informações do canal e montar algumas visualizações para tirar essa dúvida."

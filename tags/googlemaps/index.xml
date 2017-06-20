@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Googlemaps on Curso-R</title>
+    <link>http://curso-r.com/tags/googlemaps/</link>
+    <description>Recent content in Googlemaps on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 10 Apr 2017 23:26:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/googlemaps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Você está a menos de 1 km de um Hambúrguer?</title>
+      <link>http://curso-r.com/blog/2017/04/10/2017-04-13-o-que-tem-a-um-km/</link>
+      <pubDate>Mon, 10 Apr 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/10/2017-04-13-o-que-tem-a-um-km/</guid>
+      <description>Se você estiver no centro de São Paulo, quanto será que você precisa andar para achar uma hamburgueria? Será que a sua casa fica a menos de 1 km de hospitais, delagacias ou corpo de bombeiros? Neste post, veremos como utilizar uma das APIs do Google Maps para obter informações de geolocalização a partir de uma pesquisa simples. Em seguida, vamos gerar mapas com o pacote leaflet para visualizar os dados coletados e responder essas perguntas.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Versão on Curso-R</title>
+    <link>http://curso-r.com/tags/vers%C3%A3o/</link>
+    <description>Recent content in Versão on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 24 Apr 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/vers%C3%A3o/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R 3.4 disponível!</title>
+      <link>http://curso-r.com/blog/2017/04/24/2017-04-24-r34/</link>
+      <pubDate>Mon, 24 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/24/2017-04-24-r34/</guid>
+      <description>A versão 3.4 do R (You Stupid Darkness) foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:
+Agora temos um compilador JIT (Just In Time) como padrão! Isso significa que você não precisará mais usar a função compiler::cmpfun() para acelerar suas funções na maioria dos casos. Mais sobre isso abaixo. O for ficou mais eficiente. Agora a alocação dinâmica de vetores está mais rápida, diminuindo ainda mais a diferença entre utilizar for e funcionais como sapply(), que trabalham com um vetor pré alocado.</description>
+    </item>
+    
+  </channel>
+</rss>

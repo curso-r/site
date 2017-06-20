@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Divulgação on Curso-R</title>
+    <link>http://curso-r.com/categories/divulga%C3%A7%C3%A3o/</link>
+    <description>Recent content in Divulgação on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 19 Jun 2017 13:07:31 +0200</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/categories/divulga%C3%A7%C3%A3o/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>bR Bloggers está no ar</title>
+      <link>http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/</link>
+      <pubDate>Mon, 19 Jun 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/19/2017-06-19-brbloggers/</guid>
+      <description>Está no ar o bR Bloggers! bR Bloggers é um agregador de blogs sobre R escritos em língua portuguesa.
+Atualmente uma das melhores formas de aprender R e de ficar a par da comunidade R é ler o R-Bloggers. O R-Bloggers é um agregador que conta com mais de 700 blogs, que escrevem aproximadamente 300 posts por mês. Lendo tudo isso, não tem como você não aprender muito R!
+No entanto, para muitas pessoas, uma barreira para ler os posts do R-Bloggers pode ser o fato de que todos os posts estão em inglês.</description>
+    </item>
+    
+    <item>
+      <title>Keras: colocando deep learning no pipeline</title>
+      <link>http://curso-r.com/blog/2017/06/05/2017-06-05-keras/</link>
+      <pubDate>Mon, 05 Jun 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/05/2017-06-05-keras/</guid>
+      <description>Esse é o Daniel Falbel, um dos sócios da Curso-R e autor de diversos posts no nosso blog. Boa pinta, não?
+Mas esse não é só um rostinho bonito. Recente, o Dani fez uma contribuição PROFUNDA para a comunidade R: ele é um dos responsáveis pelo pacote keras, que faz uma interface com a biblioteca de mesmo nome utilizada para ajustar modelos de deep learning usando TensorFlow.
+Veja o arquivo DESCRIPTION (metadados) desse pacote:</description>
+    </item>
+    
+    <item>
+      <title>R 3.4 disponível!</title>
+      <link>http://curso-r.com/blog/2017/04/24/2017-04-24-r34/</link>
+      <pubDate>Mon, 24 Apr 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/24/2017-04-24-r34/</guid>
+      <description>A versão 3.4 do R (You Stupid Darkness) foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:
+Agora temos um compilador JIT (Just In Time) como padrão! Isso significa que você não precisará mais usar a função compiler::cmpfun() para acelerar suas funções na maioria dos casos. Mais sobre isso abaixo. O for ficou mais eficiente. Agora a alocação dinâmica de vetores está mais rápida, diminuindo ainda mais a diferença entre utilizar for e funcionais como sapply(), que trabalham com um vetor pré alocado.</description>
+    </item>
+    
+    <item>
+      <title>rstudio::conf: Sessão Final</title>
+      <link>http://curso-r.com/blog/2017/03/16/2017-02-18-all-things-r-and-rstudio/</link>
+      <pubDate>Thu, 16 Mar 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/03/16/2017-02-18-all-things-r-and-rstudio/</guid>
+      <description>No início de Janeiro desse ano ocorreu a primeira rstudio::conf, uma conferência sobre R promovida pela Rstudio. A conferência parece ter sido bem animada! Teve até um passeio para o parque do Harry Potter na Florida, e surgiram memes como a imagem abaixo.
+Em termos de conteúdo, parece que foi sensacional. Para quem não teve oportunidade de ir, os videos da conferência foram divulgados aqui como bem lembrado pelo blog Análise Real.</description>
+    </item>
+    
+    <item>
+      <title>O blog do Curso R</title>
+      <link>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</link>
+      <pubDate>Wed, 15 Feb 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/15/2017-02-15-blog-curso-r/</guid>
+      <description>Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e seremos os autores dos posts desse blog. Aqui, vamos divulgar pequenas análises, novidades sobre o R e pequenas descobertas sobre estatística e Data Science. Sinta-se a vontade para comentar no espaço abaixo. Adoramos comentários! Também fique a vontade para compartilhar os nossos posts.
+O Curso-R surgiu em 2015 no programa de verão do Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP).</description>
+    </item>
+    
+  </channel>
+</rss>

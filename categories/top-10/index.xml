@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Top 10 on Curso-R</title>
+    <link>http://curso-r.com/categories/top-10/</link>
+    <description>Recent content in Top 10 on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 08 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/categories/top-10/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Top 10 dicas do Curso R de verão 2017</title>
+      <link>http://curso-r.com/blog/2017/04/08/2017-04-08-top10-dicas-verao-2017/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/04/08/2017-04-08-top10-dicas-verao-2017/</guid>
+      <description>Em fevereiro desse ano ministramos o Curso de R de Verão 2017, parte do programa dos Cursos de Verão do IME-USP. Abaixo segue um compilado das 10 melhores dicas dadas durante este curso.
+1. Conheça e domine a filosofia por trás do Tidyverse O conceito “tidy” deu o oriente do curso de verão e não foi à toa: o tidyverse, carinhosamente chamado de “universo arrumadinho”, está intimamente associado ao dia-a-dia de um analista de dados e sua implementação em R é tida como uma pequena revolução para os R-eiros.</description>
+    </item>
+    
+    <item>
+      <title>Top 10 pacotes para data science</title>
+      <link>http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/</link>
+      <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/02/21/2017-02-21-top10-pacotes-para-data-science/</guid>
+      <description>O R mudou muito nos últimos 5 anos graças a criações de novos pacotes focados nas questões mais práticas do dia a dia de um cientista de dados. Abaixo coloquei meu top 10 de pacotes que revolucionaram o jeito de programar em R e fizeram meu trabalho mais ágil e prazeroso:
+10. purrr (manipulação de vetores e listas) Nosso décimo lugar colocou o for em perigo de extinção. Com ele, aplicar funções em vetores, listas ou combinações dos dois é uma tarefa de poucas linhas e sem a necessidade de índices i, j, k’s confusos.</description>
+    </item>
+    
+  </channel>
+</rss>
