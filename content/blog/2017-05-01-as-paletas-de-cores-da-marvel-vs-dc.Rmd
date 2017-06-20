@@ -2,7 +2,7 @@
 title: "As cores da Marvel vs DC"
 date: "2017-05-01T23:26:00+03:00"
 tags: ["imagens", "cinema", "kmeans"]
-categories: ["r", "análises"]
+categories: ["r", "análise"]
 banner: "img/banners/marvel_vs_dc.jpg"
 author: ["William"]
 summary: "A cor é uma diferença notável entre os filmes da Marvel e da DC. Enquanto a Disney/Marvel Studios costuma lançar filmes com tons mais claros e alegres, a Warner tem optado por cenários escuros, com um aspecto mais sombrios. Neste post, vamos utilizar o Kmeans para obter a paleta de cores mais utilizadas por cada estúdio."
