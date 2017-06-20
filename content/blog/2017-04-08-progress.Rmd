@@ -1,8 +1,8 @@
 ---
 title: "As barras do progresso"
 date: "2017-04-10T13:07:31+02:00"
-tags: ["progress", "r"]
-categories: ["r"]
+tags: ["coding", "pacotes", "progress"]
+categories: ["r", "tutorial"]
 banner: "img/banners/progress.png"
 author: ["Julio"]
 draft: false
