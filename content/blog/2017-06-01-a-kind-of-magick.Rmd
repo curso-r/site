@@ -2,7 +2,7 @@
 title: "A kind of magick"
 date: "2017-06-01T23:26:00+03:00"
 tags: ["imagens", "pacotes", "magick"]
-categories: ["r", "tutorial"]
+categories: ["tutoriais", "r"]
 banner: "img/banners/freddie-mercury.jpeg"
 author: ["William"]
 summary: "Já vimos como o Rstudio se torna uma ferramanta poderosa quando combinado com certos pacotes, como o knitr e shiny, ou outros recursos, como o markdown e o git. Hoje, veremos como transformar o Rstudio em um elegante e interativo editor de imagens utilizando o pacote magick."

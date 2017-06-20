@@ -2,7 +2,7 @@
 title: "Skimr: estatísticas básicas com ❤️"
 date: "2017-06-17T13:07:31+02:00"
 tags: ["pacotes", "skimr"]
-categories: ["r", "tutorial"]
+categories: ["tutoriais", "r"]
 banner: "img/banners/skimr.png"
 author: ["Julio"]
 draft: false

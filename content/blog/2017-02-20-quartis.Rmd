@@ -2,7 +2,7 @@
 title: "Medidas-resumo no tidyverse"
 date: "2017-03-11T13:07:31+02:00"
 tags: ["tidyverse", "dplyr", "purrr"]
-categories: ["r", "tutorial"]
+categories: ["tutoriais", "r"]
 banner: "img/banners/quartis.png"
 author: ["Julio"]
 draft: false

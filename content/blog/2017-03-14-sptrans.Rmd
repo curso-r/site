@@ -2,7 +2,7 @@
 title: "SPTrans"
 date: "2017-02-18T13:07:31+02:00"
 tags: ["pacotes", "sptrans", "API"]
-categories: ["r", "tutorial"]
+categories: ["tutoriais", "r"]
 banner: "img/banners/tidyverse.jpg"
 author: ["Julio"]
 draft: true
