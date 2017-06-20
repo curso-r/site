@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Análise on Curso-R</title>
-    <link>http://curso-r.com/categories/an%C3%A1lise/</link>
-    <description>Recent content in Análise on Curso-R</description>
+    <title>Análises on Curso-R</title>
+    <link>http://curso-r.com/categories/an%C3%A1lises/</link>
+    <description>Recent content in Análises on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
     <lastBuildDate>Fri, 19 May 2017 23:26:00 +0300</lastBuildDate>
     
-	<atom:link href="http://curso-r.com/categories/an%C3%A1lise/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://curso-r.com/categories/an%C3%A1lises/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

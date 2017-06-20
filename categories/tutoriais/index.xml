@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tutorial on Curso-R</title>
-    <link>http://curso-r.com/categories/tutorial/</link>
-    <description>Recent content in Tutorial on Curso-R</description>
+    <title>Tutoriais on Curso-R</title>
+    <link>http://curso-r.com/categories/tutoriais/</link>
+    <description>Recent content in Tutoriais on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
     <lastBuildDate>Sat, 17 Jun 2017 13:07:31 +0200</lastBuildDate>
     
-	<atom:link href="http://curso-r.com/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://curso-r.com/categories/tutoriais/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

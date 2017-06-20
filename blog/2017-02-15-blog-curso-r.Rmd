@@ -1,7 +1,7 @@
 ---
 title: "O blog do Curso R"
 date: "2017-02-15T13:07:31+02:00"
-categories: ["r", "divulgação"]
+categories: ["divulgação", "r"]
 tags: ["curso-R"]
 banner: "img/banners/bookshop.jpg"
 author: ["Athos", "Daniel", "Fernando", "Julio", "William"]

@@ -2,7 +2,7 @@
 title: "Você está a menos de 1 km de um Hambúrguer?"
 date: "2017-04-10T23:26:00+03:00"
 tags: ["GoogleMaps", "API", "leaflet"]
-categories: ["r", "análise"]
+categories: ["análises", "r"]
 banner: "img/banners/man-with-a-map.jpg"
 author: ["William"]
 summary: "Neste post, veremos como utilizar uma das APIs do Google Maps para obter informações de geolocalização a partir de uma pesquisa simples. Em seguida, vamos utilizar o pacote `leaflet` para criar mapas com os dados coletados e descobrir se estamos a menos de 1 km de hospitais, delagacias, corpos de bombeiros e, o mais importante, de uma hamburgueria."

@@ -2,7 +2,7 @@
 title: "Análise das emoções de Aécio Neves"
 date: "2017-04-15T13:07:31+02:00"
 tags: ["emoções", "API"]
-categories: ["r", "análise"]
+categories: ["análises", "r"]
 banner: "img/banners/aecio.jpg"
 author: ["Julio"]
 draft: false

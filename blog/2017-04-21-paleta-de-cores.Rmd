@@ -2,7 +2,7 @@
 title: "K-means e paleta de cores"
 date: "2017-04-22T13:07:31+02:00"
 tags: ["imagens", "cluster", "kmeans"]
-categories: ["r", "análise"]
+categories: ["análises", "r"]
 banner: "img/banners/paleta-cores.png"
 author: ["Daniel"]
 summary: "Uma aplicação interessante de algoritmos de clusterização é a obtenção de 

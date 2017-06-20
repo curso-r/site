@@ -2,7 +2,7 @@
 title: "População do município de São Paulo"
 date: "2017-04-08T13:07:31+02:00"
 tags: ["r"]
-categories: ["r", "análise"]
+categories: ["análises", "r"]
 banner: "img/banners/aecio.jpg"
 author: ["Julio"]
 draft: true

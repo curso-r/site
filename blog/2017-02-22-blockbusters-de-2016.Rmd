@@ -2,7 +2,7 @@
 title: "Blockbusters de 2016"
 date: "2017-02-22T13:07:31+02:00"
 tags: ["cinema", "web scraping"]
-categories: ["r", "análise"]
+categories: ["análises", "r"]
 banner: "img/banners/tidyverse.jpg"
 author: ["Fernando"]
 draft: true

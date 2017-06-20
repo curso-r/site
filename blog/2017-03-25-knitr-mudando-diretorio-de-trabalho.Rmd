@@ -3,7 +3,7 @@ title: "Knitr: mudando o diretório de trabalho"
 pubdate: "2017-03-25T23:26:00+03:00"
 date: "2017-03-25T23:26:00+03:00"
 tags: ["R Markdown", "knitr"]
-categories: ["r", "tutorial"]
+categories: ["tutoriais", "r"]
 banner: "img/banners/cat-balls-of-wool.jpg"
 author: ["William"]
 summary: "O pacote `knitr` é um mecanismo rápido, elegante e flexível para gerar relatórios dinâmicos no R. Ele trabalha lado a lado com o `rmarkdown` para transformar arquivos `.Rmd` em diversos formatos, como html, pdf e até mesmo word. Quando estamos trabalhando com arquivos Rmarkdown no Rstudio, mudar o diretório de trabalho pode levar a resultados inesperados se não for feito da maneira correta."
