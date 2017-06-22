@@ -1,8 +1,8 @@
 ---
 title: "Web scraping do site da Secretaria de Segurança Pública de São Paulo"
 date: "2017-05-19T23:26:00+03:00"
-tags: ["r", "web-scraping", "dados-abertos"]
-categories: ["r"]
+tags: ["web scraping", "dados abertos"]
+categories: ["análises", "r"]
 banner: "img/banners/scrapper-ssp.png"
 author: ["Fernando"]
 summary: "Ao contrário de outros usos pro R, web-scrapping não tem uma receita bem definida. Mesmo definindo passos intermediários, alguns scrapers usam ideias que funcionam apenas em casos específicos. Neste post vamos estudar a construção de um Web Scraping com ideias facilmente generalizáveis."

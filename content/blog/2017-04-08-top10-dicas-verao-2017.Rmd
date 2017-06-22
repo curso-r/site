@@ -1,8 +1,8 @@
 ---
 title: "Top 10 dicas do Curso R de verão 2017"
 date: "2017-04-08"
-tags: ["r", "top10"]
-categories: ["r"]
+tags: ["Curso-R"]
+categories: ["top 10", "r"]
 author: ["Athos"]
 banner: "img/banners/lampada-curso-r.png"
 ---

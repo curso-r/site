@@ -2,7 +2,7 @@
 title: "Statishits: "
 date: "2017-06-05T13:07:31+02:00"
 tags: ["r"]
-categories: ["statishits"]
+categories: ["statishits", "r"]
 banner: "img/banners/keras.jpg"
 author: ["Julio"]
 draft: true

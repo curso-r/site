@@ -1,8 +1,8 @@
 ---
 title: "Keras: colocando deep learning no pipeline"
 date: "2017-06-05T13:07:31+02:00"
-tags: ["r"]
-categories: ["r", "deep", "learning"]
+tags: ["r", "deep learning", "keras"]
+categories: ["divulgação", "r"]
 banner: "img/banners/keras.jpg"
 author: ["Julio"]
 draft: false
