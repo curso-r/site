@@ -202,7 +202,7 @@ system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.012   0.000   3.016</code></pre>
+##   0.016   0.000   3.019</code></pre>
 <p>Agora vamos executar o mesmo código usando paralelização. Antes, precisamos</p>
 <ol style="list-style-type: decimal">
 <li>criar e registrar as cópias de R que rodam em paralelo; e</li>
@@ -216,13 +216,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.380   0.008   2.757</code></pre>
+##   0.320   0.036   2.701</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.316   0.048   2.544</code></pre>
+##   0.304   0.000   2.456</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # para de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
