@@ -2,15 +2,15 @@
 title: "Componentes Principais - Intuição"
 date: "2017-06-24T10:12:00+03:00"
 tags: ["pca", "componentes principais", "plotly"]
-categories: ["tutoriais", "r"]
+categories: ["conceitos", "r"]
 banner: "img/banners/componentes_principais.png"
 author: ["Athos"]
-summary: "Uma ilustração gráfica simples para dar uma intuição sobre o que uma Análise de Componentes Principais faz."
+summary: "Uma ilustração gráfica simples para dar intuição sobre o que uma Análise de Componentes Principais faz."
 ---
   
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = FALSE,
-                      eval=FALSE)
+                      eval=TRUE)
 ```
 
 Componentes principais são bastante utilizados em modelagem estatística, mas a sua definição matemática rigorosa faz com que a ACP pareça um conceito mais abstrato do que somos capazes de compreender, em particular quando falam **“maximizar a variância total”** e **“diminuir a dimensionalidade”**. A primeira reação é um grande “HEIN?”.
@@ -53,24 +53,26 @@ tetraedro_linhas <- combn(x = tetraedro$id, m = 2) %>%
   arrange(id_ordem)
 ```
 
+**Contribuição dos componentes na variância total**
 ```{r}
-tetraedro_pc <- prcomp(tetraedro %>% dplyr::select(x, y, z))
-summary(tetraedro_pc)
-## Importance of components:
-##                           PC1    PC2    PC3
-## Standard deviation     0.4082 0.4082 0.4082
-## Proportion of Variance 0.3333 0.3333 0.3333
-## Cumulative Proportion  0.3333 0.6667 1.0000
+tetraedro_pc <- prcomp(tetraedro %>% dplyr::select(x, y, z)) # PCA acontece aqui
+knitr::kable(summary(tetraedro_pc)$importance)
+```
 
-p1 <- plot_ly(x = ~x, y = ~y, z = ~z, width = "50%", height = "50%") %>%
-  add_lines(data = tetraedro) %>%
-  add_markers(data = tetraedro) 
+**3 dimensões (100% da variância)**
+```{r}
+plot_ly(tetraedro_linhas, x = ~x, y = ~y, z = ~z) %>%
+  add_lines() %>%
+  add_markers()
+  
+```
 
-p2 <- plot_ly(x = ~PC2, y = ~PC3, z = ~PC3, width = "50%", height = "50%") %>%
-  # add_lines(data = tetraedro_pc %>% predict %>% as.data.frame) %>%
-  add_markers(data = tetraedro_pc %>% predict %>% as.data.frame) 
-
-htmltools::tagList(list(p1, p2))
+**2 dimensões (67% da variância)**
+```{r}
+tetraedro_pc_pred <- tetraedro_pc %>% predict %>% as.data.frame
+plot_ly(tetraedro_pc_pred, x = ~PC2, y = ~PC3, z = ~PC3) %>%
+  add_lines() %>%
+  add_markers()
 ```
 
 
@@ -90,28 +92,28 @@ for (i in 1:62) {
   c <- c(c, i)
 }  
 
-data <- data.frame(x, y, z, c)
+forma_legal <- data.frame(x, y, z, c)
 ```
 
+**Contribuição dos componentes na variância total**
 ```{r}
-p1 <- plot_ly(data, x = ~x, y = ~y, z = ~z, type = 'scatter3d', mode = 'lines+markers',
-              line = list(width = 6, color = ~c, colorscale = 'Viridis'),
-              marker = list(size = 3.5, color = ~c, colorscale = 'Greens', cmin = -20, cmax = 50))
+forma_legal_pc <- prcomp(forma_legal %>% dplyr::select(x, y, z)) # PCA acontece aqui
+knitr::kable(summary(forma_legal_pc)$importance)
+```
 
-data2 <- prcomp(data %>% dplyr::select(x, y, z))
-summary(data2)
-## Importance of components:
-##                            PC1     PC2    PC3
-## Standard deviation     18.0494 10.1375 9.8547
-## Proportion of Variance  0.6198  0.1955 0.1847
-## Cumulative Proportion   0.6198  0.8153 1.0000
+**3 dimensões (100% da variância)**
+```{r}
+plot_ly(forma_legal, x = ~x, y = ~y, z = ~z, type = "scatter3d", mode = "markers+lines",
+        line = list(width = 6, color = ~c, colorscale = 'Viridis'),
+        marker = list(size = 3.5, color = ~c, colorscale = 'Greens', cmin = -20, cmax = 50))
+```
 
-p2 <- plot_ly(predict(data2) %>% as.data.frame, x = ~PC1, y = ~PC2, z = 1, type = 'scatter3d', mode = 'lines+markers',
-              line = list(width = 6, color = ~c, colorscale = 'Viridis'),
-              marker = list(size = 3.5, color = ~c, colorscale = 'Greens', cmin = -20, cmax = 50))
-
-
-htmltools::tagList(list(p1, p2))
+**2 dimensões (82% da variância)**
+```{r}
+forma_legal_pc_pred <- forma_legal_pc %>% predict %>% as.data.frame
+plot_ly(forma_legal_pc_pred, x = ~PC1, y = ~PC2, z = 1, type = 'scatter3d', mode = 'lines+markers',
+        line = list(width = 6, color = ~c, colorscale = 'Viridis'),
+        marker = list(size = 3.5, color = ~c, colorscale = 'Greens', cmin = -20, cmax = 50))
 ```
 
 ## Para saber mais
