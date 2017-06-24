@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/06/24/2017-06-24-componentes-principais-intuicao/</loc>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/06/19/2017-06-19-environments/</loc>
     <lastmod>2017-06-19T23:26:00+03:00</lastmod>
   </url>
@@ -191,13 +196,13 @@
   
   <url>
     <loc>http://curso-r.com/author/athos/</loc>
-    <lastmod>2017-06-08T21:12:00+03:00</lastmod>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/author/</loc>
-    <lastmod>2017-06-08T21:12:00+03:00</lastmod>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -209,7 +214,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
   </url>
   
   <url>
@@ -243,6 +248,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/componentes-principais/</loc>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/categories/conceitos/</loc>
     <lastmod>2017-06-19T23:26:00+03:00</lastmod>
     <priority>0</priority>
@@ -260,7 +271,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -427,8 +438,20 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/pca/</loc>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/pdf/</loc>
     <lastmod>2017-05-28T13:07:31+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/plotly/</loc>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -451,14 +474,14 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-06-05T13:07:31+02:00</lastmod>
+    <loc>http://curso-r.com/categories/r/</loc>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-06-19T23:26:00+03:00</lastmod>
+    <loc>http://curso-r.com/tags/r/</loc>
+    <lastmod>2017-06-05T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -550,7 +573,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-06-17T13:07:31+02:00</lastmod>
+    <lastmod>2017-06-24T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 17 Jun 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 24 Jun 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/tutoriais/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Componentes Principais - Intuição</title>
+      <link>http://curso-r.com/blog/2017/06/24/2017-06-24-componentes-principais-intuicao/</link>
+      <pubDate>Sat, 24 Jun 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/24/2017-06-24-componentes-principais-intuicao/</guid>
+      <description>Componentes principais são bastante utilizados em modelagem estatística, mas a sua definição matemática rigorosa faz com que a ACP pareça um conceito mais abstrato do que somos capazes de compreender, em particular quando falam “maximizar a variância total” e “diminuir a dimensionalidade”. A primeira reação é um grande “HEIN?”.
+Abaixo tem alguns gráficos em 3 dimensões que dá uma boa ilustração sobre o que essas duas afirmativas querem dizer e, mesmo sendo um exemplo simples, irá ajudar a extrapolar a ideia para problemas mais complexos.</description>
+    </item>
     
     <item>
       <title>Skimr: estatísticas básicas com ❤️</title>
