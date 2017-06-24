@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = F
 
 Componentes principais são bastante utilizados em modelagem estatística, mas a sua definição matemática rigorosa faz com que a ACP pareça um conceito mais abstrato do que somos capazes de compreender, em particular quando falam **“maximizar a variância total”** e **“diminuir a dimensionalidade”**. A primeira reação é um grande “HEIN?”.
 
-Abaixo tem alguns gráficos em 3 dimensões que dá uma boa ilustração sobre o que essas duas afirmativas querem dizer e, mesmo sendo um exemplo simples, irá ajudar a extrapolar a ideia para problemas mais complexos. 
+Abaixo tem alguns gráficos em 3 dimensões que dão uma boa ilustração sobre o que essas duas afirmativas querem dizer e, mesmo sendo um exemplo simples, irão ajudar a extrapolar a ideia para problemas mais complexos. 
 
 1) O primeiro gráfico é a representação com **100% da informação** em três dimensões. 
 2) O segundo gráfico é como fica a representação do mesmo conjunto de dados, mas com uma dimensão a menos (**redução de dimensionalidade**).
