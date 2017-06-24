@@ -3,9 +3,9 @@ title: "Componentes Principais - Intuição"
 date: "2017-06-24T10:12:00+03:00"
 tags: ["pca", "componentes principais", "plotly"]
 categories: ["tutoriais", "r"]
-banner: "img/banners/keras_no_ubuntu2.png"
+banner: "img/banners/componentes_principais.png"
 author: ["Athos"]
-summary: "Passo a passo de como preparar o Keras para R no Ubuntu 16.04 em cima do Anaconda."
+summary: "Uma ilustração gráfica simples para dar uma intuição sobre o que uma Análise de Componentes Principais faz."
 ---
   
 ```{r setup, include=FALSE}
@@ -24,6 +24,7 @@ Abaixo tem alguns gráficos em 3 dimensões que dá uma boa ilustração sobre o
 
 
 **pacotes para os exemplos**
+
 ```{r}
 library(plotly)
 library(magrittr)
@@ -31,6 +32,7 @@ library(tidyr)
 library(dplyr)
 ```
 
+OBS: não esqueça de girar os gráficos! =)
 
 ## Exemplo 1 - Tetraedro
 ```{r}
@@ -112,4 +114,8 @@ p2 <- plot_ly(predict(data2) %>% as.data.frame, x = ~PC1, y = ~PC2, z = 1, type 
 htmltools::tagList(list(p1, p2))
 ```
 
+## Para saber mais
 
+Meu livro predileto sobre esse assunto (e para muitos outros) é o [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf).
+
+abs
