@@ -20,7 +20,7 @@ Abaixo tem alguns gráficos em 3 dimensões que dá uma boa ilustração sobre o
 1) O primeiro gráfico é a representação com **100% da informação** em três dimensões. 
 2) O segundo gráfico é como fica a representação do mesmo conjunto de dados, mas com uma dimensão a menos (**redução de dimensionalidade**).
 3) Ao diminuir uma dimensão, perdemos informação (não é mais **100% da variância total**) e essa perda é mensurada pela variância explicada pelas dimensões que deixamos para trás.
-4) As duas primeiras dimensões projetam os dados de tal forma que apresentem a **maximizar a variância total** possível em apenas duas dimensões.
+4) As duas primeiras dimensões projetam os dados de forma que apresentam a **máxima a variância total** possível em apenas duas dimensões.
 
 
 **pacotes para os exemplos**
