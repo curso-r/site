@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>Autoencoders</title>
+      <link>http://curso-r.com/tags/autoencoders/</link>
+      <pubDate>Mon, 26 Jun 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/autoencoders/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Bayes</title>
       <link>http://curso-r.com/tags/bayes/</link>
       <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
@@ -96,7 +105,7 @@
     <item>
       <title>Deep Learning</title>
       <link>http://curso-r.com/tags/deep-learning/</link>
-      <pubDate>Thu, 08 Jun 2017 21:12:00 +0300</pubDate>
+      <pubDate>Mon, 26 Jun 2017 10:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/tags/deep-learning/</guid>
       <description></description>
@@ -177,7 +186,7 @@
     <item>
       <title>Keras</title>
       <link>http://curso-r.com/tags/keras/</link>
-      <pubDate>Thu, 08 Jun 2017 21:12:00 +0300</pubDate>
+      <pubDate>Mon, 26 Jun 2017 10:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/tags/keras/</guid>
       <description></description>

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 24 Jun 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 26 Jun 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Construindo Autoencoders</title>
+      <link>http://curso-r.com/blog/2017/06/26/2017-06-26-construindo-autoencoders/</link>
+      <pubDate>Mon, 26 Jun 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/26/2017-06-26-construindo-autoencoders/</guid>
+      <description>Autoencoders são redes neurais treinadas com o objetivo de copiar o seu input para o seu output. Esse interesse pode parecer meio estranho, mas na prática o objetivo é aprender representações (encodings) dos dados, que poodem ser usadas para redução de dimensionalidade ou até mesmo compressão de arquivos.
+Basicamente, um autoencoder é dividido em duas partes:
+ um encoder que é uma função \(f(x)\) que transforma o input para uma representação \(h\) um decoder que é uma função \(g(x)\) que transforma a representação \(h\) em sua reconstrução \(r\)  Imagem do blog do Keras</description>
+    </item>
     
     <item>
       <title>Componentes Principais - Intuição</title>
