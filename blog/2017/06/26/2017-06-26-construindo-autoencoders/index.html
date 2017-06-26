@@ -182,7 +182,7 @@
                         </p>
                         
                         <div id="post-content">
-                          <p><a href="https://en.wikipedia.org/wiki/Autoencoder">Autoencoders</a> são redes neurais treinadas com o objetivo de copiar o seu <em>input</em> para o seu <em>output</em>. Esse interesse pode parecer meio estranho, mas na prática o objetivo é <em>aprender</em> representações (<em>encodings</em>) dos dados, que poodem ser usadas para redução de dimensionalidade ou até mesmo <a href="https://research.googleblog.com/2016/09/image-compression-with-neural-networks.html">compressão de arquivos</a>.</p>
+                          <p><a href="https://en.wikipedia.org/wiki/Autoencoder">Autoencoders</a> são redes neurais treinadas com o objetivo de copiar o seu <em>input</em> para o seu <em>output</em>. Esse interesse pode parecer meio estranho, mas na prática o objetivo é <em>aprender</em> representações (<em>encodings</em>) dos dados, que podem ser usadas para redução de dimensionalidade ou até mesmo <a href="https://research.googleblog.com/2016/09/image-compression-with-neural-networks.html">compressão de arquivos</a>.</p>
 <p>Basicamente, um <em>autoencoder</em> é dividido em duas partes:</p>
 <ul>
 <li>um <em>encoder</em> que é uma função <span class="math inline">\(f(x)\)</span> que transforma o input para uma representação <span class="math inline">\(h\)</span></li>
@@ -220,13 +220,13 @@ decoder &lt;- keras_model(encoded_input, decoder_layer(encoded_input))</code></p
 <li><span class="math inline">\(W_2\)</span> é uma matriz de pesos com dimensões (32, 784)</li>
 <li><span class="math inline">\(b_2\)</span> é uma matriz de forma (?, 784)</li>
 </ul>
-<p>Note que <code>?</code> aqui é o número de observaçãoes da base de dados. Agora vamos estimar <span class="math inline">\(W_1\)</span>, <span class="math inline">\(W_2\)</span>, <span class="math inline">\(b_1\)</span> e <span class="math inline">\(b_2\)</span> de modo a minimizar algua função de perda.</p>
+<p>Note que <code>?</code> aqui é o número de observaçãoes da base de dados. Agora vamos estimar <span class="math inline">\(W_1\)</span>, <span class="math inline">\(W_2\)</span>, <span class="math inline">\(b_1\)</span> e <span class="math inline">\(b_2\)</span> de modo a minimizar alguma função de perda.</p>
 <p>Inicialmente vamos usar a <em>binary crossentropy</em> por pixel que é definida por:</p>
 <p><span class="math display">\[-\sum_{i=1}y_i*log(\hat{y}_i)\]</span></p>
 <p>Isso é definido no <code>keras</code> usando:</p>
 <pre class="r"><code>autoencoder %&gt;% compile(optimizer=&#39;adadelta&#39;, loss=&#39;binary_crossentropy&#39;)</code></pre>
 <p>Não vou entrar em detalhes do que é o <code>adadelta</code>, mas é uma variação do método de otimização conhecido como <em>gradient descent</em>.</p>
-<p>Agora vamos carregar a base de dados e em seguida treinar o nosso àutoencoder`.</p>
+<p>Agora vamos carregar a base de dados e em seguida treinar o nosso autoencoder`.</p>
 <pre class="r"><code>mnist &lt;- dataset_mnist()
 # o mnist é um banco de imagens 28x28, vamos transformar cada imagem em um vetor
 # de tamanho 784, cada elemento representado um pixel.
@@ -603,27 +603,27 @@ autoencoder %&gt;% fit(
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         

@@ -15,7 +15,7 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE, collapse=TRUE)
 [Autoencoders](https://en.wikipedia.org/wiki/Autoencoder) são redes neurais treinadas
 com o objetivo de copiar o seu *input* para o seu *output*. Esse interesse pode parecer
 meio estranho, mas na prática o objetivo é *aprender* representações (*encodings*) dos
-dados, que poodem ser usadas para redução de dimensionalidade ou até mesmo [compressão de arquivos](https://research.googleblog.com/2016/09/image-compression-with-neural-networks.html).
+dados, que podem ser usadas para redução de dimensionalidade ou até mesmo [compressão de arquivos](https://research.googleblog.com/2016/09/image-compression-with-neural-networks.html).
 
 Basicamente, um *autoencoder* é dividido em duas partes:
 
@@ -67,7 +67,7 @@ Em que:
 * $b_2$ é uma matriz de forma (?, 784)
 
 Note que `?` aqui é o número de observaçãoes da base de dados.
-Agora vamos estimar $W_1$, $W_2$, $b_1$ e $b_2$ de modo a minimizar algua função de perda.
+Agora vamos estimar $W_1$, $W_2$, $b_1$ e $b_2$ de modo a minimizar alguma função de perda.
 
 Inicialmente vamos usar a *binary crossentropy* por pixel que é definida por:
 
@@ -82,7 +82,7 @@ autoencoder %>% compile(optimizer='adadelta', loss='binary_crossentropy')
 Não vou entrar em detalhes do que é o `adadelta`, mas é uma variação do método
 de otimização conhecido como *gradient descent*.
 
-Agora vamos carregar a base de dados e em seguida treinar o nosso àutoencoder`.
+Agora vamos carregar a base de dados e em seguida treinar o nosso autoencoder`.
 
 ```{r, eval = FALSE}
 mnist <- dataset_mnist()
