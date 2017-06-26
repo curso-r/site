@@ -610,19 +610,6 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -631,6 +618,19 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -809,24 +809,21 @@ ga('send', 'pageview');
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    // Fix <code> tags after MathJax finishes running. This is a
-    // hack to overcome a shortcoming of Markdown. Discussion at
-    // https://github.com/mojombo/jekyll/issues/199
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i &lt; all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
 
-MathJax.Hub.Config({
-  "HTML-CSS": {
-    preferredFont: "STIX"  }
-});
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { preferredFont: "STIX" }
+  });
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
