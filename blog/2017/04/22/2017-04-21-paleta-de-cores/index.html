@@ -220,19 +220,19 @@ centroides &lt;- img_df %&gt;%
 
 centroides
 ## # A tibble: 6 x 4
-##   cluster          r         g         b
-##     &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.27214211 0.3641213 0.4901644
-## 2       2 0.88572504 0.7791481 0.6688438
-## 3       3 0.37889146 0.1185504 0.1558589
-## 4       4 0.71951030 0.5487661 0.4097725
-## 5       5 0.62387801 0.2832790 0.1896923
-## 6       6 0.09965226 0.0436630 0.2398620</code></pre>
+##   cluster         r          g         b
+##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+## 1       1 0.8768478 0.76214788 0.6453526
+## 2       2 0.1242676 0.04329523 0.2157608
+## 3       3 0.5005333 0.18317808 0.1587975
+## 4       4 0.2212898 0.27343767 0.4408800
+## 5       5 0.7016231 0.46726913 0.3238915
+## 6       6 0.3541451 0.46237890 0.5494785</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#455D7D&quot; &quot;#E2C7AB&quot; &quot;#611E28&quot; &quot;#B78C68&quot; &quot;#9F4830&quot; &quot;#190B3D&quot;</code></pre>
+## [1] &quot;#E0C2A5&quot; &quot;#200B37&quot; &quot;#802F28&quot; &quot;#384670&quot; &quot;#B37753&quot; &quot;#5A768C&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -558,14 +558,14 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          
