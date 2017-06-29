@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 05 Jun 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 28 Jun 2017 13:07:31 +0200</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quebrando CAPTCHAs - Introdução</title>
+      <link>http://curso-r.com/blog/2017/06/28/2017-06-29-captcha-intro/</link>
+      <pubDate>Wed, 28 Jun 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/28/2017-06-29-captcha-intro/</guid>
+      <description>CAPTCHAs? SIM, CAPTCHAs Sabe aquelas imagens chatas que aparecem quando você está preenchendo um formulário ou quer acessar uma página específica, pedindo para você decifrar o texto? Isso é o que chamamos de CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart). Captchas foram criados para impedir que robôs acessem determinadas páginas na web de forma irrestrita. Algumas empresas como a Google também usam essas coisinhas para utilizar o conhecimento de seres humanos para dominar o mundo.</description>
+    </item>
     
     <item>
       <title>Keras: colocando deep learning no pipeline</title>
