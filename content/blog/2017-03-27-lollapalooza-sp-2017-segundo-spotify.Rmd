@@ -7,6 +7,10 @@ author: ["Athos"]
 banner: "img/banners/lolla-spotify_s.png"
 ---
 
+```{r}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
 No dia em que fui ao Lollapalooza eu descobri o [Rspotify](https://github.com/tiagomendesdantas/Rspotify), um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.
 
 A brincadeira aqui vai envolver
