@@ -80,3 +80,19 @@ image_read('static/img/banners/skimr.jpg') %>%
   image_write("static/img/banners/skimr.png")
 
 
+
+image_read('~/Downloads/quebrando_captchas.png') %>% 
+  image_border(color = 'white', geometry = '50x120') %>% 
+  image_noise() %>% 
+  image_annotate('#1', size = 80, font = 'ubuntu',
+                 location = '+350+10', color = 'red') %>% 
+  image_annotate('Introdução', size = 40, font = 'ubuntu',
+                 color = 'black', location = '+10+200') %>% 
+  image_write("static/img/banners/captcha_01.png")
+
+
+
+
+
+
+
