@@ -244,6 +244,75 @@ lolla2017_programacao &lt;- &quot;https://www.lollapaloozabr.com/lineup-horarios
          hora_fim = if_else(hour(hora_fim) &lt; 12, hora_fim + hours(12), hora_fim),
          dia = fct_relevel(dia, c(&quot;sabado&quot;, &quot;domingo&quot;)))</code></pre>
 <p><strong>Resultado</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dia</th>
+<th align="left">palco</th>
+<th align="left">artist</th>
+<th align="left">hora_ini</th>
+<th align="left">hora_fim</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">cage the elephant</td>
+<td align="left">2017-03-25 16:25:00</td>
+<td align="left">2017-03-25 17:25:00</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">metallica</td>
+<td align="left">2017-03-25 21:00:00</td>
+<td align="left">2017-03-25 23:00:00</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">doctor pheabes</td>
+<td align="left">2017-03-25 12:05:00</td>
+<td align="left">2017-03-25 13:05:00</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">rancid</td>
+<td align="left">2017-03-25 18:35:00</td>
+<td align="left">2017-03-25 19:35:00</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">suricato</td>
+<td align="left">2017-03-25 14:15:00</td>
+<td align="left">2017-03-25 15:15:00</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the 1975</td>
+<td align="left">2017-03-25 17:30:00</td>
+<td align="left">2017-03-25 18:30:00</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the outs</td>
+<td align="left">2017-03-25 13:10:00</td>
+<td align="left">2017-03-25 14:10:00</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the xx</td>
+<td align="left">2017-03-25 19:40:00</td>
+<td align="left">2017-03-25 20:55:00</td>
+</tr>
+</tbody>
+</table>
 <p>É interessante reparar que para gerar essa simples tabelinha utilizamos os pacotes <code>httr</code>, <code>rvest</code>, <code>purrr</code>, <code>dplyr</code>, <code>tidyr</code>, <code>lubridate</code>, <code>stringi</code> e <code>forcats</code>. Só faltou o <code>ggplot2</code> para zerar o tidyverse.</p>
 <p>OBS: 89 fm não é uma banda, era só um espaço reservado para fins de publicidade da rádio.</p>
 </div>
@@ -279,6 +348,54 @@ artistas_fora_da_playlist &lt;- lolla2017_programacao %&gt;%
   unnest(artist_info) %&gt;%
   select(artist, id, name, popularity, followers) </code></pre>
 <p><strong>Resultado</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">artist</th>
+<th align="left">id</th>
+<th align="left">name</th>
+<th align="right">popularity</th>
+<th align="right">followers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ricci</td>
+<td align="left">1EUMh6DZo2CfpolG75YQBL</td>
+<td align="left">ricci</td>
+<td align="right">49</td>
+<td align="right">6116</td>
+</tr>
+<tr class="even">
+<td align="left">jimmy eat world</td>
+<td align="left">3Ayl7mCk0nScecqOzvNp6s</td>
+<td align="left">jimmy eat world</td>
+<td align="right">66</td>
+<td align="right">361785</td>
+</tr>
+<tr class="odd">
+<td align="left">89 fm</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">martin garrix</td>
+<td align="left">60d24wfXkVzDSfLS6hyCjZ</td>
+<td align="left">martin garrix</td>
+<td align="right">85</td>
+<td align="right">2244761</td>
+</tr>
+<tr class="odd">
+<td align="left">illusionize</td>
+<td align="left">3RloA7E4XMItSP4FjMBv3L</td>
+<td align="left">illusionize</td>
+<td align="right">46</td>
+<td align="right">30054</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="juntando-tudo" class="section level3">
 <h3>Juntando tudo</h3>
@@ -289,6 +406,93 @@ artistas_fora_da_playlist &lt;- lolla2017_programacao %&gt;%
   select(-id, -name) %&gt;%
   dplyr::filter(followers %&gt;% is.na %&gt;% not) </code></pre>
 <p><strong>Base final</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">dia</th>
+<th align="left">palco</th>
+<th align="left">artist</th>
+<th align="left">hora_ini</th>
+<th align="left">hora_fim</th>
+<th align="right">popularity</th>
+<th align="right">followers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">cage the elephant</td>
+<td align="left">2017-03-25 16:25:00</td>
+<td align="left">2017-03-25 17:25:00</td>
+<td align="right">72</td>
+<td align="right">745453</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">metallica</td>
+<td align="left">2017-03-25 21:00:00</td>
+<td align="left">2017-03-25 23:00:00</td>
+<td align="right">80</td>
+<td align="right">3047126</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">doctor pheabes</td>
+<td align="left">2017-03-25 12:05:00</td>
+<td align="left">2017-03-25 13:05:00</td>
+<td align="right">20</td>
+<td align="right">313</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">rancid</td>
+<td align="left">2017-03-25 18:35:00</td>
+<td align="left">2017-03-25 19:35:00</td>
+<td align="right">60</td>
+<td align="right">220182</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Skol</td>
+<td align="left">suricato</td>
+<td align="left">2017-03-25 14:15:00</td>
+<td align="left">2017-03-25 15:15:00</td>
+<td align="right">41</td>
+<td align="right">52326</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the 1975</td>
+<td align="left">2017-03-25 17:30:00</td>
+<td align="left">2017-03-25 18:30:00</td>
+<td align="right">77</td>
+<td align="right">1600845</td>
+</tr>
+<tr class="odd">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the outs</td>
+<td align="left">2017-03-25 13:10:00</td>
+<td align="left">2017-03-25 14:10:00</td>
+<td align="right">28</td>
+<td align="right">3788</td>
+</tr>
+<tr class="even">
+<td align="left">sabado</td>
+<td align="left">Palco Onix</td>
+<td align="left">the xx</td>
+<td align="left">2017-03-25 19:40:00</td>
+<td align="left">2017-03-25 20:55:00</td>
+<td align="right">76</td>
+<td align="right">2383923</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="resultados" class="section level2">
@@ -317,6 +521,7 @@ lolla2017_grafico %&gt;%
   facet_wrap(~dia) +
   labs(x = &quot;Hora do dia&quot;, y = &quot;Popularidade média&quot;) +
   theme(text = element_text(size = 16))</code></pre>
+<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-13-1.png" width="864" /></p>
 <p>O gráfico acima vai de acordo com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o <em>Cage The Elefant</em> estava mal posicionado.</p>
 </div>
 <div id="hipotese-ii" class="section level3">
@@ -330,10 +535,12 @@ lolla2017_grafico %&gt;%
   geom_bar(aes(x = artist, y = popularity, fill = dia), stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
   theme(text = element_text(size = 16),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))</code></pre>
+<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-14-1.png" width="864" /></p>
 <pre class="r"><code>ggplot(lolla2017) +
  geom_density(aes(fill = dia, x = popularity, colour = dia), fill = NA) +
   theme(text = element_text(size = 16),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))</code></pre>
+<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-15-1.png" width="864" /></p>
 <p>Conclusão: nada indica que houve desbalanceamento. Acho que meu círculo de amigos tem algum viés estranho.</p>
 </div>
 <div id="hipotese-iii" class="section level3">
@@ -348,6 +555,7 @@ lolla2017_grafico %&gt;%
   theme(text = element_text(size = 16),
         axis.text.x = element_blank()) +
   labs(x = &quot;&quot;)</code></pre>
+<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-16-1.png" width="864" /></p>
 <p>O palco Skol teve menor variação de popularidade, costumou contar sempre com artistas de média a alta popularidade, mas os palcos AXE e Onix foram visitados por artista de peso. O palco Perry’s foi o mais visitado por artistas de menor expressão.</p>
 </div>
 </div>
