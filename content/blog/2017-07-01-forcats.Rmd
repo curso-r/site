@@ -2,7 +2,7 @@
 title: "Forcats"
 date: "2017-07-01T23:26:00+03:00"
 tags: ["pacotes", "fatores", "forcats"]
-categories: ["tutorial", "r"]
+categories: ["tutoriais", "r"]
 banner: "img/banners/forcats.jpg"
 author: ["William"]
 summary: "Neste post, falaremos sobre o forcats, um pacote recheado de excelentes funções para manipular fatores."
