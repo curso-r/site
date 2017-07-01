@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 28 Jun 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jul 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Forcats</title>
+      <link>http://curso-r.com/blog/2017/07/01/2017-07-01-forcats/</link>
+      <pubDate>Sat, 01 Jul 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/01/2017-07-01-forcats/</guid>
+      <description>Se você ainda não é adepta ou adepto do tidyverse, provavelmente precisa setar stringsAsFactors = FALSE em algum momento ou sempre trabalha com fatores em vez de strings.
+Strings são sequências de caracteres que podem ser acessados pela sua posição. Assim, podemos usar expressões regulares para modificar partes da sequência que correspondam a um determinado padrão. Fatores são inteiros com categorias (ou labels) formadas por strings guardadas apenas uma vez no atributo levels.</description>
+    </item>
     
     <item>
       <title>Quebrando CAPTCHAs - Introdução</title>

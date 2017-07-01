@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
+
+  <title>Forcats</title>
+
+  <meta name="author" content="" />
+  <meta name="keywords" content="">
+
+  
+
+  <meta name="generator" content="Hugo 0.21" />
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6479521664471475",
+      enable_page_level_ads: true
+    });
+  </script>
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="http://curso-r.com/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="http://curso-r.com/css/style.red.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="http://curso-r.com/css/custom.css" rel="stylesheet">
+
+  
+    
+
+  
+  <link rel="shortcut icon" href="http://curso-r.com/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="http://curso-r.com/img/apple-touch-icon.png" />
+  
+
+  <link href="http://curso-r.com/css/owl.carousel.css" rel="stylesheet">
+  <link href="http://curso-r.com/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="http://curso-r.com/index.xml" type="application/rss+xml" title="Curso-R">
+  <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
+  
+  
+  <meta property="og:title" content="Forcats" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/blog/2017/07/01/2017-07-01-forcats//" />
+  <meta property="og:image" content="img/banners/forcats.jpg" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://curso-r.com/">
+                    <img src="http://curso-r.com/img/logo.svg" alt="Forcats logo" width="50" height="50">
+                    <span class="sr-only">Forcats - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/">Home</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/sobre/">Sobre</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/cursos/">Cursos</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/blog/">Blog</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/contact/">Contato</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Forcats</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          
+                            Por 
+                            
+                            
+                              
+                                <a href="http://curso-r.com/author/william">William</a>
+                            
+                            
+                          
+                          
+                          01/07/2017
+                        </p>
+                        
+                        <div id="post-content">
+                          <p>Se você ainda não é adepta ou adepto do <a href="http://tidyverse.org/">tidyverse</a>, provavelmente precisa setar <code>stringsAsFactors = FALSE</code> em algum momento ou sempre trabalha com fatores em vez de <em>strings</em>.</p>
+<p><em>Strings</em> são sequências de caracteres que podem ser acessados pela sua posição. Assim, podemos usar <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">expressões regulares</a> para modificar partes da sequência que correspondam a um determinado padrão. Fatores são inteiros com categorias (ou <em>labels</em>) formadas por <em>strings</em> guardadas apenas uma vez no atributo <code>levels</code>. Por facilitarem a ordenação de valores de texto, eles são importantes para a criação de variáveis <em>dummies</em> e a definição de contrastes em funções de modelagem estatística, como a <code>lm()</code>, e a organização de atributos gráficos, como no pacote <code>ggplot2</code>.</p>
+<p>Há motivos históricos para funções como <code>read.table()</code> e <code>data.frame()</code> fazerem, por default, a coerção de caracteres para fatores. Você pode ler sobre isso nos posts <a href="https://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography/">stringsAsFactors: An unauthorized biography</a>, do Roger Peng, e <a href="http://notstatschat.tumblr.com/post/124987394001/stringsasfactors-sigh">stringsAsFactors = <sigh></a>, do Thomas Lumley. O que mudou é que, de um tempo para cá, nem toda variável não-numérica é, de fato, uma variável categórica. E, quando este é o caso, queremos trabalhá-las como <em>strings</em>.</p>
+<p>Além de não transformar <em>strings</em> em fatores, o <code>tidyverse</code> também dispõe de um pacote só para manipular fatores: o <code>forcats</code> (<em>for</em> <em>cat</em>egorial variable<em>s</em>). Para começar a usá-lo, instale e carregue o pacote.</p>
+<pre class="r"><code>install.packages(&quot;forcats&quot;)</code></pre>
+<pre class="r"><code>library(forcats)
+library(tidyverse)</code></pre>
+<p>O <code>forcats</code> é um pacote bastante simples. Basicamente, ele é composto por funções de apenas dois tipos:</p>
+<ul>
+<li>Funções que começam com <code>fct_</code>, que recebem uma lista de fatores e devolvem um fator.</li>
+<li>Funções que começam com <code>lvl_</code>, que modificam os níveis de um fator.</li>
+</ul>
+<p>Veja a seguir exemplos de como utilizar as principais funções.</p>
+<div id="fct_recode" class="section level2">
+<h2>fct_recode</h2>
+<p>Altera categorias específicas de um fator.</p>
+<pre class="r"><code>fator &lt;- factor(c(&quot;Scorsese&quot;, &quot;DiCaprio&quot;, &quot;Patty Jenkins&quot;, &quot;Gal Gadot&quot;))
+
+# Alterando apenas uma
+fct_recode(fator, direcao = &quot;Scorsese&quot;)
+## [1] direcao       DiCaprio      Patty Jenkins Gal Gadot    
+## Levels: DiCaprio Gal Gadot Patty Jenkins direcao
+
+# Alterando todas
+fct_recode(fator,
+           direcao = &quot;Scorsese&quot;, 
+           direcao = &quot;Patty Jenkins&quot;,    
+           elenco = &quot;DiCaprio&quot;,
+           elenco = &quot;Gal Gadot&quot;)
+## [1] direcao elenco  direcao elenco 
+## Levels: elenco direcao</code></pre>
+</div>
+<div id="fct_collapse" class="section level2">
+<h2>fct_collapse</h2>
+<p>Junta categorias em grupos manualmente definidos.</p>
+<pre class="r"><code># Objeto simulando uma amostra do personagem 
+# de série favorito de 100 pessoas
+nomes &lt;- c(&quot;Sheldon&quot;, &quot;Leonard&quot;, &quot;Penny&quot;, &quot;Howard&quot;, &quot;Rajesh&quot;,
+           &quot;Ted&quot;, &quot;Marshall&quot;, &quot;Robin&quot;, &quot;Lily&quot;, &quot;Barney&quot;,
+           &quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;)
+
+per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
+  as.factor
+
+head(per_fav)           
+## [1] Pam      Ted      Pam      Marshall Andy     Jim     
+## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
+
+# Conta o número de observações em cada categoria
+fct_count(per_fav)        
+## # A tibble: 15 x 2
+##           f     n
+##      &lt;fctr&gt; &lt;int&gt;
+##  1     Andy     7
+##  2   Barney     7
+##  3   Dwight     7
+##  4   Howard    10
+##  5      Jim     7
+##  6  Leonard     1
+##  7     Lily     4
+##  8 Marshall    11
+##  9  Michael     6
+## 10      Pam     4
+## 11    Penny     3
+## 12   Rajesh     9
+## 13    Robin    10
+## 14  Sheldon     5
+## 15      Ted     9
+
+# Junta as categorias
+per_fav2 &lt;- fct_collapse(per_fav,
+             TBBT = c(&quot;Sheldon&quot;, &quot;Leonard&quot;, &quot;Penny&quot;, &quot;Howard&quot;, &quot;Rajesh&quot;),
+             HIMYM = c(&quot;Ted&quot;, &quot;Marshall&quot;, &quot;Robin&quot;, &quot;Lily&quot;, &quot;Barney&quot;),
+             TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
+
+head(per_fav2)
+## [1] TheOffice HIMYM     TheOffice HIMYM     TheOffice TheOffice
+## Levels: TheOffice HIMYM TBBT
+fct_count(per_fav2)
+## # A tibble: 3 x 2
+##           f     n
+##      &lt;fctr&gt; &lt;int&gt;
+## 1 TheOffice    31
+## 2     HIMYM    41
+## 3      TBBT    28</code></pre>
+</div>
+<div id="fct_reorder" class="section level2">
+<h2>fct_reorder</h2>
+<p>Ordena as categorias de um fator segundo uma função. No exemplo abaixo, ordenamos os fatores da variável <code>carb</code> (número de carburadores) segundo a mediana da variável <code>mpg</code> (milhas por galão de combustível).</p>
+<pre class="r"><code>mtcars %&gt;% 
+  ggplot(aes(x = as.factor(carb), y = mpg)) +
+  geom_boxplot()</code></pre>
+<p><img src="http://curso-r.com/blog/2017-07-01-forcats_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>mtcars %&gt;% 
+  mutate(carb = fct_reorder(f = as.factor(carb), 
+                            x = mpg,
+                            fun = median)) %&gt;% 
+  ggplot(aes(x = carb, y = mpg)) +
+  geom_boxplot()</code></pre>
+<p><img src="http://curso-r.com/blog/2017-07-01-forcats_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+</div>
+<div id="fct_lump" class="section level2">
+<h2>fct_lump</h2>
+<p>Agrupa as categorias menos (ou mais) comuns.</p>
+<pre class="r"><code>letras &lt;- factor(letters[rpois(100, 5)])
+fct_count(letras)
+## # A tibble: 10 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     3
+##  2      b    11
+##  3      c    14
+##  4      d    18
+##  5      e    17
+##  6      f    15
+##  7      g    12
+##  8      h     3
+##  9      i     6
+## 10      j     1
+
+# Por default, a categoria &quot;Other&quot; sempre será menor
+# que as outras categorias.
+letras %&gt;%                  
+  fct_lump(other_level = &quot;Outros&quot;) %&gt;%       
+  fct_count
+## # A tibble: 10 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     3
+##  2      b    11
+##  3      c    14
+##  4      d    18
+##  5      e    17
+##  6      f    15
+##  7      g    12
+##  8      h     3
+##  9      i     6
+## 10 Outros     1
+
+# Espeficicando o argumento &quot;n = 4&quot;, preservamos os
+# 4 valores mais comuns
+letras %&gt;% 
+  fct_lump(n = 4, other_level = &quot;Outros&quot;) %&gt;% 
+  fct_count
+## # A tibble: 5 x 2
+##        f     n
+##   &lt;fctr&gt; &lt;int&gt;
+## 1      c    14
+## 2      d    18
+## 3      e    17
+## 4      f    15
+## 5 Outros    36
+
+# Espeficicando o argumento &quot;n = -4&quot;, preservamos
+# apenas os 4 valores que menos aparecem
+letras %&gt;% 
+  fct_lump(n = -4, other_level = &quot;Principais&quot;) %&gt;% 
+  fct_count
+## # A tibble: 5 x 2
+##            f     n
+##       &lt;fctr&gt; &lt;int&gt;
+## 1          a     3
+## 2          h     3
+## 3          i     6
+## 4          j     1
+## 5 Principais    87</code></pre>
+</div>
+<div id="lvls_reorder" class="section level2">
+<h2>lvls_reorder</h2>
+<p>Troca a ordem das categorias de um fator.</p>
+<pre class="r"><code>fator &lt;- factor(c(&quot;casado&quot;, &quot;viuvo&quot;, &quot;solteiro&quot;, &quot;divorciado&quot;))
+fator
+## [1] casado     viuvo      solteiro   divorciado
+## Levels: casado divorciado solteiro viuvo
+
+lvls_reorder(fator, c(3, 1, 2, 4))
+## [1] casado     viuvo      solteiro   divorciado
+## Levels: solteiro casado divorciado viuvo</code></pre>
+<p>O pacote <code>forcats</code> ainda tem outras funções úteis para tratar com fatores, como <code>fct_expand()</code>, <code>fct_explicit_na()</code>, <code>fct_infreq()</code>, <code>fct_reorder2()</code>, <code>lvls_revalue()</code>, entre outras. No RStudio, é sempre útil navegar entre as funções de um pacote digitando, por exemplo, <code>forcats::</code> e pressionando TAB.</p>
+<p>Dúvidas, críticas ou sugestões, deixe um comentário ou nos envie uma mensagem. :)</p>
+</div>
+
+                        </div>
+                        
+                         <div class="addthis_inline_share_toolbox"></div>
+                        
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'curso-r-com';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/07\/01\/2017-07-01-forcats\/';
+    var disqus_title = 'Forcats';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/07\/01\/2017-07-01-forcats\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Busca</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" results="0" class="form-control" placeholder="Busca">
+                <input type="hidden" name="q" value="site:http://curso-r.com/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Categorias</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="http://curso-r.com/categories/an%c3%a1lises">análises (9)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/conceitos">conceitos (6)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/r">r (39)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/top-10">top-10 (2)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (15)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/tutorial">tutorial (1)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="http://curso-r.com/tags/api"><i class="fa fa-tags"></i> api</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/autoencoders"><i class="fa fa-tags"></i> autoencoders</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/br-bloggers"><i class="fa fa-tags"></i> br-bloggers</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/captcha"><i class="fa fa-tags"></i> captcha</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/cinema"><i class="fa fa-tags"></i> cinema</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/cluster"><i class="fa fa-tags"></i> cluster</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/coding"><i class="fa fa-tags"></i> coding</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/componentes-principais"><i class="fa fa-tags"></i> componentes-principais</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/curso-r"><i class="fa fa-tags"></i> curso-r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/deep-learning"><i class="fa fa-tags"></i> deep-learning</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/dplyr"><i class="fa fa-tags"></i> dplyr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/emo%c3%a7%c3%b5es"><i class="fa fa-tags"></i> emoções</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/environments"><i class="fa fa-tags"></i> environments</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/fatores"><i class="fa fa-tags"></i> fatores</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/forcats"><i class="fa fa-tags"></i> forcats</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/glue"><i class="fa fa-tags"></i> glue</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/googlemaps"><i class="fa fa-tags"></i> googlemaps</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/gr%c3%a1ficos"><i class="fa fa-tags"></i> gráficos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/imagens"><i class="fa fa-tags"></i> imagens</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/keras"><i class="fa fa-tags"></i> keras</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/kmeans"><i class="fa fa-tags"></i> kmeans</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/knitr"><i class="fa fa-tags"></i> knitr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/leaflet"><i class="fa fa-tags"></i> leaflet</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/lolapalooza"><i class="fa fa-tags"></i> lolapalooza</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/magick"><i class="fa fa-tags"></i> magick</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/modelagem"><i class="fa fa-tags"></i> modelagem</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ocr"><i class="fa fa-tags"></i> ocr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pacotes"><i class="fa fa-tags"></i> pacotes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/paraleliza%c3%a7%c3%a3o"><i class="fa fa-tags"></i> paralelização</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pca"><i class="fa fa-tags"></i> pca</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pdf"><i class="fa fa-tags"></i> pdf</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/plotly"><i class="fa fa-tags"></i> plotly</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/porta-dos-fundos"><i class="fa fa-tags"></i> porta-dos-fundos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/progress"><i class="fa fa-tags"></i> progress</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/purrr"><i class="fa fa-tags"></i> purrr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r-markdown"><i class="fa fa-tags"></i> r-markdown</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regress%c3%a3o"><i class="fa fa-tags"></i> regressão</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rstudio"><i class="fa fa-tags"></i> rstudio</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/skimr"><i class="fa fa-tags"></i> skimr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/spotify"><i class="fa fa-tags"></i> spotify</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/sptrans"><i class="fa fa-tags"></i> sptrans</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ssl"><i class="fa fa-tags"></i> ssl</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/strings"><i class="fa fa-tags"></i> strings</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/survival"><i class="fa fa-tags"></i> survival</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tensorflow"><i class="fa fa-tags"></i> tensorflow</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tidyverse"><i class="fa fa-tags"></i> tidyverse</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/venneuler"><i class="fa fa-tags"></i> venneuler</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/vers%c3%a3o"><i class="fa fa-tags"></i> versão</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/web-scraping"><i class="fa fa-tags"></i> web-scraping</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/youtube"><i class="fa fa-tags"></i> youtube</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Nossos Cursos</h3>
+    </div>
+
+    <div class="blog-entries">
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="http://curso-r.com/js/prism.js"></script> 
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>Sobre nós</h4>
+
+            <p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+              
+            <h4>Posts Recentes</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/01/2017-07-01-forcats/">
+                          
+                            <img src="http://curso-r.com/img/banners/forcats.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/01/2017-07-01-forcats/">Forcats</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/06/28/2017-06-29-captcha-intro/">
+                          
+                            <img src="http://curso-r.com/img/banners/captcha_01.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/06/28/2017-06-29-captcha-intro/">Quebrando CAPTCHAs - Introdução</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/06/26/2017-06-26-construindo-autoencoders/">
+                          
+                            <img src="http://curso-r.com/img/banners/autoencoder_schema.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/06/26/2017-06-26-construindo-autoencoders/">Construindo Autoencoders</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            <h4>Contato</h4>
+
+            <a href="http://curso-r.com/contact" class="btn btn-small btn-template-main">Vá para a página de contato</a>
+            <hr>
+            
+            <div>
+              
+              <a href="https://github.com/curso-r">
+                <i class="fa fa-github" style="font-size:50px;"></i>
+              </a>
+              <a href="https://twitter.com/curso_r/">
+                <i class="fa fa-twitter" style="font-size:50px;"></i>
+              </a>
+      
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87272102-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ab4e79943a7e3c"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { preferredFont: "STIX" }
+  });
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<script src="http://curso-r.com/js/hpneo.gmaps.js"></script>
+<script src="http://curso-r.com/js/gmaps.init.js"></script>
+<script src="http://curso-r.com/js/front.js"></script>
+
+<script src="http://curso-r.com/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>
