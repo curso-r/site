@@ -227,7 +227,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Marshall Michael  Andy     Jim      Pam      Marshall
+## [1] Rajesh  Jim     Sheldon Dwight  Pam     Sheldon
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -235,21 +235,21 @@ fct_count(per_fav)
 ## # A tibble: 15 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-##  1     Andy     6
-##  2   Barney     5
-##  3   Dwight     6
-##  4   Howard     9
-##  5      Jim     9
-##  6  Leonard    11
-##  7     Lily     7
-##  8 Marshall     6
-##  9  Michael     9
-## 10      Pam     6
-## 11    Penny     8
-## 12   Rajesh     3
-## 13    Robin     5
-## 14  Sheldon     2
-## 15      Ted     8
+##  1     Andy     5
+##  2   Barney    10
+##  3   Dwight     9
+##  4   Howard     3
+##  5      Jim     5
+##  6  Leonard     4
+##  7     Lily    10
+##  8 Marshall     3
+##  9  Michael     7
+## 10      Pam     5
+## 11    Penny     9
+## 12   Rajesh     7
+## 13    Robin     7
+## 14  Sheldon    11
+## 15      Ted     5
 
 # Junta as categorias
 per_fav2 &lt;- fct_collapse(per_fav,
@@ -258,15 +258,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] HIMYM     TheOffice TheOffice TheOffice TheOffice HIMYM    
+## [1] TBBT      TheOffice TBBT      TheOffice TheOffice TBBT     
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    36
-## 2     HIMYM    31
-## 3      TBBT    33</code></pre>
+## 1 TheOffice    31
+## 2     HIMYM    35
+## 3      TBBT    34</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -288,18 +288,17 @@ fct_count(per_fav2)
 <p>Agrupa as categorias menos (ou mais) comuns.</p>
 <pre class="r"><code>letras &lt;- factor(letters[rpois(100, 5)])
 fct_count(letras)
-## # A tibble: 9 x 2
+## # A tibble: 8 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      b     6
-## 2      c    18
-## 3      d    11
-## 4      e    26
-## 5      f    16
-## 6      g     8
-## 7      h    11
-## 8      i     2
-## 9      j     1
+## 1      b     5
+## 2      c    16
+## 3      d    16
+## 4      e    21
+## 5      f    15
+## 6      g    11
+## 7      h    10
+## 8      i     6
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
 # que as outras categorias.
@@ -309,29 +308,28 @@ letras %&gt;%
 ## # A tibble: 8 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      b     6
-## 2      c    18
-## 3      d    11
-## 4      e    26
-## 5      f    16
-## 6      g     8
-## 7      h    11
-## 8 Outros     3
+## 1      c    16
+## 2      d    16
+## 3      e    21
+## 4      f    15
+## 5      g    11
+## 6      h    10
+## 7      i     6
+## 8 Outros     5
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
 letras %&gt;% 
   fct_lump(n = 4, other_level = &quot;Outros&quot;) %&gt;% 
   fct_count
-## # A tibble: 6 x 2
+## # A tibble: 5 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      c    18
-## 2      d    11
-## 3      e    26
-## 4      f    16
-## 5      h    11
-## 6 Outros    17
+## 1      c    16
+## 2      d    16
+## 3      e    21
+## 4      f    15
+## 5 Outros    32
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
@@ -341,11 +339,11 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
-## 1          b     6
-## 2          g     8
-## 3          i     2
-## 4          j     1
-## 5 Principais    82</code></pre>
+## 1          b     5
+## 2          g    11
+## 3          h    10
+## 4          i     6
+## 5 Principais    68</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
 <h2>lvls_reorder</h2>
@@ -667,14 +665,14 @@ lvls_reorder(fator, c(3, 1, 2, 4))
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
