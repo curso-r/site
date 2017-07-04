@@ -7,6 +7,10 @@ author: ["Athos"]
 banner: "img/banners/lolla-spotify_s.png"
 ---
 
+```{r}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
 No dia em que fui ao Lollapalooza eu descobri o [Rspotify](https://github.com/tiagomendesdantas/Rspotify), um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.
 
 A brincadeira aqui vai envolver
@@ -22,7 +26,7 @@ Lollapalooza deste ano em São Paulo contou com 47 bandas distribuídas em quatr
 ### Pré-requisitos
 
 **Pacotes** 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=TRUE}
 load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/lolla2017.RData")
 load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/lolla2017_playlist.RData")
 load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/artistas_fora_da_playlist.RData")
@@ -36,7 +40,7 @@ if(!require("Rspotify"))
 
 ```
 
-```{r, warning=FALSE, message=FALSE, error=FALSE}
+```{r, warning=FALSE, message=FALSE, error=FALSE, eval=TRUE}
 library(Rspotify)
 library(magrittr)
 library(forcats)
@@ -96,7 +100,7 @@ lolla2017_programacao <- "https://www.lollapaloozabr.com/lineup-horarios/" %>%
 
 **Resultado**
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=TRUE}
 library(knitr)
 lolla2017_programacao %>% head(8) %>% kable()
 ```
@@ -150,7 +154,7 @@ artistas_fora_da_playlist <- lolla2017_programacao %>%
 
 **Resultado**
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=TRUE}
 library(knitr)
 artistas_fora_da_playlist %>% head(8) %>% kable
 ```
@@ -169,7 +173,7 @@ lolla2017 <- left_join(lolla2017_programacao,
 
 **Base final**
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=TRUE}
 library(knitr)
 lolla2017 %>% head(8) %>% kable()
 ```
@@ -183,7 +187,7 @@ Um dos vários desafios logísticos que o evento tem é a alocação das bandas 
 
 Eu fui no evento no sábado e ouvi falar que a banda *Cage The Elephant* tinha sido uma das primeiras bandas a se apresentar. Sabia da popularidade da banda (segundo o Spotify, está mais popular do que *The Strokes*) e na hora estranhei a decisão do evento de colocá-los para tocar tão cedo.
 
-```{r, fig.width=9, fig.height=4}
+```{r, fig.width=9, fig.height=4, eval=TRUE}
 lolla2017_grafico <- lolla2017 %>%
   mutate(hora = map2(hora_ini, hora_fim, ~ seq(.x, .y, 30*60) %>% floor_date("30 minutes"))) %>%
   unnest(hora) %>%
@@ -212,7 +216,7 @@ O gráfico acima vai de acordo com o senso comum de que os populares ficam para 
 Em conversas com amigos e conhecidos reparei que a maioria ou iria no domingo ou preferiria ir no domingo caso tivesse oportunidade. Isso me fez levantar a dúvida se realmente havia maior concentração de bandas boas no domingo.
 
 
-```{r, fig.width=9}
+```{r, fig.width=9, eval=TRUE}
 ggplot(lolla2017 %>%
          mutate(artist = artist %>% fct_reorder(popularity, .desc = TRUE))) +
   geom_bar(aes(x = artist, y = popularity, fill = dia), stat = "identity", position = "dodge") +
@@ -221,7 +225,7 @@ ggplot(lolla2017 %>%
 ```
 
 
-```{r, fig.width=9}
+```{r, fig.width=9, eval=TRUE}
 ggplot(lolla2017) +
  geom_density(aes(fill = dia, x = popularity, colour = dia), fill = NA) +
   theme(text = element_text(size = 16),
@@ -235,7 +239,7 @@ Conclusão: nada indica que houve desbalanceamento. Acho que meu círculo de ami
 
 Quando me questionei da hipótese I também pensei na dificuldade de posicionar as bandas nos diferentes palcos. Já que teriam milhares de pessoas disputando espaço, seria do interesse da organização deixá-los o mais espalhado possível por vários motivos: melhor fluxo das filas, maior conforto, menos risco de acidentes, entre outros, e um bom jeito de fazer isso seria deixando os palcos igualmente atrativos para não haver uma grande aglomeração em um único ponto.
 
-```{r, fig.width=9}
+```{r, fig.width=9, eval=TRUE}
 ggplot(lolla2017 %>%
          mutate(palco = palco %>% as.factor %>% fct_reorder(popularity, mean))) +
   geom_boxplot(aes(fill = palco, y = popularity, x = 1)) +
