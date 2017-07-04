@@ -33,6 +33,17 @@ Uma coisa muito legal dessa conferência é que ela funcionou como uma hackathon
     </item>
     
     <item>
+      <title>Empilhando CSVs desorganizados</title>
+      <link>http://curso-r.com/blog/2017/06/08/2017-06-24-guess-delim/</link>
+      <pubDate>Thu, 08 Jun 2017 21:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/06/08/2017-06-24-guess-delim/</guid>
+      <description>Mesmo em plena era da informação, ainda chegam a nós as famigeradas pastas com arquivos extraídos, tipicamente de rotinas manuais e de frequencia mensal.
+Se você já se deparou com uma situação dessas deve se lembrar das dores de cabeça envolvendo:
+ Presença/ausência de cabeçalho (header) Encoding UTF-8, latin1, ISO-8859-1, etc. Delimitadores de campo  </description>
+    </item>
+    
+    <item>
       <title>Instalando Anaconda &#43; TensorFlow &#43; Keras para R no Ubuntu 16.04 Server</title>
       <link>http://curso-r.com/blog/2017/06/08/2017-06-08-keras-no-ubuntu/</link>
       <pubDate>Thu, 08 Jun 2017 21:12:00 +0300</pubDate>

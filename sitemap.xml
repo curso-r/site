@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/blog/2017/06/08/2017-06-24-guess-delim/</loc>
+    <lastmod>2017-06-08T21:12:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/06/08/2017-06-08-keras-no-ubuntu/</loc>
     <lastmod>2017-06-08T21:12:00+03:00</lastmod>
   </url>
@@ -291,6 +296,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/csv/</loc>
+    <lastmod>2017-06-08T21:12:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/curso-r/</loc>
     <lastmod>2017-06-19T13:07:31+02:00</lastmod>
     <priority>0</priority>
@@ -513,14 +524,14 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-07-01T23:26:00+03:00</lastmod>
+    <loc>http://curso-r.com/tags/r/</loc>
+    <lastmod>2017-06-28T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-06-28T13:07:31+02:00</lastmod>
+    <loc>http://curso-r.com/categories/r/</loc>
+    <lastmod>2017-07-01T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -613,6 +624,12 @@
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
     <lastmod>2017-07-01T23:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/txt/</loc>
+    <lastmod>2017-06-08T21:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
