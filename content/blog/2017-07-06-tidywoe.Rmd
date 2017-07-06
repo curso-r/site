@@ -5,7 +5,6 @@ tags: ["woe"]
 categories: ["tutoriais", "r"]
 banner: "img/banners/tidywoe_hex2.png"
 author: ["Athos"]
-draft: true
 summary: "WoE (weight of evidence) é uma ferramenta bastante usada quando em aplicações de regressão logística, principalmente na área de score de crédito. O pacote tidywoe oferece uma interface simples para facilitar essa tarefa."
 ---
 
