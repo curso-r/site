@@ -129,4 +129,6 @@ tea_mini_woe_dic_arrumado %>%
 ```
 
 
-Pretendo colocar bastante coisa nova no pacote ainda, mas já está funcionando e me ajudando no trabalho. Aqui está o [github do pacote](https://github.com/Athospd/tidywoe), contribuições são bem vindas!
+Aqui está o [github do pacote](https://github.com/Athospd/tidywoe) para contribuições. Pretendo colocar bastante coisa nova no pacote ainda.
+
+Abs
