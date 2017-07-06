@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 01 Jul 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jul 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WoE em R com tidywoe</title>
+      <link>http://curso-r.com/blog/2017/07/06/2017-07-06-tidywoe/</link>
+      <pubDate>Thu, 06 Jul 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/06/2017-07-06-tidywoe/</guid>
+      <description>WoE (weight of evidence) é uma ferramenta bastante usada quando em aplicações de regressão logística, principalmente na área de score de crédito. Simploriamente falando, ele transforma categorias em números que refletem a diferença entre elas pelo critério de separação do Y = 1 e Y = 0.
+Se você ainda não sabe o que é ou quer ler mais sobre o assunto, um texto que eu gostei de ler:
+ Data Exploration with Weight of Evidence and Information Value in R  O autor desse texto é o Kim Larsen, criador do pacote Information que é completo e cheio de ferramentas sofisticadas em torno do WoE.</description>
+    </item>
     
     <item>
       <title>Forcats</title>
