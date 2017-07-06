@@ -21,7 +21,8 @@ Remotes:
     hadley/colformat,
     ropenscilabs/skimr,
     decryptr/decryptr,
-    hadley/emo
+    hadley/emo,
+    athospd/tidywoe
 Imports:
     stringr,
     purrr,
@@ -75,5 +76,6 @@ Imports:
     decryptr,
     randomForest,
     emo,
-    ggforce
+    ggforce,
+    FactoMineR
 RoxygenNote: 6.0.1
