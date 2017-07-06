@@ -18,7 +18,7 @@
       <pubDate>Thu, 06 Jul 2017 10:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/07/06/2017-07-06-tidywoe/</guid>
-      <description>WoE (weight of evidence) é uma ferramenta bastante usada quando em aplicações de regressão logística, principalmente na área de score de crédito. Simploriamente falando, ele transforma categorias em números que refletem a diferença entre elas pelo critério de separação do Y = 1 e Y = 0.
+      <description>WoE (weight of evidence) é uma ferramenta bastante usada em aplicações de regressão logística, principalmente na área de score de crédito. Simploriamente falando, ele transforma categorias em números que refletem a diferença entre elas pelo critério de separação do Y = 1 e Y = 0.
 Se você ainda não sabe o que é ou quer ler mais sobre o assunto, um texto que eu gostei de ler:
  Data Exploration with Weight of Evidence and Information Value in R  O autor desse texto é o Kim Larsen, criador do pacote Information que é completo e cheio de ferramentas sofisticadas em torno do WoE.</description>
     </item>
