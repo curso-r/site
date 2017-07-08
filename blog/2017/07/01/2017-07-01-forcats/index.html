@@ -229,7 +229,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Robin  Robin  Andy   Jim    Ted    Barney
+## [1] Howard  Andy    Sheldon Leonard Dwight  Robin  
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -237,21 +237,21 @@ fct_count(per_fav)
 ## # A tibble: 15 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-##  1     Andy     8
-##  2   Barney    10
+##  1     Andy     7
+##  2   Barney     6
 ##  3   Dwight     7
-##  4   Howard     4
-##  5      Jim     4
-##  6  Leonard    11
-##  7     Lily     3
-##  8 Marshall     5
-##  9  Michael     5
-## 10      Pam    15
-## 11    Penny     3
-## 12   Rajesh     1
-## 13    Robin     7
+##  4   Howard    11
+##  5      Jim     2
+##  6  Leonard     6
+##  7     Lily     9
+##  8 Marshall     3
+##  9  Michael     9
+## 10      Pam     5
+## 11    Penny     7
+## 12   Rajesh     8
+## 13    Robin     8
 ## 14  Sheldon     9
-## 15      Ted     8
+## 15      Ted     3
 
 # Junta as categorias
 per_fav2 &lt;- fct_collapse(per_fav,
@@ -260,15 +260,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] HIMYM     HIMYM     TheOffice TheOffice HIMYM     HIMYM    
+## [1] TBBT      TheOffice TBBT      TBBT      TheOffice HIMYM    
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    39
-## 2     HIMYM    33
-## 3      TBBT    28</code></pre>
+## 1 TheOffice    30
+## 2     HIMYM    29
+## 3      TBBT    41</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -290,50 +290,52 @@ fct_count(per_fav2)
 <p>Agrupa as categorias menos (ou mais) comuns.</p>
 <pre class="r"><code>letras &lt;- factor(letters[rpois(100, 5)])
 fct_count(letras)
-## # A tibble: 9 x 2
-##        f     n
-##   &lt;fctr&gt; &lt;int&gt;
-## 1      a     2
-## 2      b    12
-## 3      c    12
-## 4      d    20
-## 5      e    18
-## 6      f    16
-## 7      g     9
-## 8      h    10
-## 9      k     1
+## # A tibble: 10 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     6
+##  2      b     8
+##  3      c     8
+##  4      d    19
+##  5      e    19
+##  6      f    11
+##  7      g    16
+##  8      h     7
+##  9      i     4
+## 10      j     2
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
 # que as outras categorias.
 letras %&gt;%                  
   fct_lump(other_level = &quot;Outros&quot;) %&gt;%       
   fct_count
-## # A tibble: 8 x 2
-##        f     n
-##   &lt;fctr&gt; &lt;int&gt;
-## 1      b    12
-## 2      c    12
-## 3      d    20
-## 4      e    18
-## 5      f    16
-## 6      g     9
-## 7      h    10
-## 8 Outros     3
+## # A tibble: 10 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     6
+##  2      b     8
+##  3      c     8
+##  4      d    19
+##  5      e    19
+##  6      f    11
+##  7      g    16
+##  8      h     7
+##  9      i     4
+## 10 Outros     2
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
 letras %&gt;% 
   fct_lump(n = 4, other_level = &quot;Outros&quot;) %&gt;% 
   fct_count
-## # A tibble: 6 x 2
+## # A tibble: 5 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      b    12
-## 2      c    12
-## 3      d    20
-## 4      e    18
-## 5      f    16
-## 6 Outros    22
+## 1      d    19
+## 2      e    19
+## 3      f    11
+## 4      g    16
+## 5 Outros    35
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
@@ -343,11 +345,11 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
-## 1          a     2
-## 2          g     9
-## 3          h    10
-## 4          k     1
-## 5 Principais    78</code></pre>
+## 1          a     6
+## 2          h     7
+## 3          i     4
+## 4          j     2
+## 5 Principais    81</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
 <h2>lvls_reorder</h2>
@@ -445,13 +447,13 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (40)</a>
+            <li><a href="http://curso-r.com/categories/r">r (41)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (2)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (17)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (18)</a>
             </li>
             
         </ul>
@@ -659,6 +661,19 @@ lvls_reorder(fator, c(3, 1, 2, 4))
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
@@ -667,19 +682,6 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -743,6 +745,19 @@ lvls_reorder(fator, c(3, 1, 2, 4))
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/08/2017-07-09-greta/">
+                          
+                            <img src="http://curso-r.com/img/banners/banner-greta.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/08/2017-07-09-greta/">Greta</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/07/06/2017-07-06-tidywoe/">
                           
                             <img src="http://curso-r.com/img/banners/tidywoe_hex2.png" class="img-responsive" alt="">
@@ -764,19 +779,6 @@ lvls_reorder(fator, c(3, 1, 2, 4))
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/01/2017-07-01-forcats/">Forcats</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/06/28/2017-06-29-captcha-intro/">
-                          
-                            <img src="http://curso-r.com/img/banners/captcha_01.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/06/28/2017-06-29-captcha-intro/">Quebrando CAPTCHAs - Introdução</a></h5>
                     </div>
                 </div>
                 

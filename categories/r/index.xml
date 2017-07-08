@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 06 Jul 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 08 Jul 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Greta</title>
+      <link>http://curso-r.com/blog/2017/07/08/2017-07-09-greta/</link>
+      <pubDate>Sat, 08 Jul 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/08/2017-07-09-greta/</guid>
+      <description>Estou bem longe de ter experiência em modelagem bayesiana usando linguagens de programação probabilística como Stan ou BUGS, mas vi esse pacote chamado greta que me chamou a atenção.
+O greta é um pacote feito totalmente em R, mas que usa o TensorFlow como backend para fazer os seus cálculos. Isso tudo por intermédio do reticulate. A vantagem de usar o TensorFlow como backend é a escalabilidade: o greta pode ser rápido até mesmo em bases de dados grandes e também pode ser acelerada usando clusters de CPU’s ou GPU’s.</description>
+    </item>
     
     <item>
       <title>WoE em R com tidywoe</title>
