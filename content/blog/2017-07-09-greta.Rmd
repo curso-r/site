@@ -65,27 +65,21 @@ Você pode fazer um gráfico para visualizar as estimativas dos parâmetros usan
 bayesplot::mcmc_trace(draws, facet_args = list(ncol = 1))
 ```
 
-![](img/greta/Rplot.png)
+![](/img/greta/Rplot.png)
 
 Podemos obter as estimativas pontuais dos parâmetros pegando, por exemplo, a mediana
 dessa amostra do MCMC.
 
 ```{r, eval = FALSE}
 apply(draws[[1]], 2, median)
-```
-
-```{r, eval = FALSE}
 ##         a         b        sd 
 ## 4.2805710 0.4219092 0.3697692
 ```
-
 
 Esse resultado é muito similar ao que pode ser obtido por uma regressão linear simples:
 
 ```{r, eval = FALSE}
 lm(y ~ x)
-```
-```{r, eval = FALSE}
 ## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -94,7 +88,6 @@ lm(y ~ x)
 ## (Intercept)            x  
 ##      4.3066       0.4089
 ```
-
 
 # Modelo linear heterocedástico
 
@@ -149,13 +142,9 @@ Agora as estimativas pontuais:
 
 ```{r, eval = FALSE}
 apply(draws[[1]], 2, median)
-```
-
-```{r, eval = FALSE}
 ##    alpha     beta 
 ## 4.077689 1.002791
 ```
-
 
 Como esperado, chegamos em estimativas bem próximas do que foi simulado.
 
