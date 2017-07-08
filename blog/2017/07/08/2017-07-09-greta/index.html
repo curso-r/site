@@ -212,16 +212,16 @@ draws &lt;- mcmc(m, n_samples = 1000)</code></pre>
 <p>Você pode fazer um gráfico para visualizar as estimativas dos parâmetros usando o <code>bayesplot</code>:</p>
 <pre class="r"><code>bayesplot::mcmc_trace(draws, facet_args = list(ncol = 1))</code></pre>
 <div class="figure">
-<img src="img/greta/Rplot.png" alt="" />
+<img src="http://curso-r.com/img/greta/Rplot.png" alt="" />
 
 </div>
 <p>Podemos obter as estimativas pontuais dos parâmetros pegando, por exemplo, a mediana dessa amostra do MCMC.</p>
-<pre class="r"><code>apply(draws[[1]], 2, median)</code></pre>
-<pre class="r"><code>##         a         b        sd 
+<pre class="r"><code>apply(draws[[1]], 2, median)
+##         a         b        sd 
 ## 4.2805710 0.4219092 0.3697692</code></pre>
 <p>Esse resultado é muito similar ao que pode ser obtido por uma regressão linear simples:</p>
-<pre class="r"><code>lm(y ~ x)</code></pre>
-<pre class="r"><code>## 
+<pre class="r"><code>lm(y ~ x)
+## 
 ## Call:
 ## lm(formula = y ~ x)
 ## 
@@ -244,7 +244,7 @@ Y &lt;- rnorm(N,X,4*sqrt(X))
 qplot(X,Y) + 
   theme_bw(15) + 
   geom_point(color = &#39;darkorange&#39;)  </code></pre>
-<p><img src="http://curso-r.com/blog/2017-07-09-greta_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-07-09-greta_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="r"><code>X2 &lt;- sqrt(X)
 dataset &lt;- data.frame(Y,X,X2)</code></pre>
 <p>Agora o código em <code>greta</code> para ajustar esse modelo:</p>
@@ -268,8 +268,8 @@ m &lt;- model(alpha, beta)
 # ajustar
 draws &lt;- mcmc(m, n_samples = 1000)</code></pre>
 <p>Agora as estimativas pontuais:</p>
-<pre class="r"><code>apply(draws[[1]], 2, median)</code></pre>
-<pre class="r"><code>##    alpha     beta 
+<pre class="r"><code>apply(draws[[1]], 2, median)
+##    alpha     beta 
 ## 4.077689 1.002791</code></pre>
 <p>Como esperado, chegamos em estimativas bem próximas do que foi simulado.</p>
 <p>Por hoje é isso!! Abraços!</p>
@@ -583,14 +583,14 @@ draws &lt;- mcmc(m, n_samples = 1000)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
