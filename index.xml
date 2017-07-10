@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 08 Jul 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jul 2017 13:07:31 +0200</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quebrando CAPTCHAs - Parte II: O pacote decryptr</title>
+      <link>http://curso-r.com/blog/2017/07/10/2017-06-29-captcha-decryptr/</link>
+      <pubDate>Mon, 10 Jul 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/10/2017-06-29-captcha-decryptr/</guid>
+      <description>No meu último post anunciei que começaríamos uma série sobre CAPTCHAs. Uma da nossas iniciativas principais nesse tema é a criação do pacote decryptr. Hoje veremos como usar algumas das funções principais desse pacote.
+Suposições do decryptr Ao criar o decryptr reduzimos um pouco o escopo de CAPTCHAs que gostaríamos de incluir. Fizemos isso para não ficarmos malucos, pois existem diversos tipos de testes disponíveis na web!</description>
+    </item>
     
     <item>
       <title>Greta</title>

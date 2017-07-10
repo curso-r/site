@@ -1,11 +1,11 @@
 ---
 title: "Quebrando CAPTCHAs - Parte II: O pacote decryptr"
-date: "2017-06-05T13:07:31+02:00"
+date: "2017-07-10T13:07:31+02:00"
 tags: ["r", "captcha"]
 categories: ["r"]
-banner: "img/banners/keras.jpg"
+banner: "img/banners/captcha_02.png"
 author: ["Julio"]
-draft: true
+draft: false
 summary: "No último post sobre CAPTCHAs anunciei uma série de posts sobre CAPTCHAs. Uma da nossas iniciativas principais nesse tema é a criação do pacote decryptr, um framework completo para modelagem de CAPTCHAs. Hoje veremos como..."
 ---
 
@@ -130,7 +130,7 @@ Algumas opções do `classify()`:
 
 - Baixar com `download()` ou `download_*()`.
 - Visualizar com `read_captcha()` pipe `plot()`.
-- Classificar com `read_captcha` pipe `classify()`.
+- Classificar com `read_captcha()` pipe `classify()`.
 
 Caso encontre problemas, [adicione issues no repositório do pacote](https://github.com/decryptr/decryptr/issues).
 
