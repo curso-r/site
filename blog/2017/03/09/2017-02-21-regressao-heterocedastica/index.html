@@ -200,7 +200,7 @@ Y &lt;- rnorm(N,X,4*sqrt(X))
 qplot(X,Y) + 
   theme_bw(15) + 
   geom_point(color = &#39;darkorange&#39;)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <pre class="r"><code>X2 &lt;- sqrt(X)
 dataset &lt;- data.frame(Y,X,X2)</code></pre>
 <div id="usando-o-pacote-gamlss" class="section level3">
@@ -321,7 +321,7 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
              control = list(adapt_delta = 0.99))</code></pre>
 <p>A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâmetro do modelo. O ponto central de cada intervalo representa as estimativas pontuais dos parâmetros. Como se nota, as estimativas do modelo utilizando <code>stan</code> estão bem próximas dos valores verdadeiros.</p>
 <pre class="r"><code>plot(fit_stan)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="2017-02-21-regressao-heterocedastica_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 </div>
 <div class="footnotes">
 <hr />
@@ -625,6 +625,19 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -633,19 +646,6 @@ fit_stan &lt;- rstan::stan(model_code = scode, verbose = FALSE, data = dados,
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         

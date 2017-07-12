@@ -188,7 +188,7 @@
 <p>As coisas estão dispostas de tal forma que, a partir de uma tabela que relaciona uma variavel e os estados brasileiros, construir um gráfico similar ao mapa abaixo pode ser feito chamando apenas uma função<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 <pre class="r"><code>dataset %&gt;% 
   constroi_mapa_tematico()</code></pre>
-<p><img src="http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Neste post, vamos construir a função <code>constroi_mapa_tematico</code> e aprender a implementar alguns <code>tweaks</code>.</p>
 <div id="a-funcao" class="section level2">
 <h2>A função</h2>
@@ -239,7 +239,7 @@ FALSE 10    PR 148.47011</code></pre>
   constroi_mapa_tematico() +
   ggtitle(&quot;Roubos de carros no Brasil em 2014&quot;) +
   scale_fill_continuous(name = &quot;Taxa/100 mil hab.&quot;)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Alterar as cores da escala</li>
 </ol>
@@ -248,7 +248,7 @@ FALSE 10    PR 148.47011</code></pre>
   ggtitle(&quot;Roubos de carros no Brasil em 2014&quot;) +
   scale_fill_continuous(name = &quot;Taxa/100 mil hab.&quot;, low = &#39;white&#39;, high = &#39;red&#39;,
                         na.value = &#39;white&#39;)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Alterar valores</li>
 </ol>
@@ -257,7 +257,7 @@ FALSE 10    PR 148.47011</code></pre>
   ggtitle(&quot;Roubos de carros no Brasil em 2014&quot;) +
   scale_fill_continuous(name = &quot;Taxa/100 mil hab.&quot;, low = &#39;green&#39;, high = &#39;red&#39;,
                         na.value = &#39;white&#39;, breaks = seq(0,300,50))</code></pre>
-<p><img src="http://curso-r.com/blog/2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="2017-05-04-mapas-tematicos-3-minutos_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 <div class="footnotes">
 <hr />
@@ -561,14 +561,14 @@ FALSE 10    PR 148.47011</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          

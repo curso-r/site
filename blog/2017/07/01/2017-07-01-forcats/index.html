@@ -229,7 +229,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Ted     Jim     Sheldon Barney  Jim     Pam    
+## [1] Penny   Rajesh  Lily    Leonard Barney  Howard 
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -237,21 +237,21 @@ fct_count(per_fav)
 ## # A tibble: 15 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-##  1     Andy    11
-##  2   Barney     4
-##  3   Dwight     7
-##  4   Howard     4
-##  5      Jim     4
-##  6  Leonard     5
-##  7     Lily     9
-##  8 Marshall     7
-##  9  Michael     7
-## 10      Pam     5
-## 11    Penny    10
-## 12   Rajesh     5
-## 13    Robin     7
-## 14  Sheldon     6
-## 15      Ted     9
+##  1     Andy     7
+##  2   Barney     9
+##  3   Dwight     5
+##  4   Howard     7
+##  5      Jim     6
+##  6  Leonard     7
+##  7     Lily     7
+##  8 Marshall     5
+##  9  Michael     9
+## 10      Pam     2
+## 11    Penny     8
+## 12   Rajesh     9
+## 13    Robin     8
+## 14  Sheldon     4
+## 15      Ted     7
 
 # Junta as categorias
 per_fav2 &lt;- fct_collapse(per_fav,
@@ -260,15 +260,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] HIMYM     TheOffice TBBT      HIMYM     TheOffice TheOffice
+## [1] TBBT  TBBT  HIMYM TBBT  HIMYM TBBT 
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    34
+## 1 TheOffice    29
 ## 2     HIMYM    36
-## 3      TBBT    30</code></pre>
+## 3      TBBT    35</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -276,14 +276,14 @@ fct_count(per_fav2)
 <pre class="r"><code>mtcars %&gt;% 
   ggplot(aes(x = as.factor(carb), y = mpg)) +
   geom_boxplot()</code></pre>
-<p><img src="http://curso-r.com/blog/2017-07-01-forcats_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="2017-07-01-forcats_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>mtcars %&gt;% 
   mutate(carb = fct_reorder(f = as.factor(carb), 
                             x = mpg,
                             fun = median)) %&gt;% 
   ggplot(aes(x = carb, y = mpg)) +
   geom_boxplot()</code></pre>
-<p><img src="http://curso-r.com/blog/2017-07-01-forcats_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p><img src="2017-07-01-forcats_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 </div>
 <div id="fct_lump" class="section level2">
 <h2>fct_lump</h2>
@@ -293,34 +293,35 @@ fct_count(letras)
 ## # A tibble: 10 x 2
 ##         f     n
 ##    &lt;fctr&gt; &lt;int&gt;
-##  1      a     6
-##  2      b    13
-##  3      c    11
-##  4      d    17
-##  5      e    17
-##  6      f    12
-##  7      g    11
-##  8      h     7
-##  9      i     3
-## 10      j     2
+##  1      a     4
+##  2      b     7
+##  3      c    18
+##  4      d    19
+##  5      e    15
+##  6      f    17
+##  7      g     9
+##  8      h     6
+##  9      i     2
+## 10      j     3
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
 # que as outras categorias.
 letras %&gt;%                  
   fct_lump(other_level = &quot;Outros&quot;) %&gt;%       
   fct_count
-## # A tibble: 9 x 2
-##        f     n
-##   &lt;fctr&gt; &lt;int&gt;
-## 1      a     6
-## 2      b    13
-## 3      c    11
-## 4      d    17
-## 5      e    17
-## 6      f    12
-## 7      g    11
-## 8      h     7
-## 9 Outros     5
+## # A tibble: 10 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     4
+##  2      b     7
+##  3      c    18
+##  4      d    19
+##  5      e    15
+##  6      f    17
+##  7      g     9
+##  8      h     6
+##  9      j     3
+## 10 Outros     2
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
@@ -330,11 +331,11 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      b    13
-## 2      d    17
-## 3      e    17
-## 4      f    12
-## 5 Outros    40
+## 1      c    18
+## 2      d    19
+## 3      e    15
+## 4      f    17
+## 5 Outros    31
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
@@ -344,11 +345,11 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
-## 1          a     6
-## 2          h     7
-## 3          i     3
-## 4          j     2
-## 5 Principais    81</code></pre>
+## 1          a     4
+## 2          h     6
+## 3          i     2
+## 4          j     3
+## 5 Principais    85</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
 <h2>lvls_reorder</h2>

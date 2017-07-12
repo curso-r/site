@@ -218,16 +218,16 @@
 <div id="ferramentas-do-desenvolvedor-e-aba-network" class="section level3">
 <h3>Ferramentas do desenvolvedor e aba “Network”</h3>
 <p>Em qualquer navegador, as ferramentas do desenvolvedor mostram o <em>background</em> do que aparece na tela. Se estiver nessa aba, quando você entrar em <a href="http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx" class="uri">http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx</a> e apertar F5, vai encontrar uma tela mais ou menos parecida com a tela abaixo:</p>
-<p><img src="http://curso-r.com/blog/2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-1-1.png" width="768" /></p>
+<p><img src="2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-1-1.png" width="768" /></p>
 <p>Cada linha representa uma requisição, que é essencialmente o envio de um arquivo .html ao servidor. O conteúdo que visualizamos na tela é o resultado de todas essas requisições e, se destrincharmos cada uma delas, podemos identificar aquelas que são relevantes para o nosso problema.</p>
 </div>
 <div id="a-requisicao" class="section level3">
 <h3>A requisição</h3>
 <p>O próximo passo é identificar o que é que o navegador pede ao servidor quando te devolve o que você quer. Se você escolher o ano de 2017 na caixa de seleção de anos, por exemplo, vai encontrar uma tela parecida com essa aqui.</p>
-<p><img src="http://curso-r.com/blog/2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
+<p><img src="2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
 <p>Antes de prosseguir, é necessário fazer uma inspeção meticulosa de todas as requisições que aparecem, mas vou encurtar a discussão afirmando que a primeira delas é a mais importante. Existem muitas maneiras de deduzir que ela é uma boa candidata, como por exemplo olhando que ela é a única requisição <em>relevante</em> que recebe html, mas vou pular essa parte.</p>
 <p>Segundo o nosso dedo duro, a requisição utiliza o método “POST” e, quando clicamos nela, temos informações sobre ela no painel ao lado. Como eu falei acima, uma requisição é um arquivo .html que “pede” alguma ao servidor com base no seu conteúdo. No geral, um bom lugar para procurar o que a requisição está pedindo é o seu conjunto de parâmetros, na aba “Params” do painel de detalhamento da requisição.</p>
-<p><img src="http://curso-r.com/blog/2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
+<p><img src="2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
 <p>Quando inspecionamos essa requisição “POST”, identificamos que as coisas que são relevantes para o conteúdo da página estão nesses parâmetros. De fato, pensando ingenuamente, clicar apenas em “2017” deve mexer nos parâmetros que tem a ver com isso mas deve deixar os demais parâmetros fixos. Por sorte, os parâmetros observados batem com essa expectativa: “__EVENTTARGET&quot; é <code>ctl00$conteudo$$ddlAnos</code> é um <em>placeholder</em> que tem a ver com a caixa de seleção em que mexemos, os dois próximos parâmetros estão zerados, “__VIEWSTATE&quot; e “__EVENTVALIDATION&quot; são parâmetros da sessão, e, por fim, temos os parâmetros da consulta, que estão todos zerados com exceção de <code>ctl00$conteudo$$ddlAnos</code>.</p>
 <p>Parece que os parâmetros tem tudo a ver com a saída. Será que mexer apenas neles basta para copiar a requisição do navegador?</p>
 </div>
@@ -287,7 +287,7 @@ event_validation &lt;- httr::POST(url) %&gt;%
   rvest::html_table()</code></pre>
 <p>Exatamente a tabelinha que queríamos! Entretanto, nem tudo são flores. Como eu mencionei ali em cima, tanto a minha namorada quanto o NEV tinham interesse no número de BO’s, que não é o que obtivemos fazendo a requisição via R. Fuçando um pouco, é fácil ver que o que obtivemos são os números de produtividade policial. Será que é fácil mexer nos parâmetros pra obter os números de BO’s?</p>
 <p>Felizmente, a resposta é sim, mas não é tão simples quanto parece. Se de outra tela qualquer você clicar em “Ocorrências Registradas por Mês” você vai perceber que o “__EVENTTARGET&quot; mudou para <code>ctl00$conteudo$$btnMes</code>, mas, a despeito do que se poderia imaginar, os outros parâmetros permaneceram com os nomes intactos.</p>
-<p><img src="http://curso-r.com/blog/2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
+<p><img src="2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
 <p>Como essa requisição sugere, você consegue variar os tipos de informação simplesmente variando o “__EVENTTARGET“. Com isso, uma requisição para obter as”Ocorrências Registradas por Mês&quot; ficaria:</p>
 <pre class="r"><code>params &lt;- list(`__EVENTTARGET` = &quot;ctl00$conteudo$$ddlAnos&quot;,
                `__EVENTARGUMENT` = &quot;&quot;,
@@ -351,7 +351,7 @@ D &lt;- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = &quot;ocorrencias&quot
 <div id="resultados" class="section level2">
 <h2>Resultados</h2>
 <p>Com esses dados dá pra fazer muitas coisas legais. É possível, por exemplo, fazer mapas como esse, que representa o número de homicídios em 2016, por município. Ele foi feito em R, mas como fazê-lo é assunto pra outro post!</p>
-<p><img src="http://curso-r.com/blog/2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="2017-05-19-scrapper-ssp_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 
                         </div>
@@ -649,6 +649,19 @@ D &lt;- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = &quot;ocorrencias&quot
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
@@ -657,19 +670,6 @@ D &lt;- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = &quot;ocorrencias&quot
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         

@@ -521,7 +521,7 @@ lolla2017_grafico %&gt;%
   facet_wrap(~dia) +
   labs(x = &quot;Hora do dia&quot;, y = &quot;Popularidade média&quot;) +
   theme(text = element_text(size = 16))</code></pre>
-<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-13-1.png" width="864" /></p>
+<p><img src="2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-13-1.png" width="864" /></p>
 <p>O gráfico acima vai de acordo com o senso comum de que os populares ficam para o final, não ajudando a confirmar a hipótese de que o <em>Cage The Elefant</em> estava mal posicionado.</p>
 </div>
 <div id="hipotese-ii" class="section level3">
@@ -535,12 +535,12 @@ lolla2017_grafico %&gt;%
   geom_bar(aes(x = artist, y = popularity, fill = dia), stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
   theme(text = element_text(size = 16),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))</code></pre>
-<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-14-1.png" width="864" /></p>
+<p><img src="2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-14-1.png" width="864" /></p>
 <pre class="r"><code>ggplot(lolla2017) +
  geom_density(aes(fill = dia, x = popularity, colour = dia), fill = NA) +
   theme(text = element_text(size = 16),
         axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))</code></pre>
-<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-15-1.png" width="864" /></p>
+<p><img src="2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-15-1.png" width="864" /></p>
 <p>Conclusão: nada indica que houve desbalanceamento. Acho que meu círculo de amigos tem algum viés estranho.</p>
 </div>
 <div id="hipotese-iii" class="section level3">
@@ -555,7 +555,7 @@ lolla2017_grafico %&gt;%
   theme(text = element_text(size = 16),
         axis.text.x = element_blank()) +
   labs(x = &quot;&quot;)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-16-1.png" width="864" /></p>
+<p><img src="2017-03-27-lollapalooza-sp-2017-segundo-spotify_files/figure-html/unnamed-chunk-16-1.png" width="864" /></p>
 <p>O palco Skol teve menor variação de popularidade, costumou contar sempre com artistas de média a alta popularidade, mas os palcos AXE e Onix foram visitados por artista de peso. O palco Perry’s foi o mais visitado por artistas de menor expressão.</p>
 </div>
 </div>
@@ -860,27 +860,27 @@ lolla2017_grafico %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         

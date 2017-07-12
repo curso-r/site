@@ -192,7 +192,7 @@
 <li>Se uma coisa pode ser modificada e eu não devo mudá-la, ela não é importante.</li>
 <li>Se uma coisa coisa não pode ser modificada e eu devo mudá-la, eu preciso aceitá-la.</li>
 </ul>
-<p><img src="http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>Considerando esse diagrama, O Gelman até sugere uma prece mais cuidadosa:</p>
 <blockquote>
 <p>Lord, grant me the serenity to accept things that cannot be changed, courage to change things that must be changed; discernment to ignore things that don’t need changing; acceptance that some things I need to change, i can’t; And the wisdom to understand Venn Diagrams.</p>
@@ -233,7 +233,7 @@ invisible(draw.single.venn(numero_de_pessoas_que_gostam_de_cachorros,
                  alpha = 0.5
                  #Transparência do conjunto. Varia de 0 a 1
                  ))</code></pre>
-<p><img src="http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Complicando um pouco mais, dessa vez vamos fazer um diagrama que represente as pessoas que gostam de gatos ou de cachorros.</p>
 <pre class="r"><code>numero_de_pessoas_que_gostam_de_cachorros &lt;- dataset %&gt;% 
   dplyr::filter(Dog == 1) %&gt;% 
@@ -268,7 +268,7 @@ invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
                    scaled = F
                    #Constrói as áreas sem escala
                    ))</code></pre>
-<p><img src="http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>A falta de escalas deixou esse gráfico simétrico e esteticamente agradável. Entretanto, em algumas situações é mais legal representar os conjuntos em escala.</p>
 <pre class="r"><code>numero_de_pessoas_que_gostam_de_cachorros &lt;- dataset %&gt;% 
   dplyr::filter(Dog == 1) %&gt;% 
@@ -303,7 +303,7 @@ invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
                    scaled = T
                    #Constrói as áreas sem escala
                    ))</code></pre>
-<p><img src="http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Até aqui tudo vai mais ou menos bem, mas a coisa fica bem mais chata quando você precisa representar um diagrama com três conjuntos. Você vai precisar passar pra função o tamanho de todos os pedacinhos.</p>
 <pre class="r"><code>numero_de_pessoas_que_gostam_de_gatos &lt;- dataset %&gt;% 
   dplyr::filter(Cat == 1) %&gt;% 
@@ -349,7 +349,7 @@ invisible(draw.triple.venn(area1 = numero_de_pessoas_que_gostam_de_gatos,
                  fill = c(&quot;light blue&quot;, &quot;green&quot;, &quot;light green&quot;),
                  cat.pos = c(45,45,45),
                  scaled = T))</code></pre>
-<p><img src="http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 
                         </div>
@@ -647,27 +647,27 @@ invisible(draw.triple.venn(area1 = numero_de_pessoas_que_gostam_de_gatos,
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
