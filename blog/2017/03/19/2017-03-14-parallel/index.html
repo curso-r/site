@@ -202,7 +202,7 @@ system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.016   0.000   3.017</code></pre>
+##   0.008   0.000   3.009</code></pre>
 <p>Agora vamos executar o mesmo código usando paralelização. Antes, precisamos</p>
 <ol style="list-style-type: decimal">
 <li>criar e registrar as cópias de R que rodam em paralelo; e</li>
@@ -216,13 +216,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.304   0.008   2.627</code></pre>
+##   0.160   0.004   2.330</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.300   0.020   2.608</code></pre>
+##   0.152   0.004   2.230</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # para de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
@@ -308,13 +308,13 @@ system.time({
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (42)</a>
+            <li><a href="http://curso-r.com/categories/r">r (43)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (2)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (18)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (19)</a>
             </li>
             
         </ul>
@@ -343,6 +343,9 @@ system.time({
             </li>
             
             <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bds"><i class="fa fa-tags"></i> bds</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/br-bloggers"><i class="fa fa-tags"></i> br-bloggers</a>
@@ -522,19 +525,6 @@ system.time({
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -543,6 +533,19 @@ system.time({
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
@@ -606,6 +609,19 @@ system.time({
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/">
+                          
+                            <img src="http://curso-r.com/img/bds_ruins.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/">Arrumando BDs: nome das variáveis</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/07/10/2017-06-29-captcha-decryptr/">
                           
                             <img src="http://curso-r.com/img/banners/captcha_02.png" class="img-responsive" alt="">
@@ -627,19 +643,6 @@ system.time({
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/08/2017-07-09-greta/">Greta</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/06/2017-07-06-tidywoe/">
-                          
-                            <img src="http://curso-r.com/img/banners/tidywoe_hex2.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/06/2017-07-06-tidywoe/">WoE em R com tidywoe</a></h5>
                     </div>
                 </div>
                 

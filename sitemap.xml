@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/</loc>
+    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/07/10/2017-06-29-captcha-decryptr/</loc>
     <lastmod>2017-07-10T13:07:31+02:00</lastmod>
   </url>
@@ -249,8 +254,14 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/bds/</loc>
+    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-07-10T13:07:31+02:00</lastmod>
+    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
   </url>
   
   <url>
@@ -313,7 +324,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-07-10T13:07:31+02:00</lastmod>
+    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -535,7 +546,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-07-10T13:07:31+02:00</lastmod>
+    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -615,7 +626,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/tidyverse/</loc>
-    <lastmod>2017-03-11T13:07:31+02:00</lastmod>
+    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -627,7 +638,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-07-08T10:12:00+03:00</lastmod>
+    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -655,7 +666,7 @@
   
   <url>
     <loc>http://curso-r.com/author/william/</loc>
-    <lastmod>2017-07-01T23:26:00+03:00</lastmod>
+    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
