@@ -1,8 +1,8 @@
 ---
 title: "Tratando erros: the tidy way"
 date: "2017-04-20T13:07:31+02:00"
-tags: ["erro", "r"]
-categories: ["r"]
+tags: ["coding", "pacotes", "purrr"]
+categories: ["tutoriais", "r"]
 banner: "img/banners/error.jpg"
 author: ["Julio"]
 draft: false

@@ -17,7 +17,12 @@ Remotes:
     rstudio/blogdown,
     abjur/abjData,
     tiagomendesdantas/Rspotify,
-    tidyverse/glue
+    tidyverse/glue,
+    hadley/colformat,
+    ropenscilabs/skimr,
+    decryptr/decryptr,
+    hadley/emo,
+    athospd/tidywoe
 Imports:
     stringr,
     purrr,
@@ -64,5 +69,14 @@ Imports:
     gridExtra,
     jpeg,
     png,
-    benford.analysis
+    benford.analysis,
+    pdftools,
+    skimr,
+    colformat,
+    decryptr,
+    randomForest,
+    emo,
+    ggforce,
+    FactoMineR,
+    tidywoe
 RoxygenNote: 6.0.1

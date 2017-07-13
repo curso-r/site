@@ -61,3 +61,46 @@ dash %>%
   image_crop('1200x780') %>% 
   image_scale('!1000x!760') %>%
   image_write('static/img/banners/banner-dashboards2.png')
+
+
+dash <- image_read('static/img/banners/keras_no_ubuntu.png')
+dash %>% 
+  image_scale('x!690') %>%
+  image_write('static/img/banners/keras_no_ubuntu2.png')
+
+
+image_read('static/img/banners/skimr.jpg') %>% 
+  image_annotate('d_milk %>% \n    skim()', 
+                 size = 50, font = 'ubuntu',
+                 location = '+10+50') %>% 
+  image_annotate('<3 <3 <3 <3', size = 50, font = 'ubuntu',
+                 color = 'red',
+                 location = '+350+260') %>% 
+  image_scale('600x400') %>%
+  image_write("static/img/banners/skimr.png")
+
+
+
+image_read('~/Downloads/quebrando_captchas.png') %>% 
+  image_border(color = 'white', geometry = '50x120') %>% 
+  image_noise() %>% 
+  image_annotate('#1', size = 80, font = 'ubuntu',
+                 location = '+300+10', color = 'red') %>% 
+  image_annotate('Introdução', size = 40, font = 'ubuntu',
+                 color = 'black', location = '+10+240') %>% 
+  image_write("static/img/banners/captcha_01.png")
+
+image_read('~/Downloads/quebrando_captchas.png') %>% 
+  image_border(color = 'white', geometry = '50x120') %>% 
+  image_noise() %>% 
+  image_annotate('#2', size = 80, font = 'ubuntu',
+                 location = '+300+10', color = 'red') %>% 
+  image_annotate('Pacote decryptr', size = 40, font = 'ubuntu',
+                 color = 'black', location = '+10+240') %>% 
+  image_write("static/img/banners/captcha_02.png")
+
+
+
+
+
+

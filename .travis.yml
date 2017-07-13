@@ -7,7 +7,14 @@ addons:
       - libwebp-dev
       - libpoppler-cpp-dev
       - libproj-dev
-      
+      - valgrind
+      - libtesseract-dev
+      - libleptonica-dev
+      - tesseract-ocr-eng
+      - tesseract-ocr-por
+      - tesseract-ocr
+      - libudunits2-dev
+
 cache: packages
 
 before_script:

@@ -1,8 +1,8 @@
 ---
 title: "Multas em São Paulo"
 date: "2017-04-01T13:07:31+02:00"
-tags: ["r", "dados-abertos"]
-categories: ["r"]
+tags: ["sptrans"]
+categories: ["análises", "r"]
 banner: "img/banners/banner-multas-sp.jpg"
 author: ["Daniel"]
 ---
