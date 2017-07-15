@@ -224,17 +224,17 @@ centroides
 ## # A tibble: 6 x 4
 ##   cluster         r          g         b
 ##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.1243380 0.04330185 0.2157165
-## 2       2 0.5006902 0.18330624 0.1588547
-## 3       3 0.2212875 0.27343423 0.4408795
-## 4       4 0.7017989 0.46751128 0.3240634
-## 5       5 0.8768970 0.76224179 0.6454794
-## 6       6 0.3542115 0.46236909 0.5494132</code></pre>
+## 1       1 0.3541964 0.46238302 0.5494433
+## 2       2 0.5005264 0.18317492 0.1587960
+## 3       3 0.7016494 0.46722267 0.3238223
+## 4       4 0.1242676 0.04329523 0.2157608
+## 5       5 0.2212878 0.27343708 0.4408806
+## 6       6 0.8768120 0.76211694 0.6453261</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#200B37&quot; &quot;#802F29&quot; &quot;#384670&quot; &quot;#B37753&quot; &quot;#E0C2A5&quot; &quot;#5A768C&quot;</code></pre>
+## [1] &quot;#5A768C&quot; &quot;#802F28&quot; &quot;#B37753&quot; &quot;#200B37&quot; &quot;#384670&quot; &quot;#E0C2A5&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -358,10 +358,10 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (43)</a>
+            <li><a href="http://curso-r.com/categories/r">r (44)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/top-10">top-10 (2)</a>
+            <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (19)</a>
@@ -575,27 +575,27 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
@@ -659,6 +659,19 @@ exibir(paleta)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/15/2017-07-15-top-3-rmarkdown/">
+                          
+                            <img src="http://curso-r.com/img/banners/tufte.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/15/2017-07-15-top-3-rmarkdown/">Top 3 pacotes pra usar com rmarkdown</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/">
                           
                             <img src="http://curso-r.com/img/banners/bds_ruins.jpg" class="img-responsive" alt="">
@@ -680,19 +693,6 @@ exibir(paleta)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/10/2017-06-29-captcha-decryptr/">Quebrando CAPTCHAs - Parte II: O pacote decryptr</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/08/2017-07-09-greta/">
-                          
-                            <img src="http://curso-r.com/img/banners/banner-greta.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/08/2017-07-09-greta/">Greta</a></h5>
                     </div>
                 </div>
                 

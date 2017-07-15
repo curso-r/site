@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 19 May 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 15 Jul 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/author/fernando/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Top 3 pacotes pra usar com rmarkdown</title>
+      <link>http://curso-r.com/blog/2017/07/15/2017-07-15-top-3-rmarkdown/</link>
+      <pubDate>Sat, 15 Jul 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/15/2017-07-15-top-3-rmarkdown/</guid>
+      <description>Os criadores do Markdown, segundo suas próprias palavras, criaram a linguagem com o objetivo de construir um “formato de texto fácil de ler, fácil de escrever e opcionalmente conversível para HTML”1. Com o passar do tempo, esse objetivo foi expandido pela comunidade, pois a simplicidade também é útil para outros formatos.
+As extensões andam em dois sentidos. Um deles é construir tradutores universais entre todas as linguagens de marcação, como o pandoc, permitindo que seja fácil construir documentos a partir de textos em Markdown.</description>
+    </item>
     
     <item>
       <title>Web scraping do site da Secretaria de Segurança Pública de São Paulo</title>
