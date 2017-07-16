@@ -263,7 +263,7 @@ encoded_imgs[1,] # representação vetorial de uma imagem.</code></pre>
   Reduce(cbind, .) %&gt;%
   as.raster() %&gt;%
   plot()</code></pre>
-<p><img src="2017-06-26-construindo-autoencoders_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-26-construindo-autoencoders_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Compare as reconstruções com as imagens originais abaixo:</p>
 <pre class="r"><code>x_test[1:10,] %&gt;%
   split(1:10) %&gt;%
@@ -271,7 +271,7 @@ encoded_imgs[1,] # representação vetorial de uma imagem.</code></pre>
   Reduce(cbind, .) %&gt;%
   as.raster() %&gt;%
   plot()</code></pre>
-<p><img src="2017-06-26-construindo-autoencoders_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-26-construindo-autoencoders_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Um ponto interessante é que esse modelo faz uma <a href="https://stats.stackexchange.com/a/120096/44359">aproximação da solução por componentes principais</a>! Na verdade, a definição do quanto são parecidos é <em>quase-equivalente</em>. Isso quer dizer que os pesos <span class="math inline">\(W\)</span> encontrados pelo PCA e pelo autoencoder serão diferentes, mas o sub-espaço criado pelos mesmos será equivalente.</p>
 <p>Se são equivalentes, qual a vantagem de usar autoencoders ao invés de PCA? O PCA para por aqui, você define que serão apenas relações lineares, e você reduz dimensão apenas reduzindo o tamanho da matriz. Em autoencoders você tem diversas outras saídas para aprimorar o método.</p>
 <p>A primeira delas é simplesmente adicionar uma condição de esparsidade nos pesos. Isso vai reduzir o tamanho do vetor latente (como é chamada a camada do meio do autoencoder) também, pois ele terá mais zeros.</p>
@@ -631,14 +631,14 @@ autoencoder %&gt;% fit(
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         

@@ -229,7 +229,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Howard Lily   Ted    Ted    Pam    Lily  
+## [1] Marshall Andy     Penny    Penny    Jim      Rajesh  
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -237,21 +237,21 @@ fct_count(per_fav)
 ## # A tibble: 15 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-##  1     Andy    10
-##  2   Barney     1
-##  3   Dwight     4
+##  1     Andy     5
+##  2   Barney     4
+##  3   Dwight     5
 ##  4   Howard     6
-##  5      Jim     4
+##  5      Jim    10
 ##  6  Leonard     3
-##  7     Lily    14
+##  7     Lily     9
 ##  8 Marshall     9
-##  9  Michael     8
-## 10      Pam     7
-## 11    Penny     3
-## 12   Rajesh     8
-## 13    Robin    11
-## 14  Sheldon     4
-## 15      Ted     8
+##  9  Michael    11
+## 10      Pam     5
+## 11    Penny    12
+## 12   Rajesh     2
+## 13    Robin     2
+## 14  Sheldon     6
+## 15      Ted    11
 
 # Junta as categorias
 per_fav2 &lt;- fct_collapse(per_fav,
@@ -260,15 +260,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] TBBT      HIMYM     HIMYM     HIMYM     TheOffice HIMYM    
+## [1] HIMYM     TheOffice TBBT      TBBT      TheOffice TBBT     
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    33
-## 2     HIMYM    43
-## 3      TBBT    24</code></pre>
+## 1 TheOffice    36
+## 2     HIMYM    35
+## 3      TBBT    29</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -276,50 +276,53 @@ fct_count(per_fav2)
 <pre class="r"><code>mtcars %&gt;% 
   ggplot(aes(x = as.factor(carb), y = mpg)) +
   geom_boxplot()</code></pre>
-<p><img src="2017-07-01-forcats_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-07-01-forcats_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code>mtcars %&gt;% 
   mutate(carb = fct_reorder(f = as.factor(carb), 
                             x = mpg,
                             fun = median)) %&gt;% 
   ggplot(aes(x = carb, y = mpg)) +
   geom_boxplot()</code></pre>
-<p><img src="2017-07-01-forcats_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-07-01-forcats_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 </div>
 <div id="fct_lump" class="section level2">
 <h2>fct_lump</h2>
 <p>Agrupa as categorias menos (ou mais) comuns.</p>
 <pre class="r"><code>letras &lt;- factor(letters[rpois(100, 5)])
 fct_count(letras)
-## # A tibble: 9 x 2
-##        f     n
-##   &lt;fctr&gt; &lt;int&gt;
-## 1      a     2
-## 2      b     6
-## 3      c    12
-## 4      d    18
-## 5      e    17
-## 6      f    18
-## 7      g    10
-## 8      h    10
-## 9      i     5
+## # A tibble: 11 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     4
+##  2      b     9
+##  3      c    11
+##  4      d    20
+##  5      e    15
+##  6      f    13
+##  7      g    10
+##  8      h    10
+##  9      i     4
+## 10      j     2
+## 11      l     1
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
 # que as outras categorias.
 letras %&gt;%                  
   fct_lump(other_level = &quot;Outros&quot;) %&gt;%       
   fct_count
-## # A tibble: 9 x 2
-##        f     n
-##   &lt;fctr&gt; &lt;int&gt;
-## 1      b     6
-## 2      c    12
-## 3      d    18
-## 4      e    17
-## 5      f    18
-## 6      g    10
-## 7      h    10
-## 8      i     5
-## 9 Outros     2
+## # A tibble: 10 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     4
+##  2      b     9
+##  3      c    11
+##  4      d    20
+##  5      e    15
+##  6      f    13
+##  7      g    10
+##  8      h    10
+##  9      i     4
+## 10 Outros     3
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
@@ -329,26 +332,25 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      c    12
-## 2      d    18
-## 3      e    17
-## 4      f    18
-## 5 Outros    33
+## 1      c    11
+## 2      d    20
+## 3      e    15
+## 4      f    13
+## 5 Outros    40
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
 letras %&gt;% 
   fct_lump(n = -4, other_level = &quot;Principais&quot;) %&gt;% 
   fct_count
-## # A tibble: 6 x 2
+## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
-## 1          a     2
-## 2          b     6
-## 3          g    10
-## 4          h    10
-## 5          i     5
-## 6 Principais    65</code></pre>
+## 1          a     4
+## 2          i     4
+## 3          j     2
+## 4          l     1
+## 5 Principais    88</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
 <h2>lvls_reorder</h2>
@@ -663,19 +665,6 @@ lvls_reorder(fator, c(3, 1, 2, 4))
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -684,6 +673,19 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         

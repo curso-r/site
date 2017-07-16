@@ -184,8 +184,8 @@
                         <div id="post-content">
                           <p>A cor é uma diferença notável entre os filmes da Marvel e da DC. Enquanto a Disney/Marvel Studios costuma lançar filmes com tons mais claros e alegres, a Warner tem optado por cenários escuros, com um aspecto mais sombrios. Essas escolhas são um reflexo do clima das histórias de cada universo: aventuras engraçaralhas com um drama superficial vs seja lá o que passa na cabeça do <a href="http://retalhoclub.com.br/wp-content/uploads/2017/03/03.jpg">Zack Snyder</a>.</p>
 <p>Para estudar melhor a paleta de cores utilizadas nos filmes, vamos aplicar a análise introduzida pelo Dani <a href="http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/">neste post</a>, com pequenas alterações. Como amostra, selecionei 10 imagens de Batman vs Superman e 10 do Capitão América: guerra civil. Tentando deixar a análise o menos subjetiva possível, escolhi imagens de cenas emblemáticas e dos principais personagens. Abaixo as imagens que peguei de cada filme.</p>
-<p><img src="2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-1-1.png" width="768" /></p>
-<p><img src="2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-1-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
 <p>Seguindo a análise do Dani, vamos utilizar as seguintes bibliotecas para a análise.</p>
 <pre class="r"><code>library(jpeg)
 library(tidyverse)
@@ -236,22 +236,22 @@ exibir &lt;- function(x) {
 <p>Assim, basta aplicar essas funções aos objetos <code>img_bvs</code> e <code>img_cw</code> para obter as paletas. Primeiro para o Batman vs Superman:</p>
 <pre class="r"><code>paleta_bvs &lt;- criar_paleta(img_bvs, 10)
 exibir(paleta_bvs)</code></pre>
-<p><img src="2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-9-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-9-1.png" width="768" /></p>
 <p>E agora para o Capitão América:</p>
 <pre class="r"><code>paleta_cw &lt;- criar_paleta(img_cw, 10)
 exibir(paleta_cw)</code></pre>
-<p><img src="2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
 <p>Observe que o filme da DC tem cores mais escuras e fortes, com vários tons de azul, indicando as cenas noturnas e de chuva. Já a paleta da Marvel apresenta cores mais claras, com vários tons representando o céu pálido das cenas externas.</p>
 <p>Podemos fazer a análise agora para o pôster de cada filme (o que aparece no IMDB):</p>
-<p><img src="2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-12-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-12-1.png" width="768" /></p>
 <pre class="r"><code>img_bvs &lt;- ler_imagem(&quot;images/bvs_poster.jpg&quot;)
 paleta_bvs &lt;- criar_paleta(img_bvs, 10)
 exibir(paleta_bvs)</code></pre>
-<p><img src="2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-14-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-14-1.png" width="768" /></p>
 <pre class="r"><code>img_cw &lt;- ler_imagem(&quot;images/cw_poster.jpg&quot;)
 paleta_cw &lt;- criar_paleta(img_cw, 10)
 exibir(paleta_cw)</code></pre>
-<p><img src="2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-16-1.png" width="768" /></p>
+<p><img src="http://curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc_files/figure-html/unnamed-chunk-16-1.png" width="768" /></p>
 <p>Veja que os diferentes tons de azul se repete no pôster do Batman vs Superman. Já o pôster do Capitão América é bem cinzento, com metade da paleta representando <a href="http://media.melty.com.br/article-6991-ratio265_1020/filme-50-tons-de-cinza-jamie-dornan-christian.jpg">tons de cinza</a>.</p>
 <p>Fica então o desafio de repetir a análise para outros filmes e compartilhar o resultado com a gente. Comentários? Sugestões? Críticas? Mande a sua opinião!</p>
 
@@ -566,14 +566,14 @@ exibir(paleta_cw)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         

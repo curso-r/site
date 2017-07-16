@@ -216,7 +216,7 @@ load(&quot;carros_eletronicas.rda&quot;)</code></pre>
   summarise(qtd = sum(qtd)) %&gt;%
   ggplot(aes(data, qtd)) +
   geom_line()</code></pre>
-<p><img src="2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Vemos nesse gráfico que o número de multas (por radar) era sempre por volta de 10.000 durante 2014, em 2015 foi aumentando bastante durante o ano e em 2016 se estabilizou. Vamos ver agora, por tipo de enquadramento, isto é, por motivo da multa.</p>
 <p>Existem 11 tipos de enquadramentos eletrônicos. Para a visualização ficar mais fácil, vamos primeiro agrupar em grandes temas:</p>
 <ul>
@@ -300,7 +300,7 @@ depara %&gt;% knitr::kable()</code></pre>
   summarise(qtd = sum(qtd)) %&gt;%
   ggplot(aes(data, qtd, color = agrup_enquadramento)) +
   geom_line()</code></pre>
-<p><img src="2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>No gráfico, vemos que em 2015, o tipo de multa que mais aumentou em quantidade foi velocidade e rodízio.</p>
 </div>
 <div id="curiosidades" class="section level2">
@@ -314,7 +314,7 @@ depara %&gt;% knitr::kable()</code></pre>
   summarise(qtd = sum(qtd)) %&gt;%
   ggplot(aes(x = hora, y = qtd)) +
   geom_bar(stat = &quot;identity&quot;)</code></pre>
-<p><img src="2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Notamos que o maior número de multas ocorre justamente na hora do rush. Isto é, entre 7 e 10 da manhã e 17h e 19h. Isso até faz sentido, mas nessas horas o trânsito da cidade está todo parado. Será que a distribuição fica diferente por tipo de multa? Principalmente as de velocidade.</p>
 <pre class="r"><code>carros_eletronicas %&gt;% 
   left_join(depara, by = &quot;enquadramento&quot;) %&gt;%
@@ -322,7 +322,7 @@ depara %&gt;% knitr::kable()</code></pre>
   summarise(qtd = sum(qtd)) %&gt;%
   ggplot(aes(x = hora, y = qtd, fill = agrup_enquadramento)) +
   geom_bar(stat = &quot;identity&quot;)</code></pre>
-<p><img src="2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Veja que interessante! O grande responsável pelo pico da hora do rush é o rodízio. (Essa é justamente a hora em que ele está valendo.) As multas de velocidade diminuem um pouco durante o trânsito e acontecem mais durante o dia e não durante a noite como poderíamos imaginar. Vemos também que as multas de farol vermelho acontecem mais durante a madrugada.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Qual é o dia da semana com mais multas?</li>
@@ -333,7 +333,7 @@ depara %&gt;% knitr::kable()</code></pre>
   summarise(qtd = sum(qtd)) %&gt;%
   ggplot(aes(x = dia_da_semana, y = qtd, fill = agrup_enquadramento)) +
   geom_bar(stat = &quot;identity&quot;)</code></pre>
-<p><img src="2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>O dia da semana com mais multas é quinta feira. Nos finais de semana, aumenta muito o número de multas por excesso de velocidade (claro, as ruas estão mais vazias).</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Quais são os radares que mais multam em SP? E porque?</li>
@@ -404,9 +404,9 @@ knitr::kable(top10_locais)</code></pre>
   summarise(qtd = sum(qtd)) %&gt;%
   ggplot(aes(x = local, y = qtd, fill = agrup_enquadramento)) +
   geom_bar(stat = &quot;identity&quot;)</code></pre>
-<p><img src="2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-10-1.png" width="1000px" /></p>
+<p><img src="http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-10-1.png" width="1000px" /></p>
 <p>Por incrível que pareça, nos dois radares com mais multas, o motivo da multa é conversão proibida. A foto de onde fica esse radar saiu em uma <a href="http://www1.folha.uol.com.br/cotidiano/2015/07/1660793-radar-campeao-aplica-375-mil-multas-em-um-ano-na-ponte-das-bandeiras.shtml">notícia sobre o mesmo tema</a> na Folha de São Paulo.</p>
-<p><img src="2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-04-01-multas-em-sp_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 
                         </div>
@@ -707,27 +707,27 @@ knitr::kable(top10_locais)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         

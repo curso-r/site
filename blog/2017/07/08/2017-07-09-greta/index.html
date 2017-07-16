@@ -244,7 +244,7 @@ Y &lt;- rnorm(N,X,4*sqrt(X))
 qplot(X,Y) + 
   theme_bw(15) + 
   geom_point(color = &#39;darkorange&#39;)  </code></pre>
-<p><img src="2017-07-09-greta_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-07-09-greta_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="r"><code>X2 &lt;- sqrt(X)
 dataset &lt;- data.frame(Y,X,X2)</code></pre>
 <p>Agora o código em <code>greta</code> para ajustar esse modelo:</p>
@@ -573,6 +573,19 @@ draws &lt;- mcmc(m, n_samples = 1000)</code></pre>
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/r4ds/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
@@ -581,19 +594,6 @@ draws &lt;- mcmc(m, n_samples = 1000)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         

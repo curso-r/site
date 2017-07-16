@@ -258,7 +258,7 @@ videos &lt;- by_row(.d = dates, ..f = get_videos_porta, .to = &quot;videos_info&
   geom_line() +
   labs(x = &quot;Data de publicação&quot;, y = &quot;Visualizações&quot;) +
   theme_bw()</code></pre>
-<p><img src="2017-03-20-porta-dos-fundos-decadencia_files/figure-html/unnamed-chunk-9-1.png" width="4800" /></p>
+<p><img src="http://curso-r.com/blog/2017-03-20-porta-dos-fundos-decadencia_files/figure-html/unnamed-chunk-9-1.png" width="4800" /></p>
 <p>Também fiz um gráfico da proporção likes/dislikes pela data de publicação do vídeo. Parece haver uma leve redução dessa proporção no último ano, mas é arriscado tirar uma conclusão. Refazendo essa análise no fim de 2017, talvez fique mais claro se o público do canal concorda comigo sobre a qualidade do conteúdo nos últimos tempos.</p>
 <pre class="r"><code>dados %&gt;% 
   mutate(likes = map(videos_stats, .f = &#39;likeCount&#39;),
@@ -272,7 +272,7 @@ videos &lt;- by_row(.d = dates, ..f = get_videos_porta, .to = &quot;videos_info&
   geom_line(aes(y = prop)) +
   labs(x = &quot;Data de publicação&quot;, y = &quot;Likes/Dislikes&quot;) +
   theme_bw()</code></pre>
-<p><img src="2017-03-20-porta-dos-fundos-decadencia_files/figure-html/unnamed-chunk-11-1.png" width="4800" /></p>
+<p><img src="http://curso-r.com/blog/2017-03-20-porta-dos-fundos-decadencia_files/figure-html/unnamed-chunk-11-1.png" width="4800" /></p>
 <p>O Porta dos Fundos é sem dúvida um gigante no YouTube, mas os indícios dessa sucinta análise colaboram com a minha opinião de que o canal já viveu dias (bem) melhores. Apesar de essa decadência poder ser só uma fase ruim, nunca é cedo para se reinventar, ter novas ideias, definir as regras do jogo, assim como eles fizeram no início.</p>
 <p>E se faltar ideias, vídeos com o Totoro são sempre uma boa alternativa.</p>
 </div>
@@ -575,19 +575,6 @@ videos &lt;- by_row(.d = dates, ..f = get_videos_porta, .to = &quot;videos_info&
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -596,6 +583,19 @@ videos &lt;- by_row(.d = dates, ..f = get_videos_porta, .to = &quot;videos_info&
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
