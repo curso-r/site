@@ -208,11 +208,11 @@
 <div id="preparacao-de-um-projeto-com-rstudio-e-github" class="section level2">
 <h2>Preparação de um Projeto com RStudio e Github</h2>
 <p>A vida com Github + RStudio segue a seguinte rotina (escreva esse fluxo num pedaço de papel e guarde na sua carteira):</p>
-<p><img src="2017-07-17-rstudio-e-github/fluxo_github_rstudio.png" width="588" style="display: block; margin: auto;" /></p>
+<p><img src="blog/2017-07-17-rstudio-e-github/fluxo_github_rstudio.png" style="display: block; margin: auto;" /></p>
 <div id="passo-1---repositorio-criar-repositorio-do-projeto-no-github" class="section level3">
 <h3>Passo 1 - Repositório: Criar repositório do projeto no Github</h3>
 <p>Vá à sua conta do Github e crie um repositório com o nome do seu projeto.</p>
-<p><img src="2017-07-17-rstudio-e-github/passo_1_criar_repo.gif" style="display: block; margin: auto;" /></p>
+<p><img src="blog/2017-07-17-rstudio-e-github/passo_1_criar_repo.gif" style="display: block; margin: auto;" /></p>
 <p>No exemplo acima eu poderia acessar o conteúdo do meu projeto no link <code>https://github.com/athospd/projecao_de_precos</code>. Mas de modo geral, você acessaria o seu projeto no link <code>https://github.com/&lt;nome-do-usuario&gt;/&lt;nome-do-projeto&gt;</code>.</p>
 <p>Boas práticas:</p>
 <ul>
@@ -229,7 +229,7 @@
 <div id="passo-2---.rproj-criacao-do-projeto-no-rstudio" class="section level3">
 <h3>Passo 2 - .Rproj: Criação do Projeto no RStudio</h3>
 <p>Agora precisamos criar um .Rproj que esteja atrelado ao seu repositório no Github. Por sorte, o RStudio já pensou em tudo e fez disso uma tarefa fácil.</p>
-<p><img src="2017-07-17-rstudio-e-github/passo_2_criacao_do_rproj_pt2.gif" style="display: block; margin: auto;" /></p>
+<p><img src="blog/2017-07-17-rstudio-e-github/passo_2_criacao_do_rproj_pt2.gif" style="display: block; margin: auto;" /></p>
 <p>O caminho é:</p>
 <blockquote>
 <p>New Project &gt; Version Control &gt; Git &gt; Copia e cola URL do repositório &gt; Create Project</p>
@@ -241,30 +241,30 @@
 <p>Dar ‘commit’ é o que se faz quando você resolve aceitar as mudanças que você fez no seu código/projeto.</p>
 <p>Vamos montar uma história simulando duas mudanças no código, resultando em dois commits.</p>
 <p><strong>Mudança 1</strong> Implementei a função <code>soma</code> e depois dei commit porque achei que já estava muito boa.</p>
-<p><img src="2017-07-17-rstudio-e-github/passo_3_commit_1.gif" style="display: block; margin: auto;" /></p>
+<p><img src="blog/2017-07-17-rstudio-e-github/passo_3_commit_1.gif" style="display: block; margin: auto;" /></p>
 <p><strong>Mudança 2</strong> Implementei a função <code>subtrai</code> e apesar de ter estar ainda com muitos bugs eu resolvi commitar porque precisava ir embora do Trabalho. Chegando chegando em casa eu arrumo.</p>
-<p><img src="2017-07-17-rstudio-e-github/passo_3_commit_2.gif" style="display: block; margin: auto;" /></p>
+<p><img src="blog/2017-07-17-rstudio-e-github/passo_3_commit_2.gif" style="display: block; margin: auto;" /></p>
 <p>Agora tem dois commits prontos para serem guardados no nosso repositório central do Github. Lembre-se que é no Github que todos os colaboradores vão continuar o projeto. Hora do PUSH!</p>
 </div>
 <div id="passo-4---push-subindo-os-commits-para-o-github" class="section level3">
 <h3>Passo 4 - Push: Subindo os commits para o Github</h3>
 <p>Push é tão fácil quanto apertar um botão.</p>
-<p><img src="2017-07-17-rstudio-e-github/passo_4_push.gif" style="display: block; margin: auto;" /></p>
+<p><img src="blog/2017-07-17-rstudio-e-github/passo_4_push.gif" style="display: block; margin: auto;" /></p>
 <p>OBS: Nesse momento pode ser que seja pedido login e senha para autorizar o PUSH. Mas provavelmente só será solicitado na primeira vez porque ele vai colocar o seu computador como origem conhecida (e confiável). Caso continue solicitando é aconselhável configurar o SSH (<a href="http://gabsferreira.com/instalando-o-git-e-configurando-github/">segue um tutorialzinho bacana</a>).</p>
 <p>No site do Github já vai estar as mudanças prontas para quem quiser ver.</p>
-<p><img src="2017-07-17-rstudio-e-github/github_dps_do_push.png" width="619" style="display: block; margin: auto;" /></p>
+<p><img src="blog/2017-07-17-rstudio-e-github/github_dps_do_push.png" style="display: block; margin: auto;" /></p>
 </div>
 <div id="passo-5---pull-baixando-o-estado-atual-do-projeto" class="section level3">
 <h3>Passo 5 - Pull: Baixando o estado atual do projeto</h3>
 <p>Suponha que entre o trajeto do meu trabalho para a minha casa meu colega tenha aprimorado a função soma.</p>
 <p>Para eu continuar da onde ele parou eu devo dar um <strong>PULL</strong>, ou seja, puxar pra minha máquina o código que está lá no Github.</p>
-<p><img src="2017-07-17-rstudio-e-github/passo_5_pull.gif" style="display: block; margin: auto;" /></p>
+<p><img src="blog/2017-07-17-rstudio-e-github/passo_5_pull.gif" style="display: block; margin: auto;" /></p>
 <p>Então, toda vez que abrir seu projeto, dê um PULL para voltar a ficar de onde parou.</p>
 </div>
 <div id="passo-extra---issues-documentando-e-delegando-problemas" class="section level3">
 <h3>Passo extra - Issues: Documentando e delegando problemas</h3>
 <p>Issues são questões em aberto sobre seu projeto. Geralmente se descreve um bug a ser consertado ou uma ideia a ser implementada no futuro. O Github permite delegar essas tarefas a alguém e também classificá-las se quiser.</p>
-<p><img src="2017-07-17-rstudio-e-github/passo_extra_issue.gif" style="display: block; margin: auto;" /></p>
+<p><img src="blog/2017-07-17-rstudio-e-github/passo_extra_issue.gif" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="indo-alem" class="section level2">
@@ -602,14 +602,14 @@
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          
