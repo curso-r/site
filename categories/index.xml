@@ -42,7 +42,7 @@
     <item>
       <title>R</title>
       <link>http://curso-r.com/categories/r/</link>
-      <pubDate>Sat, 15 Jul 2017 23:26:00 +0300</pubDate>
+      <pubDate>Mon, 17 Jul 2017 00:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/categories/r/</guid>
       <description></description>
@@ -63,6 +63,15 @@
       <pubDate>Wed, 12 Jul 2017 23:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/categories/tutoriais/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>http://curso-r.com/categories/tutorial/</link>
+      <pubDate>Mon, 17 Jul 2017 00:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/categories/tutorial/</guid>
       <description></description>
     </item>
     

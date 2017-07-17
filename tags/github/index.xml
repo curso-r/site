@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on Curso-R</title>
+    <link>http://curso-r.com/tags/github/</link>
+    <description>Recent content in Github on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 17 Jul 2017 00:26:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RStudio e Github no dia a dia</title>
+      <link>http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/</link>
+      <pubDate>Mon, 17 Jul 2017 00:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/</guid>
+      <description>Versionamento de código é uma ferramenta que veio para ficar. Não dá para calcular o quanto de dor de cabeça, horas perdidas e frustrações ela economiza e já economizou na história da humanidade.
+Um dos programas que faz isso para a gente se chama Git. E não confundir com Github (que vamos usar para exemplificar mais para frente) que é um serviço que hospeda repositórios “controlados” pelo Git.
+Ao final do post você estará apto(a) a trabalhar com Github no seu RStudio.</description>
+    </item>
+    
+  </channel>
+</rss>

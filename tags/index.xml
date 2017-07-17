@@ -184,6 +184,24 @@
     </item>
     
     <item>
+      <title>Git</title>
+      <link>http://curso-r.com/tags/git/</link>
+      <pubDate>Mon, 17 Jul 2017 00:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>http://curso-r.com/tags/github/</link>
+      <pubDate>Mon, 17 Jul 2017 00:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Glue</title>
       <link>http://curso-r.com/tags/glue/</link>
       <pubDate>Mon, 17 Apr 2017 13:07:31 +0200</pubDate>
@@ -402,7 +420,7 @@
     <item>
       <title>Rstudio</title>
       <link>http://curso-r.com/tags/rstudio/</link>
-      <pubDate>Sat, 15 Jul 2017 23:26:00 +0300</pubDate>
+      <pubDate>Mon, 17 Jul 2017 00:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/tags/rstudio/</guid>
       <description></description>
