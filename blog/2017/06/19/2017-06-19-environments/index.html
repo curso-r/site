@@ -275,7 +275,7 @@ search()
 ## [10] &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
 <p>Um novo <em>environment mighty</em> é criado acima do <em>global</em>! Isso quer dizer que se você não tiver total conhecimento dos objetos que estão sendo anexados, você estará criando uma lista de objetos “invisíveis” que podem ser avaliados mesmo dentro de funções. E veja o que acontece quando carregamos mais pacotes</p>
 <pre class="r"><code>library(dplyr)
-## Warning: Installed Rcpp (0.12.11.4) different from Rcpp used to build dplyr (0.12.11.3).
+## Warning: Installed Rcpp (0.12.12) different from Rcpp used to build dplyr (0.12.11.3).
 ## Please reinstall dplyr to avoid random crashes or undefined behavior.
 ## 
 ## Attaching package: &#39;dplyr&#39;
@@ -296,7 +296,7 @@ search()
 
 attach(dados)
 cancer
-##  [1] 1 1 1 0 1 0 1 1 1 0 1 0 1 1 1 1 1 0 1 0 0 0 0 1 0 0 1 1 0 1</code></pre>
+##  [1] 1 1 0 1 1 1 1 1 0 1 0 1 1 1 0 0 1 1 0 0 0 1 1 1 1 1 1 0 0 1</code></pre>
 <p>Com o código acima, criamos um banco de dados representando 30 pacientes com (1) ou sem (0) um certo tipo de câncer. As variáveis <code>paciente</code> e <code>cancer</code> foram anexadas ao rodarmos <code>attach(dados)</code>.</p>
 <p>Agora, imagine se esse banco de dados tiver informações de tempo até a remissão do câncer e quisermos rodar modelos de sobrevivência. Um passo natural seria carregar a biblioteca <code>survival</code>.</p>
 <pre class="r"><code>library(survival)
@@ -632,14 +632,14 @@ search()
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
          

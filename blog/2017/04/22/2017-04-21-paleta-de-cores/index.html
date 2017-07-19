@@ -200,7 +200,7 @@ img &lt;- readJPEG(&quot;img/david-bowie.jpg&quot;)</code></pre>
 <p>A cor que representa cada um dos grupos é representada pelo vetor c(r, g, b) com a média de todas as observações de cada um dos grupos. Podemos obter isso com algumas manipulações usando o <code>dplyr</code>.</p>
 <pre class="r"><code>library(tibble)
 library(dplyr)
-## Warning: Installed Rcpp (0.12.11.4) different from Rcpp used to build dplyr (0.12.11.3).
+## Warning: Installed Rcpp (0.12.12) different from Rcpp used to build dplyr (0.12.11.3).
 ## Please reinstall dplyr to avoid random crashes or undefined behavior.
 ## 
 ## Attaching package: &#39;dplyr&#39;
@@ -222,19 +222,19 @@ centroides &lt;- img_df %&gt;%
 
 centroides
 ## # A tibble: 6 x 4
-##   cluster         r          g         b
-##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.8768970 0.76224179 0.6454794
-## 2       2 0.1243380 0.04330185 0.2157165
-## 3       3 0.7017989 0.46751128 0.3240634
-## 4       4 0.2212875 0.27343423 0.4408795
-## 5       5 0.5006902 0.18330624 0.1588547
-## 6       6 0.3542115 0.46236909 0.5494132</code></pre>
+##   cluster          r         g         b
+##     &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1       1 0.27214211 0.3641213 0.4901644
+## 2       2 0.62387801 0.2832790 0.1896923
+## 3       3 0.88572504 0.7791481 0.6688438
+## 4       4 0.71951030 0.5487661 0.4097725
+## 5       5 0.09965226 0.0436630 0.2398620
+## 6       6 0.37889146 0.1185504 0.1558589</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#E0C2A5&quot; &quot;#200B37&quot; &quot;#B37753&quot; &quot;#384670&quot; &quot;#802F29&quot; &quot;#5A768C&quot;</code></pre>
+## [1] &quot;#455D7D&quot; &quot;#9F4830&quot; &quot;#E2C7AB&quot; &quot;#B78C68&quot; &quot;#190B3D&quot; &quot;#611E28&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -584,19 +584,6 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -605,6 +592,19 @@ exibir(paleta)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
