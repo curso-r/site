@@ -267,6 +267,7 @@ a &lt;- read.fst(&quot;~/Desktop/dataset.fst&quot;)
 
 # ler apenas algumas linhas e colunas
 b &lt;- read.fst(&quot;~/Desktop/dataset.fst&quot;, c(&quot;Logicals&quot;, &quot;Text&quot;), 2000, 4990) </code></pre>
+<p><strong>Note</strong> Como o Sillas mencionou nos comentários, a versão do CRAN do <code>fst</code> salva datas como numericos no arquivo. Os números podedm sser convertidos para data novamente usando a função <code>as.Date</code> do pacote <code>zoo</code>, mas tem que tomar cuidado!</p>
 </div>
 <div id="conclusao" class="section level1">
 <h1>Conclusão</h1>
@@ -587,14 +588,14 @@ b &lt;- read.fst(&quot;~/Desktop/dataset.fst&quot;, c(&quot;Logicals&quot;, &quo
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          
