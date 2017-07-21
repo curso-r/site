@@ -188,9 +188,7 @@
 <p>Além de não transformar <em>strings</em> em fatores, o <code>tidyverse</code> também dispõe de um pacote só para manipular fatores: o <code>forcats</code> (<em>for</em> <em>cat</em>egorial variable<em>s</em>). Para começar a usá-lo, instale e carregue o pacote.</p>
 <pre class="r"><code>install.packages(&quot;forcats&quot;)</code></pre>
 <pre class="r"><code>library(forcats)
-library(tidyverse)
-## Warning: Installed Rcpp (0.12.12) different from Rcpp used to build dplyr (0.12.11.3).
-## Please reinstall dplyr to avoid random crashes or undefined behavior.</code></pre>
+library(tidyverse)</code></pre>
 <p>O <code>forcats</code> é um pacote bastante simples. Basicamente, ele é composto por funções de apenas dois tipos:</p>
 <ul>
 <li>Funções que começam com <code>fct_</code>, que recebem uma lista de fatores e devolvem um fator.</li>
@@ -229,7 +227,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Lily    Jim     Barney  Leonard Robin   Sheldon
+## [1] Penny  Howard Ted    Howard Jim    Barney
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -237,20 +235,20 @@ fct_count(per_fav)
 ## # A tibble: 15 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-##  1     Andy     8
-##  2   Barney     8
-##  3   Dwight     8
-##  4   Howard     2
-##  5      Jim     8
+##  1     Andy     6
+##  2   Barney     3
+##  3   Dwight     5
+##  4   Howard    11
+##  5      Jim    13
 ##  6  Leonard     8
-##  7     Lily     8
-##  8 Marshall     9
-##  9  Michael     9
-## 10      Pam     3
-## 11    Penny     5
-## 12   Rajesh     4
-## 13    Robin     7
-## 14  Sheldon     7
+##  7     Lily     7
+##  8 Marshall     4
+##  9  Michael     5
+## 10      Pam     4
+## 11    Penny    12
+## 12   Rajesh     6
+## 13    Robin     4
+## 14  Sheldon     6
 ## 15      Ted     6
 
 # Junta as categorias
@@ -260,15 +258,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] HIMYM     TheOffice HIMYM     TBBT      HIMYM     TBBT     
+## [1] TBBT      TBBT      HIMYM     TBBT      TheOffice HIMYM    
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    36
-## 2     HIMYM    38
-## 3      TBBT    26</code></pre>
+## 1 TheOffice    33
+## 2     HIMYM    24
+## 3      TBBT    43</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -290,37 +288,42 @@ fct_count(per_fav2)
 <p>Agrupa as categorias menos (ou mais) comuns.</p>
 <pre class="r"><code>letras &lt;- factor(letters[rpois(100, 5)])
 fct_count(letras)
-## # A tibble: 10 x 2
+## # A tibble: 12 x 2
 ##         f     n
 ##    &lt;fctr&gt; &lt;int&gt;
-##  1      a     3
-##  2      b     7
-##  3      c     9
-##  4      d    18
-##  5      e    13
-##  6      f    18
-##  7      g    14
-##  8      h     9
-##  9      i     6
-## 10      j     2
+##  1      a     2
+##  2      b     3
+##  3      c    10
+##  4      d    20
+##  5      e    16
+##  6      f    19
+##  7      g    13
+##  8      h     6
+##  9      i     4
+## 10      j     4
+## 11      k     2
+## 12      m     1
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
 # que as outras categorias.
 letras %&gt;%                  
   fct_lump(other_level = &quot;Outros&quot;) %&gt;%       
   fct_count
-## # A tibble: 9 x 2
-##        f     n
-##   &lt;fctr&gt; &lt;int&gt;
-## 1      b     7
-## 2      c     9
-## 3      d    18
-## 4      e    13
-## 5      f    18
-## 6      g    14
-## 7      h     9
-## 8      i     6
-## 9 Outros     5
+## # A tibble: 12 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     2
+##  2      b     3
+##  3      c    10
+##  4      d    20
+##  5      e    16
+##  6      f    19
+##  7      g    13
+##  8      h     6
+##  9      i     4
+## 10      j     4
+## 11      k     2
+## 12 Outros     1
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
@@ -330,11 +333,11 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      d    18
-## 2      e    13
-## 3      f    18
-## 4      g    14
-## 5 Outros    36
+## 1      d    20
+## 2      e    16
+## 3      f    19
+## 4      g    13
+## 5 Outros    32
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
@@ -344,11 +347,11 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
-## 1          a     3
-## 2          b     7
-## 3          i     6
-## 4          j     2
-## 5 Principais    81</code></pre>
+## 1          a     2
+## 2          b     3
+## 3          k     2
+## 4          m     1
+## 5 Principais    92</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
 <h2>lvls_reorder</h2>
@@ -446,13 +449,13 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (45)</a>
+            <li><a href="http://curso-r.com/categories/r">r (46)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (19)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (20)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/tutorial">tutorial (1)</a>
@@ -511,6 +514,9 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             </li>
             
             <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/data.frames"><i class="fa fa-tags"></i> data.frames</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/deep-learning"><i class="fa fa-tags"></i> deep-learning</a>
@@ -672,6 +678,19 @@ lvls_reorder(fator, c(3, 1, 2, 4))
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -680,19 +699,6 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
@@ -756,6 +762,19 @@ lvls_reorder(fator, c(3, 1, 2, 4))
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/">
+                          
+                            <img src="http://curso-r.com/img/banners/banner-datasets.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/">Salvando data.frames: uma comparação</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/">
                           
                             <img src="http://curso-r.com/img/banners/fluxo_github_rstudio2.png" class="img-responsive" alt="">
@@ -777,19 +796,6 @@ lvls_reorder(fator, c(3, 1, 2, 4))
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/15/2017-07-15-top-3-rmarkdown/">Top 3 pacotes pra usar com rmarkdown</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/">
-                          
-                            <img src="http://curso-r.com/img/banners/bds_ruins.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/">Arrumando BDs: nome das variáveis</a></h5>
                     </div>
                 </div>
                 

@@ -216,13 +216,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.168   0.004   2.327</code></pre>
+##   0.152   0.012   2.295</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.172   0.000   2.266</code></pre>
+##   0.148   0.004   2.220</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # para de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
@@ -308,13 +308,13 @@ system.time({
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (45)</a>
+            <li><a href="http://curso-r.com/categories/r">r (46)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (19)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (20)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/tutorial">tutorial (1)</a>
@@ -373,6 +373,9 @@ system.time({
             </li>
             
             <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/data.frames"><i class="fa fa-tags"></i> data.frames</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/deep-learning"><i class="fa fa-tags"></i> deep-learning</a>
@@ -547,14 +550,14 @@ system.time({
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -618,6 +621,19 @@ system.time({
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/">
+                          
+                            <img src="http://curso-r.com/img/banners/banner-datasets.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/">Salvando data.frames: uma comparação</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/">
                           
                             <img src="http://curso-r.com/img/banners/fluxo_github_rstudio2.png" class="img-responsive" alt="">
@@ -639,19 +655,6 @@ system.time({
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/15/2017-07-15-top-3-rmarkdown/">Top 3 pacotes pra usar com rmarkdown</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/">
-                          
-                            <img src="http://curso-r.com/img/banners/bds_ruins.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/">Arrumando BDs: nome das variáveis</a></h5>
                     </div>
                 </div>
                 

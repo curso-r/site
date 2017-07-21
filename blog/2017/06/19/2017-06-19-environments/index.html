@@ -275,8 +275,6 @@ search()
 ## [10] &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
 <p>Um novo <em>environment mighty</em> é criado acima do <em>global</em>! Isso quer dizer que se você não tiver total conhecimento dos objetos que estão sendo anexados, você estará criando uma lista de objetos “invisíveis” que podem ser avaliados mesmo dentro de funções. E veja o que acontece quando carregamos mais pacotes</p>
 <pre class="r"><code>library(dplyr)
-## Warning: Installed Rcpp (0.12.12) different from Rcpp used to build dplyr (0.12.11.3).
-## Please reinstall dplyr to avoid random crashes or undefined behavior.
 ## 
 ## Attaching package: &#39;dplyr&#39;
 ## The following objects are masked from &#39;package:stats&#39;:
@@ -296,7 +294,7 @@ search()
 
 attach(dados)
 cancer
-##  [1] 0 1 1 1 0 0 1 1 1 1 0 0 1 1 0 0 1 1 1 1 0 1 1 0 1 0 1 0 1 1</code></pre>
+##  [1] 1 1 0 1 0 1 0 1 1 1 0 1 0 0 1 0 0 1 0 1 0 1 0 0 1 0 0 0 1 0</code></pre>
 <p>Com o código acima, criamos um banco de dados representando 30 pacientes com (1) ou sem (0) um certo tipo de câncer. As variáveis <code>paciente</code> e <code>cancer</code> foram anexadas ao rodarmos <code>attach(dados)</code>.</p>
 <p>Agora, imagine se esse banco de dados tiver informações de tempo até a remissão do câncer e quisermos rodar modelos de sobrevivência. Um passo natural seria carregar a biblioteca <code>survival</code>.</p>
 <pre class="r"><code>library(survival)
@@ -406,13 +404,13 @@ search()
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (45)</a>
+            <li><a href="http://curso-r.com/categories/r">r (46)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (19)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (20)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/tutorial">tutorial (1)</a>
@@ -471,6 +469,9 @@ search()
             </li>
             
             <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/data.frames"><i class="fa fa-tags"></i> data.frames</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/deep-learning"><i class="fa fa-tags"></i> deep-learning</a>
@@ -645,14 +646,14 @@ search()
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
@@ -716,6 +717,19 @@ search()
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/">
+                          
+                            <img src="http://curso-r.com/img/banners/banner-datasets.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/">Salvando data.frames: uma comparação</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/">
                           
                             <img src="http://curso-r.com/img/banners/fluxo_github_rstudio2.png" class="img-responsive" alt="">
@@ -737,19 +751,6 @@ search()
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/15/2017-07-15-top-3-rmarkdown/">Top 3 pacotes pra usar com rmarkdown</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/">
-                          
-                            <img src="http://curso-r.com/img/banners/bds_ruins.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/">Arrumando BDs: nome das variáveis</a></h5>
                     </div>
                 </div>
                 

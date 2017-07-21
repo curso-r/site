@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/</loc>
+    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/</loc>
     <lastmod>2017-07-17T00:26:00+03:00</lastmod>
   </url>
@@ -271,7 +276,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-07-17T00:26:00+03:00</lastmod>
+    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
   </url>
   
   <url>
@@ -334,7 +339,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-07-17T00:26:00+03:00</lastmod>
+    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -350,12 +355,18 @@
   
   <url>
     <loc>http://curso-r.com/author/daniel/</loc>
-    <lastmod>2017-07-08T10:12:00+03:00</lastmod>
+    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/cursos/dashboards/</loc>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/data.frames/</loc>
+    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -561,14 +572,14 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-07-10T13:07:31+02:00</lastmod>
+    <loc>http://curso-r.com/categories/r/</loc>
+    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-07-17T00:26:00+03:00</lastmod>
+    <loc>http://curso-r.com/tags/r/</loc>
+    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -660,7 +671,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
+    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

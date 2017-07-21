@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data.Frames on Curso-R</title>
+    <link>http://curso-r.com/tags/data.frames/</link>
+    <description>Recent content in Data.Frames on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 20 Jul 2017 00:26:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/data.frames/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Salvando data.frames: uma comparação</title>
+      <link>http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/</link>
+      <pubDate>Thu, 20 Jul 2017 00:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/</guid>
+      <description>Salvar data.frames para ler depois é uma tarefa muito comum para quem trabalha com R, principalmente quando o seu processo possui algumas etapas mais demoradas e você não quer ter que rodar tudo de novo.
+Veja aqui 3 formas fáceis, e rápidas para salvar o seu banco de dados e não perder tempo lendo novamente.
+saveRDS Talvez a função mais conhecida para salvar objetos do R. Ela salva em um formato binário que só pode ser lido pelo R.</description>
+    </item>
+    
+  </channel>
+</rss>
