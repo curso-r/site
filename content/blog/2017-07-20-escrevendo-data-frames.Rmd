@@ -160,6 +160,10 @@ a <- read.fst("~/Desktop/dataset.fst")
 b <- read.fst("~/Desktop/dataset.fst", c("Logicals", "Text"), 2000, 4990) 
 ```
 
+**Note** Como o Sillas mencionou nos comentários, a versão do CRAN do `fst` salva
+datas como numericos no arquivo. Os números podedm sser convertidos para data novamente
+usando a função `as.Date` do pacote `zoo`, mas tem que tomar cuidado!
+
 # Conclusão
 
 * Use sempre `saveRDS` e `readRDS`, se precisar de velocidade, salve com o argumento
