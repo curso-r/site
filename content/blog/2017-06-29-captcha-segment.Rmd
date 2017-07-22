@@ -1,6 +1,6 @@
 ---
 title: "Quebrando CAPTCHAs - Parte III: Segmentação de imagens"
-date: "2017-06-05T13:07:31+02:00"
+date: "2017-07-22T13:07:31+02:00"
 tags: ["r", "captcha"]
 categories: ["r"]
 banner: "img/banners/captcha_03.png"
