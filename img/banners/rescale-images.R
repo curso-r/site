@@ -93,11 +93,11 @@ image_read('~/Downloads/quebrando_captchas.png') %>%
 image_read('~/Downloads/quebrando_captchas.png') %>% 
   image_border(color = 'white', geometry = '50x120') %>% 
   image_noise() %>% 
-  image_annotate('#2', size = 80, font = 'ubuntu',
+  image_annotate('#3', size = 80, font = 'ubuntu',
                  location = '+300+10', color = 'red') %>% 
-  image_annotate('Pacote decryptr', size = 40, font = 'ubuntu',
-                 color = 'black', location = '+10+240') %>% 
-  image_write("static/img/banners/captcha_02.png")
+  image_annotate('segmentando imagens', size = 30, font = 'ubuntu',
+                 color = 'black', location = '+10+210') %>% 
+  image_write("static/img/banners/captcha_03.png")
 
 
 

@@ -227,7 +227,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Jim     Sheldon Jim     Sheldon Michael Leonard
+## [1] Penny Pam   Andy  Ted   Lily  Penny
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -235,21 +235,21 @@ fct_count(per_fav)
 ## # A tibble: 15 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-##  1     Andy     9
+##  1     Andy     5
 ##  2   Barney     7
-##  3   Dwight     3
-##  4   Howard     6
+##  3   Dwight     4
+##  4   Howard     4
 ##  5      Jim     6
-##  6  Leonard     6
-##  7     Lily     8
-##  8 Marshall    10
+##  6  Leonard    11
+##  7     Lily     9
+##  8 Marshall     7
 ##  9  Michael     5
-## 10      Pam     6
-## 11    Penny     4
-## 12   Rajesh     7
+## 10      Pam     8
+## 11    Penny     6
+## 12   Rajesh     6
 ## 13    Robin     8
-## 14  Sheldon    12
-## 15      Ted     3
+## 14  Sheldon     7
+## 15      Ted     7
 
 # Junta as categorias
 per_fav2 &lt;- fct_collapse(per_fav,
@@ -258,15 +258,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] TheOffice TBBT      TheOffice TBBT      TheOffice TBBT     
+## [1] TBBT      TheOffice TheOffice HIMYM     HIMYM     TBBT     
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    29
-## 2     HIMYM    36
-## 3      TBBT    35</code></pre>
+## 1 TheOffice    28
+## 2     HIMYM    38
+## 3      TBBT    34</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -288,51 +288,55 @@ fct_count(per_fav2)
 <p>Agrupa as categorias menos (ou mais) comuns.</p>
 <pre class="r"><code>letras &lt;- factor(letters[rpois(100, 5)])
 fct_count(letras)
-## # A tibble: 10 x 2
+## # A tibble: 11 x 2
 ##         f     n
 ##    &lt;fctr&gt; &lt;int&gt;
-##  1      a     1
-##  2      b    10
-##  3      c    12
-##  4      d    19
-##  5      e    14
-##  6      f    21
-##  7      g    13
+##  1      a     3
+##  2      b    12
+##  3      c    14
+##  4      d    21
+##  5      e    12
+##  6      f    15
+##  7      g    10
 ##  8      h     5
-##  9      i     4
-## 10      j     1
+##  9      i     2
+## 10      j     3
+## 11      k     2
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
 # que as outras categorias.
 letras %&gt;%                  
   fct_lump(other_level = &quot;Outros&quot;) %&gt;%       
   fct_count
-## # A tibble: 9 x 2
-##        f     n
-##   &lt;fctr&gt; &lt;int&gt;
-## 1      b    10
-## 2      c    12
-## 3      d    19
-## 4      e    14
-## 5      f    21
-## 6      g    13
-## 7      h     5
-## 8      i     4
-## 9 Outros     2
+## # A tibble: 11 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     3
+##  2      b    12
+##  3      c    14
+##  4      d    21
+##  5      e    12
+##  6      f    15
+##  7      g    10
+##  8      h     5
+##  9      i     2
+## 10      j     3
+## 11      k     2
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
 letras %&gt;% 
   fct_lump(n = 4, other_level = &quot;Outros&quot;) %&gt;% 
   fct_count
-## # A tibble: 5 x 2
+## # A tibble: 6 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      d    19
-## 2      e    14
-## 3      f    21
-## 4      g    13
-## 5 Outros    33
+## 1      b    12
+## 2      c    14
+## 3      d    21
+## 4      e    12
+## 5      f    15
+## 6 Outros    25
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
@@ -342,10 +346,10 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
-## 1          a     1
-## 2          h     5
-## 3          i     4
-## 4          j     1
+## 1          a     3
+## 2          i     2
+## 3          j     3
+## 4          k     2
 ## 5 Principais    89</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
@@ -444,7 +448,7 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (46)</a>
+            <li><a href="http://curso-r.com/categories/r">r (47)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
@@ -673,19 +677,6 @@ lvls_reorder(fator, c(3, 1, 2, 4))
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -694,6 +685,19 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
