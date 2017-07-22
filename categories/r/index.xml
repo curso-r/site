@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 20 Jul 2017 00:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jul 2017 13:07:31 +0200</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quebrando CAPTCHAs - Parte III: Segmentação de imagens</title>
+      <link>http://curso-r.com/blog/2017/07/22/2017-06-29-captcha-segment/</link>
+      <pubDate>Sat, 22 Jul 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/22/2017-06-29-captcha-segment/</guid>
+      <description>Nesse post vamos discutir um pouco sobre modelar CAPTCHAs. Vou assumir que você já viu o post de introdução e o post sobre download, leitura e classificação manual de CAPTCHAs.
+Digamos que você tenha uma base de dados de treino composta por \(N\) imagens com os textos classificados. Nossa resposta nesse caso é uma palavra de \(k\) caracteres (vamos considerar \(k\) fixado), sendo que cada caractere \(c\) pode ter \(p\) valores.</description>
+    </item>
     
     <item>
       <title>Salvando data.frames: uma comparação</title>
@@ -176,16 +186,6 @@ Pré-requisitos O tutorial supõe que você possui um servidor Ubuntu 16.</descr
       <description>Esse é o Daniel Falbel, um dos sócios da Curso-R e autor de diversos posts no nosso blog. Boa pinta, não?
 Mas esse não é só um rostinho bonito. Recente, o Dani fez uma contribuição PROFUNDA para a comunidade R: ele é um dos responsáveis pelo pacote keras, que faz uma interface com a biblioteca de mesmo nome utilizada para ajustar modelos de deep learning usando TensorFlow.
 Veja o arquivo DESCRIPTION (metadados) desse pacote:</description>
-    </item>
-    
-    <item>
-      <title>Quebrando CAPTCHAs - Parte III: Segmentação de imagens</title>
-      <link>http://curso-r.com/blog/2017/06/05/2017-06-29-captcha-segment/</link>
-      <pubDate>Mon, 05 Jun 2017 13:07:31 +0200</pubDate>
-      
-      <guid>http://curso-r.com/blog/2017/06/05/2017-06-29-captcha-segment/</guid>
-      <description>Nesse post vamos discutir um pouco sobre modelar CAPTCHAs. Vou assumir que você já viu o post de introdução e o post sobre download, leitura e classificação manual de CAPTCHAs.
-Digamos que você tenha uma base de dados de treino composta por \(N\) imagens com os textos classificados. Nossa resposta nesse caso é uma palavra de \(k\) caracteres (vamos considerar \(k\) fixado), sendo que cada caractere \(c\) pode ter \(p\) valores.</description>
     </item>
     
     <item>
