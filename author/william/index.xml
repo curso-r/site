@@ -23,6 +23,17 @@ A tarefa é chata porque é um grande retrabalho que muitas vezes cai na mão do
     </item>
     
     <item>
+      <title>Arrumando BDs: o pacote janitor</title>
+      <link>http://curso-r.com/blog/2017/07/12/2017-07-24-janitor/</link>
+      <pubDate>Wed, 12 Jul 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/12/2017-07-24-janitor/</guid>
+      <description>No primeiro post sobre arrumação de base de dados, a gente viu como usar as funções do stringr para arrumar o nome das variáveis. Seguindo a dica do Julio, o quebrador de captchas, vamos falar do pacote janitor, que traz algumas funções para dar aquele trato nas BDs.
+Antes de mais nada, instale e carregue o pacote:
+install.packages(&amp;quot;janitor&amp;quot;) devtools::install_github(&amp;quot;sfirke/janitor&amp;quot;) # Versão de desenvolvimento library(tidyverse) library(janitor) Arrumando o nome das variáveis Assim como no post passado, utilizaremos a base com informações de pacientes com arritmia cardíaca, cujas variáveis selecionadas foram:</description>
+    </item>
+    
+    <item>
       <title>Forcats</title>
       <link>http://curso-r.com/blog/2017/07/01/2017-07-01-forcats/</link>
       <pubDate>Sat, 01 Jul 2017 23:26:00 +0300</pubDate>
