@@ -102,7 +102,7 @@ Equivalentemente para colunas, existe a função `remove_empty_cols()`.
 
 ## Identificando linhas duplicadas
 
-O pacote `janitor` possui uma função para identificar entradas duplicadas numa base de dados: `get_dupes()`. Vamos criar uma base genêrica para testá-la.
+O pacote `janitor` possui uma função para identificar entradas duplicadas numa base de dados: `get_dupes()`. Vamos criar uma base genérica para testá-la.
 
 ```{r}
 
