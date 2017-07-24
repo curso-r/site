@@ -202,7 +202,7 @@ system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.008   0.008   3.018</code></pre>
+##   0.008   0.000   3.010</code></pre>
 <p>Agora vamos executar o mesmo código usando paralelização. Antes, precisamos</p>
 <ol style="list-style-type: decimal">
 <li>criar e registrar as cópias de R que rodam em paralelo; e</li>
@@ -216,13 +216,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.244   0.004   2.488</code></pre>
+##   0.152   0.020   2.324</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.192   0.000   2.304</code></pre>
+##   0.160   0.000   2.235</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # para de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
@@ -417,6 +417,9 @@ system.time({
             <li><a href="http://curso-r.com/tags/imagens"><i class="fa fa-tags"></i> imagens</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/janitor"><i class="fa fa-tags"></i> janitor</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/keras"><i class="fa fa-tags"></i> keras</a>
             </li>
             
@@ -537,6 +540,19 @@ system.time({
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -545,19 +561,6 @@ system.time({
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -621,6 +624,19 @@ system.time({
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/24/2017-07-24-janitor/">
+                          
+                            <img src="http://curso-r.com/img/banners/janitor.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/24/2017-07-24-janitor/">Arrumando BDs: o pacote janitor</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/07/22/2017-06-29-captcha-segment/">
                           
                             <img src="http://curso-r.com/img/banners/captcha_03.png" class="img-responsive" alt="">
@@ -642,19 +658,6 @@ system.time({
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/">Salvando data.frames: uma comparação</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/">
-                          
-                            <img src="http://curso-r.com/img/banners/fluxo_github_rstudio2.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/">RStudio e Github no dia a dia</a></h5>
                     </div>
                 </div>
                 

@@ -1,7 +1,7 @@
 ---
 title: "Arrumando BDs: o pacote janitor"
-date: "2017-07-12T23:26:00+03:00"
-tags: ["BDs", "tidyverse"]
+date: "2017-07-24T23:26:00+03:00"
+tags: ["BDs", "pacotes", "janitor"]
 categories: ["tutoriais", "r"]
 banner: "img/banners/janitor.jpg"
 author: ["William"]
