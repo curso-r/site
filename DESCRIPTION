@@ -78,5 +78,6 @@ Imports:
     emo,
     ggforce,
     FactoMineR,
-    tidywoe
+    tidywoe,
+    janitor
 RoxygenNote: 6.0.1
