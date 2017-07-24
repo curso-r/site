@@ -1,11 +1,11 @@
 ---
 title: "Quebrando CAPTCHAs - Parte III: Segmentação de imagens"
-date: "2017-06-05T13:07:31+02:00"
+date: "2017-07-22T13:07:31+02:00"
 tags: ["r", "captcha"]
 categories: ["r"]
-banner: "img/banners/keras.jpg"
+banner: "img/banners/captcha_03.png"
 author: ["Julio"]
-draft: true
+draft: false
 summary: "Digamos que você tenha uma base de dados de treino composta por N imagens com os textos classificados. Nossa resposta nesse caso é uma palavra de k caracteres, com p valores possíveis cada. O problema de modelar o CAPTCHA diretamente é que a variável resposta tem um..."
 ---
 
@@ -33,7 +33,7 @@ Vamos usar como exemplo o CAPTCHA dos TRTs. Primeiro, o download:
 ```{r eval=FALSE}
 library(decryptr)
 library(tidyverse)
-arq_captcha <- decryptr:::download_trt(dest = 'img', n = 1)
+arq_captcha <- decryptr::download_trt(dest = 'img', n = 1)
 ```
 
 ```{r echo=FALSE}
@@ -45,7 +45,7 @@ arq_captcha <- 'img/captcha705f7bad4a3d.jpeg'
 Visualizando a imagem:
 
 ```{r}
-arq_captcha %>% 
+"img/captcha705f7bad4a3d.jpeg"  %>% 
   read_captcha() %>% 
   plot()
 ```
@@ -60,7 +60,7 @@ abline(v = 30 + 15 * 0:5, col = 'red')
 Podemos também limitar os eixos `x` (tirar os espaços vazios à esquerda e à direita) e `y` (superiores e inferiores).
 
 ```{r}
-arq_captcha %>% 
+"img/captcha705f7bad4a3d.jpeg" %>% 
   load_image() %>% 
   magrittr::extract(-c(1:9, 31:dim(.)[1]), -c(1:15, 106:dim(.)[2]), TRUE) %>% 
   grDevices::as.raster() %>% 

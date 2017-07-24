@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = F
 
 ```{r, echo = F, message=FALSE, warning=FALSE, comment=FALSE}
 library(tidyverse)
-library(magrittr)
+library(magrittr)z
 ```
 
 ```{r, echo = FALSE, comment = FALSE, message = FALSE}
