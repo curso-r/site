@@ -268,7 +268,7 @@ dados %&gt;% as_tibble()
 </div>
 <div id="identificando-linhas-duplicadas" class="section level2">
 <h2>Identificando linhas duplicadas</h2>
-<p>O pacote <code>janitor</code> possui uma função para identificar entradas duplicadas numa base de dados: <code>get_dupes()</code>. Vamos criar uma base genêrica para testá-la.</p>
+<p>O pacote <code>janitor</code> possui uma função para identificar entradas duplicadas numa base de dados: <code>get_dupes()</code>. Vamos criar uma base genérica para testá-la.</p>
 <pre class="r"><code>
 p_nome &lt;- c(&quot;Athos&quot;, &quot;Daniel&quot;, &quot;Fernando&quot;, &quot;Julio&quot;, &quot;William&quot;)
 sobrenome &lt;- c(&quot;Damiani&quot;, &quot;Falbel&quot;, &quot;Corrêa&quot;, &quot;Trecenti&quot;, &quot;Amorim&quot;)
@@ -278,25 +278,21 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 16 x 4
+## # A tibble: 12 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Corrêa          2         -1.65206924
-##  2    Athos    Corrêa          2         -0.92948176
-##  3    Athos   Damiani          2          0.05837556
-##  4    Athos   Damiani          2          1.61590385
-##  5   Daniel    Falbel          2         -0.94189480
-##  6   Daniel    Falbel          2          0.43995214
-##  7 Fernando    Amorim          3         -1.04423978
-##  8 Fernando    Amorim          3         -0.73353473
-##  9 Fernando    Amorim          3          0.04792882
-## 10    Julio    Amorim          3         -0.16466220
-## 11    Julio    Amorim          3         -0.28959214
-## 12    Julio    Amorim          3          0.39700407
-## 13  William    Amorim          2         -0.65062644
-## 14  William    Amorim          2         -0.13793468
-## 15  William  Trecenti          2         -0.98161712
-## 16  William  Trecenti          2          1.54254619</code></pre>
+##  1    Athos   Damiani          2        -0.344879556
+##  2    Athos   Damiani          2         1.699379805
+##  3 Fernando   Damiani          2         1.181114312
+##  4 Fernando   Damiani          2        -0.642391968
+##  5    Julio    Amorim          2        -0.837221599
+##  6    Julio    Amorim          2        -1.267603028
+##  7    Julio    Corrêa          2         1.465547992
+##  8    Julio    Corrêa          2        -0.132098791
+##  9    Julio   Damiani          2         0.008557633
+## 10    Julio   Damiani          2        -0.819966697
+## 11  William    Falbel          2         0.355321509
+## 12  William    Falbel          2         1.507521749</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -654,19 +650,6 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -675,6 +658,19 @@ mtcars %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
