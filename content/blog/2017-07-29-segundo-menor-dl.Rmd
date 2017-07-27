@@ -1,7 +1,7 @@
 ---
 title: "Regressão Logística em: a menor deep learning do mundo"
 date: "2017-07-29T10:12:00+03:00"
-tags: ["deep learning", "redes neurais", "regressão logística"]
+tags: ["deep learning", "redes neurais", "regressão logística", "keras", "glm"]
 categories: ["conceitos", "r"]
 banner: "img/banners/what_if_i_told_you.png"
 author: ["Athos"]
