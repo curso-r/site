@@ -248,9 +248,9 @@ df &lt;- data_frame(x = runif(n, -2, 2.5)) %&gt;%
 <p><strong>OBS 2:</strong> é claro que nesse caso bem simples de uma variável conseguiríamos inspecionar os dados para chegar em boas transformações de <span class="math inline">\(x\)</span> de tal forma que o ajuste da logística ficasse tão bom quanto o de uma rede neural, mas se acrescentássemos muitas outras variáveis aí a coisa complicaria!</p>
 <p>Em representação de redes neurais, as fórmulas acima ficam assim:</p>
 <p><strong>Resposta <code>y_1</code></strong></p>
-<p><img src="2017-07-29-segundo-menor-dl/y1.png" width="489" /></p>
+<p><img src="http://curso-r.com/blog/2017-07-29-segundo-menor-dl/y1.png" alt="" /><!-- --></p>
 <p><strong>Resposta <code>y_2</code></strong></p>
-<p><img src="2017-07-29-segundo-menor-dl/y2.png" width="600" /></p>
+<p><img src="http://curso-r.com/blog/2017-07-29-segundo-menor-dl/y2.png" alt="" /><!-- --></p>
 <p>O que era <strong>função de ligação</strong> no GLM, em redes neurais virou <strong>função de ativação</strong> (no final eu falo mais sobre vocabulários que mudaram).</p>
 </div>
 <div id="olhada-nos-dados" class="section level3">
@@ -482,7 +482,7 @@ loss_and_metrics_2[[2]]
 <div id="n-esimo-menor-deep-learning" class="section level3">
 <h3>N-ésimo menor deep learning</h3>
 <p>Vimos acima o menor e o segundo menor Deep Learnings (que de profundo não têm nada =P). Mas podemos ir o tão profundo quanto quisermos! A representação de redes neurais sai fácil:</p>
-<p><img src="2017-07-29-segundo-menor-dl/dl_inf.png" width="892" /></p>
+<p><img src="http://curso-r.com/blog/2017-07-29-segundo-menor-dl/dl_inf.png" alt="" /><!-- --></p>
 <p>Já a representação matemática fica esquisita:</p>
 <p><span class="math display">\[E[Y|x] = \frac{1}{1 + \exp{\left(\beta_{p-1} + \beta_p\frac{1}{{\genfrac{}{}{0pt}{}{\vdots}{1 + \exp{\left(\beta_{6} + \beta_{7}\frac{1}{1 + \exp{\left(\beta_4 + \beta_5\frac{1}{1 + \exp{\left(\beta_2 + \beta_3\frac{1}{1 + \exp{\left(\beta_0 + \beta_1x\right)}}\right)}}\right)}}\right)}}}}\right)}}\]</span></p>
 </div>
@@ -835,14 +835,14 @@ loss_and_metrics_2[[2]]
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
