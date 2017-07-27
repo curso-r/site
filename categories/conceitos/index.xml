@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 26 Jun 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jul 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/conceitos/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Regressão Logística em: a menor deep learning do mundo</title>
+      <link>http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/</link>
+      <pubDate>Sat, 29 Jul 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/</guid>
+      <description>Objetivos A finalidade do post é:
+ aprender a fazer uma regressão logística com o keras aprender a fazer um PCA com o keras aproximar o Deep Learning do que já havia de conhecido pela maioria dos analistas de dados. instigar a todos que vieram antes do deep learning a estudar e a ficar à vontade com as novidades em torno dela. mostrar que muitos profissionais inseridos na área de machine learning já conheciam grande parte do que o deep learning usa.</description>
+    </item>
     
     <item>
       <title>Construindo Autoencoders</title>

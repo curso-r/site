@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/</loc>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/07/24/2017-07-24-janitor/</loc>
     <lastmod>2017-07-24T23:26:00+03:00</lastmod>
   </url>
@@ -256,13 +261,13 @@
   
   <url>
     <loc>http://curso-r.com/author/athos/</loc>
-    <lastmod>2017-07-17T00:26:00+03:00</lastmod>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/author/</loc>
-    <lastmod>2017-07-17T00:26:00+03:00</lastmod>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -286,7 +291,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-07-24T23:26:00+03:00</lastmod>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
   </url>
   
   <url>
@@ -333,7 +338,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/conceitos/</loc>
-    <lastmod>2017-06-26T10:12:00+03:00</lastmod>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -349,7 +354,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-07-24T23:26:00+03:00</lastmod>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -381,7 +386,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/deep-learning/</loc>
-    <lastmod>2017-06-26T10:12:00+03:00</lastmod>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -446,6 +451,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/glm/</loc>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/glue/</loc>
     <lastmod>2017-04-17T13:07:31+02:00</lastmod>
     <priority>0</priority>
@@ -487,7 +498,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/keras/</loc>
-    <lastmod>2017-06-26T10:12:00+03:00</lastmod>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -595,7 +606,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-07-24T23:26:00+03:00</lastmod>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -610,8 +621,20 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/redes-neurais/</loc>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/regress%C3%A3o/</loc>
     <lastmod>2017-03-09T13:07:31+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/regress%C3%A3o-log%C3%ADstica/</loc>
+    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

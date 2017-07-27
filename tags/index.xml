@@ -132,7 +132,7 @@
     <item>
       <title>Deep Learning</title>
       <link>http://curso-r.com/tags/deep-learning/</link>
-      <pubDate>Mon, 26 Jun 2017 10:12:00 +0300</pubDate>
+      <pubDate>Sat, 29 Jul 2017 10:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/tags/deep-learning/</guid>
       <description></description>
@@ -211,6 +211,15 @@
     </item>
     
     <item>
+      <title>Glm</title>
+      <link>http://curso-r.com/tags/glm/</link>
+      <pubDate>Sat, 29 Jul 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/glm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Glue</title>
       <link>http://curso-r.com/tags/glue/</link>
       <pubDate>Mon, 17 Apr 2017 13:07:31 +0200</pubDate>
@@ -258,7 +267,7 @@
     <item>
       <title>Keras</title>
       <link>http://curso-r.com/tags/keras/</link>
-      <pubDate>Mon, 26 Jun 2017 10:12:00 +0300</pubDate>
+      <pubDate>Sat, 29 Jul 2017 10:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/tags/keras/</guid>
       <description></description>
@@ -427,11 +436,29 @@
     </item>
     
     <item>
+      <title>Redes Neurais</title>
+      <link>http://curso-r.com/tags/redes-neurais/</link>
+      <pubDate>Sat, 29 Jul 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/redes-neurais/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Regressão</title>
       <link>http://curso-r.com/tags/regress%C3%A3o/</link>
       <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
       
       <guid>http://curso-r.com/tags/regress%C3%A3o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regressão Logística</title>
+      <link>http://curso-r.com/tags/regress%C3%A3o-log%C3%ADstica/</link>
+      <pubDate>Sat, 29 Jul 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/regress%C3%A3o-log%C3%ADstica/</guid>
       <description></description>
     </item>
     

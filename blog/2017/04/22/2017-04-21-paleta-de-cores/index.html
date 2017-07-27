@@ -220,19 +220,19 @@ centroides &lt;- img_df %&gt;%
 
 centroides
 ## # A tibble: 6 x 4
-##   cluster          r         g         b
-##     &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.71951030 0.5487661 0.4097725
-## 2       2 0.62387801 0.2832790 0.1896923
-## 3       3 0.88572504 0.7791481 0.6688438
-## 4       4 0.27214211 0.3641213 0.4901644
-## 5       5 0.09965226 0.0436630 0.2398620
-## 6       6 0.37889146 0.1185504 0.1558589</code></pre>
+##   cluster         r          g         b
+##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+## 1       1 0.5005265 0.18317569 0.1587972
+## 2       2 0.2212860 0.27343498 0.4408806
+## 3       3 0.8768120 0.76211694 0.6453261
+## 4       4 0.7016587 0.46722512 0.3238206
+## 5       5 0.3542030 0.46237875 0.5494285
+## 6       6 0.1242676 0.04329523 0.2157608</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#B78C68&quot; &quot;#9F4830&quot; &quot;#E2C7AB&quot; &quot;#455D7D&quot; &quot;#190B3D&quot; &quot;#611E28&quot;</code></pre>
+## [1] &quot;#802F28&quot; &quot;#384670&quot; &quot;#E0C2A5&quot; &quot;#B37753&quot; &quot;#5A768C&quot; &quot;#200B37&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -350,13 +350,13 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/categories/an%c3%a1lises">análises (9)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/conceitos">conceitos (6)</a>
+            <li><a href="http://curso-r.com/categories/conceitos">conceitos (7)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (48)</a>
+            <li><a href="http://curso-r.com/categories/r">r (49)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
@@ -453,6 +453,9 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/tags/github"><i class="fa fa-tags"></i> github</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/glm"><i class="fa fa-tags"></i> glm</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/glue"><i class="fa fa-tags"></i> glue</a>
             </li>
             
@@ -525,7 +528,13 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/tags/r-markdown"><i class="fa fa-tags"></i> r-markdown</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/redes-neurais"><i class="fa fa-tags"></i> redes-neurais</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/regress%c3%a3o"><i class="fa fa-tags"></i> regressão</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regress%c3%a3o-log%c3%adstica"><i class="fa fa-tags"></i> regressão-logística</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/rstudio"><i class="fa fa-tags"></i> rstudio</a>
@@ -601,14 +610,14 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
@@ -672,6 +681,19 @@ exibir(paleta)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/">
+                          
+                            <img src="http://curso-r.com/img/banners/what_if_i_told_you.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/">Regressão Logística em: a menor deep learning do mundo</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/07/24/2017-07-24-janitor/">
                           
                             <img src="http://curso-r.com/img/banners/janitor.jpg" class="img-responsive" alt="">
@@ -693,19 +715,6 @@ exibir(paleta)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/22/2017-06-29-captcha-segment/">Quebrando CAPTCHAs - Parte III: Segmentação de imagens</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/">
-                          
-                            <img src="http://curso-r.com/img/banners/banner-datasets.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/20/2017-07-20-escrevendo-data-frames/">Salvando data.frames: uma comparação</a></h5>
                     </div>
                 </div>
                 
