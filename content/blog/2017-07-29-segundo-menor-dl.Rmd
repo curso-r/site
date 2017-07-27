@@ -430,9 +430,8 @@ knitr::include_graphics("/blog/2017-07-29-segundo-menor-dl/dl_inf.png")
 
 Já a representação matemática fica esquisita:
 
-\newcommand*{\bfrac}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
 
-$$E[Y|x] = \frac{1}{1 + \exp{\left(\beta_{p-1} + \beta_p\frac{1}{\bfrac{\vdots}{1 + \exp{\left(\beta_{6} + \beta_{7}\frac{1}{1 + \exp{\left(\beta_4 + \beta_5\frac{1}{1 + \exp{\left(\beta_2 + \beta_3\frac{1}{1 + \exp{\left(\beta_0 + \beta_1x\right)}}\right)}}\right)}}\right)}}}\right)}}$$
+$$E[Y|x] = \frac{1}{1 + \exp{\left(\beta_{p-1} + \beta_p\frac{1}{\frac{\vdots}{1 + \exp{\left(\beta_{6} + \beta_{7}\frac{1}{1 + \exp{\left(\beta_4 + \beta_5\frac{1}{1 + \exp{\left(\beta_2 + \beta_3\frac{1}{1 + \exp{\left(\beta_0 + \beta_1x\right)}}\right)}}\right)}}\right)}}}\right)}}$$
 
 ### Vocabulário
 
