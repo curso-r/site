@@ -278,25 +278,24 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 16 x 4
+## # A tibble: 15 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Falbel          3         -1.31892450
-##  2    Athos    Falbel          3         -1.20936185
-##  3    Athos    Falbel          3         -1.43301701
-##  4    Athos  Trecenti          2         -0.53690475
-##  5    Athos  Trecenti          2         -1.30748499
-##  6   Daniel   Damiani          3         -0.67968425
-##  7   Daniel   Damiani          3          1.00912122
-##  8   Daniel   Damiani          3          0.63024678
-##  9 Fernando    Amorim          4          1.54240516
-## 10 Fernando    Amorim          4         -0.44935203
-## 11 Fernando    Amorim          4          0.25583607
-## 12 Fernando    Amorim          4         -0.76308868
-## 13    Julio    Corrêa          2          1.19186081
-## 14    Julio    Corrêa          2         -2.15996555
-## 15  William   Damiani          2          0.03271022
-## 16  William   Damiani          2         -1.00892366</code></pre>
+##  1   Daniel   Damiani          2         -0.35096199
+##  2   Daniel   Damiani          2          0.42794313
+##  3 Fernando    Corrêa          2          0.68452042
+##  4 Fernando    Corrêa          2          0.06948572
+##  5    Julio    Amorim          2          0.70164132
+##  6    Julio    Amorim          2         -0.58868027
+##  7    Julio  Trecenti          2          1.62729517
+##  8    Julio  Trecenti          2         -1.52032011
+##  9  William    Corrêa          2         -0.86354053
+## 10  William    Corrêa          2         -1.22025470
+## 11  William    Falbel          5         -0.95372719
+## 12  William    Falbel          5         -1.36055232
+## 13  William    Falbel          5         -0.84587390
+## 14  William    Falbel          5          0.66591286
+## 15  William    Falbel          5         -0.14355154</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
