@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 29 Jul 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 31 Jul 2017 13:07:31 +0200</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quebrando CAPTCHAs - Parte IV: Trabalhando com a imagem completa</title>
+      <link>http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/</link>
+      <pubDate>Mon, 31 Jul 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/</guid>
+      <description>No último post sobre CAPTCHAs nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.
+Alguns meses atrás, tentamos resolver esse problema de várias formas. Uma delas foi utilizar algoritmos de agrupamento (\(k\)-médias) ou de identificação de conjuntos conectados.</description>
+    </item>
     
     <item>
       <title>Regressão Logística em: a menor deep learning do mundo</title>

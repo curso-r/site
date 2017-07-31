@@ -278,24 +278,25 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 15 x 4
+## # A tibble: 16 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos   Damiani          2         -0.33007816
-##  2    Athos   Damiani          2         -1.34045591
-##  3    Athos    Falbel          2         -0.47788915
-##  4    Athos    Falbel          2         -1.70757590
-##  5   Daniel   Damiani          2          1.18957885
-##  6   Daniel   Damiani          2         -0.59792157
-##  7 Fernando    Amorim          2         -1.17676714
-##  8 Fernando    Amorim          2         -0.15756404
-##  9    Julio    Corrêa          2          0.76886250
-## 10    Julio    Corrêa          2         -1.42859184
-## 11    Julio  Trecenti          2         -1.41304856
-## 12    Julio  Trecenti          2          1.78351216
-## 13  William    Falbel          3         -0.35861873
-## 14  William    Falbel          3          0.56510855
-## 15  William    Falbel          3         -0.07866266</code></pre>
+##  1    Athos    Falbel          3         -1.31892450
+##  2    Athos    Falbel          3         -1.20936185
+##  3    Athos    Falbel          3         -1.43301701
+##  4    Athos  Trecenti          2         -0.53690475
+##  5    Athos  Trecenti          2         -1.30748499
+##  6   Daniel   Damiani          3         -0.67968425
+##  7   Daniel   Damiani          3          1.00912122
+##  8   Daniel   Damiani          3          0.63024678
+##  9 Fernando    Amorim          4          1.54240516
+## 10 Fernando    Amorim          4         -0.44935203
+## 11 Fernando    Amorim          4          0.25583607
+## 12 Fernando    Amorim          4         -0.76308868
+## 13    Julio    Corrêa          2          1.19186081
+## 14    Julio    Corrêa          2         -2.15996555
+## 15  William   Damiani          2          0.03271022
+## 16  William   Damiani          2         -1.00892366</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -421,7 +422,7 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (5)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (49)</a>
+            <li><a href="http://curso-r.com/categories/r">r (50)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
@@ -662,27 +663,27 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
@@ -746,6 +747,19 @@ mtcars %&gt;%
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/">
+                          
+                            <img src="http://curso-r.com/img/banners/captcha_04.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/">Quebrando CAPTCHAs - Parte IV: Trabalhando com a imagem completa</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/">
                           
                             <img src="http://curso-r.com/img/banners/what_if_i_told_you.png" class="img-responsive" alt="">
@@ -767,19 +781,6 @@ mtcars %&gt;%
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/24/2017-07-24-janitor/">Arrumando BDs: o pacote janitor</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/22/2017-06-29-captcha-segment/">
-                          
-                            <img src="http://curso-r.com/img/banners/captcha_03.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/22/2017-06-29-captcha-segment/">Quebrando CAPTCHAs - Parte III: Segmentação de imagens</a></h5>
                     </div>
                 </div>
                 
