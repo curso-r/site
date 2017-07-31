@@ -1,11 +1,11 @@
 ---
 title: "Quebrando CAPTCHAs - Parte IV: Trabalhando com a imagem completa"
-date: "2017-06-05T13:07:31+02:00"
+date: "2017-07-31T13:07:31+02:00"
 tags: ["r", "captcha"]
 categories: ["r"]
-banner: "img/banners/keras.jpg"
+banner: "img/banners/captcha_04.png"
 author: ["Julio"]
-draft: true
+draft: false
 summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imagens é um problema complicado. O Daniel nos disse que estava trabalhando no pacote do Keras e que existia uma forma de trabalhar com a imagem completa, sem segmentar. Foi só quando ele mostrou um acerto de 100% em um CAPTCHA que fomos convencidos, e passamos a chamar esse modelo de..."
 ---
 
