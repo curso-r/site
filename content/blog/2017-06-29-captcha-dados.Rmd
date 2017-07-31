@@ -14,7 +14,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE, collapse = TRUE)
 library(tidyverse)
 ```
 
-No último post sobre CAPTCHAs nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.
+No último post sobre [CAPTCHAs](http://curso-r.com/tags/captcha/) nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.
 
 Alguns meses atrás, tentamos resolver esse problema de várias formas. Uma delas foi utilizar algoritmos de agrupamento ($k$-médias) ou de identificação de conjuntos conectados. Esses algoritmos se mostraram instáveis e não aumentaram muito o poder preditivo. Outra ideia que tentamos foi criar vários critérios de corte fixos e incluir todas as colunas geradas na base de dados. Mas isso deixou nos deixou com uma dimensão muito grande pra tratar, e parecia que os modelos precisavam de muito mais dados pra começarem a funcionar.
 
