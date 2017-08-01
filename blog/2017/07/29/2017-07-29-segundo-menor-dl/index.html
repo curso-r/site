@@ -277,7 +277,7 @@ df %&gt;%
 <p>O gráfico da direita mostra que <code>x</code> é proporcional ao logito das probabilidades de <code>y_1</code> (em vermelho) como era pra ser por termos construído assim. Já com o <code>y_2</code> (em azul) ainda ficou parecendo uma sigmoide mesmo depois da transformação.</p>
 </div>
 <div id="ajuste-de-modelos" class="section level3">
-<h3>AJuste de modelos</h3>
+<h3>Ajuste de modelos</h3>
 <div id="regressao-logistica-para-y_1-com-glm" class="section level4">
 <h4>Regressão logística para <span class="math inline">\(Y_1\)</span> (com <code>glm</code>)</h4>
 <pre class="r"><code># modelo glm 1 ------------------------------------------------------
@@ -331,6 +331,19 @@ _____________________________________________________________</code></pre>
 <p><strong>Agora é a vez da função de perda.</strong></p>
 <p>Como nosso objetivo é construir uma regressão logística, nós vamos escolher a função de perda <a href="http://deeplearning.net/software/theano/library/tensor/nnet/nnet.html#theano.tensor.nnet.nnet.binary_crossentropy">binary_crossentropy</a> que é sinônimo de <a href="https://en.wikipedia.org/wiki/Deviance_(statistics)">deviance</a> da logística, termo mais comum no mundo da estatística.</p>
 <p>A métrica <code>'accuracy'</code> não entra no otimizador da função de perda, a gente usa ela para comparar os modelos que criamos. No caso vamos comparar com o modelo <code>glm</code> ajustado acima (mas, por exemplo, em caso de eventos raros a <code>'accuracy'</code> não vai ser muito informativa, daí poderíamos usar <code>'auc'</code>, <code>'gini'</code>, etc.).</p>
+<pre class="r"><code>modelo_keras_1 %&gt;% compile(
+  loss = &#39;binary_crossentropy&#39;,
+  optimizer = optimizer_sgd(lr = 0.4),
+  metrics = c(&#39;accuracy&#39;)
+)
+
+modelo_keras_1_fit &lt;- modelo_keras_1 %&gt;% fit(
+  x = df$x, 
+  y = df$y_1, 
+  epochs = 20, 
+  batch_size = 1000,
+  verbose = 0
+)</code></pre>
 <pre class="r"><code># coefficients
 modelo_keras_1 %&gt;% get_layer(&quot;camada_unica&quot;) %&gt;% get_weights
 
