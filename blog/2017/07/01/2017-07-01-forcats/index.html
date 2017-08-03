@@ -227,7 +227,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Leonard Leonard Jim     Howard  Pam     Dwight 
+## [1] Pam   Pam   Andy  Pam   Penny Robin
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -235,21 +235,21 @@ fct_count(per_fav)
 ## # A tibble: 15 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-##  1     Andy     4
-##  2   Barney     4
-##  3   Dwight     9
-##  4   Howard     8
-##  5      Jim     6
-##  6  Leonard    12
-##  7     Lily     9
+##  1     Andy     3
+##  2   Barney     9
+##  3   Dwight     3
+##  4   Howard    10
+##  5      Jim     1
+##  6  Leonard     7
+##  7     Lily     8
 ##  8 Marshall     6
-##  9  Michael     4
-## 10      Pam     8
-## 11    Penny     9
-## 12   Rajesh     3
-## 13    Robin     3
-## 14  Sheldon     8
-## 15      Ted     7
+##  9  Michael    10
+## 10      Pam     5
+## 11    Penny     4
+## 12   Rajesh     5
+## 13    Robin    12
+## 14  Sheldon     9
+## 15      Ted     8
 
 # Junta as categorias
 per_fav2 &lt;- fct_collapse(per_fav,
@@ -258,15 +258,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] TBBT      TBBT      TheOffice TBBT      TheOffice TheOffice
+## [1] TheOffice TheOffice TheOffice TheOffice TBBT      HIMYM    
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    31
-## 2     HIMYM    29
-## 3      TBBT    40</code></pre>
+## 1 TheOffice    22
+## 2     HIMYM    43
+## 3      TBBT    35</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -292,15 +292,15 @@ fct_count(letras)
 ##         f     n
 ##    &lt;fctr&gt; &lt;int&gt;
 ##  1      a     3
-##  2      b     9
-##  3      c    18
-##  4      d    15
-##  5      e    13
-##  6      f    17
-##  7      g    15
-##  8      h     6
-##  9      i     2
-## 10      k     1
+##  2      b    12
+##  3      c    17
+##  4      d    16
+##  5      e    12
+##  6      f    20
+##  7      g     8
+##  8      h     2
+##  9      i     7
+## 10      j     2
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
 # que as outras categorias.
@@ -311,29 +311,30 @@ letras %&gt;%
 ##         f     n
 ##    &lt;fctr&gt; &lt;int&gt;
 ##  1      a     3
-##  2      b     9
-##  3      c    18
-##  4      d    15
-##  5      e    13
-##  6      f    17
-##  7      g    15
-##  8      h     6
-##  9      i     2
-## 10 Outros     1
+##  2      b    12
+##  3      c    17
+##  4      d    16
+##  5      e    12
+##  6      f    20
+##  7      g     8
+##  8      h     2
+##  9      i     7
+## 10      j     2
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
 letras %&gt;% 
   fct_lump(n = 4, other_level = &quot;Outros&quot;) %&gt;% 
   fct_count
-## # A tibble: 5 x 2
+## # A tibble: 6 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      c    18
-## 2      d    15
-## 3      f    17
-## 4      g    15
-## 5 Outros    34
+## 1      b    12
+## 2      c    17
+## 3      d    16
+## 4      e    12
+## 5      f    20
+## 6 Outros    22
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
@@ -344,10 +345,10 @@ letras %&gt;%
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
 ## 1          a     3
-## 2          h     6
-## 3          i     2
-## 4          k     1
-## 5 Principais    87</code></pre>
+## 2          h     2
+## 3          i     7
+## 4          j     2
+## 5 Principais    85</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
 <h2>lvls_reorder</h2>
@@ -686,14 +687,14 @@ lvls_reorder(fator, c(3, 1, 2, 4))
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          
