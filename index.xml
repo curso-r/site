@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 31 Jul 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 05 Aug 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>O melhor de 50 posts!</title>
+      <link>http://curso-r.com/blog/2017/08/05/2017-08-05-o-melhor-de-50-posts/</link>
+      <pubDate>Sat, 05 Aug 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/08/05/2017-08-05-o-melhor-de-50-posts/</guid>
+      <description>Nosso blog completou 50 posts e para não deixar a marca passar em branco, elaboramos um resumão do que de melhor aconteceu aqui nos últimos 5 meses.
+Mas antes, gostaríamos de agradecer a todos que nos acompanham, deixam comentários, correções ou sugestões e interagem com a gente nas redes sociais ou nos corredores da vida. Para nós, é uma satisfação muito grande falar de R e Estatística. Nós aprendemos e nos divertimos muito fazendo esse blog, e é muito bom poder compartilhar isso com vocês.</description>
+    </item>
     
     <item>
       <title>Quebrando CAPTCHAs - Parte IV: Trabalhando com a imagem completa</title>
