@@ -35,6 +35,17 @@ saveRDS Talvez a função mais conhecida para salvar objetos do R. Ela salva em 
     </item>
     
     <item>
+      <title>RStudio e Github no dia a dia</title>
+      <link>http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/</link>
+      <pubDate>Mon, 17 Jul 2017 00:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/07/17/2017-07-17-rstudio-e-github/</guid>
+      <description>Versionamento de código é uma ferramenta que veio para ficar. Não dá para calcular o quanto de dor de cabeça, horas perdidas e frustrações ela economiza e já economizou na história da humanidade.
+Um dos programas que faz isso para a gente se chama Git. E não confundir com Github (que vamos usar para exemplificar mais para frente) que é um serviço que hospeda repositórios “controlados” pelo Git.
+Ao final do post você estará apto(a) a trabalhar com Github no seu RStudio.</description>
+    </item>
+    
+    <item>
       <title>Arrumando BDs: nome das variáveis</title>
       <link>http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/</link>
       <pubDate>Wed, 12 Jul 2017 23:26:00 +0300</pubDate>
