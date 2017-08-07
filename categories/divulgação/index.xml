@@ -61,7 +61,7 @@ Agora temos um compilador JIT (Just In Time) como padrão! Isso significa que vo
       
       <guid>http://curso-r.com/blog/2017/03/16/2017-02-18-all-things-r-and-rstudio/</guid>
       <description>No início de Janeiro desse ano ocorreu a primeira rstudio::conf, uma conferência sobre R promovida pela Rstudio. A conferência parece ter sido bem animada! Teve até um passeio para o parque do Harry Potter na Florida, e surgiram memes como a imagem abaixo.
-## Linkging to ImageMagick 6.6.9 ## Enabled features: cairo, fontconfig, freetype, lcms, rsvg, x11 ## Disabled features: fftw, ghostscript, pango, webp Em termos de conteúdo, parece que foi sensacional.</description>
+## Linking to ImageMagick 6.6.9 ## Enabled features: cairo, fontconfig, freetype, lcms, rsvg, x11 ## Disabled features: fftw, ghostscript, pango, webp Em termos de conteúdo, parece que foi sensacional.</description>
     </item>
     
     <item>
