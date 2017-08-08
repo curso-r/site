@@ -134,7 +134,7 @@ df %>%
 O gráfico da direita mostra que `x` é proporcional ao logito das probabilidades de `y_1` (em vermelho) como era pra ser por termos construído assim.
 Já com o `y_2` (em azul) ainda ficou parecendo uma sigmoide mesmo depois da transformação.
 
-### AJuste de modelos
+### Ajuste de modelos
 
 #### Regressão logística para $Y_1$ (com `glm`)
 
@@ -208,7 +208,7 @@ Como nosso objetivo é construir uma regressão logística, nós vamos escolher 
 
 A métrica `'accuracy'` não entra no otimizador da função de perda, a gente usa ela para comparar os modelos que criamos. No caso vamos comparar com o modelo `glm` ajustado acima (mas, por exemplo, em caso de eventos raros a `'accuracy'` não vai ser muito informativa, daí poderíamos usar `'auc'`, `'gini'`, etc.).
 
-```{r, echo=FALSE, message=FALSE, eval= FALSE}
+```{r, echo=TRUE, message=FALSE, eval= FALSE}
 modelo_keras_1 %>% compile(
   loss = 'binary_crossentropy',
   optimizer = optimizer_sgd(lr = 0.4),

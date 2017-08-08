@@ -1,11 +1,11 @@
 ---
 title: "Quebrando CAPTCHAs - Parte IV: Trabalhando com a imagem completa"
-date: "2017-06-05T13:07:31+02:00"
+date: "2017-07-31T13:07:31+02:00"
 tags: ["r", "captcha"]
 categories: ["r"]
-banner: "img/banners/keras.jpg"
+banner: "img/banners/captcha_04.png"
 author: ["Julio"]
-draft: true
+draft: false
 summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imagens é um problema complicado. O Daniel nos disse que estava trabalhando no pacote do Keras e que existia uma forma de trabalhar com a imagem completa, sem segmentar. Foi só quando ele mostrou um acerto de 100% em um CAPTCHA que fomos convencidos, e passamos a chamar esse modelo de..."
 ---
 
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE, collapse = TRUE)
 library(tidyverse)
 ```
 
-No último post sobre CAPTCHAs nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.
+No último post sobre [CAPTCHAs](http://curso-r.com/tags/captcha/) nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.
 
 Alguns meses atrás, tentamos resolver esse problema de várias formas. Uma delas foi utilizar algoritmos de agrupamento ($k$-médias) ou de identificação de conjuntos conectados. Esses algoritmos se mostraram instáveis e não aumentaram muito o poder preditivo. Outra ideia que tentamos foi criar vários critérios de corte fixos e incluir todas as colunas geradas na base de dados. Mas isso deixou nos deixou com uma dimensão muito grande pra tratar, e parecia que os modelos precisavam de muito mais dados pra começarem a funcionar.
 

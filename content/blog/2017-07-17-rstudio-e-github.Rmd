@@ -2,7 +2,7 @@
 title: "RStudio e Github no dia a dia"
 date: "2017-07-17T00:26:00+03:00"
 tags: ["github", "rstudio", "git"]
-categories: ["tutorial", "r"]
+categories: ["tutoriais", "r"]
 banner: "img/banners/fluxo_github_rstudio2.png"
 author: ["Athos"]
 summary: "Versionamento de código é uma ferramenta que veio para ficar. Não dá para calcular o quanto de dor de cabeça, horas perdidas e frustrações ela economiza e já economizou na história da humanidade. Esse post mostra a rotina de um analista que usa Github no RStudio"
