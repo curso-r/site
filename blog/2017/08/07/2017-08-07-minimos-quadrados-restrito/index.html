@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
+
+  <title>Mínimos quadrados com restrições lineares</title>
+
+  <meta name="author" content="" />
+  <meta name="keywords" content="">
+
+  
+
+  <meta name="generator" content="Hugo 0.21" />
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6479521664471475",
+      enable_page_level_ads: true
+    });
+  </script>
+
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="http://curso-r.com/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="http://curso-r.com/css/style.red.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="http://curso-r.com/css/custom.css" rel="stylesheet">
+
+  
+    
+
+  
+  <link rel="shortcut icon" href="http://curso-r.com/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="http://curso-r.com/img/apple-touch-icon.png" />
+  
+
+  <link href="http://curso-r.com/css/owl.carousel.css" rel="stylesheet">
+  <link href="http://curso-r.com/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="http://curso-r.com/index.xml" type="application/rss+xml" title="Curso-R">
+  <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
+  
+  
+  <meta property="og:title" content="Mínimos quadrados com restrições lineares" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito//" />
+  <meta property="og:image" content="img/banners/jackie_chan.jpg" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://curso-r.com/">
+                    <img src="http://curso-r.com/img/logo.svg" alt="Mínimos quadrados com restrições lineares logo" width="50" height="50">
+                    <span class="sr-only">Mínimos quadrados com restrições lineares - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/">Home</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/sobre/">Sobre</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/cursos/">Cursos</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/blog/">Blog</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/contact/">Contato</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Mínimos quadrados com restrições lineares</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          
+                            Por 
+                            
+                            
+                              
+                                <a href="http://curso-r.com/author/fernando">Fernando</a>
+                            
+                            
+                          
+                          
+                          07/08/2017
+                        </p>
+                        
+                        <div id="post-content">
+                          <p>A característica mais importante de um modelo estatístico é a sua flexibilidade. Esse termo pode ser entendido de várias formas, mas neste texto vou considerar que um modelo é flexível se ele <em>explica coerentemente</em> uma ampla gama de fenômenos reais.</p>
+<p>Pensando assim, a regressão linear pode ser considerada um modelo flexível, já que muitas relações funcionais cotidianas são do tipo <span class="math inline">\(y = \beta x\)</span>. É justamente por causa dessa flexibilidade que a boa e velha regressão de mínimos quadrados é tão usada, até mesmo aonde não deveria. O seu uso é tão indiscriminado que uma vez, em aula, um professor extraordinariamente admirável me disse que “90% dos problemas do mundo podem ser resolvidos com uma regressão linear”.</p>
+<p>Sendo bastante honesto, é provável que o meu professor esteja certo, mas este post não é sobre isso. Este é um post sobre o que fazer quando a regressão linear simples não basta. No que segue, vamos discutir uma pequena (e poderosa) extensão do modelo de regressão linear simples, mas antes de prosseguir para o problema propriamente dito (e sua implementação em R), vamos discutir da teoria que existe por trás dele.</p>
+<div id="regressao-linear-e-programacao-quadratica" class="section level2">
+<h2>Regressão linear é programação quadrática</h2>
+<p>Embora seja pouco enfatizado nos bacharelados de estatística, uma regressão linear pode ser formulada como um problema de programação quadrática. Entrando nos detalhes, essa afirmação deve-se a dois fatos:</p>
+<ol style="list-style-type: decimal">
+<li>Existe uma teoria, que chama-se programação quadrática, que soluciona problemas da forma</li>
+</ol>
+<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x,\]</span></p>
+<p>onde <span class="math inline">\(x \in \mathbb{R}^p\)</span> e <span class="math inline">\(Q\)</span> e <span class="math inline">\(c\)</span> tem dimensões que fazem a conta acima ter sentido. A teoria ocupa-se desenvolvendo algoritmos exatos e aproximados para obter soluções desses problemas, inclusive com generalizações:</p>
+<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x, \text{ sujeito à }Ax \geq 0.\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Uma regressão linear consiste em resolver</li>
+</ol>
+<p><span class="math display">\[\min_\beta (Y - \beta X)&#39;(Y-\beta X),\]</span></p>
+<p>que, com um pouco de álgebra, é equivalente à</p>
+<p><span class="math display">\[ \min_\beta -2Y&#39;X\beta + \beta&#39;X&#39;X\beta.\]</span></p>
+<p>Logo, tomando <span class="math inline">\(Q = 2X&#39;X\)</span> e <span class="math inline">\(c = \frac{1}{2}X&#39;Y\)</span> tem-se que esse é um problema de programação quadrática, que por sua vez é um problema convexo, que, segundo a teoria, tem uma única solução no ponto <span class="math inline">\(\beta = (X&#39;X)^{-1}X&#39;Y\)</span>.</p>
+</div>
+<div id="uma-regressao-linear-simples-mais-flexivel" class="section level2">
+<h2>Uma regressão linear simples mais flexível</h2>
+<p>Talvez o jeito mais simples de flexibilizar uma regressão linear no sentido mencionado no começo desse texto é restringir os seus parâmetros. Em muitos contextos, esse é o único jeito de colocar conhecimentos prévios na modelagem<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<p>Um caso bastante emblemático aparece nas curvas de crédito divulgadas pela ANBIMA<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Lá, ajusta-se um conjunto de curvas que depende de 6 parâmetros e cada curva representa uma classificação de risco (que nem aquela em que o Brasil pode tomar <em>downgrade</em><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>). Como os níveis de risco estão ordenados, é natural exigir que também exista uma ordenação entre as curvas. Sem entrar em detalhes, a ideia pode ser expressa assim:</p>
+<p><span class="math display">\[\beta_{AAA} &lt; \beta_{AA} &lt; \beta_{A} &lt; \beta_{BBB} &lt; ...\]</span></p>
+<p>O que é que isso tem a ver com programação quadrática? A resposta é que a inequação acima pode ser escrita como <span class="math inline">\(A\beta \geq 0\)</span>, de tal forma já existe uma teoria para resolver uma regressão linear simples com restrições desse tipo! Basta que ela seja vista como um problema de programação quadrática.</p>
+</div>
+<div id="o-pacote-quadprog" class="section level2">
+<h2>O pacote <code>quadprog</code></h2>
+<p>Existe um pacote de R para quase tudo, então, como não poderia deixar de ser, existe um pacote em R para resolver problemas do tipo:</p>
+<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x, \text{ sujeito à }Ax \geq 0.\]</span></p>
+<p>Para ilustrar o seu uso, vamos considerar um exemplo. Vamos simular um conjunto de dados em que <span class="math inline">\(\beta_5 = 0.31, \beta_4 = 0.43, \beta_3 = 1.31, \beta_2 = 2.19, \beta_1 = 2.29\)</span> são os valores reais que precisamos estimar, considere que vale</p>
+<p><span class="math display">\[Y \approx \beta_1X_1 + \beta_2X_2+\beta_3X_3+\beta_4X_4+\beta_5X_5\]</span></p>
+<p>e que o erro de regressão tem distribuição normal.</p>
+<pre class="r"><code>set.seed(11071995)
+N &lt;- 30
+
+betas &lt;- c(2.29, 2.19, 1.31, 0.43, 0.31)
+X &lt;- matrix(rnorm(5*N), byrow = T, ncol = length(betas), nrow = N)
+Y &lt;- X %*% betas + rnorm(N, sd = 3)</code></pre>
+<p>Se soubermos <em>a priori</em> que valem as seguintes afirmações</p>
+<p><span class="math display">\[ \beta_1,\beta_2,\beta_3,\beta_4,\beta_5 &gt; 0 \text{ e } \beta_1 &gt; \beta_2 &gt; \beta_3 &gt; \beta_4 &gt; \beta_5,\]</span></p>
+<p>a minimização de <span class="math inline">\((Y-\beta X)&#39;(Y-\beta X)\)</span> pode ser resolvida usando a função <code>solve.QP</code>. Tudo que precisamos fazer é escrever o conjunto de inequações na forma <span class="math inline">\(A\beta \geq 0\)</span>. Mas isso é bem fácil! Basta notar que as restrições são equivalentes à</p>
+<p><span class="math display">\[ \left(\begin{array}{cccc}
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; -1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; -1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; -1 \\
+\end{array}\right) \times \left(\begin{array}{c}\beta_1 \\ \beta_2 \\ \beta_3 \\ \beta_4 \\ \beta_5 \end{array}\right) \geq 0.\]</span></p>
+<p>Dessa forma, o problema está prontinho pra passar no moedor de carne, com uma última ressalva. O problema resolvido no <code>solve.QP</code> é</p>
+<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x, \text{ sujeito à }A&#39;x \geq 0,\]</span></p>
+<p>então vamos ter que tomar o cuidado de passar as nossas restrições através do transposto da matriz que obtivemos acima. Isso resultará na matriz <span class="math inline">\(A\)</span>.</p>
+<pre class="r"><code>library(tidyverse)
+library(quadprog)
+
+Q &lt;- t(X) %*% X
+c &lt;- t(Y) %*% X
+A &lt;- cbind(c(1,0,0,0,0),c(0,1,0,0,0),c(0,0,1,0,0),
+           c(0,0,0,1,0),c(0,0,0,0,1),c(1,-1,0,0,0),
+           c(0,1,-1,0,0),c(0,0,1,-1,0),c(0,0,0,1,-1))
+
+solucao &lt;- solve.QP(Q,  # X&#39;X
+                    c,  # Y&#39;X
+                    A,  # A transposta
+                    c(0,0,0,0,0,0,0,0,0))  # vetor de comparação</code></pre>
+<p>Para checar como valeu a pena todo esse esforço, dá uma olhada na diferença entre as estimativas! Os pontinhos vermelhos são as estimativas do modelo irrestrito, enquanto as barras são as estimativas do modelo com restrições.</p>
+<p><img src="http://curso-r.com/blog/2017-08-07-minimos-quadrados-restrito_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="conclusoes" class="section level2">
+<h2>Conclusões</h2>
+<ul>
+<li>Regressão linear simples é um problema de programação quadrática.</li>
+<li>Algumas restrições interessantes podem ser escritas na forma <span class="math inline">\(B\beta \geq 0\)</span>.</li>
+<li>Programação quadrática resolve regressão linear simples com restrições lineares.</li>
+<li>Se em algum dia você topar com um bicho desses, o <code>quadprog</code> pode resolver o problema pra você.</li>
+</ul>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>A menos que você seja <s>uma pessoa razoável</s> bayesiano.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="http://www.anbima.com.br/data/files/05/43/3E/84/E12D7510E7FCF875262C16A8/metodologia-curvas_20credito_20131104_v2_1_.pdf" class="uri">http://www.anbima.com.br/data/files/05/43/3E/84/E12D7510E7FCF875262C16A8/metodologia-curvas_20credito_20131104_v2_1_.pdf</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="http://economia.estadao.com.br/noticias/geral,agravamento-da-crise-politica-eleva-risco-de-rebaixamento-do-brasil-diz-sep,70001824274" class="uri">http://economia.estadao.com.br/noticias/geral,agravamento-da-crise-politica-eleva-risco-de-rebaixamento-do-brasil-diz-sep,70001824274</a><a href="#fnref3">↩</a></p></li>
+</ol>
+</div>
+
+                        </div>
+                        
+                         <div class="addthis_inline_share_toolbox"></div>
+                        
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'curso-r-com';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/08\/07\/2017-08-07-minimos-quadrados-restrito\/';
+    var disqus_title = 'Mínimos quadrados com restrições lineares';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/08\/07\/2017-08-07-minimos-quadrados-restrito\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Busca</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" results="0" class="form-control" placeholder="Busca">
+                <input type="hidden" name="q" value="site:http://curso-r.com/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Categorias</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="http://curso-r.com/categories/an%c3%a1lises">análises (9)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/conceitos">conceitos (8)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/r">r (52)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (22)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="http://curso-r.com/tags/an%c3%a1lises"><i class="fa fa-tags"></i> análises</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/api"><i class="fa fa-tags"></i> api</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/autoencoders"><i class="fa fa-tags"></i> autoencoders</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bds"><i class="fa fa-tags"></i> bds</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/br-bloggers"><i class="fa fa-tags"></i> br-bloggers</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/captcha"><i class="fa fa-tags"></i> captcha</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/cinema"><i class="fa fa-tags"></i> cinema</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/cluster"><i class="fa fa-tags"></i> cluster</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/coding"><i class="fa fa-tags"></i> coding</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/componentes-principais"><i class="fa fa-tags"></i> componentes-principais</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/conceitos"><i class="fa fa-tags"></i> conceitos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/curso-r"><i class="fa fa-tags"></i> curso-r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/data.frames"><i class="fa fa-tags"></i> data.frames</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/deep-learning"><i class="fa fa-tags"></i> deep-learning</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/dplyr"><i class="fa fa-tags"></i> dplyr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/emo%c3%a7%c3%b5es"><i class="fa fa-tags"></i> emoções</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/environments"><i class="fa fa-tags"></i> environments</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/fatores"><i class="fa fa-tags"></i> fatores</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/forcats"><i class="fa fa-tags"></i> forcats</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/git"><i class="fa fa-tags"></i> git</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/github"><i class="fa fa-tags"></i> github</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/glm"><i class="fa fa-tags"></i> glm</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/glue"><i class="fa fa-tags"></i> glue</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/googlemaps"><i class="fa fa-tags"></i> googlemaps</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/gr%c3%a1ficos"><i class="fa fa-tags"></i> gráficos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/imagens"><i class="fa fa-tags"></i> imagens</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/janitor"><i class="fa fa-tags"></i> janitor</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/keras"><i class="fa fa-tags"></i> keras</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/kmeans"><i class="fa fa-tags"></i> kmeans</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/knitr"><i class="fa fa-tags"></i> knitr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/leaflet"><i class="fa fa-tags"></i> leaflet</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/lolapalooza"><i class="fa fa-tags"></i> lolapalooza</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/magick"><i class="fa fa-tags"></i> magick</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/modelagem"><i class="fa fa-tags"></i> modelagem</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ocr"><i class="fa fa-tags"></i> ocr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pacotes"><i class="fa fa-tags"></i> pacotes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/paraleliza%c3%a7%c3%a3o"><i class="fa fa-tags"></i> paralelização</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pca"><i class="fa fa-tags"></i> pca</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pdf"><i class="fa fa-tags"></i> pdf</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/plotly"><i class="fa fa-tags"></i> plotly</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/porta-dos-fundos"><i class="fa fa-tags"></i> porta-dos-fundos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/progress"><i class="fa fa-tags"></i> progress</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/purrr"><i class="fa fa-tags"></i> purrr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r-markdown"><i class="fa fa-tags"></i> r-markdown</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/redes-neurais"><i class="fa fa-tags"></i> redes-neurais</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regress%c3%a3o"><i class="fa fa-tags"></i> regressão</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regress%c3%a3o-log%c3%adstica"><i class="fa fa-tags"></i> regressão-logística</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rstudio"><i class="fa fa-tags"></i> rstudio</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/skimr"><i class="fa fa-tags"></i> skimr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/spotify"><i class="fa fa-tags"></i> spotify</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/sptrans"><i class="fa fa-tags"></i> sptrans</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ssl"><i class="fa fa-tags"></i> ssl</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/strings"><i class="fa fa-tags"></i> strings</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/survival"><i class="fa fa-tags"></i> survival</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tensorflow"><i class="fa fa-tags"></i> tensorflow</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tidyverse"><i class="fa fa-tags"></i> tidyverse</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/venneuler"><i class="fa fa-tags"></i> venneuler</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/vers%c3%a3o"><i class="fa fa-tags"></i> versão</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/web-scraping"><i class="fa fa-tags"></i> web-scraping</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/woe"><i class="fa fa-tags"></i> woe</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/youtube"><i class="fa fa-tags"></i> youtube</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Nossos Cursos</h3>
+    </div>
+
+    <div class="blog-entries">
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="http://curso-r.com/js/prism.js"></script> 
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>Sobre nós</h4>
+
+            <p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+              
+            <h4>Posts Recentes</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/">
+                          
+                            <img src="http://curso-r.com/img/banners/jackie_chan.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/">Mínimos quadrados com restrições lineares</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/08/05/2017-08-05-o-melhor-de-50-posts/">
+                          
+                            <img src="http://curso-r.com/img/banners/50-posts.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/08/05/2017-08-05-o-melhor-de-50-posts/">O melhor de 50 posts!</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/">
+                          
+                            <img src="http://curso-r.com/img/banners/captcha_04.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/">Quebrando CAPTCHAs - Parte IV: Trabalhando com a imagem completa</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            <h4>Contato</h4>
+
+            <a href="http://curso-r.com/contact" class="btn btn-small btn-template-main">Vá para a página de contato</a>
+            <hr>
+            
+            <div>
+              
+              <a href="https://github.com/curso-r">
+                <i class="fa fa-github" style="font-size:50px;"></i>
+              </a>
+              <a href="https://twitter.com/curso_r/">
+                <i class="fa fa-twitter" style="font-size:50px;"></i>
+              </a>
+      
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87272102-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ab4e79943a7e3c"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { preferredFont: "STIX" }
+  });
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<script src="http://curso-r.com/js/hpneo.gmaps.js"></script>
+<script src="http://curso-r.com/js/gmaps.init.js"></script>
+<script src="http://curso-r.com/js/front.js"></script>
+
+<script src="http://curso-r.com/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>

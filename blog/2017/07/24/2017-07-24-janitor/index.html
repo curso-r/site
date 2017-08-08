@@ -278,25 +278,22 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 16 x 4
-##       nome sobrenome dupe_count variavel_importante
-##      &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1   Athos    Amorim          2         -1.11380802
-##  2   Athos    Amorim          2          0.03389528
-##  3   Athos   Damiani          2         -0.72280454
-##  4   Athos   Damiani          2         -1.74307670
-##  5   Athos    Falbel          2         -1.18026182
-##  6   Athos    Falbel          2          0.44950879
-##  7  Daniel    Amorim          2         -1.37148087
-##  8  Daniel    Amorim          2         -2.47453938
-##  9  Daniel  Trecenti          2         -1.40783725
-## 10  Daniel  Trecenti          2          0.67283334
-## 11   Julio    Falbel          2          2.50965209
-## 12   Julio    Falbel          2         -1.21324175
-## 13 William    Amorim          2         -2.81099824
-## 14 William    Amorim          2          0.57544639
-## 15 William    Corrêa          2         -0.72775866
-## 16 William    Corrêa          2         -1.71299191</code></pre>
+## # A tibble: 13 x 4
+##        nome sobrenome dupe_count variavel_importante
+##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
+##  1    Athos    Amorim          2          -0.5950877
+##  2    Athos    Amorim          2           1.9968460
+##  3 Fernando    Corrêa          2           0.3708283
+##  4 Fernando    Corrêa          2           0.9754075
+##  5 Fernando  Trecenti          2           0.5616456
+##  6 Fernando  Trecenti          2          -0.5471750
+##  7    Julio  Trecenti          3          -1.1039851
+##  8    Julio  Trecenti          3          -0.7433741
+##  9    Julio  Trecenti          3          -1.2197496
+## 10  William    Falbel          4          -0.8818887
+## 11  William    Falbel          4          -2.8917717
+## 12  William    Falbel          4           0.1834618
+## 13  William    Falbel          4          -1.0309205</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -416,13 +413,13 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/categories/an%c3%a1lises">análises (9)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/conceitos">conceitos (7)</a>
+            <li><a href="http://curso-r.com/categories/conceitos">conceitos (8)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (51)</a>
+            <li><a href="http://curso-r.com/categories/r">r (52)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
@@ -449,6 +446,9 @@ mtcars %&gt;%
 
     <div class="panel-body">
         <ul class="tag-cloud">
+            
+            <li><a href="http://curso-r.com/tags/an%c3%a1lises"><i class="fa fa-tags"></i> análises</a>
+            </li>
             
             <li><a href="http://curso-r.com/tags/api"><i class="fa fa-tags"></i> api</a>
             </li>
@@ -478,6 +478,9 @@ mtcars %&gt;%
             </li>
             
             <li><a href="http://curso-r.com/tags/componentes-principais"><i class="fa fa-tags"></i> componentes-principais</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/conceitos"><i class="fa fa-tags"></i> conceitos</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/curso-r"><i class="fa fa-tags"></i> curso-r</a>
@@ -744,6 +747,19 @@ mtcars %&gt;%
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/">
+                          
+                            <img src="http://curso-r.com/img/banners/jackie_chan.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/">Mínimos quadrados com restrições lineares</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/08/05/2017-08-05-o-melhor-de-50-posts/">
                           
                             <img src="http://curso-r.com/img/banners/50-posts.jpg" class="img-responsive" alt="">
@@ -765,19 +781,6 @@ mtcars %&gt;%
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/">Quebrando CAPTCHAs - Parte IV: Trabalhando com a imagem completa</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/">
-                          
-                            <img src="http://curso-r.com/img/banners/what_if_i_told_you.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/">Regressão Logística em: a menor deep learning do mundo</a></h5>
                     </div>
                 </div>
                 

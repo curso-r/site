@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 29 Jul 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 07 Aug 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/conceitos/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mínimos quadrados com restrições lineares</title>
+      <link>http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/</link>
+      <pubDate>Mon, 07 Aug 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/</guid>
+      <description>A característica mais importante de um modelo estatístico é a sua flexibilidade. Esse termo pode ser entendido de várias formas, mas neste texto vou considerar que um modelo é flexível se ele explica coerentemente uma ampla gama de fenômenos reais.
+Pensando assim, a regressão linear pode ser considerada um modelo flexível, já que muitas relações funcionais cotidianas são do tipo \(y = \beta x\). É justamente por causa dessa flexibilidade que a boa e velha regressão de mínimos quadrados é tão usada, até mesmo aonde não deveria.</description>
+    </item>
     
     <item>
       <title>Regressão Logística em: a menor deep learning do mundo</title>

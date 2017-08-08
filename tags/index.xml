@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 28 Apr 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 07 Aug 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Análises</title>
+      <link>http://curso-r.com/tags/an%C3%A1lises/</link>
+      <pubDate>Mon, 07 Aug 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/an%C3%A1lises/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Api</title>
@@ -99,6 +108,15 @@
       <pubDate>Sat, 24 Jun 2017 10:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/tags/componentes-principais/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conceitos</title>
+      <link>http://curso-r.com/tags/conceitos/</link>
+      <pubDate>Mon, 07 Aug 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/tags/conceitos/</guid>
       <description></description>
     </item>
     
@@ -420,7 +438,7 @@
     <item>
       <title>R</title>
       <link>http://curso-r.com/tags/r/</link>
-      <pubDate>Mon, 31 Jul 2017 13:07:31 +0200</pubDate>
+      <pubDate>Mon, 07 Aug 2017 10:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/tags/r/</guid>
       <description></description>
@@ -447,7 +465,7 @@
     <item>
       <title>Regressão</title>
       <link>http://curso-r.com/tags/regress%C3%A3o/</link>
-      <pubDate>Thu, 09 Mar 2017 13:07:31 +0200</pubDate>
+      <pubDate>Mon, 07 Aug 2017 10:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/tags/regress%C3%A3o/</guid>
       <description></description>
