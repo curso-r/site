@@ -193,7 +193,7 @@
 </ol>
 <p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x,\]</span></p>
 <p>onde <span class="math inline">\(x \in \mathbb{R}^p\)</span> e <span class="math inline">\(Q\)</span> e <span class="math inline">\(c\)</span> tem dimensões que fazem a conta acima ter sentido. A teoria ocupa-se desenvolvendo algoritmos exatos e aproximados para obter soluções desses problemas, inclusive com generalizações:</p>
-<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x, \text{ sujeito à }Ax \geq 0.\]</span></p>
+<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x, \text{ sujeito a }Ax \geq 0.\]</span></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Uma regressão linear consiste em resolver</li>
 </ol>
@@ -212,7 +212,7 @@
 <div id="o-pacote-quadprog" class="section level2">
 <h2>O pacote <code>quadprog</code></h2>
 <p>Existe um pacote de R para quase tudo, então, como não poderia deixar de ser, existe um pacote em R para resolver problemas do tipo:</p>
-<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x, \text{ sujeito à }Ax \geq 0.\]</span></p>
+<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x, \text{ sujeito a }Ax \geq 0.\]</span></p>
 <p>Para ilustrar o seu uso, vamos considerar um exemplo. Vamos simular um conjunto de dados em que <span class="math inline">\(\beta_5 = 0.31, \beta_4 = 0.43, \beta_3 = 1.31, \beta_2 = 2.19, \beta_1 = 2.29\)</span> são os valores reais que precisamos estimar, considere que vale</p>
 <p><span class="math display">\[Y \approx \beta_1X_1 + \beta_2X_2+\beta_3X_3+\beta_4X_4+\beta_5X_5\]</span></p>
 <p>e que o erro de regressão tem distribuição normal.</p>
@@ -237,7 +237,7 @@ Y &lt;- X %*% betas + rnorm(N, sd = 3)</code></pre>
 0 &amp; 0 &amp; 0 &amp; 1 &amp; -1 \\
 \end{array}\right) \times \left(\begin{array}{c}\beta_1 \\ \beta_2 \\ \beta_3 \\ \beta_4 \\ \beta_5 \end{array}\right) \geq 0.\]</span></p>
 <p>Dessa forma, o problema está prontinho pra passar no moedor de carne, com uma última ressalva. O problema resolvido no <code>solve.QP</code> é</p>
-<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x, \text{ sujeito à }A&#39;x \geq 0,\]</span></p>
+<p><span class="math display">\[\min_x \frac{1}{2}x&#39; Q x + c&#39; x, \text{ sujeito a }A&#39;x \geq 0,\]</span></p>
 <p>então vamos ter que tomar o cuidado de passar as nossas restrições através do transposto da matriz que obtivemos acima. Isso resultará na matriz <span class="math inline">\(A\)</span>.</p>
 <pre class="r"><code>library(tidyverse)
 library(quadprog)
@@ -598,14 +598,14 @@ solucao &lt;- solve.QP(Q,  # X&#39;X
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          

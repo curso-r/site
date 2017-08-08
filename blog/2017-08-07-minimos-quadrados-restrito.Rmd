@@ -28,7 +28,7 @@ $$\min_x \frac{1}{2}x' Q x + c' x,$$
 
 onde $x \in \mathbb{R}^p$ e $Q$ e $c$ tem dimensões que fazem a conta acima ter sentido. A teoria ocupa-se desenvolvendo algoritmos exatos e aproximados para obter soluções desses problemas, inclusive com generalizações:
 
-$$\min_x \frac{1}{2}x' Q x + c' x, \text{ sujeito à }Ax \geq 0.$$
+$$\min_x \frac{1}{2}x' Q x + c' x, \text{ sujeito a }Ax \geq 0.$$
 
 
 2. Uma regressão linear consiste em resolver 
@@ -62,7 +62,7 @@ O que é que isso tem a ver com programação quadrática? A resposta é que a i
 
 Existe um pacote de R para quase tudo, então, como não poderia deixar de ser, existe um pacote em R para resolver problemas do tipo:
 
-$$\min_x \frac{1}{2}x' Q x + c' x, \text{ sujeito à }Ax \geq 0.$$
+$$\min_x \frac{1}{2}x' Q x + c' x, \text{ sujeito a }Ax \geq 0.$$
 
 Para ilustrar o seu uso, vamos considerar um exemplo. Vamos simular um conjunto de dados em que $\beta_5 = 0.31, \beta_4 = 0.43, \beta_3 = 1.31, \beta_2 = 2.19, \beta_1 = 2.29$ são os valores reais que precisamos estimar, considere que vale
 
@@ -99,7 +99,7 @@ $$ \left(\begin{array}{cccc}
 
 Dessa forma, o problema está prontinho pra passar no moedor de carne, com uma última ressalva. O problema resolvido no `solve.QP` é 
 
-$$\min_x \frac{1}{2}x' Q x + c' x, \text{ sujeito à }A'x \geq 0,$$
+$$\min_x \frac{1}{2}x' Q x + c' x, \text{ sujeito a }A'x \geq 0,$$
 
 então vamos ter que tomar o cuidado de passar as nossas restrições através do transposto da matriz que obtivemos acima. Isso resultará na matriz $A$. 
 
