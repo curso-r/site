@@ -106,7 +106,7 @@ image_read('~/Downloads/quebrando_captchas.png') %>%
                  location = '+300+10', color = 'red') %>% 
   image_annotate('preparando dados', size = 30, font = 'ubuntu',
                  color = 'black', location = '+10+210') %>% 
-  image_write("static/img/banners/captcha_03.png")
+  image_write("static/img/banners/captcha_04.png")
 
 
 
