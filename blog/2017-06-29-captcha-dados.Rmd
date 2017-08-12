@@ -26,7 +26,7 @@ Nesse post, vamos discutir como montar a base para fazer a magia negra.
 
 ### Resposta
 
-Nossa resposta não é mais uma categoria, e sim uma matriz. A matriz tem $k$ linhas (número de letras em um CAPTCHA) $p$ colunas (número de valores possíveis de um caractere). A matriz vale `1` se naquela posição
+Nossa resposta não é mais uma categoria, e sim uma matriz. A matriz tem $k$ linhas (número de letras em um CAPTCHA) $p$ colunas (número de valores possíveis de um caractere). O elemento $(i,j)$ vale `1` se na posição $i$ aparece a letra relativa à posição $j$.
 
 Assim, 
 
