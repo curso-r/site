@@ -109,5 +109,11 @@ image_read('~/Downloads/quebrando_captchas.png') %>%
   image_write("static/img/banners/captcha_04.png")
 
 
-
+img2 <- image_read('~/Downloads/sp_bairros.png') %>% 
+  image_scale("220x220")
+image_read('~/Downloads/pug.jpg') %>% 
+  image_crop('400x297') %>% 
+  image_composite(img2) %>% 
+  image_write("static/img/banners/pug_knapsack.png")
+  
 

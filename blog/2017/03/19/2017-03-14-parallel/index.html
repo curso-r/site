@@ -199,14 +199,14 @@
   dormir()
 })
 ##    user  system elapsed 
-##   0.000   0.000   1.002</code></pre>
+##   0.000   0.000   1.001</code></pre>
 <p>Nosso interesse é aplicar <code>dormir()</code> em cada elemento do vetor <code>c(1, 2)</code>. Esse algoritmo demora <code>1 + 2 = 3</code> segundos.</p>
 <pre class="r"><code>segundos &lt;- c(1, 2)
 system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.016   0.000   3.016</code></pre>
+##   0.008   0.000   3.012</code></pre>
 <p>Agora vamos executar o mesmo código usando paralelização. Antes, precisamos</p>
 <ol style="list-style-type: decimal">
 <li>criar e registrar as cópias de R que rodam em paralelo; e</li>
@@ -220,13 +220,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.184   0.004   2.378</code></pre>
+##   0.204   0.004   2.367</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.176   0.000   2.259</code></pre>
+##   0.204   0.000   2.297</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # para de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
@@ -303,7 +303,7 @@ system.time({
     <div class="panel-body">
         <ul class="nav nav-pills nav-stacked">
             
-            <li><a href="http://curso-r.com/categories/an%c3%a1lises">análises (9)</a>
+            <li><a href="http://curso-r.com/categories/an%c3%a1lises">análises (10)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/conceitos">conceitos (8)</a>
@@ -312,7 +312,7 @@ system.time({
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (52)</a>
+            <li><a href="http://curso-r.com/categories/r">r (53)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
@@ -556,6 +556,19 @@ system.time({
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -564,19 +577,6 @@ system.time({
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
@@ -640,6 +640,19 @@ system.time({
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/08/12/2017-04-10-sao-paulo/">
+                          
+                            <img src="http://curso-r.com/img/banners/pug_knapsack.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/08/12/2017-04-10-sao-paulo/">São Paulo e o problema da mochila</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/">
                           
                             <img src="http://curso-r.com/img/banners/jackie_chan.jpg" class="img-responsive" alt="">
@@ -661,19 +674,6 @@ system.time({
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/08/05/2017-08-05-o-melhor-de-50-posts/">O melhor de 50 posts!</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/">
-                          
-                            <img src="http://curso-r.com/img/banners/captcha_04.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/">Quebrando CAPTCHAs - Parte IV: Trabalhando com a imagem completa</a></h5>
                     </div>
                 </div>
                 

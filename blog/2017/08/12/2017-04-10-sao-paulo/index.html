@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
 
-  <title>Forcats</title>
+  <title>São Paulo e o problema da mochila</title>
 
   <meta name="author" content="" />
   <meta name="keywords" content="">
@@ -61,10 +61,10 @@
   <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
   
   
-  <meta property="og:title" content="Forcats" />
+  <meta property="og:title" content="São Paulo e o problema da mochila" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/blog/2017/07/01/2017-07-01-forcats//" />
-  <meta property="og:image" content="img/banners/forcats.jpg" />
+  <meta property="og:url" content="/blog/2017/08/12/2017-04-10-sao-paulo//" />
+  <meta property="og:image" content="img/banners/pug_knapsack.png" />
 
 </head>
 
@@ -81,8 +81,8 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="http://curso-r.com/">
-                    <img src="http://curso-r.com/img/logo.svg" alt="Forcats logo" width="50" height="50">
-                    <span class="sr-only">Forcats - go to homepage</span>
+                    <img src="http://curso-r.com/img/logo.svg" alt="São Paulo e o problema da mochila logo" width="50" height="50">
+                    <span class="sr-only">São Paulo e o problema da mochila - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -155,7 +155,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Forcats</h1>
+                <h1>São Paulo e o problema da mochila</h1>
             </div>
         </div>
     </div>
@@ -177,198 +177,227 @@
                             
                             
                               
-                                <a href="http://curso-r.com/author/william">William</a>
+                                <a href="http://curso-r.com/author/julio">Julio</a>
                             
                             
                           
                           
-                          01/07/2017
+                          12/08/2017
                         </p>
                         
                         <div id="post-content">
-                          <p>Se você ainda não é adepta ou adepto do <a href="http://tidyverse.org/">tidyverse</a>, provavelmente precisa setar <code>stringsAsFactors = FALSE</code> em algum momento ou sempre trabalha com fatores em vez de <em>strings</em>.</p>
-<p><em>Strings</em> são sequências de caracteres que podem ser acessados pela sua posição. Assim, podemos usar <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">expressões regulares</a> para modificar partes da sequência que correspondam a um determinado padrão. Fatores são inteiros com categorias (ou <em>labels</em>) formadas por <em>strings</em> guardadas apenas uma vez no atributo <code>levels</code>. Por facilitarem a ordenação de valores de texto, eles são importantes para a criação de variáveis <em>dummies</em> e a definição de contrastes em funções de modelagem estatística, como a <code>lm()</code>, e a organização de atributos gráficos, como no pacote <code>ggplot2</code>.</p>
-<p>Há motivos históricos para funções como <code>read.table()</code> e <code>data.frame()</code> fazerem, por default, a coerção de caracteres para fatores. Você pode ler sobre isso nos posts <a href="https://simplystatistics.org/2015/07/24/stringsasfactors-an-unauthorized-biography/">stringsAsFactors: An unauthorized biography</a>, do Roger Peng, e <a href="http://notstatschat.tumblr.com/post/124987394001/stringsasfactors-sigh">stringsAsFactors = <sigh></a>, do Thomas Lumley. O que mudou é que, de um tempo para cá, nem toda variável não-numérica é, de fato, uma variável categórica. E, quando este é o caso, queremos trabalhá-las como <em>strings</em>.</p>
-<p>Além de não transformar <em>strings</em> em fatores, o <code>tidyverse</code> também dispõe de um pacote só para manipular fatores: o <code>forcats</code> (<em>for</em> <em>cat</em>egorial variable<em>s</em>). Para começar a usá-lo, instale e carregue o pacote.</p>
-<pre class="r"><code>install.packages(&quot;forcats&quot;)</code></pre>
-<pre class="r"><code>library(forcats)
-library(tidyverse)</code></pre>
-<p>O <code>forcats</code> é um pacote bastante simples. Basicamente, ele é composto por funções de apenas dois tipos:</p>
+                          <p>São Paulo é a minha cidade preferida. Não só porque moro aqui, mas também porque é uma cidade cheia de diversidade, boa gastronomia e oportunidades. Para sentir um pouco dessa <em>vibe</em>, recomendo passear na avenida Paulista aos domingos. É sensacional!</p>
+<p>Mas a cidade da diversidade só é o que é porque temos muita, muita gente nela. O município tem 12 milhões de habitantes. Esse número é tão grande que temos um paulistano para cada 17 brasileiros! Se São Paulo fosse um país, <a href="https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population">seria o 77o do mundo</a>, ganhando de países como a Bélgica, Grécia, Portugal, Bolívia e muitas outras.</p>
+<p>Outro dia eu estava pensando na seguinte problemática: qual é a área do Brasil ocupada pela população de São Paulo? Ou seja, se pegarmos os municípios com grandes áreas, quanto do país conseguiríamos preencher com 12 milhões de habitantes?</p>
+<p>O interessante é que essa questão recai exatamente no <em>problema da mochila</em>, que é um famoso desafio de programação inteira. Depois de <a href="https://en.wikipedia.org/wiki/Knapsack_problem">estudar profundamente no wikipedia</a> (😄), vi que o problema não é tão trivial como parece.</p>
+<div id="o-problema-da-mochila" class="section level2">
+<h2>O problema da mochila</h2>
+<p>Considere o seguinte contexto: você tem uma mochila com capacidade de 15kg e precisa carregar a combinação de itens com maior valor, com cada item possuindo valores e pesos diferentes.</p>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="https://raw.githubusercontent.com/curso-r/site/master/content/blog/img/knapsack.svg" alt="Knapsack problem. Retirado do [Wikipedia](https://en.wikipedia.org/wiki/Knapsack_problem#/media/File:Knapsack.svg)."  />
+<p class="caption">
+Figure 1: Knapsack problem. Retirado do <a href="https://en.wikipedia.org/wiki/Knapsack_problem#/media/File:Knapsack.svg">Wikipedia</a>.
+</p>
+</div>
+<p>Outra forma de pensar nesse problema é com um cardápio de restaurante:</p>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="https://imgs.xkcd.com/comics/np_complete.png" alt="XKCD sobre o knapsack problem."  />
+<p class="caption">
+Figure 2: XKCD sobre o knapsack problem.
+</p>
+</div>
+<p>Em linguagem matemática, o que temos é a task:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \text{maximizar } \sum_{i=1}^n v_i x_i \\ 
+&amp; \text{sujeito à } \sum_{i=1}^n w_i x_i \leq W, \text{ com } x_i \in\{0,1\}\\ 
+\end{aligned}
+\]</span></p>
+<p>No nosso caso essas letras significam isso aqui:</p>
 <ul>
-<li>Funções que começam com <code>fct_</code>, que recebem uma lista de fatores e devolvem um fator.</li>
-<li>Funções que começam com <code>lvl_</code>, que modificam os níveis de um fator.</li>
+<li><span class="math inline">\(n\)</span> é o número de municípios no Brasil (5570).</li>
+<li><span class="math inline">\(v_i\)</span> é a área do município <span class="math inline">\(i\)</span>.</li>
+<li><span class="math inline">\(w_i\)</span> é a população do município <span class="math inline">\(i\)</span>.</li>
+<li><span class="math inline">\(W\)</span> é a população de São Paulo (12 milhões).</li>
+<li><span class="math inline">\(x=(x_1,\dots,x_n)^\top\)</span> é o vetor que seleciona os municípios. Se o municípop <span class="math inline">\(i\)</span> faz parte da solução <span class="math inline">\(x_i=1\)</span> e, caso contrário, <span class="math inline">\(x_i=0\)</span>.</li>
 </ul>
-<p>Veja a seguir exemplos de como utilizar as principais funções.</p>
-<div id="fct_recode" class="section level2">
-<h2>fct_recode</h2>
-<p>Altera categorias específicas de um fator.</p>
-<pre class="r"><code>fator &lt;- factor(c(&quot;Scorsese&quot;, &quot;DiCaprio&quot;, &quot;Patty Jenkins&quot;, &quot;Gal Gadot&quot;))
-
-# Alterando apenas uma
-fct_recode(fator, direcao = &quot;Scorsese&quot;)
-## [1] direcao       DiCaprio      Patty Jenkins Gal Gadot    
-## Levels: DiCaprio Gal Gadot Patty Jenkins direcao
-
-# Alterando todas
-fct_recode(fator,
-           direcao = &quot;Scorsese&quot;, 
-           direcao = &quot;Patty Jenkins&quot;,    
-           elenco = &quot;DiCaprio&quot;,
-           elenco = &quot;Gal Gadot&quot;)
-## [1] direcao elenco  direcao elenco 
-## Levels: elenco direcao</code></pre>
+<p>Ou seja, queremos escolher municípios para colocar na mochila tentando maximizar a área, mas o máximo de população que podemos contemplar é 12 milhões.</p>
+<p>O problema da mochila é muito interessante pois trata-se de um problema NP-difícil, ou seja, não existe um algoritmo de polinomial capaz de resolvê-lo. Se <span class="math inline">\(w_i &gt; 0, \forall i\in1,\dots,n\)</span> então a solução pode ser encontrada com um algoritmo pseudo-polinomial.</p>
+<div id="forma-ad-hoc" class="section level3">
+<h3>Forma ad-hoc</h3>
+<p>Se <span class="math inline">\(x_i\)</span> pudesse assumir valores entre zero e um (ou seja, se pudéssemos selecionar apenas pedaços de municípios), a solução seria trivial. Bastaria colocar os municípios em ordem decrescente pela razão <span class="math inline">\(v_i/w_i\)</span> e escolher os municípios ou parte deles até obter <span class="math inline">\(W\)</span>.</p>
+<p>Isso indica uma forma sub-ótima de resolver o problema. Chamamos essa solução de ad-hoc. A solução é encontrada assim:</p>
+<ol style="list-style-type: decimal">
+<li>Colocar os municípios em ordem decrescente pela razão <span class="math inline">\(v_i/w_i\)</span>,</li>
+<li>Escolher os municípios de maior razão até que a população do próximo município estoure <span class="math inline">\(W\)</span>.</li>
+<li>Escolher outos municípios com maior razão na ordem até não ser possível incluir mais nenhum município.</li>
+</ol>
 </div>
-<div id="fct_collapse" class="section level2">
-<h2>fct_collapse</h2>
-<p>Junta categorias em grupos manualmente definidos.</p>
-<pre class="r"><code># Objeto simulando uma amostra do personagem 
-# de série favorito de 100 pessoas
-nomes &lt;- c(&quot;Sheldon&quot;, &quot;Leonard&quot;, &quot;Penny&quot;, &quot;Howard&quot;, &quot;Rajesh&quot;,
-           &quot;Ted&quot;, &quot;Marshall&quot;, &quot;Robin&quot;, &quot;Lily&quot;, &quot;Barney&quot;,
-           &quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;)
-
-per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
-  as.factor
-
-head(per_fav)           
-## [1] Pam     Rajesh  Michael Lily    Robin   Andy   
-## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
-
-# Conta o número de observações em cada categoria
-fct_count(per_fav)        
-## # A tibble: 15 x 2
-##           f     n
-##      &lt;fctr&gt; &lt;int&gt;
-##  1     Andy    11
-##  2   Barney     5
-##  3   Dwight     8
-##  4   Howard     9
-##  5      Jim     4
-##  6  Leonard     6
-##  7     Lily    11
-##  8 Marshall     7
-##  9  Michael     2
-## 10      Pam     7
-## 11    Penny     4
-## 12   Rajesh    11
-## 13    Robin     4
-## 14  Sheldon     5
-## 15      Ted     6
-
-# Junta as categorias
-per_fav2 &lt;- fct_collapse(per_fav,
-             TBBT = c(&quot;Sheldon&quot;, &quot;Leonard&quot;, &quot;Penny&quot;, &quot;Howard&quot;, &quot;Rajesh&quot;),
-             HIMYM = c(&quot;Ted&quot;, &quot;Marshall&quot;, &quot;Robin&quot;, &quot;Lily&quot;, &quot;Barney&quot;),
-             TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
-
-head(per_fav2)
-## [1] TheOffice TBBT      TheOffice HIMYM     HIMYM     TheOffice
-## Levels: TheOffice HIMYM TBBT
-fct_count(per_fav2)
-## # A tibble: 3 x 2
-##           f     n
-##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    32
-## 2     HIMYM    33
-## 3      TBBT    35</code></pre>
+<div id="solucao-otima" class="section level3">
+<h3>Solução ótima</h3>
+<p>A solução ótima pode ser encontrada usando a função <code>mknapsack()</code> do pacote <code>adagio</code>. Por exemplo, considere os vetores de pesos <code>w</code>, valores <code>p</code> e máximo <code>cap</code> abaixo.</p>
+<pre class="r"><code>p &lt;- c(15, 100, 90, 60, 40, 15, 10,  1)
+w &lt;- c( 2,  20, 20, 30, 40, 30, 60, 10)
+cap &lt;- 102</code></pre>
+<p>O vetor-solução é dado por</p>
+<pre class="r"><code>is &lt;- adagio::mknapsack(p, w, cap)
+is$ksack
+## [1] 1 1 1 1 0 1 0 0</code></pre>
 </div>
-<div id="fct_reorder" class="section level2">
-<h2>fct_reorder</h2>
-<p>Ordena as categorias de um fator segundo uma função. No exemplo abaixo, ordenamos os fatores da variável <code>carb</code> (número de carburadores) segundo a mediana da variável <code>mpg</code> (milhas por galão de combustível).</p>
-<pre class="r"><code>mtcars %&gt;% 
-  ggplot(aes(x = as.factor(carb), y = mpg)) +
-  geom_boxplot()</code></pre>
-<p><img src="http://curso-r.com/blog/2017-07-01-forcats_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<pre class="r"><code>mtcars %&gt;% 
-  mutate(carb = fct_reorder(f = as.factor(carb), 
-                            x = mpg,
-                            fun = median)) %&gt;% 
-  ggplot(aes(x = carb, y = mpg)) +
-  geom_boxplot()</code></pre>
-<p><img src="http://curso-r.com/blog/2017-07-01-forcats_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 </div>
-<div id="fct_lump" class="section level2">
-<h2>fct_lump</h2>
-<p>Agrupa as categorias menos (ou mais) comuns.</p>
-<pre class="r"><code>letras &lt;- factor(letters[rpois(100, 5)])
-fct_count(letras)
-## # A tibble: 11 x 2
-##         f     n
-##    &lt;fctr&gt; &lt;int&gt;
-##  1      a     4
-##  2      b     8
-##  3      c    17
-##  4      d    17
-##  5      e    16
-##  6      f    17
-##  7      g     4
-##  8      h     9
-##  9      i     3
-## 10      j     1
-## 11      k     2
+<div id="dados" class="section level2">
+<h2>Dados</h2>
+<p>As áreas e estimativas das populações dos municípios do Brasil em 2016 foram obtidas do IBGE. A leitura é realizada usando pacotes do <code>tidyverse</code>.</p>
+<p><strong>Pacotes:</strong></p>
+<pre class="r"><code>library(tidyverse)
+library(janitor)
+library(readxl)
+library(httr)</code></pre>
+<p><strong>Áreas:</strong></p>
+<pre class="r"><code>paste0(
+  &#39;ftp://geoftp.ibge.gov.br&#39;,
+  &#39;/organizacao_do_territorio/estrutura_territorial/areas_territoriais/2016/&#39;,
+  &#39;AR_BR_RG_UF_MUN_2016.xls&#39;
+) %&gt;% GET(write_disk(&#39;area.xls&#39;, overwrite = TRUE))
+## Response [ftp://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/areas_territoriais/2016/AR_BR_RG_UF_MUN_2016.xls]
+##   Date: 2017-08-12 21:09
+##   Status: 226
+##   Content-Type: &lt;unknown&gt;
+##   Size: 832 kB
+## &lt;ON DISK&gt;  area.xls
 
-# Por default, a categoria &quot;Other&quot; sempre será menor
-# que as outras categorias.
-letras %&gt;%                  
-  fct_lump(other_level = &quot;Outros&quot;) %&gt;%       
-  fct_count
-## # A tibble: 11 x 2
-##         f     n
-##    &lt;fctr&gt; &lt;int&gt;
-##  1      a     4
-##  2      b     8
-##  3      c    17
-##  4      d    17
-##  5      e    16
-##  6      f    17
-##  7      g     4
-##  8      h     9
-##  9      i     3
-## 10      k     2
-## 11 Outros     1
+area &lt;- read_excel(&#39;area.xls&#39;) %&gt;%
+  clean_names() %&gt;%
+  filter(!is.na(id)) %&gt;% 
+  select(uf = nm_uf_sigla, cd_gcmun, muni = nm_mun_2016, area = ar_mun_2016)</code></pre>
+<p><strong>População:</strong></p>
+<pre class="r"><code>paste0(
+  &#39;ftp://ftp.ibge.gov.br&#39;,
+  &#39;/Estimativas_de_Populacao/Estimativas_2016/&#39;,
+  &#39;estimativa_TCU_2016_20170614.xls&#39;
+) %&gt;% GET(write_disk(&#39;pop.xls&#39;, overwrite = TRUE))
+## Response [ftp://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2016/estimativa_TCU_2016_20170614.xls]
+##   Date: 2017-08-12 21:09
+##   Status: 226
+##   Content-Type: &lt;unknown&gt;
+##   Size: 858 kB
+## &lt;ON DISK&gt;  pop.xls
 
-# Espeficicando o argumento &quot;n = 4&quot;, preservamos os
-# 4 valores mais comuns
-letras %&gt;% 
-  fct_lump(n = 4, other_level = &quot;Outros&quot;) %&gt;% 
-  fct_count
-## # A tibble: 5 x 2
-##        f     n
-##   &lt;fctr&gt; &lt;int&gt;
-## 1      c    17
-## 2      d    17
-## 3      e    16
-## 4      f    17
-## 5 Outros    31
-
-# Espeficicando o argumento &quot;n = -4&quot;, preservamos
-# apenas os 4 valores que menos aparecem
-letras %&gt;% 
-  fct_lump(n = -4, other_level = &quot;Principais&quot;) %&gt;% 
-  fct_count
-## # A tibble: 6 x 2
-##            f     n
-##       &lt;fctr&gt; &lt;int&gt;
-## 1          a     4
-## 2          g     4
-## 3          i     3
-## 4          j     1
-## 5          k     2
-## 6 Principais    84</code></pre>
+loc &lt;- locale(grouping_mark = &#39;.&#39;, decimal_mark = &#39;,&#39;)
+pop &lt;- read_excel(&#39;pop.xls&#39;, skip = 1, sheet = 2) %&gt;%
+  clean_names() %&gt;%
+  filter(!is.na(cod_munic)) %&gt;%
+  mutate(pop = parse_number(`população_estimada`, locale = loc),
+         cd_gcmun = paste0(cod_uf, cod_munic)) %&gt;%
+  select(cd_gcmun, pop)</code></pre>
+<p>Para completar, temos os shapefiles dos municípios. Os originais foram baixados <a href="ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2016/Brasil/BR/">nesse link</a>, mas fiz um código para reduzir a resolução e preferi omitir do post. Se quiser ver, entre no <a href="https://github.com/curso-r/site">repositório que gera esse site</a>. Para ler os shapes usamos o pacote <code>sf</code>:</p>
+<p>No final, vamos dar um join das tabelas:</p>
+<pre class="r"><code>dados &lt;- area %&gt;% 
+  left_join(pop, &#39;cd_gcmun&#39;) %&gt;%
+  mutate(razao = area / pop) %&gt;%
+  filter(!is.na(pop))</code></pre>
 </div>
-<div id="lvls_reorder" class="section level2">
-<h2>lvls_reorder</h2>
-<p>Troca a ordem das categorias de um fator.</p>
-<pre class="r"><code>fator &lt;- factor(c(&quot;casado&quot;, &quot;viuvo&quot;, &quot;solteiro&quot;, &quot;divorciado&quot;))
-fator
-## [1] casado     viuvo      solteiro   divorciado
-## Levels: casado divorciado solteiro viuvo
-
-lvls_reorder(fator, c(3, 1, 2, 4))
-## [1] casado     viuvo      solteiro   divorciado
-## Levels: solteiro casado divorciado viuvo</code></pre>
-<p>O pacote <code>forcats</code> ainda tem outras funções úteis para tratar com fatores, como <code>fct_expand()</code>, <code>fct_explicit_na()</code>, <code>fct_infreq()</code>, <code>fct_reorder2()</code>, <code>lvls_revalue()</code>, entre outras. No RStudio, é sempre útil navegar entre as funções de um pacote digitando, por exemplo, <code>forcats::</code> e pressionando TAB.</p>
-<p>Dúvidas, críticas ou sugestões, deixe um comentário ou nos envie uma mensagem. :)</p>
+<div id="resultados" class="section level2">
+<h2>Resultados</h2>
+<p>A solução ad-hoc e ótima são computadas com esse código:</p>
+<pre class="r"><code>d_solucao &lt;- dados %&gt;% 
+  arrange(desc(razao)) %&gt;% # ordena para solucao adhoc funcionar
+  mutate(area2 = as.integer(area * 1000), # necessario para mknapsack funcionar
+         s_knapsack = adagio::mknapsack(area2, pop, max(pop))$ksack,
+         acu = cumsum(pop),
+         s_adhoc0 = if_else(acu &lt; max(pop), 1, 0),
+         s_adhoc = s_adhoc0) </code></pre>
+<p>Agora, vamos melhorar a solução ad-hoc incluindo os melhores municípios.</p>
+<pre class="r"><code>id_melhor &lt;- 0
+pop_faltam &lt;- with(d_solucao, max(pop) - sum(s_adhoc0 * pop))
+while (is.na(id_melhor)) {
+  # pega id do melhor municipio a ser incluido
+  id_melhor &lt;- with(d_solucao, which(pop &lt;= pop_faltam &amp; s_adhoc == 0)[1])
+  if (is.na(id_melhor)) {
+    d_solucao$s_adhoc[id_melhor] &lt;- 1
+    pop_faltam &lt;- with(d_solucao, max(pop) - sum(s_adhoc * pop))
+  }
+}</code></pre>
+<p>A Tabela <a href="#tab:dif">1</a> mostra os municípios que foram classificados diferentemente nos dois métodos. Note que a solução ótima trocou apenas um município da solução adhoc (Nova Aurora - GO) pelo município de Monte Alegre de Minas - MG.</p>
+<pre class="r"><code>d_solucao %&gt;% 
+  filter(s_adhoc != s_knapsack) %&gt;% 
+  select(uf, muni, area, pop, s_adhoc, s_knapsack) %&gt;% 
+  knitr::kable(caption = &#39;Municípios diferentes nas duas soluções.&#39;)</code></pre>
+<table>
+<caption><span id="tab:dif">Table 1: </span>Municípios diferentes nas duas soluções.</caption>
+<thead>
+<tr class="header">
+<th align="left">uf</th>
+<th align="left">muni</th>
+<th align="right">area</th>
+<th align="right">pop</th>
+<th align="right">s_adhoc</th>
+<th align="right">s_knapsack</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">GO</td>
+<td align="left">NOVA AURORA</td>
+<td align="right">302.655</td>
+<td align="right">2194</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">MG</td>
+<td align="left">MONTE ALEGRE DE MINAS</td>
+<td align="right">2595.957</td>
+<td align="right">20979</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>A Tabela <a href="#tab:dif2">2</a> mostra a diferença dos resultados dos dois métodos. A solução ótima fica</p>
+<table>
+<caption><span id="tab:dif2">Table 2: </span>Diferença dos resultados.</caption>
+<thead>
+<tr class="header">
+<th align="left">Método</th>
+<th align="left">Área total</th>
+<th align="right">População total</th>
+<th align="right">Diferença para sp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">adhoc</td>
+<td align="left">5576985.742</td>
+<td align="right">12019298</td>
+<td align="right">18877</td>
+</tr>
+<tr class="even">
+<td align="left">knapsack</td>
+<td align="left">5579279.044</td>
+<td align="right">12038083</td>
+<td align="right">92</td>
+</tr>
+<tr class="odd">
+<td align="left">São Paulo</td>
+<td align="left">-</td>
+<td align="right">12038175</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="mapa-final" class="section level2">
+<h2>Mapa final</h2>
+<p>Visualmente, a solução ótima e a solução adhoc são idênticas. Por isso vou mostrar apenas como fica o mapa para a solução ótima.</p>
+<p>O resultado aparece na Figura <a href="#fig:final">3</a>. É realmente impressionante ver que aquela regiãozinha vermelha tem a mesma população que toda a região azul do mapa.</p>
+<div class="figure"><span id="fig:final"></span>
+<img src="https://raw.githubusercontent.com/curso-r/site/master/content/blog/img/mapa-final.png" alt="Mapa do Brasil final."  />
+<p class="caption">
+Figure 3: Mapa do Brasil final.
+</p>
+</div>
+<p>É isso! Happy coding ;)</p>
 </div>
 
                         </div>
@@ -381,9 +410,9 @@ lvls_reorder(fator, c(3, 1, 2, 4))
                             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'curso-r-com';
-    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/07\/01\/2017-07-01-forcats\/';
-    var disqus_title = 'Forcats';
-    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/07\/01\/2017-07-01-forcats\/';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/08\/12\/2017-04-10-sao-paulo\/';
+    var disqus_title = 'São Paulo e o problema da mochila';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/08\/12\/2017-04-10-sao-paulo\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -696,6 +725,19 @@ lvls_reorder(fator, c(3, 1, 2, 4))
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/r4ds/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
@@ -704,19 +746,6 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         

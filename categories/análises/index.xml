@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 19 May 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 12 Aug 2017 13:07:31 +0200</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/an%C3%A1lises/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>São Paulo e o problema da mochila</title>
+      <link>http://curso-r.com/blog/2017/08/12/2017-04-10-sao-paulo/</link>
+      <pubDate>Sat, 12 Aug 2017 13:07:31 +0200</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/08/12/2017-04-10-sao-paulo/</guid>
+      <description>São Paulo é a minha cidade preferida. Não só porque moro aqui, mas também porque é uma cidade cheia de diversidade, boa gastronomia e oportunidades. Para sentir um pouco dessa vibe, recomendo passear na avenida Paulista aos domingos. É sensacional!
+Mas a cidade da diversidade só é o que é porque temos muita, muita gente nela. O município tem 12 milhões de habitantes. Esse número é tão grande que temos um paulistano para cada 17 brasileiros!</description>
+    </item>
     
     <item>
       <title>Web scraping do site da Secretaria de Segurança Pública de São Paulo</title>
