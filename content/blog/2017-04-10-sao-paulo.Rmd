@@ -51,7 +51,7 @@ No nosso caso essas letras significam isso aqui:
 - $v_i$ é a área do município $i$.
 - $w_i$ é a população do município $i$.
 - $W$ é a população de São Paulo (12 milhões).
-- $x=(x_1,\dots,x_n)^\top$ é o vetor que seleciona os municípios. Se o municípop $i$ faz parte da solução $x_i=1$ e, caso contrário, $x_i=0$. 
+- $x=(x_1,\dots,x_n)^\top$ é o vetor que seleciona os municípios. Se o município $i$ faz parte da solução $x_i=1$ e, caso contrário, $x_i=0$. 
 
 Ou seja, queremos escolher municípios para colocar na mochila tentando maximizar a área, mas o máximo de população que podemos contemplar é 12 milhões.
 
