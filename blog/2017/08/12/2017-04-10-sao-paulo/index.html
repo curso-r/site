@@ -187,14 +187,14 @@
                         
                         <div id="post-content">
                           <p>São Paulo é a minha cidade preferida. Não só porque moro aqui, mas também porque é uma cidade cheia de diversidade, boa gastronomia e oportunidades. Para sentir um pouco dessa <em>vibe</em>, recomendo passear na avenida Paulista aos domingos. É sensacional!</p>
-<p>Mas a cidade da diversidade só é o que é porque temos muita, muita gente nela. O município tem 12 milhões de habitantes. Esse número é tão grande que temos um paulistano para cada 17 brasileiros! Se São Paulo fosse um país, <a href="https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population">seria o 77o do mundo</a>, ganhando de países como a Bélgica, Grécia, Portugal, Bolívia e muitas outras.</p>
+<p>Mas a cidade da diversidade só é o que é porque temos muita, muita gente nela. O município tem 12 milhões de habitantes. Esse número é tão grande que temos um paulistano para cada 17 brasileiros! Se São Paulo fosse um país, <a href="https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population">seria o 77 do mundo</a>, ganhando de países como a Bélgica, Grécia, Portugal, Bolívia e muitas outras.</p>
 <p>Outro dia eu estava pensando na seguinte problemática: qual é a área do Brasil ocupada pela população de São Paulo? Ou seja, se pegarmos os municípios com grandes áreas, quanto do país conseguiríamos preencher com 12 milhões de habitantes?</p>
-<p>O interessante é que essa questão recai exatamente no <em>problema da mochila</em>, que é um famoso desafio de programação inteira. Depois de <a href="https://en.wikipedia.org/wiki/Knapsack_problem">estudar profundamente no wikipedia</a> (😅), vi que o problema não é tão trivial como parece.</p>
+<p>O interessante é que essa questão recai exatamente no <em>problema da mochila</em>, que é um famoso desafio de programação inteira. Depois de <a href="https://en.wikipedia.org/wiki/Knapsack_problem">estudar profundamente no wikipedia</a> (😄), vi que o problema não é tão trivial como parece.</p>
 <div id="o-problema-da-mochila" class="section level2">
 <h2>O problema da mochila</h2>
 <p>Considere o seguinte contexto: você tem uma mochila com capacidade de 15kg e precisa carregar a combinação de itens com maior valor, com cada item possuindo valores e pesos diferentes.</p>
 <div class="figure"><span id="fig:unnamed-chunk-2"></span>
-<img src="https://raw.githubusercontent.com/curso-r/site/master/content/blog/img/knapsack.svg" alt="Knapsack problem. Retirado do [Wikipedia](https://en.wikipedia.org/wiki/Knapsack_problem#/media/File:Knapsack.svg)."  />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Knapsack.svg/250px-Knapsack.svg.png" alt="Knapsack problem. Retirado do [Wikipedia](https://en.wikipedia.org/wiki/Knapsack_problem#/media/File:Knapsack.svg)."  />
 <p class="caption">
 Figure 1: Knapsack problem. Retirado do <a href="https://en.wikipedia.org/wiki/Knapsack_problem#/media/File:Knapsack.svg">Wikipedia</a>.
 </p>
@@ -230,7 +230,7 @@ Figure 2: XKCD sobre o knapsack problem.
 <ol style="list-style-type: decimal">
 <li>Colocar os municípios em ordem decrescente pela razão <span class="math inline">\(v_i/w_i\)</span>,</li>
 <li>Escolher os municípios de maior razão até que a população do próximo município estoure <span class="math inline">\(W\)</span>.</li>
-<li>Escolher outos municípios com maior razão na ordem até não ser possível incluir mais nenhum município.</li>
+<li>Escolher outros municípios com maior razão na ordem até não ser possível incluir mais nenhum município.</li>
 </ol>
 </div>
 <div id="solucao-otima" class="section level3">
@@ -260,7 +260,7 @@ library(httr)</code></pre>
   &#39;AR_BR_RG_UF_MUN_2016.xls&#39;
 ) %&gt;% GET(write_disk(&#39;area.xls&#39;, overwrite = TRUE))
 ## Response [ftp://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/areas_territoriais/2016/AR_BR_RG_UF_MUN_2016.xls]
-##   Date: 2017-08-12 21:21
+##   Date: 2017-08-12 21:38
 ##   Status: 226
 ##   Content-Type: &lt;unknown&gt;
 ##   Size: 832 kB
@@ -277,7 +277,7 @@ area &lt;- read_excel(&#39;area.xls&#39;) %&gt;%
   &#39;estimativa_TCU_2016_20170614.xls&#39;
 ) %&gt;% GET(write_disk(&#39;pop.xls&#39;, overwrite = TRUE))
 ## Response [ftp://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2016/estimativa_TCU_2016_20170614.xls]
-##   Date: 2017-08-12 21:21
+##   Date: 2017-08-12 21:38
 ##   Status: 226
 ##   Content-Type: &lt;unknown&gt;
 ##   Size: 858 kB
@@ -725,14 +725,14 @@ Figure 3: Mapa do Brasil final.
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/incompany/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
          
