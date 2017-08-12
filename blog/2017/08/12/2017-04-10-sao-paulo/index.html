@@ -189,7 +189,7 @@
                           <p>São Paulo é a minha cidade preferida. Não só porque moro aqui, mas também porque é uma cidade cheia de diversidade, boa gastronomia e oportunidades. Para sentir um pouco dessa <em>vibe</em>, recomendo passear na avenida Paulista aos domingos. É sensacional!</p>
 <p>Mas a cidade da diversidade só é o que é porque temos muita, muita gente nela. O município tem 12 milhões de habitantes. Esse número é tão grande que temos um paulistano para cada 17 brasileiros! Se São Paulo fosse um país, <a href="https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population">seria o 77 do mundo</a>, ganhando de países como a Bélgica, Grécia, Portugal, Bolívia e muitas outras.</p>
 <p>Outro dia eu estava pensando na seguinte problemática: qual é a área do Brasil ocupada pela população de São Paulo? Ou seja, se pegarmos os municípios com grandes áreas, quanto do país conseguiríamos preencher com 12 milhões de habitantes?</p>
-<p>O interessante é que essa questão recai exatamente no <em>problema da mochila</em>, que é um famoso desafio de programação inteira. Depois de <a href="https://en.wikipedia.org/wiki/Knapsack_problem">estudar profundamente no wikipedia</a> (😅), vi que o problema não é tão trivial como parece.</p>
+<p>O interessante é que essa questão recai exatamente no <em>problema da mochila</em>, que é um famoso desafio de programação inteira. Depois de <a href="https://en.wikipedia.org/wiki/Knapsack_problem">estudar profundamente no wikipedia</a> (😆), vi que o problema não é tão trivial como parece.</p>
 <div id="o-problema-da-mochila" class="section level2">
 <h2>O problema da mochila</h2>
 <p>Considere o seguinte contexto: você tem uma mochila com capacidade de 15kg e precisa carregar a combinação de itens com maior valor, com cada item possuindo valores e pesos diferentes.</p>
@@ -254,34 +254,22 @@ library(janitor)
 library(readxl)
 library(httr)</code></pre>
 <p><strong>Áreas:</strong></p>
-<pre class="r"><code>paste0(
+<pre class="r"><code>url_area &lt;- paste0(
   &#39;ftp://geoftp.ibge.gov.br&#39;,
   &#39;/organizacao_do_territorio/estrutura_territorial/areas_territoriais/2016/&#39;,
   &#39;AR_BR_RG_UF_MUN_2016.xls&#39;
 ) %&gt;% GET(write_disk(&#39;area.xls&#39;, overwrite = TRUE))
-## Response [ftp://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/areas_territoriais/2016/AR_BR_RG_UF_MUN_2016.xls]
-##   Date: 2017-08-12 21:40
-##   Status: 226
-##   Content-Type: &lt;unknown&gt;
-##   Size: 832 kB
-## &lt;ON DISK&gt;  area.xls
 
 area &lt;- read_excel(&#39;area.xls&#39;) %&gt;%
   clean_names() %&gt;%
   filter(!is.na(id)) %&gt;% 
   select(uf = nm_uf_sigla, cd_gcmun, muni = nm_mun_2016, area = ar_mun_2016)</code></pre>
 <p><strong>População:</strong></p>
-<pre class="r"><code>paste0(
+<pre class="r"><code>url_pop &lt;- paste0(
   &#39;ftp://ftp.ibge.gov.br&#39;,
   &#39;/Estimativas_de_Populacao/Estimativas_2016/&#39;,
   &#39;estimativa_TCU_2016_20170614.xls&#39;
 ) %&gt;% GET(write_disk(&#39;pop.xls&#39;, overwrite = TRUE))
-## Response [ftp://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2016/estimativa_TCU_2016_20170614.xls]
-##   Date: 2017-08-12 21:40
-##   Status: 226
-##   Content-Type: &lt;unknown&gt;
-##   Size: 858 kB
-## &lt;ON DISK&gt;  pop.xls
 
 loc &lt;- locale(grouping_mark = &#39;.&#39;, decimal_mark = &#39;,&#39;)
 pop &lt;- read_excel(&#39;pop.xls&#39;, skip = 1, sheet = 2) %&gt;%
@@ -354,7 +342,7 @@ while (is.na(id_melhor)) {
 </tr>
 </tbody>
 </table>
-<p>A Tabela <a href="#tab:dif2">2</a> mostra a diferença dos resultados dos dois métodos. A solução ótima fica</p>
+<p>A Tabela <a href="#tab:dif2">2</a> mostra a diferença dos resultados dos dois métodos. A solução ótima fica com apenas 92 pessoas a menos que São Paulo.</p>
 <table>
 <caption><span id="tab:dif2">Table 2: </span>Diferença dos resultados.</caption>
 <thead>
@@ -725,27 +713,27 @@ Figure 3: Mapa do Brasil final.
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/incompany/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         

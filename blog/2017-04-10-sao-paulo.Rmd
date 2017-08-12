@@ -100,7 +100,7 @@ library(httr)
 **Áreas:**
 
 ```{r area, message=FALSE, warning=FALSE}
-paste0(
+url_area <- paste0(
   'ftp://geoftp.ibge.gov.br',
   '/organizacao_do_territorio/estrutura_territorial/areas_territoriais/2016/',
   'AR_BR_RG_UF_MUN_2016.xls'
@@ -115,7 +115,7 @@ area <- read_excel('area.xls') %>%
 **População:**
 
 ```{r pop, message=FALSE, warning=FALSE}
-paste0(
+url_pop <- paste0(
   'ftp://ftp.ibge.gov.br',
   '/Estimativas_de_Populacao/Estimativas_2016/',
   'estimativa_TCU_2016_20170614.xls'
@@ -201,7 +201,7 @@ d_solucao %>%
   knitr::kable(caption = 'Municípios diferentes nas duas soluções.')
 ```
 
-A Tabela \@ref(tab:dif2) mostra a diferença dos resultados dos dois métodos. A solução ótima fica
+A Tabela \@ref(tab:dif2) mostra a diferença dos resultados dos dois métodos. A solução ótima fica com apenas 92 pessoas a menos que São Paulo.
 
 ```{r dif2, echo=FALSE}
 d_solucao %>%
