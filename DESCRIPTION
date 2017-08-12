@@ -80,5 +80,6 @@ Imports:
     ggforce,
     FactoMineR,
     tidywoe,
-    janitor
+    janitor,
+    adagio
 RoxygenNote: 6.0.1
