@@ -113,6 +113,10 @@
                     </li>
                     
                     <li class="dropdown">
+                        <a href="http://material.curso-r.com/">Material</a>
+                    </li>
+                    
+                    <li class="dropdown">
                         <a href="http://curso-r.com/contact/">Contato</a>
                     </li>
                     
@@ -222,17 +226,17 @@ centroides
 ## # A tibble: 6 x 4
 ##   cluster         r          g         b
 ##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.0996826 0.04366903 0.2398452
-## 2       2 0.6239192 0.28335790 0.1897367
+## 1       1 0.3789830 0.11857741 0.1558412
+## 2       2 0.0996826 0.04366903 0.2398452
 ## 3       3 0.2721465 0.36412137 0.4901613
-## 4       4 0.3789830 0.11857741 0.1558412
-## 5       5 0.8857289 0.77915257 0.6688482
+## 4       4 0.8857289 0.77915257 0.6688482
+## 5       5 0.6239192 0.28335790 0.1897367
 ## 6       6 0.7195362 0.54881786 0.4098359</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#190B3D&quot; &quot;#9F4830&quot; &quot;#455D7D&quot; &quot;#611E28&quot; &quot;#E2C7AB&quot; &quot;#B78C69&quot;</code></pre>
+## [1] &quot;#611E28&quot; &quot;#190B3D&quot; &quot;#455D7D&quot; &quot;#E2C7AB&quot; &quot;#9F4830&quot; &quot;#B78C69&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -600,19 +604,6 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -621,6 +612,19 @@ exibir(paleta)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/incompany/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
         
