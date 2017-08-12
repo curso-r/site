@@ -15,7 +15,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 São Paulo é a minha cidade preferida. Não só porque moro aqui, mas também porque é uma cidade cheia de diversidade, boa gastronomia e oportunidades. Para sentir um pouco dessa *vibe*, recomendo passear na avenida Paulista aos domingos. É sensacional!
 
-Mas a cidade da diversidade só é o que é porque temos muita, muita gente nela. O município tem 12 milhões de habitantes. Esse número é tão grande que temos um paulistano para cada 17 brasileiros! Se São Paulo fosse um país, [seria o 77o do mundo](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population), ganhando de países como a Bélgica, Grécia, Portugal, Bolívia e muitas outras.
+Mas a cidade da diversidade só é o que é porque temos muita, muita gente nela. O município tem 12 milhões de habitantes. Esse número é tão grande que temos um paulistano para cada 17 brasileiros! Se São Paulo fosse um país, [seria o 77 do mundo](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population), ganhando de países como a Bélgica, Grécia, Portugal, Bolívia e muitas outras.
 
 Outro dia eu estava pensando na seguinte problemática: qual é a área do Brasil ocupada pela população de São Paulo? Ou seja, se pegarmos os municípios com grandes áreas, quanto do país conseguiríamos preencher com 12 milhões de habitantes?
 
@@ -27,7 +27,7 @@ Considere o seguinte contexto: você tem uma mochila com capacidade de 15kg e pr
 
 ```{r, fig.cap='Knapsack problem. Retirado do [Wikipedia](https://en.wikipedia.org/wiki/Knapsack_problem#/media/File:Knapsack.svg).', echo=FALSE}
 # knitr::include_graphics('img/knapsack.svg')
-knitr::include_graphics('https://raw.githubusercontent.com/curso-r/site/master/content/blog/img/knapsack.svg')
+knitr::include_graphics('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Knapsack.svg/250px-Knapsack.svg.png')
 ```
 
 Outra forma de pensar nesse problema é com um cardápio de restaurante:
@@ -65,7 +65,7 @@ Isso indica uma forma sub-ótima de resolver o problema. Chamamos essa solução
 
 1. Colocar os municípios em ordem decrescente pela razão $v_i/w_i$,
 1. Escolher os municípios de maior razão até que a população do próximo município estoure $W$.
-1. Escolher outos municípios com maior razão na ordem até não ser possível incluir mais nenhum município.
+1. Escolher outros municípios com maior razão na ordem até não ser possível incluir mais nenhum município.
 
 ### Solução ótima
 
