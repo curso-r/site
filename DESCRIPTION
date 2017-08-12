@@ -24,6 +24,7 @@ Remotes:
     hadley/emo,
     athospd/tidywoe
 Imports:
+    quadprog,
     stringr,
     purrr,
     httr,
