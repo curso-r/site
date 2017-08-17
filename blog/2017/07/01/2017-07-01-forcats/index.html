@@ -231,7 +231,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Penny   Sheldon Howard  Sheldon Dwight  Howard 
+## [1] Michael  Marshall Lily     Penny    Lily     Ted     
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -240,19 +240,19 @@ fct_count(per_fav)
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
 ##  1     Andy     6
-##  2   Barney     6
-##  3   Dwight     6
-##  4   Howard     9
-##  5      Jim     5
-##  6  Leonard     5
-##  7     Lily     5
-##  8 Marshall     5
-##  9  Michael     5
-## 10      Pam     9
-## 11    Penny     5
-## 12   Rajesh     9
-## 13    Robin     8
-## 14  Sheldon     8
+##  2   Barney     5
+##  3   Dwight     5
+##  4   Howard     5
+##  5      Jim    11
+##  6  Leonard     6
+##  7     Lily     8
+##  8 Marshall     4
+##  9  Michael    10
+## 10      Pam     6
+## 11    Penny     6
+## 12   Rajesh     8
+## 13    Robin     6
+## 14  Sheldon     5
 ## 15      Ted     9
 
 # Junta as categorias
@@ -262,15 +262,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] TBBT      TBBT      TBBT      TBBT      TheOffice TBBT     
+## [1] TheOffice HIMYM     HIMYM     TBBT      HIMYM     HIMYM    
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    31
-## 2     HIMYM    33
-## 3      TBBT    36</code></pre>
+## 1 TheOffice    38
+## 2     HIMYM    32
+## 3      TBBT    30</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -296,15 +296,15 @@ fct_count(letras)
 ##         f     n
 ##    &lt;fctr&gt; &lt;int&gt;
 ##  1      a     4
-##  2      b     5
-##  3      c    15
-##  4      d    16
-##  5      e    20
-##  6      f    22
-##  7      g    10
-##  8      h     3
-##  9      i     1
-## 10      j     2
+##  2      b     7
+##  3      c    14
+##  4      d    17
+##  5      e    17
+##  6      f    13
+##  7      g    11
+##  8      h    11
+##  9      i     3
+## 10      j     1
 ## 11      k     1
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
@@ -312,20 +312,19 @@ fct_count(letras)
 letras %&gt;%                  
   fct_lump(other_level = &quot;Outros&quot;) %&gt;%       
   fct_count
-## # A tibble: 11 x 2
+## # A tibble: 10 x 2
 ##         f     n
 ##    &lt;fctr&gt; &lt;int&gt;
 ##  1      a     4
-##  2      b     5
-##  3      c    15
-##  4      d    16
-##  5      e    20
-##  6      f    22
-##  7      g    10
-##  8      h     3
-##  9      i     1
-## 10      j     2
-## 11      k     1
+##  2      b     7
+##  3      c    14
+##  4      d    17
+##  5      e    17
+##  6      f    13
+##  7      g    11
+##  8      h    11
+##  9      i     3
+## 10 Outros     2
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
@@ -335,11 +334,11 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      c    15
-## 2      d    16
-## 3      e    20
-## 4      f    22
-## 5 Outros    26
+## 1      c    14
+## 2      d    17
+## 3      e    17
+## 4      f    13
+## 5 Outros    38
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
@@ -349,11 +348,11 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
-## 1          h     3
-## 2          i     1
-## 3          j     2
+## 1          a     4
+## 2          i     3
+## 3          j     1
 ## 4          k     1
-## 5 Principais    92</code></pre>
+## 5 Principais    90</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
 <h2>lvls_reorder</h2>
@@ -701,6 +700,19 @@ lvls_reorder(fator, c(3, 1, 2, 4))
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -709,19 +721,6 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -787,7 +786,7 @@ lvls_reorder(fator, c(3, 1, 2, 4))
                     <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/">
                           
-                            <img src="http://curso-r.com/img/banners/quico-pensando.png" class="img-responsive" alt="">
+                            <img src="http://curso-r.com/img/banners/michael-kyle.jpg" class="img-responsive" alt="">
                           
                         </a>
                     </div>
