@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 12 Aug 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 17 Aug 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Eu, a Estatística e a programação</title>
+      <link>http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/</link>
+      <pubDate>Thu, 17 Aug 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/</guid>
+      <description>— Não sabia que nessa cidade a cada 20 minutos atropelam um homem? — Nossa! E como está o coitado?
+ O episódio “Estatísticas” do Chaves foi o meu primeiro contato com o conceito de Estatística (pelo menos que eu possa me lembrar). Claro que naquela época, com 5 ou 6 anos, eu nunca imaginaria que seria essa a minha profissão. Assim como o Quico e o Chaves, eu não fazia muita ideia do que as “senhoras estatísticas”&amp;quot; eram e continuei sem saber de fato até entrar na graduação, em 2007.</description>
+    </item>
     
     <item>
       <title>São Paulo e o problema da mochila</title>
@@ -317,7 +327,7 @@ Bons diagramas de Venn são capazes de te fazer perceber cruzamentos que não es
       
       <guid>http://curso-r.com/blog/2017/04/28/2017-04-28-porta-dos-fundos-decadencia-revisited/</guid>
       <description>Às vezes a venda de uma empresa é um sinal de que algo não vai bem. Até pode ser verdade que nada ruim estivesse acontecendo e, por qualquer motivo que seja, alguém achou melhor parar enquanto estava ganhando, mas eu custo a acreditar que o Porta Dos Fundos estava nessa situação. Principalmente considerando o futuro sombrio que pode esperá-los.
-A última aquisição da Viacom no Brasil foi a finada MTV.</description>
+A última aquisição da Viacom no Brasil foi a finada MTV. Depois de 20 anos de presença relevante no cenário musical brasileiro, o peso dos anos culminou na venda da MTV para a gigante americana.</description>
     </item>
     
     <item>

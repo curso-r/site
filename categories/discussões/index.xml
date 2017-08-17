@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Discussões on Curso-R</title>
+    <link>http://curso-r.com/categories/discuss%C3%B5es/</link>
+    <description>Recent content in Discussões on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 17 Aug 2017 23:26:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/categories/discuss%C3%B5es/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eu, a Estatística e a programação</title>
+      <link>http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/</link>
+      <pubDate>Thu, 17 Aug 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/</guid>
+      <description>— Não sabia que nessa cidade a cada 20 minutos atropelam um homem? — Nossa! E como está o coitado?
+ O episódio “Estatísticas” do Chaves foi o meu primeiro contato com o conceito de Estatística (pelo menos que eu possa me lembrar). Claro que naquela época, com 5 ou 6 anos, eu nunca imaginaria que seria essa a minha profissão. Assim como o Quico e o Chaves, eu não fazia muita ideia do que as “senhoras estatísticas”&amp;quot; eram e continuei sem saber de fato até entrar na graduação, em 2007.</description>
+    </item>
+    
+  </channel>
+</rss>
