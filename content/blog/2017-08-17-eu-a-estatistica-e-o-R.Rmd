@@ -3,7 +3,7 @@ title: "Eu, a Estatística e a programação"
 date: "2017-08-17T23:26:00+03:00"
 tags: ["estatística"]
 categories: ["discussões", "r"]
-banner: "img/banners/quico-pensando.png"
+banner: "img/banners/michael-kyle.jpg"
 author: ["William"]
 summary: "Neste post, iniciarei uma série com algumas reflexões sobre temas que orbitam o ensino de Estatística e a importância da programação na vida do estatístico."
 ---
