@@ -24,10 +24,12 @@ HTMLWidgets.widget({
   
   renderValue: function(el, x, instance) {
       
+    var shinyMode;
     if (typeof(window) !== "undefined") {
-      // make sure plots don't get created outside the network (for on-prem)
+      // make sure plots don't get created outside the network
       window.PLOTLYENV = window.PLOTLYENV || {};
       window.PLOTLYENV.BASE_URL = x.base_url;
+      shinyMode = !!window.Shiny;
     }
 
     var graphDiv = document.getElementById(el.id);
@@ -159,23 +161,6 @@ HTMLWidgets.widget({
       
     }
     
-    // Trigger plotly.js calls defined via `plotlyProxy()`
-    plot.then(function() {
-      if (HTMLWidgets.shinyMode) {
-        Shiny.addCustomMessageHandler("plotly-calls", function(msg) {
-          var gd = document.getElementById(msg.id);
-          if (!gd) {
-            throw new Error("Couldn't find plotly graph with id: " + msg.id);
-          }
-          if (!Plotly[msg.method]) {
-            throw new Error("Unknown method " + msg.method);
-          }
-          var args = [gd].concat(msg.args);
-          Plotly[msg.method].apply(null, args);
-        });
-      }
-    });
-    
     // Attach attributes (e.g., "key", "z") to plotly event data
     function eventDataWithKey(eventData) {
       if (eventData === undefined || !eventData.hasOwnProperty("points")) {
@@ -224,12 +209,12 @@ HTMLWidgets.widget({
     }
     
     // send user input event data to shiny
-    if (HTMLWidgets.shinyMode) {
+    if (shinyMode) {
       // https://plot.ly/javascript/zoom-events/
       graphDiv.on('plotly_relayout', function(d) {
         Shiny.onInputChange(
           ".clientValue-plotly_relayout-" + x.source, 
-          JSON.stringify(d)
+          JSON.stringify(eventDataWithKey(d))
         );
       });
       graphDiv.on('plotly_hover', function(d) {
@@ -585,11 +570,10 @@ TraceManager.prototype.updateSelection = function(group, keys) {
         }
         
         // if it is defined, override color with the "dynamic brush color""
-        // TODO: DRY this up
         var d = this.gd._fullData[i];
         if (d.marker) {
-          trace.marker = trace.marker || {};
-          trace.marker.color =  selectionColour || trace.marker.color || d.marker.color;
+          trace.marker = d.marker;
+          trace.marker.color =  selectionColour || trace.marker.color;
           
           // adopt any user-defined styling for the selection
           var selected = this.highlight.selected.marker || {};
@@ -600,8 +584,8 @@ TraceManager.prototype.updateSelection = function(group, keys) {
         }
         
         if (d.line) {
-          trace.line = trace.line || {};
-          trace.line.color =  selectionColour || trace.line.color || d.line.color;
+          trace.line = d.line;
+          trace.line.color =  selectionColour || trace.line.color;
           
           // adopt any user-defined styling for the selection
           var selected = this.highlight.selected.line || {};
@@ -612,8 +596,8 @@ TraceManager.prototype.updateSelection = function(group, keys) {
         }
         
         if (d.textfont) {
-          trace.textfont = trace.textfont || {};
-          trace.textfont.color =  selectionColour || trace.textfont.color || d.textfont.color;
+          trace.textfont = d.textfont;
+          trace.textfont.color =  selectionColour || trace.textfont.color;
           
           // adopt any user-defined styling for the selection
           var selected = this.highlight.selected.textfont || {};
@@ -821,3 +805,70 @@ function removeBrush(el) {
     outlines[i].remove();
   }
 }
+
+/* Currently not used
+
+// Given an array of strings, return an object that hierarchically
+// represents the corresponding curves/points.
+//
+// For example, the following data:
+//
+// [
+//   {curveNumber: 0, pointNumber: 1},
+//   {curveNumber: 0, pointNumber: 2},
+//   {curveNumber: 2, pointNumber: 1}
+// ]
+//
+// would be returned as:
+// {
+//   "0": [1, 2],
+//   "2": [1]
+// }
+
+// # Begin Crosstalk support
+    
+// ## Crosstalk point/key translation functions
+//
+// Plotly.js uses curveNumber/pointNumber addressing to refer
+// to data points (i.e. when plotly_selected is received). We
+// prefer to let the R user use key-based addressing, where
+// a string is used that uniquely identifies a data point (we
+// can also use row numbers in a pinch).
+//
+// The pointsToKeys and keysToPoints functions let you convert
+// between the two schemes.
+
+// Combine the name of a set and key into a single string, suitable for
+// using as a keyCache key.
+function joinSetAndKey(set, key) {
+  return set + "\n" + key;
+}
+
+// To allow translation from sets+keys to points in O(1) time, we
+// make a cache that lets us map keys to objects with
+// {curveNumber, pointNumber} properties.
+var keyCache = {};
+for (var i = 0; i < x.data.length; i++) {
+  var trace = x.data[i];
+  if (!trace.key || !trace.set) {
+    continue;
+  }
+  for (var j = 0; j < trace.key.length; j++) {
+    var nm = joinSetAndKey(trace.set, trace.key[j]);
+    keyCache[nm] = {curveNumber: i, pointNumber: j};
+  }
+}
+
+function keysToPoints(set, keys) {
+  var curves = {};
+  for (var i = 0; i < keys.length; i++) {
+    var pt = keyCache[joinSetAndKey(set, keys[i])];
+    if (!pt) {
+      throw new Error("Unknown key " + keys[i]);
+    }
+    curves[pt.curveNumber] = curves[pt.curveNumber] || [];
+    curves[pt.curveNumber].push(pt.pointNumber);
+  }
+  return curves;
+}
+*/

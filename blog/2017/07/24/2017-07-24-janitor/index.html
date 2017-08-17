@@ -282,26 +282,24 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 17 x 4
+## # A tibble: 15 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos   Damiani          2         0.457400478
-##  2    Athos   Damiani          2        -0.589761898
-##  3    Athos    Falbel          3         0.245166491
-##  4    Athos    Falbel          3        -0.587176996
-##  5    Athos    Falbel          3        -0.470955699
-##  6   Daniel    Corrêa          2         0.223301624
-##  7   Daniel    Corrêa          2        -1.009335104
-##  8   Daniel    Falbel          2        -0.321332859
-##  9   Daniel    Falbel          2        -0.005528335
-## 10 Fernando  Trecenti          2         0.324928661
-## 11 Fernando  Trecenti          2        -1.726805651
-## 12    Julio  Trecenti          2         0.144784759
-## 13    Julio  Trecenti          2        -1.864863819
-## 14  William    Corrêa          2         0.194604116
-## 15  William    Corrêa          2        -3.880961444
-## 16  William    Falbel          2        -0.868539627
-## 17  William    Falbel          2         1.190224898</code></pre>
+##  1    Athos   Damiani          2           1.5785507
+##  2    Athos   Damiani          2           0.9552232
+##  3   Daniel    Falbel          2           0.1583841
+##  4   Daniel    Falbel          2           0.4611334
+##  5 Fernando   Damiani          4          -1.6471957
+##  6 Fernando   Damiani          4          -0.3286332
+##  7 Fernando   Damiani          4          -1.0805697
+##  8 Fernando   Damiani          4           0.4026146
+##  9    Julio   Damiani          2           0.5645053
+## 10    Julio   Damiani          2           1.9272081
+## 11  William    Amorim          2           1.2258520
+## 12  William    Amorim          2           1.3801780
+## 13  William    Falbel          3          -0.4105905
+## 14  William    Falbel          3          -0.6008061
+## 15  William    Falbel          3           0.9166546</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -677,19 +675,6 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -698,6 +683,19 @@ mtcars %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
