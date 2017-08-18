@@ -282,22 +282,25 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 13 x 4
+## # A tibble: 16 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Amorim          4          0.09973815
-##  2    Athos    Amorim          4         -0.42795207
-##  3    Athos    Amorim          4          0.23412881
-##  4    Athos    Amorim          4          0.89365171
-##  5    Athos  Trecenti          2         -0.39538890
-##  6    Athos  Trecenti          2         -0.84265511
-##  7 Fernando  Trecenti          2          2.16532107
-##  8 Fernando  Trecenti          2          1.57015229
-##  9  William    Corrêa          3          0.22604020
-## 10  William    Corrêa          3          0.94591048
-## 11  William    Corrêa          3          0.68587743
-## 12  William    Falbel          2          0.46901752
-## 13  William    Falbel          2         -0.12040061</code></pre>
+##  1   Daniel   Damiani          2          -0.1808489
+##  2   Daniel   Damiani          2           0.8619087
+##  3   Daniel    Falbel          3           2.3943754
+##  4   Daniel    Falbel          3           0.1596408
+##  5   Daniel    Falbel          3          -1.2953270
+##  6 Fernando   Damiani          2           0.5612444
+##  7 Fernando   Damiani          2          -0.6980606
+##  8    Julio   Damiani          3          -0.5528776
+##  9    Julio   Damiani          3           0.2335019
+## 10    Julio   Damiani          3          -0.0319637
+## 11    Julio    Falbel          4           1.2151564
+## 12    Julio    Falbel          4          -1.9205667
+## 13    Julio    Falbel          4          -0.6605303
+## 14    Julio    Falbel          4           0.6979310
+## 15  William    Amorim          2          -1.9828014
+## 16  William    Amorim          2          -1.0600930</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -679,19 +682,6 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/incompany/">
                   
                     <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
@@ -700,6 +690,19 @@ mtcars %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
         
@@ -770,7 +773,7 @@ mtcars %&gt;%
                         </a>
                     </div>
                     <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/">Como fazer o R avisar pelo telegram se bitcoin tá barato</a></h5>
+                        <h5><a href="http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/">R avisando se bitcoin tá barato pelo telegram</a></h5>
                     </div>
                 </div>
                 
