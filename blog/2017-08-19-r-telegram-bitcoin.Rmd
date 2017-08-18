@@ -42,7 +42,7 @@ Os passos que precisamos seguir para alcançar isso são:
 5) Consultar e guardar os preços da bitcoin de 30 em 30 segundos.
 6) criar um loop infinito no R para acompanhar os preços sem parar.
 7) Fazer o R mandar mensagem pra gente quando o preço da bitcoin for maior que X, por exemplo.
-extra) Pensar em ideias mirabolantes do que fazer com telegram + R.
+8) (extra) Pensar em ideias mirabolantes do que fazer com telegram + R.
 
 ## Introdução aos componentes
 
@@ -63,9 +63,9 @@ Bot é como se fosse uma pessoa a mais na sua lista de contato do telegram, mas 
 
 O README que tá no [github do pacote](https://github.com/lbraglia/telegram) é muito bom! Vou resumir com pequenas mudanças o que está lá:
 
-1) Vá ao seu telegram e procure pelo BotFather como se estivesse procurando uma pessoa da sua lista de contatos. Abra uma conversa com ele!
+1) Vá ao seu telegram e procure pelo BotFather como se estivesse procurando uma pessoa da sua lista de contato. Abra uma conversa com ele!
 2) Envie o texto "/start" e em seguida "/newbot". Dê um nome ao seu bot (pode ser um nome fofo) e depois um nome de usuário para o seu bot que necessariamente termina em *bot*.
-3) Agora copie e cole o token que o BotFather te enviou no `.Renvirom`. O meu bot tem o username `AthosDamianiBot`, então eu devo colocar o nome da variável assim:
+3) Agora copie e cole o token que o BotFather te enviou no `.Renviron`. O meu bot tem o username `AthosDamianiBot`, então eu devo colocar o nome da variável assim:
 
 ```{r, fig.align='center', echo=FALSE}
 knitr::include_graphics("/blog/2017-08-19-r-telegram-bitcoin/Renvirom_1.png")
@@ -89,7 +89,7 @@ bot$getMe()
 
 2) Agora precisamos do `chat_id`. Para isso, no seu telegram, procure o seu bot como se fosse um contato (que nem você fez com o BotFather) e comece uma conversa com ele. 
 
-3) No R, chame o método `bot$getUpdates()` para pegar no R as mensagens que você envou a ele e, finalmente, encontre o `chat_id` escondido no `msgs`.
+3) No R, chame o método `bot$getUpdates()` para pegar no R as mensagens que você enviou a ele e, finalmente, encontre o `chat_id` escondido no `msgs`.
 
 ```{r, eval=FALSE}
 msgs <- bot$getUpdates()

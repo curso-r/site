@@ -210,7 +210,8 @@
 <li>Conectar o R com o bot.</li>
 <li>Consultar e guardar os preços da bitcoin de 30 em 30 segundos.</li>
 <li>criar um loop infinito no R para acompanhar os preços sem parar.</li>
-<li>Fazer o R mandar mensagem pra gente quando o preço da bitcoin for maior que X, por exemplo. extra) Pensar em ideias mirabolantes do que fazer com telegram + R.</li>
+<li>Fazer o R mandar mensagem pra gente quando o preço da bitcoin for maior que X, por exemplo.</li>
+<li>(extra) Pensar em ideias mirabolantes do que fazer com telegram + R.</li>
 </ol>
 </div>
 <div id="introducao-aos-componentes" class="section level2">
@@ -231,9 +232,9 @@
 <p>Bot é como se fosse uma pessoa a mais na sua lista de contato do telegram, mas que são máquinas em vez de humanos e respondem a comandos específicos. A graça é que você pode customizar esses comandos do jeito que quiser! Basta ter um propósito e saber programá-lo.</p>
 <p>O README que tá no <a href="https://github.com/lbraglia/telegram">github do pacote</a> é muito bom! Vou resumir com pequenas mudanças o que está lá:</p>
 <ol style="list-style-type: decimal">
-<li>Vá ao seu telegram e procure pelo BotFather como se estivesse procurando uma pessoa da sua lista de contatos. Abra uma conversa com ele!</li>
+<li>Vá ao seu telegram e procure pelo BotFather como se estivesse procurando uma pessoa da sua lista de contato. Abra uma conversa com ele!</li>
 <li>Envie o texto “/start” e em seguida “/newbot”. Dê um nome ao seu bot (pode ser um nome fofo) e depois um nome de usuário para o seu bot que necessariamente termina em <em>bot</em>.</li>
-<li>Agora copie e cole o token que o BotFather te enviou no <code>.Renvirom</code>. O meu bot tem o username <code>AthosDamianiBot</code>, então eu devo colocar o nome da variável assim:</li>
+<li>Agora copie e cole o token que o BotFather te enviou no <code>.Renviron</code>. O meu bot tem o username <code>AthosDamianiBot</code>, então eu devo colocar o nome da variável assim:</li>
 </ol>
 <p><img src="http://curso-r.com/blog/2017-08-19-r-telegram-bitcoin/Renvirom_1.png" style="display: block; margin: auto;" /></p>
 <p>Se você usar essa convenção de nome você poderá usar a função <code>bot_token()</code> pra pegar o seu token. Caso contrário vai ter que apelar para a <code>Sys.getenv()</code>.</p>
@@ -251,7 +252,7 @@ bot &lt;- TGBot$new(token = bot_token(&#39;AthosDamianiBot&#39;))
 bot$getMe()</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Agora precisamos do <code>chat_id</code>. Para isso, no seu telegram, procure o seu bot como se fosse um contato (que nem você fez com o BotFather) e comece uma conversa com ele.</p></li>
-<li><p>No R, chame o método <code>bot$getUpdates()</code> para pegar no R as mensagens que você envou a ele e, finalmente, encontre o <code>chat_id</code> escondido no <code>msgs</code>.</p></li>
+<li><p>No R, chame o método <code>bot$getUpdates()</code> para pegar no R as mensagens que você enviou a ele e, finalmente, encontre o <code>chat_id</code> escondido no <code>msgs</code>.</p></li>
 </ol>
 <pre class="r"><code>msgs &lt;- bot$getUpdates()
 
