@@ -282,24 +282,22 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 15 x 4
+## # A tibble: 13 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos   Damiani          2           1.5785507
-##  2    Athos   Damiani          2           0.9552232
-##  3   Daniel    Falbel          2           0.1583841
-##  4   Daniel    Falbel          2           0.4611334
-##  5 Fernando   Damiani          4          -1.6471957
-##  6 Fernando   Damiani          4          -0.3286332
-##  7 Fernando   Damiani          4          -1.0805697
-##  8 Fernando   Damiani          4           0.4026146
-##  9    Julio   Damiani          2           0.5645053
-## 10    Julio   Damiani          2           1.9272081
-## 11  William    Amorim          2           1.2258520
-## 12  William    Amorim          2           1.3801780
-## 13  William    Falbel          3          -0.4105905
-## 14  William    Falbel          3          -0.6008061
-## 15  William    Falbel          3           0.9166546</code></pre>
+##  1    Athos    Amorim          4          0.09973815
+##  2    Athos    Amorim          4         -0.42795207
+##  3    Athos    Amorim          4          0.23412881
+##  4    Athos    Amorim          4          0.89365171
+##  5    Athos  Trecenti          2         -0.39538890
+##  6    Athos  Trecenti          2         -0.84265511
+##  7 Fernando  Trecenti          2          2.16532107
+##  8 Fernando  Trecenti          2          1.57015229
+##  9  William    Corrêa          3          0.22604020
+## 10  William    Corrêa          3          0.94591048
+## 11  William    Corrêa          3          0.68587743
+## 12  William    Falbel          2          0.46901752
+## 13  William    Falbel          2         -0.12040061</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -428,13 +426,13 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (54)</a>
+            <li><a href="http://curso-r.com/categories/r">r (55)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (22)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (23)</a>
             </li>
             
         </ul>
@@ -469,6 +467,9 @@ mtcars %&gt;%
             </li>
             
             <li><a href="http://curso-r.com/tags/bds"><i class="fa fa-tags"></i> bds</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bitcoin"><i class="fa fa-tags"></i> bitcoin</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/br-bloggers"><i class="fa fa-tags"></i> br-bloggers</a>
@@ -636,6 +637,9 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/tags/survival"><i class="fa fa-tags"></i> survival</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/telegram"><i class="fa fa-tags"></i> telegram</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/tensorflow"><i class="fa fa-tags"></i> tensorflow</a>
             </li>
             
@@ -688,14 +692,14 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/incompany/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
         
@@ -759,6 +763,19 @@ mtcars %&gt;%
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/">
+                          
+                            <img src="http://curso-r.com/img/banners/r_telegram_bitcoin.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/">Como fazer o R avisar pelo telegram se bitcoin tá barato</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/">
                           
                             <img src="http://curso-r.com/img/banners/michael-kyle.jpg" class="img-responsive" alt="">
@@ -780,19 +797,6 @@ mtcars %&gt;%
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/08/12/2017-04-10-sao-paulo/">São Paulo e o problema da mochila</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/">
-                          
-                            <img src="http://curso-r.com/img/banners/jackie_chan.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/">Mínimos quadrados com restrições lineares</a></h5>
                     </div>
                 </div>
                 

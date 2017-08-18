@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/</loc>
+    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/</loc>
     <lastmod>2017-08-17T23:26:00+03:00</lastmod>
   </url>
@@ -273,14 +278,14 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/an%C3%A1lises/</loc>
-    <lastmod>2017-08-07T10:12:00+03:00</lastmod>
+    <loc>http://curso-r.com/categories/an%C3%A1lises/</loc>
+    <lastmod>2017-08-12T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/an%C3%A1lises/</loc>
-    <lastmod>2017-08-12T13:07:31+02:00</lastmod>
+    <loc>http://curso-r.com/tags/an%C3%A1lises/</loc>
+    <lastmod>2017-08-07T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -292,13 +297,13 @@
   
   <url>
     <loc>http://curso-r.com/author/athos/</loc>
-    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
+    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/author/</loc>
-    <lastmod>2017-07-29T10:12:00+03:00</lastmod>
+    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -321,8 +326,14 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/bitcoin/</loc>
+    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-08-17T23:26:00+03:00</lastmod>
+    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
   </url>
   
   <url>
@@ -368,13 +379,13 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/conceitos/</loc>
+    <loc>http://curso-r.com/categories/conceitos/</loc>
     <lastmod>2017-08-07T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/conceitos/</loc>
+    <loc>http://curso-r.com/tags/conceitos/</loc>
     <lastmod>2017-08-07T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
@@ -391,7 +402,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-08-17T23:26:00+03:00</lastmod>
+    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -652,14 +663,14 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-08-12T13:07:31+02:00</lastmod>
+    <loc>http://curso-r.com/categories/r/</loc>
+    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-08-17T23:26:00+03:00</lastmod>
+    <loc>http://curso-r.com/tags/r/</loc>
+    <lastmod>2017-08-12T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -744,6 +755,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/telegram/</loc>
+    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/tensorflow/</loc>
     <lastmod>2017-07-08T10:12:00+03:00</lastmod>
     <priority>0</priority>
@@ -763,7 +780,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-07-24T23:26:00+03:00</lastmod>
+    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -231,7 +231,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Robin    Robin    Michael  Leonard  Robin    Marshall
+## [1] Andy     Rajesh   Marshall Andy     Howard   Andy    
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -239,21 +239,21 @@ fct_count(per_fav)
 ## # A tibble: 15 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-##  1     Andy     9
-##  2   Barney     6
-##  3   Dwight     6
-##  4   Howard     6
-##  5      Jim    11
-##  6  Leonard     6
-##  7     Lily     4
-##  8 Marshall     8
-##  9  Michael     6
+##  1     Andy    12
+##  2   Barney     7
+##  3   Dwight     4
+##  4   Howard    10
+##  5      Jim     5
+##  6  Leonard     4
+##  7     Lily    10
+##  8 Marshall     6
+##  9  Michael     7
 ## 10      Pam     5
 ## 11    Penny     5
-## 12   Rajesh     4
-## 13    Robin    11
-## 14  Sheldon     5
-## 15      Ted     8
+## 12   Rajesh     7
+## 13    Robin     8
+## 14  Sheldon     8
+## 15      Ted     2
 
 # Junta as categorias
 per_fav2 &lt;- fct_collapse(per_fav,
@@ -262,15 +262,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] HIMYM     HIMYM     TheOffice TBBT      HIMYM     HIMYM    
+## [1] TheOffice TBBT      HIMYM     TheOffice TBBT      TheOffice
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    37
-## 2     HIMYM    37
-## 3      TBBT    26</code></pre>
+## 1 TheOffice    33
+## 2     HIMYM    33
+## 3      TBBT    34</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -295,16 +295,16 @@ fct_count(letras)
 ## # A tibble: 11 x 2
 ##         f     n
 ##    &lt;fctr&gt; &lt;int&gt;
-##  1      a     4
-##  2      b    11
-##  3      c    19
-##  4      d    17
-##  5      e    14
-##  6      f    17
-##  7      g     4
-##  8      h     5
+##  1      a     5
+##  2      b     8
+##  3      c    15
+##  4      d    14
+##  5      e    20
+##  6      f     7
+##  7      g    14
+##  8      h    10
 ##  9      i     4
-## 10      j     4
+## 10      j     2
 ## 11      k     1
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
@@ -312,20 +312,19 @@ fct_count(letras)
 letras %&gt;%                  
   fct_lump(other_level = &quot;Outros&quot;) %&gt;%       
   fct_count
-## # A tibble: 11 x 2
+## # A tibble: 10 x 2
 ##         f     n
 ##    &lt;fctr&gt; &lt;int&gt;
-##  1      a     4
-##  2      b    11
-##  3      c    19
-##  4      d    17
-##  5      e    14
-##  6      f    17
-##  7      g     4
-##  8      h     5
+##  1      a     5
+##  2      b     8
+##  3      c    15
+##  4      d    14
+##  5      e    20
+##  6      f     7
+##  7      g    14
+##  8      h    10
 ##  9      i     4
-## 10      j     4
-## 11 Outros     1
+## 10 Outros     3
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
@@ -335,26 +334,25 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      c    19
-## 2      d    17
-## 3      e    14
-## 4      f    17
-## 5 Outros    33
+## 1      c    15
+## 2      d    14
+## 3      e    20
+## 4      g    14
+## 5 Outros    37
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
 letras %&gt;% 
   fct_lump(n = -4, other_level = &quot;Principais&quot;) %&gt;% 
   fct_count
-## # A tibble: 6 x 2
+## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
-## 1          a     4
-## 2          g     4
-## 3          i     4
-## 4          j     4
-## 5          k     1
-## 6 Principais    83</code></pre>
+## 1          a     5
+## 2          i     4
+## 3          j     2
+## 4          k     1
+## 5 Principais    88</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
 <h2>lvls_reorder</h2>
@@ -455,13 +453,13 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (54)</a>
+            <li><a href="http://curso-r.com/categories/r">r (55)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (22)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (23)</a>
             </li>
             
         </ul>
@@ -496,6 +494,9 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             </li>
             
             <li><a href="http://curso-r.com/tags/bds"><i class="fa fa-tags"></i> bds</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bitcoin"><i class="fa fa-tags"></i> bitcoin</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/br-bloggers"><i class="fa fa-tags"></i> br-bloggers</a>
@@ -663,6 +664,9 @@ lvls_reorder(fator, c(3, 1, 2, 4))
             <li><a href="http://curso-r.com/tags/survival"><i class="fa fa-tags"></i> survival</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/telegram"><i class="fa fa-tags"></i> telegram</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/tensorflow"><i class="fa fa-tags"></i> tensorflow</a>
             </li>
             
@@ -702,14 +706,14 @@ lvls_reorder(fator, c(3, 1, 2, 4))
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          
@@ -786,6 +790,19 @@ lvls_reorder(fator, c(3, 1, 2, 4))
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/">
+                          
+                            <img src="http://curso-r.com/img/banners/r_telegram_bitcoin.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/">Como fazer o R avisar pelo telegram se bitcoin tá barato</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/">
                           
                             <img src="http://curso-r.com/img/banners/michael-kyle.jpg" class="img-responsive" alt="">
@@ -807,19 +824,6 @@ lvls_reorder(fator, c(3, 1, 2, 4))
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/08/12/2017-04-10-sao-paulo/">São Paulo e o problema da mochila</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/">
-                          
-                            <img src="http://curso-r.com/img/banners/jackie_chan.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/08/07/2017-08-07-minimos-quadrados-restrito/">Mínimos quadrados com restrições lineares</a></h5>
                     </div>
                 </div>
                 
