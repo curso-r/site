@@ -1,5 +1,5 @@
 ---
-title: "R avisando se bitcoin tá barato pelo telegram"
+title: "Como fazer o R avisar pelo telegram se bitcoin tá barato"
 date: "2017-08-19T10:26:00+03:00"
 tags: ["telegram", "bitcoin"]
 categories: ["tutoriais", "r"]
@@ -8,11 +8,10 @@ author: ["Athos"]
 summary: "Uma brincadeira de fazer o R enviar uma mensagem ao seu celular via Telegram quando o preço da bitcoin subir ou cair muito!"
 ---
 
-
 O ponto máximo da história é o R mandando mensagem pro Telegram. Só para motivar, vou contar o que fiz de divertido usando telegram e preços de bitcoin.
 
 ```{r, fig.align='center', echo=FALSE}
-knitr::include_graphics("2017-08-18-r_telegram_bitcoin/r_telegram.gif")
+knitr::include_graphics("/blog/2017-08-19-r-telegram-bitcoin/r_telegram.gif")
 ```
 
 Herói do dia: [Luca Biglia](https://github.com/lbraglia), autor do pacote `telegram` do R.
@@ -22,7 +21,7 @@ Herói do dia: [Luca Biglia](https://github.com/lbraglia), autor do pacote `tele
 Como mencionei, Vou construir um **Acompanhador de bitcoin** pra ilustrar e ao fim do post teremos feito o R mandar um telegram quando o preço da bitcoin atingir um dado patamar.
 
 ```{r, fig.align='center', echo=FALSE}
-knitr::include_graphics("2017-08-18-r_telegram_bitcoin/serie_bitcoin.png")
+knitr::include_graphics("/blog/2017-08-19-r-telegram-bitcoin/serie_bitcoin.png")
 ```
 
 ## Ingredientes
@@ -69,7 +68,7 @@ O README que tá no [github do pacote](https://github.com/lbraglia/telegram) é 
 3) Agora copie e cole o token que o BotFather te enviou no `.Renvirom`. O meu bot tem o username `AthosDamianiBot`, então eu devo colocar o nome da variável assim:
 
 ```{r, fig.align='center', echo=FALSE}
-knitr::include_graphics("2017-08-18-r_telegram_bitcoin/Renvirom_1.png")
+knitr::include_graphics("/blog/2017-08-19-r-telegram-bitcoin/Renvirom_1.png")
 ```
 
 Se você usar essa convenção de nome você poderá usar a função `bot_token()` pra pegar o seu token. Caso contrário vai ter que apelar para a `Sys.getenv()`.
