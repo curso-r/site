@@ -199,15 +199,15 @@
 <h2>Lendo e escrevendo imagens</h2>
 <p>Para começar a usar as funções do <code>magick</code>, carregue o pacote.</p>
 <pre class="r"><code>library(magick)
-## Linking to ImageMagick 6.6.9
-## Enabled features: cairo, fontconfig, freetype, lcms, rsvg, x11
-## Disabled features: fftw, ghostscript, pango, webp
+## Linking to ImageMagick 6.7.7.10
+## Enabled features: cairo, fontconfig, freetype, fftw, lcms, pango, rsvg, x11
+## Disabled features: ghostscript, webp
 library(magrittr)</code></pre>
 <p>Vamos utilizar a seguinte imagem como exemplo neste post:</p>
 <p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
 <p>A função <code>image_read()</code> lê imagens de arquivos, como <code>.jpg</code> ou <code>png</code>. Diversas outras extensões são suportadas. Utilize <code>str(magick::magick_config())</code> para verificar quais formatos estão disponíveis na sua versão do ImageMagick.</p>
 <pre><code>##   format width height colorspace filesize
-## 1   JPEG  2745   1780        RGB   662239</code></pre>
+## 1   JPEG  2745   1780       sRGB   662239</code></pre>
 <p>A função <code>image_write()</code> exporta imagens em qualquer um dos formatos suportados.</p>
 <pre class="r"><code>image_write(freddie, path = &quot;freddie_png.png&quot;, format = &quot;png&quot;)</code></pre>
 <p><strong>Dica</strong>: no Rstudio, pasta rodar o objeto <code>freddie</code> para visualizar a imagem no painel <em>Viewer</em>.</p>
@@ -218,7 +218,7 @@ library(magrittr)</code></pre>
 <pre class="r"><code>freddie_png &lt;- image_convert(freddie, &quot;png&quot;)
 image_info(freddie_png)
 ##   format width height colorspace filesize
-## 1    PNG  2745   1780        RGB        0</code></pre>
+## 1    PNG  2745   1780       sRGB        0</code></pre>
 <p>Neste ponto você já deve ter reparado que as (principais) funções do pacote <code>magick</code> utilizam o prefixo <code>image_</code>.</p>
 </div>
 <div id="cortando-e-editando" class="section level1">
@@ -236,7 +236,7 @@ image_info(freddie_png)
 <pre class="r"><code>freddie_resized &lt;- image_scale(freddie, &quot;500&quot;)
 image_info(freddie_resized)
 ##   format width height colorspace filesize
-## 1   JPEG   500    324        RGB        0</code></pre>
+## 1   JPEG   500    324       sRGB        0</code></pre>
 <p>Agora, vamos recortar um pedaço.</p>
 <pre class="r"><code>image_crop(freddie_resized, &quot;100x150+280+30&quot;)</code></pre>
 <p><img src="http://curso-r.com/blog/2017-06-01-a-kind-of-magick_files/figure-html/unnamed-chunk-9-1.png" width="384" /></p>
@@ -618,27 +618,27 @@ grid.raster(freddie_cropped, width = 0.15, height = 0.3,
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
