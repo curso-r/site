@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 12 Aug 2017 13:07:31 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 28 Aug 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Analises</title>
+      <link>http://curso-r.com/categories/analises/</link>
+      <pubDate>Mon, 28 Aug 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/categories/analises/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Análises</title>
@@ -51,7 +60,7 @@
     <item>
       <title>R</title>
       <link>http://curso-r.com/categories/r/</link>
-      <pubDate>Sat, 19 Aug 2017 10:26:00 +0300</pubDate>
+      <pubDate>Mon, 28 Aug 2017 23:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/categories/r/</guid>
       <description></description>

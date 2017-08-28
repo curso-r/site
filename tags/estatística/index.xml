@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 17 Aug 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 28 Aug 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/tags/estat%C3%ADstica/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Aquele 1% é LSTM - Gerando letras do Wesley Safadão</title>
+      <link>http://curso-r.com/blog/2017/08/28/2017-08-27-safadao/</link>
+      <pubDate>Mon, 28 Aug 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/08/28/2017-08-27-safadao/</guid>
+      <description>Nesse final de semana decidi assistir a alguns vídeos do YouTube do Siraj Raval e ao curso do Andrew Ng sobre deep learning. Após assistir alguns vídeos, fiquei com uma vontade insana de implementar um modelo pra gerar músicas aleatórias do Wesley Safadão!
+Na minha opinião, o resultado ficou bem mais ou menos. Acho que tem muito o que melhorar ainda. Vejam o que acham!
+Instruções de uso:
+Aperte o botão.</description>
+    </item>
     
     <item>
       <title>Eu, a Estatística e a programação</title>
