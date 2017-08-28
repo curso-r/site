@@ -1,5 +1,5 @@
 ---
-title: "Aquele 1% é LSTM - Gerando letras do Wesley Safadão"
+title: "Aquele 1% é Deep Learning - Gerando letras do Wesley Safadão"
 date: "2017-08-28T23:26:00+03:00"
 tags: ["estatística"]
 categories: ["analises", "r"]
@@ -21,7 +21,7 @@ Instruções de uso:
 
 1. Aperte o botão.
 2. **ESPERE UM POUCO**. Meu código é lento e botei num serviço gratuito do [OpenCPU](https://www.opencpu.org/), então tenham paciência, por favor.
-3. Veja o texto que aparece.
+3. Veja o texto que aparece. O texto até o `|` é original, e o resto é gerado automaticamente. Quando o tamanho do texto fica grande demais, adicionamos um `<truncated>`
 
 <script>
   $(document).ready(function() {
