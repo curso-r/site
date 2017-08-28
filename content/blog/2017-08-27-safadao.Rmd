@@ -1,6 +1,6 @@
 ---
 title: "Aquele 1% é LSTM - Gerando letras do Wesley Safadão"
-date: "2017-08-27T23:26:00+03:00"
+date: "2017-08-28T23:26:00+03:00"
 tags: ["estatística"]
 categories: ["analises", "r"]
 banner: "img/banners/wesley.png"
