@@ -22,7 +22,9 @@ Na época, a segunda fase da FUVEST era diferente para cada área, e eu não tin
 
 Prestar vestibular para Estatística foi um tiro no escuro tão certeiro que às vezes me pego pensando em destino e esoterismos desse tipo. Durante a graduação, conheci pessoas que não tiveram a mesma sorte e acabaram desistindo nos primeiros semestres, que são bem pesados na matemática. A primeira parte da informação que eu tinha sobre realmente estava certa, e o curso de Estatística pode assustar quem não estiver na pegada de provar vários teoremas. Mas, neste post, não quero falar sobre as dificuldades da escalada, mas sim sobre a vista ao se chegar ao topo.
 
-Conforme fui conhecendo a Estatística, eu descobri que ela é a profissão mais nerd que existe\footnote{Se você ainda vê alguma conotação negativa na palavra *nerd*, mande as minha lembranças aos anos 90. :D}.  Eu sustento essa opinião porque a melhor definição de nerd que já escutei é "pessoa ama aprender" e, graças à Estatística, tenho a oportunidade de estudar *muita* coisa diferente. 
+Conforme fui conhecendo a Estatística, eu descobri que ela é a profissão mais nerd que existe[^nerd].  Eu sustento essa opinião porque a melhor definição de nerd que já escutei é "pessoa ama aprender" e, graças à Estatística, tenho a oportunidade de estudar *muita* coisa diferente.
+
+[^nerd]: Se você ainda vê alguma conotação negativa na palavra *nerd*, mande as minha lembranças aos anos 90. :D
 
 Nesses dez anos como estatístico, já fiz análises na área de engenharia, finanças, educação, jornalismo, zoologia, farmácia, fisioterapia, medicina, psicologia, odontologia, educação física... e essas são apenas as que eu lembrei de cabeça. Estatística é parte essencial do método científico e está presente em todas as ciências. Pegar trabalhos novos para um estatístico nerd é extremamente motivante, porque não é apenas uma troca de tempo por dinheiro, é uma ótima chance para aprender coisas novas.  A Estatística te estimula a ser curioso e criativo, e isso é o que eu mais amo nela.
 
