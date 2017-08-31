@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 28 Aug 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 31 Aug 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Por que amar Estatística?</title>
+      <link>http://curso-r.com/blog/2017/08/31/2017-08-31-por-que-amar-estatistica/</link>
+      <pubDate>Thu, 31 Aug 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/08/31/2017-08-31-por-que-amar-estatistica/</guid>
+      <description>Escolher uma profissão, para quem tem esse privilégio, é uma das decisões mais importantes das nossas vidas. Aos 17, 18 anos, a imaturidade, o pouco auto-conhecimento e a falta de informação sobre as alternativas podem nos desviar da opção que nos vestiria melhor, um erro que muitas vezes nunca será reparado.
+Às vezes, eu me pergunto o que levou amigos e conhecido a escolherem suas profissões na hora do vestibular. No meu caso, eu quase segui um caminho da “profissões da moda”.</description>
+    </item>
     
     <item>
       <title>Aquele 1% é Deep Learning - Gerando letras do Wesley Safadão</title>

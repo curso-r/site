@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/08/31/2017-08-31-por-que-amar-estatistica/</loc>
+    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/08/28/2017-08-27-safadao/</loc>
     <lastmod>2017-08-28T23:26:00+03:00</lastmod>
   </url>
@@ -344,7 +349,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-08-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
   </url>
   
   <url>
@@ -413,7 +418,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-08-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -451,7 +456,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/discuss%C3%B5es/</loc>
-    <lastmod>2017-08-17T23:26:00+03:00</lastmod>
+    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -481,7 +486,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/estat%C3%ADstica/</loc>
-    <lastmod>2017-08-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -681,7 +686,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-08-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -819,7 +824,7 @@
   
   <url>
     <loc>http://curso-r.com/author/william/</loc>
-    <lastmod>2017-08-17T23:26:00+03:00</lastmod>
+    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

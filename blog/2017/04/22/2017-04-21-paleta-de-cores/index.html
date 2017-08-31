@@ -225,19 +225,19 @@ centroides &lt;- img_df %&gt;%
 
 centroides
 ## # A tibble: 6 x 4
-##   cluster         r          g         b
-##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.0996826 0.04366903 0.2398452
-## 2       2 0.8857289 0.77915257 0.6688482
-## 3       3 0.7195362 0.54881786 0.4098359
-## 4       4 0.3789830 0.11857741 0.1558412
-## 5       5 0.6239192 0.28335790 0.1897367
-## 6       6 0.2721465 0.36412137 0.4901613</code></pre>
+##   cluster          r         g         b
+##     &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1       1 0.37889146 0.1185504 0.1558589
+## 2       2 0.09965226 0.0436630 0.2398620
+## 3       3 0.71951030 0.5487661 0.4097725
+## 4       4 0.62387801 0.2832790 0.1896923
+## 5       5 0.88572504 0.7791481 0.6688438
+## 6       6 0.27214211 0.3641213 0.4901644</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#190B3D&quot; &quot;#E2C7AB&quot; &quot;#B78C69&quot; &quot;#611E28&quot; &quot;#9F4830&quot; &quot;#455D7D&quot;</code></pre>
+## [1] &quot;#611E28&quot; &quot;#190B3D&quot; &quot;#B78C68&quot; &quot;#9F4830&quot; &quot;#E2C7AB&quot; &quot;#455D7D&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -361,13 +361,13 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/categories/conceitos">conceitos (8)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/discuss%c3%b5es">discussões (1)</a>
+            <li><a href="http://curso-r.com/categories/discuss%c3%b5es">discussões (2)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (56)</a>
+            <li><a href="http://curso-r.com/categories/r">r (57)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
@@ -633,14 +633,14 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
@@ -704,6 +704,19 @@ exibir(paleta)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/08/31/2017-08-31-por-que-amar-estatistica/">
+                          
+                            <img src="http://curso-r.com/img/banners/o-mascara.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/08/31/2017-08-31-por-que-amar-estatistica/">Por que amar Estatística?</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/08/28/2017-08-27-safadao/">
                           
                             <img src="http://curso-r.com/img/banners/wesley.png" class="img-responsive" alt="">
@@ -725,19 +738,6 @@ exibir(paleta)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/">Como fazer o R avisar pelo telegram que bitcoin tá barato</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/">
-                          
-                            <img src="http://curso-r.com/img/banners/michael-kyle.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/08/17/2017-08-17-eu-a-estatistica-e-o-r/">Eu, a Estatística e a programação</a></h5>
                     </div>
                 </div>
                 
