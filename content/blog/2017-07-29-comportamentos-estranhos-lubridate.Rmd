@@ -123,7 +123,8 @@ Case solved! O problema é a `parse_date_time`, que é usada por trás do `dmy`.
 
 A solução proposta pelo `vspinu` não funcionou no meu caso.
 
-```{r}
+```{r, eval = F}
+
 parse_date_time(o_que_observei, train = T, orders = 'dmy')
 ```
 
