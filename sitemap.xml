@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/</loc>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/08/31/2017-08-31-por-que-amar-estatistica/</loc>
     <lastmod>2017-08-31T23:26:00+03:00</lastmod>
   </url>
@@ -337,7 +342,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/bds/</loc>
-    <lastmod>2017-07-24T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -349,7 +354,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
   </url>
   
   <url>
@@ -402,7 +407,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/conceitos/</loc>
-    <lastmod>2017-08-07T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -418,7 +423,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -444,7 +449,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/data.frames/</loc>
-    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -498,7 +503,7 @@
   
   <url>
     <loc>http://curso-r.com/author/fernando/</loc>
-    <lastmod>2017-08-07T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -680,13 +685,13 @@
   
   <url>
     <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-08-12T13:07:31+02:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-08-31T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -754,7 +759,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/strings/</loc>
-    <lastmod>2017-04-17T13:07:31+02:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -784,7 +789,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/tidyverse/</loc>
-    <lastmod>2017-07-12T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

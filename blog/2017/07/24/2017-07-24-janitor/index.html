@@ -283,24 +283,25 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 15 x 4
-##        nome sobrenome dupe_count variavel_importante
-##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Corrêa          2         -0.72876644
-##  2    Athos    Corrêa          2         -1.18024999
-##  3    Athos   Damiani          4          0.93995661
-##  4    Athos   Damiani          4          0.01873463
-##  5    Athos   Damiani          4          1.48323458
-##  6    Athos   Damiani          4         -1.37237877
-##  7    Athos    Falbel          3          0.88744080
-##  8    Athos    Falbel          3          0.25678095
-##  9    Athos    Falbel          3         -0.64504006
-## 10    Athos  Trecenti          2          0.55126843
-## 11    Athos  Trecenti          2         -0.66535380
-## 12 Fernando    Corrêa          2          0.31352357
-## 13 Fernando    Corrêa          2         -0.51488045
-## 14  William    Amorim          2          0.99475775
-## 15  William    Amorim          2          2.30443770</code></pre>
+## # A tibble: 16 x 4
+##       nome sobrenome dupe_count variavel_importante
+##      &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
+##  1   Athos    Amorim          2           0.5272325
+##  2   Athos    Amorim          2           1.3065212
+##  3  Daniel    Amorim          2           1.3360613
+##  4  Daniel    Amorim          2          -0.7199297
+##  5   Julio   Damiani          2           1.1044402
+##  6   Julio   Damiani          2           1.6892959
+##  7   Julio  Trecenti          2           0.2722859
+##  8   Julio  Trecenti          2           2.2956088
+##  9 William    Amorim          2           0.1307125
+## 10 William    Amorim          2          -0.5285553
+## 11 William    Corrêa          3           0.6851831
+## 12 William    Corrêa          3          -0.3241079
+## 13 William    Corrêa          3          -0.3712408
+## 14 William   Damiani          3          -1.1451443
+## 15 William   Damiani          3           0.5995824
+## 16 William   Damiani          3          -0.5543919</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -423,7 +424,7 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/categories/an%c3%a1lises">análises (10)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/conceitos">conceitos (8)</a>
+            <li><a href="http://curso-r.com/categories/conceitos">conceitos (9)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/discuss%c3%b5es">discussões (2)</a>
@@ -432,7 +433,7 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (57)</a>
+            <li><a href="http://curso-r.com/categories/r">r (58)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
@@ -685,6 +686,19 @@ mtcars %&gt;%
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -693,19 +707,6 @@ mtcars %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
@@ -769,6 +770,19 @@ mtcars %&gt;%
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/">
+                          
+                            <img src="http://curso-r.com/img/detetive.jpeg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/">Comportamentos imprevisíveis do lubridate</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/08/31/2017-08-31-por-que-amar-estatistica/">
                           
                             <img src="http://curso-r.com/img/banners/o-mascara.png" class="img-responsive" alt="">
@@ -790,19 +804,6 @@ mtcars %&gt;%
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/08/28/2017-08-27-safadao/">Aquele 1% é Deep Learning - Gerando letras do Wesley Safadão</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/">
-                          
-                            <img src="http://curso-r.com/img/banners/r_telegram_bitcoin.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/08/19/2017-08-19-r-telegram-bitcoin/">Como fazer o R avisar pelo telegram que bitcoin tá barato</a></h5>
                     </div>
                 </div>
                 

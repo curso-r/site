@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 31 Aug 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 02 Sep 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Comportamentos imprevisíveis do lubridate</title>
+      <link>http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/</link>
+      <pubDate>Sat, 02 Sep 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/</guid>
+      <description>Manter-se atualizado na parte mais computacional é muito importante para um estatístico. Essa convicção é bastante razoável, mas costuma gerar polêmica em alguns ciclos acadêmicos. Quem nunca se questionou se “(eu) deveria implementar esse Newton-Raphson ou usar um pacote de procedência duvidosa?” ou “escrever a matriz de delineamento é mesmo importante? O R já solta pra mim!” que atire a primeira pedra.
+Na minha opinião, esse tipo de discussão nasce morta.</description>
+    </item>
     
     <item>
       <title>Por que amar Estatística?</title>
