@@ -283,25 +283,29 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 16 x 4
-##       nome sobrenome dupe_count variavel_importante
-##      &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1   Athos    Amorim          2           0.5272325
-##  2   Athos    Amorim          2           1.3065212
-##  3  Daniel    Amorim          2           1.3360613
-##  4  Daniel    Amorim          2          -0.7199297
-##  5   Julio   Damiani          2           1.1044402
-##  6   Julio   Damiani          2           1.6892959
-##  7   Julio  Trecenti          2           0.2722859
-##  8   Julio  Trecenti          2           2.2956088
-##  9 William    Amorim          2           0.1307125
-## 10 William    Amorim          2          -0.5285553
-## 11 William    Corrêa          3           0.6851831
-## 12 William    Corrêa          3          -0.3241079
-## 13 William    Corrêa          3          -0.3712408
-## 14 William   Damiani          3          -1.1451443
-## 15 William   Damiani          3           0.5995824
-## 16 William   Damiani          3          -0.5543919</code></pre>
+## # A tibble: 20 x 4
+##        nome sobrenome dupe_count variavel_importante
+##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
+##  1    Athos    Corrêa          2        -1.066194804
+##  2    Athos    Corrêa          2         0.234649708
+##  3    Athos    Falbel          2         0.941286173
+##  4    Athos    Falbel          2         1.449467164
+##  5   Daniel  Trecenti          3         0.707599943
+##  6   Daniel  Trecenti          3         0.556332159
+##  7   Daniel  Trecenti          3         1.891876299
+##  8 Fernando    Amorim          2         0.001230267
+##  9 Fernando    Amorim          2        -0.916208675
+## 10 Fernando  Trecenti          2        -0.094654119
+## 11 Fernando  Trecenti          2        -0.542842969
+## 12    Julio    Corrêa          3        -0.007950188
+## 13    Julio    Corrêa          3         1.233392509
+## 14    Julio    Corrêa          3         1.524860630
+## 15    Julio  Trecenti          2         0.693152344
+## 16    Julio  Trecenti          2         0.578781798
+## 17  William    Amorim          2         0.145816712
+## 18  William    Amorim          2        -0.799266969
+## 19  William   Damiani          2         0.066964676
+## 20  William   Damiani          2        -0.136945034</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -686,19 +690,6 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/dashboards/">
                   
                     <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
@@ -707,6 +698,19 @@ mtcars %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
