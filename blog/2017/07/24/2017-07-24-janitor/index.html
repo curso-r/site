@@ -283,26 +283,22 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 17 x 4
+## # A tibble: 13 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Corrêa          2           0.5604229
-##  2    Athos    Corrêa          2           0.2761823
-##  3    Athos   Damiani          2           0.2592582
-##  4    Athos   Damiani          2          -1.2783196
-##  5   Daniel  Trecenti          3          -0.7245009
-##  6   Daniel  Trecenti          3           0.7825646
-##  7   Daniel  Trecenti          3           0.1247648
-##  8 Fernando    Corrêa          2          -0.3932682
-##  9 Fernando    Corrêa          2           0.2258638
-## 10 Fernando   Damiani          2           0.6063778
-## 11 Fernando   Damiani          2          -0.4193793
-## 12    Julio   Damiani          2          -0.1589587
-## 13    Julio   Damiani          2           2.5413824
-## 14  William    Falbel          2          -0.9175891
-## 15  William    Falbel          2          -0.9969917
-## 16  William  Trecenti          2          -1.3878343
-## 17  William  Trecenti          2           1.7349061</code></pre>
+##  1    Athos    Corrêa          3          0.11027227
+##  2    Athos    Corrêa          3          0.86219118
+##  3    Athos    Corrêa          3         -1.01393842
+##  4   Daniel    Corrêa          2         -0.97023643
+##  5   Daniel    Corrêa          2         -0.79577787
+##  6   Daniel  Trecenti          2         -0.10115969
+##  7   Daniel  Trecenti          2          0.88341407
+##  8 Fernando    Amorim          2         -1.05053385
+##  9 Fernando    Amorim          2          0.38734545
+## 10    Julio    Falbel          2         -0.21246101
+## 11    Julio    Falbel          2          0.27700775
+## 12  William    Falbel          2          0.46357482
+## 13  William    Falbel          2         -0.01971313</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
