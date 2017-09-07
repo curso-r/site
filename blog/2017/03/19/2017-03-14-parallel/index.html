@@ -207,7 +207,7 @@ system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.008   0.000   3.010</code></pre>
+##   0.014   0.000   3.017</code></pre>
 <p>Agora vamos executar o mesmo código usando paralelização. Antes, precisamos</p>
 <ol style="list-style-type: decimal">
 <li>criar e registrar as cópias de R que rodam em paralelo; e</li>
@@ -221,13 +221,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.173   0.008   2.314</code></pre>
+##   0.304   0.012   2.622</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.161   0.001   2.247</code></pre>
+##   0.243   0.012   2.452</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # para de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
@@ -319,13 +319,13 @@ system.time({
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (58)</a>
+            <li><a href="http://curso-r.com/categories/r">r (59)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (23)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (24)</a>
             </li>
             
         </ul>
@@ -464,6 +464,9 @@ system.time({
             <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/miojo"><i class="fa fa-tags"></i> miojo</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/modelagem"><i class="fa fa-tags"></i> modelagem</a>
             </li>
             
@@ -572,19 +575,6 @@ system.time({
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
@@ -593,6 +583,19 @@ system.time({
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/incompany/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
         
@@ -656,6 +659,19 @@ system.time({
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/">
+                          
+                            <img src="http://curso-r.com/img/banners/package.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/">Pacotes miojo - como fazer um pacote no R em 3 minutos</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/">
                           
                             <img src="http://curso-r.com/img/detetive.jpeg" class="img-responsive" alt="">
@@ -677,19 +693,6 @@ system.time({
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/08/31/2017-08-31-por-que-amar-estatistica/">Por que amar Estatística?</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/08/28/2017-08-27-safadao/">
-                          
-                            <img src="http://curso-r.com/img/banners/wesley.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/08/28/2017-08-27-safadao/">Aquele 1% é Deep Learning - Gerando letras do Wesley Safadão</a></h5>
                     </div>
                 </div>
                 

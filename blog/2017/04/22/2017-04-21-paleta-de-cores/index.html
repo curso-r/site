@@ -227,17 +227,17 @@ centroides
 ## # A tibble: 6 x 4
 ##   cluster         r          g         b
 ##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.1242676 0.04329523 0.2157608
-## 2       2 0.5005264 0.18317492 0.1587960
-## 3       3 0.8768120 0.76211694 0.6453261
-## 4       4 0.7016494 0.46722267 0.3238223
-## 5       5 0.2212878 0.27343708 0.4408806
-## 6       6 0.3541964 0.46238302 0.5494433</code></pre>
+## 1       1 0.2212872 0.27343576 0.4408807
+## 2       2 0.3541833 0.46237840 0.5494459
+## 3       3 0.7016480 0.46726975 0.3238780
+## 4       4 0.8768478 0.76214788 0.6453526
+## 5       5 0.1242676 0.04329523 0.2157608
+## 6       6 0.5005334 0.18317885 0.1587987</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#200B37&quot; &quot;#802F28&quot; &quot;#E0C2A5&quot; &quot;#B37753&quot; &quot;#384670&quot; &quot;#5A768C&quot;</code></pre>
+## [1] &quot;#384670&quot; &quot;#5A768C&quot; &quot;#B37753&quot; &quot;#E0C2A5&quot; &quot;#200B37&quot; &quot;#802F28&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -367,13 +367,13 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (58)</a>
+            <li><a href="http://curso-r.com/categories/r">r (59)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (23)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (24)</a>
             </li>
             
         </ul>
@@ -512,6 +512,9 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/miojo"><i class="fa fa-tags"></i> miojo</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/modelagem"><i class="fa fa-tags"></i> modelagem</a>
             </li>
             
@@ -620,6 +623,19 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/incompany/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -628,19 +644,6 @@ exibir(paleta)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
@@ -704,6 +707,19 @@ exibir(paleta)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/">
+                          
+                            <img src="http://curso-r.com/img/banners/package.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/">Pacotes miojo - como fazer um pacote no R em 3 minutos</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/">
                           
                             <img src="http://curso-r.com/img/detetive.jpeg" class="img-responsive" alt="">
@@ -725,19 +741,6 @@ exibir(paleta)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/08/31/2017-08-31-por-que-amar-estatistica/">Por que amar Estatística?</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/08/28/2017-08-27-safadao/">
-                          
-                            <img src="http://curso-r.com/img/banners/wesley.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/08/28/2017-08-27-safadao/">Aquele 1% é Deep Learning - Gerando letras do Wesley Safadão</a></h5>
                     </div>
                 </div>
                 

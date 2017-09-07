@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/</loc>
+    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/</loc>
     <lastmod>2017-09-02T10:12:00+03:00</lastmod>
   </url>
@@ -354,7 +359,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
   </url>
   
   <url>
@@ -423,7 +428,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -577,7 +582,7 @@
   
   <url>
     <loc>http://curso-r.com/author/julio/</loc>
-    <lastmod>2017-08-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -620,6 +625,12 @@
   <url>
     <loc>http://curso-r.com/tags/mapas/</loc>
     <lastmod>2017-05-04T23:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/miojo/</loc>
+    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -691,7 +702,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -801,7 +812,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-08-19T10:26:00+03:00</lastmod>
+    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

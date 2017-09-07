@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 19 Aug 2017 10:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 07 Sep 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/tutoriais/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pacotes miojo - como fazer um pacote no R em 3 minutos</title>
+      <link>http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/</link>
+      <pubDate>Thu, 07 Sep 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/</guid>
+      <description>Nesse post vou mostrar como fazer um pacote em R muito, muito rápido. Tirei várias coisas que costumo fazer nos pacotes, com dor no coração, tudo pela velocidade, mantendo só o essencial.
+Duas restrições que usei são
+O pacote precisa ficar disponível no GitHub. O pacote precisa ter pelo menos uma função.  Essa é a solução que eu acho mais segura e rápida. Você também pode usar o próprio RStudio para criar pacotes ou clonar coisas do github, mas isso pode dar alguns bugs.</description>
+    </item>
     
     <item>
       <title>Como fazer o R avisar pelo telegram que bitcoin tá barato</title>
