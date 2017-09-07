@@ -115,5 +115,17 @@ image_read('~/Downloads/pug.jpg') %>%
   image_crop('400x297') %>% 
   image_composite(img2) %>% 
   image_write("static/img/banners/pug_knapsack.png")
-  
+
+image_read('https://raw.githubusercontent.com/curso-r/site/master/content/blog/img/knapsack.svg')  
+
+
+image_read('~/Downloads/package.jpg') %>% 
+  image_crop('809x600+100') %>% 
+  image_scale('400x297') %>% 
+  image_write("static/img/banners/package.png")
+
+
+
+
+
 
