@@ -22,7 +22,8 @@ Remotes:
     ropenscilabs/skimr,
     decryptr/decryptr,
     hadley/emo,
-    athospd/tidywoe
+    athospd/tidywoe,
+    leeper/meme
 Imports:
     quadprog,
     stringr,
@@ -81,5 +82,6 @@ Imports:
     FactoMineR,
     tidywoe,
     janitor,
-    adagio
+    adagio,
+    meme
 RoxygenNote: 6.0.1
