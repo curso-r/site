@@ -283,26 +283,29 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 17 x 4
+## # A tibble: 20 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Amorim          2         -0.11490311
-##  2    Athos    Amorim          2          2.76349852
-##  3    Athos    Corrêa          2         -2.08320261
-##  4    Athos    Corrêa          2          0.58485037
-##  5   Daniel    Amorim          2         -1.15863275
-##  6   Daniel    Amorim          2         -0.30281028
-##  7   Daniel    Corrêa          2         -0.68851134
-##  8   Daniel    Corrêa          2          0.42888432
-##  9   Daniel    Falbel          2         -0.27132945
-## 10   Daniel    Falbel          2         -0.81465666
-## 11 Fernando    Corrêa          3          1.10230509
-## 12 Fernando    Corrêa          3          1.22174623
-## 13 Fernando    Corrêa          3          0.77576613
-## 14    Julio    Corrêa          2         -0.46649161
-## 15    Julio    Corrêa          2         -0.14061080
-## 16  William   Damiani          2         -0.45030176
-## 17  William   Damiani          2          0.07571242</code></pre>
+##  1    Athos    Falbel          2          1.47081209
+##  2    Athos    Falbel          2         -0.18959883
+##  3    Athos  Trecenti          2          0.10342935
+##  4    Athos  Trecenti          2         -0.26155100
+##  5   Daniel    Amorim          2         -0.04362114
+##  6   Daniel    Amorim          2          0.71711186
+##  7 Fernando    Corrêa          2         -1.30914404
+##  8 Fernando    Corrêa          2         -0.27578633
+##  9 Fernando  Trecenti          2          0.97769652
+## 10 Fernando  Trecenti          2          1.75524584
+## 11    Julio    Amorim          2         -1.13528110
+## 12    Julio    Amorim          2         -0.69246867
+## 13    Julio    Falbel          2          1.70823580
+## 14    Julio    Falbel          2         -0.08903236
+## 15    Julio  Trecenti          2         -1.38261346
+## 16    Julio  Trecenti          2          0.38644586
+## 17  William    Falbel          2         -1.08802983
+## 18  William    Falbel          2          0.31632921
+## 19  William  Trecenti          2          0.52386233
+## 20  William  Trecenti          2         -0.93462676</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -690,6 +693,19 @@ mtcars %&gt;%
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/r4ds/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
@@ -698,19 +714,6 @@ mtcars %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
