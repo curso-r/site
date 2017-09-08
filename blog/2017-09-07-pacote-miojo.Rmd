@@ -135,7 +135,7 @@ meme:::plot.meme(readRDS('allthehings.rds'))
 
 ```{r, fig.width=5, fig.height=4.4, echo=FALSE, fig.align='center'}
 # allthethings <- meme::create_meme(templates[[17]], "Package", "All the things!",
-#                                   username = 'jtrecenti', password = 'orelhatres')
+#                                   username = 'jtrecenti', password = 'XXX')
 # saveRDS(allthethings, 'allthehings.rds')
 meme:::plot.meme(readRDS('dicaprio.rds'))
 ```
