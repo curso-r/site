@@ -20,7 +20,7 @@ Essa é a solução que eu acho mais segura e rápida. Você também pode [usar 
 
 ## Passo 1: Crie um repositório no Github
 
-Clique no link: <a href='https://github.com/new', target='blank'>https://github.com/new</a>
+Clique no link: https://github.com/new
 
 - Escreva o nome do seu pacote. O nome do pacote não pode ter espaços, underline (`_`) nem hífen (`-`) nem começar com números.
 - Tique a opção **Initialize this repository with a README**.
