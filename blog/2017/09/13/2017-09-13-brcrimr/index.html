@@ -189,6 +189,7 @@
                         <div id="post-content">
                           <p>Em maio deste ano, escrevi um <a href="http://curso-r.com/blog/2017/05/19/2017-05-19-scrapper-ssp/">post</a> sobre <em>web scraping</em> dos dados da secretaria de segurança pública de São Paulo. Como o título indica, o foco do texto é mostrar como se raspa a página de estatísticas da SSP, mas, mais do que isso, o texto também sugere um roteiro de construção de <em>web scrapers</em>.</p>
 <p>Neste post, venho divulgar uma expansão do conteúdo do post passado. Agora é possível acessar os dados da SSP diretamente no R usando o pacote <code>brcrimR</code>, mas a ideia é que no futuro todas as informações divulgadas por alguma Secretaria de Segurança fiquem disponíveis diretamente no R!</p>
+<pre class="r"><code>devtools::install_github(&quot;abjur/brcrimR&quot;)</code></pre>
 <p>O <code>brmcrimR</code> se propõe a resolver três problemas:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Obter informações criminais brasileiras diretamente no R</strong> - Muitas análises interessantes seriam viabilizadas se fosse fácil e rápido carregar informações criminais históricas num <code>data_frame</code>. Fazer isso é a motivação principal do <code>brmcrimR</code>.</li>
@@ -202,7 +203,7 @@
 <pre class="r"><code>brcrimR::get_summarized_table_sp(year = &#39;2016&#39;, city = &#39;1&#39;) %&gt;% 
   knitr::kable(caption = &quot;Contagem de boletins de ocorrência na cidade de Amparo.&quot;)</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-1">Table 1: </span>Contagem de boletins de ocorrência na cidade de Amparo.</caption>
+<caption><span id="tab:unnamed-chunk-2">Table 1: </span>Contagem de boletins de ocorrência na cidade de Amparo.</caption>
 <thead>
 <tr class="header">
 <th align="left">Natureza</th>
@@ -616,7 +617,7 @@
   geom_bar(stat = &#39;identity&#39;, fill = &#39;royalblue&#39;) +
   theme_minimal(15) +
   labs(x = &#39;Mês&#39;, y = &quot;Número de BO&#39;s&quot;)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-09-13-brcrimr_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-09-13-brcrimr_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="informacoes-desagregadas" class="section level2">
 <h2>Informações desagregadas</h2>
@@ -627,7 +628,7 @@
   head(10) %&gt;% 
   knitr::kable(caption = &quot;Algumas colunas de dez BO&#39;s da tabela de boletins de ocorrência de homicídio de janeiro de 2017.&quot;)</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-3">Table 2: </span>Algumas colunas de dez BO’s da tabela de boletins de ocorrência de homicídio de janeiro de 2017.</caption>
+<caption><span id="tab:unnamed-chunk-4">Table 2: </span>Algumas colunas de dez BO’s da tabela de boletins de ocorrência de homicídio de janeiro de 2017.</caption>
 <thead>
 <tr class="header">
 <th align="right">NUM_BO</th>
@@ -1103,14 +1104,14 @@
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
