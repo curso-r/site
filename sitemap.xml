@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/09/13/2017-09-13-brcrimr/</loc>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/</loc>
     <lastmod>2017-09-07T23:26:00+03:00</lastmod>
   </url>
@@ -317,7 +322,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/api/</loc>
-    <lastmod>2017-04-28T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -347,7 +352,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/bds/</loc>
-    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -359,7 +364,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
   </url>
   
   <url>
@@ -428,7 +433,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -438,7 +443,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/dados-abertos/</loc>
-    <lastmod>2017-05-19T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -454,7 +459,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/data.frames/</loc>
-    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -508,7 +513,7 @@
   
   <url>
     <loc>http://curso-r.com/author/fernando/</loc>
-    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -696,13 +701,13 @@
   
   <url>
     <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -800,7 +805,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/tidyverse/</loc>
-    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -812,7 +817,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-09-07T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -830,7 +835,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/web-scraping/</loc>
-    <lastmod>2017-05-19T23:26:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

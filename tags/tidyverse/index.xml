@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 02 Sep 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 13 Sep 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>brcrimR</title>
+      <link>http://curso-r.com/blog/2017/09/13/2017-09-13-brcrimr/</link>
+      <pubDate>Wed, 13 Sep 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/09/13/2017-09-13-brcrimr/</guid>
+      <description>Em maio deste ano, escrevi um post sobre web scraping dos dados da secretaria de segurança pública de São Paulo. Como o título indica, o foco do texto é mostrar como se raspa a página de estatísticas da SSP, mas, mais do que isso, o texto também sugere um roteiro de construção de web scrapers.
+Neste post, venho divulgar uma expansão do conteúdo do post passado. Agora é possível acessar os dados da SSP diretamente no R usando o pacote brcrimR, mas a ideia é que no futuro todas as informações divulgadas por alguma Secretaria de Segurança fiquem disponíveis diretamente no R!</description>
+    </item>
     
     <item>
       <title>Comportamentos imprevisíveis do lubridate</title>
