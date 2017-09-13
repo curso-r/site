@@ -18,6 +18,11 @@ Em maio deste ano, escrevi um [post](http://curso-r.com/blog/2017/05/19/2017-05-
 
 Neste post, venho divulgar uma expansão do conteúdo do post passado. Agora é possível acessar os dados da SSP diretamente no R usando o pacote `brcrimR`, mas a ideia é que no futuro todas as informações divulgadas por alguma Secretaria de Segurança fiquem disponíveis diretamente no R!
 
+```{r, eval = FALSE}
+devtools::install_github("abjur/brcrimR")
+```
+
+
 O `brmcrimR` se propõe a resolver três problemas:
 
 1. **Obter informações criminais brasileiras diretamente no R** - Muitas análises interessantes seriam viabilizadas se fosse fácil e rápido carregar informações criminais históricas num `data_frame`. Fazer isso é a motivação principal do `brmcrimR`.
