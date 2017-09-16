@@ -283,20 +283,22 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 11 x 4
+## # A tibble: 13 x 4
 ##       nome sobrenome dupe_count variavel_importante
 ##      &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1   Athos   Damiani          3           0.9912441
-##  2   Athos   Damiani          3           1.3397522
-##  3   Athos   Damiani          3           0.3008276
-##  4  Daniel    Amorim          2          -0.5500638
-##  5  Daniel    Amorim          2          -1.3079539
-##  6  Daniel   Damiani          3          -0.4151440
-##  7  Daniel   Damiani          3          -0.4782745
-##  8  Daniel   Damiani          3          -0.8814045
-##  9 William  Trecenti          3           1.7874368
-## 10 William  Trecenti          3           1.7207796
-## 11 William  Trecenti          3          -0.7427987</code></pre>
+##  1   Athos   Damiani          3         -1.35035948
+##  2   Athos   Damiani          3         -0.08355828
+##  3   Athos   Damiani          3         -0.94285519
+##  4   Athos    Falbel          2         -1.38253504
+##  5   Athos    Falbel          2          2.32900604
+##  6   Athos  Trecenti          3          2.30331591
+##  7   Athos  Trecenti          3         -0.16811971
+##  8   Athos  Trecenti          3         -1.19555609
+##  9   Julio  Trecenti          3         -0.39966481
+## 10   Julio  Trecenti          3          0.49530005
+## 11   Julio  Trecenti          3         -0.22623806
+## 12 William    Falbel          2          0.01752971
+## 13 William    Falbel          2          0.40861819</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -697,14 +699,14 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
