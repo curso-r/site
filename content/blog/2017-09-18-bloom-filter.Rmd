@@ -1,6 +1,6 @@
 ---
 title: "Filtros de Bloom em R"
-date: "2017-09-13T10:12:00+03:00"
+date: "2017-09-18T10:12:00+03:00"
 tags: ["algoritmos"]
 categories: ["tutoriais", "r"]
 banner: "img/banners/bloom-filter.png"
