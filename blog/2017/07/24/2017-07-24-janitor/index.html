@@ -283,27 +283,22 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 18 x 4
+## # A tibble: 13 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Corrêa          3        -0.696687502
-##  2    Athos    Corrêa          3         0.103689178
-##  3    Athos    Corrêa          3        -1.075557488
-##  4    Athos   Damiani          3         0.727943481
-##  5    Athos   Damiani          3         0.448041363
-##  6    Athos   Damiani          3        -2.400233874
-##  7   Daniel   Damiani          2        -0.762634734
-##  8   Daniel   Damiani          2         0.015096168
-##  9   Daniel    Falbel          2         0.634946187
-## 10   Daniel    Falbel          2         1.535697883
-## 11 Fernando    Falbel          2         0.006458822
-## 12 Fernando    Falbel          2        -0.333693650
-## 13    Julio    Amorim          3         0.604738381
-## 14    Julio    Amorim          3        -0.015002902
-## 15    Julio    Amorim          3         0.808023478
-## 16  William   Damiani          3        -0.497541505
-## 17  William   Damiani          3         1.415661921
-## 18  William   Damiani          3        -0.753181505</code></pre>
+##  1    Athos  Trecenti          2          2.14622808
+##  2    Athos  Trecenti          2         -1.29421589
+##  3   Daniel    Amorim          2         -1.21118701
+##  4   Daniel    Amorim          2         -0.55455947
+##  5   Daniel   Damiani          2         -0.31998140
+##  6   Daniel   Damiani          2         -0.24685348
+##  7 Fernando   Damiani          2          0.41837161
+##  8 Fernando   Damiani          2         -1.01972368
+##  9    Julio    Amorim          2          0.39864489
+## 10    Julio    Amorim          2         -0.27003807
+## 11    Julio    Corrêa          3          0.03046486
+## 12    Julio    Corrêa          3          1.11342702
+## 13    Julio    Corrêa          3         -1.20056889</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -707,14 +702,14 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
