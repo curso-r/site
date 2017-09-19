@@ -22,7 +22,7 @@ sendo que ele pertence.
 
 Bloom Filters são úteis em diversas situações, geralmente relacionadas ao ganho 
 de velocidade e de espaço que o seu uso pode trazer. Muitos sistemas de bancos de
-dados usam bloom filters para reduzir o número de buscas no disco (ex. [Cassandra](https://docs.datastax.com/en/cassandra/2.1/cassandra/operations/ops_tuning_bloom_filters_c.html)). O [Medium](https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff), usa para evitar recomendar uma paǵina que você já leu. 
+dados usam bloom filters para reduzir o número de buscas no disco (ex. [Cassandra](https://docs.datastax.com/en/cassandra/2.1/cassandra/operations/ops_tuning_bloom_filters_c.html)). O [Medium](https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff) usa para evitar recomendar uma paǵina que você já leu. 
 Recentemente, encontraram até [aplicações para bloom filters em machine learning](https://arxiv.org/abs/1706.03993).
 
 Nesse post vamos implementar uma versão simplificada, nada otimizada dos filtros de
