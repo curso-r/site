@@ -7,17 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 13 Sep 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 18 Sep 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/tags/algoritmos/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Filtros de Bloom em R</title>
-      <link>http://curso-r.com/blog/2017/09/13/2017-09-18-bloom-filter/</link>
-      <pubDate>Wed, 13 Sep 2017 10:12:00 +0300</pubDate>
+      <link>http://curso-r.com/blog/2017/09/18/2017-09-18-bloom-filter/</link>
+      <pubDate>Mon, 18 Sep 2017 10:12:00 +0300</pubDate>
       
-      <guid>http://curso-r.com/blog/2017/09/13/2017-09-18-bloom-filter/</guid>
+      <guid>http://curso-r.com/blog/2017/09/18/2017-09-18-bloom-filter/</guid>
       <description>Filtro de Bloom é um algoritmo muito interessante para testar se um elemento pertence a um conjunto. Ele é considerado uma estrutura de dados probabilística, ou seja, o resultado pode não estar correto com alguma probabilidade. Especificamente para o filtro de bloom, existe a possibilidade de falsos positivos mas não de falsos negativos: o algoritmo pode dizer que o elemento pertence ao conjunto, mas na verdade não pertencer, mas nunca dirá que ele não pertence sendo que ele pertence.</description>
     </item>
     
