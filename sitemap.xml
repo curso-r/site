@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/09/13/2017-09-18-bloom-filter/</loc>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/09/13/2017-09-13-brcrimr/</loc>
     <lastmod>2017-09-13T10:12:00+03:00</lastmod>
   </url>
@@ -303,6 +308,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/algoritmos/</loc>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/categories/analises/</loc>
     <lastmod>2017-08-28T23:26:00+03:00</lastmod>
     <priority>0</priority>
@@ -449,7 +460,7 @@
   
   <url>
     <loc>http://curso-r.com/author/daniel/</loc>
-    <lastmod>2017-07-20T00:26:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -787,7 +798,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/</loc>
-    <lastmod>2017-08-07T10:12:00+03:00</lastmod>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

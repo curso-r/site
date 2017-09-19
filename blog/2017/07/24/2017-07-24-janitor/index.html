@@ -283,26 +283,23 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 17 x 4
+## # A tibble: 14 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1   Daniel  Trecenti          2          -0.2788772
-##  2   Daniel  Trecenti          2           0.6919112
-##  3 Fernando    Falbel          2           0.2789701
-##  4 Fernando    Falbel          2          -0.7499816
-##  5    Julio    Amorim          2           2.0696800
-##  6    Julio    Amorim          2          -1.2670470
-##  7    Julio    Corrêa          2           0.3332317
-##  8    Julio    Corrêa          2          -0.8073781
-##  9    Julio   Damiani          3           1.0485736
-## 10    Julio   Damiani          3           0.3133506
-## 11    Julio   Damiani          3          -0.4452388
-## 12    Julio  Trecenti          3           0.2717128
-## 13    Julio  Trecenti          3          -0.7485402
-## 14    Julio  Trecenti          3           0.1408846
-## 15  William    Amorim          3           0.3732086
-## 16  William    Amorim          3          -1.1534404
-## 17  William    Amorim          3          -1.1866470</code></pre>
+##  1    Athos  Trecenti          2          1.21356100
+##  2    Athos  Trecenti          2          0.10556987
+##  3 Fernando   Damiani          2         -1.48400456
+##  4 Fernando   Damiani          2          0.16501664
+##  5 Fernando  Trecenti          2          0.80203880
+##  6 Fernando  Trecenti          2         -1.02501765
+##  7    Julio    Corrêa          2          1.25740146
+##  8    Julio    Corrêa          2         -1.23798085
+##  9  William   Damiani          3          0.02675332
+## 10  William   Damiani          3         -1.36269557
+## 11  William   Damiani          3          1.24510427
+## 12  William    Falbel          3         -0.73075576
+## 13  William    Falbel          3         -0.74783574
+## 14  William    Falbel          3         -0.91881332</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -434,13 +431,13 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (60)</a>
+            <li><a href="http://curso-r.com/categories/r">r (61)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (25)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (26)</a>
             </li>
             
         </ul>
@@ -461,6 +458,9 @@ mtcars %&gt;%
 
     <div class="panel-body">
         <ul class="tag-cloud">
+            
+            <li><a href="http://curso-r.com/tags/algoritmos"><i class="fa fa-tags"></i> algoritmos</a>
+            </li>
             
             <li><a href="http://curso-r.com/tags/an%c3%a1lises"><i class="fa fa-tags"></i> análises</a>
             </li>
@@ -703,14 +703,14 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/incompany/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
         
@@ -774,6 +774,19 @@ mtcars %&gt;%
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/09/13/2017-09-18-bloom-filter/">
+                          
+                            <img src="http://curso-r.com/img/banners/bloom-filter.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/09/13/2017-09-18-bloom-filter/">Filtros de Bloom em R</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/09/13/2017-09-13-brcrimr/">
                           
                             <img src="http://curso-r.com/img/ssp.jpg" class="img-responsive" alt="">
@@ -795,19 +808,6 @@ mtcars %&gt;%
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/">Pacotes miojo - como fazer um pacote no R em 3 minutos</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/">
-                          
-                            <img src="http://curso-r.com/img/detetive.jpeg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/09/02/2017-07-29-comportamentos-estranhos-lubridate/">Comportamentos imprevisíveis do lubridate</a></h5>
                     </div>
                 </div>
                 
