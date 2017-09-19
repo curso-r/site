@@ -110,7 +110,7 @@ verificar_presenca("abc", vect)
 ```
 
 Com `m = 1000` e `k = 7` não consegui encontrar nenhum falso positivo, mas basta
-diminuir o tamango de `m` e de `k` que encontraremos. No verbete da Wikipedia a 
+diminuir o tamanho de `m` e de `k` que encontraremos. No verbete da Wikipedia a 
 conta está bonitinha mas de fato a probabilidade de falsos positivos pode ser estimada
 em função dos parâmetros $k$ e $m$ e $n$ (tamanho do conjunto representado) é dada por
 
