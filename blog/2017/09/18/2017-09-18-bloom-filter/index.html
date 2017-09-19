@@ -207,7 +207,7 @@ criar_vetor_de_bits &lt;- function(x, m = 1000, k = 7){
         m %&gt;% 
         as.integer()
       
-      vec[hash] &lt;- TRUE
+      vec[hash + 1] &lt;- TRUE
       
     }
   }
@@ -232,7 +232,7 @@ criar_vetor_de_bits &lt;- function(x, m = 1000, k = 7){
         m %&gt;% 
         as.integer()
     
-    if(!vetor_de_bits[hash]) {
+    if(!vetor_de_bits[hash + 1]) {
       return(FALSE)
     }
   }
@@ -592,19 +592,6 @@ verificar_presenca(&quot;abc&quot;, vect)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/incompany/">
                   
                     <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
@@ -613,6 +600,19 @@ verificar_presenca(&quot;abc&quot;, vect)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         

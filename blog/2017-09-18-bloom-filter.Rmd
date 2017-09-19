@@ -59,7 +59,7 @@ criar_vetor_de_bits <- function(x, m = 1000, k = 7){
         m %>% 
         as.integer()
       
-      vec[hash] <- TRUE
+      vec[hash + 1] <- TRUE
       
     }
   }
@@ -97,7 +97,7 @@ verificar_presenca <- function(x, vetor_de_bits){
         m %>% 
         as.integer()
     
-    if(!vetor_de_bits[hash]) {
+    if(!vetor_de_bits[hash + 1]) {
       return(FALSE)
     }
   }
