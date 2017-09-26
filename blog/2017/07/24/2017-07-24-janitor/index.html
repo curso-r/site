@@ -283,21 +283,23 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 12 x 4
+## # A tibble: 14 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1 Fernando    Amorim          2           1.0819800
-##  2 Fernando    Amorim          2           0.2027011
-##  3 Fernando   Damiani          2           0.8685068
-##  4 Fernando   Damiani          2          -0.2554607
-##  5    Julio   Damiani          3          -0.3921875
-##  6    Julio   Damiani          3          -0.9372367
-##  7    Julio   Damiani          3           0.6496502
-##  8  William    Corrêa          2           0.1029526
-##  9  William    Corrêa          2           0.5078217
-## 10  William    Falbel          3           0.1073866
-## 11  William    Falbel          3           0.2604062
-## 12  William    Falbel          3           2.1325096</code></pre>
+##  1 Fernando  Trecenti          3          -1.6307083
+##  2 Fernando  Trecenti          3          -1.4752372
+##  3 Fernando  Trecenti          3          -2.2456790
+##  4    Julio    Falbel          2          -1.2745346
+##  5    Julio    Falbel          2           1.0487058
+##  6  William    Amorim          3           0.5976396
+##  7  William    Amorim          3          -0.3721612
+##  8  William    Amorim          3          -1.5195077
+##  9  William    Corrêa          4           0.1464097
+## 10  William    Corrêa          4           1.5049629
+## 11  William    Corrêa          4           1.7483886
+## 12  William    Corrêa          4           1.3173589
+## 13  William  Trecenti          2          -0.5566537
+## 14  William  Trecenti          2           0.7657229</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -688,14 +690,14 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          
