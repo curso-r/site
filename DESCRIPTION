@@ -23,7 +23,8 @@ Remotes:
     decryptr/decryptr,
     hadley/emo,
     athospd/tidywoe,
-    leeper/meme
+    leeper/meme,
+    abjur/brcrimR
 Imports:
     quadprog,
     stringr,
@@ -83,5 +84,6 @@ Imports:
     tidywoe,
     janitor,
     adagio,
-    meme
+    meme,
+    brcrimR
 RoxygenNote: 6.0.1
