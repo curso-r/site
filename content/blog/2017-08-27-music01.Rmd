@@ -35,7 +35,9 @@ dados <- tuneR::readMidi(arq)
 dados_notas <- tuneR::getMidiNotes(dados) %>% 
   as_tibble()
 
-notas
+dados
+View(dados)
+View(dados_notas)
 ```
 
 ```{r}
