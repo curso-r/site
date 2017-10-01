@@ -283,25 +283,27 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 16 x 4
-##       nome sobrenome dupe_count variavel_importante
-##      &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1   Athos    Amorim          3           0.4979070
-##  2   Athos    Amorim          3           1.0263461
-##  3   Athos    Amorim          3          -0.4478208
-##  4   Athos   Damiani          2           1.5674162
-##  5   Athos   Damiani          2           0.8139794
-##  6  Daniel    Falbel          4           0.3007674
-##  7  Daniel    Falbel          4          -1.3805919
-##  8  Daniel    Falbel          4          -0.5829989
-##  9  Daniel    Falbel          4           1.0764179
-## 10   Julio    Amorim          2          -1.0651992
-## 11   Julio    Amorim          2           0.2013648
-## 12   Julio  Trecenti          3          -1.6969218
-## 13   Julio  Trecenti          3          -0.3063282
-## 14   Julio  Trecenti          3          -0.5698528
-## 15 William    Corrêa          2          -0.9709849
-## 16 William    Corrêa          2           0.1014737</code></pre>
+## # A tibble: 18 x 4
+##        nome sobrenome dupe_count variavel_importante
+##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
+##  1   Daniel    Amorim          3          1.12649491
+##  2   Daniel    Amorim          3          0.94398993
+##  3   Daniel    Amorim          3         -0.18898610
+##  4   Daniel   Damiani          3          0.73492599
+##  5   Daniel   Damiani          3          0.25198463
+##  6   Daniel   Damiani          3          0.78263571
+##  7   Daniel  Trecenti          3         -1.36993828
+##  8   Daniel  Trecenti          3         -0.56426275
+##  9   Daniel  Trecenti          3         -0.65148236
+## 10 Fernando   Damiani          2          0.72183935
+## 11 Fernando   Damiani          2         -1.14483176
+## 12 Fernando  Trecenti          2          0.40187781
+## 13 Fernando  Trecenti          2          0.38932269
+## 14    Julio    Corrêa          3         -0.02906547
+## 15    Julio    Corrêa          3          0.63774711
+## 16    Julio    Corrêa          3          0.31604076
+## 17    Julio    Falbel          2          0.37561726
+## 18    Julio    Falbel          2          0.11474000</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -692,6 +694,19 @@ mtcars %&gt;%
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -700,19 +715,6 @@ mtcars %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
