@@ -283,27 +283,26 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 18 x 4
+## # A tibble: 17 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1   Daniel    Amorim          3          1.12649491
-##  2   Daniel    Amorim          3          0.94398993
-##  3   Daniel    Amorim          3         -0.18898610
-##  4   Daniel   Damiani          3          0.73492599
-##  5   Daniel   Damiani          3          0.25198463
-##  6   Daniel   Damiani          3          0.78263571
-##  7   Daniel  Trecenti          3         -1.36993828
-##  8   Daniel  Trecenti          3         -0.56426275
-##  9   Daniel  Trecenti          3         -0.65148236
-## 10 Fernando   Damiani          2          0.72183935
-## 11 Fernando   Damiani          2         -1.14483176
-## 12 Fernando  Trecenti          2          0.40187781
-## 13 Fernando  Trecenti          2          0.38932269
-## 14    Julio    Corrêa          3         -0.02906547
-## 15    Julio    Corrêa          3          0.63774711
-## 16    Julio    Corrêa          3          0.31604076
-## 17    Julio    Falbel          2          0.37561726
-## 18    Julio    Falbel          2          0.11474000</code></pre>
+##  1    Athos    Amorim          2          1.24246764
+##  2    Athos    Amorim          2          0.53854837
+##  3    Athos   Damiani          2         -0.68534870
+##  4    Athos   Damiani          2         -0.01992191
+##  5   Daniel    Corrêa          2         -0.14659782
+##  6   Daniel    Corrêa          2          0.85258866
+##  7 Fernando    Amorim          2         -0.42423881
+##  8 Fernando    Amorim          2         -1.95126080
+##  9 Fernando    Falbel          4         -0.84565278
+## 10 Fernando    Falbel          4          0.55955504
+## 11 Fernando    Falbel          4          1.49942836
+## 12 Fernando    Falbel          4         -0.34608736
+## 13 Fernando  Trecenti          2          0.50316806
+## 14 Fernando  Trecenti          2          0.55292745
+## 15  William   Damiani          3          0.39264430
+## 16  William   Damiani          3          0.52896833
+## 17  William   Damiani          3         -1.36184492</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
