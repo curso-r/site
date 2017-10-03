@@ -283,26 +283,20 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 17 x 4
-##        nome sobrenome dupe_count variavel_importante
-##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Amorim          2          1.24246764
-##  2    Athos    Amorim          2          0.53854837
-##  3    Athos   Damiani          2         -0.68534870
-##  4    Athos   Damiani          2         -0.01992191
-##  5   Daniel    Corrêa          2         -0.14659782
-##  6   Daniel    Corrêa          2          0.85258866
-##  7 Fernando    Amorim          2         -0.42423881
-##  8 Fernando    Amorim          2         -1.95126080
-##  9 Fernando    Falbel          4         -0.84565278
-## 10 Fernando    Falbel          4          0.55955504
-## 11 Fernando    Falbel          4          1.49942836
-## 12 Fernando    Falbel          4         -0.34608736
-## 13 Fernando  Trecenti          2          0.50316806
-## 14 Fernando  Trecenti          2          0.55292745
-## 15  William   Damiani          3          0.39264430
-## 16  William   Damiani          3          0.52896833
-## 17  William   Damiani          3         -1.36184492</code></pre>
+## # A tibble: 11 x 4
+##       nome sobrenome dupe_count variavel_importante
+##      &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
+##  1  Daniel    Amorim          2          -1.2798840
+##  2  Daniel    Amorim          2           0.9643774
+##  3  Daniel    Corrêa          3           1.0218102
+##  4  Daniel    Corrêa          3           0.7139351
+##  5  Daniel    Corrêa          3          -0.5854969
+##  6 William    Falbel          3          -0.6883864
+##  7 William    Falbel          3           0.2511962
+##  8 William    Falbel          3           0.3502473
+##  9 William  Trecenti          3          -1.5805048
+## 10 William  Trecenti          3           1.0875926
+## 11 William  Trecenti          3          -2.5314322</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -706,14 +700,14 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
