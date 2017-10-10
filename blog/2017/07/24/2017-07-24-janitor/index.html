@@ -283,22 +283,24 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 13 x 4
+## # A tibble: 15 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Amorim          2           0.1729664
-##  2    Athos    Amorim          2           0.8495214
-##  3    Athos   Damiani          2           0.7882264
-##  4    Athos   Damiani          2           1.9248960
-##  5 Fernando   Damiani          2          -0.1988891
-##  6 Fernando   Damiani          2          -0.8676130
-##  7 Fernando    Falbel          2          -0.1913921
-##  8 Fernando    Falbel          2          -1.0899436
-##  9 Fernando  Trecenti          2          -1.1364755
-## 10 Fernando  Trecenti          2           0.4754276
-## 11    Julio    Amorim          3          -1.0736757
-## 12    Julio    Amorim          3          -0.8885816
-## 13    Julio    Amorim          3           0.2533985</code></pre>
+##  1    Athos   Damiani          2           0.5320403
+##  2    Athos   Damiani          2          -2.1875411
+##  3   Daniel  Trecenti          2           1.5517618
+##  4   Daniel  Trecenti          2           1.4475127
+##  5 Fernando    Amorim          3           0.2422688
+##  6 Fernando    Amorim          3          -0.7402604
+##  7 Fernando    Amorim          3           1.6892079
+##  8 Fernando    Falbel          2           0.4701102
+##  9 Fernando    Falbel          2           0.1992777
+## 10  William  Trecenti          6           1.2584929
+## 11  William  Trecenti          6           1.3620448
+## 12  William  Trecenti          6           1.2119365
+## 13  William  Trecenti          6          -0.4830303
+## 14  William  Trecenti          6          -1.0398051
+## 15  William  Trecenti          6           0.3339343</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -689,19 +691,6 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/r4ds/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
@@ -710,6 +699,19 @@ mtcars %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
