@@ -24,7 +24,8 @@ Remotes:
     hadley/emo,
     athospd/tidywoe,
     leeper/meme,
-    abjur/brcrimR
+    abjur/brcrimR,
+    hadley/pillar
 Imports:
     quadprog,
     stringr,
