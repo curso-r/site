@@ -227,17 +227,17 @@ centroides
 ## # A tibble: 6 x 4
 ##   cluster         r          g         b
 ##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.8768120 0.76211694 0.6453261
-## 2       2 0.3542030 0.46237875 0.5494285
-## 3       3 0.7016587 0.46722512 0.3238206
-## 4       4 0.1242676 0.04329523 0.2157608
-## 5       5 0.5005265 0.18317569 0.1587972
-## 6       6 0.2212860 0.27343498 0.4408806</code></pre>
+## 1       1 0.1243380 0.04330185 0.2157165
+## 2       2 0.8768970 0.76224179 0.6454794
+## 3       3 0.3542115 0.46236909 0.5494132
+## 4       4 0.7017989 0.46751128 0.3240634
+## 5       5 0.2212875 0.27343423 0.4408795
+## 6       6 0.5006902 0.18330624 0.1588547</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#E0C2A5&quot; &quot;#5A768C&quot; &quot;#B37753&quot; &quot;#200B37&quot; &quot;#802F28&quot; &quot;#384670&quot;</code></pre>
+## [1] &quot;#200B37&quot; &quot;#E0C2A5&quot; &quot;#5A768C&quot; &quot;#B37753&quot; &quot;#384670&quot; &quot;#802F29&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -367,13 +367,13 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (61)</a>
+            <li><a href="http://curso-r.com/categories/r">r (62)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (26)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (27)</a>
             </li>
             
         </ul>
@@ -710,6 +710,19 @@ exibir(paleta)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/10/19/2017-10-19-cursor-amostra/">
+                          
+                            <img src="http://curso-r.com/img/banners/amostra-estat.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/10/19/2017-10-19-cursor-amostra/">Curso-R na aMostra de Estatística 2017</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/09/18/2017-09-18-bloom-filter/">
                           
                             <img src="http://curso-r.com/img/banners/bloom-filter.png" class="img-responsive" alt="">
@@ -731,19 +744,6 @@ exibir(paleta)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/09/13/2017-09-13-brcrimr/">brcrimR</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/">
-                          
-                            <img src="http://curso-r.com/img/banners/package.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/">Pacotes miojo - como fazer um pacote no R em 3 minutos</a></h5>
                     </div>
                 </div>
                 

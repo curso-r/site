@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/10/19/2017-10-19-cursor-amostra/</loc>
+    <lastmod>2017-10-19T10:12:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/09/18/2017-09-18-bloom-filter/</loc>
     <lastmod>2017-09-18T10:12:00+03:00</lastmod>
   </url>
@@ -375,7 +380,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-09-18T10:12:00+03:00</lastmod>
+    <lastmod>2017-10-19T10:12:00+03:00</lastmod>
   </url>
   
   <url>
@@ -438,13 +443,13 @@
   
   <url>
     <loc>http://curso-r.com/tags/curso-r/</loc>
-    <lastmod>2017-08-05T23:26:00+03:00</lastmod>
+    <lastmod>2017-10-19T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-09-18T10:12:00+03:00</lastmod>
+    <lastmod>2017-10-19T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -460,7 +465,7 @@
   
   <url>
     <loc>http://curso-r.com/author/daniel/</loc>
-    <lastmod>2017-09-18T10:12:00+03:00</lastmod>
+    <lastmod>2017-10-19T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -718,7 +723,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-09-18T10:12:00+03:00</lastmod>
+    <lastmod>2017-10-19T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -828,7 +833,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-09-18T10:12:00+03:00</lastmod>
+    <lastmod>2017-10-19T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

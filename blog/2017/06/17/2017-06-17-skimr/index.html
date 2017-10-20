@@ -197,23 +197,27 @@ devtools::install_github(&quot;ropenscilabs/skimr&quot;)</code></pre>
 <pre class="r"><code>library(tidyverse)
 library(skimr)
 skim(iris)
-## Numeric Variables
-## # A tibble: 4 x 13
-##            var    type missing complete     n     mean        sd   min
-##          &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
-## 1 Petal.Length numeric       0      150   150 3.758000 1.7652982   1.0
-## 2  Petal.Width numeric       0      150   150 1.199333 0.7622377   0.1
-## 3 Sepal.Length numeric       0      150   150 5.843333 0.8280661   4.3
-## 4  Sepal.Width numeric       0      150   150 3.057333 0.4358663   2.0
-## # ... with 5 more variables: `25% quantile` &lt;dbl&gt;, median &lt;dbl&gt;, `75%
-## #   quantile` &lt;dbl&gt;, max &lt;dbl&gt;, hist &lt;chr&gt;
+## Skim summary statistics
+##  n obs: 150 
+##  n variables: 5 
 ## 
-## Factor Variables
-## # A tibble: 1 x 7
-##       var   type complete missing     n n_unique
-##     &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-## 1 Species factor      150       0   150        3
-## # ... with 1 more variables: stat &lt;chr&gt;</code></pre>
+## Variable type: factor 
+##       var missing complete   n n_unique                       top_counts
+## 1 Species       0      150 150        3 set: 50, ver: 50, vir: 50, NA: 0
+##   ordered
+## 1   FALSE
+## 
+## Variable type: numeric 
+##            var missing complete   n mean   sd min p25 median p75 max
+## 1 Petal.Length       0      150 150 3.76 1.77 1   1.6   4.35 5.1 6.9
+## 2  Petal.Width       0      150 150 1.2  0.76 0.1 0.3   1.3  1.8 2.5
+## 3 Sepal.Length       0      150 150 5.84 0.83 4.3 5.1   5.8  6.4 7.9
+## 4  Sepal.Width       0      150 150 3.06 0.44 2   2.8   3    3.3 4.4
+##       hist
+## 1 ▇▁▁▂▅▅▃▁
+## 2 ▇▁▁▅▃▃▂▂
+## 3 ▂▇▅▇▆▅▂▂
+## 4 ▁▂▅▇▃▂▁▁</code></pre>
 <p>E tem mais! O mais legal do <code>skimr</code> é que ele usa a função <code>colformat::spark_bar()</code> para desenhar histogramas direto no seu console!</p>
 <pre class="r"><code>skim(iris) %&gt;% 
   filter(stat == &#39;hist&#39;) %&gt;% 
@@ -227,6 +231,7 @@ skim(iris)
 <th align="left">stat</th>
 <th align="left">level</th>
 <th align="right">value</th>
+<th align="left">formatted</th>
 </tr>
 </thead>
 <tbody>
@@ -234,29 +239,33 @@ skim(iris)
 <td align="left">Sepal.Length</td>
 <td align="left">numeric</td>
 <td align="left">hist</td>
-<td align="left">▂▇▅▇▆▆▅▂▂▂</td>
-<td align="right">0</td>
+<td align="left">.all</td>
+<td align="right">NA</td>
+<td align="left">▂▇▅▇▆▅▂▂</td>
 </tr>
 <tr class="even">
 <td align="left">Sepal.Width</td>
 <td align="left">numeric</td>
 <td align="left">hist</td>
-<td align="left">▁▁▃▃▇▃▂▂▁▁</td>
-<td align="right">0</td>
+<td align="left">.all</td>
+<td align="right">NA</td>
+<td align="left">▁▂▅▇▃▂▁▁</td>
 </tr>
 <tr class="odd">
 <td align="left">Petal.Length</td>
 <td align="left">numeric</td>
 <td align="left">hist</td>
-<td align="left">▇▃▁▁▂▆▆▃▂▁</td>
-<td align="right">0</td>
+<td align="left">.all</td>
+<td align="right">NA</td>
+<td align="left">▇▁▁▂▅▅▃▁</td>
 </tr>
 <tr class="even">
 <td align="left">Petal.Width</td>
 <td align="left">numeric</td>
 <td align="left">hist</td>
-<td align="left">▇▂▁▂▅▃▁▅▂▃</td>
-<td align="right">0</td>
+<td align="left">.all</td>
+<td align="right">NA</td>
+<td align="left">▇▁▁▅▃▃▂▂</td>
 </tr>
 </tbody>
 </table>
@@ -297,11 +306,11 @@ skim(iris)
 </tr>
 <tr class="even">
 <td align="left">factor</td>
-<td align="left">missing, complete, n, count, n_unique</td>
+<td align="left">missing, complete, n, n_unique, top_counts, ordered</td>
 </tr>
 <tr class="odd">
 <td align="left">integer</td>
-<td align="left">missing, complete, n, mean, sd, min, median, quantile, max, hist</td>
+<td align="left">missing, complete, n, mean, sd, min, p25, median, p75, max, hist</td>
 </tr>
 <tr class="even">
 <td align="left">list</td>
@@ -309,11 +318,11 @@ skim(iris)
 </tr>
 <tr class="odd">
 <td align="left">logical</td>
-<td align="left">missing, complete, n, count, mean</td>
+<td align="left">missing, complete, n, mean, count</td>
 </tr>
 <tr class="even">
 <td align="left">numeric</td>
-<td align="left">missing, complete, n, mean, sd, min, median, quantile, max, hist</td>
+<td align="left">missing, complete, n, mean, sd, min, p25, median, p75, max, hist</td>
 </tr>
 <tr class="odd">
 <td align="left">POSIXct</td>
@@ -345,6 +354,7 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
 <th align="left">stat</th>
 <th align="left">level</th>
 <th align="right">value</th>
+<th align="left">formatted</th>
 </tr>
 </thead>
 <tbody>
@@ -352,8 +362,9 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
 <td align="left">Sepal.Length</td>
 <td align="left">numeric</td>
 <td align="left">hist</td>
-<td align="left">▂▇▅▇▆▆▅▂▂▂</td>
-<td align="right">0.0000000</td>
+<td align="left">.all</td>
+<td align="right">NA</td>
+<td align="left">▂▇▅▇▆▅▂▂</td>
 </tr>
 <tr class="even">
 <td align="left">Sepal.Length</td>
@@ -361,13 +372,15 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
 <td align="left">cv</td>
 <td align="left">.all</td>
 <td align="right">0.1417113</td>
+<td align="left">0.14</td>
 </tr>
 <tr class="odd">
 <td align="left">Sepal.Width</td>
 <td align="left">numeric</td>
 <td align="left">hist</td>
-<td align="left">▁▁▃▃▇▃▂▂▁▁</td>
-<td align="right">0.0000000</td>
+<td align="left">.all</td>
+<td align="right">NA</td>
+<td align="left">▁▂▅▇▃▂▁▁</td>
 </tr>
 <tr class="even">
 <td align="left">Sepal.Width</td>
@@ -375,13 +388,15 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
 <td align="left">cv</td>
 <td align="left">.all</td>
 <td align="right">0.1425642</td>
+<td align="left">0.14</td>
 </tr>
 <tr class="odd">
 <td align="left">Petal.Length</td>
 <td align="left">numeric</td>
 <td align="left">hist</td>
-<td align="left">▇▃▁▁▂▆▆▃▂▁</td>
-<td align="right">0.0000000</td>
+<td align="left">.all</td>
+<td align="right">NA</td>
+<td align="left">▇▁▁▂▅▅▃▁</td>
 </tr>
 <tr class="even">
 <td align="left">Petal.Length</td>
@@ -389,13 +404,15 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
 <td align="left">cv</td>
 <td align="left">.all</td>
 <td align="right">0.4697441</td>
+<td align="left">0.47</td>
 </tr>
 <tr class="odd">
 <td align="left">Petal.Width</td>
 <td align="left">numeric</td>
 <td align="left">hist</td>
-<td align="left">▇▂▁▂▅▃▁▅▂▃</td>
-<td align="right">0.0000000</td>
+<td align="left">.all</td>
+<td align="right">NA</td>
+<td align="left">▇▁▁▅▃▃▂▂</td>
 </tr>
 <tr class="even">
 <td align="left">Petal.Width</td>
@@ -403,6 +420,7 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
 <td align="left">cv</td>
 <td align="left">.all</td>
 <td align="right">0.6355511</td>
+<td align="left">0.64</td>
 </tr>
 </tbody>
 </table>
@@ -507,13 +525,13 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (61)</a>
+            <li><a href="http://curso-r.com/categories/r">r (62)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (26)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (27)</a>
             </li>
             
         </ul>
@@ -779,14 +797,14 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
+                <a href="http://curso-r.com/cursos/incompany/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
         
@@ -850,6 +868,19 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/10/19/2017-10-19-cursor-amostra/">
+                          
+                            <img src="http://curso-r.com/img/banners/amostra-estat.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/10/19/2017-10-19-cursor-amostra/">Curso-R na aMostra de Estatística 2017</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/09/18/2017-09-18-bloom-filter/">
                           
                             <img src="http://curso-r.com/img/banners/bloom-filter.png" class="img-responsive" alt="">
@@ -871,19 +902,6 @@ skim_with(numeric = funs, append = TRUE)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/09/13/2017-09-13-brcrimr/">brcrimR</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/">
-                          
-                            <img src="http://curso-r.com/img/banners/package.png" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/09/07/2017-09-07-pacote-miojo/">Pacotes miojo - como fazer um pacote no R em 3 minutos</a></h5>
                     </div>
                 </div>
                 
