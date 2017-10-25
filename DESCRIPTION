@@ -24,7 +24,7 @@ Remotes:
     athospd/tidywoe,
     leeper/meme,
     abjur/brcrimR,
-    hadley/pillar
+    r-lib/pillar@065c65811afee78903b94d3b4640a282a5d04cee
 Imports:
     quadprog,
     stringr,
