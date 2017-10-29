@@ -230,15 +230,6 @@
 </tbody>
 </table>
 <p>Esse dataset está <em>desarrumado</em> pois existem duas colunas <strong>Idh2015</strong> e <strong>Idh2014</strong> que representam a mesma variável: <strong>IDH</strong> e uma variável implícita <strong>ANO</strong>, que também aparece nesta duas colunas. A forma <em>tidy</em> de representar este dataset seria:</p>
-<pre><code>## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
-## Loading tidyverse: tidyr
-## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr</code></pre>
-<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
-<pre><code>## filter(): dplyr, stats
-## lag():    dplyr, stats</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -313,13 +304,8 @@ df &lt;- data_frame(
 ##              0.09714188</code></pre>
 <p>Mas aí estamos voltando para a forma desarrumada para fazer o teste. Outra forma de fazer é considerar essa comparação de médias como um problema de regressão em que a suposição independência das observações não é válida, uma vez que dado um pais, com certeza existe relação entre o idh de 2014 e de 2015.</p>
 <p>Vamos ajustar um modelo com efeitos aleatórios para esse problema e comparar os resultados.</p>
-<pre class="r"><code>library(nlme)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;nlme&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     collapse</code></pre>
-<pre class="r"><code>model &lt;- lme(idh ~ as.factor(ano), random = ~1|Pais, data = df)
+<pre class="r"><code>library(nlme)
+model &lt;- lme(idh ~ as.factor(ano), random = ~1|Pais, data = df)
 summary(model)</code></pre>
 <pre><code>## Linear mixed-effects model fit by REML
 ##  Data: df 
@@ -696,27 +682,27 @@ summary(model)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/incompany/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/r4ds/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
             </div>
         </div>
         
