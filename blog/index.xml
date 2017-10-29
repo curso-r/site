@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 19 Oct 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 27 Oct 2017 10:12:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tidy Data, Teste T Pareado e Modelos Mistos</title>
+      <link>http://curso-r.com/blog/2017/10/27/2017-10-27-tidy-data-mixed-models/</link>
+      <pubDate>Fri, 27 Oct 2017 10:12:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/10/27/2017-10-27-tidy-data-mixed-models/</guid>
+      <description>O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrtura dos seus dados pode afetar a forma que você fará a sua análise.
+Para começar, vamos relemebrar o que é tidy data para depois seguir ao ponto do post.
+Tidy Data Tidy data é um conceito introduzido pelo Hadley Wickham neste paper.
+Esse paper é, para mim, o melhor artigo do Hadley.</description>
+    </item>
     
     <item>
       <title>Curso-R na aMostra de Estatística 2017</title>

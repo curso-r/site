@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
 
-  <title>Tutoriais</title>
+  <title>Tidy Data, Teste T Pareado e Modelos Mistos</title>
 
   <meta name="author" content="" />
   <meta name="keywords" content="">
@@ -62,10 +62,10 @@
   <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
   
   
-  <meta property="og:title" content="Tutoriais" />
+  <meta property="og:title" content="Tidy Data, Teste T Pareado e Modelos Mistos" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="/categories/tutoriais//" />
-  <meta property="og:image" content="" />
+  <meta property="og:url" content="/blog/2017/10/27/2017-10-27-tidy-data-mixed-models//" />
+  <meta property="og:image" content="img/banners/banner-tidy-data.png" />
 
 </head>
 
@@ -82,8 +82,8 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="http://curso-r.com/">
-                    <img src="http://curso-r.com/img/logo.svg" alt="Tutoriais logo" width="50" height="50">
-                    <span class="sr-only">Tutoriais - go to homepage</span>
+                    <img src="http://curso-r.com/img/logo.svg" alt="Tidy Data, Teste T Pareado e Modelos Mistos logo" width="50" height="50">
+                    <span class="sr-only">Tidy Data, Teste T Pareado e Modelos Mistos - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -156,7 +156,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Tutoriais</h1>
+                <h1>Tidy Data, Teste T Pareado e Modelos Mistos</h1>
             </div>
         </div>
     </div>
@@ -165,303 +165,216 @@
 
         <div id="content">
             <div class="container">
+
                 <div class="row">
+
                     
 
-                    <div class="col-md-9" id="blog-listing-medium">
+                    <div class="col-md-9" id="blog-post">
 
-                        
-                        
-                        <section class="post">
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <div class="image">
-                                      <a href="http://curso-r.com/blog/2017/04/10/2017-04-08-progress/">
-                                          
-                                          <img src="http://curso-r.com/img/banners/progress.png" class="img-responsive" alt="">
-                                          
-                                      </a>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h2><a href="http://curso-r.com/blog/2017/04/10/2017-04-08-progress/">As barras do progresso</a></h2>
-                                    <div class="clearfix">
-                                        <p class="author-category">
-                                          
-                                          Por 
-                                            
-                                              
-                                                <a href="http://curso-r.com/author/julio">Julio</a>
-                                            
-                                          
-                                          
-                                          
-                                          em <a href="http://curso-r.com/categories/tutoriais">tutoriais</a>
-                                          
-                                          
-
-                                        </p>
-                                        <p class="date-comments">
-                                            <a href="http://curso-r.com/blog/2017/04/10/2017-04-08-progress/"><i class="fa fa-calendar-o"></i> 10/04/2017</a>
-                                        </p>
-                                    </div>
-                                    <p class="intro">Na jornada da ciência de dados, muitas vezes precisamos rodar um mesmo algoritmo em vários objetos distintos. Quando o algoritmo é pesado ou a lista de objetos é longa, é importante saber em que passo estamos e quanto vai demorar para terminar.</p>
-                                    <p class="read-more"><a href="http://curso-r.com/blog/2017/04/10/2017-04-08-progress/" class="btn btn-template-main">Continue lendo</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                        
-                        <section class="post">
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <div class="image">
-                                      <a href="http://curso-r.com/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho/">
-                                          
-                                          <img src="http://curso-r.com/img/banners/cat-balls-of-wool.jpg" class="img-responsive" alt="">
-                                          
-                                      </a>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h2><a href="http://curso-r.com/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho/">Knitr: mudando o diretório de trabalho</a></h2>
-                                    <div class="clearfix">
-                                        <p class="author-category">
-                                          
-                                          Por 
-                                            
-                                              
-                                                <a href="http://curso-r.com/author/william">William</a>
-                                            
-                                          
-                                          
-                                          
-                                          em <a href="http://curso-r.com/categories/tutoriais">tutoriais</a>
-                                          
-                                          
-
-                                        </p>
-                                        <p class="date-comments">
-                                            <a href="http://curso-r.com/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho/"><i class="fa fa-calendar-o"></i> 25/03/2017</a>
-                                        </p>
-                                    </div>
-                                    <p class="intro">O pacote `knitr` é um mecanismo rápido, elegante e flexível para gerar relatórios dinâmicos no R. Ele trabalha lado a lado com o `rmarkdown` para transformar arquivos `.Rmd` em diversos formatos, como html, pdf e até mesmo word. Quando estamos trabalhando com arquivos Rmarkdown no Rstudio, mudar o diretório de trabalho pode levar a resultados inesperados se não for feito da maneira correta.</p>
-                                    <p class="read-more"><a href="http://curso-r.com/blog/2017/03/25/2017-03-25-knitr-mudando-diretorio-de-trabalho/" class="btn btn-template-main">Continue lendo</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                        
-                        <section class="post">
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <div class="image">
-                                      <a href="http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/">
-                                          
-                                          <img src="http://curso-r.com/img/banners/banner-parallel.png" class="img-responsive" alt="">
-                                          
-                                      </a>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h2><a href="http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/">Paralelização no R</a></h2>
-                                    <div class="clearfix">
-                                        <p class="author-category">
-                                          
-                                          Por 
-                                            
-                                              
-                                                <a href="http://curso-r.com/author/julio">Julio</a>
-                                            
-                                          
-                                          
-                                          
-                                          em <a href="http://curso-r.com/categories/tutoriais">tutoriais</a>
-                                          
-                                          
-
-                                        </p>
-                                        <p class="date-comments">
-                                            <a href="http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/"><i class="fa fa-calendar-o"></i> 19/03/2017</a>
-                                        </p>
-                                    </div>
-                                    <p class="intro">Programadores eficientes não precisam escrever algoritmos que rodam rápido. Recomendo fortemente a leitura do livro Efficient R, que discute eficiência com o R de forma exaustiva. Também gosto muito da primeira parte dessa palestra do Hadley, onde ele defende que o cientista de dados deve usar seu tempo pensando no problema e não na forma que vai escrever seu código...</p>
-                                    <p class="read-more"><a href="http://curso-r.com/blog/2017/03/19/2017-03-14-parallel/" class="btn btn-template-main">Continue lendo</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                        
-                        <section class="post">
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <div class="image">
-                                      <a href="http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/">
-                                          
-                                          <img src="http://curso-r.com/img/banners/quartis.png" class="img-responsive" alt="">
-                                          
-                                      </a>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h2><a href="http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/">Medidas-resumo no tidyverse</a></h2>
-                                    <div class="clearfix">
-                                        <p class="author-category">
-                                          
-                                          Por 
-                                            
-                                              
-                                                <a href="http://curso-r.com/author/julio">Julio</a>
-                                            
-                                          
-                                          
-                                          
-                                          em <a href="http://curso-r.com/categories/tutoriais">tutoriais</a>
-                                          
-                                          
-
-                                        </p>
-                                        <p class="date-comments">
-                                            <a href="http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/"><i class="fa fa-calendar-o"></i> 11/03/2017</a>
-                                        </p>
-                                    </div>
-                                    <p class="intro">Hoje estava fazendo uma análise exploratória e precisava estudar os quartis de uma variável contínua. A solução usando o tidyverse é tão elegante que valeu um post no blog.</p>
-                                    <p class="read-more"><a href="http://curso-r.com/blog/2017/03/11/2017-02-20-quartis/" class="btn btn-template-main">Continue lendo</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                        
-                        <section class="post">
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <div class="image">
-                                      <a href="http://curso-r.com/blog/2017/03/09/2017-02-21-regressao-heterocedastica/">
-                                          
-                                          <img src="http://curso-r.com/img/banners/banner-variancia-normal.png" class="img-responsive" alt="">
-                                          
-                                      </a>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h2><a href="http://curso-r.com/blog/2017/03/09/2017-02-21-regressao-heterocedastica/">Modelando a variância da normal</a></h2>
-                                    <div class="clearfix">
-                                        <p class="author-category">
-                                          
-                                          Por 
-                                            
-                                              
-                                                <a href="http://curso-r.com/author/fernando">Fernando</a>
-                                            
-                                          
-                                          
-                                          
-                                          em <a href="http://curso-r.com/categories/tutoriais">tutoriais</a>
-                                          
-                                          
-
-                                        </p>
-                                        <p class="date-comments">
-                                            <a href="http://curso-r.com/blog/2017/03/09/2017-02-21-regressao-heterocedastica/"><i class="fa fa-calendar-o"></i> 09/03/2017</a>
-                                        </p>
-                                    </div>
-                                    <p class="intro">Verificar as suposições dos modelos é muito importante quando fazemos inferência estatística. Em particular, a suposição de homocedasticidade dos modelos de regressão linear é especialmente importante, pois influencia o cálculo de erros padrão, intervalos de confiança e valores-p. Neste post, vou mostrar três pacotes do R que ajustam modelos de regressão linear heterocedastica.</p>
-                                    <p class="read-more"><a href="http://curso-r.com/blog/2017/03/09/2017-02-21-regressao-heterocedastica/" class="btn btn-template-main">Continue lendo</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                        
-                        <section class="post">
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <div class="image">
-                                      <a href="http://curso-r.com/blog/2017/03/01/2017-02-21-markercluster/">
-                                          
-                                          <img src="http://curso-r.com/img/banners/markercluster.png" class="img-responsive" alt="">
-                                          
-                                      </a>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h2><a href="http://curso-r.com/blog/2017/03/01/2017-02-21-markercluster/">leaflet com markerCluster</a></h2>
-                                    <div class="clearfix">
-                                        <p class="author-category">
-                                          
-                                          Por 
-                                            
-                                              
-                                                <a href="http://curso-r.com/author/julio">Julio</a>
-                                            
-                                          
-                                          
-                                          
-                                          em <a href="http://curso-r.com/categories/tutoriais">tutoriais</a>
-                                          
-                                          
-
-                                        </p>
-                                        <p class="date-comments">
-                                            <a href="http://curso-r.com/blog/2017/03/01/2017-02-21-markercluster/"><i class="fa fa-calendar-o"></i> 01/03/2017</a>
-                                        </p>
-                                    </div>
-                                    <p class="intro">O leaflet é uma biblioteca javascript para criação de mapas interativos. O pacote leaflet do R é um htmlwidget que permite gerar esses mapas de forma direta no R, para usar em documentos `RMarkdown` e Shiny.</p>
-                                    <p class="read-more"><a href="http://curso-r.com/blog/2017/03/01/2017-02-21-markercluster/" class="btn btn-template-main">Continue lendo</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                        
-                        <section class="post">
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <div class="image">
-                                      <a href="http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/">
-                                          
-                                          <img src="http://curso-r.com/img/banners/ggalt.png" class="img-responsive" alt="">
-                                          
-                                      </a>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h2><a href="http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/">Pacote ggalt</a></h2>
-                                    <div class="clearfix">
-                                        <p class="author-category">
-                                          
-                                          Por 
-                                            
-                                              
-                                                <a href="http://curso-r.com/author/julio">Julio</a>
-                                            
-                                          
-                                          
-                                          
-                                          em <a href="http://curso-r.com/categories/tutoriais">tutoriais</a>
-                                          
-                                          
-
-                                        </p>
-                                        <p class="date-comments">
-                                            <a href="http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/"><i class="fa fa-calendar-o"></i> 18/02/2017</a>
-                                        </p>
-                                    </div>
-                                    <p class="intro">O pacote `ggalt` é uma extensão ao `ggplot2` que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência.</p>
-                                    <p class="read-more"><a href="http://curso-r.com/blog/2017/02/18/2017-02-18-ggalt/" class="btn btn-template-main">Continue lendo</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                        
-
-                        <ul class="pager">
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          
+                            Por 
                             
-                            <li class="previous"><a href="http://curso-r.com//categories/tutoriais/page/2/">&larr; Mais Novos</a></li>
                             
+                              
+                                <a href="http://curso-r.com/author/daniel">Daniel</a>
+                            
+                            
+                          
+                          
+                          27/10/2017
+                        </p>
+                        
+                        <div id="post-content">
+                          <p>O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrtura dos seus dados pode afetar a forma que você fará a sua análise.</p>
+<p>Para começar, vamos relemebrar o que é <em>tidy data</em> para depois seguir ao ponto do post.</p>
+<div id="tidy-data" class="section level1">
+<h1>Tidy Data</h1>
+<p>Tidy data é um conceito introduzido pelo Hadley Wickham <a href="https://www.jstatsoft.org/article/view/v059i10/v59i10.pdf">neste paper</a>.</p>
+<p>Esse paper é, para mim, o melhor artigo do Hadley. A primeira frase da definição cita Tolstoy e diz:</p>
+<blockquote>
+<p>Like families, tidy datasets are all alike but every messy dataset is messy in its own way.</p>
+</blockquote>
+<p>Essa frase resume a vida de qualquer um que trabalha ou já trabalhou com análise de dados. O ponto mais importante do que significa <em>tidy data</em> também está neste primeiro parágrafo: são datasets em que a estrutura dos dados está ligada padronizadamente com o seu significado. A forma padronizada é:</p>
+<ol style="list-style-type: decimal">
+<li>Cada variável é uma coluna de uma tabela</li>
+<li>Cada observação é uma linha de uma tabela</li>
+<li>Cada tipo de unidade observacional forma uma tabela</li>
+</ol>
+<p>O exemplo cássico é o seguinte. Primeiro vamos ver um banco de dados <em>desarrumado</em>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Pais</th>
+<th align="right">Idh2015</th>
+<th align="right">Idh2014</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Brasil</td>
+<td align="right">0.754</td>
+<td align="right">0.755</td>
+</tr>
+<tr class="even">
+<td align="left">Argentina</td>
+<td align="right">0.827</td>
+<td align="right">0.836</td>
+</tr>
+<tr class="odd">
+<td align="left">Chile</td>
+<td align="right">0.847</td>
+<td align="right">0.832</td>
+</tr>
+</tbody>
+</table>
+<p>Esse dataset está <em>desarrumado</em> pois existem duas colunas <strong>Idh2015</strong> e <strong>Idh2014</strong> que representam a mesma variável: <strong>IDH</strong> e uma variável implícita <strong>ANO</strong>, que também aparece nesta duas colunas. A forma <em>tidy</em> de representar este dataset seria:</p>
+<pre><code>## Loading tidyverse: ggplot2
+## Loading tidyverse: tibble
+## Loading tidyverse: tidyr
+## Loading tidyverse: readr
+## Loading tidyverse: purrr
+## Loading tidyverse: dplyr</code></pre>
+<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
+<pre><code>## filter(): dplyr, stats
+## lag():    dplyr, stats</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Pais</th>
+<th align="right">ano</th>
+<th align="right">idh</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Brasil</td>
+<td align="right">2015</td>
+<td align="right">0.754</td>
+</tr>
+<tr class="even">
+<td align="left">Argentina</td>
+<td align="right">2015</td>
+<td align="right">0.827</td>
+</tr>
+<tr class="odd">
+<td align="left">Chile</td>
+<td align="right">2015</td>
+<td align="right">0.847</td>
+</tr>
+<tr class="even">
+<td align="left">Brasil</td>
+<td align="right">2014</td>
+<td align="right">0.755</td>
+</tr>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="right">2014</td>
+<td align="right">0.836</td>
+</tr>
+<tr class="even">
+<td align="left">Chile</td>
+<td align="right">2014</td>
+<td align="right">0.832</td>
+</tr>
+</tbody>
+</table>
+<div id="o-que-isso-tem-a-ver-com" class="section level2">
+<h2>O que isso tem a ver com …</h2>
+<p>… teste t-pareado ou com modelos mistos?</p>
+<p>Suponha que queremos inferir se houve alguma mudança na média do IDH de um ano para o outro. Ou seja testar se a média do IDH de 2015 é diferente da média do IDH de 2014. Vamos considerar um banco de dados simulado:</p>
+<pre class="r"><code>set.seed(10201)
+library(tidyverse)
+df &lt;- data_frame(
+  Pais = paste0(&quot;pais&quot;, 1:50),
+  Idh2014 = runif(50),
+  Idh2015 = Idh2014 + rnorm(50, mean = 0.1, sd = 0.025)
+)</code></pre>
+<p>Uma forma de fazer isso é usar o teste t pareado que é ensinado nos cursos introdutórios de estatística. Basicamente o que ele faz é testar se a média da diferença entre o IDH2015 e o IDH 2014 é diferente de zero. Isso é diferente de um teste T usual, pois o teste t pareado ajusta o seu cálculo da variância para considerar que existem duas fontes de incerteza.</p>
+<p>No R a forma mais natural de fazer isso é:</p>
+<pre class="r"><code>teste &lt;- t.test(df$Idh2015, df$Idh2014, paired=TRUE)</code></pre>
+<p>Note que o nosso banco de dados está <em>desarrumado</em> e mesmo assim foi muito simples fazer esse teste no R. Agora vamos arrumar o banco de dados.</p>
+<pre class="r"><code>df &lt;- df %&gt;%
+  gather(ano, idh, -Pais) %&gt;%
+  mutate(ano = parse_number(ano))</code></pre>
+<p>Agora para fazer o mesmo teste, poderíamos filtrar o banco de dados duas vezes, por exemplo:</p>
+<pre class="r"><code>t.test(df$idh[df$ano == 2015], df$idh[df$ano == 2014], paired = TRUE)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  df$idh[df$ano == 2015] and df$idh[df$ano == 2014]
+## t = 27.355, df = 49, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.09000554 0.10427822
+## sample estimates:
+## mean of the differences 
+##              0.09714188</code></pre>
+<p>Mas aí estamos voltando para a forma desarrumada para fazer o teste. Outra forma de fazer é considerar essa comparação de médias como um problema de regressão em que a suposição independência das observações não é válida, uma vez que dado um pais, com certeza existe relação entre o idh de 2014 e de 2015.</p>
+<p>Vamos ajustar um modelo com efeitos aleatórios para esse problema e comparar os resultados.</p>
+<pre class="r"><code>library(nlme)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;nlme&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     collapse</code></pre>
+<pre class="r"><code>model &lt;- lme(idh ~ as.factor(ano), random = ~1|Pais, data = df)
+summary(model)</code></pre>
+<pre><code>## Linear mixed-effects model fit by REML
+##  Data: df 
+##         AIC       BIC   logLik
+##   -184.7518 -174.4119 96.37588
+## 
+## Random effects:
+##  Formula: ~1 | Pais
+##         (Intercept)   Residual
+## StdDev:   0.3009017 0.01775584
+## 
+## Fixed effects: idh ~ as.factor(ano) 
+##                        Value  Std.Error DF  t-value p-value
+## (Intercept)        0.4840132 0.04262795 49 11.35436       0
+## as.factor(ano)2015 0.0971419 0.00355117 49 27.35491       0
+##  Correlation: 
+##                    (Intr)
+## as.factor(ano)2015 -0.042
+## 
+## Standardized Within-Group Residuals:
+##         Min          Q1         Med          Q3         Max 
+## -1.88877770 -0.44544521 -0.01239249  0.39934207  1.84475543 
+## 
+## Number of Observations: 100
+## Number of Groups: 50</code></pre>
+<p>Estamos interessados em comparar a significância do efeito fixo da variável ano nesse modelo com a do teste t-pareado. Veja que no caso a estatística T do testes é idêntica: 27.35.</p>
+<p>Vimos que a forma como os dados estão estruturados no seu banco de dados pode influenciar a técnica utilizada para a sua análise. Se ele estivesse na forma <em>desarrumada</em> o mais natural seria aplicar um teste t pareado, se ele estivesse em formado <em>tidy</em> o natural seria usar um modelo misto. No seu paper, Hadley argumenta que a maioria dos softwares esperam que o seu banco de dados esteja <em>arrumado</em> no sentido de que cada variável é uma coluna e cada observação é uma linha.</p>
+</div>
+</div>
 
-                            
-                            <li class="next disabled"><a href="#">Mais Antigos &rarr;</a></li>
-                            
-                        </ul>
+                        </div>
+                        
+                         <div class="addthis_inline_share_toolbox"></div>
+                        
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'curso-r-com';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/10\/27\/2017-10-27-tidy-data-mixed-models\/';
+    var disqus_title = 'Tidy Data, Teste T Pareado e Modelos Mistos';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/10\/27\/2017-10-27-tidy-data-mixed-models\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
                     </div>
                     
 
@@ -796,14 +709,14 @@
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/incompany/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
         
@@ -824,6 +737,7 @@
 
                 </div>
                 
+
             </div>
             
         </div>
