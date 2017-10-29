@@ -3,15 +3,10 @@ title: "Tidy Data, Teste T Pareado e Modelos Mistos"
 date: "2017-10-27T10:12:00+03:00"
 tags: ["curso-r"]
 categories: ["r"]
-banner: "img/banners/amostra-estat.jpg"
+banner: "img/banners/banner-tidy-data.png"
 author: ["Daniel"]
 summary: "O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrtura dos seus dados pode afetar a forma que você fará a sua análise."
-draft: true
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = F, comment = FALSE)
-```
 
 O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrtura dos seus dados pode afetar a forma que você fará a sua análise.
 
