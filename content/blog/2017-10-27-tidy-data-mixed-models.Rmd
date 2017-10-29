@@ -39,7 +39,7 @@ knitr::kable(df)
 
 Esse dataset está *desarrumado* pois existem duas colunas **Idh2015** e **Idh2014** que representam a mesma variável: **IDH** e uma variável implícita **ANO**, que também aparece nesta duas colunas. A forma *tidy* de representar este dataset seria:
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 df %>%
   gather(ano, idh, -Pais) %>%
@@ -95,7 +95,7 @@ Outra forma de fazer é considerar essa comparação de médias como um problema
 
 Vamos ajustar um modelo com efeitos aleatórios para esse problema e comparar os resultados.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(nlme)
 model <- lme(idh ~ as.factor(ano), random = ~1|Pais, data = df)
 summary(model)
