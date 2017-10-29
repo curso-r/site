@@ -5,10 +5,10 @@ tags: ["curso-r"]
 categories: ["r"]
 banner: "img/banners/banner-tidy-data.png"
 author: ["Daniel"]
-summary: "O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrtura dos seus dados pode afetar a forma que você fará a sua análise."
+summary: "O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrutura dos seus dados pode afetar a forma que você fará a sua análise."
 ---
 
-O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrtura dos seus dados pode afetar a forma que você fará a sua análise.
+O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrutura dos seus dados pode afetar a forma que você fará a sua análise.
 
 Para começar, vamos relemebrar o que é *tidy data* para depois seguir ao ponto do post.
 
@@ -56,7 +56,7 @@ Suponha que queremos inferir se houve alguma mudança na média do IDH de um ano
 Ou seja testar se a média do IDH de 2015 é diferente da média do IDH de 2014.
 Vamos considerar um banco de dados simulado:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 set.seed(10201)
 library(tidyverse)
 df <- data_frame(

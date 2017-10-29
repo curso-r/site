@@ -18,7 +18,7 @@
       <pubDate>Fri, 27 Oct 2017 10:12:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/10/27/2017-10-27-tidy-data-mixed-models/</guid>
-      <description>O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrtura dos seus dados pode afetar a forma que você fará a sua análise.
+      <description>O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrutura dos seus dados pode afetar a forma que você fará a sua análise.
 Para começar, vamos relemebrar o que é tidy data para depois seguir ao ponto do post.
 Tidy Data Tidy data é um conceito introduzido pelo Hadley Wickham neste paper.
 Esse paper é, para mim, o melhor artigo do Hadley.</description>
