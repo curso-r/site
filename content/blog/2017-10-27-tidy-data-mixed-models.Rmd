@@ -16,7 +16,7 @@ Para começar, vamos relemebrar o que é *tidy data* para depois seguir ao ponto
 
 Tidy data é um conceito introduzido pelo Hadley Wickham [neste paper](https://www.jstatsoft.org/article/view/v059i10/v59i10.pdf).
 
-Esse paper é, para mim, o melhor artigo do Hadley. A primeira frase da definição cita Tolstoy e diz:
+Esse paper é, para mim, o melhor artigo do Hadley. A primeira frase da definição cita Tolstói e diz:
 
 > Like families, tidy datasets are all alike but every messy dataset is messy in its own way.
 
@@ -66,8 +66,7 @@ df <- data_frame(
 )
 ```
 
-Uma forma de fazer isso é usar o teste t pareado que é ensinado nos cursos introdutórios de
-estatística. Basicamente o que ele faz é testar se a média da diferença entre o IDH2015 e o IDH 2014 é diferente de zero. Isso é diferente de um teste T usual, pois o teste t pareado ajusta o seu cálculo da variância para considerar que existem duas fontes de incerteza.
+Uma forma de fazer isso é usar o teste t pareado que é ensinado nos cursos introdutórios de estatística. Basicamente o que ele faz é testar se a média da diferença entre o IDH2015 e o IDH 2014 é diferente de zero. Isso é diferente de um teste T usual, pois o teste t pareado ajusta o seu cálculo da variância para considerar que existem duas fontes de incerteza.
 
 No R a forma mais natural de fazer isso é:
 
@@ -86,7 +85,7 @@ df <- df %>%
 
 Agora para fazer o mesmo teste, poderíamos filtrar o banco de dados duas vezes, por exemplo:
 
-```{r}
+```{r, comment=''}
 t.test(df$idh[df$ano == 2015], df$idh[df$ano == 2014], paired = TRUE)
 ```
 
@@ -95,7 +94,7 @@ Outra forma de fazer é considerar essa comparação de médias como um problema
 
 Vamos ajustar um modelo com efeitos aleatórios para esse problema e comparar os resultados.
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, comment=''}
 library(nlme)
 model <- lme(idh ~ as.factor(ano), random = ~1|Pais, data = df)
 summary(model)
