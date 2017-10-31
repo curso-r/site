@@ -283,25 +283,23 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 16 x 4
-##        nome sobrenome dupe_count variavel_importante
-##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos   Damiani          5          0.60732305
-##  2    Athos   Damiani          5         -0.30804192
-##  3    Athos   Damiani          5         -0.72249090
-##  4    Athos   Damiani          5         -1.37137496
-##  5    Athos   Damiani          5          0.05117791
-##  6   Daniel  Trecenti          2         -0.46751488
-##  7   Daniel  Trecenti          2         -0.59028549
-##  8 Fernando    Falbel          2         -0.23528809
-##  9 Fernando    Falbel          2          1.08441992
-## 10    Julio   Damiani          2          0.27133933
-## 11    Julio   Damiani          2          0.05325086
-## 12  William   Damiani          3          0.73191577
-## 13  William   Damiani          3          0.03111940
-## 14  William   Damiani          3         -0.27961645
-## 15  William  Trecenti          2          0.26238716
-## 16  William  Trecenti          2         -0.35542797</code></pre>
+## # A tibble: 14 x 4
+##       nome sobrenome dupe_count variavel_importante
+##      &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
+##  1   Athos   Damiani          2           1.0695505
+##  2   Athos   Damiani          2           0.4300801
+##  3  Daniel    Corrêa          3           0.1974513
+##  4  Daniel    Corrêa          3           1.2300541
+##  5  Daniel    Corrêa          3           0.3561634
+##  6  Daniel   Damiani          3          -0.7049378
+##  7  Daniel   Damiani          3          -0.3219994
+##  8  Daniel   Damiani          3          -0.7965766
+##  9   Julio    Corrêa          2           0.4119727
+## 10   Julio    Corrêa          2          -0.5131748
+## 11 William    Amorim          4          -0.9363288
+## 12 William    Amorim          4           2.6383255
+## 13 William    Amorim          4           0.4564337
+## 14 William    Amorim          4          -1.7836394</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
