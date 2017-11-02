@@ -283,23 +283,24 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 14 x 4
+## # A tibble: 15 x 4
 ##        nome sobrenome dupe_count variavel_importante
 ##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1    Athos    Amorim          2        -0.266539538
-##  2    Athos    Amorim          2        -0.125585776
-##  3    Athos    Corrêa          2         0.911752983
-##  4    Athos    Corrêa          2        -0.440406418
-##  5 Fernando   Damiani          2         1.154996774
-##  6 Fernando   Damiani          2         0.518377044
-##  7 Fernando    Falbel          2         0.841744574
-##  8 Fernando    Falbel          2         0.076284607
-##  9    Julio    Corrêa          2         1.009030595
-## 10    Julio    Corrêa          2        -0.838460994
-## 11    Julio    Falbel          2        -0.660083351
-## 12    Julio    Falbel          2         0.140650017
-## 13  William    Falbel          2        -0.004832399
-## 14  William    Falbel          2         0.494217203</code></pre>
+##  1    Athos    Amorim          2         -0.45793690
+##  2    Athos    Amorim          2          0.05866828
+##  3    Athos    Corrêa          3         -0.70331105
+##  4    Athos    Corrêa          3         -0.35147207
+##  5    Athos    Corrêa          3         -0.56753698
+##  6    Athos   Damiani          2          1.57199904
+##  7    Athos   Damiani          2         -0.88478304
+##  8    Athos    Falbel          4          2.62757508
+##  9    Athos    Falbel          4         -0.68172124
+## 10    Athos    Falbel          4         -0.18331668
+## 11    Athos    Falbel          4         -2.21021990
+## 12   Daniel  Trecenti          2          2.97085560
+## 13   Daniel  Trecenti          2          0.92480490
+## 14 Fernando   Damiani          2         -0.66685646
+## 15 Fernando   Damiani          2          1.85187027</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
