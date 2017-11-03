@@ -18,13 +18,13 @@ Remotes:
     abjur/abjData,
     tiagomendesdantas/Rspotify,
     tidyverse/glue,
-    hadley/colformat,
     ropenscilabs/skimr,
     decryptr/decryptr,
     hadley/emo,
     athospd/tidywoe,
     leeper/meme,
-    abjur/brcrimR
+    abjur/brcrimR,
+    r-lib/pillar@065c65811afee78903b94d3b4640a282a5d04cee
 Imports:
     quadprog,
     stringr,
@@ -75,7 +75,6 @@ Imports:
     benford.analysis,
     pdftools,
     skimr,
-    colformat,
     decryptr,
     randomForest,
     emo,
@@ -85,5 +84,6 @@ Imports:
     janitor,
     adagio,
     meme,
-    brcrimR
+    brcrimR,
+    pillar
 RoxygenNote: 6.0.1
