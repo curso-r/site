@@ -23,8 +23,7 @@ Remotes:
     hadley/emo,
     athospd/tidywoe,
     leeper/meme,
-    abjur/brcrimR,
-    r-lib/pillar@065c65811afee78903b94d3b4640a282a5d04cee
+    abjur/brcrimR
 Imports:
     quadprog,
     stringr,
@@ -84,6 +83,5 @@ Imports:
     janitor,
     adagio,
     meme,
-    brcrimR,
-    pillar
+    brcrimR
 RoxygenNote: 6.0.1
