@@ -1,12 +1,12 @@
 ---
 title: "Estatística e Música"
-date: "2017-08-27T23:26:00+03:00"
+date: "2017-11-03T23:26:00+03:00"
 tags: ["musica"]
 categories: ["analises", "r"]
 banner: "img/banners/music01.jpg"
 author: ["Julio"]
-summary: ""
-draft: true
+summary: "Já pensou em juntar estatística e música? Nessa série de posts mostro como estou pensando em fazer isso e os pacotes que vou criar nessa jornada..."
+draft: false
 ---
 
 ```{r eval=FALSE, echo=FALSE}
@@ -25,12 +25,12 @@ image_join(im1, im2) %>%
 ```
 
 ```{r echo=FALSE}
-knitr::opts_chunk$set(echo = TRUE, collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 > Para quem está esperando posts sobre captchas, esperem mais um pouquinho `r emo::ji("happy")`. Em novembro voltarei a postar sobre esse assunto.
 
-Nos dias xx a xx de setembro de 2017, participei do [16th Symposium on Computer Music](http://compmus.ime.usp.br/sbcm/2017), organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.
+Em setembro de 2017, participei do [16th Symposium on Computer Music](http://compmus.ime.usp.br/sbcm/2017), organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.
 
 Uma das formas que usarei para aprender os métodos e estudar os conceitos será esse blog! Assim vocês poderão acompanhar meus avanços e propor ideias para colaborar com meus trabalhos. Pretendo desenvolver tanto modelos estatísticos e programação quanto teoria musical.
 
@@ -44,24 +44,23 @@ Até o momento, tenho três posts planejados ou prontos:
 
 Apesar da minha falta de conhecimento sobre o tema, acredito que a área de computação musical pode ser resumida em três frentes:
 
-**Leitura**: extrair dados estruturados dos áudios.
-    - *Music Information Retrieval* - MIR
+**Leitura**: extrair dados estruturados dos áudios. Envolve *Music Information Retrieval* - MIR
 
-```{r, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics('img/music-download.png')
 ```
 
 
 **Composição**: Criar ou completar músicas automaticamente
 
-```{r, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics('img/music-generate.png')
 ```
 
 
 **Edição**: Adicionar efeitos na música para produção
 
-```{r, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics('img/music-transform.png')
 ```
 
@@ -85,7 +84,7 @@ sudo pip install music21
 
 Em outros sistemas opetacionais, veja a [documentação oficial](http://web.mit.edu/music21/) da biblioteca.
 
-Para instalar o pacote `music21` é necessário rodar
+Eu tenho o péssimo hábito de não subir meus pacotes para o CRAN. Mas prometo que esse vou subir e manter. Por enquanto, para instalar o pacote `music21` é necessário rodar
 
 ```{r eval=FALSE}
 devtools::install_github("jtrecenti/music21")
@@ -158,7 +157,9 @@ No RStudio, você pode usar a função `view()` para visualizar a música em mel
 bach_music[[1]]
 ```
 
+Por enquanto vou acabar por aqui. Convido vocês a usar o `music21` e experimentar suas funcionalidades. Adicionem issues em https://github.com/jtrecenti/music21/issues e mandem pergundas nos comentários.
 
+É isso! Happy coding ;)
 
 
 
