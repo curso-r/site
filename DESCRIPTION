@@ -16,10 +16,10 @@ LazyData: true
 Remotes:
     rstudio/blogdown,
     abjur/abjData,
+    decryptr/decryptr,
     tiagomendesdantas/Rspotify,
     tidyverse/glue,
     ropenscilabs/skimr,
-    decryptr/decryptr,
     hadley/emo,
     athospd/tidywoe,
     leeper/meme,
