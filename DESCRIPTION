@@ -23,7 +23,8 @@ Remotes:
     hadley/emo,
     athospd/tidywoe,
     leeper/meme,
-    abjur/brcrimR
+    abjur/brcrimR,
+    jtrecenti/music21
 Imports:
     quadprog,
     stringr,
@@ -83,5 +84,6 @@ Imports:
     janitor,
     adagio,
     meme,
-    brcrimR
+    brcrimR,
+    music21
 RoxygenNote: 6.0.1
