@@ -16,7 +16,6 @@ LazyData: true
 Remotes:
     rstudio/blogdown,
     abjur/abjData,
-    decryptr/decryptr,
     tiagomendesdantas/Rspotify,
     tidyverse/glue,
     ropenscilabs/skimr,
@@ -75,7 +74,6 @@ Imports:
     benford.analysis,
     pdftools,
     skimr,
-    decryptr,
     randomForest,
     emo,
     ggforce,
