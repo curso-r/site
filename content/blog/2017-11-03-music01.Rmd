@@ -110,11 +110,10 @@ library(music21)
 music21
 ```
 
-`music21` object stores the python module. It is possible to run any function from it just by using `$`, treating it as a Reference Class object.
 
 O objeto `music21` é um módulo do python. Com ele é possível rodar qualquer função do pacote usando `$`, tratando o objeto como uma [Reference Class](http://adv-r.had.co.nz/R5.html).
 
-```{r, results="asis"}
+```{r}
 note <- music21$note$Note("C#")
 note
 ```
@@ -153,11 +152,26 @@ No RStudio, você pode usar a função `view()` para visualizar a música em mel
 
 ### Imprimindo *bwv165.6* (só o soprano)
 
+Para visualizar as notas de uma música basta rodar o objeto no console. A música é organizada por Measures (compassos) e cada compasso vai mostrar seus componentes. No primeiro compasso, podemos ver a clave de sol (TrebleClef), as definições do tom (sol maior) e do tempo (4/4). Nos demais, observamos as notas e os temos associados a cada nota. Por exemplo, temos uma nota F# no primeiro tempo.
+
 ```{r}
 bach_music[[1]]
 ```
 
-Por enquanto vou acabar por aqui. Convido vocês a usar o `music21` e experimentar suas funcionalidades. Adicionem issues em https://github.com/jtrecenti/music21/issues e mandem pergundas nos comentários.
+Você pode tratar esse objeto como uma lista. Se você entrar numa nota, você poderá ver algumas características dela
+
+```{r}
+# Nota F#
+bach_music[[1]][[2]][[3]]
+
+# duração da nota
+bach_music[[1]][[2]][[3]]$duration
+
+# som exato
+bach_music[[1]][[2]][[3]]$pitch
+```
+
+Por enquanto vou acabar por aqui. Convido vocês a usarem o `music21` e experimentar suas funcionalidades. Adicionem issues em https://github.com/jtrecenti/music21/issues e mandem pergundas nos comentários.
 
 É isso! Happy coding ;)
 
