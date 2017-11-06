@@ -46,21 +46,21 @@ Apesar da minha falta de conhecimento sobre o tema, acredito que a área de comp
 
 **Leitura**: extrair dados estruturados dos áudios. Envolve *Music Information Retrieval* - MIR
 
-```{r, echo=FALSE, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='40%', fig.align='center'}
 knitr::include_graphics('/blog/img/music-download.png')
 ```
 
 
 **Composição**: Criar ou completar músicas automaticamente
 
-```{r, echo=FALSE, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='40%', fig.align='center'}
 knitr::include_graphics('/blog/img/music-generate.png')
 ```
 
 
 **Edição**: Adicionar efeitos na música para produção
 
-```{r, echo=FALSE, out.width='80%', fig.align='center'}
+```{r, echo=FALSE, out.width='40%', fig.align='center'}
 knitr::include_graphics('/blog/img/music-transform.png')
 ```
 
