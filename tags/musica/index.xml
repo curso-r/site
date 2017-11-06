@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Musica on Curso-R</title>
+    <link>http://curso-r.com/tags/musica/</link>
+    <description>Recent content in Musica on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Fri, 03 Nov 2017 23:26:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/musica/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Estatística e Música</title>
+      <link>http://curso-r.com/blog/2017/11/03/2017-11-03-music01/</link>
+      <pubDate>Fri, 03 Nov 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/11/03/2017-11-03-music01/</guid>
+      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 🙋🏽. Em novembro voltarei a postar sobre esse assunto.
+ Em setembro de 2017, participei do 16th Symposium on Computer Music, organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.
+Uma das formas que usarei para aprender os métodos e estudar os conceitos será esse blog!</description>
+    </item>
+    
+  </channel>
+</rss>
