@@ -188,7 +188,7 @@
                         
                         <div id="post-content">
                           <blockquote>
-<p>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 🙋🏽. Em novembro voltarei a postar sobre esse assunto.</p>
+<p>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 🙋🏼. Em novembro voltarei a postar sobre esse assunto.</p>
 </blockquote>
 <p>Em setembro de 2017, participei do <a href="http://compmus.ime.usp.br/sbcm/2017">16th Symposium on Computer Music</a>, organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.</p>
 <p>Uma das formas que usarei para aprender os métodos e estudar os conceitos será esse blog! Assim vocês poderão acompanhar meus avanços e propor ideias para colaborar com meus trabalhos. Pretendo desenvolver tanto modelos estatísticos e programação quanto teoria musical.</p>
@@ -202,11 +202,11 @@
 <h2>Computação musical numa casca de noz</h2>
 <p>Apesar da minha falta de conhecimento sobre o tema, acredito que a área de computação musical pode ser resumida em três frentes:</p>
 <p><strong>Leitura</strong>: extrair dados estruturados dos áudios. Envolve <em>Music Information Retrieval</em> - MIR</p>
-<p><img src="http://curso-r.com/blog/img/music-download.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="http://curso-r.com/blog/img/music-download.png" width="40%" style="display: block; margin: auto;" /></p>
 <p><strong>Composição</strong>: Criar ou completar músicas automaticamente</p>
-<p><img src="http://curso-r.com/blog/img/music-generate.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="http://curso-r.com/blog/img/music-generate.png" width="40%" style="display: block; margin: auto;" /></p>
 <p><strong>Edição</strong>: Adicionar efeitos na música para produção</p>
-<p><img src="http://curso-r.com/blog/img/music-transform.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="http://curso-r.com/blog/img/music-transform.png" width="40%" style="display: block; margin: auto;" /></p>
 <p>Meu foco será na parte de composição, com foco em harmonização, que significa criar e completar harmonias das músicas dado algum estilo (e.g. Bach ou Beatles). Também tentarei criar soluções de improviso, apesar de não garantir nada.</p>
 </div>
 <div id="music21" class="section level1">
@@ -232,11 +232,10 @@ sudo pip install music21</code></pre>
 <pre class="r"><code>library(music21)
 music21
 ## Module(music21)</code></pre>
-<p><code>music21</code> object stores the python module. It is possible to run any function from it just by using <code>$</code>, treating it as a Reference Class object.</p>
 <p>O objeto <code>music21</code> é um módulo do python. Com ele é possível rodar qualquer função do pacote usando <code>$</code>, tratando o objeto como uma <a href="http://adv-r.had.co.nz/R5.html">Reference Class</a>.</p>
 <pre class="r"><code>note &lt;- music21$note$Note(&quot;C#&quot;)
-note</code></pre>
-<p><music21.note.Note C#></p>
+note
+## &lt;music21.note.Note C#&gt;</code></pre>
 <pre class="r"><code>note %&gt;% 
   plot()</code></pre>
 <p><img src="http://curso-r.com/blog/2017-11-03-music01_files/figure-html/note-1.png" width="192" /></p>
@@ -267,6 +266,7 @@ note</code></pre>
 </div>
 <div id="imprimindo-bwv165.6-so-o-soprano" class="section level3">
 <h3>Imprimindo <em>bwv165.6</em> (só o soprano)</h3>
+<p>Para visualizar as notas de uma música basta rodar o objeto no console. A música é organizada por Measures (compassos) e cada compasso vai mostrar seus componentes. No primeiro compasso, podemos ver a clave de sol (TrebleClef), as definições do tom (sol maior) e do tempo (4/4). Nos demais, observamos as notas e os temos associados a cada nota. Por exemplo, temos uma nota F# no primeiro tempo.</p>
 <pre class="r"><code>bach_music[[1]]
 ## {0.0} &lt;music21.instrument.Instrument P1: Soprano: Instrument 1&gt;
 ## {0.0} &lt;music21.stream.Measure 0 offset=0.0&gt;
@@ -318,7 +318,19 @@ note</code></pre>
 ##     {0.0} &lt;music21.note.Note A&gt;
 ##     {2.0} &lt;music21.note.Note G&gt;
 ##     {3.0} &lt;music21.bar.Barline style=final&gt;</code></pre>
-<p>Por enquanto vou acabar por aqui. Convido vocês a usar o <code>music21</code> e experimentar suas funcionalidades. Adicionem issues em <a href="https://github.com/jtrecenti/music21/issues" class="uri">https://github.com/jtrecenti/music21/issues</a> e mandem pergundas nos comentários.</p>
+<p>Você pode tratar esse objeto como uma lista. Se você entrar numa nota, você poderá ver algumas características dela</p>
+<pre class="r"><code># Nota F#
+bach_music[[1]][[2]][[3]]
+## &lt;music21.note.Note F#&gt;
+
+# duração da nota
+bach_music[[1]][[2]][[3]]$duration
+## &lt;music21.duration.Duration 0.5&gt;
+
+# som exato
+bach_music[[1]][[2]][[3]]$pitch
+## F#4</code></pre>
+<p>Por enquanto vou acabar por aqui. Convido vocês a usarem o <code>music21</code> e experimentar suas funcionalidades. Adicionem issues em <a href="https://github.com/jtrecenti/music21/issues" class="uri">https://github.com/jtrecenti/music21/issues</a> e mandem pergundas nos comentários.</p>
 <p>É isso! Happy coding ;)</p>
 </div>
 </div>
@@ -673,19 +685,6 @@ note</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
@@ -694,6 +693,19 @@ note</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/incompany/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
         
