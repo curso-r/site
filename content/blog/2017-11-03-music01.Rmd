@@ -47,21 +47,21 @@ Apesar da minha falta de conhecimento sobre o tema, acredito que a área de comp
 **Leitura**: extrair dados estruturados dos áudios. Envolve *Music Information Retrieval* - MIR
 
 ```{r, echo=FALSE, out.width='80%', fig.align='center'}
-knitr::include_graphics('/blog/2017-11-03-music01/music-download.png')
+knitr::include_graphics('/blog/img/music-download.png')
 ```
 
 
 **Composição**: Criar ou completar músicas automaticamente
 
 ```{r, echo=FALSE, out.width='80%', fig.align='center'}
-knitr::include_graphics('/blog/2017-11-03-music01/music-generate.png')
+knitr::include_graphics('/blog/img/music-generate.png')
 ```
 
 
 **Edição**: Adicionar efeitos na música para produção
 
 ```{r, echo=FALSE, out.width='80%', fig.align='center'}
-knitr::include_graphics('/blog/2017-11-03-music01/music-transform.png')
+knitr::include_graphics('/blog/img/music-transform.png')
 ```
 
 Meu foco será na parte de composição, com foco em harmonização, que significa criar e completar harmonias das músicas dado algum estilo (e.g. Bach ou Beatles). Também tentarei criar soluções de improviso, apesar de não garantir nada.
