@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 03 Nov 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 11 Nov 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Aprendendo assuntos difíceis</title>
+      <link>http://curso-r.com/blog/2017/11/11/2017-11-11-preconceitos-no-aprendizado/</link>
+      <pubDate>Sat, 11 Nov 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/11/11/2017-11-11-preconceitos-no-aprendizado/</guid>
+      <description>Volta e meia eu escuto as famosas frases
+paste(&amp;quot;Eu sou de&amp;quot;, c(&amp;quot;Humanas&amp;quot;, &amp;quot;Exatas&amp;quot;, &amp;quot;Biológicas&amp;quot;)) ## [1] &amp;quot;Eu sou de Humanas&amp;quot; &amp;quot;Eu sou de Exatas&amp;quot; &amp;quot;Eu sou de Biológicas&amp;quot; de alguém tentando justificar por que não vai fazer alguma coisa.
+Muitas vezes, não passa de uma brincadeira na hora de dividir a conta do bar. Muitas outras, me soa como uma desculpa pronta para não encarar problemas complicados. Para mim, todo aprendizado é difícil, não acho que existe conhecimento de graça, então realmente importa se ele é de Humanas, Exatas ou Biológicas?</description>
+    </item>
     
     <item>
       <title>Estatística e Música</title>
@@ -18,7 +29,7 @@
       <pubDate>Fri, 03 Nov 2017 23:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/11/03/2017-11-03-music01/</guid>
-      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 😆. Em novembro voltarei a postar sobre esse assunto.
+      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 🙋🏼. Em novembro voltarei a postar sobre esse assunto.
  Em setembro de 2017, participei do 16th Symposium on Computer Music, organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.
 Uma das formas que usarei para aprender os métodos e estudar os conceitos será esse blog!</description>
     </item>

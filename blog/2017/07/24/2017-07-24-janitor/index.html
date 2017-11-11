@@ -283,24 +283,27 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
                         variavel_importante = rnorm(25))
 
 get_dupes(base_qualquer, nome, sobrenome)
-## # A tibble: 15 x 4
-##        nome sobrenome dupe_count variavel_importante
-##       &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1   Daniel    Corrêa          2           0.0413352
-##  2   Daniel    Corrêa          2          -1.0808051
-##  3   Daniel   Damiani          2           1.0708020
-##  4   Daniel   Damiani          2          -0.7779368
-##  5   Daniel  Trecenti          2           0.8600584
-##  6   Daniel  Trecenti          2          -1.1885312
-##  7 Fernando   Damiani          2           0.2043208
-##  8 Fernando   Damiani          2           0.3681021
-##  9    Julio    Amorim          3           1.2650801
-## 10    Julio    Amorim          3           0.1613568
-## 11    Julio    Amorim          3           1.1473108
-## 12    Julio    Corrêa          2           0.9086729
-## 13    Julio    Corrêa          2           1.0501261
-## 14    Julio    Falbel          2           0.3239514
-## 15    Julio    Falbel          2           0.8628400</code></pre>
+## # A tibble: 18 x 4
+##       nome sobrenome dupe_count variavel_importante
+##      &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
+##  1   Athos  Trecenti          2          1.63290043
+##  2   Athos  Trecenti          2         -0.78803847
+##  3  Daniel    Falbel          3          1.90784181
+##  4  Daniel    Falbel          3         -1.70839224
+##  5  Daniel    Falbel          3          0.06000342
+##  6   Julio    Amorim          2         -0.13085474
+##  7   Julio    Amorim          2         -0.39711768
+##  8   Julio    Corrêa          3          0.50860115
+##  9   Julio    Corrêa          3         -1.05317287
+## 10   Julio    Corrêa          3          0.53068347
+## 11   Julio    Falbel          3          0.28291005
+## 12   Julio    Falbel          3          1.89702108
+## 13   Julio    Falbel          3         -1.21391894
+## 14 William    Corrêa          2         -1.06732957
+## 15 William    Corrêa          2         -0.15710024
+## 16 William   Damiani          3         -0.37438634
+## 17 William   Damiani          3          0.41734272
+## 18 William   Damiani          3         -0.08668707</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -426,13 +429,13 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/categories/conceitos">conceitos (9)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/discuss%c3%b5es">discussões (2)</a>
+            <li><a href="http://curso-r.com/categories/discuss%c3%b5es">discussões (3)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (64)</a>
+            <li><a href="http://curso-r.com/categories/r">r (65)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
@@ -694,14 +697,14 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          
@@ -778,6 +781,19 @@ mtcars %&gt;%
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/11/11/2017-11-11-preconceitos-no-aprendizado/">
+                          
+                            <img src="http://curso-r.com/img/banners/studying-hard.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/11/11/2017-11-11-preconceitos-no-aprendizado/">Aprendendo assuntos difíceis</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/11/03/2017-11-03-music01/">
                           
                             <img src="http://curso-r.com/img/banners/music01.jpg" class="img-responsive" alt="">
@@ -799,19 +815,6 @@ mtcars %&gt;%
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/10/27/2017-10-27-tidy-data-mixed-models/">Tidy Data, Teste T Pareado e Modelos Mistos</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/10/19/2017-10-19-cursor-amostra/">
-                          
-                            <img src="http://curso-r.com/img/banners/amostra-estat.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/10/19/2017-10-19-cursor-amostra/">Curso-R na aMostra de Estatística 2017</a></h5>
                     </div>
                 </div>
                 
