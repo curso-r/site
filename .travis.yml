@@ -4,6 +4,7 @@ sudo: required
 
 before_install:
   - sudo pip install music21
+  - sudo pip install h5py
 
 addons:
   apt:
