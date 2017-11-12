@@ -108,6 +108,15 @@ image_read('~/Downloads/quebrando_captchas.png') %>%
                  color = 'black', location = '+10+210') %>% 
   image_write("static/img/banners/captcha_04.png")
 
+image_read('~/Downloads/quebrando_captchas.png') %>% 
+  image_border(color = 'white', geometry = '50x120') %>% 
+  image_noise() %>% 
+  image_annotate('#4', size = 80, font = 'ubuntu',
+                 location = '+300+10', color = 'red') %>% 
+  image_annotate('redes convolucionais na mão', size = 30, font = 'ubuntu',
+                 color = 'black', location = '+10+210') %>% 
+  image_write("static/img/banners/captcha_05.png")
+
 
 img2 <- image_read('~/Downloads/sp_bairros.png') %>% 
   image_scale("220x220")

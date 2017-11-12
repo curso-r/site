@@ -15,6 +15,7 @@ knitr::knit_hooks$set(
   no.mar = function() par(mar = c(0,0,0,0)),
   small.mar = function() par(mar = c(.1,.1,.1,.1))
 )
+load("captcha_conv_env.rda")
 ```
 
 Voltando aos saudosos captchas. Demorei para fazer esse post pois estava esperando o lançamento do [curso de redes neurais convolucionais do Andrew Ng](https://www.coursera.org/learn/convolutional-neural-networks). O curso foi muito bom, valeu à pena! E, como prometido, vamos agora trabalhar com modelagem dos captchas.
@@ -37,6 +38,7 @@ arq %>%
   plot()
 ```
 
+
 ```{r, fig.height=1, fig.width=3, echo=FALSE}
 library(decryptr)
 arq <- "img/captcha9202d1c210b.png"
@@ -47,11 +49,10 @@ arq %>%
 
 Também precisaremos de conhecimentos do pacote [`keras`](https://keras.rstudio.com/), um pacote maravilhoso feito pela turma do [RStudio](https://rstudio.com), com contribuições do [Daniel Falbel](http://curso-r.com/author/daniel/). Não esqueça de fazer o `tensorflow` funcionar na sua máquina! [Esse post](http://curso-r.com/blog/2017/06/08/2017-06-08-keras-no-ubuntu/) do [Athos Damiani](http://curso-r.com/author/athos/) pode ajudar.
 
-```{r}
+```{r eval=FALSE}
 # install.packages("keras")
 library(keras)
 ```
-
 
 Para os retoques finais, vamos usar o pacote `magick` para fazer algumas brincadeiras com as imagens. Meu intuito inicial era usar a função `image_convolve()` desse pacote, mas infelizmente essa operação é limitada. Então acabei usando apenas funções para juntar imagens e fazer gifs. Se quiser mais detalhes sobre o `magick`, veja o excelente post [A kind of magick](http://curso-r.com/blog/2017/06/01/2017-06-01-a-kind-of-magick/), feito pelo [William Amorim](http://curso-r.com/author/william/).
 
@@ -96,6 +97,7 @@ E considere essa imagem super complexa:
   image_read() %>% 
   plot()
 ```
+
 Na prática, essa imagem é isso aqui (tirei algumas colunas):
 
 ```{r}
@@ -274,9 +276,44 @@ Nosso super modelo de magia negra nada mais é do que isso: a aplicação consec
 
 Agora podemos ver nosso modelo atual da Receita Federal:
 
-```{r}
+```{r eval=FALSE}
 m <- decryptrModels::read_model("rfb")
 m$model
+```
+
+```
+Model
+____________________________________________________________________________________________________
+Layer (type)                                 Output Shape                            Param #        
+====================================================================================================
+conv2d_4 (Conv2D)                            (None, 50, 180, 12)                     312            
+____________________________________________________________________________________________________
+max_pooling2d_4 (MaxPooling2D)               (None, 25, 90, 12)                      0              
+____________________________________________________________________________________________________
+conv2d_5 (Conv2D)                            (None, 25, 90, 48)                      14448          
+____________________________________________________________________________________________________
+max_pooling2d_5 (MaxPooling2D)               (None, 12, 45, 48)                      0              
+____________________________________________________________________________________________________
+conv2d_6 (Conv2D)                            (None, 12, 45, 96)                      115296         
+____________________________________________________________________________________________________
+max_pooling2d_6 (MaxPooling2D)               (None, 6, 22, 96)                       0              
+____________________________________________________________________________________________________
+flatten_2 (Flatten)                          (None, 12672)                           0              
+____________________________________________________________________________________________________
+dense_3 (Dense)                              (None, 32)                              405536         
+____________________________________________________________________________________________________
+dropout_2 (Dropout)                          (None, 32)                              0              
+____________________________________________________________________________________________________
+dense_4 (Dense)                              (None, 210)                             6930           
+____________________________________________________________________________________________________
+reshape_2 (Reshape)                          (None, 6, 35)                           0              
+____________________________________________________________________________________________________
+activation_2 (Activation)                    (None, 6, 35)                           0              
+====================================================================================================
+Total params: 542,522
+Trainable params: 542,522
+Non-trainable params: 0
+____________________________________________________________________________________________________
 ```
 
 Nosso modelo aplica convolução 3 vezes consecutivas e faz algumas coisas que não entendemos. Explico agora:
@@ -303,24 +340,38 @@ No nosso caso, repetimos o passo 2 três vezes, aplicando três convoluções se
 
 Para obter os valores de kernels ajustados pelo modelo, podemos usar a função `get_weights()` do `keras`. Nessa primeira parte, utilizamos 12 kernels 5x5. 
 
-```{r warning=FALSE, message=FALSE}
+```{r warning=FALSE, message=FALSE, eval=FALSE}
 w <- keras::get_weights(m$model$layers[[1]])[[1]]
 w_list <- purrr::map(seq_len(dim(w)[4]), ~w[,,1,.x])
 bias <- keras::get_weights(m$model$layers[[1]])[[2]]
 w_list[[1]]
 ```
 
+```
+            [,1]        [,2]        [,3]        [,4]        [,5]
+[1,] -0.00889198  0.04569587  0.11906113  0.08591988 -0.09028889
+[2,] -0.05898214  0.20692091 -0.13479255 -0.15641896 -0.10511240
+[3,]  0.02517573 -0.63352644 -3.81658459 -4.39883375 -1.05918467
+[4,] -0.22003661 -1.80763698 -3.13373542 -1.73096466 -0.01640752
+[5,] -0.02915078 -0.11879896 -0.07475707  0.06014036  0.15733875
+```
+
+
 Os doze valores de `bias` estimados pelo modelo (um para cada matriz) são dados por
 
-```{r}
+```{r, eval=FALSE}
 round(bias, 3)
+```
+
+```
+[1]  0.150  0.013  0.181 -0.275  0.179  0.040 -0.128 -0.036  0.030  0.042  0.201  0.043
 ```
 
 Para cada matriz dessas doze, temos uma matriz convoluída. Essas matrizes são os resultados que a matriz entende serem úteis para prever o captcha.
 
 O código abaixo aplica `convolve()`, `add_bias()` e `relu()` em todos os . Se você não entende `purrr`, leia [este excelente post do Caio Lente](http://ctlente.com/pt/purrr-magic/).
 
-```{r, fig.height=2.5, fig.width=9}
+```{r, fig.height=2.5, fig.width=9, eval=FALSE}
 conv1 <- purrr::map2(w_list, bias, ~{
   arq %>% 
     load_image() %>% 
@@ -340,7 +391,7 @@ purrr::walk(conv1_img, plot)
 
 O gif animado abaixo mostra a aplicação do oitavo kernel da nossa lista. Com esse kernel dá pra pegar bem o padrão das letras, não é?
 
-```{r animacao, echo=FALSE}
+```{r animacao, echo=FALSE, eval=FALSE}
 convolve_image <- function(img, kern) {
   pad <- floor(dim(kern)[1] / 2)
   img_pad <- matrix(0, nrow = nrow(img) + 2 * pad, ncol = ncol(img) + 2 * pad)
@@ -395,7 +446,7 @@ max_pool <- function(img) {
 
 A aplicação da primeira convolução com max pooling é feita igual anteriormente:
 
-```{r}
+```{r eval=FALSE}
 result_conv1 <- purrr::map2(w_list, bias, ~{
   arq %>% 
     load_image() %>% 
@@ -424,11 +475,14 @@ Ao final da convolução, é como se tivéssemos uma nova imagem, menor e altera
 
 Os parâmetros da segunda convolução são obtidos novamente pelo `keras`. Sugiro que você dê uma olhada nesses índices para entender o que exatamente estamos pegando.
 
-```{r}
+```{r eval=FALSE}
 w2 <- keras::get_weights(m$model$layers[[3]])[[1]]
 bias2 <- keras::get_weights(m$model$layers[[3]])[[2]]
 
 dim(w2)
+```
+```
+[1]  5  5 12 48
 ```
 
 Agora temos `12 * 48` kernels 5x5 a serem aplicados. Precisamos:
@@ -441,7 +495,7 @@ Agora temos `12 * 48` kernels 5x5 a serem aplicados. Precisamos:
 
 Logo, temos 2 laços. O código para fazer isso fica assim:
 
-```{r}
+```{r eval=FALSE}
 result_conv2 <- purrr::map(1:dim(w2)[4], ~{
   kern <- w2[,,,.x] %>% 
     plyr::alply(3, identity) %>% 
@@ -468,16 +522,20 @@ Agora temos 48 canais de uma imagem com dimensões 12x45. Vamos em frente.
 
 A terceira convolução é feita de forma idêntica à segunda. A única diferença é que teremos no final 96 canais, pois estamos ajustando essa quantidade de kernels para cada canal.
 
-```{r}
+```{r eval=FALSE}
 w3 <- keras::get_weights(m$model$layers[[5]])[[1]]
 bias3 <- keras::get_weights(m$model$layers[[5]])[[2]]
 
 dim(w3)
 ```
 
+```
+[1]  5  5 48 96
+```
+
 Revisando o algoritmo:
 
-```{r}
+```{r eval=FALSE}
 result_conv3 <- purrr::map(1:dim(w3)[4], ~{
   kern <- w3[,,,.x] %>% 
     plyr::alply(3, identity) %>% 
@@ -506,7 +564,7 @@ Quando eu montei o post, não estava 100% seguro das contas que estava fazendo. 
 
 Podemos montar um modelo *parcial* do `keras` escolhendo qual o *layer* final do modelo.
 
-```{r}
+```{r eval=FALSE}
 m2 <- keras::keras_model(
   inputs = m$model$input,
   outputs = keras::get_layer(m$model, "max_pooling2d_6")$output
@@ -514,14 +572,45 @@ m2 <- keras::keras_model(
 m2
 ```
 
+```
+Model
+____________________________________________________________________________________________________
+Layer (type)                                 Output Shape                            Param #        
+====================================================================================================
+conv2d_4_input (InputLayer)                  (None, 50, 180, 1)                      0              
+____________________________________________________________________________________________________
+conv2d_4 (Conv2D)                            (None, 50, 180, 12)                     312            
+____________________________________________________________________________________________________
+max_pooling2d_4 (MaxPooling2D)               (None, 25, 90, 12)                      0              
+____________________________________________________________________________________________________
+conv2d_5 (Conv2D)                            (None, 25, 90, 48)                      14448          
+____________________________________________________________________________________________________
+max_pooling2d_5 (MaxPooling2D)               (None, 12, 45, 48)                      0              
+____________________________________________________________________________________________________
+conv2d_6 (Conv2D)                            (None, 12, 45, 96)                      115296         
+____________________________________________________________________________________________________
+max_pooling2d_6 (MaxPooling2D)               (None, 6, 22, 96)                       0              
+====================================================================================================
+Total params: 130,056
+Trainable params: 130,056
+Non-trainable params: 0
+____________________________________________________________________________________________________
+```
+
+
 Esse modelo é idêntico ao inicial, mas acaba no último max pooling. Para obter as imagens, utilizamos a função `predict` a partir da base de dados `X` montada a partir do `arq`, utilizando a função `prepare` do `decryptr`:
 
-```{r, fig.height=4, fig.width=9}
+```{r, fig.height=4, fig.width=9, eval=FALSE}
 X <- prepare(read_captcha(arq))$x
 res <- predict(m2, X)
 
 dim(res)
 ```
+
+```
+[1]  1  6 22 96
+```
+
 
 O resultado pode ser plotado da seguinte forma:
 
@@ -536,9 +625,13 @@ purrr::walk(seq_len(dim(res)[4]), ~{
 
 Ufa, igualzinho!!! Apenas um final check: quero ver se os pesos obtidos são todos iguais. Para isso, ordeno todos os pesos obtidos diretamente pelo `keras` ou aplicando as minhas funções feitas no braço:
 
-```{r}
+```{r eval=FALSE}
 w_calculado <- unlist(purrr::map(result_conv3, ~.x[,,1]))
 all.equal(sort(res), sort(w_calculado), tolerance = 1e-6)
+```
+
+```
+[1] TRUE
 ```
 
 UHUL!
@@ -549,7 +642,7 @@ Aqui fiz um esforço para tentar entender que parte da imagem original esses res
 
 O resultado foi esse gif. Cada imagem é um dos canais obtidos.
 
-```{r, fig.height=4, fig.width=9, echo=FALSE}
+```{r, fig.height=4, fig.width=9, echo=FALSE, eval=FALSE}
 mat_captcha <- 1 - load_image(arq)[,,1]
 imagens_alteradas <- purrr::imap(result_conv3, ~{
   .x %>% 
@@ -580,8 +673,8 @@ Para acabar a predição do captcha, nós pegamos os resultados das imagens ante
 Como já estamos no framework do `keras`, fazemos tudo lá dentro. Após jogar tudo num vetorzão, aplicamos mais dois layers de redes neurais comuns, que funcionam como a regressão logística. O único detalhe sensível é que, como estamos prevendo 6 letras ao mesmo tempo, precisamos novamente transformar esse vetor em uma matriz `35x6`, sendo `35` o total de letras possíveis por posição e `6` a quantidade de posições.
 
 ```{r, fig.height=3.8, fig.width=8, eval=FALSE}
-res <- keras::predict_proba(m$model, X)
-probabilidades <- res[1,,] %>% 
+res2 <- keras::predict_proba(m$model, X)
+probabilidades <- res2[1,,] %>% 
   tibble::as_tibble() %>% 
   purrr::set_names(m$labs) %>% 
   tidyr::gather(letra, prob) %>% 
@@ -590,18 +683,28 @@ probabilidades <- res[1,,] %>%
   dplyr::ungroup() %>% 
   dplyr::mutate(prob = dplyr::if_else(prob < 5e-5, ".", as.character(round(prob, 6))) ) %>% 
   tidyr::spread(pos, prob, sep = "")
+```
 
+```{r}
 knitr::kable(probabilidades)
 ```
+
 
 Ficamos então com "o" na primeira posição, "g" na segunda posição, "7" na terceira posição, "v" na quarta posição, "5" na quinta posição e "q" na sexta posição. Ou seja, "og7v5q".
 
 Vamos ver a imagem novamente:
 
-```{r, fig.width=6, fig.height=2}
+```{r, fig.width=7, fig.height=2}
 arq %>% 
   read_captcha() %>% 
   plot()
+```
+
+```{r eval=FALSE, echo=FALSE}
+# save(w_list, bias, conv1, result_conv1, 
+#      w2, bias2, result_conv2,
+#      w3, bias3, result_conv3,
+#      res, probabilidades, file = "captcha_conv_env.rda")
 ```
 
 Correto!
