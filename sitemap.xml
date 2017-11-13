@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/11/13/2017-11-13-tutorial-cronr/</loc>
+    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/11/12/2017-11-10-captcha-conv/</loc>
     <lastmod>2017-11-12T23:26:00+03:00</lastmod>
   </url>
@@ -400,12 +405,18 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-11-12T23:26:00+03:00</lastmod>
+    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>http://curso-r.com/tags/br-bloggers/</loc>
     <lastmod>2017-06-19T13:07:31+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/author/caio/</loc>
+    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -462,6 +473,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/cron/</loc>
+    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/curso-r/</loc>
     <lastmod>2017-10-27T10:12:00+03:00</lastmod>
     <priority>0</priority>
@@ -469,7 +486,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-11-12T23:26:00+03:00</lastmod>
+    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -749,7 +766,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-11-12T23:26:00+03:00</lastmod>
+    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -859,7 +876,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-10-19T10:12:00+03:00</lastmod>
+    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 19 Oct 2017 10:12:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 13 Nov 2017 14:25:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/tutoriais/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Usando o cronR para Agendar Scripts</title>
+      <link>http://curso-r.com/blog/2017/11/13/2017-11-13-tutorial-cronr/</link>
+      <pubDate>Mon, 13 Nov 2017 14:25:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/11/13/2017-11-13-tutorial-cronr/</guid>
+      <description>Nem sempre os dados que precisamos para uma análise podem ser encontrados em uma base consolidada. Muitas vezes as informações que queremos não estão imediatamente disponíveis e precisam ser coletadas com o tempo através de um processo lento e monótono.
+Imagine, por exemplo, que quiséssemos baixar os dados meteorológicos das maiores cidades do mundo a cada 12 horas para uma análise sobre previsões do tempo. Um programador desavisado talvez criasse alarmes em seu relógio e para baixar as tabelas necessárias quando eles tocassem.</description>
+    </item>
     
     <item>
       <title>Curso-R na aMostra de Estatística 2017</title>

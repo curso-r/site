@@ -200,14 +200,14 @@
   dormir()
 })
 ##    user  system elapsed 
-##   0.000   0.000   1.002</code></pre>
+##   0.000   0.000   1.001</code></pre>
 <p>Nosso interesse é aplicar <code>dormir()</code> em cada elemento do vetor <code>c(1, 2)</code>. Esse algoritmo demora <code>1 + 2 = 3</code> segundos.</p>
 <pre class="r"><code>segundos &lt;- c(1, 2)
 system.time({
   plyr::llply(segundos, dormir)
 })
 ##    user  system elapsed 
-##   0.008   0.000   3.011</code></pre>
+##   0.008   0.000   3.012</code></pre>
 <p>Agora vamos executar o mesmo código usando paralelização. Antes, precisamos</p>
 <ol style="list-style-type: decimal">
 <li>criar e registrar as cópias de R que rodam em paralelo; e</li>
@@ -221,13 +221,13 @@ system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.132   0.004   2.347</code></pre>
+##   0.196   0.000   2.428</code></pre>
 <p>O tempo total de execução foi de ~2.2 segundos, um pouco mais do que <code>dormir(2)</code>. Os dois décimos de segundo adicionais são necessários para preparar o terreno da paralelização. Inclusive, se você rodar o código em paralelo novamente, o tempo adicional cai para quase nada:</p>
 <pre class="r"><code>system.time({
   plyr::llply(segundos, dormir, .parallel = TRUE)
 })
 ##    user  system elapsed 
-##   0.136   0.000   2.231</code></pre>
+##   0.176   0.000   2.297</code></pre>
 <p>Se quiser parar de rodar coisas em paralelo, basta rodar <code>stopCluster()</code>:</p>
 <pre class="r"><code>parallel::stopCluster(cl) # para de rodar coisas em paralelo</code></pre>
 <p>E é isso, caros errantes. Rappy coding :)</p>
@@ -319,13 +319,13 @@ system.time({
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (66)</a>
+            <li><a href="http://curso-r.com/categories/r">r (67)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (27)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (28)</a>
             </li>
             
         </ul>
@@ -387,6 +387,9 @@ system.time({
             </li>
             
             <li><a href="http://curso-r.com/tags/conceitos"><i class="fa fa-tags"></i> conceitos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/cron"><i class="fa fa-tags"></i> cron</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/curso-r"><i class="fa fa-tags"></i> curso-r</a>
@@ -581,27 +584,27 @@ system.time({
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/incompany/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
@@ -665,6 +668,19 @@ system.time({
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/11/13/2017-11-13-tutorial-cronr/">
+                          
+                            <img src="http://curso-r.com/img/banners/cron-clock.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/11/13/2017-11-13-tutorial-cronr/">Usando o cronR para Agendar Scripts</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/11/12/2017-11-10-captcha-conv/">
                           
                             <img src="http://curso-r.com/img/banners/captcha_05.png" class="img-responsive" alt="">
@@ -686,19 +702,6 @@ system.time({
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/11/11/2017-11-11-preconceitos-no-aprendizado/">Aprendendo assuntos difíceis</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/11/03/2017-11-03-music01/">
-                          
-                            <img src="http://curso-r.com/img/banners/music01.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/11/03/2017-11-03-music01/">Estatística e Música</a></h5>
                     </div>
                 </div>
                 
