@@ -193,7 +193,7 @@
 <p>Nosso objetivo é aprender a aplicar a <strong>operação da convolução</strong> em imagens, replicando o modelo já ajustado dos captchas. O jeito que fazemos para ajustar o modelo ficará para um próximo post.</p>
 <div id="pre-requisitos" class="section level3">
 <h3>Pré-requisitos</h3>
-<p>Na nossa jornada, utilizaremos o pacote <code>decryptr</code> e utilizaremos como o base o captcha da Receita Federal. Para baixar um captcha e plotar na sua tela, rode o gráfico abaixo. Utilizaremos o caminho do arquivo em <code>arq</code> várias vezes no decorrer do post. Instale também o pacote <code>decryptrModels</code> para carregar o modelo ajustado do captcha da receita.</p>
+<p>Na nossa jornada, utilizaremos o pacote <code>decryptr</code> e teremos como o base o captcha da Receita Federal. Para baixar um captcha e plotar na sua tela, rode o código abaixo. Utilizaremos o caminho do arquivo em <code>arq</code> várias vezes no decorrer do post. Instale também o pacote <code>decryptrModels</code> para carregar o modelo ajustado do captcha da receita.</p>
 <pre class="r"><code># devtools::install_github(&quot;decryptr/decryptr&quot;)
 # devtools::install_github(&quot;decryptr/decryptrModels&quot;)
 library(decryptr)
@@ -202,10 +202,10 @@ arq %&gt;%
   read_captcha() %&gt;% 
   plot()</code></pre>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-2-1.png" width="288" style="display: block; margin: auto;" /></p>
-<p>Também precisaremos de conhecimentos do pacote <a href="https://keras.rstudio.com/"><code>keras</code></a>, um pacote maravilhoso feito pela turma do <a href="https://rstudio.com">RStudio</a>, com contribuições do <a href="http://curso-r.com/author/daniel/">Daniel Falbel</a>. Não esqueça de fazer o <code>tensorflow</code> funcionar na sua máquina! <a href="http://curso-r.com/blog/2017/06/08/2017-06-08-keras-no-ubuntu/">Esse post</a> do <a href="http://curso-r.com/author/athos/">Athos Damiani</a> pode ajudar.</p>
+<p>Também precisaremos do <a href="https://keras.rstudio.com/"><code>keras</code></a>, um pacote maravilhoso feito pela turma do <a href="https://rstudio.com">RStudio</a>, com contribuições do <a href="http://curso-r.com/author/daniel/">Daniel Falbel</a>. Não esqueça de fazer o <code>tensorflow</code> funcionar na sua máquina! <a href="http://curso-r.com/blog/2017/06/08/2017-06-08-keras-no-ubuntu/">Esse post</a> do <a href="http://curso-r.com/author/athos/">Athos Damiani</a> pode ajudar.</p>
 <pre class="r"><code># install.packages(&quot;keras&quot;)
 library(keras)</code></pre>
-<p>Para os retoques finais, vamos usar o pacote <code>magick</code> para fazer algumas brincadeiras com as imagens. Meu intuito inicial era usar a função <code>image_convolve()</code> desse pacote, mas infelizmente essa operação é limitada. Então acabei usando apenas funções para juntar imagens e fazer gifs. Se quiser mais detalhes sobre o <code>magick</code>, veja o excelente post <a href="http://curso-r.com/blog/2017/06/01/2017-06-01-a-kind-of-magick/">A kind of magick</a>, feito pelo <a href="http://curso-r.com/author/william/">William Amorim</a>.</p>
+<p>Para os retoques finais nas imagens, vamos usar o pacote <code>magick</code>. Meu intuito inicial era usar a função <code>image_convolve()</code> desse pacote, mas infelizmente essa operação é limitada. Acabei usando apenas funções para juntar imagens e fazer gifs. Se quiser mais detalhes sobre o <code>magick</code>, veja o excelente post <a href="http://curso-r.com/blog/2017/06/01/2017-06-01-a-kind-of-magick/">A kind of magick</a>, feito pelo <a href="http://curso-r.com/author/william/">William Amorim</a>.</p>
 <pre class="r"><code># install.packages(&quot;magick&quot;)
 library(magick)
 ## Linking to ImageMagick 6.7.7.10
@@ -216,13 +216,13 @@ library(magick)
 <div id="o-que-e-convolucao-afinal" class="section level2">
 <h2>O que é convolução, afinal?</h2>
 <p><img src="http://curso-r.com/blog/img/vivalaconv.jpg" width="50%" style="display: block; margin: auto;" /></p>
-<p>Convolução é uma técnica usada há muito tempo na área de <em>visão computacional</em> para aplicar filtros em imagens e detecção de padrões. Basicamente, o que ela faz é obter um novo valor para um pixel da imagem com base nos pixels da vizinhança. Por exemplo, você pode fazer com que o pixel <span class="math inline">\((i,j)\)</span> da sua imagem seja atualizado pela soma ponderada dos valores dos pixels na vizinhança.</p>
+<p>Convolução é uma técnica usada há muito tempo na área de <em>visão computacional</em> para aplicar filtros em imagens e detectar padrões. Basicamente, o que ela faz é calcular um novo valor para um pixel da imagem com base nos pixels da vizinhança. Por exemplo, você pode fazer com que o pixel <span class="math inline">\((i,j)\)</span> da sua imagem seja atualizado pela soma ponderada dos valores dos pixels na vizinhança.</p>
 <blockquote>
 <p>Se você não está entendendo nada, Veja o vídeo abaixo para entender o que são pixels. No nosso caso, teremos uma matriz com valores entre zero e um, sendo zero = preto e um = branco.</p>
 </blockquote>
 <iframe width="400" height="225" src="https://www.youtube.com/embed/m8c1CAT2zEI" frameborder="0" allowfullscreen>
 </iframe>
-<p>Uma forma esperta de fazer essa média ponderada considerando os pixels da vizinhança é criando uma matriz de pesos: dessa forma, você não precisa ficar procurando os pontos. Para cada ponto <span class="math inline">\((i,j)\)</span>, você pega o subset da matriz de vizinhança, multiplica pontualmente pela matriz de pesos e soma todos os valores. E isso é <em>exatamente</em> o que a convolução faz.</p>
+<p>Uma forma esperta de fazer essa soma ponderada é criando uma matriz de pesos: dessa forma, você não precisa ficar procurando os pontos da vizinhança. Para cada ponto <span class="math inline">\((i,j)\)</span>, você pega o subset da matriz de vizinhança, multiplica pontualmente pela matriz de pesos e soma todos os valores. Isso é <em>exatamente</em> o que a convolução faz.</p>
 <p>Daqui em diante, chamaremos essa matriz de pesos de <strong>kernel</strong>. Considere esse exemplo 3x3:</p>
 <pre class="r"><code>kern_horizontal &lt;- rbind(c(-1,-1,-1),
                          c( 0, 0, 0),
@@ -234,7 +234,7 @@ kern_horizontal
 ## [3,]    1    1    1</code></pre>
 <p>E considere essa imagem super complexa:</p>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-7-1.png" width="30%" style="display: block; margin: auto;" /></p>
-<p>Na prática, essa imagem é isso aqui (tirei algumas colunas):</p>
+<p>Na prática, essa imagem é isso aqui (tirei algumas linhas e colunas):</p>
 <pre class="r"><code>emoji &lt;- load_image(&quot;img/emoji3.png&quot;)[,,1] 
 round(emoji, 1)[1:10, 1:12]
 ##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
@@ -259,12 +259,15 @@ round(emoji, 1)[1:10, 1:12]
 ## [1] 0.6745098</code></pre>
 <p>Pronto, esse é o valor a ser colocado no ponto <span class="math inline">\((i,j)\)</span>. Fazemos isso para todos os outros pontos. Algumas dúvidas que podem rolar nesse ponto:</p>
 <p><strong>Q</strong>: Mas os números não devem variar de 0 a 1?</p>
-<p><strong>R</strong>: Não! Para visualizar a imagem, você pode normalizar essas quantidades (por exemplo, dividindo pelo máximo). Mas quem disse que o resultado da sua operação precisa ser visualizável? O resultado pode até ser negativo. Para visualização, por padrão os valores menores que zero são substituídos por zero (preto) e valores maiores que um são substituídos por um (branco). Sem problemas.</p>
+<p><strong>R</strong>: Não! Para visualizar a imagem, você poderia normalizar essas quantidades (por exemplo, dividindo pelo máximo). Mas quem disse que o resultado da sua operação precisa ser visualizável? O resultado pode até ser negativo. Sem problemas.</p>
+<blockquote>
+<p>Para visualização, por padrão os valores menores que zero são substituídos por zero (preto) e valores maiores que um são substituídos por um (branco).</p>
+</blockquote>
 <p><strong>Q</strong>: Mas e no canto da imagem, o que fazemos?</p>
-<p><strong>R</strong>: Nos cantos, você tem duas opções: 1) considerar apenas os pixels <em>válidos</em>, ou seja, pixels em que você consegue encaixar a matriz <code>kernel</code> inteira, resultando numa matriz de tamanho menor; ou 2) criar uma borda na imagem, preenchendo com zeros, para que toda a imagem fique com pixels válidos.</p>
+<p><strong>R</strong>: Nos cantos, você tem duas opções: 1) considerar apenas os pixels <em>válidos</em>, ou seja, pixels em que você consegue encaixar a matriz <code>kernel</code> inteira, resultando numa matriz de tamanho menor; ou 2) criar uma borda na imagem, preenchendo com zeros, para que toda a imagem fique com pixels válidos. Por isso que o <code>keras</code> disponibiliza as opções <em>valid</em> (apenas os válidos) e <em>same</em> (mantém a mesma dimensão).</p>
 <p><strong>Q</strong>: E se a imagem for colorida?</p>
-<p><strong>R</strong>: Boa pergunta, Julio! Se a imagem for colorida, você pode considerar um <code>kernel</code> diferente para cada cor. Mais pra frente, chamaremos as cores de <em>canais</em>, pois teremos muito mais do que 3 kernels.</p>
-<p>Com base nisso, juntei a conta num algoritmo que faz a conta para todos os pixels, já criando uma borda na imagem:</p>
+<p><strong>R</strong>: Boa pergunta! Se a imagem for colorida, você pode considerar um <code>kernel</code> diferente para cada cor, e depois você soma todos os valores. Mais pra frente, chamaremos as cores de <em>canais</em>, pois teremos muito mais do que 3 kernels.</p>
+<p>Com base nisso, montei um algoritmo que faz a conta para todos os pixels, já criando uma borda na imagem:</p>
 <pre class="r"><code>convolve &lt;- function(img, kern) {
   # monta a bordinha na imagem. A borda deve ter (tamanho kernel) / 2,
   # de tamanho, arredondando para baixo
@@ -281,14 +284,14 @@ round(emoji, 1)[1:10, 1:12]
   img
 }</code></pre>
 <p>(desculpe aos amigos por usar <code>for</code>. Shame on me…)</p>
-<p>No nosso caso, o resultado fica assim:</p>
+<p>Voltando para nossa imagem agora. No nosso caso, o resultado fica assim:</p>
 <pre class="r"><code>&quot;img/emoji3.png&quot; %&gt;% 
   load_image() %&gt;% 
   convolve(kern_horizontal) %&gt;% 
   image_read() %&gt;% 
   plot()</code></pre>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-12-1.png" width="30%" style="display: block; margin: auto;" /></p>
-<p>Ficou um pouco assustador, não? Essa matriz não foi escolhida por acaso. Ela serve para destacar padrões horizontais da imagem. Como a primeira linha é formada <code>-1</code>s e a última é formada por <code>1</code>s, a matriz fica com valor alto se a parte de cima do pixel for preta e a parte de baixo for branca (<code>grande * 1 + pequeno * (-1)</code>). A parte destacada da imagem acabou sendo os olhos (pois temos maior concentração de pixels pretos ali), além das extremidades superior e inferior do</p>
+<p>Ficou um pouco assustador, não? Essa matriz não foi escolhida por acaso. Ela serve para destacar padrões horizontais da imagem. Como a primeira linha é formada <code>-1</code>s e a última é formada por <code>1</code>s, a matriz fica com valor alto se a parte de cima do pixel for preta e a parte de baixo for branca (<code>grande * 1 + pequeno * (-1)</code>). A parte destacada da imagem acabou sendo os olhos (pois temos maior concentração de pixels pretos ali), além das extremidades superior e inferior do rosto.</p>
 <p>Com esse kernel aqui (vertical), a parte destacada do rosto são as extremidades dos lados:</p>
 <pre class="r"><code>kern_vertical &lt;- rbind(c(-1, 0, 1),
                        c(-1, 0, 1),
@@ -309,7 +312,7 @@ kern_vertical
 </div>
 <div id="aplicando-nos-captchas" class="section level2">
 <h2>Aplicando nos captchas</h2>
-<p>Para aplicar nos captchas, não tem segredo. Vou apenas introduzir uma nova função chamada <code>add_bias()</code>, que simplesmente adiciona uma constante numérica para a matriz. Isso pode auxiliar na visualização, pois controlamos melhor os valores que ficam dentro do intervalo <code>[0,1]</code>. Lá na frente você entenderá o porquê do “bias”.</p>
+<p>Não tem segredo! Basta reaplicar o que já vimos. Vou apenas introduzir uma nova função chamada <code>add_bias()</code>, que simplesmente adiciona uma constante numérica para a matriz. Isso pode auxiliar na visualização, pois controlamos melhor os valores que ficam dentro do intervalo <code>[0,1]</code>. Lá na frente você entenderá o porquê do “bias”.</p>
 <pre class="r"><code>add_bias &lt;- function (x, b) x + b</code></pre>
 <p>Esse é o resultado de adicionar o kernel vertical e bias de <code>0.8</code>.</p>
 <pre class="r"><code>arq %&gt;% 
@@ -319,7 +322,7 @@ kern_vertical
   image_read() %&gt;% 
   plot()</code></pre>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-15-1.png" width="345.6" style="display: block; margin: auto;" /></p>
-<p>Agora na horizontal. Note os padrões das linhas horizontais que tentam atrapalhar a identificação das letras.</p>
+<p>Agora o kernel na horizontal. Note que identificamos padrões das linhas horizontais que tentam atrapalhar a visão das letras.</p>
 <pre class="r"><code>arq %&gt;% 
   load_image() %&gt;% 
   convolve(kern_horizontal) %&gt;% 
@@ -336,16 +339,15 @@ kern_vertical
   image_read() %&gt;% 
   plot()</code></pre>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-17-1.png" width="345.6" style="display: block; margin: auto;" /></p>
-<p>Também vou introduzir uma função chamada <code>relu()</code> aqui. <strong>ReLu</strong> significa <em>Restricted Linear Unit</em> e é uma função bem simples que zera tudo aquilo que é negativo e mantém tudo aquilo que é positivo. Assim,</p>
+<p>Também vou introduzir uma função chamada <code>relu()</code> aqui. <strong>ReLu</strong> significa <em>Restricted Linear Unit</em> e é uma função bem simples que zera tudo aquilo que é negativo e mantém tudo aquilo que é positivo. Assim, temos:</p>
 <pre class="r"><code>relu &lt;- function(x) (x + abs(x)) / 2
 relu(-1)
 ## [1] 0
 relu( 3)
 ## [1] 3</code></pre>
-<p>Para visualização, essa função não serve para muita coisa, pois já fazemos a substituição de valores negativos por zero na prática. No entanto, podemos fazer combos com a aplicação de várias convoluções, que não seriam possíveis somente com somas e multiplicações. Na prática, estou dizendo que podemos aplicar operações <strong>não lineares</strong> para extrair componentes da imagem.</p>
-<p>Olhe o exemplo abaixo. Parece que consegui identificar bem coisas que são inúteis na imagem. Isso pode ser útil… ou não.</p>
-<pre class="r"><code>par(mar=c(.1,.1,.1,.1))
-arq %&gt;% 
+<p>Para visualização, essa função não serve para muita coisa, pois já fazemos a substituição de valores negativos por zero. No entanto, podemos fazer combos com a aplicação de várias convoluções. O resultado dos combos não seria possível somente com somas e multiplicações. Na prática, o que estou afirmando é que com a aplicação de convoluções, bias e ReLu, podemos montar operações <strong>não lineares</strong> para extrair componentes da imagem.</p>
+<p>Olhe o exemplo abaixo. Parece que consegui identificar bem as coisas que são inúteis na imagem. Isso pode ser útil… ou não.</p>
+<pre class="r"><code>arq %&gt;% 
   load_image() %&gt;% 
   # primeira convolucao
   convolve(kern_horizontal) %&gt;%
@@ -357,7 +359,7 @@ arq %&gt;%
   image_read() %&gt;% 
   plot()</code></pre>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-19-1.png" width="345.6" style="display: block; margin: auto;" /></p>
-<p>Isso nos leva a pensar: será que eu consigo pensar em kernels que me ajudem a identificar as letras de uma forma razoável?</p>
+<p>Isso tudo nos leva a pensar: será que eu consigo pensar em kernels que me ajudem a identificar as letras de uma forma razoável?</p>
 <p><hline /></p>
 </div>
 <div id="e-se-pudermos-usar-kernels-treinados" class="section level2">
@@ -372,8 +374,8 @@ w_{41} &amp; w_{42} &amp; w_{43} &amp; w_{44} &amp; w_{45} \\
 w_{51} &amp; w_{52} &amp; w_{53} &amp; w_{54} &amp; w_{55}
 \end{array}\right]
 \]</span></p>
-<p>E tentar encontrar os valores de <span class="math inline">\(W\)</span> que minimizem alguma função de interesse. Podemos pensar que esses são os <span class="math inline">\(\beta\)</span>’s de uma regressão logística, e queremos encontrar os valores que minimizam a minha <em>Loss</em> ou maximizam a minha <em>verossimilhança</em>. Para ver mais sobre isso, recomendo o excelente post do Athos sobre <a href="http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/">a menor deep learning do mundo</a>. Nós também podemos fazer vários <span class="math inline">\(W\)</span> como esse, sendo que cada um extrai alguma coisa de importante da imagem.</p>
-<p>Nosso super modelo de magia negra nada mais é do que isso: a aplicação consecutiva de <code>convolve()</code>, <code>add_bias()</code> e <code>relu()</code>, mas com pesos escolhidos a dedo (ou por um moedor de carne super-avançado como o <code>keras</code>).</p>
+<p>e tentar encontrar os valores de <span class="math inline">\(W\)</span> que minimizem alguma função de interesse. Podemos pensar que esses são os <span class="math inline">\(\beta\)</span>’s de uma regressão logística, e queremos encontrar os valores que minimizam uma <em>Loss</em> ou maximizam uma <em>verossimilhança</em>. Para ver mais sobre isso, recomendo o excelente post do Athos sobre <a href="http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/">a menor deep learning do mundo</a>. Nós também podemos fazer vários <span class="math inline">\(W\)</span> como esse, sendo que cada um extrai alguma coisa de importante da imagem.</p>
+<p>Nosso super modelo de magia negra nada mais é do que isso: a aplicação consecutiva de <code>convolve()</code>, <code>add_bias()</code> e <code>relu()</code>, mas com pesos escolhidos a dedo (ou por um moedor de carne super-poderoso como o <code>keras</code>).</p>
 <p>Agora podemos ver nosso modelo atual da Receita Federal:</p>
 <pre class="r"><code>m &lt;- decryptrModels::read_model(&quot;rfb&quot;)
 m$model</code></pre>
@@ -409,18 +411,18 @@ Total params: 542,522
 Trainable params: 542,522
 Non-trainable params: 0
 ____________________________________________________________________________________________________</code></pre>
-<p>Nosso modelo aplica convolução 3 vezes consecutivas e faz algumas coisas que não entendemos. Explico agora:</p>
+<p>O modelo aplica convolução 3 vezes consecutivas e faz algumas contas que não entendemos. Explico agora:</p>
 <ol style="list-style-type: decimal">
 <li><code>conv2d_</code>: são as convoluções. As aplicações de <code>add_bias()</code> e <code>relu()</code> estão escondidas aí dentro.</li>
 <li><code>max_pooling2d_</code>: serve para simplificar a imagem. Isso ajuda a fazer computações mais rápido e ajuda a pegar mais relações entre partes da imagem, sem precisar mudar o tamanho dos kernels.</li>
-<li><code>dropout_</code>: é utilizado para regularização. Ou seja, serve para evitar que seu modelo quebre apenas o captcha que você tem na base, e não novos captchas que chegam. Na prática, o <em>dropout</em> joga fora uma parte dos <span class="math inline">\(W\)</span> obtidos. Se você consegue prever coisas bem sem esses <span class="math inline">\(W\)</span>, isso significa que eles não são tão úteis assim.</li>
-<li><code>flatten_</code> e <code>reshape_</code>: não fazem nada: só reorganizam os parâmetros de matriz para vetor e vetor para matriz. Isso é útil pois i) depois de aplicar os kernels, nós misturamos todos os parâmetros resultantes e ii) no final, precisamos prever 6 letras, então precisamos deixar as probabilidades numa matriz, <a href="http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/">como vimos no post anterior sobre captchas</a>.</li>
-<li><code>dense_</code>: são camadas de redes neurais igual como as do <a href="http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/">post do Athos</a>.</li>
+<li><code>dropout_</code>: é utilizado para regularização. Serve para evitar que seu modelo quebre apenas o captcha que você tem na base, e não novos captchas que chegam. Na prática, o <em>dropout</em> joga fora uma parte dos <span class="math inline">\(W\)</span> obtidos. Se você consegue prever coisas bem sem esses <span class="math inline">\(W\)</span>, isso significa que eles não são tão úteis assim.</li>
+<li><code>flatten_</code> e <code>reshape_</code>: não fazem nada demais, só reorganizam os parâmetros de matriz para um vetor ou de vetor para matriz. Isso é útil pois i) depois de aplicar os kernels, nós misturamos todos os parâmetros resultantes e ii) no final, precisamos prever 6 letras, então precisamos deixar as probabilidades numa matriz, <a href="http://curso-r.com/blog/2017/07/31/2017-06-29-captcha-dados/">como vimos no post anterior sobre captchas</a>.</li>
+<li><code>dense_</code>: são camadas de redes neurais comuns como as do <a href="http://curso-r.com/blog/2017/07/29/2017-07-29-segundo-menor-dl/">post do Athos</a>.</li>
 </ol>
 <p><strong>NÃO ME ABANDONE AQUI!!!</strong> Se você não estiver entendendo direito, saiba apenas que a execução de um modelo de deep learning envolve somente</p>
 <ol style="list-style-type: decimal">
-<li>Pegar o input</li>
-<li>Multiplicar por alguns pesos <span class="math inline">\(W\)</span>.</li>
+<li>Pegar o input (imagem).</li>
+<li>Multiplicar (convoluir) por alguns pesos <span class="math inline">\(W\)</span>.</li>
 <li>Adicionar um viés (ou bias, ou intercepto) <span class="math inline">\(b\)</span>.</li>
 <li>Aplicar uma função não linear, por exemplo ReLu.</li>
 <li>Voltar para 2 várias vezes (o deep vem daí).</li>
@@ -443,8 +445,8 @@ w_list[[1]]</code></pre>
 <p>Os doze valores de <code>bias</code> estimados pelo modelo (um para cada matriz) são dados por</p>
 <pre class="r"><code>round(bias, 3)</code></pre>
 <pre><code>[1]  0.150  0.013  0.181 -0.275  0.179  0.040 -0.128 -0.036  0.030  0.042  0.201  0.043</code></pre>
-<p>Para cada matriz dessas doze, temos uma matriz convoluída. Essas matrizes são os resultados que a matriz entende serem úteis para prever o captcha.</p>
-<p>O código abaixo aplica <code>convolve()</code>, <code>add_bias()</code> e <code>relu()</code> em todos os . Se você não entende <code>purrr</code>, leia <a href="http://ctlente.com/pt/purrr-magic/">este excelente post do Caio Lente</a>.</p>
+<p>Para cada um dos doze kernels, calculamos uma matriz convoluída. Esses os resultados que o modelo entende serem úteis para prever o captcha.</p>
+<p>O código abaixo aplica <code>convolve()</code>, <code>add_bias()</code> e <code>relu()</code> para todos os kernels. Para isso usamos o <code>purrr</code>. Se você não entende <code>purrr</code>, leia <a href="http://ctlente.com/pt/purrr-magic/">este maravilhoso post do Caio Lente</a>.</p>
 <pre class="r"><code>conv1 &lt;- purrr::map2(w_list, bias, ~{
   arq %&gt;% 
     load_image() %&gt;% 
@@ -452,7 +454,7 @@ w_list[[1]]</code></pre>
     add_bias(.y) %&gt;% 
     relu()
 })</code></pre>
-<p>Como será que ficam essas imagens? Abaixo, temos o resultado da aplicação dos doze kernels. A maioria dos kernels parece estar extraindo partes da imagem. O sétimo (posição <code>(2,3)</code> da imagem abaixo) parece estar pegando o ruído e o quarto parece guardar a imagem original.</p>
+<p>E como será que ficam essas imagens? Abaixo, temos o resultado da aplicação dos doze kernels. A maioria parece estar extraindo partes das letras. A sétima (posição <code>(2,3)</code>) parece estar pegando o ruído e a quarta parece guardar a imagem original.</p>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-24-1.png" width="864" style="display: block; margin: auto;" /></p>
 <p>O gif animado abaixo mostra a aplicação do oitavo kernel da nossa lista. Com esse kernel dá pra pegar bem o padrão das letras, não é?</p>
 <div class="figure">
@@ -462,8 +464,8 @@ w_list[[1]]</code></pre>
 <p>No próximo nível, vamos convoluir mais 48 kernels. Essa operação será feita com todos os doze filtros atuais, ou seja, é uma contaiada que não acaba mais. Para simplificar as contas e para permitir a obtenção de padrões diferentes, faz sentido simplificar a imagem. Para isso, usamos o <em>max pooling</em></p>
 <div id="fazendo-max-pooling" class="section level4">
 <h4>Fazendo max pooling</h4>
-<p>O max pooling nada mais faz do que pegar o pixel de maior valor dentro de uma janela. No caso, estamos usando uma janela 2x2 e aplicamos ela igualzinho convolução, só que ao invés de pegar a soma ponderada dos pixels, pegamos o pixel máximo. Outra diferença é que ao invés de andar o pixel de 1 em 1, andamos de 2 em 2. Assim cada janelinha é considerada apenas uma vez (esse é o conceito de <em>strides</em>, que não vou discutir aqui).</p>
-<p>O algoritmo que faz max pooling é esse aqui:</p>
+<p>O max pooling simplesmente pega o pixel de maior valor dentro de uma janela. No caso, estamos usando uma janela 2x2 e aplicamos ela igualzinho convolução, só que ao invés de pegar a soma ponderada dos pixels, pegamos o pixel máximo. Outra diferença é que ao invés de andar o pixel de 1 em 1, andamos de 2 em 2. Assim cada janelinha é considerada apenas uma vez (esse é o conceito de <em>strides</em>, que não vou discutir aqui).</p>
+<p>Montei esse algoritmo que faz max pooling:</p>
 <pre class="r"><code>max_pool &lt;- function(img) {
   # monta a matriz com metade da resolução
   x_new &lt;- matrix(0.0, nrow = floor(nrow(img) / 2), ncol = floor(ncol(img) / 2))
@@ -487,7 +489,7 @@ w_list[[1]]</code></pre>
     relu() %&gt;% 
     max_pool()
 })</code></pre>
-<p>No final, temos essas imagens com resolução 25x90 (as originais são 50x180).</p>
+<p>No final, temos essas imagens com resolução <code>25x90</code> (as originais são <code>50x180</code>).</p>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-27-1.png" width="864" style="display: block; margin: auto;" /></p>
 <p>Ficou bem parecido com o anterior!</p>
 <p>Ao final da convolução, é como se tivéssemos uma nova imagem, menor e alterada, mas com 12 cores. Como não faz muito sentido pensar em 12 cores primárias, vamos chamá-las de canais.</p>
@@ -502,7 +504,7 @@ bias2 &lt;- keras::get_weights(m$model$layers[[3]])[[2]]
 
 dim(w2)</code></pre>
 <pre><code>[1]  5  5 12 48</code></pre>
-<p>Agora temos <code>12 * 48</code> kernels 5x5 a serem aplicados. Precisamos:</p>
+<p>Agora temos <code>12 * 48</code> kernels 5x5 a serem aplicados. Precisamos seguir essas operações:</p>
 <ol style="list-style-type: decimal">
 <li>Para cada uma das 48 matrizes:
 <ol style="list-style-type: decimal">
@@ -524,9 +526,9 @@ dim(w2)</code></pre>
     relu() %&gt;% 
     max_pool()
 })</code></pre>
-<p>Plotamos os 48 resultados abaixo. Alguns resultados foram completamente zerados (eles devem ser úteis em outros captchas mais esquisitos), enquanto os demais pegam pedaços da imagem anterior que mal lembram o captcha original. A imagem da posição <code>(4,1)</code> é uma das únicas que mostra o captcha claramente. Isso mostra uma coisa comum do deep learning: quanto mais profundo vamos, menos entendemos o que de fato o modelo está fazendo. Recomendo fortemente a leitura <a href="https://distill.pub/2017/feature-visualization/">desse blog</a>, que discute o assunto de forma extensiva.</p>
+<p>Plotamos os 48 resultados abaixo. Alguns resultados foram completamente zerados (eles devem ser úteis em outros captchas mais esquisitos), enquanto os demais pegam pedaços da imagem anterior que mal lembram o captcha original. A imagem da posição <code>(4,1)</code> é uma das únicas que mostra o captcha claramente. Isso mostra uma coisa comum do deep learning: quanto mais profundo vamos, menos entendemos o que de fato o modelo está fazendo. Recomendo fortemente a leitura <a href="https://distill.pub/2017/feature-visualization/">desse blog do distill</a>, que discute o assunto detalhadamente</p>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-30-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>Agora temos 48 canais de uma imagem com dimensões 12x45. Vamos em frente.</p>
+<p>Agora temos 48 canais de uma imagem com dimensões <code>12x45</code>. Vamos em frente.</p>
 </div>
 <div id="terceira-convolucao" class="section level3">
 <h3>Terceira convolução</h3>
@@ -550,10 +552,10 @@ dim(w3)</code></pre>
 })</code></pre>
 <p>Plotando os resultados, temos</p>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-33-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>No final, ficamos com 96 imagens com resolução 6x22 cada. Várias imagens ficaram zeradas e as que não ficaram parecem apenas feixes de luz no meio do breu total. Pode ser que a posição dessas luzes tenha a ver com a posição de pedaços importantes do captcha original, que podem ajudar a prever o valor do captcha.</p>
+<p>No final, ficamos com 96 imagens com resolução <code>6x22</code> cada. Várias imagens ficaram zeradas e as que não ficaram parecem apenas feixes de luz no meio do breu. Pode ser que a posição dessas luzes tenha a ver com a posição de pedaços importantes do captcha original, que por sua vez seriam importantes para determinar o valor do captcha.</p>
 <div id="verificando-se-funcionou-mesmo" class="section level4">
 <h4>Verificando se funcionou mesmo</h4>
-<p>Quando eu montei o post, não estava 100% seguro das contas que estava fazendo. Pode ser que tenha alguma coisa diferente feita dentro do <code>keras</code>, que é um canhão que usa <code>tensorflow</code> por trás, fazendo alguma otimização esquisita. Por isso, também aprendi a plotar os resultados parciais do modelo quebrador de captchas diretamente do <code>keras</code>.</p>
+<p>Quando eu montei o post, não estava 100% seguro das contas que estava fazendo. Pode ser que tenha alguma coisa diferente dentro do <code>keras</code>, que é um canhão que usa <code>tensorflow</code> por trás, fazendo alguma otimização esquisita. Por isso, também aprendi a plotar os resultados parciais do modelo quebrador de captchas diretamente do <code>keras</code>.</p>
 <p>Podemos montar um modelo <em>parcial</em> do <code>keras</code> escolhendo qual o <em>layer</em> final do modelo.</p>
 <pre class="r"><code>m2 &lt;- keras::keras_model(
   inputs = m$model$input,
@@ -582,7 +584,7 @@ Total params: 130,056
 Trainable params: 130,056
 Non-trainable params: 0
 ____________________________________________________________________________________________________</code></pre>
-<p>Esse modelo é idêntico ao inicial, mas acaba no último max pooling. Para obter as imagens, utilizamos a função <code>predict</code> a partir da base de dados <code>X</code> montada a partir do <code>arq</code>, utilizando a função <code>prepare</code> do <code>decryptr</code>:</p>
+<p>Esse modelo é idêntico ao inicial, mas acaba no último max pooling. Para obter as imagens, utilizamos a função <code>predict</code> a partir da base de dados <code>X</code> montada com o <code>arq</code>, utilizando a função <code>prepare</code> do <code>decryptr</code>:</p>
 <pre class="r"><code>X &lt;- prepare(read_captcha(arq))$x
 res &lt;- predict(m2, X)
 
@@ -596,7 +598,8 @@ purrr::walk(seq_len(dim(res)[4]), ~{
   plot()
 })</code></pre>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-36-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>Ufa, igualzinho!!! Apenas um final check: quero ver se os pesos obtidos são todos iguais. Para isso, ordeno todos os pesos obtidos diretamente pelo <code>keras</code> ou aplicando as minhas funções feitas no braço:</p>
+<p>Ufa, ficou igualzinho!</p>
+<p>Apenas um check final: quero ver se os pesos obtidos são todos iguais. Para isso, ordeno todos os pesos obtidos diretamente pelo <code>keras</code> ou aplicando as minhas funções feitas no braço:</p>
 <pre class="r"><code>w_calculado &lt;- unlist(purrr::map(result_conv3, ~.x[,,1]))
 all.equal(sort(res), sort(w_calculado), tolerance = 1e-6)</code></pre>
 <pre><code>[1] TRUE</code></pre>
@@ -604,7 +607,7 @@ all.equal(sort(res), sort(w_calculado), tolerance = 1e-6)</code></pre>
 </div>
 <div id="visualizando-na-imagem-original" class="section level4">
 <h4>Visualizando na imagem original</h4>
-<p>Aqui fiz um esforço para tentar entender que parte da imagem original esses resultados estão pegando informações. Para isso, re-escalei essas imagens de resolução mais baixa na última convolução para o tamanho original da imagem (50x180) e depois multipliquei os valores das matrizes pelos valores da imagem original.</p>
+<p>Aqui fiz um esforço para tentar entender de qual parte da imagem original esses resultados estão pegando informações. Para isso, re-escalei essas imagens de resolução mais baixa na última convolução para o tamanho original do captcha (<code>50x180</code>) e depois multipliquei os valores das matrizes pelos valores da imagem original.</p>
 <p>O resultado foi esse gif. Cada imagem é um dos canais obtidos.</p>
 <div class="figure">
 <img src="http://curso-r.com/blog/img/captcha_conv_final.gif" alt="" />
@@ -616,8 +619,9 @@ all.equal(sort(res), sort(w_calculado), tolerance = 1e-6)</code></pre>
 </div>
 <div id="passos-finais" class="section level2">
 <h2>Passos finais</h2>
-<p>Para acabar a predição do captcha, nós pegamos os resultados das imagens anteriores e juntamos todos os pixels num vetorzão com tudo junto. Esse vetor nada mais é do que uma linha de um <code>data.frame</code>, que podemos usar numa regressão logística, por exemplo. Ou seja, essas convolucionais funcionam como um grande gerador automático de features importantes para prever os resultados do captcha. A vantagem é que essas features são obtidas de forma automática e são otimizadas dentro do processo de estimação. Deep learning é realmente sensacional!</p>
-<p>Como já estamos no framework do <code>keras</code>, fazemos tudo lá dentro. Após jogar tudo num vetorzão, aplicamos mais dois layers de redes neurais comuns, que funcionam como a regressão logística. O único detalhe sensível é que, como estamos prevendo 6 letras ao mesmo tempo, precisamos novamente transformar esse vetor em uma matriz <code>35x6</code>, sendo <code>35</code> o total de letras possíveis por posição e <code>6</code> a quantidade de posições.</p>
+<p>Para acabar a predição do captcha, nós pegamos os resultados das imagens anteriores e juntamos todos os pixels num vetorzão que junta tudo. Em estatistiquês, esse vetor nada mais é do que uma linha de um <code>data.frame</code>, que podemos usar numa regressão logística, por exemplo. Ou seja, essas convolucionais funcionam como um grande gerador automático de features importantes para prever os resultados do captcha. A vantagem é que essas features são obtidas de forma automática e são otimizadas dentro do processo de estimação. Por essas e outras que deep learning é realmente sensacional!</p>
+<p>Como já estamos no framework do <code>keras</code>, acabamos fazendo tudo lá dentro. Após jogar tudo no vetorzão, aplicamos mais dois layers de redes neurais comuns, que funcionam como a regressão logística. O único detalhe sensível é que, como estamos prevendo 6 letras ao mesmo tempo, precisamos novamente transformar esse vetor em uma matriz <code>35x6</code>, sendo <code>35</code> o total de letras possíveis por posição e <code>6</code> a quantidade de posições.</p>
+<p>Abaixo, montei uma tabelinha com as probabilidades de cada letra nas posições correspondentes. Substituí valores muito pequenos por <code>.</code> para ver melhor.</p>
 <pre class="r"><code>res2 &lt;- keras::predict_proba(m$model, X)
 probabilidades &lt;- res2[1,,] %&gt;% 
   tibble::as_tibble() %&gt;% 
@@ -628,7 +632,6 @@ probabilidades &lt;- res2[1,,] %&gt;%
   dplyr::ungroup() %&gt;% 
   dplyr::mutate(prob = dplyr::if_else(prob &lt; 5e-5, &quot;.&quot;, as.character(round(prob, 6))) ) %&gt;% 
   tidyr::spread(pos, prob, sep = &quot;&quot;)</code></pre>
-<pre class="r"><code>knitr::kable(probabilidades)</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -965,21 +968,23 @@ probabilidades &lt;- res2[1,,] %&gt;%
   read_captcha() %&gt;% 
   plot()</code></pre>
 <p><img src="http://curso-r.com/blog/2017-11-10-captcha-conv_files/figure-html/unnamed-chunk-41-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Correto!</p>
+<p>Parece que funcionou!</p>
 </div>
 <div id="wrap-up" class="section level2">
 <h2>Wrap-up</h2>
-<p>Nossa jornada foi longa, mas acho que aprendemos bastante coisa. Resumindo:</p>
+<p>Essa jornada foi longa, mas acho que aprendemos bastante coisa. Resumindo:</p>
 <ul>
-<li>Convoluções são somas ponderadas dos valores de pixels na vizinhança do pixel. Esses pesos são dados por uma matriz chamada kernel.</li>
+<li>Convoluções são somas ponderadas dos valores da vizinhança de um pixel. Esses pesos são dados por uma matriz chamada kernel.</li>
 <li>Aplicar redes neurais convolucionais consiste em i) aplicar convolução; ii) adicionar um bias; iii) aplicar uma função não linear (geralmente ReLu).</li>
-<li>max pooling serve para simplificar</li>
-<li>Na prática, aplicamos vários kernels. O número de kernels de uma convolucional está relacionado com o número de cores da imagem e, de forma mais genérica, com o número de canais que ela tem. Podemos também escolher quantos canais queremos calcular.</li>
-<li>No nosso caso, aplicamos três convolucionais com kernels 5x5, sendo <code>12</code> no primeiro nível, <code>12*48</code> no segundo nível e <code>48*96</code> no terceiro nível.</li>
-<li>Depois, pegamos as imagens resultantes e aplicamos o <code>flatten</code>, para trabalhar com esses números como se fossem a matriz <code>X</code> em um estudo de regressão logística usual.</li>
-<li>É possível implementar os algoritmos na mão sem dar muito trabalho.</li>
+<li><em>max pooling</em> serve para simplificar a resolução da imagem.</li>
+<li>Na prática, aplicamos vários kernels. O número de kernels de uma convolucional igual ao número de canais da operação anterior (input), multiplicado pelo número de canais que queremos de output.</li>
+<li>Para a convolução inicial, os canais são as cores: partimos de 1 canal se a imagem for preto e branco ou 3 canais se for colorida.</li>
+<li>No nosso caso, aplicamos três convolucionais com kernels 5x5, sendo <code>1*12</code> no primeiro nível, <code>12*48</code> no segundo nível e <code>48*96</code> no terceiro nível.</li>
+<li>Depois, pegamos as imagens resultantes e aplicamos o <code>flatten</code>, para trabalhar com esses números como se fossem a matriz <code>X</code> de uma regressão logística usual.</li>
+<li>Como vimos, é possível implementar todas essas operações na mão sem muita dificuldade.</li>
 </ul>
-<p>Mas como é que, de fato, conseguimos esses valores de <span class="math inline">\(W\)</span> mágicos? Na próxima vez provavelmente falarei da parte mais teórica do problema, mostrando como se faz o back-propagation em um modelo de deep learning.</p>
+<p>Conseguimos! Mas resta uma dúvida…</p>
+<p>Como é que, de fato, conseguimos esses valores mágicos de <span class="math inline">\(W\)</span>? Na próxima vez provavelmente resolverei esse problema, mostrando como se faz o back-propagation em um modelo de deep learning.</p>
 <p>É isso. Happy coding :)</p>
 </div>
 
@@ -1332,19 +1337,6 @@ probabilidades &lt;- res2[1,,] %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
@@ -1353,6 +1345,19 @@ probabilidades &lt;- res2[1,,] %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
