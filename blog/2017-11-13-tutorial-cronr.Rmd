@@ -137,4 +137,4 @@ sobre previsões meteorológicas, então fique ligado na parte dois!
 P.S.: Se você quiser o código completo do meu arquivo `get_forecasts.R`,
 disponibilizei ele como [um Gist](https://gist.github.com/ctlente/997f603f05883fcda573d96e310dad69).
 Além disso, também disponibilizei uma versão em inglês deste post no
-[meu blog pessoal](http://ctlente.com/en/cloudy-cronr/). Abraços!
+[meu blog pessoal](http://ctlente.com/en/cloudy-cron/). Abraços!
