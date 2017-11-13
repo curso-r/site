@@ -48,7 +48,7 @@ Sys.setenv(DARKSKY_API_KEY = "SUA CHAVE SECRETA")
 ## Baixando os dados
 
 O primeiro passo da nossa análise é determinar as latitudes e longitudes das
-maiores cidades cidades do mundo para que possamos pedir as previsões do tempo
+maiores cidades do mundo para que possamos pedir as previsões do tempo
 destas coordenadas.
 
 Com o pacote `maps` podemos fazer isso de uma maneira bastante simples:
@@ -98,7 +98,12 @@ readr::write_rds(forecasts, stringr::str_c("DIRETÓRIO DOS ARQUIVOS", file))
 
 Perceba que o script descrito na seção anterior não depende de nenhum input do
 programador e pode ser rodado automaticamente. Agora só nos resta automatizar
-essa execução, tarefa que realizaremos com o pacote `cronR`.
+essa execução, tarefa que realizaremos com o pacote `cronR`. Ele funciona nas
+plataformas Mac e Linux e pode ser instalado com o comando a seguir:
+
+```r
+install.packages("cronR")
+```
 
 Esse pacote nos permite agendar a
 execução de qualquer comando para que ela ocorra a cada tantos minutos/horas/dias/...

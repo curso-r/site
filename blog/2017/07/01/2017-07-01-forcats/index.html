@@ -232,7 +232,7 @@ per_fav&lt;- sample(x = nomes, size = 100, replace = T) %&gt;%
   as.factor
 
 head(per_fav)           
-## [1] Howard   Marshall Dwight   Ted      Jim      Howard  
+## [1] Pam     Howard  Leonard Michael Ted     Robin  
 ## 15 Levels: Andy Barney Dwight Howard Jim Leonard Lily Marshall ... Ted
 
 # Conta o número de observações em cada categoria
@@ -241,20 +241,20 @@ fct_count(per_fav)
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
 ##  1     Andy     4
-##  2   Barney     5
-##  3   Dwight     7
-##  4   Howard     7
-##  5      Jim    12
-##  6  Leonard     7
-##  7     Lily     8
-##  8 Marshall     4
-##  9  Michael    10
-## 10      Pam     6
-## 11    Penny     7
-## 12   Rajesh     9
-## 13    Robin     6
-## 14  Sheldon     6
-## 15      Ted     2
+##  2   Barney     6
+##  3   Dwight     8
+##  4   Howard     9
+##  5      Jim     9
+##  6  Leonard     8
+##  7     Lily     4
+##  8 Marshall     7
+##  9  Michael     6
+## 10      Pam    11
+## 11    Penny     4
+## 12   Rajesh     5
+## 13    Robin     3
+## 14  Sheldon     8
+## 15      Ted     8
 
 # Junta as categorias
 per_fav2 &lt;- fct_collapse(per_fav,
@@ -263,15 +263,15 @@ per_fav2 &lt;- fct_collapse(per_fav,
              TheOffice = c(&quot;Michael&quot;, &quot;Jim&quot;, &quot;Pam&quot;, &quot;Dwight&quot;, &quot;Andy&quot;))
 
 head(per_fav2)
-## [1] TBBT      HIMYM     TheOffice HIMYM     TheOffice TBBT     
+## [1] TheOffice TBBT      TBBT      TheOffice HIMYM     HIMYM    
 ## Levels: TheOffice HIMYM TBBT
 fct_count(per_fav2)
 ## # A tibble: 3 x 2
 ##           f     n
 ##      &lt;fctr&gt; &lt;int&gt;
-## 1 TheOffice    39
-## 2     HIMYM    25
-## 3      TBBT    36</code></pre>
+## 1 TheOffice    38
+## 2     HIMYM    28
+## 3      TBBT    34</code></pre>
 </div>
 <div id="fct_reorder" class="section level2">
 <h2>fct_reorder</h2>
@@ -293,18 +293,20 @@ fct_count(per_fav2)
 <p>Agrupa as categorias menos (ou mais) comuns.</p>
 <pre class="r"><code>letras &lt;- factor(letters[rpois(100, 5)])
 fct_count(letras)
-## # A tibble: 9 x 2
-##        f     n
-##   &lt;fctr&gt; &lt;int&gt;
-## 1      a     4
-## 2      b    13
-## 3      c    19
-## 4      d    12
-## 5      e    21
-## 6      f    12
-## 7      g    10
-## 8      h     4
-## 9      i     4
+## # A tibble: 11 x 2
+##         f     n
+##    &lt;fctr&gt; &lt;int&gt;
+##  1      a     1
+##  2      b     8
+##  3      c    10
+##  4      d    16
+##  5      e    21
+##  6      f    20
+##  7      g     8
+##  8      h     5
+##  9      i     6
+## 10      k     2
+## 11      l     1
 
 # Por default, a categoria &quot;Other&quot; sempre será menor
 # que as outras categorias.
@@ -314,30 +316,29 @@ letras %&gt;%
 ## # A tibble: 9 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      a     4
-## 2      b    13
-## 3      c    19
-## 4      d    12
-## 5      e    21
-## 6      f    12
-## 7      g    10
-## 8      h     4
-## 9      i     4
+## 1      b     8
+## 2      c    10
+## 3      d    16
+## 4      e    21
+## 5      f    20
+## 6      g     8
+## 7      h     5
+## 8      i     6
+## 9 Outros     4
 
 # Espeficicando o argumento &quot;n = 4&quot;, preservamos os
 # 4 valores mais comuns
 letras %&gt;% 
   fct_lump(n = 4, other_level = &quot;Outros&quot;) %&gt;% 
   fct_count
-## # A tibble: 6 x 2
+## # A tibble: 5 x 2
 ##        f     n
 ##   &lt;fctr&gt; &lt;int&gt;
-## 1      b    13
-## 2      c    19
-## 3      d    12
-## 4      e    21
-## 5      f    12
-## 6 Outros    22
+## 1      c    10
+## 2      d    16
+## 3      e    21
+## 4      f    20
+## 5 Outros    31
 
 # Espeficicando o argumento &quot;n = -4&quot;, preservamos
 # apenas os 4 valores que menos aparecem
@@ -347,11 +348,11 @@ letras %&gt;%
 ## # A tibble: 5 x 2
 ##            f     n
 ##       &lt;fctr&gt; &lt;int&gt;
-## 1          a     4
-## 2          g    10
-## 3          h     4
-## 4          i     4
-## 5 Principais    77</code></pre>
+## 1          a     1
+## 2          h     5
+## 3          k     2
+## 4          l     1
+## 5 Principais    89</code></pre>
 </div>
 <div id="lvls_reorder" class="section level2">
 <h2>lvls_reorder</h2>

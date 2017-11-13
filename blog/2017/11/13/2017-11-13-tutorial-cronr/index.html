@@ -201,7 +201,7 @@ devtools::install_github(&quot;hrbrmstr/darksky&quot;)</code></pre>
 </div>
 <div id="baixando-os-dados" class="section level2">
 <h2>Baixando os dados</h2>
-<p>O primeiro passo da nossa análise é determinar as latitudes e longitudes das maiores cidades cidades do mundo para que possamos pedir as previsões do tempo destas coordenadas.</p>
+<p>O primeiro passo da nossa análise é determinar as latitudes e longitudes das maiores cidades do mundo para que possamos pedir as previsões do tempo destas coordenadas.</p>
 <p>Com o pacote <code>maps</code> podemos fazer isso de uma maneira bastante simples:</p>
 <pre class="r"><code>forecasts &lt;- maps::world.cities %&gt;%
   dplyr::as_tibble() %&gt;%
@@ -230,7 +230,8 @@ readr::write_rds(forecasts, stringr::str_c(&quot;DIRETÓRIO DOS ARQUIVOS&quot;, 
 </div>
 <div id="cronr" class="section level2">
 <h2>cronR</h2>
-<p>Perceba que o script descrito na seção anterior não depende de nenhum input do programador e pode ser rodado automaticamente. Agora só nos resta automatizar essa execução, tarefa que realizaremos com o pacote <code>cronR</code>.</p>
+<p>Perceba que o script descrito na seção anterior não depende de nenhum input do programador e pode ser rodado automaticamente. Agora só nos resta automatizar essa execução, tarefa que realizaremos com o pacote <code>cronR</code>. Ele funciona nas plataformas Mac e Linux e pode ser instalado com o comando a seguir:</p>
+<pre class="r"><code>install.packages(&quot;cronR&quot;)</code></pre>
 <p>Esse pacote nos permite agendar a execução de qualquer comando para que ela ocorra a cada tantos minutos/horas/dias/… Certifique-se de que você está em uma máquina ou servidor que não será desligado, <a href="https://en.wikipedia.org/wiki/Cron">verifique se o cron daemon está ativo</a> e agende a execução do nosso script:</p>
 <pre class="r"><code>cmd &lt;- cronR::cron_rscript(&quot;CAMINHO PARA SCRIPT&quot;)
 
@@ -597,19 +598,6 @@ cronR::cron_add(cmd, &quot;daily&quot;, &quot;12PM&quot;)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/incompany/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/r4ds/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
@@ -618,6 +606,19 @@ cronR::cron_add(cmd, &quot;daily&quot;, &quot;12PM&quot;)</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
