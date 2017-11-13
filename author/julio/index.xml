@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 03 Nov 2017 23:26:00 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 12 Nov 2017 23:26:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/author/julio/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quebrando Captchas - Parte V: Fazendo redes convolucionais na mão</title>
+      <link>http://curso-r.com/blog/2017/11/12/2017-11-10-captcha-conv/</link>
+      <pubDate>Sun, 12 Nov 2017 23:26:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/11/12/2017-11-10-captcha-conv/</guid>
+      <description>Voltando aos saudosos captchas. Demorei para fazer esse post pois estava esperando o lançamento do curso de redes neurais convolucionais do Andrew Ng. O curso foi muito bom, valeu à pena! E, como prometido, vamos agora trabalhar com modelagem dos captchas.
+Objetivo Nosso objetivo é aprender a aplicar a operação da convolução em imagens, replicando o modelo já ajustado dos captchas. O jeito que fazemos para ajustar o modelo ficará para um próximo post.</description>
+    </item>
     
     <item>
       <title>Estatística e Música</title>
@@ -18,7 +28,7 @@
       <pubDate>Fri, 03 Nov 2017 23:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/11/03/2017-11-03-music01/</guid>
-      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 😊. Em novembro voltarei a postar sobre esse assunto.
+      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 😺. Em novembro voltarei a postar sobre esse assunto.
  Em setembro de 2017, participei do 16th Symposium on Computer Music, organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.
 Uma das formas que usarei para aprender os métodos e estudar os conceitos será esse blog!</description>
     </item>
