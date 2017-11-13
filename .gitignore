@@ -5,7 +5,7 @@
 blogdown/
 public/
 carros_eletronicas.rda
-DS_Store
+.DS_Store
 .httr-oauth
 content/blog/pdf
 content/blog/pdf_consolidado
