@@ -225,19 +225,19 @@ centroides &lt;- img_df %&gt;%
 
 centroides
 ## # A tibble: 6 x 4
-##   cluster         r          g         b
-##     &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-## 1       1 0.0996826 0.04366903 0.2398452
-## 2       2 0.2721465 0.36412137 0.4901613
-## 3       3 0.8857289 0.77915257 0.6688482
-## 4       4 0.6239192 0.28335790 0.1897367
-## 5       5 0.7195362 0.54881786 0.4098359
-## 6       6 0.3789830 0.11857741 0.1558412</code></pre>
+##   cluster          r         g         b
+##     &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1       1 0.88572504 0.7791481 0.6688438
+## 2       2 0.37889146 0.1185504 0.1558589
+## 3       3 0.62387801 0.2832790 0.1896923
+## 4       4 0.09965226 0.0436630 0.2398620
+## 5       5 0.71951030 0.5487661 0.4097725
+## 6       6 0.27214211 0.3641213 0.4901644</code></pre>
 <p>Também transformamos uma cor r, g e b em uma representação hexadecimal. Assim conseguimos um vetor de caracteres que representa a a paleta de cores.</p>
 <pre class="r"><code>centroides &lt;- centroides %&gt;%
   mutate(cor = rgb(r, g, b))
 centroides$cor
-## [1] &quot;#190B3D&quot; &quot;#455D7D&quot; &quot;#E2C7AB&quot; &quot;#9F4830&quot; &quot;#B78C69&quot; &quot;#611E28&quot;</code></pre>
+## [1] &quot;#E2C7AB&quot; &quot;#611E28&quot; &quot;#9F4830&quot; &quot;#190B3D&quot; &quot;#B78C68&quot; &quot;#455D7D&quot;</code></pre>
 <p>Para exibir a paleta vamos usar a seguinte função que foi copiada e levemente modificada <a href="https://github.com/karthik/wesanderson">daqui</a></p>
 <pre class="r"><code>exibir &lt;- function(x) {
   n &lt;- length(x)
@@ -367,13 +367,13 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (67)</a>
+            <li><a href="http://curso-r.com/categories/r">r (68)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (28)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (29)</a>
             </li>
             
         </ul>
@@ -461,6 +461,9 @@ exibir(paleta)</code></pre>
             <li><a href="http://curso-r.com/tags/environments"><i class="fa fa-tags"></i> environments</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/esparsa"><i class="fa fa-tags"></i> esparsa</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/estat%c3%adstica"><i class="fa fa-tags"></i> estatística</a>
             </li>
             
@@ -516,6 +519,9 @@ exibir(paleta)</code></pre>
             </li>
             
             <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/matriz"><i class="fa fa-tags"></i> matriz</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/miojo"><i class="fa fa-tags"></i> miojo</a>
@@ -632,27 +638,27 @@ exibir(paleta)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/incompany/">
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
@@ -716,6 +722,19 @@ exibir(paleta)</code></pre>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/11/16/2017-11-16-matrizes-esparsas/">
+                          
+                            <img src="http://curso-r.com/img/banners/banner-sparse-matrix.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/11/16/2017-11-16-matrizes-esparsas/">Matrizes Esparsas no R</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/11/13/2017-11-13-tutorial-cronr/">
                           
                             <img src="http://curso-r.com/img/banners/cron-clock.jpg" class="img-responsive" alt="">
@@ -737,19 +756,6 @@ exibir(paleta)</code></pre>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/11/12/2017-11-10-captcha-conv/">Quebrando Captchas - Parte V: Fazendo redes convolucionais na mão</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/11/11/2017-11-11-preconceitos-no-aprendizado/">
-                          
-                            <img src="http://curso-r.com/img/banners/studying-hard.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/11/11/2017-11-11-preconceitos-no-aprendizado/">Aprendendo assuntos difíceis</a></h5>
                     </div>
                 </div>
                 

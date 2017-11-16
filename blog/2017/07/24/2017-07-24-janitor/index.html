@@ -284,24 +284,24 @@ base_qualquer &lt;- tibble(nome = sample(p_nome, 25, replace = T),
 
 get_dupes(base_qualquer, nome, sobrenome)
 ## # A tibble: 16 x 4
-##      nome sobrenome dupe_count variavel_importante
-##     &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
-##  1  Athos   Damiani          4        -0.519273413
-##  2  Athos   Damiani          4        -0.318384948
-##  3  Athos   Damiani          4        -1.502144324
-##  4  Athos   Damiani          4        -0.440941532
-##  5 Daniel   Damiani          2         0.940543181
-##  6 Daniel   Damiani          2         0.004349047
-##  7 Daniel    Falbel          2         0.135432251
-##  8 Daniel    Falbel          2         0.147532457
-##  9  Julio    Amorim          2        -2.166448868
-## 10  Julio    Amorim          2         1.070714911
-## 11  Julio   Damiani          2         0.343885208
-## 12  Julio   Damiani          2        -0.568536247
-## 13  Julio    Falbel          2        -1.286294507
-## 14  Julio    Falbel          2         0.659753113
-## 15  Julio  Trecenti          2         0.681416961
-## 16  Julio  Trecenti          2        -0.606356621</code></pre>
+##       nome sobrenome dupe_count variavel_importante
+##      &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;               &lt;dbl&gt;
+##  1  Daniel    Amorim          2         -1.57530590
+##  2  Daniel    Amorim          2         -1.28414661
+##  3  Daniel    Corrêa          2         -0.04594043
+##  4  Daniel    Corrêa          2          0.08619379
+##  5  Daniel   Damiani          3          0.10237586
+##  6  Daniel   Damiani          3         -0.43892489
+##  7  Daniel   Damiani          3         -1.35233559
+##  8  Daniel    Falbel          2         -0.77919177
+##  9  Daniel    Falbel          2          0.42179378
+## 10   Julio  Trecenti          2         -0.67782709
+## 11   Julio  Trecenti          2         -0.12658042
+## 12 William    Falbel          3          0.25292270
+## 13 William    Falbel          3          0.64351675
+## 14 William    Falbel          3         -0.13906516
+## 15 William  Trecenti          2          0.09506467
+## 16 William  Trecenti          2          0.98526380</code></pre>
 <p>Todas as linhas na <code>tibble</code> resultante representam uma combinação de nome-sobrenome repetida.</p>
 </div>
 <div id="outras-funcoes" class="section level2">
@@ -433,13 +433,13 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/r">r (67)</a>
+            <li><a href="http://curso-r.com/categories/r">r (68)</a>
             </li>
             
             <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
             </li>
             
-            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (28)</a>
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (29)</a>
             </li>
             
         </ul>
@@ -527,6 +527,9 @@ mtcars %&gt;%
             <li><a href="http://curso-r.com/tags/environments"><i class="fa fa-tags"></i> environments</a>
             </li>
             
+            <li><a href="http://curso-r.com/tags/esparsa"><i class="fa fa-tags"></i> esparsa</a>
+            </li>
+            
             <li><a href="http://curso-r.com/tags/estat%c3%adstica"><i class="fa fa-tags"></i> estatística</a>
             </li>
             
@@ -582,6 +585,9 @@ mtcars %&gt;%
             </li>
             
             <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/matriz"><i class="fa fa-tags"></i> matriz</a>
             </li>
             
             <li><a href="http://curso-r.com/tags/miojo"><i class="fa fa-tags"></i> miojo</a>
@@ -698,19 +704,6 @@ mtcars %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/webscraping/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/incompany/">
                   
                     <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
@@ -719,6 +712,19 @@ mtcars %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
@@ -782,6 +788,19 @@ mtcars %&gt;%
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/11/16/2017-11-16-matrizes-esparsas/">
+                          
+                            <img src="http://curso-r.com/img/banners/banner-sparse-matrix.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/11/16/2017-11-16-matrizes-esparsas/">Matrizes Esparsas no R</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="http://curso-r.com/blog/2017/11/13/2017-11-13-tutorial-cronr/">
                           
                             <img src="http://curso-r.com/img/banners/cron-clock.jpg" class="img-responsive" alt="">
@@ -803,19 +822,6 @@ mtcars %&gt;%
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="http://curso-r.com/blog/2017/11/12/2017-11-10-captcha-conv/">Quebrando Captchas - Parte V: Fazendo redes convolucionais na mão</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="http://curso-r.com/blog/2017/11/11/2017-11-11-preconceitos-no-aprendizado/">
-                          
-                            <img src="http://curso-r.com/img/banners/studying-hard.jpg" class="img-responsive" alt="">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="http://curso-r.com/blog/2017/11/11/2017-11-11-preconceitos-no-aprendizado/">Aprendendo assuntos difíceis</a></h5>
                     </div>
                 </div>
                 

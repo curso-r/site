@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Esparsa on Curso-R</title>
+    <link>http://curso-r.com/tags/esparsa/</link>
+    <description>Recent content in Esparsa on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 16 Nov 2017 14:25:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/esparsa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Matrizes Esparsas no R</title>
+      <link>http://curso-r.com/blog/2017/11/16/2017-11-16-matrizes-esparsas/</link>
+      <pubDate>Thu, 16 Nov 2017 14:25:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/11/16/2017-11-16-matrizes-esparsas/</guid>
+      <description>Matrizes esparsas são matrizes em que a maior parte dos elementos é igual a zero. Matrizes dessa forma surgem em diversos problemas relacionados a Machine Learning e análise de dados.
+Por exemplo, é comum em text mining representar os documentos usando o chamado Bag of Words. Bag of Words nada mais é do que listar as palavras que aparecem em todos os documentos e em seguida criar uma matriz em que cada linha é um documento e cada coluna é uma palavra que poderia ter aparecido neste documento.</description>
+    </item>
+    
+  </channel>
+</rss>

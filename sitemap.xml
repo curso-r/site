@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/11/16/2017-11-16-matrizes-esparsas/</loc>
+    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/11/13/2017-11-13-tutorial-cronr/</loc>
     <lastmod>2017-11-13T14:25:00+03:00</lastmod>
   </url>
@@ -405,7 +410,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
+    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
   </url>
   
   <url>
@@ -486,7 +491,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
+    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -502,7 +507,7 @@
   
   <url>
     <loc>http://curso-r.com/author/daniel/</loc>
-    <lastmod>2017-10-27T10:12:00+03:00</lastmod>
+    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -549,6 +554,12 @@
   <url>
     <loc>http://curso-r.com/tags/environments/</loc>
     <lastmod>2017-06-19T23:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/esparsa/</loc>
+    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -687,6 +698,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/matriz/</loc>
+    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/miojo/</loc>
     <lastmod>2017-09-07T23:26:00+03:00</lastmod>
     <priority>0</priority>
@@ -766,7 +783,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
+    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -876,7 +893,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-11-13T14:25:00+03:00</lastmod>
+    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
