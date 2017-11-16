@@ -3,7 +3,7 @@ title: "Matrizes Esparsas no R"
 date: "2017-11-16T14:25:00+03:00"
 tags: ["matriz", "esparsa"]
 categories: ["tutoriais", "r"]
-banner: "img/banners/cron-clock.jpg"
+banner: "img/banners/banner-sparse-matrix.jpg"
 author: ["Daniel"]
 summary: "Matrizes esparsas são matrizes em que a maior parte dos elementos é igual a zero. Existem maneiras muito eficientes de lidar com esse tipo de matrizes no R e é disso que vamos falar neste post."
 ---
