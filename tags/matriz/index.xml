@@ -19,7 +19,7 @@
       
       <guid>http://curso-r.com/blog/2017/11/16/2017-11-16-matrizes-esparsas/</guid>
       <description>Matrizes esparsas são matrizes em que a maior parte dos elementos é igual a zero. Matrizes dessa forma surgem em diversos problemas relacionados a Machine Learning e análise de dados.
-Por exemplo, é comum em text mining representar os documentos usando o chamado Bag of Words. Bag of Words nada mais é do que listar as palavras que aparecem em todos os documentos e em seguida criar uma matriz em que cada linha é um documento e cada coluna é uma palavra que poderia ter aparecido neste documento.</description>
+Por exemplo, é comum em text mining representar os documentos usando o chamado Bag of Words. Bag of Words nada mais é do que listar as palavras que aparecem em todos os documentos e em seguida criar uma matriz em que cada linha é um documento e cada coluna é uma palavra que foi listada anteriormente.</description>
     </item>
     
   </channel>
