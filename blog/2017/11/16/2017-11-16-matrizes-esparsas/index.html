@@ -222,47 +222,47 @@ pryr::object_size(x_s)
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="right">40</td>
+<td align="right">45</td>
 </tr>
 <tr class="even">
 <td align="right">1</td>
-<td align="right">42</td>
+<td align="right">2</td>
 </tr>
 <tr class="odd">
 <td align="right">1</td>
-<td align="right">31</td>
+<td align="right">36</td>
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="right">10</td>
+<td align="right">23</td>
 </tr>
 <tr class="odd">
 <td align="right">2</td>
-<td align="right">7</td>
+<td align="right">50</td>
 </tr>
 <tr class="even">
 <td align="right">3</td>
-<td align="right">11</td>
+<td align="right">18</td>
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="right">19</td>
+<td align="right">38</td>
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="right">44</td>
+<td align="right">31</td>
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="right">35</td>
+<td align="right">16</td>
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="right">49</td>
+<td align="right">15</td>
 </tr>
 <tr class="odd">
 <td align="right">7</td>
-<td align="right">24</td>
+<td align="right">19</td>
 </tr>
 <tr class="even">
 <td align="right">7</td>
@@ -270,62 +270,62 @@ pryr::object_size(x_s)
 </tr>
 <tr class="odd">
 <td align="right">8</td>
-<td align="right">22</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="right">16</td>
-</tr>
-<tr class="odd">
-<td align="right">8</td>
-<td align="right">14</td>
+<td align="right">17</td>
 </tr>
 <tr class="even">
 <td align="right">8</td>
 <td align="right">46</td>
 </tr>
 <tr class="odd">
-<td align="right">9</td>
-<td align="right">15</td>
-</tr>
-<tr class="even">
-<td align="right">9</td>
-<td align="right">23</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
+<td align="right">8</td>
 <td align="right">41</td>
 </tr>
 <tr class="even">
+<td align="right">8</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
 <td align="right">9</td>
-<td align="right">28</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">29</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">12</td>
 </tr>
 </tbody>
 </table>
 <p>Nesse caso, faz mais sentido criar a matriz esparsa usando a função <code>sparseMatrix</code>. Assim, você só especifica as coordenadas da matriz que têm algum 1.</p>
 <pre class="r"><code>library(Matrix)
 sparseMatrix(bd$cliente, bd$itens)</code></pre>
-<pre><code>## 9 x 49 sparse Matrix of class &quot;ngCMatrix&quot;
+<pre><code>## 9 x 50 sparse Matrix of class &quot;ngCMatrix&quot;
 ##                                                                          
-##  [1,] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . | . . .
-##  [2,] . . . . . . | . . | . . . . . . . . . . . . . . . . . . . . . . . .
-##  [3,] . . . . . . . . . . | . . . . . . . | . . . . . . . . . . . . . . .
-##  [4,] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-##  [5,] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-##  [6,] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-##  [7,] . . . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . .
-##  [8,] . . . . . . . . . . . . . | . | . . . . . | . . . . . . . . . . . .
-##  [9,] . . . . . . . . . . . . . . | . . . . . . . | . . . . | . . . . . .
-##                                    
-##  [1,] . . . . . | . | . . . . . . .
-##  [2,] . . . . . . . . . . . . . . .
-##  [3,] . . . . . . . . . . . . . . .
-##  [4,] . . . . . . . . . | . . . . .
-##  [5,] | . . . . . . . . . . . . . .
-##  [6,] . . . . . . . . . . . . . . |
-##  [7,] . . . . | . . . . . . . . . .
-##  [8,] . . . . . . . . . . . | . . .
-##  [9,] . . . . . . | . . . . . . . .</code></pre>
+##  [1,] . | . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+##  [2,] . . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . .
+##  [3,] . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . .
+##  [4,] . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . | . . .
+##  [5,] . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . . . .
+##  [6,] . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . . . . .
+##  [7,] . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . .
+##  [8,] . . . | . . . . . . . . . . . . | . . . . . . . . . . . . . . . . .
+##  [9,] | . . . . . . . . . . | . | . . . . . . . . . . . . . . | . . . . .
+##                                      
+##  [1,] . | . . . . . . . . | . . . . .
+##  [2,] . . . . . . . . . . . . . . . |
+##  [3,] . . . | . . . . . . . . . . . .
+##  [4,] . . . . . . . . . . . . . . . .
+##  [5,] . . . . . . . . . . . . . . . .
+##  [6,] . . . . . . . . . . . . . . . .
+##  [7,] . . . . | . . . . . . . . . . .
+##  [8,] . . . . . . | . . . . | . . . .
+##  [9,] . . . . . . . . . . . . . . . .</code></pre>
 <p>Outra função importante é a <code>sparse.model.matrix</code>. Ela é equivalente à função <code>model.matrix</code> mas cria uma matriz de modelo esparsa o que pode ser útil quando você tem um fator que possui muitos níveis no seu modelo. A vignette <a href="https://cran.r-project.org/web/packages/Matrix/vignettes/sparseModels.pdf"><em>Sparse Model Matrices</em></a> fala sobre isso.</p>
 <p>Também é possível programar em Rcpp usando matrizes esparsas usando o RcppArmadillo, veja <a href="http://gallery.rcpp.org/articles/armadillo-sparse-matrix/">esse exemplo</a> para mais detalhes.</p>
 <p>Para saber mais leia as vignettes do pacote <a href="https://cran.r-project.org/web/packages/Matrix/index.html">Matrix</a>. Em especial, vale a pena ler as seguintes <a href="https://cran.r-project.org/web/packages/Matrix/vignettes/Intro2Matrix.pdf">2nd Introduction to the Matrix Package</a>.</p>
@@ -689,14 +689,14 @@ sparseMatrix(bd$cliente, bd$itens)</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/incompany/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
          
