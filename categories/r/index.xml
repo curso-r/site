@@ -59,7 +59,7 @@ Muitas vezes, não passa de uma brincadeira na hora de dividir a conta do bar. M
       <pubDate>Fri, 03 Nov 2017 23:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/11/03/2017-11-03-music01/</guid>
-      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 🙋🏽. Em novembro voltarei a postar sobre esse assunto.
+      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 😉. Em novembro voltarei a postar sobre esse assunto.
  Em setembro de 2017, participei do 16th Symposium on Computer Music, organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.
 Uma das formas que usarei para aprender os métodos e estudar os conceitos será esse blog!</description>
     </item>
@@ -583,7 +583,7 @@ O pacote httr utiliza um padrão SSL (Secure Sockets Layer) para lidar com HTTPS
       <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>http://curso-r.com/blog/2017/03/27/2017-03-27-lollapalooza-sp-2017-segundo-spotify/</guid>
-      <description>knitr::opts_chunk$set(eval = FALSE) No dia em que fui ao Lollapalooza eu descobri o Rspotify, um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.
+      <description>No dia em que fui ao Lollapalooza eu descobri o Rspotify, um wraper da API do Spotify e daí me veio a ideia de juntar infos dos dois assuntos.
 A brincadeira aqui vai envolver
  Web Scraping - para baixar e estruturar as tabelas de programação do Lolapalooza SP 2017 API do Spotify - por meio do pacote Rspotify todos os pacotes do tidyverse  Lollapalooza deste ano em São Paulo contou com 47 bandas distribuídas em quatro palcos.</description>
     </item>
@@ -625,7 +625,7 @@ Com isso em mente, vamos investigar o tema paralelização. Quando rodamos coisa
       
       <guid>http://curso-r.com/blog/2017/03/16/2017-02-18-all-things-r-and-rstudio/</guid>
       <description>No início de Janeiro desse ano ocorreu a primeira rstudio::conf, uma conferência sobre R promovida pela Rstudio. A conferência parece ter sido bem animada! Teve até um passeio para o parque do Harry Potter na Florida, e surgiram memes como a imagem abaixo.
-## Linking to ImageMagick 6.7.7.10 ## Enabled features: cairo, fontconfig, freetype, fftw, lcms, pango, rsvg, x11 ## Disabled features: ghostscript, webp Em termos de conteúdo, parece que foi sensacional.</description>
+## Linking to ImageMagick 6.8.9.9 ## Enabled features: cairo, fontconfig, freetype, fftw, lcms, pango, rsvg, x11 ## Disabled features: ghostscript, webp Em termos de conteúdo, parece que foi sensacional.</description>
     </item>
     
     <item>

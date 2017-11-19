@@ -308,7 +308,8 @@ invisible(draw.pairwise.venn(area1 = numero_de_pessoas_que_gostam_de_cachorros,
                    ))</code></pre>
 <p><img src="http://curso-r.com/blog/2017-04-29-diagramas-de-venn_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Até aqui tudo vai mais ou menos bem, mas a coisa fica bem mais chata quando você precisa representar um diagrama com três conjuntos. Você vai precisar passar pra função o tamanho de todos os pedacinhos.</p>
-<pre class="r"><code>numero_de_pessoas_que_gostam_de_gatos &lt;- dataset %&gt;% 
+<pre class="r"><code>
+numero_de_pessoas_que_gostam_de_gatos &lt;- dataset %&gt;% 
   dplyr::filter(Cat == 1) %&gt;% 
   nrow()
 
@@ -713,14 +714,14 @@ invisible(draw.triple.venn(area1 = numero_de_pessoas_que_gostam_de_gatos,
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/incompany/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
          

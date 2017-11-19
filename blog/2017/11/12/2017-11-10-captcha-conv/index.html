@@ -208,7 +208,7 @@ library(keras)</code></pre>
 <p>Para os retoques finais nas imagens, vamos usar o pacote <code>magick</code>. Meu intuito inicial era usar a função <code>image_convolve()</code> desse pacote, mas infelizmente essa operação é limitada. Acabei usando apenas funções para juntar imagens e fazer gifs. Se quiser mais detalhes sobre o <code>magick</code>, veja o excelente post <a href="http://curso-r.com/blog/2017/06/01/2017-06-01-a-kind-of-magick/">A kind of magick</a>, feito pelo <a href="http://curso-r.com/author/william/">William Amorim</a>.</p>
 <pre class="r"><code># install.packages(&quot;magick&quot;)
 library(magick)
-## Linking to ImageMagick 6.7.7.10
+## Linking to ImageMagick 6.8.9.9
 ## Enabled features: cairo, fontconfig, freetype, fftw, lcms, pango, rsvg, x11
 ## Disabled features: ghostscript, webp</code></pre>
 </div>
@@ -461,9 +461,9 @@ w_list[[1]]</code></pre>
 <img src="http://curso-r.com/blog/img/captcha_conv.gif" alt="" />
 
 </div>
-<p>No próximo nível, vamos convoluir mais 48 kernels. Essa operação será feita com todos os doze filtros atuais, ou seja, é uma contaiada que não acaba mais. Para simplificar as contas e para permitir a obtenção de padrões diferentes, faz sentido simplificar a imagem. Para isso, usamos o <em>max pooling</em></p>
-<div id="fazendo-max-pooling" class="section level4">
-<h4>Fazendo max pooling</h4>
+<p>No próximo nível, vamos convoluir mais 48 kernels. Essa operação será feita com todos os doze filtros atuais, ou seja, é uma contaiada que não acaba mais. Para simplificar as contas e para permitir a obtenção de padrões diferentes, faz sentido simplificar a imagem. Para isso, usamos o <em>max pooling</em>.</p>
+<div id="aplicando-max-pooling" class="section level4">
+<h4>Aplicando max pooling</h4>
 <p>O max pooling simplesmente pega o pixel de maior valor dentro de uma janela. No caso, estamos usando uma janela 2x2 e aplicamos ela igualzinho convolução, só que ao invés de pegar a soma ponderada dos pixels, pegamos o pixel máximo. Outra diferença é que ao invés de andar o pixel de 1 em 1, andamos de 2 em 2. Assim cada janelinha é considerada apenas uma vez (esse é o conceito de <em>strides</em>, que não vou discutir aqui).</p>
 <p>Montei esse algoritmo que faz max pooling:</p>
 <pre class="r"><code>max_pool &lt;- function(img) {
@@ -1346,6 +1346,19 @@ probabilidades &lt;- res2[1,,] %&gt;%
          
         <div>
             <div>
+                <a href="http://curso-r.com/cursos/r4ds/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -1354,19 +1367,6 @@ probabilidades &lt;- res2[1,,] %&gt;%
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
-                <a href="http://curso-r.com/cursos/incompany/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
         

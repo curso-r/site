@@ -290,8 +290,8 @@ df &lt;- data_frame(
   gather(ano, idh, -Pais) %&gt;%
   mutate(ano = parse_number(ano))</code></pre>
 <p>Agora para fazer o mesmo teste, poderíamos filtrar o banco de dados duas vezes, por exemplo:</p>
-<pre class="r"><code>t.test(df$idh[df$ano == 2015], df$idh[df$ano == 2014], paired = TRUE)</code></pre>
-<pre><code>
+<pre class="r"><code>t.test(df$idh[df$ano == 2015], df$idh[df$ano == 2014], paired = TRUE)
+
     Paired t-test
 
 data:  df$idh[df$ano == 2015] and df$idh[df$ano == 2014]
@@ -306,8 +306,8 @@ mean of the differences
 <p>Vamos ajustar um modelo com efeitos aleatórios para esse problema e comparar os resultados.</p>
 <pre class="r"><code>library(nlme)
 model &lt;- lme(idh ~ as.factor(ano), random = ~1|Pais, data = df)
-summary(model)</code></pre>
-<pre><code>Linear mixed-effects model fit by REML
+summary(model)
+Linear mixed-effects model fit by REML
  Data: df 
         AIC       BIC   logLik
   -184.7518 -174.4119 96.37588
@@ -694,14 +694,14 @@ Number of Groups: 50 </code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/incompany/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
             </div>
         </div>
          

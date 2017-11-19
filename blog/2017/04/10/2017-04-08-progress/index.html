@@ -203,6 +203,12 @@ for (x in nums) {
   barra$tick() # dá um passo
   resultados[[x]] &lt;- funcao_demorada(x)
 }</code></pre>
+<pre><code>TRUE 
+[==========================----------------------------------------]  40%
+[========================================--------------------------]  60%
+[=====================================================-------------]  80%
+[==================================================================] 100%
+                                                                         </code></pre>
 <p>Como resultados, temos:</p>
 <pre class="r"><code>resultados
 ## [[1]]
@@ -247,6 +253,12 @@ resultados &lt;- purrr::map(nums, ~{
   barra$tick()
   funcao_demorada(.x)
 })</code></pre>
+<pre><code>TRUE 
+[==========================----------------------------------------]  40%
+[========================================--------------------------]  60%
+[=====================================================-------------]  80%
+[==================================================================] 100%
+                                                                         </code></pre>
 <p>O código fica parecido com solução usando <code>for()</code>, mas pelo menos estamos usando os pacotes mais recentes ;)</p>
 </div>
 <div id="eficiencia" class="section level2">
@@ -305,6 +317,7 @@ purrr_sem &lt;- function(nums) {
 <th align="right">mean</th>
 <th align="right">median</th>
 <th align="right">max</th>
+<th align="left">cld</th>
 </tr>
 </thead>
 <tbody>
@@ -314,6 +327,7 @@ purrr_sem &lt;- function(nums) {
 <td align="right">10.367</td>
 <td align="right">9.952</td>
 <td align="right">17.155</td>
+<td align="left">b</td>
 </tr>
 <tr class="even">
 <td align="left">for_sem(nums)</td>
@@ -321,6 +335,7 @@ purrr_sem &lt;- function(nums) {
 <td align="right">0.219</td>
 <td align="right">0.196</td>
 <td align="right">2.211</td>
+<td align="left">a</td>
 </tr>
 <tr class="odd">
 <td align="left">plyr_com(nums)</td>
@@ -328,6 +343,7 @@ purrr_sem &lt;- function(nums) {
 <td align="right">10.754</td>
 <td align="right">10.511</td>
 <td align="right">18.386</td>
+<td align="left">c</td>
 </tr>
 <tr class="even">
 <td align="left">plyr_sem(nums)</td>
@@ -335,6 +351,7 @@ purrr_sem &lt;- function(nums) {
 <td align="right">0.155</td>
 <td align="right">0.156</td>
 <td align="right">0.271</td>
+<td align="left">a</td>
 </tr>
 <tr class="odd">
 <td align="left">purrr_com(nums)</td>
@@ -342,6 +359,7 @@ purrr_sem &lt;- function(nums) {
 <td align="right">10.376</td>
 <td align="right">9.982</td>
 <td align="right">14.424</td>
+<td align="left">b</td>
 </tr>
 <tr class="even">
 <td align="left">purrr_sem(nums)</td>
@@ -349,6 +367,7 @@ purrr_sem &lt;- function(nums) {
 <td align="right">0.131</td>
 <td align="right">0.124</td>
 <td align="right">0.538</td>
+<td align="left">a</td>
 </tr>
 </tbody>
 </table>

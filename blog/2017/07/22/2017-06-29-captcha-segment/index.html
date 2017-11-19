@@ -203,11 +203,11 @@ arq_captcha &lt;- decryptr::download_trt(dest = &#39;img&#39;, n = 1)</code></pr
 <pre class="r"><code>&quot;img/captcha705f7bad4a3d.jpeg&quot;  %&gt;% 
   read_captcha() %&gt;% 
   plot()</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/plotimg1-1.png" width="672" /></p>
 <p>Infelizmente, segmentar a imagem nos lugares corretos é <a href="https://www.usenix.org/node/185129">uma tarefa difícil</a>. Pior até do que predizer as letras. Para simplificar, vamos fazer um corte fixado das letras:</p>
 <pre class="r"><code>arq_captcha %&gt;% read_captcha() %&gt;% plot()
 abline(v = 30 + 15 * 0:5, col = &#39;red&#39;)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/imglines-1.png" width="672" /></p>
 <p>Podemos também limitar os eixos <code>x</code> (tirar os espaços vazios à esquerda e à direita) e <code>y</code> (superiores e inferiores).</p>
 <pre class="r"><code>&quot;img/captcha705f7bad4a3d.jpeg&quot; %&gt;% 
   load_image() %&gt;% 
@@ -217,7 +217,7 @@ abline(v = 30 + 15 * 0:5, col = &#39;red&#39;)</code></pre>
 abline(v = 15 * 1:5, col = &#39;red&#39;)
 abline(v = 15 * c(0, 6), col = &#39;black&#39;)
 abline(h = c(0, 21), col = &#39;blue&#39;)</code></pre>
-<p><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/imglines2-1.png" width="672" /></p>
 <p>Agora temos uma imagem de tamanho dimensões <code>21x15</code> por caractere. Nosso próximo desafio é transformar isso em algo tratável por modelos de regressão. Para isso, colocamos cada pixel em uma coluna da nossa base de dados.</p>
 <p>No caso do TRT, cada CAPTCHA gerará uma tabela de 6 linhas e 315 (<code>21 * 15</code>) colunas. Podemos usar esse código para montar:</p>
 <pre class="r"><code>arq_captcha %&gt;% 
@@ -287,8 +287,36 @@ d_test &lt;- dados[-ids_treino, ]</code></pre>
   spread(pred, n, fill = &#39;.&#39;) %&gt;% 
   remove_rownames() %&gt;% 
   knitr::kable(caption = &#39;Tabela de acertos e erros.&#39;)</code></pre>
-<table>
-<caption><span id="tab:errosTRT">Table 1: </span>Tabela de acertos e erros.</caption>
+<table style="width:178%;">
+<colgroup>
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
+<col width="6%" />
+<col width="6%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">y</th>
@@ -1080,11 +1108,48 @@ d_test &lt;- dados[-ids_treino, ]</code></pre>
 <div id="nem-tudo-sao-rosas" class="section level2">
 <h2>Nem tudo são rosas</h2>
 <p>O resultado para o CAPTCHA do TRT é bastante satisfatório, mas infelizmente não generaliza para outros CAPTCHAs. Tome por exemplo o CAPTCHA da Receita Federal abaixo. Nesse caso, a posição dos caracteres muda significativamente de imagem para imagem, e assim fica difícil cortar em pedaços.</p>
-<p><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-12-1.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-12-2.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-12-3.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-12-4.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-12-5.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-12-6.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-12-7.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/unnamed-chunk-12-8.png" width="12%" /></p>
-<p>O mesmo modelo aplicado ao CAPTCHA da Receita possui acerto de 78.8% do caractere, o que equivale a apenas 23.8% de acerto para toda a imagem. Veja os resultados na Tabela <a href="#tab:errosReceita">2</a></p>
+<p><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/generalize-1.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/generalize-2.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/generalize-3.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/generalize-4.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/generalize-5.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/generalize-6.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/generalize-7.png" width="12%" /><img src="http://curso-r.com/blog/2017-06-29-captcha-segment_files/figure-html/generalize-8.png" width="12%" /></p>
+<p>O mesmo modelo aplicado ao CAPTCHA da Receita possui acerto de 78.8% do caractere, o que equivale a apenas 23.8% de acerto para toda a imagem. Veja os resultados na tabela abaixo.</p>
 <pre class="r"><code>model &lt;- randomForest(y ~ . - captcha_id, data = d_train) </code></pre>
-<table>
-<caption><span id="tab:errosReceita">Table 2: </span>Tabela de acertos e erros para o CAPTCHA da Receita.</caption>
+<table style="width:203%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">y</th>
@@ -2832,19 +2897,6 @@ d_test &lt;- dados[-ids_treino, ]</code></pre>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/r4ds/">
                   
                     <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
@@ -2853,6 +2905,19 @@ d_test &lt;- dados[-ids_treino, ]</code></pre>
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/webscraping/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
         
