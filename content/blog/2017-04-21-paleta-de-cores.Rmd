@@ -10,8 +10,16 @@ paletas de cores a partir de imagens. Veja como isso pode ser feito usando
 o R."
 ---
 
-```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE)
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+# saveRDS(centroides, "centroides.rds")
+# saveRDS(paleta, "paleta.rds")
+library(dplyr)
+centroides <- readRDS("centroides.rds")
+paleta <- readRDS("paleta.rds")
 ```
 
 Uma aplicação interessante de algoritmos de clusterização é a obtenção de 
@@ -20,10 +28,10 @@ o R.
 
 Em primeiro lugar, vamos ler a imagem como uma matriz para o R.
 Existem diversas bibliotecas para carregar as imagens, vamos usar aqui
-a [`jpeg`](https://CRAN.R-project.org/package=jpeg ). Para esse caso ela
+a [`jpeg`](https://CRAN.R-project.org/package=jpeg). Para esse caso ela
 é melhor porque já lê a imagem no formato que precisamos.
 
-```{r}
+```{r bowie, eval=FALSE}
 library(jpeg)
 library(magrittr)
 img <- readJPEG("img/david-bowie.jpg")
@@ -35,9 +43,11 @@ A imagem lida pelo pacote `jpeg` é representada por um `array` com dimensões:
 Podemos exibir a imagem no R, convertendo o array, primeiro em um obheto do tipo 
 `raster` e depois simplesmente usando a função `plot`.
 
-```{r, fig.height=16, fig.width=16}
+```{r raster, fig.height=16, fig.width=16, eval=FALSE}
 plot(as.raster(img))
 ```
+
+![](/blog/img/david-bowie.jpg)
 
 O problema de obter a paleta de cores de uma imagem pode ser formulado como um
 problema de clusterização: "obter grupos de individuos que possuem a menor diferença dentro de cada um e a maior diferença possível entre os grupos de 
@@ -49,7 +59,7 @@ cor do pixel). Para o algortimos de
 clusterização, precisamos de uma matriz com as 3 colunas R, G e B e largura*altura (numero de pixels) linhas representado os indivíduos. É exatamente essa conversão
 que o trecho de código a seguir realiza.
 
-```{r}
+```{r matrix, eval=FALSE}
 img_matrix <- apply(img, 3, as.numeric)
 ```
 
@@ -58,7 +68,7 @@ Vamos aplicar agora o algoritmo k-means, para organizar cada um desses pixels em
 um grupo. O K-means pede o número de grupos como input, vamos começar
 com 6.
 
-```{r}
+```{r kmeans, eval=FALSE}
 km <- kmeans(img_matrix, centers = 6)
 ```
 
@@ -70,7 +80,7 @@ A cor que representa cada um dos grupos é representada pelo vetor
 c(r, g, b) com a média de todas as observações de cada um dos grupos.
 Podemos obter isso com algumas manipulações usando o `dplyr`.
 
-```{r}
+```{r calccentroid, eval=FALSE}
 library(tibble)
 library(dplyr)
 img_df <- tibble(
@@ -82,14 +92,16 @@ img_df <- tibble(
 centroides <- img_df %>%
   group_by(cluster) %>%
   summarise_all(mean)
+```
 
+```{r centroid}
 centroides
 ```
 
 Também transformamos uma cor r, g e b em uma representação hexadecimal.
 Assim conseguimos um vetor de caracteres que representa a a paleta de cores.
 
-```{r}
+```{r cores}
 centroides <- centroides %>%
   mutate(cor = rgb(r, g, b))
 centroides$cor
@@ -98,7 +110,7 @@ centroides$cor
 Para exibir a paleta vamos usar a seguinte função que foi copiada 
 e levemente modificada [daqui](https://github.com/karthik/wesanderson)
 
-```{r, fig.height=2}
+```{r exibir, fig.height=2}
 exibir <- function(x) {
   n <- length(x)
   old <- par(mar = c(0.5, 0.5, 0.5, 0.5))
@@ -113,7 +125,7 @@ exibir(sort(centroides$cor))
 Assim obtivemos uma paleta de cores da imagem que mostramos anteriormente. 
 Vamos colocar todo o código que fizemos passo a passo aqui em uma única função para podermos facilmente criar a paleta de cores para outras imagens.
 
-```{r}
+```{r paleta}
 criar_paleta <- function(img, num_cores){
   # transforma a imagem em uma matriz
   img_matrix <- apply(img, 3, as.numeric)
@@ -140,13 +152,18 @@ criar_paleta <- function(img, num_cores){
 Vejamos agora o que acontece com essa bela imagem do filme Moonrise Kingdom do
 Wes Anderson, que é famoso por fazer filmes com belas paletas de cores.
 
-```{r, fig.height=8, fig.width=16}
+```{r moonrise, fig.height=8, fig.width=16, eval=FALSE}
 moonrise <- readJPEG("img/moonrise-kingdom.jpg")
 plot(as.raster(moonrise))
 ```
 
-```{r, fig.height=2}
+![](/blog/img/moonrise-kingdom.jpg)
+
+```{r eval=FALSE}
 paleta <- criar_paleta(moonrise, 6)
+```
+
+```{r paleta2, fig.height=2}
 exibir(paleta)
 ```
 

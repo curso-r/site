@@ -9,8 +9,8 @@ draft: false
 summary: "Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: 'Por quê ele sempre faz tanta cara de dor?'"
 ---
 
-```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Aécio Neves é um político importante no Brasil. Por muito pouco não foi eleito Presidente da República em 2014 e é certamente um nome bem influente na atualidade. Mas sério, toda vez que eu vejo esse cara falando, não dou a mínima para quem ele é. Eu apenas fico pensando: 'Por que ele sempre faz tanta cara de dor?'
@@ -21,7 +21,7 @@ A API escolhida para essa tarefa foi a [Microsoft Emotions API](https://www.micr
 
 As imagens utilizadas para testar o algoritmo contra minha hipótese são essas aqui:
 
-```{r echo=FALSE, out.width = '33%'}
+```{r fotos, echo=FALSE, out.width = '33%'}
 u_imagens <- c(
   'http://s2.glbimg.com/h0g_J2Z8TTPdapWZFq5kb_9A81k=/0x0:300x225/300x225/s.glbimg.com/jo/g1/f/original/2014/05/30/aecio.jpg',
   'http://www.esmeraldanoticias.com.br/wp-content/uploads/2014/11/aecio-neves.jpg',
@@ -39,7 +39,7 @@ plyr::l_ply(p_imagens, function(x) plot(magick::image_read(x)))
 
 Pacotes carregados para essa análise:
 
-```{r warning=FALSE, message=FALSE}
+```{r pkgs, warning=FALSE, message=FALSE}
 library(tidyverse)
 library(httr)
 library(forcats)
@@ -49,7 +49,7 @@ library(gridExtra)
 
 Para obter os resultados, foi necessário entrar na [página de APIs de visão da Microsoft](https://www.microsoft.com/cognitive-services/en-us/emotion-api) e obter uma chave de acesso, guardando-a no objeto `key`. Depois disso, montei a função `pegar_emocoes()`, que recebe a URL de uma imagem da internet e uma chave de acesso, e retorna uma `tibble` com as proporções das emoções em cada coluna.
 
-```{r}
+```{r funcao}
 pegar_emocoes <- function(u_img, key) {
   u_api <- 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize'
   result <- httr::POST(
@@ -65,11 +65,11 @@ pegar_emocoes <- function(u_img, key) {
 
 Finalmente, apliquei a função num vetor de links usando o funcional `purrr::map_df`. Como resultado, temos essa base de dados:
 
-```{r warning=FALSE, message=FALSE, eval=FALSE}
+```{r dados, warning=FALSE, message=FALSE, eval=FALSE}
 d_emocoes <- map_df(u_imagens, pegar_emocoes, key = key, .id = 'id')
 ```
 
-```{r echo = FALSE}
+```{r keys, echo = FALSE}
 ## recomendo adicionar a API key no arquivo ~/.Renviron
 ## EMOTION_API=<sua_key>
 ## (necessário pular linha no final do arquivo)
@@ -106,9 +106,9 @@ p <- d_plot_sum %>%
 p
 ```
 
-A Figura \@ref(fig:each) mostra os resultados individuais das imagens. O primeiro resultado faz sentido, já que o Aécio está nitidamente rindo. Em todos os casos, é possível interpretar os resultados olhando a imagem. Por exemplo, o caso com "tristeza" mais alto é o que observamos as sombrancelhas mais caídas.
+A Figura \@ref(fig:grafinal) mostra os resultados individuais das imagens. O primeiro resultado faz sentido, já que o Aécio está nitidamente rindo. Em todos os casos, é possível interpretar os resultados olhando a imagem. Por exemplo, o caso com "tristeza" mais alto é o que observamos as sombrancelhas mais caídas.
 
-```{r each, fig.height=8, fig.width=7, fig.align = 'center', echo=FALSE, fig.cap='Emoções do Aécio em cada imagem.'}
+```{r each, fig.height=8, fig.width=7, fig.align = 'center', echo=FALSE, eval=FALSE}
 plotar_img <- function(d, i) {
   # img <- httr::content(httr::GET(u_imagens[i]))
   img <- jpeg::readJPEG(p_imagens[i])
@@ -131,6 +131,10 @@ plotar_img <- function(d, i) {
 }
 plots <- map(1:6, ~plotar_img(d_emocoes, .x))
 gridExtra::grid.arrange(grobs = plots, ncol = 2)
+```
+
+```{r grafinal, out.width="70%", echo=FALSE, fig.align="center", fig.cap='Emoções do Aécio em cada imagem.'}
+knitr::include_graphics("/blog/img/aecgrafs.png")
 ```
 
 ## Conclusão
