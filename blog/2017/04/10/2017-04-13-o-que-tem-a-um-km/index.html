@@ -287,7 +287,8 @@ df_places &lt;- places %&gt;%
 <div id="hospitais" class="section level3">
 <h3>Hospitais</h3>
 <p>Eu pesquisei por “pronto socorro” porque a pesquisa hospitais também resulta em hospitais veterinários. Um desafio para quem for reproduzir a análise: coletar apenas a geolocalização de hospitais públicos.</p>
-<pre class="r"><code>df_places %&gt;% 
+<pre class="r"><code>library(leaflet)
+df_places %&gt;% 
   dplyr::filter(place == &quot;pronto socorro&quot;) %&gt;% 
   leaflet %&gt;% 
   addTiles() %&gt;%
@@ -704,27 +705,27 @@ df_places &lt;- places %&gt;%
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/incompany/">
+                <a href="http://curso-r.com/cursos/webscraping/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+                <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
             </div>
         </div>
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/r4ds/">
+                <a href="http://curso-r.com/cursos/dashboards/">
                   
-                    <img src="http://curso-r.com/img/banners/banner-r-avancado.png" class="img-responsive" alt="">
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
                   
                 </a>
             </div>
             <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/r4ds/">R para Data Science</a></h5>
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
