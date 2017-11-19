@@ -52,7 +52,7 @@ As funções principais do `decryptr` são
 
 O modo de uso planejado do `decryptr` está descrito na Figura \@ref(fig:fluxo).
 
-```{r fluxo, fig.cap='Fluxo de utilização do pacote `decryptr`.', echo=FALSE}
+```{r fluxo, fig.cap='Fluxo de utilização do pacote `decryptr`.', echo=FALSE, cache=FALSE}
 DiagrammeR::grViz('
 digraph rmarkdown {
 graph [layout = circo]
