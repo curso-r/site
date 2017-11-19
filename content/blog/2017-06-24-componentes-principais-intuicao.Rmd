@@ -26,8 +26,7 @@ Abaixo tem alguns gráficos em 3 dimensões que dão uma boa ilustração sobre 
 
 **pacotes para os exemplos**
 
-```{r, cache = FALSE}
-library(plotly)
+```{r}
 library(magrittr)
 library(tidyr)
 library(dplyr)
@@ -64,6 +63,8 @@ knitr::kable(summary(tetraedro_pc)$importance)
 **3 dimensões (100% da variância)**
 
 ```{r, cache = FALSE}
+library(plotly)
+
 plot_ly(tetraedro_linhas, x = ~x, y = ~y, z = ~z) %>%
   add_lines() %>%
   add_markers()

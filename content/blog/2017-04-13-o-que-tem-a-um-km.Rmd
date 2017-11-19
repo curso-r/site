@@ -9,7 +9,7 @@ summary: "Neste post, veremos como utilizar uma das APIs do Google Maps para obt
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE, cache = FALSE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Se você estiver no centro de São Paulo, quanto será que você precisa andar para achar uma hamburgueria? Será que a sua casa fica a menos de 1 km de hospitais, delagacias ou corpo de bombeiros? Neste post, veremos como utilizar uma das APIs do Google Maps para obter informações de geolocalização a partir de uma pesquisa simples. Em seguida, vamos gerar mapas com o pacote `leaflet` para visualizar os dados coletados e responder essas perguntas.
@@ -118,7 +118,6 @@ Para construir os mapas, vamos utilizar a função `leaflet::leaflet()`. A ideia
 library(tibble)
 library(magrittr)
 library(dplyr)
-library(leaflet)
 
 load("2017-04-13-o-que-tem-a-um-km/o-que-tem-a-um-km.RData")
 ```
@@ -128,7 +127,8 @@ load("2017-04-13-o-que-tem-a-um-km/o-que-tem-a-um-km.RData")
 
 Eu pesquisei por "pronto socorro" porque a pesquisa hospitais também resulta em hospitais veterinários. Um desafio para quem for reproduzir a análise: coletar apenas a geolocalização de hospitais públicos.
 
-```{r}
+```{r, cache = FALSE}
+library(leaflet)
 df_places %>% 
   dplyr::filter(place == "pronto socorro") %>% 
   leaflet %>% 
@@ -140,7 +140,7 @@ df_places %>%
 
 ### Delegacias
 
-```{r}
+```{r, cache = FALSE}
 df_places %>% 
   dplyr::filter(place == "delegacia") %>% 
   leaflet %>% 
@@ -151,7 +151,7 @@ df_places %>%
 
 ### Bombeiros
 
-```{r}
+```{r, cache = FALSE}
 df_places %>% 
   dplyr::filter(place == "delegacia") %>% 
   leaflet %>% 
@@ -164,7 +164,7 @@ df_places %>%
 
 Repare que o único local na região mais central de SP em que você pode ficar a mais de um quilômetro de uma hamburgueria é no meio do parque Ibirapuera.
 
-```{r}
+```{r, cache = FALSE}
 df_places %>% 
   dplyr::filter(place == "hamburguer") %>% 
   leaflet %>% 
@@ -177,7 +177,7 @@ df_places %>%
 
 Se a busca devolvesse todos os resultados possíveis, esse mapa teria um círculo azul com ~15 km de raio formado por milhares de círculos menores. =D
 
-```{r}
+```{r, cache = FALSE}
 df_places %>% 
   dplyr::filter(place == "pizza") %>% 
   leaflet %>% 
