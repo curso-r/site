@@ -9,7 +9,7 @@ summary: "Se você já utilizou o R algumas vezes, com certeza já se deparou co
 ---
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 

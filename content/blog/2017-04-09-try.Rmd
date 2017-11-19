@@ -11,7 +11,7 @@ summary: "Tratar erros no R é importante para identificar problemas nos código
 
 
 ```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Tratar erros no R é importante para identificar problemas nos códigos e evitar retrabalho. Quem nunca rodou um algoritmo pesadíssimo que deu errado na última iteração? Nesse artigo, veremos como trabalhar com erros no R e a versão `tidy` dessas soluções.

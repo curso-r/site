@@ -9,7 +9,7 @@ summary: "Programadores eficientes não precisam escrever algoritmos que rodam r
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Programadores eficientes não precisam escrever algoritmos que rodam rápido. Recomendo fortemente a leitura do livro [Efficient R](https://csgillespie.github.io/efficientR/), que discute eficiência com o R de forma exaustiva. Também gosto muito da primeira parte [dessa palestra do Hadley](https://www.youtube.com/watch?v=wki0BqlztCo), onde ele defende que o cientista de dados deve usar seu tempo pensando no problema e não na forma que vai escrever seu código.

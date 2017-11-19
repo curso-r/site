@@ -10,7 +10,7 @@ summary: "O pacote `knitr` é um mecanismo rápido, elegante e flexível para ge
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 O pacote `knitr` é um mecanismo rápido, elegante e flexível para gerar relatórios dinâmicos no R. Ele trabalha lado a lado com o `rmarkdown` para transformar arquivos `.Rmd` em diversos formatos, como html, pdf e até mesmo word. Misturando *chunks* de código em R com texto puro, LaTeX e html, a tarefa de criar outputs para análises estatísticas no R ficou muito mais simples.

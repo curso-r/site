@@ -9,8 +9,11 @@ summary: "R é uma linguagem maravilhosa. Ela possibilita uma ampla gama de apli
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
+```
+
+```{r include=FALSE}
 dates_vector_1 <- c("22/08/2016","29/08/2016","05/09/2016","12/09/2016")
 
 dates_vector_2 <- c(rep("1", 500), dates_vector_1)

@@ -9,7 +9,7 @@ draft: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Quem já usou TensorFlow sabe que uma das partes mais difíceis é organizar o seu código 

@@ -8,6 +8,11 @@ author: ["Daniel"]
 summary: "O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrutura dos seus dados pode afetar a forma que você fará a sua análise."
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```
+
+
 O que teste t-pareado, modelos mistos e tidy data podem ter a ver? Veja neste post como a estrutura dos seus dados pode afetar a forma que você fará a sua análise.
 
 Para começar, vamos relemebrar o que é *tidy data* para depois seguir ao ponto do post.

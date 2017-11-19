@@ -8,7 +8,7 @@ author: ["Athos", "Daniel", "Fernando", "Julio", "William"]
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Esse é o blog do Curso-R. Nós somos o Athos, Daniel, Fernando, Julio e William e 

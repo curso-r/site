@@ -9,7 +9,8 @@ summary: "Filtro de Bloom é um algoritmo muito interessante para verificar a pr
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = F, comment = FALSE)
+knitr::opts_chunk$set(echo = TRUE, message = F, 
+                      comment = FALSE, cache = TRUE)
 ```
 
 [Filtro de Bloom](https://en.wikipedia.org/wiki/Bloom_filter) é um algoritmo muito

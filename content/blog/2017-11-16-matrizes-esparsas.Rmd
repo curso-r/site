@@ -8,6 +8,11 @@ author: ["Daniel"]
 summary: "Matrizes esparsas são matrizes em que a maior parte dos elementos é igual a zero. Existem maneiras muito eficientes de lidar com esse tipo de matrizes no R e é disso que vamos falar neste post."
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```
+
+
 Matrizes esparsas são matrizes em que a maior parte dos elementos é igual a zero.
 Matrizes dessa forma surgem em diversos problemas relacionados a Machine Learning e análise de dados.
 

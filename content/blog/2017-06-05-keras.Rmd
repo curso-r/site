@@ -9,6 +9,11 @@ draft: false
 summary: "O keras é um novo pacote do R feito para ajustar modelos de redes neurais profundas. Esse é o primeiro de uma série de posts sobre o assunto. Primeiro, vamos falar dos autores desse pacote..."
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```
+
+
 Esse é o [Daniel Falbel](http://curso-r.com/author/daniel/), um dos sócios da Curso-R e autor de diversos posts no nosso blog. Boa pinta, não?
 
 ```{r echo=FALSE}

@@ -9,7 +9,7 @@ summary: "Nesse funal de semana decidi assistir alguns vídeos do YouTube do Sir
 ---
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE, eval = FALSE)
+knitr::opts_chunk$set(collapse = TRUE, eval = FALSE, cache = TRUE)
 ```
 
 

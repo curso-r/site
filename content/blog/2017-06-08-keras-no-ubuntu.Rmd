@@ -9,8 +9,9 @@ summary: "Passo a passo de como preparar o Keras para R no Ubuntu 16.04 em cima 
 ---
   
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = FALSE,
-                      eval=FALSE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, 
+                      warning = FALSE, comment = FALSE,
+                      eval=FALSE, cache = TRUE)
 ```
 
 Compilei um passo a passo mais simplificado dos posts que usei pra conseguir usar o Keras num servidor Ubuntu. 

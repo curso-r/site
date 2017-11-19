@@ -10,7 +10,7 @@ draft: false
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
-knitr::opts_chunk$set(collapse = TRUE, fig.align = "center")
+knitr::opts_chunk$set(collapse = TRUE, fig.align = "center", cache = TRUE)
 knitr::knit_hooks$set(
   no.mar = function() par(mar = c(0,0,0,0)),
   small.mar = function() par(mar = c(.1,.1,.1,.1))

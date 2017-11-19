@@ -9,7 +9,8 @@ summary: "Nas últimas semanas sumimos um pouco aqui do blog, pois estávamos oc
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = F, comment = FALSE)
+knitr::opts_chunk$set(echo = TRUE, message = F, 
+                      comment = FALSE, cache = TRUE)
 ```
 
 Nas últimas semanas sumimos um pouco aqui do blog, pois estávamos ocupados na 

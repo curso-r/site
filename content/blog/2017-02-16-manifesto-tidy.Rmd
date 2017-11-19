@@ -8,7 +8,7 @@ author: ["Daniel"]
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 O [manifesto das ferramentas tidy](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html) 

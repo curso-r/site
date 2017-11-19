@@ -9,7 +9,7 @@ summary: "A cor é uma diferença notável entre os filmes da Marvel e da DC. En
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE, eval = FALSE)
+knitr::opts_chunk$set(collapse = TRUE, eval = FALSE, cache = TRUE)
 ```
 
 A cor é uma diferença notável entre os filmes da Marvel e da DC. Enquanto a Disney/Marvel Studios costuma lançar filmes com tons mais claros e alegres, a Warner tem optado por cenários escuros, com um aspecto mais sombrios. Essas escolhas são um reflexo do clima das histórias de cada universo: aventuras engraçaralhas com um drama superficial vs seja lá o que passa na cabeça do [Zack Snyder](http://retalhoclub.com.br/wp-content/uploads/2017/03/03.jpg).

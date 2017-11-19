@@ -10,7 +10,7 @@ summary: "Uma tarefa muito comum no R é colar textos. As funções mais importa
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Uma tarefa muito comum no `R` é colar textos. As funções mais importantes para isso são `paste()` e `sprintf()`, que vêm com o pacote `base`. Nesse artigo, vamos falar dessas duas funções e de um novo pacote do `tidyverse`, o `glue`.

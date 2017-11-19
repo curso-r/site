@@ -8,7 +8,7 @@ author: ["Daniel"]
 ---
 
 ```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Está no ar o [bR Bloggers](https://brbloggers.com.br)! bR Bloggers é um agregador

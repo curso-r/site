@@ -9,7 +9,7 @@ summary: "Neste post, apresentaremos o pacote janitor, uma ótima alternativa na
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 [No primeiro post](http://curso-r.com/blog/2017/07/12/2017-07-13-bds_nomes_variaveis/) sobre arrumação de base de dados, a gente viu como usar as funções do `stringr` para arrumar o nome das variáveis. Seguindo a dica do [Julio](https://www.facebook.com/julio.trecenti), o quebrador de captchas, vamos falar do pacote `janitor`, que traz algumas funções para dar aquele trato nas BDs.

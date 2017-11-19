@@ -9,7 +9,8 @@ summary: "Impressionar é muito mais fácil se você usa mapas. Neste post vamos
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = FALSE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, 
+                      warning = FALSE, comment = FALSE, cache = TRUE)
 ```
 
 ```{r, echo = F, message=FALSE, warning=FALSE, comment=FALSE}

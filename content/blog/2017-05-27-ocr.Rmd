@@ -10,7 +10,7 @@ summary: "Já precisou extrair dados de arquivos pdf? Bom, eu já. Eu trabalho c
 ---
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 

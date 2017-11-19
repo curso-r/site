@@ -8,6 +8,10 @@ author: ["Daniel"]
 summary: "Greta é um pacote de modelagem estatística que permite que você defina seus modelos interativamente em R e depois os estime usando MCMC."
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```
+
 Estou bem longe de ter experiência em modelagem bayesiana usando linguagens de
 programação probabilística como Stan ou BUGS, mas vi esse pacote chamado [`greta`](https://goldingn.github.io/greta/get_started.html)
 que me chamou a atenção. 

@@ -9,7 +9,8 @@ summary: "brcrimR é um pacote para baixar e processar informações divulgadas 
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = F, comment = FALSE)
+knitr::opts_chunk$set(echo = TRUE, message = F, 
+                      comment = FALSE, cache = TRUE)
 
 library(tidyverse)
 ```

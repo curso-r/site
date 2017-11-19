@@ -9,7 +9,7 @@ summary: "Uma breve reflexão sobre o preconceito de estudar assuntos difíceis.
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 Volta e meia eu escuto as famosas frases

@@ -9,6 +9,11 @@ summary: "Já pensou em juntar estatística e música? Nessa série de posts mos
 draft: false
 ---
 
+```{r echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```
+
+
 ```{r eval=FALSE, echo=FALSE}
 library(tidyverse)
 library(magick)
@@ -22,10 +27,6 @@ image_join(im1, im2) %>%
   image_border('white', 'x75') %>%
   image_scale("400x297") %>% 
   image_write('../../static/img/banners/music01.jpg')
-```
-
-```{r echo=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 > Para quem está esperando posts sobre captchas, esperem mais um pouquinho `r emo::ji("happy")`. Em novembro voltarei a postar sobre esse assunto.

@@ -9,7 +9,7 @@ summary: "Neste post, mostraremos uma forma rápida para padronizar os nomes das
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Arrumar base de dados é uma tarefa chata, perigosa e pode consumir uma grande parcela do tempo total do projeto. 

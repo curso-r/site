@@ -10,8 +10,9 @@ summary: "Empilhar um monte de CSVs despadronizados pode ser uma dor de cabeça.
 ---
   
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = FALSE,
-                      eval=FALSE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, 
+                      warning = FALSE, comment = FALSE,
+                      eval=FALSE, cache = TRUE)
 ```
 
 Mesmo em plena era da informação, ainda chegam a nós as famigeradas pastas com arquivos extraídos, tipicamente de rotinas manuais e de frequencia mensal.
