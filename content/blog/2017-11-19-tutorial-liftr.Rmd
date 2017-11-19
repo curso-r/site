@@ -1,0 +1,15 @@
+---
+title: "Dockerizando suas soluções com liftr"
+date: "2017-11-13T14:25:00+03:00"
+tags: ["cron"]
+categories: ["tutoriais", "r"]
+banner: "img/banners/cron-clock.jpg"
+author: ["Caio"]
+summary: "Como agendar a execução de scripts usando o pacote cronR."
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```
+
