@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reticulate on Curso-R</title>
+    <link>http://curso-r.com/tags/reticulate/</link>
+    <description>Recent content in Reticulate on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 20 Nov 2017 14:25:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/reticulate/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pacote reticulate</title>
+      <link>http://curso-r.com/blog/2017/11/20/2017-11-20-reticulate/</link>
+      <pubDate>Mon, 20 Nov 2017 14:25:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/11/20/2017-11-20-reticulate/</guid>
+      <description>Se você também quiser escrever um post como convidada, entre em contato a gente em contato@curso-r.com!
+ Pacote Reticulate Imagine se você pudesse aproveitar da quantidade e da variedade enorme de módulos e bibliotecas do Python no ambiente amigável do RStudio? Graças ao pacote reticulate isso é possível de uma maneira familiar para quem quem já é usuário do R.
+O reticulate é um pacote que proporciona a integração Python &amp;amp; R via R e pode ser bastante útil se você quiser fazer todas as análises no ambiente do Rstudio.</description>
+    </item>
+    
+  </channel>
+</rss>

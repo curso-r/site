@@ -133,6 +133,25 @@ image_read('~/Downloads/package.jpg') %>%
   image_scale('400x297') %>% 
   image_write("static/img/banners/package.png")
 
+library(magrittr)
+library(magick)
+
+
+rst <- image_read('~/Downloads/rstudio-ball.png') %>% 
+  image_scale("25x25")
+image_read('~/Downloads/reticulate.jpeg') %>% 
+  image_scale('500x297') %>% 
+  image_crop('400x297') %>% 
+  image_composite(rst, offset = "+140+218") %>% 
+  image_composite(rst, offset = "+110+210") %>% 
+  image_write("static/img/banners/reticulate.png")
+
+
+
+  
+  image_crop('809x600+100') %>% 
+  image_scale('400x297') %>% 
+  image_write("static/img/banners/package.png")
 
 
 

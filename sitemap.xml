@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/11/20/2017-11-20-reticulate/</loc>
+    <lastmod>2017-11-20T14:25:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/11/16/2017-11-16-matrizes-esparsas/</loc>
     <lastmod>2017-11-16T14:25:00+03:00</lastmod>
   </url>
@@ -410,7 +415,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
+    <lastmod>2017-11-20T14:25:00+03:00</lastmod>
   </url>
   
   <url>
@@ -491,7 +496,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
+    <lastmod>2017-11-20T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -584,6 +589,12 @@
   <url>
     <loc>http://curso-r.com/tags/forcats/</loc>
     <lastmod>2017-07-01T23:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/author/gabriela-borges-lima-convidada/</loc>
+    <lastmod>2017-11-20T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -776,6 +787,12 @@
   </url>
   
   <url>
+    <loc>http://curso-r.com/tags/python/</loc>
+    <lastmod>2017-11-20T14:25:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/tags/r/</loc>
     <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
@@ -783,7 +800,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
+    <lastmod>2017-11-20T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -812,6 +829,12 @@
   <url>
     <loc>http://curso-r.com/tags/regress%C3%A3o-log%C3%ADstica/</loc>
     <lastmod>2017-07-29T10:12:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/reticulate/</loc>
+    <lastmod>2017-11-20T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -893,7 +916,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-11-16T14:25:00+03:00</lastmod>
+    <lastmod>2017-11-20T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

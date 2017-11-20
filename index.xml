@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 16 Nov 2017 14:25:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 20 Nov 2017 14:25:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pacote reticulate</title>
+      <link>http://curso-r.com/blog/2017/11/20/2017-11-20-reticulate/</link>
+      <pubDate>Mon, 20 Nov 2017 14:25:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/11/20/2017-11-20-reticulate/</guid>
+      <description>Se você também quiser escrever um post como convidada, entre em contato a gente em contato@curso-r.com!
+ Pacote Reticulate Imagine se você pudesse aproveitar da quantidade e da variedade enorme de módulos e bibliotecas do Python no ambiente amigável do RStudio? Graças ao pacote reticulate isso é possível de uma maneira familiar para quem quem já é usuário do R.
+O reticulate é um pacote que proporciona a integração Python &amp;amp; R via R e pode ser bastante útil se você quiser fazer todas as análises no ambiente do Rstudio.</description>
+    </item>
     
     <item>
       <title>Matrizes Esparsas no R</title>
@@ -59,7 +70,7 @@ Muitas vezes, não passa de uma brincadeira na hora de dividir a conta do bar. M
       <pubDate>Fri, 03 Nov 2017 23:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/11/03/2017-11-03-music01/</guid>
-      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 😆. Em novembro voltarei a postar sobre esse assunto.
+      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 🙋🏼. Em novembro voltarei a postar sobre esse assunto.
  Em setembro de 2017, participei do 16th Symposium on Computer Music, organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.
 Uma das formas que usarei para aprender os métodos e estudar os conceitos será esse blog!</description>
     </item>
