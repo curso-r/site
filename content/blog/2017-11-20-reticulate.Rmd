@@ -99,6 +99,13 @@ im.file <- down$download_file(url, cache=TRUE)
 fits$info(im.file)
 ```
 
+```
+Filename: ~/.astropy/cache/download/py2/2c9202ae878ecfcb60878ceb63837f5f
+No.    Name      Ver    Type      Cards   Dimensions   Format
+  0  PRIMARY       1 PrimaryHDU     161   (891, 893)   int16   
+  1  er.mask       1 TableHDU        25   1600R x 4C   [F6.2, F6.2, F6.2, F6.2]
+```
+
 Agora vamos transformar nossa imagem em uma matriz de pixels e plotar com a função image do R.
 
 ```{r}
