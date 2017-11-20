@@ -13,3 +13,17 @@ draft: true
 knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
+O princípio da reprodutibilidade é um dos mais importantes aspectos da ciência. Uma pesquisa reprodutível pode ser testada e verificada. Além disso, outros pesquisadores podem
+
+A reprodutibilidade é importante por três motivos principais:
+
+- 
+
+```{r}
+
+```
+
+
+
+
+
