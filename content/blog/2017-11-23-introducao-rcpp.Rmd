@@ -26,7 +26,7 @@ install.packages("Rcpp")
 library(Rcpp)
 ```
 
-Vejamos agora um exemplo simples de como chamar código C++ do R. O jeito mais fácil de fazer isso é através da função `cppFunction()`: ela recebe uma string que será interpretada como fuma função em C++.
+Vejamos agora um exemplo simples de como chamar código C++ do R. O jeito mais fácil de fazer isso é através da função `cppFunction()`: ela recebe uma string que será interpretada como uma função em C++.
 
 ``` r
 adicao_r <- function(x, y, z) {
