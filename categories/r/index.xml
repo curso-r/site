@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 20 Nov 2017 14:25:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 23 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fazendo o R Voar: uma Introdução ao Rcpp</title>
+      <link>http://curso-r.com/blog/2017/11/23/2017-11-23-introducao-rcpp/</link>
+      <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/11/23/2017-11-23-introducao-rcpp/</guid>
+      <description>O que fazer quando precisamos que o nosso script rode mais rápido? Geralmente a primeira ideia que temos é otimizar o código: reduzir a quantidade de laços, diminuir o tamanho das estruturas, utilizar programação paralela, etc… Mas quando se trata de R, temos a possibilidade de aumentar a velocidade do código sem alterar praticamente nada da sua estrutura.
+Neste post darei uma introdução básica ao pacote Rcpp, uma ferramenta que nos permite rodar código em C++ de dentro do R.</description>
+    </item>
     
     <item>
       <title>Pacote reticulate</title>
@@ -70,7 +80,7 @@ Muitas vezes, não passa de uma brincadeira na hora de dividir a conta do bar. M
       <pubDate>Fri, 03 Nov 2017 23:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/11/03/2017-11-03-music01/</guid>
-      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 🙋🏻. Em novembro voltarei a postar sobre esse assunto.
+      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 😹. Em novembro voltarei a postar sobre esse assunto.
  Em setembro de 2017, participei do 16th Symposium on Computer Music, organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.
 Uma das formas que usarei para aprender os métodos e estudar os conceitos será esse blog!</description>
     </item>
