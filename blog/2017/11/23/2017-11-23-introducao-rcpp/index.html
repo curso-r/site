@@ -196,7 +196,7 @@
 <p>Para explorar os benefícios que o C++ pode trazer para o seu código R, instale e carregue o pacote <code>Rcpp</code> com os comandos abaixo:</p>
 <pre class="r"><code>install.packages(&quot;Rcpp&quot;)
 library(Rcpp)</code></pre>
-<p>Vejamos agora um exemplo simples de como chamar código C++ do R. O jeito mais fácil de fazer isso é através da função <code>cppFunction()</code>: ela recebe uma string que será interpretada como fuma função em C++.</p>
+<p>Vejamos agora um exemplo simples de como chamar código C++ do R. O jeito mais fácil de fazer isso é através da função <code>cppFunction()</code>: ela recebe uma string que será interpretada como uma função em C++.</p>
 <pre class="r"><code>adicao_r &lt;- function(x, y, z) {
   sum = x + y + z
   return(sum)
@@ -649,19 +649,6 @@ microbenchmark::microbenchmark(soma_r(v), soma_c(v))
          
         <div>
             <div>
-                <a href="http://curso-r.com/cursos/dashboards/">
-                  
-                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
-                  
-                </a>
-            </div>
-            <div class="name same-height-always">
-                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
-            </div>
-        </div>
-         
-        <div>
-            <div>
                 <a href="http://curso-r.com/cursos/webscraping/">
                   
                     <img src="http://curso-r.com/img/banners/banner-scrape.png" class="img-responsive" alt="">
@@ -670,6 +657,19 @@ microbenchmark::microbenchmark(soma_r(v), soma_c(v))
             </div>
             <div class="name same-height-always">
                 <h5><a href="http://curso-r.com/cursos/webscraping/">Web scraping com R</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/dashboards/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-dashboards2.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/dashboards/">Dashboards</a></h5>
             </div>
         </div>
         
