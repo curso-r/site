@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sf on Curso-R</title>
+    <link>http://curso-r.com/tags/sf/</link>
+    <description>Recent content in Sf on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Fri, 24 Nov 2017 14:25:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/sf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unindo mapas: the tidy way</title>
+      <link>http://curso-r.com/blog/2017/11/24/2017-11-23-union-sf/</link>
+      <pubDate>Fri, 24 Nov 2017 14:25:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/11/24/2017-11-23-union-sf/</guid>
+      <description>Eu precisava escrever esse post porque estou morrendo de tesão por essa linguagem maravilhosa. O R é incrível. O tidyverse é incrível. Estatística é incrível. Não me aguento!!
+Hoje mais uma vez fui salvo por uma feature pensada no universo tidy. Dessa vez, o grande culpado foi o pacote sf, um pacote ainda em estágio de desenvolvimento mas que já considero pacas.
+O sf, aka Simple Features, é um pacote para trabalhar com mapas.</description>
+    </item>
+    
+  </channel>
+</rss>

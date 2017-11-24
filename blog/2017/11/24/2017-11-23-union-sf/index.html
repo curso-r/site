@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
+
+  <title>Unindo mapas: the tidy way</title>
+
+  <meta name="author" content="" />
+  <meta name="keywords" content="">
+
+  
+
+  <meta name="generator" content="Hugo 0.21" />
+
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6479521664471475",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="http://curso-r.com/css/animate.css" rel="stylesheet">
+
+  
+  
+    <link href="http://curso-r.com/css/style.red.css" rel="stylesheet" id="theme-stylesheet">
+  
+
+
+  
+  <link href="http://curso-r.com/css/custom.css" rel="stylesheet">
+
+  
+    
+
+  
+  <link rel="shortcut icon" href="http://curso-r.com/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="http://curso-r.com/img/apple-touch-icon.png" />
+  
+
+  <link href="http://curso-r.com/css/owl.carousel.css" rel="stylesheet">
+  <link href="http://curso-r.com/css/owl.theme.css" rel="stylesheet">
+
+  <link rel="alternate" href="http://curso-r.com/index.xml" type="application/rss+xml" title="Curso-R">
+  <link href="http://curso-r.com/css/prism.css" rel="stylesheet" />
+  
+  
+  <meta property="og:title" content="Unindo mapas: the tidy way" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/blog/2017/11/24/2017-11-23-union-sf//" />
+  <meta property="og:image" content="img/banners/sf.png" />
+
+</head>
+
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://curso-r.com/">
+                    <img src="http://curso-r.com/img/logo.svg" alt="Unindo mapas: the tidy way logo" width="50" height="50">
+                    <span class="sr-only">Unindo mapas: the tidy way - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/">Home</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/sobre/">Sobre</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/cursos/">Cursos</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/blog/">Blog</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://material.curso-r.com/">Material</a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://curso-r.com/contact/">Contato</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">
+
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                </span>
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+        </header>
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Unindo mapas: the tidy way</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <p class="text-muted text-uppercase mb-small text-right">
+                          
+                            Por 
+                            
+                            
+                              
+                                <a href="http://curso-r.com/author/julio">Julio</a>
+                            
+                            
+                          
+                          
+                          24/11/2017
+                        </p>
+                        
+                        <div id="post-content">
+                          <p>Eu precisava escrever esse post porque estou morrendo de tesão por essa linguagem maravilhosa. O R é incrível. O <a href="https://tidyverse.org"><code>tidyverse</code></a> é incrível. Estatística é incrível. Não me aguento!!</p>
+<p>Hoje mais uma vez fui salvo por uma feature pensada no universo <code>tidy</code>. Dessa vez, o grande culpado foi o pacote <a href="https://github.com/r-spatial/sf"><code>sf</code></a>, um pacote ainda em estágio de desenvolvimento mas que já considero pacas.</p>
+<p>O <code>sf</code>, aka Simple Features, é um pacote para trabalhar com mapas. Com ele é possível fazer projeções, gráficos, leitura/gravação de diversos formatos etc. Esse é um dos pacotes patrocinados pelo <a href="https://www.r-consortium.org/">R Consortium</a>, uma iniciativa de várias empresas para injetar dinheiro em projetos do R com alta relevância.</p>
+<p>O pacote <code>sf</code> é tão sensacional que merece um post só para ele. Hoje, eu falarei de apenas de uma de suas vantagens, que é sua integração perfeita com o <code>tidyverse</code>.</p>
+<div id="contexto" class="section level2">
+<h2>Contexto</h2>
+<p>Eu faço parte da Associação Brasileira de Jurimetria (ABJ), uma entidade que faz pesquisa aplicada na área do Direito. Na ABJ produzimos diversas soluções tecnológicas para resolver problemas do Direito, principalmente no que diz respeito à elaboração de políticas públicas e administração dos tribunais.</p>
+<p>Num projeto recente, eu precisava levantar uma tabela de <strong>municípios</strong>, <strong>comarcas</strong>, <strong>circunscrições</strong> e <strong>regiões administrativas</strong> do Tribunal de Justiça de São Paulo, para então visualizar essas informações num mapa. Fazendo curta uma história longa, podemos dizer que:</p>
+<ul>
+<li>uma comarca é o conjunto de um ou mais municípios contíguos (contíguos = municípios que se tocam);</li>
+<li>uma circunscrição é um conjunto de uma ou mais comarcas contíguas;</li>
+<li>e uma região é… adivinha?</li>
+</ul>
+<p>No estado de São Paulo, temos:</p>
+<ul>
+<li>645 municípios</li>
+<li>319 comarcas</li>
+<li>57 circunscrições</li>
+<li>10 regiões administrativas</li>
+</ul>
+<blockquote>
+<p>P.S.: Não se esqueça do ciclo da ciência de dados!</p>
+</blockquote>
+<div class="figure">
+<img src="http://curso-r.com/blog/img/data-science.png" alt="" />
+
+</div>
+<p><br/></p>
+<p>As partes de <code>import</code> e <code>tidy</code> desse projeto processo foi sofrível. Precisei fazer vários web scrapers e diversos códigos para lidar com nomes zuados dos municípios de São Paulo, como Moji/Mogi, Estrela D’Oeste/Doeste, Brodowski/Brodosqui etc. Quem quiser pode dar uma olhada nos códigos do <a href="https://github.com/abjur/abjMaps">github da ABJ</a>.</p>
+</div>
+<div id="o-problema" class="section level2">
+<h2>O problema</h2>
+<p>Após passar o dia todo pegando esses dados, finalmente cheguei na parte de <code>transform</code> e <code>visualize</code>. Nossos objetivos são:</p>
+<ol style="list-style-type: decimal">
+<li>Carregar um mapa dos municípios de São Paulo no R.</li>
+<li>Agrupar as formas dos municípios em comarcas, circunscrições e regiões.</li>
+<li>Fazer mapas dos resultados obtidos.</li>
+</ol>
+<p>Em experiências anteriores já passei por maus bocados tentando completar essa tarefa. Antigamente, a única função conhecida que fazia a união desses conjuntos de formas era a <code>maptools::unionSpatialPolygons()</code>, que é contraintuitiva, mal documentada e difícil de usar na prática. Tudo era difícil: desde ler o arquivo <code>.shp</code> baixado da internet até a parte de fazer o gráfico. Era R <strong>raiz</strong> mesmo. Mas hoje, para a felicidade de todos, temos a solução <strong>nutella</strong> ;)</p>
+<blockquote>
+<p>Curiosamente, o Edzer Pebesma, autor do <code>sf</code>, também é contributor do <code>maptools</code> e mantenedor do <code>sp</code>, os pacotes mais importantes de análise espacial pré-tidyverse.</p>
+</blockquote>
+</div>
+<div id="solucao" class="section level2">
+<h2>Solução</h2>
+<p>Vamos utilizar o <code>tidyverse</code> e o pacote <code>sf</code>. Para instalar o <code>tidyverse</code>, rode</p>
+<pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
+<blockquote>
+<p>Para quem não sabe: o tidyverse é um pacote que instala muitos outros pacotes por trás, como <code>httr</code>, <code>ggplot2</code> e <code>dplyr</code>. Isso significa que pode demorar bastante tempo para instalar!</p>
+</blockquote>
+<p>O pacote <code>sf</code> pode ser um tanto trabalhoso. Se você usa Windows, basta instalar o <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> e depois rodar</p>
+<pre class="r"><code>install.packages(&quot;sf&quot;)</code></pre>
+<p>Se você usa Mac ou Linux, recomendo ler a primeira página <a href="https://r-spatial.github.io/sf/">da documentação oficial do pacote</a>. Lá você pode checar todos os requerimentos do pacote em detalhe. Eu recomendo que você instale logo a versão de desenvolvimento:</p>
+<pre class="r"><code>devtools::install_github(&quot;r-spatial/sf&quot;)</code></pre>
+<p>Para rodar as funções gráficas, também recomendo que você instale a versão de desenvolvimento do <code>ggplot2</code>, rodando</p>
+<pre class="r"><code>devtools::install_github(&quot;tidyverse/ggplot2&quot;)</code></pre>
+<p>Outros pacotes que usaremos no meio do código são</p>
+<pre class="r"><code>devtools::install_github(&quot;abjur/abjutils&quot;) # principalmente para remover acentos
+installed.packages(&quot;janitor&quot;) # para arrumar nomes das colunas da base de dados</code></pre>
+<div id="parte-1-baixando-os-dados" class="section level3">
+<h3>Parte 1: baixando os dados</h3>
+<p>Primeiro, vamos baixar da internet! Obviamente, o melhor lugar para baixar esses arquivos é do FTP do <a href="ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/">Instituto Brasileiro de Geografia e Estatística</a>.</p>
+<pre class="r"><code># Cria uma pasta onde os arquivos serão salvos
+dir.create(&quot;shp&quot;, showWarnings = FALSE)
+
+# URL de download
+u_ibge &lt;- paste0(
+  &quot;ftp://geoftp.ibge.gov.br/organizacao_do_territorio/&quot;,
+  &quot;malhas_territoriais/malhas_municipais/&quot;,
+  &quot;municipio_2015/UFs/SP/sp_municipios.zip&quot;, 
+  collapse = &quot;&quot;)</code></pre>
+<p>Utilizamos o pacote <code>httr</code> para baixar o arquivo zipado.</p>
+<pre class="r"><code># Salva o arquivo em disco. httr::progress() 
+# serve para mostrar o andamento do download
+httr::GET(u_ibge, 
+          httr::write_disk(&quot;shp/sp.zip&quot;),
+          httr::progress())
+</code></pre>
+<p>E usamos <code>unzip()</code> para dezipar os dados.</p>
+<pre class="r"><code># dezipa os arquivoe
+unzip(&quot;shp/sp.zip&quot;, exdir = &quot;shp/&quot;)</code></pre>
+<p>No final, você terá esses arquivos na pasta:</p>
+<pre class="r"><code>dir(&quot;shp&quot;)
+# &quot;35MUE250GC_SIR.cpg&quot; 
+# &quot;35MUE250GC_SIR.dbf&quot; 
+# &quot;35MUE250GC_SIR.prj&quot; 
+# &quot;35MUE250GC_SIR.shp&quot;
+# &quot;35MUE250GC_SIR.shx&quot; 
+# &quot;sp.zip&quot;</code></pre>
+<p>Para ler esses arquivos estranhos num objeto do R, utilizamos a função <code>sf::st_read()</code>, simples assim:</p>
+<pre class="r"><code>library(tidyverse)
+d_sf_municipio &lt;- sf::st_read(&quot;shp/35MUE250GC_SIR.shp&quot;, quiet = TRUE)
+dplyr::glimpse(d_sf_municipio)
+# Observations: 645
+# Variables: 3
+# $ NM_MUNICIP &lt;fctr&gt; CAIUÁ, CASTILHO, DRACENA, ESTRELA DO NORTE, EUCLIDES D...
+# $ CD_GEOCMU  &lt;fctr&gt; 3509106, 3511003, 3514403, 3515301, 3515350, 3528700, ...
+# $ geometry   &lt;simple_feature&gt; MULTIPOLYGON (((-51.8600105..., MULTIPOLYGON...</code></pre>
+<p>Observe que temos três colunas na base de dados, nome do município, código do município e <code>geometry</code>. Essa terceira é do tipo <code>simple_feature</code> e carrega objetos do tipo <code>MULTIPOLYGON</code>. Ou seja, um objeto lido pelo <code>sf</code> nada mais é do que um <code>data.frame</code> que tem uma coluna especial, capaz de guardar objetos mais complexos, como polígonos.</p>
+<blockquote>
+<p>Chamamos esse tipo de coluna especial de <code>list-column</code>. Quem faz nossos cursos avançados acaba aprendendo esses conceitos a partir do aninhamento de objetos e utilização de algoritmos mais complexos usando o pacote <code>purrr</code>.</p>
+</blockquote>
+<p>Agora, queremos juntar essa base com nossa base de comarcas, circunscrições e regiões.</p>
+<pre class="r"><code>muni_comarcas_completo &lt;- readRDS(&quot;muni_comarcas_completo.rds&quot;)
+dplyr::glimpse(muni_comarcas_completo)
+# Observations: 645
+# Variables: 9
+# $ cod_municipio     &lt;int&gt; 6504, 6829, 6506, 6508, 6808, 6511, 6915, 6515...
+# $ comarca           &lt;chr&gt; &quot;ADAMANTINA&quot;, &quot;ADAMANTINA&quot;, &quot;AGUAI&quot;, &quot;AGUAS DE...
+# $ municipio         &lt;chr&gt; &quot;ADAMANTINA&quot;, &quot;MARIAPOLIS&quot;, &quot;AGUAI&quot;, &quot;AGUAS DE...
+# $ tipo              &lt;chr&gt; &quot;comarca&quot;, &quot;municipio&quot;, &quot;comarca&quot;, &quot;comarca&quot;, ...
+# $ circunscricao     &lt;chr&gt; &quot;Tupã&quot;, &quot;Tupã&quot;, &quot;São João da Boa Vista&quot;, &quot;Ampa...
+# $ entrancia         &lt;chr&gt; &quot;Entrância Inicial&quot;, &quot;Entrância Inicial&quot;, &quot;Ent...
+# $ num_circunscricao &lt;chr&gt; &quot;30ª CJ&quot;, &quot;30ª CJ&quot;, &quot;50ª CJ&quot;, &quot;54ª CJ&quot;, &quot;54ª C...
+# $ num_regiao        &lt;chr&gt; &quot;5ª RAJ&quot;, &quot;5ª RAJ&quot;, &quot;4ª RAJ&quot;, &quot;4ª RAJ&quot;, &quot;4ª RA...
+# $ regiao            &lt;chr&gt; &quot;Presidente Prudente&quot;, &quot;Presidente Prudente&quot;, ...</code></pre>
+<p>Para isso, vamos primeiro arrumar os nomes de <code>d_sf_municipio</code> e depois usar <code>dplyr::inner_join()</code>, assim:</p>
+<pre class="r"><code>d_sf_municipio &lt;- d_sf_municipio %&gt;% 
+  # deixa os nomes das colunas minusculos
+  janitor::clean_names() %&gt;% 
+  # tira os acentos
+  dplyr::mutate(municipio = abjutils::rm_accent(nm_municip)) %&gt;% 
+  # bases unidas jamais serão vencidas!
+  dplyr::inner_join(muni_comarcas_completo, &quot;municipio&quot;)
+
+dplyr::glimpse(d_sf_municipio)
+# Observations: 645
+# Variables: 12
+# $ nm_municip        &lt;fctr&gt; CAIUÁ, CASTILHO, DRACENA, ESTRELA DO NORTE, E...
+# $ cd_geocmu         &lt;fctr&gt; 3509106, 3511003, 3514403, 3515301, 3515350, ...
+# $ municipio         &lt;chr&gt; &quot;CAIUA&quot;, &quot;CASTILHO&quot;, &quot;DRACENA&quot;, &quot;ESTRELA DO NO...
+# $ cod_municipio     &lt;int&gt; 6606, 6629, 6663, 6678, 6679, 6826, 6843, 6857...
+# $ comarca           &lt;chr&gt; &quot;PRESIDENTE EPITACIO&quot;, &quot;ANDRADINA&quot;, &quot;DRACENA&quot;,...
+# $ tipo              &lt;chr&gt; &quot;municipio&quot;, &quot;municipio&quot;, &quot;comarca&quot;, &quot;municipi...
+# $ circunscricao     &lt;chr&gt; &quot;Presidente Venceslau&quot;, &quot;Andradina&quot;, &quot;Dracena&quot;...
+# $ entrancia         &lt;chr&gt; &quot;Entrância Inicial&quot;, &quot;Entrância Final&quot;, &quot;Entrâ...
+# $ num_circunscricao &lt;chr&gt; &quot;28ª CJ&quot;, &quot;37ª CJ&quot;, &quot;29ª CJ&quot;, &quot;27ª CJ&quot;, &quot;28ª C...
+# $ num_regiao        &lt;chr&gt; &quot;5ª RAJ&quot;, &quot;2ª RAJ&quot;, &quot;5ª RAJ&quot;, &quot;5ª RAJ&quot;, &quot;5ª RA...
+# $ regiao            &lt;chr&gt; &quot;Presidente Prudente&quot;, &quot;Araçatuba&quot;, &quot;President...
+# $ geometry          &lt;simple_feature&gt; MULTIPOLYGON (((-51.8600105..., MUL...</code></pre>
+<p>Se vc quiser fazer um gráfico feinho só pra saber o que está rolando, use <code>plot()</code>:</p>
+<pre class="r"><code>plot(d_sf_municipio[, c(&quot;num_regiao&quot;, &quot;geometry&quot;)])</code></pre>
+<div class="figure">
+<img src="http://curso-r.com/blog/img/sf_blog01.png" alt="" />
+
+</div>
+</div>
+<div id="parte-2-agrupando-os-municipios" class="section level3">
+<h3>Parte 2: agrupando os municípios</h3>
+<p>Aqui é onde a mágica acontece! Para unir os polígonos do mapa, por incrível que pareça, utilizaremos o pacote <code>dplyr</code>. O autor do pacote <code>sf</code>, Edzer Pebesma, teve a incrível ideia de criar um método <code>S3</code> para objetos do tipo <code>sf</code> (como é nosso caso), já fazendo algumas operações para nós. Essa pacote simplesmente reimplementa mais de 20 funções provenientes do <code>dplyr</code>. Veja <code>?sf::dplyr</code> para detalhes.</p>
+<p>No nosso caso, vamos usar <code>group_by()</code> e <code>summarise()</code>:</p>
+<pre class="r"><code>d_sf_comarca &lt;- d_sf_municipio %&gt;% 
+  dplyr::group_by(comarca) %&gt;% 
+  dplyr::summarise() %&gt;% 
+  dplyr::ungroup()
+
+dplyr::glimpse(d_sf_comarca)
+# Observations: 319
+# Variables: 2
+# $ comarca   &lt;chr&gt; &quot;ADAMANTINA&quot;, &quot;AGUAI&quot;, &quot;AGUAS DE LINDOIA&quot;, &quot;AGUDOS&quot;, &quot;...
+# $ geometry  &lt;simple_feature&gt; MULTIPOLYGON (((-50.9930145..., MULTIPOLYGO...</code></pre>
+<p>Simples assim! Note que agora temos 319 objetos, que é exatamente o número de comarcas. Se quiser adicionar mais variáveis, basta adicionar dentro do <code>summarise()</code>:</p>
+<pre class="r"><code>d_sf_comarca &lt;- d_sf_municipio %&gt;% 
+  dplyr::group_by(comarca) %&gt;% 
+  # a entrancia identifica o quão grande/relevante é uma comarca
+  dplyr::summarise(entrancia = dplyr::first(entrancia)) %&gt;% 
+  dplyr::ungroup()</code></pre>
+<p>Para criar <code>d_sf_circunscricao</code> e <code>d_sf_regiao</code> utilizamos o mesmo procedimento.</p>
+</div>
+<div id="parte-3-montando-os-graficos" class="section level3">
+<h3>Parte 3: montando os gráficos</h3>
+<p>Digamos que você tenha essa lista de mapas</p>
+<pre class="r"><code>mapas &lt;- list(
+  d_sf_municipio,
+  d_sf_comarca,
+  d_sf_circunscricao,
+  d_sf_regiao)</code></pre>
+<p>E você quer montar mapas com esses títulos</p>
+<pre class="r"><code>titulos &lt;- c(
+  &quot;Municípios&quot;, 
+  &quot;Comarcas&quot;, 
+  &quot;Circunscrições judiciárias&quot;, 
+  &quot;Regiões Admnistrativas&quot;)</code></pre>
+<p>Vamos usar o <code>purrr::map2</code> para montar nossos gráficos em <code>ggplot2</code> e guardar numa lista. Internamente, utilizaremos o <code>geom_sf()</code>, uma extensão do <code>ggplot2</code> criada para tratar objetos do pacote <code>sf</code>. Um código minimalista seria</p>
+<pre class="r"><code>graficos &lt;- purrr::map2(mapas, titulos, ~{
+  ggplot(.x) +        # cria o ggplot
+    geom_sf() +       # desenha o mapa
+    ggtitle(.y) +     # adiciona o título
+    theme_minimal()   # deixa o fundo mais bonitinho
+})</code></pre>
+<p>Você pode usar a função <code>gridExtra::grid.arrange()</code> para juntar essa lista de gráficos em um gráfico só, rodando</p>
+<pre class="r"><code>gridExtra::grid.arrange(grobs = graficos)</code></pre>
+<p>O resultado final é o gráfico abaixo.</p>
+<div class="figure">
+<img src="http://curso-r.com/blog/img/sf_blog02.png" alt="" />
+
+</div>
+<p>Coisa mais linda!</p>
+</div>
+</div>
+<div id="wrap-up" class="section level2">
+<h2>Wrap-up</h2>
+<ul>
+<li>O pacote <code>sf</code> coloca a análise espacial no <code>tidyverse</code></li>
+<li>Use <code>st_read()</code> para ler <em>shapefiles</em> (arquivos SHP)
+<ul>
+<li>O objeto resultante é um <code>data.frame</code> com uma coluna <code>geometry</code> especial que guarda os polígonos.</li>
+</ul></li>
+<li>Várias funções do <code>dplyr</code> foram reimplementadas para funcionar com o <code>sf</code>. <code>summarise</code>, por exemplo, faz a união de polígonos, o que resolve nosso problema.</li>
+<li>Você pode usar <code>geom_sf()</code> para fazer gráficos com <code>sf</code> usando o poderoso <code>ggplot2</code>.</li>
+</ul>
+<p>É isso pessoal. Espero que seja tão life saver para vocês como foi para mim. Happy coding ;)</p>
+</div>
+
+                        </div>
+                        
+                         <div class="addthis_inline_share_toolbox"></div>
+                        
+                        
+                        
+                        <div id="comments">
+                            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'curso-r-com';
+    var disqus_identifier = 'http:\/\/curso-r.com\/blog\/2017\/11\/24\/2017-11-23-union-sf\/';
+    var disqus_title = 'Unindo mapas: the tidy way';
+    var disqus_url = 'http:\/\/curso-r.com\/blog\/2017\/11\/24\/2017-11-23-union-sf\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                        </div>
+                        
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Busca</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" results="0" class="form-control" placeholder="Busca">
+                <input type="hidden" name="q" value="site:http://curso-r.com/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Categorias</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+            
+            <li><a href="http://curso-r.com/categories/analises">analises (3)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/an%c3%a1lises">análises (10)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/conceitos">conceitos (9)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/discuss%c3%b5es">discussões (3)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/divulga%c3%a7%c3%a3o">divulgação (6)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/r">r (71)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/top-10">top-10 (3)</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/categories/tutoriais">tutoriais (32)</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            <li><a href="http://curso-r.com/tags/algoritmos"><i class="fa fa-tags"></i> algoritmos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/an%c3%a1lises"><i class="fa fa-tags"></i> análises</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/api"><i class="fa fa-tags"></i> api</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/autoencoders"><i class="fa fa-tags"></i> autoencoders</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bayes"><i class="fa fa-tags"></i> bayes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bds"><i class="fa fa-tags"></i> bds</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/bitcoin"><i class="fa fa-tags"></i> bitcoin</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/br-bloggers"><i class="fa fa-tags"></i> br-bloggers</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/captcha"><i class="fa fa-tags"></i> captcha</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/cinema"><i class="fa fa-tags"></i> cinema</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/cluster"><i class="fa fa-tags"></i> cluster</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/coding"><i class="fa fa-tags"></i> coding</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/componentes-principais"><i class="fa fa-tags"></i> componentes-principais</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/conceitos"><i class="fa fa-tags"></i> conceitos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/cron"><i class="fa fa-tags"></i> cron</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/curso-r"><i class="fa fa-tags"></i> curso-r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/dados-abertos"><i class="fa fa-tags"></i> dados-abertos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/data.frames"><i class="fa fa-tags"></i> data.frames</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/deep-learning"><i class="fa fa-tags"></i> deep-learning</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/dplyr"><i class="fa fa-tags"></i> dplyr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/emo%c3%a7%c3%b5es"><i class="fa fa-tags"></i> emoções</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/environments"><i class="fa fa-tags"></i> environments</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/esparsa"><i class="fa fa-tags"></i> esparsa</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/estat%c3%adstica"><i class="fa fa-tags"></i> estatística</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/fatores"><i class="fa fa-tags"></i> fatores</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/forcats"><i class="fa fa-tags"></i> forcats</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ggplot2"><i class="fa fa-tags"></i> ggplot2</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/git"><i class="fa fa-tags"></i> git</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/github"><i class="fa fa-tags"></i> github</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/glm"><i class="fa fa-tags"></i> glm</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/glue"><i class="fa fa-tags"></i> glue</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/googlemaps"><i class="fa fa-tags"></i> googlemaps</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/gr%c3%a1ficos"><i class="fa fa-tags"></i> gráficos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/imagens"><i class="fa fa-tags"></i> imagens</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/janitor"><i class="fa fa-tags"></i> janitor</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/keras"><i class="fa fa-tags"></i> keras</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/kmeans"><i class="fa fa-tags"></i> kmeans</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/knitr"><i class="fa fa-tags"></i> knitr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/leaflet"><i class="fa fa-tags"></i> leaflet</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/lolapalooza"><i class="fa fa-tags"></i> lolapalooza</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/magick"><i class="fa fa-tags"></i> magick</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/mapas"><i class="fa fa-tags"></i> mapas</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/matriz"><i class="fa fa-tags"></i> matriz</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/miojo"><i class="fa fa-tags"></i> miojo</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/modelagem"><i class="fa fa-tags"></i> modelagem</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/musica"><i class="fa fa-tags"></i> musica</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ocr"><i class="fa fa-tags"></i> ocr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pacotes"><i class="fa fa-tags"></i> pacotes</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/paraleliza%c3%a7%c3%a3o"><i class="fa fa-tags"></i> paralelização</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pca"><i class="fa fa-tags"></i> pca</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/pdf"><i class="fa fa-tags"></i> pdf</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/plotly"><i class="fa fa-tags"></i> plotly</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/porta-dos-fundos"><i class="fa fa-tags"></i> porta-dos-fundos</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/progress"><i class="fa fa-tags"></i> progress</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/purrr"><i class="fa fa-tags"></i> purrr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/python"><i class="fa fa-tags"></i> python</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r"><i class="fa fa-tags"></i> r</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/r-markdown"><i class="fa fa-tags"></i> r-markdown</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rcpp"><i class="fa fa-tags"></i> rcpp</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/redes-neurais"><i class="fa fa-tags"></i> redes-neurais</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regress%c3%a3o"><i class="fa fa-tags"></i> regressão</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/regress%c3%a3o-log%c3%adstica"><i class="fa fa-tags"></i> regressão-logística</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/reticulate"><i class="fa fa-tags"></i> reticulate</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/rstudio"><i class="fa fa-tags"></i> rstudio</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/sf"><i class="fa fa-tags"></i> sf</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/skimr"><i class="fa fa-tags"></i> skimr</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/spotify"><i class="fa fa-tags"></i> spotify</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/sptrans"><i class="fa fa-tags"></i> sptrans</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/ssl"><i class="fa fa-tags"></i> ssl</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/strings"><i class="fa fa-tags"></i> strings</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/survival"><i class="fa fa-tags"></i> survival</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/telegram"><i class="fa fa-tags"></i> telegram</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tensorflow"><i class="fa fa-tags"></i> tensorflow</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/tidyverse"><i class="fa fa-tags"></i> tidyverse</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/venneuler"><i class="fa fa-tags"></i> venneuler</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/vers%c3%a3o"><i class="fa fa-tags"></i> versão</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/web-scraping"><i class="fa fa-tags"></i> web-scraping</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/woe"><i class="fa fa-tags"></i> woe</a>
+            </li>
+            
+            <li><a href="http://curso-r.com/tags/youtube"><i class="fa fa-tags"></i> youtube</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+    <div class="panel-heading">
+        <h3 class="panel-title">Nossos Cursos</h3>
+    </div>
+
+    <div class="blog-entries">
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/incompany/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-incompany.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/incompany/">In company</a></h5>
+            </div>
+        </div>
+         
+        <div>
+            <div>
+                <a href="http://curso-r.com/cursos/introducao-programacao-r/">
+                  
+                    <img src="http://curso-r.com/img/banners/banner-r-base.png" class="img-responsive" alt="">
+                  
+                </a>
+            </div>
+            <div class="name same-height-always">
+                <h5><a href="http://curso-r.com/cursos/introducao-programacao-r/">Introdução à Programação em R</a></h5>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <script type = "text/javascript"> 
+    var pres = document.getElementsByTagName("pre");
+    var codes = document.getElementsByTagName("code");
+  
+    for (i=0;i<pres.length;i++) {
+      pres[i].className = "language-r";
+    }
+  
+    for (i=0;i<codes.length;i++) {
+      codes[i].className = "language-r";
+    } 
+    </script>
+    <script src="http://curso-r.com/js/prism.js"></script> 
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>Sobre nós</h4>
+
+            <p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+              
+            <h4>Posts Recentes</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/11/24/2017-11-23-union-sf/">
+                          
+                            <img src="http://curso-r.com/img/banners/sf.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/11/24/2017-11-23-union-sf/">Unindo mapas: the tidy way</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/11/23/2017-11-23-introducao-rcpp/">
+                          
+                            <img src="http://curso-r.com/img/banners/rcpp-rocket.jpg" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/11/23/2017-11-23-introducao-rcpp/">Fazendo o R Voar: uma Introdução ao Rcpp</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="http://curso-r.com/blog/2017/11/20/2017-11-20-reticulate/">
+                          
+                            <img src="http://curso-r.com/img/banners/reticulate.png" class="img-responsive" alt="">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="http://curso-r.com/blog/2017/11/20/2017-11-20-reticulate/">Pacote reticulate</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+             
+
+        </div>
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            <h4>Contato</h4>
+
+            <a href="http://curso-r.com/contact" class="btn btn-small btn-template-main">Vá para a página de contato</a>
+            <hr>
+            
+            <div>
+              
+              <a href="https://github.com/curso-r">
+                <i class="fa fa-github" style="font-size:50px;"></i>
+              </a>
+              <a href="https://twitter.com/curso_r/">
+                <i class="fa fa-twitter" style="font-size:50px;"></i>
+              </a>
+      
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</p>
+            
+            <p class="pull-right">
+              Template by <a href="http://bootstrapious.com/free-templates">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-87272102-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ab4e79943a7e3c"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { preferredFont: "STIX" }
+  });
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+<script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<script src="http://curso-r.com/js/hpneo.gmaps.js"></script>
+<script src="http://curso-r.com/js/gmaps.init.js"></script>
+<script src="http://curso-r.com/js/front.js"></script>
+
+<script src="http://curso-r.com/js/owl.carousel.min.js"></script>
+
+
+  </body>
+</html>

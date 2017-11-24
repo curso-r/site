@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/11/24/2017-11-23-union-sf/</loc>
+    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/11/23/2017-11-23-introducao-rcpp/</loc>
     <lastmod>2017-11-23T00:00:00+00:00</lastmod>
   </url>
@@ -420,7 +425,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
   </url>
   
   <url>
@@ -501,7 +506,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -667,7 +672,7 @@
   
   <url>
     <loc>http://curso-r.com/author/julio/</loc>
-    <lastmod>2017-11-12T23:26:00+03:00</lastmod>
+    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -805,7 +810,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -852,6 +857,12 @@
   <url>
     <loc>http://curso-r.com/tags/rstudio/</loc>
     <lastmod>2017-07-17T00:26:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://curso-r.com/tags/sf/</loc>
+    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -915,7 +926,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/tidyverse/</loc>
-    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
+    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -927,7 +938,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/tutoriais/</loc>
-    <lastmod>2017-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
