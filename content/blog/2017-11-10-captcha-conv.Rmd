@@ -2,7 +2,7 @@
 title: "Quebrando Captchas - Parte V: Fazendo redes convolucionais na mão"
 date: "2017-11-12T23:26:00+03:00"
 tags: ["captcha"]
-categories: ["analises", "r"]
+categories: ["análises", "r"]
 banner: "img/banners/captcha_05.png"
 author: ["Julio"]
 summary: "Nesse post vou mostrar como ajustar redes neurais convolucionais na mão. Muita mão na massa envolvida, muitos captchas e muita diversão. Vamos juntos desmistificar a magia negra do deep learning..."

@@ -2,7 +2,7 @@
 title: "Estatística e Música"
 date: "2017-11-03T23:26:00+03:00"
 tags: ["musica"]
-categories: ["analises", "r"]
+categories: ["análises", "r"]
 banner: "img/banners/music01.jpg"
 author: ["Julio"]
 summary: "Já pensou em juntar estatística e música? Nessa série de posts mostro como estou pensando em fazer isso e os pacotes que vou criar nessa jornada..."
