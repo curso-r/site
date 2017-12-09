@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 24 Nov 2017 14:25:00 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 09 Dec 2017 11:54:00 +0300</lastBuildDate>
     
 	<atom:link href="http://curso-r.com/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Estatística e programação</title>
+      <link>http://curso-r.com/blog/2017/12/09/2017-12-09-estatistica-e-programacao/</link>
+      <pubDate>Sat, 09 Dec 2017 11:54:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2017/12/09/2017-12-09-estatistica-e-programacao/</guid>
+      <description>Não importa a área de atuação, a maior parte do dia do estatístico é atrás do computador. E desse tempo, a maior parte é atrás de um (geralmente único) programa estatístico.
+Os principais programas hoje em dia permitem a execução das etapas essenciais de uma análise: interação com banco de dados, transformação, criação de visualizações e modelagem. Alguns vão além e auxiliam na comunicação dos resultados. Também é comum a existência de ambientes de programação, mesmo quando o programa é bem estruturado no point and click.</description>
+    </item>
     
     <item>
       <title>Unindo mapas: the tidy way</title>
@@ -91,7 +101,7 @@ Muitas vezes, não passa de uma brincadeira na hora de dividir a conta do bar. M
       <pubDate>Fri, 03 Nov 2017 23:26:00 +0300</pubDate>
       
       <guid>http://curso-r.com/blog/2017/11/03/2017-11-03-music01/</guid>
-      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 🙋🏿. Em novembro voltarei a postar sobre esse assunto.
+      <description>Para quem está esperando posts sobre captchas, esperem mais um pouquinho 🙋🏻. Em novembro voltarei a postar sobre esse assunto.
  Em setembro de 2017, participei do 16th Symposium on Computer Music, organizado pelo prof. Marcelo Queiroz do IME-USP. O evento foi muito legal! Estou estudando música nos últimos meses e acho que farei meu doutorado em soluções que ligam estatística e música. É uma área realmente apaixonante.
 Uma das formas que usarei para aprender os métodos e estudar os conceitos será esse blog!</description>
     </item>

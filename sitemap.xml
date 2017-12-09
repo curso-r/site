@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://curso-r.com/blog/2017/12/09/2017-12-09-estatistica-e-programacao/</loc>
+    <lastmod>2017-12-09T11:54:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://curso-r.com/blog/2017/11/24/2017-11-23-union-sf/</loc>
     <lastmod>2017-11-24T14:25:00+03:00</lastmod>
   </url>
@@ -364,7 +369,7 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/analises/</loc>
+    <loc>http://curso-r.com/categories/an%C3%A1lises/</loc>
     <lastmod>2017-11-12T23:26:00+03:00</lastmod>
     <priority>0</priority>
   </url>
@@ -372,12 +377,6 @@
   <url>
     <loc>http://curso-r.com/tags/an%C3%A1lises/</loc>
     <lastmod>2017-08-07T10:12:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://curso-r.com/categories/an%C3%A1lises/</loc>
-    <lastmod>2017-08-12T13:07:31+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -425,7 +424,7 @@
   
   <url>
     <loc>http://curso-r.com/blog/</loc>
-    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
+    <lastmod>2017-12-09T11:54:00+03:00</lastmod>
   </url>
   
   <url>
@@ -477,14 +476,14 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/conceitos/</loc>
-    <lastmod>2017-08-07T10:12:00+03:00</lastmod>
+    <loc>http://curso-r.com/categories/conceitos/</loc>
+    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/conceitos/</loc>
-    <lastmod>2017-09-02T10:12:00+03:00</lastmod>
+    <loc>http://curso-r.com/tags/conceitos/</loc>
+    <lastmod>2017-08-07T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -506,7 +505,7 @@
   
   <url>
     <loc>http://curso-r.com/</loc>
-    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
+    <lastmod>2017-12-09T11:54:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -544,7 +543,7 @@
   
   <url>
     <loc>http://curso-r.com/categories/discuss%C3%B5es/</loc>
-    <lastmod>2017-11-11T23:26:00+03:00</lastmod>
+    <lastmod>2017-12-09T11:54:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -580,7 +579,7 @@
   
   <url>
     <loc>http://curso-r.com/tags/estat%C3%ADstica/</loc>
-    <lastmod>2017-11-11T23:26:00+03:00</lastmod>
+    <lastmod>2017-12-09T11:54:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -803,14 +802,14 @@
   </url>
   
   <url>
-    <loc>http://curso-r.com/tags/r/</loc>
-    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
+    <loc>http://curso-r.com/categories/r/</loc>
+    <lastmod>2017-12-09T11:54:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://curso-r.com/categories/r/</loc>
-    <lastmod>2017-11-24T14:25:00+03:00</lastmod>
+    <loc>http://curso-r.com/tags/r/</loc>
+    <lastmod>2017-09-13T10:12:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -966,7 +965,7 @@
   
   <url>
     <loc>http://curso-r.com/author/william/</loc>
-    <lastmod>2017-11-11T23:26:00+03:00</lastmod>
+    <lastmod>2017-12-09T11:54:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
