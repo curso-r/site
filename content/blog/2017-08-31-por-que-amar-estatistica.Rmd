@@ -9,7 +9,7 @@ summary: "Neste post, vou contar como me apaixonei pela Estatística."
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 Escolher uma profissão, para quem tem esse privilégio, é uma das decisões mais importantes das nossas vidas. Aos 17, 18 anos, a imaturidade, o pouco auto-conhecimento e a falta de informação sobre as alternativas podem nos desviar da opção que nos vestiria melhor, um erro que muitas vezes nunca será reparado.

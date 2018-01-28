@@ -2,14 +2,14 @@
 title: "Aquele 1% é Deep Learning - Gerando letras do Wesley Safadão"
 date: "2017-08-28T23:26:00+03:00"
 tags: ["estatística"]
-categories: ["analises", "r"]
+categories: ["análises", "r"]
 banner: "img/banners/wesley.png"
 author: ["Julio"]
 summary: "Nesse funal de semana decidi assistir alguns vídeos do YouTube do Siraj Raval e acompanhar o curso do Andrew Ng. Depois de aprender várias coisas interessantes, fiquei com uma vontade insana de implementar um modelo pra gerar músicas aleatórias do Wesley Safadão. Eis o ..."
 ---
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE, eval = FALSE)
+knitr::opts_chunk$set(collapse = TRUE, eval = FALSE, cache = TRUE)
 ```
 
 

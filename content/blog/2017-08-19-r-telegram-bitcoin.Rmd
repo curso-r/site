@@ -8,6 +8,11 @@ author: ["Athos"]
 summary: "Uma brincadeira de fazer o R enviar uma mensagem ao seu celular via Telegram quando o preço da bitcoin subir ou cair muito!"
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```
+
+
 O ponto máximo da história é o R mandando mensagem pro Telegram. Só para motivar, vou contar o que fiz de divertido usando telegram e preços de bitcoin.
 
 ```{r, fig.align='center', echo=FALSE}

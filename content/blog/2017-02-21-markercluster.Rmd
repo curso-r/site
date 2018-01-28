@@ -10,7 +10,7 @@ summary: "O leaflet é uma biblioteca javascript para criação de mapas interat
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 O [*leaflet*](leafletjs.com) é uma biblioteca javascript para criação de mapas interativos. O pacote [`leaflet`](https://rstudio.github.io/leaflet/) do R é um [`htmlwidget`](www.htmlwidgets.org/) que permite gerar esses mapas de forma direta no R, para usar em documentos `RMarkdown` e Shiny.
@@ -19,7 +19,6 @@ O [*leaflet*](leafletjs.com) é uma biblioteca javascript para criação de mapa
 library(dplyr)
 library(tidyr)
 library(abjData)
-library(leaflet)
 
 # Constrói base de dados com label das varas
 dados_aj_lab <- dados_aj %>%
@@ -43,7 +42,7 @@ dados_aj_lab %>%
 
 Para utilizar o pacote `leaflet`, basta instalar o pacote via `install.packages()`. Na Figura \@ref(fig:mapa), experimente passear pelo mapa. Procure também algum lugar que tenha várias varas juntas, para ver o que o `markerCluster` faz nesse caso.
 
-```{r mapa, fig.align='center', fig.cap='Mapa das varas estaduais do Brasil.'}
+```{r mapa, fig.align='center', fig.cap='Mapa das varas estaduais do Brasil.', cache = FALSE}
 library(dplyr)
 library(leaflet)
 dados_aj_lab %>% 

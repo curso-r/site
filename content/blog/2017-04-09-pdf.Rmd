@@ -10,7 +10,7 @@ summary: ""
 ---
 
 ```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 ```{r}

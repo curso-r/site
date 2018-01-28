@@ -8,7 +8,7 @@ author: ["Daniel"]
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 No início de Janeiro desse ano ocorreu a primeira [rstudio::conf](https://www.rstudio.com/conference/),

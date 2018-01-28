@@ -9,7 +9,7 @@ summary: "Neste post, vou listar três pacotes que são úteis pra fazer relató
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 

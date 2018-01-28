@@ -52,6 +52,28 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 <br>
 <br>
 
+<div class = "card">
+
+  <img class="img-circle" src="https://avatars2.githubusercontent.com/u/7017340?s=460&v=4" style="float: left; margin: 0px 15px 15px 0px;" width="120" height="120">
+  
+  <div class = "minibio">
+  
+    <h4><b>Caio Lente</b></h4>
+    <p> Programador, viciado em R e aspirante a cientista de dados. </p>
+    
+  </div>
+
+<div style = "clear: left; margin-top: 5px; margin-bottom: 5px; border: 0; border-top: 1px solid #848484;"> </div>
+
+  <div class = "bio" style = "clear: left;">
+  
+  <p> Bacharelando em Ciência da Computação com foco em Inteligência Artificial pelo IME-USP e estagiário na Platipus Consultoria. Programador desde os 15 anos, começou a se apaixonar pelo R em 2016 e agora não fala em outra coisa. Metido a designer, maníaco da organização e metade texano. </p>
+  
+  </div>
+</div>
+
+<br>
+<br>
 
 <div class = "card">
 
@@ -91,7 +113,7 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
   <div class = "bio" style = "clear: left;">
   
-  <p> Bacharel e mestrando em Estatística pelo IME-USP. Consultor técnico na Associação Brasileira de Jurimetria. Usa R para tudo, mas tem interesse especial em web-scraping, visualização de dados e modelagem bayesiana. </p>
+  <p> Bacharel e mestrando em Estatística pelo IME-USP. Diretor-técnico na Associação Brasileira de Jurimetria. Usa R para tudo, mas tem interesse especial em web scraping, visualização de dados e modelagem bayesiana. </p>
   
   </div>
 </div>
@@ -102,12 +124,12 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
 <div class = "card">
 
-  <img class="img-circle" src="https://scontent.fgru5-1.fna.fbcdn.net/v/t1.0-1/p160x160/16114295_1258922350821204_8940809982819833465_n.jpg?oh=421035561a6d02b2d9324735647620e3&amp;oe=593C1144" style="float: left; margin: 0px 15px 15px 0px;" width="120" height="120">
+  <img class="img-circle" src="https://goo.gl/2b3zLa" style="float: left; margin: 0px 15px 15px 0px;" width="120" height="120">
   
   <div class = "minibio">
   
-    <h4><b>Julio Trecenti</b></h4>
-    <p> Doutorando em Estatística, Diretor-técnico da Associação Brasileira de Jurimetria, Vice-presidente do CONRE - 3a Região e Sócio da Erri consultoria. </p>
+<h4><b>Julio Trecenti</b></h4>
+<p> Doutorando em Estatística, Secretário-geral da Associação Brasileira de Jurimetria, Vice-presidente do CONRE - 3a Região. </p>
     
   </div>
 
@@ -115,7 +137,8 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
   <div class = "bio" style = "clear: left;">
   
-  <p> Bacharel, mestre e doutorando em Estatística pelo IME-USP. Diretor-técnico da Associação Brasileira de Jurimetria (ABJ). Vice-presidente - CONRE-3a Região. Sócio da Erri consultoria - Trabalha com web scraping, consolidação de dados, visualização e modelagem, construindo modelos preditivos, APIs, pacotes em R e dashboards em Shiny. Cursos: Ministrante do curso "R: do casual ao avançado" do Programa de Verão do IME-USP - 2015 a 2017. Ministrante do minicurso "R pragmático" na semana da Estatística da UFSCar - 2015. Ministrante do minicurso "R pragmático" na semana da Estatística do IME-USP - 2016. Ministrante e coordenador do curso "Jurimetria" no Tribunal Superior Eleitoral. </p>
+<p> Bacharel, mestre e doutorando em Estatística pelo IME-USP. Secretário-geral da Associação Brasileira de Jurimetria (ABJ). Vice-presidente do CONRE-3a Região. Sócio da Platipus Consultoria em inteligência jurídica e analytics. Sócio da Curso-R treinamentos e consultoria - Trabalha com web scraping, consolidação de dados, visualização e modelagem, construindo modelos preditivos, APIs, pacotes em R e dashboards em Shiny. Coordenador e ministrante de diversos cursos sobre R, ciência de dados e jurimetria. É tão nerd que convence todos seus amigos a mexerem no R e fazerem estatística.
+</p>
   
   </div>
 </div>

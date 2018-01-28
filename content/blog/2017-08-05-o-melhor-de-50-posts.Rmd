@@ -9,7 +9,7 @@ summary: "Nosso blog completou 50 posts e para não deixar a marca passar em bra
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Nosso blog completou 50 posts e para não deixar a marca passar em branco, elaboramos um resumão do que de melhor aconteceu aqui nos últimos 5 meses. 

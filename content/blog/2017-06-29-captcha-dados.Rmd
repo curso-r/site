@@ -10,8 +10,8 @@ summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imag
 ---
 
 ```{r include=FALSE, warning = FALSE, message = FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, collapse = TRUE)
-library(tidyverse)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
+                      collapse = TRUE, cache = TRUE)
 ```
 
 No último post sobre [CAPTCHAs](http://curso-r.com/tags/captcha/) nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.
@@ -37,6 +37,7 @@ a49f36
 vira isso: (substituí `0` por `'.'` para ficar mais fácil de ver)
 
 ```{r echo=FALSE}
+library(tidyverse)
 m <- decryptr:::create_response('a49f36', c(0:9, letters))
 m[m == 0] <- '.'
 as_tibble(m) %>% rownames_to_column('posicao') %>% knitr::kable()

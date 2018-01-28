@@ -9,7 +9,7 @@ draft: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = F)
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, cache = TRUE)
 ```
 
 Em 2016, tive a impressão de que os _blockbusters_ estão um pouco piores do que o usual. Se não fossem as companhias e os litros de manteiga na pipoca do cinemark, muitas das minhas visitas ao cinema teriam sido um completo desperdício de dinheiro.

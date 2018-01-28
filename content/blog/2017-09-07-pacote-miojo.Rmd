@@ -9,6 +9,11 @@ summary: "Veja como fazer um pacote em R e fazer seus códigos voarem na velocid
 draft: false
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```
+
+
 Nesse post vou mostrar como fazer um pacote em R muito, muito rápido. Tirei várias coisas que costumo fazer nos pacotes, com dor no coração, tudo pela velocidade, mantendo só o essencial.
 
 Duas restrições que usei são
@@ -135,7 +140,7 @@ meme:::plot.meme(readRDS('allthehings.rds'))
 
 ```{r, fig.width=5, fig.height=4.4, echo=FALSE, fig.align='center'}
 # allthethings <- meme::create_meme(templates[[17]], "Package", "All the things!",
-#                                   username = 'jtrecenti', password = 'orelhatres')
+#                                   username = 'jtrecenti', password = 'XXX')
 # saveRDS(allthethings, 'allthehings.rds')
 meme:::plot.meme(readRDS('dicaprio.rds'))
 ```

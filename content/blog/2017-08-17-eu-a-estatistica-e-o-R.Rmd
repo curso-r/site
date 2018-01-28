@@ -9,7 +9,7 @@ summary: "Neste post, iniciarei uma série com algumas reflexões sobre temas qu
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 > --- Não sabia que nessa cidade a cada 20 minutos atropelam um homem? <br>

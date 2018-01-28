@@ -8,6 +8,8 @@ disqusShortname = "curso-r-com"
 googleAnalytics = "UA-87272102-2"
 canonifyURLs = true
 
+ignoreFiles = ["\\.Rmd$", "\\.rmd$", "_files$", "_cache$"]
+
 # Define the number of posts per page
 paginate = 10
 

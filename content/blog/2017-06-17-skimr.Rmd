@@ -10,7 +10,8 @@ summary: "Uma coisa muito legal da ROpenSci Unconf 2017 é que ela funcionou com
 ---
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, collapse=TRUE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, 
+                      collapse=TRUE, cache = TRUE)
 ```
 
 Entre os dias 25 e 27 de maio aconteceu a [ROpenSci Unconf 2017](http://unconf17.ropensci.org/). O encontro reuniu vários pop stars da comunidade R como [Hadley Wickham](http://hadley.nz), [Joe Cheng](https://github.com/jcheng5) (criador do shiny), [Jeroen Ooms](https://github.com/jeroen) (criador do OpenCPU e autor de vários pacotes bacanas), [Jenny Bryan](https://github.com/jennybc) (autora de vários pacotes bacanas como `googlesheets`), várias pessoas do [#R-Ladies](http://rladies.org/) e muito mais.

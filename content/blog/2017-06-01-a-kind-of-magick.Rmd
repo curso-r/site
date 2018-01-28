@@ -9,7 +9,7 @@ summary: "Já vimos como o Rstudio se torna uma ferramanta poderosa quando combi
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Já vimos como o Rstudio se torna uma ferramenta poderosa quando combinado com certos pacotes, como o `knitr` e `shiny`, ou outros recursos, como o *markdown* e o *git*. Hoje, veremos como transformar o Rstudio num elegante e interativo editor de imagens utilizando o pacote `magick`.

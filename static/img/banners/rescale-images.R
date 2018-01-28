@@ -108,6 +108,15 @@ image_read('~/Downloads/quebrando_captchas.png') %>%
                  color = 'black', location = '+10+210') %>% 
   image_write("static/img/banners/captcha_04.png")
 
+image_read('~/Downloads/quebrando_captchas.png') %>% 
+  image_border(color = 'white', geometry = '50x120') %>% 
+  image_noise() %>% 
+  image_annotate('#5', size = 80, font = 'ubuntu',
+                 location = '+300+10', color = 'red') %>% 
+  image_annotate('redes convolucionais na mão', size = 30, font = 'ubuntu',
+                 color = 'black', location = '+10+210') %>% 
+  image_write("static/img/banners/captcha_05.png")
+
 
 img2 <- image_read('~/Downloads/sp_bairros.png') %>% 
   image_scale("220x220")
@@ -124,6 +133,25 @@ image_read('~/Downloads/package.jpg') %>%
   image_scale('400x297') %>% 
   image_write("static/img/banners/package.png")
 
+library(magrittr)
+library(magick)
+
+
+rst <- image_read('~/Downloads/rstudio-ball.png') %>% 
+  image_scale("25x25")
+image_read('~/Downloads/reticulate.jpeg') %>% 
+  image_scale('500x297') %>% 
+  image_crop('400x297') %>% 
+  image_composite(rst, offset = "+140+218") %>% 
+  image_composite(rst, offset = "+110+210") %>% 
+  image_write("static/img/banners/reticulate.png")
+
+
+
+  
+  image_crop('809x600+100') %>% 
+  image_scale('400x297') %>% 
+  image_write("static/img/banners/package.png")
 
 
 

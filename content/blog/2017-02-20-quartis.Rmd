@@ -10,7 +10,7 @@ summary: "Hoje estava fazendo uma análise exploratória e precisava estudar os 
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Hoje estava fazendo uma análise exploratória e precisava estudar os quartis de uma variável contínua. A solução usando o `tidyverse` é tão elegante que valeu um post no blog.

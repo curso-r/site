@@ -6,6 +6,7 @@ Authors@R: c(
     person("Julio", "Trecenti", email = "jtrecenti@jtrecenti.com", role = "aut"),
     person("Athos", "Damiani", email = "athos.damiani@gmail.com", role = "aut"),
     person("William", "Amorim", email = "thewilliam89@gmail.com", role = "aut"),
+    person("Caio", "Lente", email = "ctlente@ctlente.com", role = "aut"),
     person("Fernando", "Correa", email = "fptcorrea@gmail.com", role = "aut"))
 Description: Just a placeholder to install deps.
 Depends:
@@ -18,12 +19,14 @@ Remotes:
     abjur/abjData,
     tiagomendesdantas/Rspotify,
     tidyverse/glue,
-    hadley/colformat,
     ropenscilabs/skimr,
-    decryptr/decryptr,
     hadley/emo,
     athospd/tidywoe,
-    leeper/meme
+    leeper/meme,
+    abjur/brcrimR,
+    jtrecenti/music21,
+    decryptr/decryptr,
+    decryptr/decryptrModels
 Imports:
     quadprog,
     stringr,
@@ -74,8 +77,6 @@ Imports:
     benford.analysis,
     pdftools,
     skimr,
-    colformat,
-    decryptr,
     randomForest,
     emo,
     ggforce,
@@ -83,5 +84,9 @@ Imports:
     tidywoe,
     janitor,
     adagio,
-    meme
+    meme,
+    brcrimR,
+    music21,
+    decryptr,
+    decryptrModels
 RoxygenNote: 6.0.1

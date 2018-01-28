@@ -9,7 +9,8 @@ summary: "Autoencoders são redes neurais treinadas com o objetdivo de copiar o 
 ---
   
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(warning=FALSE, message=FALSE, collapse=TRUE)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, 
+                      collapse=TRUE, cache = TRUE)
 ```
 
 [Autoencoders](https://en.wikipedia.org/wiki/Autoencoder) são redes neurais treinadas

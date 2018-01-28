@@ -1,0 +1,6 @@
+base
+tibble
+dplyr
+tidyr
+purrr
+bindrcpp

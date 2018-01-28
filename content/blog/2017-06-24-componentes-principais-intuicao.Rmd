@@ -9,8 +9,9 @@ summary: "Uma ilustração gráfica simples para dar intuição sobre o que uma 
 ---
   
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = FALSE,
-                      eval=TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, 
+                      warning = FALSE, comment = FALSE,
+                      eval=TRUE, cache = TRUE)
 ```
 
 Componentes principais são bastante utilizados em modelagem estatística, mas a sua definição matemática rigorosa faz com que a ACP pareça um conceito mais abstrato do que somos capazes de compreender, em particular quando falam **“maximizar a variância total”** e **“diminuir a dimensionalidade”**. A primeira reação é um grande “HEIN?”.
@@ -26,7 +27,6 @@ Abaixo tem alguns gráficos em 3 dimensões que dão uma boa ilustração sobre 
 **pacotes para os exemplos**
 
 ```{r}
-library(plotly)
 library(magrittr)
 library(tidyr)
 library(dplyr)
@@ -35,6 +35,7 @@ library(dplyr)
 OBS: não esqueça de girar os gráficos! =)
 
 ## Exemplo 1 - Tetraedro
+
 ```{r}
 a <- 1
 tetraedro <- data.frame( x = c(a * sqrt(3)/3, - a * sqrt(3)/6, - a * sqrt(3)/6, 0),
@@ -60,7 +61,10 @@ knitr::kable(summary(tetraedro_pc)$importance)
 ```
 
 **3 dimensões (100% da variância)**
-```{r}
+
+```{r, cache = FALSE}
+library(plotly)
+
 plot_ly(tetraedro_linhas, x = ~x, y = ~y, z = ~z) %>%
   add_lines() %>%
   add_markers()
@@ -68,7 +72,8 @@ plot_ly(tetraedro_linhas, x = ~x, y = ~y, z = ~z) %>%
 ```
 
 **2 dimensões (67% da variância)**
-```{r}
+
+```{r, cache = FALSE}
 tetraedro_pc_pred <- tetraedro_pc %>% predict %>% as.data.frame
 plot_ly(tetraedro_pc_pred, x = ~PC2, y = ~PC3, z = ~PC3) %>%
   add_lines() %>%
@@ -102,18 +107,20 @@ knitr::kable(summary(forma_legal_pc)$importance)
 ```
 
 **3 dimensões (100% da variância)**
-```{r}
+```{r, cache = FALSE}
 plot_ly(forma_legal, x = ~x, y = ~y, z = ~z, type = "scatter3d", mode = "markers+lines",
         line = list(width = 6, color = ~c, colorscale = 'Viridis'),
-        marker = list(size = 3.5, color = ~c, colorscale = 'Greens', cmin = -20, cmax = 50))
+        marker = list(size = 3.5, color = ~c, colorscale = 'Greens', 
+                      cmin = -20, cmax = 50))
 ```
 
 **2 dimensões (82% da variância)**
-```{r}
+```{r, cache = FALSE}
 forma_legal_pc_pred <- forma_legal_pc %>% predict %>% as.data.frame
 plot_ly(forma_legal_pc_pred, x = ~PC1, y = ~PC2, z = 1, type = 'scatter3d', mode = 'lines+markers',
         line = list(width = 6, color = ~c, colorscale = 'Viridis'),
-        marker = list(size = 3.5, color = ~c, colorscale = 'Greens', cmin = -20, cmax = 50))
+        marker = list(size = 3.5, color = ~c, colorscale = 'Greens', 
+                      cmin = -20, cmax = 50))
 ```
 
 ## Para saber mais

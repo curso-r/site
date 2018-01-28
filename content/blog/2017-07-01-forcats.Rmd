@@ -9,7 +9,7 @@ summary: "Neste post, falaremos sobre o forcats, um pacote recheado de excelente
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 Se você ainda não é adepta ou adepto do [tidyverse](http://tidyverse.org/), provavelmente precisa setar `stringsAsFactors = FALSE` em algum momento ou sempre trabalha com fatores em vez de *strings*. 

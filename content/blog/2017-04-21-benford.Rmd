@@ -11,8 +11,8 @@ summary: "Tratar erros no R é importante para identificar problemas nos código
 
 ## Lei de Benford
 
-```{r}
-knitr::opts_chunk$set(eval=FALSE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval=FALSE, cache = TRUE)
 ```
 
 ## Relatórios do Tesouro Nacional

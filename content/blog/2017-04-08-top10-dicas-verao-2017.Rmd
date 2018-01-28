@@ -7,6 +7,11 @@ author: ["Athos"]
 banner: "img/banners/lampada-curso-r.png"
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+
 Em fevereiro desse ano ministramos o Curso de R de Verão 2017, parte do programa dos Cursos de Verão do IME-USP.
 Abaixo segue um compilado das 10 melhores dicas dadas durante este curso.
 

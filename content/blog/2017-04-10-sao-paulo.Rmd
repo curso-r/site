@@ -10,7 +10,7 @@ summary: "São Paulo tem 12 milhões de habitantes! Nesse post, discutiremos com
 ---
 
 ```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 São Paulo é a minha cidade preferida. Não só porque moro aqui, mas também porque é uma cidade cheia de diversidade, boa gastronomia e oportunidades. Para sentir um pouco dessa *vibe*, recomendo passear na avenida Paulista aos domingos. É sensacional!

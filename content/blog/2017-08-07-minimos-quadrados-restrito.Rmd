@@ -9,7 +9,8 @@ summary: "Às vezes a solução do seu problema está a um peteleco de uma regre
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, comment = F)
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F, 
+                      comment = F, cache = TRUE)
 ```
 
 A característica mais importante de um modelo estatístico é a sua flexibilidade. Esse termo pode ser entendido de várias formas, mas neste texto vou considerar que um modelo é flexível se ele _explica coerentemente_ uma ampla gama de fenômenos reais.

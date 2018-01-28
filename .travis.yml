@@ -1,4 +1,10 @@
 language: r
+
+sudo: required
+
+before_install:
+  - sudo pip install music21
+
 addons:
   apt:
     packages:
@@ -14,10 +20,12 @@ addons:
       - tesseract-ocr-por
       - tesseract-ocr
       - libudunits2-dev
+      - lilypond
 
 cache: packages
 
 before_script:
+  - pip2.7 install --upgrade --ignore-installed --user travis pip setuptools wheel virtualenv
   - chmod +x ./_build.sh
   - chmod +x ./_deploy.sh
 

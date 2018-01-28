@@ -10,7 +10,9 @@ summary: "Às vezes a venda de uma empresa é um sinal de que algo não vai bem.
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval = FALSE, echo = TRUE, message = FALSE, error = FALSE, warning = FALSE, fig.align = 'center')
+knitr::opts_chunk$set(eval = FALSE, echo = TRUE, 
+                      message = FALSE, error = FALSE, 
+                      warning = FALSE, fig.align = 'center', cache = TRUE)
 ```
 
 Às vezes a venda de uma empresa é um sinal de que algo não vai bem. Até pode ser verdade que nada ruim estivesse acontecendo e, por qualquer motivo que seja, alguém achou melhor parar enquanto estava ganhando, mas eu custo a acreditar que o Porta Dos Fundos estava nessa situação. Principalmente considerando o futuro sombrio que pode esperá-los.

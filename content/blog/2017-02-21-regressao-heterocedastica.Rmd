@@ -9,8 +9,8 @@ summary: "Verificar as suposições dos modelos é muito importante quando fazem
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, comment = '', error = FALSE)
-
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, 
+                      comment = '', error = FALSE, cache = TRUE)
 library(magrittr)
 ```
 
@@ -136,6 +136,7 @@ A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâm
 ```{r, eval = FALSE}
 plot(fit_stan)
 ```
+
 ```{r, echo = FALSE}
 library(magick)
 x <- image_read('img/imagem_fernando_1.jpg')

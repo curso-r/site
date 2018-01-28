@@ -9,7 +9,7 @@ summary: "A versão 3.4 do R foi lançada nesse final de semana! A atualização
 ---
 
 ```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 A versão 3.4 do R (You Stupid Darkness) foi lançada nesse final de semana! A atualização tem foco principal na performance. Principais mudanças:

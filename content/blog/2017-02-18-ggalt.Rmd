@@ -9,7 +9,7 @@ summary: "O pacote `ggalt` é uma extensão ao `ggplot2` que permite fazer algum
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 ```
 
 O pacote `ggalt` é uma extensão ao `ggplot2` que permite fazer algumas coisas muito úteis. Uma delas é a possibilidade de fazer faixas de confiança para gráficos do tipo escada. Isso permite adicionar intervalos de confiança para modelos Kaplan-Meier, muito utilizados em Análise de Sobrevivência. 
