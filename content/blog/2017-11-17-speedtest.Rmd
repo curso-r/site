@@ -1,12 +1,11 @@
 ---
 title: "Teste a velocidade da sua internet usando R"
-date: "2017-11-17T14:25:00+03:00"
+date: "2018-01-31T14:25:00+03:00"
 tags: ["speedtest"]
 categories: ["divulgação", "r"]
-banner: "img/banners/banner-sparse-matrix.jpg"
+banner: "img/banners/speedtest.png"
 author: ["Daniel"]
 summary: "Quem é viciado em R gosta de fazer tudo no R. Tem gente que envia e-mails pelo R, tem gente que encontra restaurantes usando o R e tem gente que testa a velocidade da conexão usando o R."
-draft: true
 ---
 
 ```{r include=FALSE}
