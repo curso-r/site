@@ -1,7 +1,0 @@
-base
-dplyr
-tidyr
-tibble
-lubridate
-purrr
-ggplot2

@@ -1,7 +1,0 @@
-base
-ggplot2
-plotly
-magrittr
-tidyr
-dplyr
-bindrcpp
