@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Speedtest on Curso-R</title>
+    <link>http://curso-r.com/tags/speedtest/</link>
+    <description>Recent content in Speedtest on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Copyright (c) 2016 - 2017, Curso-R; all rights reserved.</copyright>
+    <lastBuildDate>Wed, 31 Jan 2018 14:25:00 +0300</lastBuildDate>
+    
+	<atom:link href="http://curso-r.com/tags/speedtest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Teste a velocidade da sua internet usando R</title>
+      <link>http://curso-r.com/blog/2018/01/31/2017-11-17-speedtest/</link>
+      <pubDate>Wed, 31 Jan 2018 14:25:00 +0300</pubDate>
+      
+      <guid>http://curso-r.com/blog/2018/01/31/2017-11-17-speedtest/</guid>
+      <description>Quem é viciado em R gosta de fazer tudo em R, iclusive atividades cotidianas. Tem gente que envia e-mais usando R. Tem gente que procura hamburguerias usando R. Tem gente que anota reuniões e envia a ata usando R. Já ouvi discussões de gente queria fazer café usando R. Enfim…
+Agora temos uma nova utilidade! Você pode testar a velocidade da sua conexão com a internet sem sair do R usando o pacote speedtest.</description>
+    </item>
+    
+  </channel>
+</rss>
