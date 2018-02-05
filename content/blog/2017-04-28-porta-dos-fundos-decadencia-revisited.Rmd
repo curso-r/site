@@ -101,7 +101,7 @@ Nas subseções seguintes, vamos revisitar as análises anteriores colocando alg
 
 Menos do que a compra pela Viacom, a série temporal de visualizações foi o que realmente me motivou a escrever esse texto.
 
-```{r}
+```{r, eval = T}
 dados %>% 
   mutate(views = map(videos_stats, .f = 'viewCount')) %>% 
   unnest(views) %>% 
@@ -126,7 +126,7 @@ onde $Taxa$ é o número de esperado de views de um vídeo velho em um dia qualq
 
 Podemos dar uma olhada no que esse modelo diz sobre os dados considerando que, se um vídeo for muito velho, podemos obter uma estimativa razoável da quantidade de pessoas que ainda assistem um vídeo se dividirmos o número de visualizações pelo número de dias desde a sua publicação. 
 
-```{r}
+```{r, eval = T}
 dados %>% 
   mutate(views = map(videos_stats, .f = 'viewCount')) %>% 
   unnest(views) %>% 
@@ -151,14 +151,14 @@ De toda a forma, a establidade do começo do gráfico me convenceu de que a taxa
 
 O Willy nos contou que a proporção de Likes por Dislike é muitíssimo grande nos vídeos do PDF: eles devem ter uma média de 26 likes por cada dislike, o que significa que o vídeo médio do PDF tem 96% de likes. 
 
-```{r}
+```{r, eval = T}
 dados %>% 
-  mutate(likes = map(videos_stats, .f = 'likeCount'),
-         dislikes = map(videos_stats, .f = 'dislikeCount')) %>% 
-  unnest(likes, dislikes) %>% 
+  mutate(likes = map(videos_stats, .f = ~as.numeric(.x[['likeCount']])),
+         dislikes = map(videos_stats, .f = ~as.numeric(.x[['dislikeCount']]))) %>% 
+  unnest(likes, dislikes) %>%
   mutate(likes = as.numeric(likes),
          dislikes = as.numeric(dislikes),
-         publishedAt = as_date(publishedAt),
+         publishedAt = lubridate::as_date(publishedAt),
          prop = likes/dislikes) %>% 
   ggplot(aes(x = publishedAt)) +
   geom_line(aes(y = prop)) +
@@ -168,14 +168,14 @@ dados %>%
 
 A despeito disso, também é verdade que existe uma classe de vídeos do PDF que é fuzilada pelo público. Pra se ter uma ideia, um vídeo de 2016, o "Delação", chegou a ter apenas 40% de likes! Isso é o mesmo que dizer que para cada duas pessoas que gostaram do vídeos existem outras que não gostaram.
 
-```{r}
+```{r, eval = T}
 g <- dados %>% 
-  mutate(likes = map(videos_stats, .f = 'likeCount'),
-         dislikes = map(videos_stats, .f = 'dislikeCount')) %>% 
+  mutate(likes = map(videos_stats, .f = ~as.numeric(.x[['likeCount']])),
+         dislikes = map(videos_stats, .f = ~as.numeric(.x[['dislikeCount']]))) %>% 
   unnest(likes, dislikes) %>% 
   mutate(likes = as.numeric(likes),
          dislikes = as.numeric(dislikes),
-         publishedAt = as_date(publishedAt),
+         publishedAt = lubridate::as_date(publishedAt),
          prop = likes/(likes+dislikes)) %>% 
   ggplot(aes(x = publishedAt, label = title, y = prop)) +
   geom_line(color = 'black') +
