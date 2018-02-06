@@ -16,7 +16,7 @@ A cor é uma diferença notável entre os filmes da Marvel e da DC. Enquanto a D
 
 Para estudar melhor a paleta de cores utilizadas nos filmes, vamos aplicar a análise introduzida pelo Dani [neste post](http://curso-r.com/blog/2017/04/22/2017-04-21-paleta-de-cores/), com pequenas alterações. Como amostra, selecionei 10 imagens de Batman vs Superman e 10 do Capitão América: guerra civil. Tentando deixar a análise o menos subjetiva possível, escolhi imagens de cenas emblemáticas e dos principais personagens. Abaixo as imagens que peguei de cada filme.
 
-```{r, echo=FALSE, fig.width=8, fig.height=7, eval = TRUE}
+```{r, echo=FALSE, fig.width=8, fig.height=7, eval = TRUE, message=FALSE}
 library(magick)
 x <- image_read('../../static/img/blog/as-paletas-de-cores-da-marvel-vs-dc/bvs.jpg')
 plot(x)
