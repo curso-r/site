@@ -11,6 +11,9 @@ summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imag
 
 
 
+<blockquote>
+<p>Esse post assume uma versão mais antiga do <code>decryptr</code> para instalar a versão usada use: <code>devtools::install_github(&quot;decryptr/decryptr@05bfd48&quot;)</code></p>
+</blockquote>
 <p>No último post sobre <a href="http://curso-r.com/tags/captcha/">CAPTCHAs</a> nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.</p>
 <p>Alguns meses atrás, tentamos resolver esse problema de várias formas. Uma delas foi utilizar algoritmos de agrupamento (<span class="math inline">\(k\)</span>-médias) ou de identificação de conjuntos conectados. Esses algoritmos se mostraram instáveis e não aumentaram muito o poder preditivo. Outra ideia que tentamos foi criar vários critérios de corte fixos e incluir todas as colunas geradas na base de dados. Mas isso deixou nos deixou com uma dimensão muito grande pra tratar, e parecia que os modelos precisavam de muito mais dados pra começarem a funcionar.</p>
 <p>Foi aí que o Daniel nos disse que estava trabalhando no pacote do Keras e que existia uma forma de trabalhar com a imagem completa, sem segmentar. A tarefa de segmentação seria “parametrizada” num modelão complexo de deep learning e conseguiríamos resolver o problema <strong>sem pré-processamento</strong>.</p>
@@ -26,12 +29,42 @@ summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imag
 <thead>
 <tr class="header">
 <th style="text-align: left;">posicao</th>
+<th style="text-align: left;">0</th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;">2</th>
 <th style="text-align: left;">3</th>
 <th style="text-align: left;">4</th>
+<th style="text-align: left;">5</th>
 <th style="text-align: left;">6</th>
+<th style="text-align: left;">7</th>
+<th style="text-align: left;">8</th>
 <th style="text-align: left;">9</th>
 <th style="text-align: left;">a</th>
+<th style="text-align: left;">b</th>
+<th style="text-align: left;">c</th>
+<th style="text-align: left;">d</th>
+<th style="text-align: left;">e</th>
 <th style="text-align: left;">f</th>
+<th style="text-align: left;">g</th>
+<th style="text-align: left;">h</th>
+<th style="text-align: left;">i</th>
+<th style="text-align: left;">j</th>
+<th style="text-align: left;">k</th>
+<th style="text-align: left;">l</th>
+<th style="text-align: left;">m</th>
+<th style="text-align: left;">n</th>
+<th style="text-align: left;">o</th>
+<th style="text-align: left;">p</th>
+<th style="text-align: left;">q</th>
+<th style="text-align: left;">r</th>
+<th style="text-align: left;">s</th>
+<th style="text-align: left;">t</th>
+<th style="text-align: left;">u</th>
+<th style="text-align: left;">v</th>
+<th style="text-align: left;">w</th>
+<th style="text-align: left;">x</th>
+<th style="text-align: left;">y</th>
+<th style="text-align: left;">z</th>
 </tr>
 </thead>
 <tbody>
@@ -41,13 +74,73 @@ summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imag
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
@@ -58,7 +151,37 @@ summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imag
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 </tr>
@@ -69,11 +192,71 @@ summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imag
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
@@ -84,7 +267,37 @@ summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imag
 <td style="text-align: left;">6</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
 <td style="text-align: left;">.</td>
@@ -107,131 +320,19 @@ summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imag
 arqs &lt;- dir(&#39;../../static/data/captcha-dados/tjmg&#39;, full.names = TRUE)
 
 d_captcha &lt;- arqs %&gt;% 
-  read_captcha()
+  read_captcha() %&gt;%
+  prepare()
 
 str(d_captcha)
-## List of 30
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f1097adba_73301.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.756 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f1b468139_28553.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.753 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f204af117_95047.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f219a656d_35248.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f22a89904_56661.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f23a2cf11_48802.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f25ffad70_40609.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f2bf0adac_70307.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f2f69c31f_50529.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f33b6c95f_56674.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f349b55d2_66741.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f34f815f7_72056.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f3582e82d_44756.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.752 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f36312110_23063.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.746 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f383c5d5a_97284.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f3c637108_08546.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f3e3bff32_43577.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.752 0.753 0.75 0.75 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f3f042c84_75584.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f44832702_56595.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f46b4d997_56182.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f4948d5aa_97231.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f4f7a0eba_68429.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f5e28f997_70406.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.75 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f5fe3f5f3_95572.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f65520c73_82913.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f66bcc001_33748.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f692ef245_38285.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.752 0.753 0.75 0.75 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f6bbbef86_69756.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f6e612cf5_85234.jpeg&quot;
-##  $ :List of 2
-##   ..$ y: NULL
-##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.756 0.756 0.756 ...
-##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f795d4e4_92522.jpeg&quot;
-##  - attr(*, &quot;class&quot;)= chr &quot;captcha&quot;</code></pre>
+## List of 3
+##  $ y: num [1:30, 1:5, 1:10] 0 0 0 0 0 0 0 0 0 0 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 3
+##   .. ..$ : NULL
+##   .. ..$ : chr [1:5] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##   .. ..$ : chr [1:10] &quot;0&quot; &quot;1&quot; &quot;2&quot; &quot;3&quot; ...
+##  $ x: num [1:30, 1:40, 1:110, 1] 0.749 0.749 0.753 0.749 0.749 ...
+##  $ n: int 30
+##  - attr(*, &quot;class&quot;)= chr &quot;prepared&quot;</code></pre>
 </section>
 <section id="wrap-up" class="level3">
 <h3>Wrap-up</h3>
