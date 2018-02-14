@@ -1,0 +1,7 @@
+base
+magrittr
+tidyr
+dplyr
+bindrcpp
+ggplot2
+plotly
