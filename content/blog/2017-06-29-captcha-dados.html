@@ -1,0 +1,250 @@
+---
+title: "Quebrando CAPTCHAs - Parte IV: Trabalhando com a imagem completa"
+date: "2017-07-31T13:07:31+02:00"
+tags: ["r", "captcha"]
+categories: ["r"]
+banner: "img/banners/captcha_04.png"
+author: ["Julio"]
+draft: false
+summary: "No último post sobre CAPTCHAs nós vimos que a segmentação das imagens é um problema complicado. O Daniel nos disse que estava trabalhando no pacote do Keras e que existia uma forma de trabalhar com a imagem completa, sem segmentar. Foi só quando ele mostrou um acerto de 100% em um CAPTCHA que fomos convencidos, e passamos a chamar esse modelo de..."
+---
+
+
+
+<p>No último post sobre <a href="http://curso-r.com/tags/captcha/">CAPTCHAs</a> nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.</p>
+<p>Alguns meses atrás, tentamos resolver esse problema de várias formas. Uma delas foi utilizar algoritmos de agrupamento (<span class="math inline">\(k\)</span>-médias) ou de identificação de conjuntos conectados. Esses algoritmos se mostraram instáveis e não aumentaram muito o poder preditivo. Outra ideia que tentamos foi criar vários critérios de corte fixos e incluir todas as colunas geradas na base de dados. Mas isso deixou nos deixou com uma dimensão muito grande pra tratar, e parecia que os modelos precisavam de muito mais dados pra começarem a funcionar.</p>
+<p>Foi aí que o Daniel nos disse que estava trabalhando no pacote do Keras e que existia uma forma de trabalhar com a imagem completa, sem segmentar. A tarefa de segmentação seria “parametrizada” num modelão complexo de deep learning e conseguiríamos resolver o problema <strong>sem pré-processamento</strong>.</p>
+<p>Inicialmente, eu e o Athos ficamos perplexos com a ideia. Foi só quando o Daniel mostrou um modelo que <strong>acertava 100% dos CAPTCHAs do TJMG</strong> que fomos convencidos, e passamos a chamar esse modelo de “magia negra”.</p>
+<p>Nesse post, vamos discutir como montar a base para fazer a magia negra.</p>
+<section id="resposta" class="level3">
+<h3>Resposta</h3>
+<p>Nossa resposta não é mais uma categoria, e sim uma matriz. A matriz tem <span class="math inline">\(k\)</span> linhas (número de letras em um CAPTCHA) <span class="math inline">\(p\)</span> colunas (número de valores possíveis de um caractere). O elemento <span class="math inline">\((i,j)\)</span> vale <code>1</code> se na posição <span class="math inline">\(i\)</span> aparece a letra relativa à posição <span class="math inline">\(j\)</span>.</p>
+<p>Assim,</p>
+<pre><code>a49f36</code></pre>
+<p>vira isso: (substituí <code>0</code> por <code>'.'</code> para ficar mais fácil de ver)</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">posicao</th>
+<th style="text-align: left;">3</th>
+<th style="text-align: left;">4</th>
+<th style="text-align: left;">6</th>
+<th style="text-align: left;">9</th>
+<th style="text-align: left;">a</th>
+<th style="text-align: left;">f</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">.</td>
+</tr>
+</tbody>
+</table>
+<p>Isso para uma imagem. Vamos precisar de uma terceira dimensão, que são as “linhas” de nossa resposta (uma para cada CAPTCHA).</p>
+<p>Nosso <code>y</code> final é um array de dimensões <span class="math inline">\(n \times k \times p\)</span>. Achou estranho? Estamos só começando!</p>
+</section>
+<section id="explicativas" class="level3">
+<h3>Explicativas</h3>
+<p>Uma imagem nada mais é do que uma matriz de pixels. Cada elemento da matriz é um número entre zero e um indicando o quanto de cor há nesse pixel. Assim, zero significa preto (ausência de cor), e um significa branco (todas as cores). Valores intermediários dão escala de cinza. Para representar imagens com cores, é necessária uma terceira dimensão de tamanho 3, indicando os pesos de <code>R</code> (<em>red</em>) <code>G</code> (<em>green</em>) e <code>B</code> (<em>blue</em>).</p>
+<p>Assim, nossa base de dados de explicativas é um array de dimensões <span class="math inline">\(n \times h \times w \times 3\)</span>, em que <span class="math inline">\(h\)</span> e <span class="math inline">\(w\)</span> são a altura e a largura da imagem, respectivamente.</p>
+</section>
+<section id="funcao-prepare" class="level3">
+<h3>Função <code>prepare</code></h3>
+<p>Para facilitar a vida, criamos uma função <code>prepare</code> que prepara os arquivos de imagem num formato adequado para ajuste dos modelos usando o Keras.</p>
+<p>Veja um exemplo com 30 CAPTCHAs do TJMG. Aqui temos apenas cinco números por imagem, então <span class="math inline">\(k=5\)</span> e <span class="math inline">\(p=10\)</span>.</p>
+<pre class="r"><code>library(decryptr)
+arqs &lt;- dir(&#39;../../static/data/captcha-dados/tjmg&#39;, full.names = TRUE)
+
+d_captcha &lt;- arqs %&gt;% 
+  read_captcha()
+
+str(d_captcha)
+## List of 30
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f1097adba_73301.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.756 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f1b468139_28553.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.753 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f204af117_95047.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f219a656d_35248.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f22a89904_56661.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f23a2cf11_48802.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f25ffad70_40609.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f2bf0adac_70307.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f2f69c31f_50529.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f33b6c95f_56674.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f349b55d2_66741.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f34f815f7_72056.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f3582e82d_44756.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.752 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f36312110_23063.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.746 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f383c5d5a_97284.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f3c637108_08546.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f3e3bff32_43577.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.752 0.753 0.75 0.75 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f3f042c84_75584.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f44832702_56595.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f46b4d997_56182.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f4948d5aa_97231.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f4f7a0eba_68429.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f5e28f997_70406.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.75 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f5fe3f5f3_95572.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f65520c73_82913.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f66bcc001_33748.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f692ef245_38285.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.752 0.753 0.75 0.75 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f6bbbef86_69756.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.753 0.753 0.753 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f6e612cf5_85234.jpeg&quot;
+##  $ :List of 2
+##   ..$ y: NULL
+##   ..$ x: num [1:40, 1:110, 1] 0.749 0.753 0.756 0.756 0.756 ...
+##   ..- attr(*, &quot;file&quot;)= chr &quot;../../static/data/captcha-dados/tjmg/captcha4d2f795d4e4_92522.jpeg&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;captcha&quot;</code></pre>
+</section>
+<section id="wrap-up" class="level3">
+<h3>Wrap-up</h3>
+<ul>
+<li>Segmentar as imagens é complicado</li>
+<li>Vamos trabalhar com a imagem completa, mas precisamos de uma estrutura de dados adequada.</li>
+<li>Nossa resposta será um array de dimensão <code>#captchas</code> x <code>#caracteres</code> x <code>#categorias</code>, preenchidas sempre com zeros e uns.</li>
+<li>Nossa explicativa será um array de dimensão <code>#captchas</code> x <code>altura</code> x <code>largura</code> x <code>3</code>, preenchidas com números entre zero e um, com os pesos de vermelho, verde e azul.</li>
+<li>Use a função <code>decryptr::prepare()</code> num vetor de caminhos de arquivos classificados para montar a base de forma adequada.</li>
+</ul>
+</section>
+<section id="next" class="level3">
+<h3>Next</h3>
+<p>No próximo post sobre esse tema, vamos falar um pouco das redes neurais profundas que vamos ajustar.</p>
+<p>É isso. Happy coding ;)</p>
+</section>
