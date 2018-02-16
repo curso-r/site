@@ -30,7 +30,7 @@ u_imagens <- c(
   'https://conteudo.imguol.com.br/c/noticias/6a/2016/10/03/3out2016---em-belo-horizonte-mg-o-presidente-nacional-do-psdb-e-senador-aecio-neves-faz-um-balanco-do-desempenho-do-partido-no-primeiro-turno-das-eleicoes-municipais-de-2016-aecio-se-disse-a-favor-de-1475526309974_615x300.jpg',
   'http://www.revistaforum.com.br/wp-content/uploads/2013/05/neves.jpg'
 )
-p_imagens <- dir('img', full.names = TRUE, pattern = 'aecio')
+p_imagens <- dir('../../static/img/blog/aecio/', full.names = TRUE, pattern = 'aecio')
 # knitr::include_graphics(p_imagens)
 plyr::l_ply(p_imagens, function(x) plot(magick::image_read(x)))
 ```
@@ -78,7 +78,7 @@ key <- Sys.getenv('EMOTION_API')
 ## comentei esse código e salvei o df para não precisar ficar rodando toda vez.
 # d_emocoes <- map_df(u_imagens, pegar_emocoes, key = key, .id = 'id')
 # saveRDS(d_emocoes, 'd_emocoes.rds')
-d_emocoes <- readRDS('d_emocoes.rds')
+d_emocoes <- readRDS('../../static/data/aecio/d_emocoes.rds')
 ```
 
 ```{r echo=F}
@@ -134,7 +134,7 @@ gridExtra::grid.arrange(grobs = plots, ncol = 2)
 ```
 
 ```{r grafinal, out.width="70%", echo=FALSE, fig.align="center", fig.cap='Emoções do Aécio em cada imagem.'}
-knitr::include_graphics("/blog/img/aecgrafs.png")
+knitr::include_graphics("/img/blog/aecio/aecgrafs.png")
 ```
 
 ## Conclusão

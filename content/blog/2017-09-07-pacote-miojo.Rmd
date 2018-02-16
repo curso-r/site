@@ -97,12 +97,7 @@ soma_2(1:10)
 
 Você também pode ver o help da função com `?soma_2`:
 
-```{r echo=FALSE}
-plot(magick::image_read('documentacao.png'))
-```
-
-
-
+![](/img/blog/pacote-miojo/documentacao.png)
 
 ```{r echo=FALSE, eval=FALSE}
 library(magick)
@@ -124,7 +119,7 @@ FIM!
 # allthethings <- meme::create_meme(templates[[9]], "Now", "It's your turn",
 #                                   username = 'jtrecenti', password = 'XXX')
 # saveRDS(allthethings, 'dicaprio.rds')
-meme:::plot.meme(readRDS('allthehings.rds'))
+meme:::plot.meme(readRDS('../../static/data/pacote-miojo/allthehings.rds'))
 ```
 
 ## Outras pequenas dicas práticas
@@ -142,7 +137,7 @@ meme:::plot.meme(readRDS('allthehings.rds'))
 # allthethings <- meme::create_meme(templates[[17]], "Package", "All the things!",
 #                                   username = 'jtrecenti', password = 'XXX')
 # saveRDS(allthethings, 'allthehings.rds')
-meme:::plot.meme(readRDS('dicaprio.rds'))
+meme:::plot.meme(readRDS('../../static/data/pacote-miojo/dicaprio.rds'))
 ```
 
 

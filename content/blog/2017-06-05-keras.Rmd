@@ -16,9 +16,7 @@ knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 
 Esse é o [Daniel Falbel](http://curso-r.com/author/daniel/), um dos sócios da Curso-R e autor de diversos posts no nosso blog. Boa pinta, não?
 
-```{r echo=FALSE}
-plot(magick::image_read('img/dfalbel.jpg'))
-```
+![](/img/blog/keras/dfalbel.jpg)
 
 Mas esse não é só um rostinho bonito. Recente, o Dani fez uma contribuição PROFUNDA para a comunidade R: ele é um dos responsáveis pelo pacote [keras](https://github.com/rstudio/keras), que faz uma interface com a [biblioteca de mesmo nome](https://keras.io/) utilizada para ajustar modelos de *deep learning* usando [TensorFlow](https://www.tensorflow.org/).
 

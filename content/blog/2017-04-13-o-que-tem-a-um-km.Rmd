@@ -119,7 +119,7 @@ library(tibble)
 library(magrittr)
 library(dplyr)
 
-load("2017-04-13-o-que-tem-a-um-km/o-que-tem-a-um-km.RData")
+load("../../static/data/o-que-tem-a-um-km/o-que-tem-a-um-km.RData")
 ```
 
 

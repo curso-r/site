@@ -102,7 +102,7 @@ limpar_musica <- function(txt) {
 ```
 
 ```{r eval=TRUE, echo=FALSE}
-ws_letras <- readRDS('ws_letras.rds')
+ws_letras <- readRDS('../../static/data/safadao/ws_letras.rds')
 ```
 
 O resultado é o objeto `ws_letras`: um vetor tamanho `r length(ws_letras)` em que cada elemento é um caractere, que pode ser uma letra, número, espaço e até uma pulada de linha. Cada música é separada pelo caractere `@`. Aqui está a primeira delas:

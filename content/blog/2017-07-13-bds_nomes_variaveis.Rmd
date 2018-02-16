@@ -23,7 +23,7 @@ Por fim, se a base é muito grande e tem muitos erros, precisamos encontrar form
 Sendo assim, vamos começar aqui uma pequena série de posts para ajudar nessa tarefa, utilizando sempre as ferramentas do `tidyverse`, em especial do pacote `stringr`. Neste post, começarei mostrando uma forma rápida para padronizar os nomes das variáveis da bd, deixando-os mais adequados para o restante da análise.
 
 ```{r, include=FALSE}
-dados <- readxl::read_excel("dados_nomes_variaveis.xlsx")
+dados <- readxl::read_excel("../../static/data/bds_nomes_variaveis/dados_nomes_variaveis.xlsx")
 ```
 
 Para isso, vou utilizar como exemplo algumas variáveis de uma base com que trabalhei alguns anos atrás. A bd original (que continha informações de pacientes do Instituto do Coração) tinha cerca 170 variáveis, então selecionei apenas algumas. 

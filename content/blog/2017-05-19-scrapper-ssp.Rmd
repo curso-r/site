@@ -55,7 +55,7 @@ Eu quero a url http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx com alguma sel
 Em qualquer navegador, as ferramentas do desenvolvedor mostram o _background_ do que aparece na tela. Se estiver nessa aba, quando você entrar em http://www.ssp.sp.gov.br/Estatistica/Pesquisa.aspx e apertar F5, vai encontrar uma tela mais ou menos parecida com a tela abaixo:
 
 ```{r, echo = FALSE, fig.width=8, fig.height=6}
-a <- magick::image_read('2017-05-19-scrapper-ssp/print_1.png') 
+a <- magick::image_read('../../static/data/scrapper-ssp/print_1.png') 
 plot(a)
 ```
 
@@ -66,7 +66,7 @@ Cada linha representa uma requisição, que é essencialmente o envio de um arqu
 O próximo passo é identificar o que é que o navegador pede ao servidor quando te devolve o que você quer. Se você escolher o ano de 2017 na caixa de seleção de anos, por exemplo, vai encontrar uma tela parecida com essa aqui.
 
 ```{r, echo = FALSE, fig.width=8, fig.height=6}
-a <- magick::image_read('2017-05-19-scrapper-ssp/print_2.png') 
+a <- magick::image_read('../../static/data/scrapper-ssp/print_2.png') 
 plot(a)
 ```
 
@@ -75,7 +75,7 @@ Antes de prosseguir, é necessário fazer uma inspeção meticulosa de todas as 
 Segundo o nosso dedo duro, a requisição utiliza o método "POST" e, quando clicamos nela, temos informações sobre ela no painel ao lado. Como eu falei acima, uma requisição é um arquivo .html que "pede" alguma ao servidor com base no seu conteúdo. No geral, um bom lugar para procurar o que a requisição está pedindo é o seu conjunto de parâmetros, na aba "Params" do painel de detalhamento da requisição.
 
 ```{r, echo = FALSE, fig.width=8, fig.height=6}
-a <- magick::image_read('2017-05-19-scrapper-ssp/print_3.png') 
+a <- magick::image_read('../../static/data/scrapper-ssp/print_3.png') 
 plot(a)
 ```
 
@@ -169,7 +169,7 @@ Exatamente a tabelinha que queríamos! Entretanto, nem tudo são flores. Como eu
 Felizmente, a resposta é sim, mas não é tão simples quanto parece. Se de outra tela qualquer você clicar em "Ocorrências Registradas por Mês" você vai perceber que o "__EVENTTARGET" mudou para `ctl00$conteudo$$btnMes`, mas, a despeito do que se poderia imaginar, os outros parâmetros permaneceram com os nomes intactos. 
 
 ```{r, echo = FALSE, fig.width=8, fig.height=6}
-a <- magick::image_read('2017-05-19-scrapper-ssp/print_4.png') 
+a <- magick::image_read('../../static/data/scrapper-ssp/print_4.png') 
 plot(a)
 ```
 
@@ -250,7 +250,7 @@ D <- purrr::by_row(GRID, baixa_bo_municipio_ano, .to = "ocorrencias") %>%
 Com esses dados dá pra fazer muitas coisas legais. É possível, por exemplo, fazer mapas como esse, que representa o número de homicídios em 2016, por município. Ele foi feito em R, mas como fazê-lo é assunto pra outro post!
 
 ```{r, echo = FALSE, fig.align='center'}
-x <- magick::image_read('2017-05-19-scrapper-ssp/cscrapper-ssp.png')
+x <- magick::image_read('../../static/data/scrapper-ssp/cscrapper-ssp.png')
 plot(x)
 ```
 

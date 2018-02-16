@@ -137,9 +137,5 @@ A figura abaixo descreve os intervalos de credibilidade obtidos para cada parâm
 plot(fit_stan)
 ```
 
-```{r, echo = FALSE}
-library(magick)
-x <- image_read('img/imagem_fernando_1.jpg')
-plot(x)
-```
+![](/img/blog/regressao-heterocedastica/imagem_fernando_1.jpg)
 

@@ -122,7 +122,7 @@ encoded_imgs[1,] # representação vetorial de uma imagem.
 ```
 
 ```{r, echo=FALSE}
-encoded_imgs <- readRDS("autoencoder-encoded_imgs.rds")
+encoded_imgs <- readRDS("../../static/data/construindo-autoencoders/autoencoder-encoded_imgs.rds")
 dim(encoded_imgs)
 encoded_imgs[1,]
 ```
@@ -142,7 +142,7 @@ predict(decoder, encoded_imgs) %>%
 ```
 
 ```{r echo=FALSE}
-plot(readRDS("autoencoder-plot1.rds"))
+plot(readRDS("../../static/data/construindo-autoencoders/autoencoder-plot1.rds"))
 ```
 
 Compare as reconstruções com as imagens originais abaixo:
@@ -157,7 +157,7 @@ x_test[1:10,] %>%
 ```
 
 ```{r, echo = FALSE}
-plot(readRDS("autoencoder-plot2.rds"))
+plot(readRDS("../../static/data/construindo-autoencoders/autoencoder-plot2.rds"))
 ```
 
 Um ponto interessante é que esse modelo faz uma [aproximação da solução por componentes

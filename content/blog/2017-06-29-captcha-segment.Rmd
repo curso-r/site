@@ -40,13 +40,13 @@ arq_captcha <- decryptr::download_trt(dest = 'img', n = 1)
 ```{r dlimg2, echo=FALSE}
 library(decryptr)
 library(tidyverse)
-arq_captcha <- 'img/captcha705f7bad4a3d.jpeg'
+arq_captcha <- '../../static/data/captcha-segment/captcha705f7bad4a3d.jpeg'
 ```
 
 Visualizando a imagem:
 
 ```{r plotimg1}
-"img/captcha705f7bad4a3d.jpeg"  %>% 
+"../../static/data/captcha-segment/captcha705f7bad4a3d.jpeg"  %>% 
   read_captcha() %>% 
   plot()
 ```
@@ -61,7 +61,7 @@ abline(v = 30 + 15 * 0:5, col = 'red')
 Podemos também limitar os eixos `x` (tirar os espaços vazios à esquerda e à direita) e `y` (superiores e inferiores).
 
 ```{r imglines2}
-"img/captcha705f7bad4a3d.jpeg" %>% 
+"../../static/data/captcha-segment/captcha705f7bad4a3d.jpeg" %>% 
   load_image() %>% 
   magrittr::extract(-c(1:9, 31:dim(.)[1]), -c(1:15, 106:dim(.)[2]), TRUE) %>% 
   grDevices::as.raster() %>% 
@@ -129,7 +129,7 @@ Muito bem! Agora basta rodar o mesmo para toda a base de treino e rodar um model
 
 ```{r carregabd, message=FALSE, warning=FALSE, eval=FALSE}
 library(randomForest)
-dados <- readRDS('d_segment_captcha.rds') %>% 
+dados <- readRDS('../../static/data/captcha-segment/d_segment_captcha.rds') %>% 
   mutate(y = factor(y))
 
 # monta bases de treino e teste
@@ -145,7 +145,7 @@ model <- randomForest(y ~ . - captcha_id, data = d_train)
 
 ```{r salvamodelo, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 # saveRDS(model, 'model_segment_rf.rds', compress = 'bzip2')
-model <- readRDS('model_segment_rf.rds')
+model <- readRDS('../../static/data/captcha-segment/model_segment_rf.rds')
 ```
 
 O resultado do modelo pode ser verificado na tabela de observados *versus* preditos na base de teste. O acerto foi de 99.4% em cada caractere! O maior erro ocorreu no confundimento da letra `n` com a letra `h`. Assumindo que o erro não depende da posição do caractere no CAPTCHA, teremos um acerto de aproximadamente 96.7% para a imagem.
@@ -246,7 +246,7 @@ saveRDS(dados, 'd_segment_captcha_receita.rds', compress = 'bzip2')
 
 ```{r receitarf, message=FALSE, warning=FALSE, echo=FALSE, eval=FALSE}
 library(randomForest)
-dados <- readRDS('d_segment_captcha_receita.rds') %>% 
+dados <- readRDS('../../static/data/captcha-segment/d_segment_captcha_receita.rds') %>% 
   mutate(y = factor(y))
 
 # monta bases de treino e teste
@@ -262,7 +262,7 @@ model <- randomForest(y ~ . - captcha_id, data = d_train)
 
 ```{r modelrf2, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 # saveRDS(model, 'model_segment_receita_rf.rds', compress = 'bzip2')
-model <- readRDS('model_segment_receita_rf.rds')
+model <- readRDS('../../static/data/captcha-segment/model_segment_receita_rf.rds')
 ```
 
 ```{r errosReceita, echo=FALSE, eval=FALSE}

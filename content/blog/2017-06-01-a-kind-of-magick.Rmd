@@ -41,13 +41,13 @@ library(magrittr)
 Vamos utilizar a seguinte imagem como exemplo neste post:
 
 ```{r, echo = FALSE, fig.width = 8, fig.height = 7, eval = TRUE}
-plot(image_read('img/freddie-mercury.jpeg'))
+plot(image_read('../../static/img/blog/a-kind-of-magick/freddie-mercury.jpeg'))
 ```
 
 A função `image_read()` lê imagens de arquivos, como `.jpg` ou `png`. Diversas outras extensões são suportadas. Utilize `str(magick::magick_config())` para verificar quais formatos estão disponíveis na sua versão do ImageMagick.
 
 ```{r, echo = FALSE, fig.width = 8, fig.height = 7, eval = TRUE}
-freddie <- image_read('img/freddie-mercury.jpeg')
+freddie <- image_read('../../static/img/blog/a-kind-of-magick/freddie-mercury.jpeg')
 image_info(freddie)
 ```
 
@@ -98,7 +98,7 @@ image_crop(freddie_resized, "100x150+280+30")
 ```
 
 ```{r, echo = FALSE, fig.width = 4, fig.height = 3}
-image_read(path = "img/freddie_1.jpg") %>% plot
+image_read(path = "../../static/img/blog/a-kind-of-magick/freddie_1.jpg") %>% plot
 ```
 
 Colocar uma borda.
@@ -108,7 +108,7 @@ image_border(freddie_resized, "purple", "20x10")
 ```
 
 ```{r, echo = FALSE, fig.width = 8, fig.height = 7}
-image_read(path = "img/freddie_2.jpg") %>% plot
+image_read(path = "../../static/img/blog/a-kind-of-magick/freddie_2.jpg") %>% plot
 ```
 
 Girá-la de ponta-cabeça.
@@ -118,7 +118,7 @@ image_flip(freddie_resized)
 ```
 
 ```{r, echo = FALSE, fig.width = 8, fig.height = 7}
-image_read(path = "img/freddie_3.jpg") %>% plot
+image_read(path = "../../static/img/blog/a-kind-of-magick/freddie_3.jpg") %>% plot
 ```
 
 E inverter a direção.
@@ -128,7 +128,7 @@ image_flop(freddie_resized)
 ```
 
 ```{r, echo = FALSE, fig.width = 8, fig.height = 7}
-image_read(path = "img/freddie_4.jpg") %>% plot
+image_read(path = "../../static/img/blog/a-kind-of-magick/freddie_4.jpg") %>% plot
 ```
 
 Com o pipe, fica fácil aplicar todas as funções ao mesmo tempo.
@@ -142,7 +142,7 @@ freddie_resized %>%
 ```
 
 ```{r, echo = FALSE, fig.width = 4, fig.height = 3}
-image_read(path = "img/freddie_5.jpg") %>% plot
+image_read(path = "../../static/img/blog/a-kind-of-magick/freddie_5.jpg") %>% plot
 ```
 
 # Filtros e efeitos
@@ -154,7 +154,7 @@ image_blur(freddie_resized, 10, 5)
 ```
 
 ```{r, echo = FALSE, fig.width = 7, fig.height = 5}
-image_read(path = "img/freddie_6.jpg")  %>% plot
+image_read(path = "../../static/img/blog/a-kind-of-magick/freddie_6.jpg")  %>% plot
 ```
 
 ```{r, eval = FALSE}
@@ -162,7 +162,7 @@ image_noise(freddie_resized)
 ```
 
 ```{r, echo = FALSE, fig.width = 7, fig.height = 5}
-image_read(path = "img/freddie_7.jpg") %>% plot
+image_read(path = "../../static/img/blog/a-kind-of-magick/freddie_7.jpg") %>% plot
 ```
 
 
@@ -172,7 +172,7 @@ image_annotate(freddie_resized, "Farrokh Bulsara", size = 30, color = "red",
 ```
 
 ```{r, echo = FALSE, fig.width = 7, fig.height = 5}
-image_read(path = "img/freddie_9.jpg") %>% plot
+image_read(path = "../../static/img/blog/a-kind-of-magick/freddie_9.jpg") %>% plot
 ```
 
 # O que mais dá para fazer?
@@ -192,7 +192,7 @@ grid.raster(freddie_cropped, width = 0.15, height = 0.3,
 library(ggplot2)
 library(grid)
 qplot(speed, dist, data = cars, geom = c("point", "smooth"))
-grid.raster(image_read(path = "img/freddie_1.jpg"), width = 0.15, height = 0.3,
-            hjust = -2, vjust = 1)
+image_read(path = "../../static/img/blog/a-kind-of-magick/freddie_1.jpg") %>%
+  grid.raster(width = 0.15, height = 0.3, hjust = -2, vjust = 1)
 ```
 

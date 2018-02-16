@@ -20,7 +20,7 @@ Sabe aquelas imagens chatas que aparecem quando você está preenchendo um formu
 
 ```{r fig.cap='Exemplo de CAPTCHA: Consulta de CNPJ da Receita Federal.', echo=FALSE, fig.height=4, fig.width=8}
 library(decryptr)
-'img/receita/1aux8c.png' %>% read_captcha() %>% plot()
+'../../static/data/captcha-intro/receita/1aux8c.png' %>% read_captcha() %>% plot()
 ```
 
 Existem captchas de todo tipo: difíceis, fáceis, que fazem sentido e que não fazem sentido. Um exemplo de CAPTCHA que faz sentido são os presentes em formulários para criação de emails. Imagine se alguém fizesse um programa que criasse bilhões de contas de e-mail do gmail! Morte horrível.

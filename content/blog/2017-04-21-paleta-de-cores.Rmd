@@ -18,8 +18,8 @@ knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 # saveRDS(centroides, "centroides.rds")
 # saveRDS(paleta, "paleta.rds")
 library(dplyr)
-centroides <- readRDS("centroides.rds")
-paleta <- readRDS("paleta.rds")
+centroides <- readRDS("../../static/data/paleta-de-cores/centroides.rds")
+paleta <- readRDS("../../static/data/paleta-de-cores/paleta.rds")
 ```
 
 Uma aplicação interessante de algoritmos de clusterização é a obtenção de 
@@ -47,7 +47,7 @@ Podemos exibir a imagem no R, convertendo o array, primeiro em um obheto do tipo
 plot(as.raster(img))
 ```
 
-![](/blog/img/david-bowie.jpg)
+![](/img/blog/paleta-de-cores/david-bowie.jpg)
 
 O problema de obter a paleta de cores de uma imagem pode ser formulado como um
 problema de clusterização: "obter grupos de individuos que possuem a menor diferença dentro de cada um e a maior diferença possível entre os grupos de 

@@ -43,7 +43,7 @@ O problema é que não existe uma base de dados pública que relacione todos os 
 
 > P.S.: Não se esqueça do ciclo da ciência de dados! Vou falar disso sem parar para explicar. Na dúvida, leia o http://r4ds.had.co.nz/
 
-![](/blog/img/data-science.png)
+![](/img/blog/union-sf/data-science.png)
 
 <br/>
 
@@ -211,7 +211,7 @@ Se você quiser fazer um gráfico feinho só pra saber o que está rolando, use 
 plot(d_sf_municipio[, c("num_regiao", "geometry")])
 ```
 
-![](/blog/img/sf_blog01.png)
+![](/img/blog/union-sf/sf_blog01.png)
 
 ### Parte 2: agrupando os municípios
 
@@ -286,7 +286,7 @@ gridExtra::grid.arrange(grobs = graficos)
 O resultado final é o gráfico abaixo.
 
 
-![](/blog/img/sf_blog02.png)
+![](/img/blog/union-sf/sf_blog02.png)
 
 Coisa mais linda!
 

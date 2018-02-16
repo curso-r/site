@@ -3,7 +3,7 @@ title: "brcrimR"
 date: "2017-09-13T10:12:00+03:00"
 tags: ["web-scraping", "tidyverse", "r", "data.frames", "bds", "dados-abertos", "api"]
 categories: ["tutoriais", "r"]
-banner: "img/ssp.jpg"
+banner: "img/banners/ssp.jpg"
 author: ["Fernando"]
 summary: "brcrimR é um pacote para baixar e processar informações divulgadas pelas secretarias de segurança pública do Brasil. Neste post, apresentamos as funcionalidades do pacote aplicadas ao estado de São Paulo."
 ---

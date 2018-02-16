@@ -100,13 +100,13 @@ Em representação de redes neurais, as fórmulas acima ficam assim:
 **Resposta `y_1`**
 
 ```{r, fig.height=3, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-29-segundo-menor-dl/y1.png")
+knitr::include_graphics("/img/blog/segundo-menor-dl/y1.png")
 ```
 
 **Resposta `y_2`**
 
 ```{r, fig.height=3, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-29-segundo-menor-dl/y2.png")
+knitr::include_graphics("/img/blog/y2.png")
 ```
 
 
@@ -429,7 +429,7 @@ Vimos acima o menor e o segundo menor Deep Learnings (que de profundo não têm 
 A representação de redes neurais sai fácil:
 
 ```{r, fig.height=2, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-29-segundo-menor-dl/dl_inf.png")
+knitr::include_graphics("/img/blog/segundo-menor-dl/dl_inf.png")
 ```
 
 Já a representação matemática fica esquisita:

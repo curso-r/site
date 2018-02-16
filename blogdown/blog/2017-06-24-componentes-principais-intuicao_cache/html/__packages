@@ -1,7 +1,7 @@
 base
-ggplot2
-plotly
 magrittr
 tidyr
 dplyr
 bindrcpp
+ggplot2
+plotly
