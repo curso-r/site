@@ -25,8 +25,6 @@ dados que fornece as informações para o Portal. A resposta foi a seguinte:
 
 > Prezado Senhor Daniel, Agradecemos o contato e informamos que o seu pedido foi indeferido com fundamento no art. 16, inciso III, do Decreto nº 53.623/2012, pois a base de dados contém informações pessoais que não podem ser disponibilizadas a terceiros. Os demais dados encontram-se inseridos no Painel Mobilidade Segura para consulta pelos interessados com a possibilidade de exportar arquivos. Informamos ainda que na época da sua solicitação, os painéis se encontravam atualizados, visto que a atualização mensal ocorre após os 70 dias da data da infração 
 
-
-
 A resposta ao meu ver é totalmente contraditória: ao mesmo tempo que eu não posso 
 receber os dados porque eles são confidenciais, eu posso obtê-los pelo site, que
 "oferece possibilidade de exportação de arquivos". (???)
@@ -69,7 +67,7 @@ load("carros_eletronicas.rda")
 # save(carros_summary, carros_summary_enquad, carros_summary_hora,
 #      carros_depara_enquad, carros_depara_enquad_wday, depara,
 #      top10_locais, top10_motivos, file = "multas_data.rda")
-load("multas_data.rda")
+load("../../static/data/multas-em-sp/multas_data.rda")
 ```
 
 
@@ -250,9 +248,4 @@ Por incrível que pareça, nos dois radares com mais multas, o motivo da multa �
 A foto de onde fica esse radar saiu em uma [notícia sobre o mesmo tema](http://www1.folha.uol.com.br/cotidiano/2015/07/1660793-radar-campeao-aplica-375-mil-multas-em-um-ano-na-ponte-das-bandeiras.shtml) na Folha de
 São Paulo.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-library(magick)
-x <- image_read('img/radar-chateubriant.jpeg')
-plot(x)
-```
-
+![](/img/blog/multas-em-sp/radar-chateubriant.jpeg)

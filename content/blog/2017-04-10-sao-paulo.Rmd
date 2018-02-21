@@ -99,7 +99,7 @@ library(httr)
 
 **Áreas:**
 
-```{r area, message=FALSE, warning=FALSE}
+```{r area, message=FALSE, warning=FALSE, eval = FALSE}
 url_area <- paste0(
   'ftp://geoftp.ibge.gov.br',
   '/organizacao_do_territorio/estrutura_territorial/areas_territoriais/2016/',
@@ -112,9 +112,16 @@ area <- read_excel('area.xls') %>%
   select(uf = nm_uf_sigla, cd_gcmun, muni = nm_mun_2016, area = ar_mun_2016)
 ```
 
+```{r, message=FALSE, warning=FALSE, echo = FALSE}
+area <- read_excel('../../static/data/sao-paulo/area.xls') %>%
+  clean_names() %>%
+  filter(!is.na(id)) %>% 
+  select(uf = nm_uf_sigla, cd_gcmun, muni = nm_mun_2016, area = ar_mun_2016)
+```
+
 **População:**
 
-```{r pop, message=FALSE, warning=FALSE}
+```{r pop, message=FALSE, warning=FALSE, eval = FALSE}
 url_pop <- paste0(
   'ftp://ftp.ibge.gov.br',
   '/Estimativas_de_Populacao/Estimativas_2016/',
@@ -123,6 +130,16 @@ url_pop <- paste0(
 
 loc <- locale(grouping_mark = '.', decimal_mark = ',')
 pop <- read_excel('pop.xls', skip = 1, sheet = 2) %>%
+  clean_names() %>%
+  filter(!is.na(cod_munic)) %>%
+  mutate(pop = parse_number(`população_estimada`, locale = loc),
+         cd_gcmun = paste0(cod_uf, cod_munic)) %>%
+  select(cd_gcmun, pop)
+```
+
+```{r message=FALSE, warning=FALSE, echo = FALSE}
+loc <- locale(grouping_mark = '.', decimal_mark = ',')
+pop <- read_excel('../../static/data/sao-paulo/pop.xls', skip = 1, sheet = 2) %>%
   clean_names() %>%
   filter(!is.na(cod_munic)) %>%
   mutate(pop = parse_number(`população_estimada`, locale = loc),

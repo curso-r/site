@@ -3,7 +3,7 @@ title: "Comportamentos imprevisíveis do lubridate"
 date: "2017-09-02T10:12:00+03:00"
 tags: ["tidyverse", "strings", "r", "data.frames", "bds"]
 categories: ["conceitos", "r"]
-banner: "img/detetive.jpeg"
+banner: "img/banners/detetive.jpeg"
 author: ["Fernando"]
 summary: "R é uma linguagem maravilhosa. Ela possibilita uma ampla gama de aplicações interessantes. O seu maior trunfo está no rico ecossistema de pacotes, que são desenvolvidos e mantidos pela comunidade, sempre criativa na hora de lidar com os problemas. Entretanto, toda essa facilidade cobra um preço. Neste post vamos aprender que às vezes os programas não fazem exatamente o que estão dizendo que fazem."
 ---

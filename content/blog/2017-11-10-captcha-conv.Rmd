@@ -2,7 +2,7 @@
 title: "Quebrando Captchas - Parte V: Fazendo redes convolucionais na mão"
 date: "2017-11-12T23:26:00+03:00"
 tags: ["captcha"]
-categories: ["analises", "r"]
+categories: ["análises", "r"]
 banner: "img/banners/captcha_05.png"
 author: ["Julio"]
 summary: "Nesse post vou mostrar como ajustar redes neurais convolucionais na mão. Muita mão na massa envolvida, muitos captchas e muita diversão. Vamos juntos desmistificar a magia negra do deep learning..."
@@ -15,7 +15,7 @@ knitr::knit_hooks$set(
   no.mar = function() par(mar = c(0,0,0,0)),
   small.mar = function() par(mar = c(.1,.1,.1,.1))
 )
-load("captcha_conv_env.rda")
+load("../../static/data/captcha-conv/captcha_conv_env.rda")
 ```
 
 Voltando aos saudosos captchas. Demorei para fazer esse post pois estava esperando o lançamento do [curso de redes neurais convolucionais do Andrew Ng](https://www.coursera.org/learn/convolutional-neural-networks). O curso foi muito bom, valeu à pena! E, como prometido, vamos agora trabalhar com modelagem dos captchas.
@@ -41,7 +41,7 @@ arq %>%
 
 ```{r, fig.height=1, fig.width=3, echo=FALSE}
 library(decryptr)
-arq <- "img/captcha9202d1c210b.png"
+arq <- "../../static/data/captcha-segment/captcha9202d1c210b.png"
 arq %>% 
   read_captcha() %>% 
   plot()
@@ -64,7 +64,7 @@ library(magick)
 ## O que é convolução, afinal?
 
 ```{r, out.width="50%", echo=FALSE}
-knitr::include_graphics("/blog/img/vivalaconv.jpg")
+knitr::include_graphics("/img/blog/captcha-conv/vivalaconv.jpg")
 ```
 
 Convolução é uma técnica usada há muito tempo na área de *visão computacional* para aplicar filtros em imagens e detectar padrões. Basicamente, o que ela faz é calcular um novo valor para um pixel da imagem com base nos pixels da vizinhança. Por exemplo, você pode fazer com que o pixel $(i,j)$ da sua imagem seja atualizado pela soma ponderada dos valores dos pixels na vizinhança.
@@ -93,7 +93,7 @@ E considere essa imagem super complexa:
 #   image_scale("24x24") %>% 
 #   image_write("img/emoji3.png")
 
-"img/emoji3.png" %>% 
+"../../static/img/blog/captcha-conv/emoji3.png" %>% 
   image_read() %>% 
   plot()
 ```
@@ -101,7 +101,7 @@ E considere essa imagem super complexa:
 Na prática, essa imagem é isso aqui (tirei algumas linhas e colunas):
 
 ```{r}
-emoji <- load_image("img/emoji3.png")[,,1] 
+emoji <- load_image("../../static/img/blog/captcha-conv/emoji3.png")[,,1] 
 round(emoji, 1)[1:10, 1:12]
 ```
 
@@ -158,7 +158,7 @@ convolve <- function(img, kern) {
 Voltando para nossa imagem agora. No nosso caso, o resultado fica assim:
 
 ```{r, no.mar=TRUE, out.width="30%"}
-"img/emoji3.png" %>% 
+"../../static/img/blog/captcha-conv/emoji3.png" %>% 
   load_image() %>% 
   convolve(kern_horizontal) %>% 
   image_read() %>% 
@@ -175,7 +175,7 @@ kern_vertical <- rbind(c(-1, 0, 1),
                        c(-1, 0, 1))
 kern_vertical
 
-"img/emoji3.png" %>% 
+"../../static/img/blog/captcha-conv/emoji3.png" %>% 
   load_image() %>% 
   convolve(kern_vertical) %>% 
   image_read() %>% 
@@ -417,7 +417,7 @@ arq %>%
   image_write("img/captcha_conv.gif")
 ```
 
-![](/blog/img/captcha_conv.gif)
+![](/img/blog/captcha-conv/captcha_conv.gif)
 
 No próximo nível, vamos convoluir mais 48 kernels. Essa operação será feita com todos os doze filtros atuais, ou seja, é uma contaiada que não acaba mais. Para simplificar as contas e para permitir a obtenção de padrões diferentes, faz sentido simplificar a imagem. Para isso, usamos o *max pooling*.
 
@@ -662,7 +662,7 @@ imagens_alteradas <- purrr::imap(result_conv3, ~{
   image_write("img/captcha_conv_final.gif")
 ```
 
-![](/blog/img/captcha_conv_final.gif)
+![](/img/blog/captcha-conv/captcha_conv_final.gif)
 
 Parece que os filtros são capazes de pegar as curvas que as letras fazem no captcha. Mas não tenho opinião formada sobre isso. Digam aí nos comentários o que vocês acham!
 

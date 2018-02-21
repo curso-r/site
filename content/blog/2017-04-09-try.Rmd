@@ -50,7 +50,7 @@ Hoje em dia, o jeito mais arrumado de tratar erros é usando as funções `purrr
 
 ```{r, echo=FALSE, fig.cap='Admita, você não imaginava que teria de pensar em gramática para programar em R.', fig.width=8, fig.height=4}
 library(magick)
-x <- image_read('img/adverbs.jpg')
+x <- image_read('../../static/img/blog/try/adverbs.jpg')
 plot(x)
 ```
 

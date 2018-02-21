@@ -93,7 +93,7 @@ fits <- import("astropy.io.fits")
 
 Em seguida, vamos baixar a imagem em arquivo FITS e verificar se está tudo ok usando a função info do Python que está no pacote Astropy.io.fits.
 
-```{r}
+```{r, eval=FALSE}
 url <- "https://astropy.stsci.edu/data/tutorials/FITS-images/HorseHead.fits"
 im.file <- down$download_file(url, cache=TRUE)
 fits$info(im.file)
@@ -108,14 +108,14 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 Agora vamos transformar nossa imagem em uma matriz de pixels e plotar com a função image do R.
 
-```{r}
+```{r, eval = FALSE}
 im.data <- fits$getdata(im.file)
 im.data %>% 
   t() %>% 
   image(col = gray(seq(0, 1, length = 256)))
 ```
 
-
+![](/img/blog/reticulate/Rplot.png)
 
 
 

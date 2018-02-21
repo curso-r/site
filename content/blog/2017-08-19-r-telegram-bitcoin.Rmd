@@ -16,7 +16,7 @@ knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
 O ponto máximo da história é o R mandando mensagem pro Telegram. Só para motivar, vou contar o que fiz de divertido usando telegram e preços de bitcoin.
 
 ```{r, fig.align='center', echo=FALSE}
-knitr::include_graphics("/blog/2017-08-19-r-telegram-bitcoin/r_telegram.gif")
+knitr::include_graphics("/img/blog/r-telegram-bitcoin/r_telegram.gif")
 ```
 
 Herói do dia: [Luca Biglia](https://github.com/lbraglia), autor do pacote `telegram` do R.
@@ -26,7 +26,7 @@ Herói do dia: [Luca Biglia](https://github.com/lbraglia), autor do pacote `tele
 Como mencionei, Vou construir um **Acompanhador de bitcoin** pra ilustrar e ao fim do post teremos feito o R mandar um telegram quando o preço da bitcoin atingir um dado patamar.
 
 ```{r, fig.align='center', echo=FALSE}
-knitr::include_graphics("/blog/2017-08-19-r-telegram-bitcoin/serie_bitcoin.png")
+knitr::include_graphics("/img/blog/r-telegram-bitcoin/serie_bitcoin.png")
 ```
 
 ## Ingredientes
@@ -73,7 +73,7 @@ O README que tá no [github do pacote](https://github.com/lbraglia/telegram) é 
 3) Agora copie e cole o token que o BotFather te enviou no `.Renviron`. O meu bot tem o username `AthosDamianiBot`, então eu devo colocar o nome da variável assim:
 
 ```{r, fig.align='center', echo=FALSE}
-knitr::include_graphics("/blog/2017-08-19-r-telegram-bitcoin/Renvirom_1.png")
+knitr::include_graphics("/img/blog/r-telegram-bitcoin/Renvirom_1.png")
 ```
 
 Se você usar essa convenção de nome você poderá usar a função `bot_token()` pra pegar o seu token. Caso contrário vai ter que apelar para a `Sys.getenv()`.

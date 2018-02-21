@@ -16,11 +16,7 @@ uma conferência sobre R promovida pela Rstudio. A conferência parece ter sido
 bem animada! Teve até um passeio para o parque do Harry Potter na Florida, 
 e surgiram memes como a imagem abaixo.
 
-```{r hadley, echo=FALSE}
-library(magick)
-x <- image_read('img/hadley-meme.jpg')
-plot(x)
-```
+![](/img/blog/all-things-r-and-rstudio/hadley-meme.jpg)
 
 Em termos de conteúdo, parece que foi
 sensacional. Para quem não teve oportunidade de ir, os videos da conferência 

@@ -165,7 +165,7 @@ Os resultados da Tabela \@ref(tab:eficiencia) são surpreendentes. Primeiro, as 
 ```{r eficiencia, echo=FALSE, message=FALSE, warning=FALSE}
 library(magrittr)
 library(tidyverse)
-benchmark <- readRDS('benchmark_progress.rds')
+benchmark <- readRDS('../../static/data/progress/benchmark_progress.rds')
 benchmark %>% 
   microbenchmark:::summary.microbenchmark() %>% 
   as_tibble() %>% 
@@ -184,7 +184,7 @@ library(tidyverse)
 #   for_sem(1:7000), for_sem(1:9000), for_sem(1:15000), times = 10
 # )
 ## saveRDS(m, 'for_microbenchmark.rds')
-m <- readRDS('for_microbenchmark.rds')
+m <- readRDS('../../static/data/progress/for_microbenchmark.rds')
 xises <- as.numeric(stringr::str_match(m$expr, ':([0-9]+)')[,2])
 tibble(itens = xises, y = m$time) %>% 
   group_by(itens) %>% 

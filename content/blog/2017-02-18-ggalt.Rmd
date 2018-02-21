@@ -45,7 +45,7 @@ d_km <- tidy(km)
 knitr::kable(head(d_km))
 ```
 
-A gráfico da Figura \@ref(fig:ruim) usa a função `geom_ribbon()` para gerar os intervalos de confiança. Essa função liga os pontos da faixa diretamente, o que é inadequado do ponto de vista estatístico.
+O gráfico da Figura \@ref(fig:ruim) usa a função `geom_ribbon()` para gerar os intervalos de confiança. Essa função liga os pontos da faixa diretamente, o que é inadequado do ponto de vista estatístico.
 
 ```{r ruim, width=12, height=8, fig.cap="Intervalos de confiança usando apenas `ggplot2` e `geom_ribbon()`."}
 ggplot(d_km, aes(x = time, y = estimate, colour = strata)) +

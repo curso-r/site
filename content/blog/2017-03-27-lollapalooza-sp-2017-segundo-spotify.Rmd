@@ -27,10 +27,10 @@ Lollapalooza deste ano em São Paulo contou com 47 bandas distribuídas em quatr
 
 **Pacotes** 
 ```{r, echo=FALSE, eval=TRUE}
-load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/lolla2017.RData")
-load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/lolla2017_playlist.RData")
-load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/artistas_fora_da_playlist.RData")
-load("2017-03-27-lollapalooza-sp-2017-segundo-spotify/lolla2017_programacao.RData")
+load("../../static/data/lollapalooza-sp-2017-segundo-spotify/lolla2017.RData")
+load("../../static/data/lollapalooza-sp-2017-segundo-spotify/lolla2017_playlist.RData")
+load("../../static/data/lollapalooza-sp-2017-segundo-spotify/artistas_fora_da_playlist.RData")
+load("../../static/data/lollapalooza-sp-2017-segundo-spotify/lolla2017_programacao.RData")
 ```
 
 ```{r, eval = FALSE}

@@ -44,7 +44,7 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
   <div class = "bio" style = "clear: left;">
   
-  <p> Bacharel em Estatística pelo IME-USP e sócio dá XBeta consultoria. Trabalhou com modelos preditivos, extração de dados da internet e visualização/dashboards para ABJ, IBOPE, Itaú e atualmente é modeleiro na ClearSale. Ministrou cursos de verão de R do IME-USP de 2015 a 2017. Programa em R desde 2010 e se interessa por tudo ligado ao R e à estatística. Churrasqueiro. </p>
+  <p> Bacharel em Estatística pelo IME-USP. Trabalhou com modelos preditivos, extração de dados da internet e visualização/dashboards para ABJ, IBOPE, ClearSale, EDP e atualmente é cientista de dados no Itaú. Se interessa por tudo ligado ao R e à estatística. Ama sua cachorrinha Ozzy. </p>
   
   </div>
 </div>

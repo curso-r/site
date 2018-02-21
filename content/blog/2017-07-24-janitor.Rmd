@@ -31,7 +31,7 @@ library(janitor)
 Assim como no post passado, utilizaremos a base com informações de pacientes com arritmia cardíaca, cujas variáveis selecionadas foram:
 
 ```{r, include=FALSE}
-dados <- readxl::read_excel("dados_nomes_variaveis.xlsx") %>% 
+dados <- readxl::read_excel("../../static/data/bds_nomes_variaveis/dados_nomes_variaveis.xlsx") %>% 
   mutate(ID = 1:n()) %>% 
   select(ID, everything())
 ```

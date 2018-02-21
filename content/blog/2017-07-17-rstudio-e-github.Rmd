@@ -50,7 +50,7 @@ Você precisa ter instalado na sua máquina...
 A vida com Github + RStudio segue a seguinte rotina (escreva esse fluxo num pedaço de papel e guarde na sua carteira):
 
 ```{r, fig.align='center', fig.height = 5, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-17-rstudio-e-github/fluxo_github_rstudio.png")
+knitr::include_graphics("/img/blog/rstudio-e-github/fluxo_github_rstudio.png")
 ```
 
 
@@ -60,7 +60,7 @@ Vá à sua conta do Github e crie um repositório com o nome do seu projeto.
 
 
 ```{r, fig.align='center', fig.height = 5, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-17-rstudio-e-github/passo_1_criar_repo.gif")
+knitr::include_graphics("/img/blog/rstudio-e-github/passo_1_criar_repo.gif")
 ```
 
 
@@ -90,7 +90,7 @@ Agora precisamos criar um .Rproj que esteja atrelado ao seu repositório no Gith
 
 
 ```{r, fig.align='center', fig.height = 5, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-17-rstudio-e-github/passo_2_criacao_do_rproj_pt2.gif")
+knitr::include_graphics("/img/blog/rstudio-e-github/passo_2_criacao_do_rproj_pt2.gif")
 ```
 
 O caminho é:
@@ -109,14 +109,14 @@ Vamos montar uma história simulando duas mudanças no código, resultando em do
 
 
 ```{r, fig.align='center', fig.height = 5, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-17-rstudio-e-github/passo_3_commit_1.gif")
+knitr::include_graphics("/img/blog/rstudio-e-github/passo_3_commit_1.gif")
 ```
 
 
 **Mudança 2** Implementei a função `subtrai` e apesar de estar ainda com muitos bugs eu resolvi commitar porque precisava ir embora do Trabalho. Chegando em casa eu arrumo.
 
 ```{r, fig.align='center', fig.height = 5, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-17-rstudio-e-github/passo_3_commit_2.gif")
+knitr::include_graphics("/img/blog/rstudio-e-github/passo_3_commit_2.gif")
 ```
 
 
@@ -127,7 +127,7 @@ Agora tem dois commits prontos para serem guardados no nosso repositório centra
 Push é tão fácil quanto apertar um botão. 
 
 ```{r, fig.align='center', fig.height = 5, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-17-rstudio-e-github/passo_4_push.gif")
+knitr::include_graphics("/img/blog/rstudio-e-github/passo_4_push.gif")
 ```
 
 
@@ -137,7 +137,7 @@ No site do Github já vai estar as mudanças prontas para quem quiser ver.
 
 
 ```{r, fig.align='center', fig.height = 15, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-17-rstudio-e-github/github_dps_do_push.png")
+knitr::include_graphics("/img/blog/rstudio-e-github/github_dps_do_push.png")
 ```
 
 ### Passo 5 - Pull: Baixando o estado atual do projeto
@@ -147,7 +147,7 @@ Suponha que entre o trajeto do meu trabalho para a minha casa meu colega tenha a
 Para eu continuar da onde ele parou eu devo dar um **PULL**, ou seja, puxar pra minha máquina o código que está lá no Github.
 
 ```{r, fig.align='center', fig.height = 15, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-17-rstudio-e-github/passo_5_pull.gif")
+knitr::include_graphics("/img/blog/rstudio-e-github/passo_5_pull.gif")
 ```
 
 Então, toda vez que abrir seu projeto, dê um PULL para voltar a ficar de onde parou.
@@ -158,7 +158,7 @@ Então, toda vez que abrir seu projeto, dê um PULL para voltar a ficar de onde 
 Issues são questões em aberto sobre seu projeto. Geralmente se descreve um bug a ser consertado ou uma ideia a ser implementada no futuro. O Github permite delegar essas tarefas a alguém e também classificá-las se quiser.
 
 ```{r, fig.align='center', fig.height = 15, echo=FALSE}
-knitr::include_graphics("/blog/2017-07-17-rstudio-e-github/passo_extra_issue.gif")
+knitr::include_graphics("/img/blog/rstudio-e-github/passo_extra_issue.gif")
 ```
 
 ## Indo além

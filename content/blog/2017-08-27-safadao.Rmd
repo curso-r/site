@@ -2,7 +2,7 @@
 title: "Aquele 1% é Deep Learning - Gerando letras do Wesley Safadão"
 date: "2017-08-28T23:26:00+03:00"
 tags: ["estatística"]
-categories: ["analises", "r"]
+categories: ["análises", "r"]
 banner: "img/banners/wesley.png"
 author: ["Julio"]
 summary: "Nesse funal de semana decidi assistir alguns vídeos do YouTube do Siraj Raval e acompanhar o curso do Andrew Ng. Depois de aprender várias coisas interessantes, fiquei com uma vontade insana de implementar um modelo pra gerar músicas aleatórias do Wesley Safadão. Eis o ..."
@@ -102,7 +102,7 @@ limpar_musica <- function(txt) {
 ```
 
 ```{r eval=TRUE, echo=FALSE}
-ws_letras <- readRDS('ws_letras.rds')
+ws_letras <- readRDS('../../static/data/safadao/ws_letras.rds')
 ```
 
 O resultado é o objeto `ws_letras`: um vetor tamanho `r length(ws_letras)` em que cada elemento é um caractere, que pode ser uma letra, número, espaço e até uma pulada de linha. Cada música é separada pelo caractere `@`. Aqui está a primeira delas:

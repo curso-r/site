@@ -69,7 +69,7 @@ Você pode fazer um gráfico para visualizar as estimativas dos parâmetros usan
 bayesplot::mcmc_trace(draws, facet_args = list(ncol = 1))
 ```
 
-![](/img/greta/Rplot.png)
+![](/img/blog/greta/Rplot.png)
 
 Podemos obter as estimativas pontuais dos parâmetros pegando, por exemplo, a mediana
 dessa amostra do MCMC.

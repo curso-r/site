@@ -41,7 +41,7 @@ As coisas estão dispostas de tal forma que, a partir de uma tabela que relacion
 [^FBSP]: Os dados foram levantados pelo Fórum Brasileiro de Segurança Pública e obtidos via download no seu site http://www.forumseguranca.org.br/estatisticas/introducao/.
 
 ```{r, echo = FALSE, comment = FALSE, message = FALSE}
-dataset <- read_csv("2017-05-04-mapas-tematicos-3-minutos/dados.csv")
+dataset <- read_csv("../../static/data/mapas-tematicos-3-minutos/dados.csv")
 ```
 
 ```{r, eval = FALSE, echo = TRUE}

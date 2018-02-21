@@ -14,6 +14,8 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
                       collapse = TRUE, cache = TRUE)
 ```
 
+> Esse post assume uma versão mais antiga do `decryptr` para instalar a versão usada use: `devtools::install_github("decryptr/decryptr@05bfd48")`
+
 No último post sobre [CAPTCHAs](http://curso-r.com/tags/captcha/) nós vimos que a segmentação das imagens (separar uma imagem em várias imagens, uma para cada caractere) é um problema complicado. Definir uma largura fixa ou utilizar outros métodos ad-hoc para segmentar as imagens pode dar bons frutos, mas não é o suficiente para quebrar CAPTCHAs mais complexos, como o da Receita Federal.
 
 Alguns meses atrás, tentamos resolver esse problema de várias formas. Uma delas foi utilizar algoritmos de agrupamento ($k$-médias) ou de identificação de conjuntos conectados. Esses algoritmos se mostraram instáveis e não aumentaram muito o poder preditivo. Outra ideia que tentamos foi criar vários critérios de corte fixos e incluir todas as colunas geradas na base de dados. Mas isso deixou nos deixou com uma dimensão muito grande pra tratar, e parecia que os modelos precisavam de muito mais dados pra começarem a funcionar.
@@ -38,7 +40,7 @@ vira isso: (substituí `0` por `'.'` para ficar mais fácil de ver)
 
 ```{r echo=FALSE}
 library(tidyverse)
-m <- decryptr:::create_response('a49f36', c(0:9, letters))
+m <- decryptr:::create_response("a49f36", c(0:9, letters))
 m[m == 0] <- '.'
 as_tibble(m) %>% rownames_to_column('posicao') %>% knitr::kable()
 ```
@@ -61,10 +63,10 @@ Veja um exemplo com 30 CAPTCHAs do TJMG. Aqui temos apenas cinco números por im
 
 ```{r}
 library(decryptr)
-arqs <- dir('img/tjmg', full.names = TRUE)
+arqs <- dir('../../static/data/captcha-dados/tjmg', full.names = TRUE)
 
 d_captcha <- arqs %>% 
-  read_captcha() %>% 
+  read_captcha() %>%
   prepare()
 
 str(d_captcha)
