@@ -153,8 +153,6 @@ purrr::pluck(detalhes, 4, 1, &quot;snippet&quot;, &quot;title&quot;)
 purrr::pluck(detalhes, 4, 1, &quot;snippet&quot;, &quot;publishedAt&quot;)
 # [1] &quot;2017-10-07T14:39:54.000Z&quot;</code></pre>
 <p>Usei esses metadados para extrair a data de disponibilização dos vídeos. No final, fiquei com a seguinte base de dados (apenas 20 linhas):</p>
-<pre class="r"><code>library(tidyverse)
-notas_2cents &lt;- readr::read_rds(&quot;../../static/blog/2018-02-21-2cents/notas_2cents.rds&quot;)</code></pre>
 <table>
 <colgroup>
 <col width="15%" />
@@ -305,10 +303,6 @@ notas_2cents &lt;- readr::read_rds(&quot;../../static/blog/2018-02-21-2cents/not
   knitr::kable()</code></pre>
 <div align="center">
 <table>
-<colgroup>
-<col width="92%" />
-<col width="7%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">nm</th>
@@ -361,7 +355,7 @@ notas_2cents &lt;- readr::read_rds(&quot;../../static/blog/2018-02-21-2cents/not
 <td align="right">9.9</td>
 </tr>
 <tr class="even">
-<td align="left">TRÊS ANÚNCIOS PARA UM CRIME (Three Billboards Outside Ebbing, Missouri, 2017)</td>
+<td align="left">TRÊS ANÚNCIOS PARA UM CRIME (2017)</td>
 <td align="right">9.9</td>
 </tr>
 <tr class="odd">
@@ -514,10 +508,19 @@ notas_2cents &lt;- readr::read_rds(&quot;../../static/blog/2018-02-21-2cents/not
 <li>O Tiago avalia diferente filmes de gêneros diferentes?</li>
 </ol>
 <p>Para essas investigações, seria necessário cruzar essa base com a base do Rotten Tomatoes e do IMDb. Quem sabe num próximo post!</p>
-<p>É isso pessoal. Happy coding :D</p>
+<p>É isso pessoal. Um abraço, e até a próxima.</p>
+<p><img src="/blog/2018-02-21-2cents/out_0237.png" style="display: block; margin: auto;" /></p>
 </div>
 <div id="agradecimentos" class="section level3">
 <h3>Agradecimentos</h3>
 <p><a href="https://sillasgonzaga.github.io/">Sillas</a> pelas ideias de visualização, que acabei não postando. E também para os amigos que brincaram comigo na datathon sobre isso: <a href="https://github.com/brunaw">Bruna Wunderwald</a>, <a href="http://curso-r.com">William</a>, <a href="http://curso-r.com">Caio Lente</a>, <a href="https://github.com/duarteguilherme">Guilherme</a> e quem mais eu tiver esquecido.</p>
+</div>
+<div id="cursos-r-basico-e-web-scraping" class="section level3">
+<h3>Cursos R básico e Web Scraping</h3>
+<p>Não perca a oportunidade de se inscrever nos nossos cursos!</p>
+<ul>
+<li><a href="http://workshop.curso-r.com/web-scraping/">Web Scraping - 10 de março de 2018</a></li>
+<li><a href="http://workshop.curso-r.com/introducao-programacao-r/">R básico - 17 e 24 de março de 2018</a></li>
+</ul>
 </div>
 </div>

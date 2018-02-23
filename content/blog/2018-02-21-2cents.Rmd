@@ -382,4 +382,3 @@ Não perca a oportunidade de se inscrever nos nossos cursos!
 
 - [Web Scraping - 10 de março de 2018](http://workshop.curso-r.com/web-scraping/)
 - [R básico - 17 e 24 de março de 2018](http://workshop.curso-r.com/introducao-programacao-r/)
-

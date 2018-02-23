@@ -1,11 +1,11 @@
 +++
 title = "Introdução à Programação em R"
 banner = "img/banners/banner-r-base.png"
-next = "Dias 16 e 23 de setembro"
+next = "Dias 17 e 24 de Março"
 summary = "Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia."
 price = "R$ 590,00"
-workload = "12h"
-place = "Avenida Ipiranga 337 – 5º ANDAR - São Paulo"
+workload = "16h"
+place = "Espaço Maestro - R. Maestro Cardim, 1170 Paraíso, São Paulo–SP"
 rich_card_desc = "Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia."
 +++
 
@@ -36,8 +36,4 @@ O curso utiliza extensivamente softwares a seguir. Instale-os nessa ordem:
 
 ## Inscrições
 
-Faça a sua inscrição no [site do CONRE-3](http://www.conre3.org.br/portal/intro_r/) e aproveite para saber mais informações sobre o curso.
-
-**Realização**: COOPEREST
-
-**Apoio Institucional**: CONRE-3
+Faça sua inscrição na página do [curso](http://workshop.curso-r.com/introducao-programacao-r/).
