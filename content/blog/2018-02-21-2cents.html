@@ -95,7 +95,7 @@ draft: false
   cortar_canto() %&gt;% 
   somar_vermelho()
 # [1] 758</code></pre>
-<p>Basta rodar isso para todos os arquivos e depois selecionar a imagem que tem a menor contagem.</p>
+<p>Basta rodar isso para todos os arquivos e depois selecionar a imagem que tem a maior contagem.</p>
 </div>
 <div id="passo-4-limpar-a-imagem-que-tem-a-nota" class="section level3">
 <h3>Passo 4: Limpar a imagem que tem a nota</h3>
@@ -160,7 +160,7 @@ purrr::pluck(detalhes, 4, 1, &quot;snippet&quot;, &quot;title&quot;)
 ## pegar data de disponibilização
 purrr::pluck(detalhes, 4, 1, &quot;snippet&quot;, &quot;publishedAt&quot;)
 # [1] &quot;2017-10-07T14:39:54.000Z&quot;</code></pre>
-<p>Usei esses metadados para extrair a data de disponibilização dos vídeos. No final, fiquei com a seguinte base de dados (apenas 20 linhas):</p>
+<p>Usei esses metadados para extrair a data de disponibilização dos vídeos. No final, fiquei com a seguinte base de dados com 386 filmes classificados (mostrando apenas 20 linhas):</p>
 <table>
 <colgroup>
 <col width="15%" />
@@ -303,7 +303,7 @@ purrr::pluck(detalhes, 4, 1, &quot;snippet&quot;, &quot;publishedAt&quot;)
 <div id="analises" class="section level2">
 <h2>Análises</h2>
 <p>Agora que temos uma base de dados, podemos fazer algumas análises!</p>
-<p>Primeiro, é claro, vamos fazer os top 20 e os -top 20</p>
+<p>Primeiro, é claro, vamos fazer os top 20 e os top -20</p>
 <pre class="r"><code>notas_2cents %&gt;%
   dplyr::select(nm, nota) %&gt;% 
   dplyr::arrange(desc(nota)) %&gt;% 
@@ -402,7 +402,7 @@ purrr::pluck(detalhes, 4, 1, &quot;snippet&quot;, &quot;publishedAt&quot;)
 </table>
 </div>
 <p><img src="/blog/2018-02-21-2cents/out_0301.png" style="display: block; margin: auto;" /></p>
-<p>Não assistiu algum desses filmes? Tá na hora de ver!</p>
+<p>Não assistiu a algum desses filmes? Tá na hora de ver!</p>
 <pre class="r"><code>notas_2cents %&gt;%
   dplyr::select(nm, nota) %&gt;% 
   dplyr::arrange(nota) %&gt;% 
@@ -525,7 +525,7 @@ plotly::ggplotly(p)</code></pre>
 </div>
 <div id="agradecimentos" class="section level3">
 <h3>Agradecimentos</h3>
-<p><a href="https://sillasgonzaga.github.io/">Sillas</a> pelas ideias de visualização, que acabei não postando. E também para os amigos que brincaram comigo na datathon sobre isso: <a href="https://github.com/brunaw">Bruna Wunderwald</a>, <a href="http://curso-r.com">William</a>, <a href="http://curso-r.com">Caio Lente</a>, <a href="https://github.com/duarteguilherme">Guilherme</a> e quem mais eu tiver esquecido.</p>
+<p><a href="https://sillasgonzaga.github.io/">Sillas</a> pelas ideias de visualização, que acabei não postando. E também para os amigos que brincaram comigo na datathon sobre isso: <a href="https://github.com/brunaw">Bruna Wunderwald</a>, <a href="http://confeitariamag.com/author/lucianakeiko/">Luciana Keiko</a>, <a href="http://curso-r.com">William</a>, <a href="http://curso-r.com">Caio Lente</a>, <a href="https://github.com/duarteguilherme">Guilherme</a> e quem mais eu tiver esquecido.</p>
 </div>
 <div id="cursos-r-basico-e-web-scraping" class="section level3">
 <h3>Cursos R básico e Web Scraping</h3>

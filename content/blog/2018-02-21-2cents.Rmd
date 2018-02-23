@@ -141,7 +141,7 @@ Assim, a soma de vermelhos de um arquivo fica
 # [1] 758
 ```
 
-Basta rodar isso para todos os arquivos e depois selecionar a imagem que tem a menor contagem.
+Basta rodar isso para todos os arquivos e depois selecionar a imagem que tem a maior contagem.
 
 ### Passo 4: Limpar a imagem que tem a nota
 
@@ -233,7 +233,7 @@ purrr::pluck(detalhes, 4, 1, "snippet", "publishedAt")
 # [1] "2017-10-07T14:39:54.000Z"
 ```
 
-Usei esses metadados para extrair a data de disponibilização dos vídeos. No final, fiquei com a seguinte base de dados (apenas 20 linhas):
+Usei esses metadados para extrair a data de disponibilização dos vídeos. No final, fiquei com a seguinte base de dados com 386 filmes classificados (mostrando apenas 20 linhas):
 
 ```{r, eval = TRUE, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -267,7 +267,7 @@ notas_2cents <- readr::read_rds("../../static/blog/2018-02-21-2cents/notas_2cent
 
 Agora que temos uma base de dados, podemos fazer algumas análises!
 
-Primeiro, é claro, vamos fazer os top 20 e os -top 20
+Primeiro, é claro, vamos fazer os top 20 e os top -20
 
 ```{r eval=FALSE}
 notas_2cents %>%
@@ -309,7 +309,7 @@ knitr::include_graphics("/blog/2018-02-21-2cents/out_0301.png")
 ```
 
 
-Não assistiu algum desses filmes? Tá na hora de ver!
+Não assistiu a algum desses filmes? Tá na hora de ver!
 
 ```{r eval=FALSE}
 notas_2cents %>%
@@ -379,7 +379,7 @@ knitr::include_graphics("/blog/2018-02-21-2cents/out_0266.png")
 
 ### Agradecimentos
 
-[Sillas](https://sillasgonzaga.github.io/) pelas ideias de visualização, que acabei não postando. E também para os amigos que brincaram comigo na datathon sobre isso: [Bruna Wunderwald](https://github.com/brunaw), [William](http://curso-r.com), [Caio Lente](http://curso-r.com), [Guilherme](https://github.com/duarteguilherme) e quem mais eu tiver esquecido.
+[Sillas](https://sillasgonzaga.github.io/) pelas ideias de visualização, que acabei não postando. E também para os amigos que brincaram comigo na datathon sobre isso: [Bruna Wunderwald](https://github.com/brunaw), [Luciana Keiko](http://confeitariamag.com/author/lucianakeiko/), [William](http://curso-r.com), [Caio Lente](http://curso-r.com), [Guilherme](https://github.com/duarteguilherme) e quem mais eu tiver esquecido.
 
 ### Cursos R básico e Web Scraping
 
