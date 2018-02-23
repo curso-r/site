@@ -352,12 +352,13 @@ Já assistiu a algum desses filmes? Meus pêsames!
 
 Finalmente, pude testar minha hipótese!
 
-```{r, fig.width=8, fig.height=4, eval = TRUE}
-notas_2cents %>% 
-  ggplot(aes(x = data, y = nota)) +
+```{r, fig.width=8, fig.height=5, eval = TRUE}
+p <- notas_2cents %>% 
+  ggplot(aes(x = data, y = nota, group = nm)) +
   geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE) +
   theme_minimal(16)
+plotly::ggplotly(p)
 ```
 
 Parece que a nota média do Tiago Belotti subiu um pouquinho ao longo dos anos, mas nada muito significativo. Ou seja, minha hipótese de que o Tiago Belotti ficou mais bonzinho não se verifica. Ele é super consistente!
