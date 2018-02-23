@@ -19,11 +19,11 @@ draft: false
 <p>Será que o Tiago está ficando bonzinho? A nota média está aumentando ao longo do tempo?</p>
 </blockquote>
 <p>E assim acabou o meu final de semana. Eu precisava obter esses dados de qualquer forma.</p>
-<div id="como-extrair-as-notas-dos-videos" class="section level3">
+<section id="como-extrair-as-notas-dos-videos" class="level3">
 <h3>Como extrair as notas dos vídeos</h3>
 <p>O código para extrair as notas é pra lá de esotérico e usa um monte de funções auxiliares de pacotes do <code>linux</code>. Como o amigo <a href="http://ctlente.com">Caio Lente</a> adora falar, meus códigos costumam ter muitas <em>partes móveis</em>…</p>
 <p>A obtenção das notas dos filmes passa pelo seguinte fluxo:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Baixar os vídeos do youtube</li>
 <li>Extrair os frames dos vídeos</li>
 <li>Encontrar a imagem que tem a nota</li>
@@ -32,20 +32,20 @@ draft: false
 <li>Cruzar com uma base de metadados do YouTube, usando o pacote <code>tuber</code></li>
 </ol>
 <p>Vou explicar brevemente como cada um desses passos foi executado. O código não é totalmente reprodutível pois o código completo com os loops ficaria pouco legível.</p>
-</div>
-<div id="passo-1-baixar-os-videos" class="section level3">
+</section>
+<section id="passo-1-baixar-os-videos" class="level3">
 <h3>Passo 1: Baixar os vídeos</h3>
 <p>Os vídeos foram baixados usando um pacote chamado <code>youtube-dl</code>. Para instalá-lo num Ubuntu 16.04 podemos rodar</p>
 <pre><code>sudo apt install youtube-dl</code></pre>
 <p>O download da lista de reprodução do Tiago Belotti de 2015 pode ser realizada rodando, por exemplo:</p>
 <pre><code>youtube-dl -f 160 https://www.youtube.com/playlist?list=PLy-phHpv7EKaioTZ39lNd_nvitGNtQadl</code></pre>
 <p>Realizei o download numa resolução bem ruim e sem áudio, para ocupar pouco espaço em disco. Faça isso para todos os anos (2013 até 2017) e pronto! Temos os vídeos.</p>
-<div align="center">
+<div data-align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-KStBYHbNqo?start=70" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
 </iframe>
 </div>
-</div>
-<div id="passo-2-extrair-os-frames-dos-videos" class="section level3">
+</section>
+<section id="passo-2-extrair-os-frames-dos-videos" class="level3">
 <h3>Passo 2: Extrair os frames dos vídeos</h3>
 <p>Os arquivos de vídeo foram transformados utilizando <code>ffmpeg</code>, também baixado como pacote do linux. Para instalá-lo num Ubuntu 16.04 podemos rodar</p>
 <pre><code>sudo apt install ffmpeg</code></pre>
@@ -64,8 +64,8 @@ draft: false
 }</code></pre>
 <p>Basta fazer um loop (com <code>purrr</code>, não <code>for</code>, rs) para processar todos os arquivos de vídeo. Resultado:</p>
 <p><img src="/blog/2018-02-21-2cents/frames.png" /><!-- --></p>
-</div>
-<div id="passo-3-encontrar-a-imagem-que-tem-a-nota" class="section level3">
+</section>
+<section id="passo-3-encontrar-a-imagem-que-tem-a-nota" class="level3">
 <h3>Passo 3: Encontrar a imagem que tem a nota</h3>
 <p>A nota geralmente aparece no canto superior direito da imagem:</p>
 <p><img src="/blog/2018-02-21-2cents/out_0277.png" style="display: block; margin: auto;" /></p>
@@ -88,8 +88,8 @@ draft: false
   somar_vermelho()
 # [1] 758</code></pre>
 <p>Basta rodar isso para todos os arquivos e depois selecionar a imagem que tem a menor contagem.</p>
-</div>
-<div id="passo-4-limpar-a-imagem-que-tem-a-nota" class="section level3">
+</section>
+<section id="passo-4-limpar-a-imagem-que-tem-a-nota" class="level3">
 <h3>Passo 4: Limpar a imagem que tem a nota</h3>
 <p>A função <code>limpar_imagem()</code> recebe a imagem cortada e faz a limpeza, soltando apenas os números, prontos para receber o algoritmo de OCR.</p>
 <pre class="r"><code>limpar_imagem &lt;- function(img_cut) {
@@ -110,8 +110,8 @@ draft: false
   cortar_canto() %&gt;% 
   limpar_imagem()</code></pre>
 <p><img src="/blog/2018-02-21-2cents/out_raw.png" style="display: block; margin: auto;" /></p>
-</div>
-<div id="passo-5-passar-um-algoritmo-de-ocr" class="section level3">
+</section>
+<section id="passo-5-passar-um-algoritmo-de-ocr" class="level3">
 <h3>Passo 5: Passar um algoritmo de OCR</h3>
 <p>Finalmente, a função <code>pegar_nota()</code> utiliza <code>tesseract</code> para transformar as imagens em números</p>
 <pre class="r"><code>pegar_nota &lt;- function(img_filtered) {
@@ -135,8 +135,8 @@ draft: false
 <blockquote>
 <p>Infelizmente, o algoritmo de OCR do tesseract não é lá essas coisas, e precisei arrumar muitos desses dados na mão.</p>
 </blockquote>
-</div>
-<div id="passo-6-cruzar-com-uma-base-de-metadados-do-youtube" class="section level3">
+</section>
+<section id="passo-6-cruzar-com-uma-base-de-metadados-do-youtube" class="level3">
 <h3>Passo 6: Cruzar com uma base de metadados do YouTube</h3>
 <p>Agora, vamos cruzar com os metadados do youtube. Os nomes dos arquivos baixados pelo <code>youtube-dl</code> vêm com um código no final, por exemplo com <code>UVN6ljuRzp8</code>. É possível utilizar esses códigos no <code>tuber</code> para obter metadados de um vídeo, dessa forma:</p>
 <pre class="r"><code>## código para obter um token de acesso
@@ -157,144 +157,144 @@ purrr::pluck(detalhes, 4, 1, &quot;snippet&quot;, &quot;publishedAt&quot;)
 notas_2cents &lt;- readr::read_rds(&quot;../../static/blog/2018-02-21-2cents/notas_2cents.rds&quot;)</code></pre>
 <table>
 <colgroup>
-<col width="15%" />
-<col width="63%" />
-<col width="13%" />
-<col width="6%" />
+<col style="width: 14%" />
+<col style="width: 65%" />
+<col style="width: 13%" />
+<col style="width: 6%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">id</th>
-<th align="left">nm</th>
-<th align="left">data</th>
-<th align="right">nota</th>
+<th style="text-align: left;">id</th>
+<th style="text-align: left;">nm</th>
+<th style="text-align: left;">data</th>
+<th style="text-align: right;">nota</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">j5udRStwytk</td>
-<td align="left">007 CONTRA SPECTRE (2015)</td>
-<td align="left">2015-11-05</td>
-<td align="right">6.4</td>
+<td style="text-align: left;">j5udRStwytk</td>
+<td style="text-align: left;">007 CONTRA SPECTRE (2015)</td>
+<td style="text-align: left;">2015-11-05</td>
+<td style="text-align: right;">6.4</td>
 </tr>
 <tr class="even">
-<td align="left">HdYnkiiWwe8</td>
-<td align="left">120 BATIMENTOS POR MINUTO (2017)</td>
-<td align="left">2018-01-04</td>
-<td align="right">8.6</td>
+<td style="text-align: left;">HdYnkiiWwe8</td>
+<td style="text-align: left;">120 BATIMENTOS POR MINUTO (2017)</td>
+<td style="text-align: left;">2018-01-04</td>
+<td style="text-align: right;">8.6</td>
 </tr>
 <tr class="odd">
-<td align="left">GXfe2CSKiHw</td>
-<td align="left">12 YEARS A SLAVE (12 Anos de Escravidão, 2013)</td>
-<td align="left">2014-01-04</td>
-<td align="right">9.0</td>
+<td style="text-align: left;">GXfe2CSKiHw</td>
+<td style="text-align: left;">12 YEARS A SLAVE (12 Anos de Escravidão, 2013)</td>
+<td style="text-align: left;">2014-01-04</td>
+<td style="text-align: right;">9.0</td>
 </tr>
 <tr class="even">
-<td align="left">j-kiltl6_uk</td>
-<td align="left">1922 (Netflix, 2017)</td>
-<td align="left">2017-10-24</td>
-<td align="right">7.0</td>
+<td style="text-align: left;">j-kiltl6_uk</td>
+<td style="text-align: left;">1922 (Netflix, 2017)</td>
+<td style="text-align: left;">2017-10-24</td>
+<td style="text-align: right;">7.0</td>
 </tr>
 <tr class="odd">
-<td align="left">zsNoXCMnTmo</td>
-<td align="left">300 - A ASCENSÃO DO IMPÉRIO (2014)</td>
-<td align="left">2014-03-07</td>
-<td align="right">7.1</td>
+<td style="text-align: left;">zsNoXCMnTmo</td>
+<td style="text-align: left;">300 - A ASCENSÃO DO IMPÉRIO (2014)</td>
+<td style="text-align: left;">2014-03-07</td>
+<td style="text-align: right;">7.1</td>
 </tr>
 <tr class="even">
-<td align="left">60hUNlmK30A</td>
-<td align="left">A AUTÓPSIA (The Autopsy of Jane Doe, 2016)</td>
-<td align="left">2017-05-01</td>
-<td align="right">5.7</td>
+<td style="text-align: left;">60hUNlmK30A</td>
+<td style="text-align: left;">A AUTÓPSIA (The Autopsy of Jane Doe, 2016)</td>
+<td style="text-align: left;">2017-05-01</td>
+<td style="text-align: right;">5.7</td>
 </tr>
 <tr class="odd">
-<td align="left">1sNNzBDVlLk</td>
-<td align="left">A BELA E A FERA (Beauty and the Beast, 2017)</td>
-<td align="left">2017-03-16</td>
-<td align="right">8.5</td>
+<td style="text-align: left;">1sNNzBDVlLk</td>
+<td style="text-align: left;">A BELA E A FERA (Beauty and the Beast, 2017)</td>
+<td style="text-align: left;">2017-03-16</td>
+<td style="text-align: right;">8.5</td>
 </tr>
 <tr class="even">
-<td align="left">Zuk5QzVccWA</td>
-<td align="left">ABOUT TIME (Questão de Tempo, 2013)</td>
-<td align="left">2013-11-28</td>
-<td align="right">8.1</td>
+<td style="text-align: left;">Zuk5QzVccWA</td>
+<td style="text-align: left;">ABOUT TIME (Questão de Tempo, 2013)</td>
+<td style="text-align: left;">2013-11-28</td>
+<td style="text-align: right;">8.1</td>
 </tr>
 <tr class="odd">
-<td align="left">aRjxN0ShsE8</td>
-<td align="left">A BRUXA (The Witch, 2016)</td>
-<td align="left">2016-03-05</td>
-<td align="right">8.2</td>
+<td style="text-align: left;">aRjxN0ShsE8</td>
+<td style="text-align: left;">A BRUXA (The Witch, 2016)</td>
+<td style="text-align: left;">2016-03-05</td>
+<td style="text-align: right;">8.2</td>
 </tr>
 <tr class="even">
-<td align="left">n4xrIu4xKo8</td>
-<td align="left">A CABANA (The Shack, 2017)</td>
-<td align="left">2017-04-07</td>
-<td align="right">3.4</td>
+<td style="text-align: left;">n4xrIu4xKo8</td>
+<td style="text-align: left;">A CABANA (The Shack, 2017)</td>
+<td style="text-align: left;">2017-04-07</td>
+<td style="text-align: right;">3.4</td>
 </tr>
 <tr class="odd">
-<td align="left">t8W-DbCbPVY</td>
-<td align="left">A CHEGADA (Arrival, 2016)</td>
-<td align="left">2016-11-22</td>
-<td align="right">9.4</td>
+<td style="text-align: left;">t8W-DbCbPVY</td>
+<td style="text-align: left;">A CHEGADA (Arrival, 2016)</td>
+<td style="text-align: left;">2016-11-22</td>
+<td style="text-align: right;">9.4</td>
 </tr>
 <tr class="even">
-<td align="left">M5GBLtYgz14</td>
-<td align="left">A COLINA ESCARLATE (Crimson Peak, 2015)</td>
-<td align="left">2015-10-15</td>
-<td align="right">6.2</td>
+<td style="text-align: left;">M5GBLtYgz14</td>
+<td style="text-align: left;">A COLINA ESCARLATE (Crimson Peak, 2015)</td>
+<td style="text-align: left;">2015-10-15</td>
+<td style="text-align: right;">6.2</td>
 </tr>
 <tr class="odd">
-<td align="left">Sv-M7jfTGM0</td>
-<td align="left">A CULPA É DAS ESTRELAS (The Fault in Our Stars, 2014)</td>
-<td align="left">2014-06-05</td>
-<td align="right">7.2</td>
+<td style="text-align: left;">Sv-M7jfTGM0</td>
+<td style="text-align: left;">A CULPA É DAS ESTRELAS (The Fault in Our Stars, 2014)</td>
+<td style="text-align: left;">2014-06-05</td>
+<td style="text-align: right;">7.2</td>
 </tr>
 <tr class="even">
-<td align="left">EALV4nw-vx0</td>
-<td align="left">A ENTREVISTA (The Interview, 2014)</td>
-<td align="left">2014-12-27</td>
-<td align="right">6.7</td>
+<td style="text-align: left;">EALV4nw-vx0</td>
+<td style="text-align: left;">A ENTREVISTA (The Interview, 2014)</td>
+<td style="text-align: left;">2014-12-27</td>
+<td style="text-align: right;">6.7</td>
 </tr>
 <tr class="odd">
-<td align="left">4I44eE82Jk4</td>
-<td align="left">A FORMA DA ÁGUA (The Shape of Water, 2017)</td>
-<td align="left">2018-01-24</td>
-<td align="right">9.3</td>
+<td style="text-align: left;">4I44eE82Jk4</td>
+<td style="text-align: left;">A FORMA DA ÁGUA (The Shape of Water, 2017)</td>
+<td style="text-align: left;">2018-01-24</td>
+<td style="text-align: right;">9.3</td>
 </tr>
 <tr class="even">
-<td align="left">MnpZqlfZ_KE</td>
-<td align="left">A GAROTA DINAMARQUESA (The Danish Girl, 2015)</td>
-<td align="left">2016-02-12</td>
-<td align="right">6.8</td>
+<td style="text-align: left;">MnpZqlfZ_KE</td>
+<td style="text-align: left;">A GAROTA DINAMARQUESA (The Danish Girl, 2015)</td>
+<td style="text-align: left;">2016-02-12</td>
+<td style="text-align: right;">6.8</td>
 </tr>
 <tr class="odd">
-<td align="left">HjAxuKPzucY</td>
-<td align="left">A GAROTA NO TREM (The Girl on the Train, 2016)</td>
-<td align="left">2016-10-27</td>
-<td align="right">5.1</td>
+<td style="text-align: left;">HjAxuKPzucY</td>
+<td style="text-align: left;">A GAROTA NO TREM (The Girl on the Train, 2016)</td>
+<td style="text-align: left;">2016-10-27</td>
+<td style="text-align: right;">5.1</td>
 </tr>
 <tr class="even">
-<td align="left">UuyN4G9BQgI</td>
-<td align="left">A GHOST STORY (2017)</td>
-<td align="left">2017-09-28</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">UuyN4G9BQgI</td>
+<td style="text-align: left;">A GHOST STORY (2017)</td>
+<td style="text-align: left;">2017-09-28</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="odd">
-<td align="left">9irKAQoDN88</td>
-<td align="left">A GRANDE APOSTA (The Big Short, 2015)</td>
-<td align="left">2016-01-18</td>
-<td align="right">7.8</td>
+<td style="text-align: left;">9irKAQoDN88</td>
+<td style="text-align: left;">A GRANDE APOSTA (The Big Short, 2015)</td>
+<td style="text-align: left;">2016-01-18</td>
+<td style="text-align: right;">7.8</td>
 </tr>
 <tr class="even">
-<td align="left">bNsUkl8hGvk</td>
-<td align="left">ÁGUAS RASAS (The Shallows, 2016)</td>
-<td align="left">2016-08-07</td>
-<td align="right">7.0</td>
+<td style="text-align: left;">bNsUkl8hGvk</td>
+<td style="text-align: left;">ÁGUAS RASAS (The Shallows, 2016)</td>
+<td style="text-align: left;">2016-08-07</td>
+<td style="text-align: right;">7.0</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="analises" class="section level2">
+</section>
+<section id="analises" class="level2">
 <h2>Análises</h2>
 <p>Agora que temos uma base de dados, podemos fazer algumas análises!</p>
 <p>Primeiro, é claro, vamos fazer os top 20 e os -top 20</p>
@@ -303,98 +303,98 @@ notas_2cents &lt;- readr::read_rds(&quot;../../static/blog/2018-02-21-2cents/not
   dplyr::arrange(desc(nota)) %&gt;% 
   utils::head(20) %&gt;% 
   knitr::kable()</code></pre>
-<div align="center">
+<div data-align="center">
 <table>
 <colgroup>
-<col width="92%" />
-<col width="7%" />
+<col style="width: 93%" />
+<col style="width: 6%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">nm</th>
-<th align="right">nota</th>
+<th style="text-align: left;">nm</th>
+<th style="text-align: right;">nota</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">A GHOST STORY (2017)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">A GHOST STORY (2017)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="even">
-<td align="left">A QUALQUER CUSTO (Hell or High Water, 2016)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">A QUALQUER CUSTO (Hell or High Water, 2016)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="odd">
-<td align="left">BINGO - O REI DAS MANHÃS (2017)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">BINGO - O REI DAS MANHÃS (2017)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="even">
-<td align="left">BLADE RUNNER 2049 (2017)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">BLADE RUNNER 2049 (2017)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="odd">
-<td align="left">ELLE (2016)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">ELLE (2016)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="even">
-<td align="left">MAD MAX - ESTRADA DA FÚRIA (2015)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">MAD MAX - ESTRADA DA FÚRIA (2015)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="odd">
-<td align="left">MOONLIGHT (2016)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">MOONLIGHT (2016)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="even">
-<td align="left">RELATOS SELVAGENS (Relatos salvajes, 2014)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">RELATOS SELVAGENS (Relatos salvajes, 2014)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="odd">
-<td align="left">SPOTLIGHT (Segredos Revelados, 2015)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">SPOTLIGHT (Segredos Revelados, 2015)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="even">
-<td align="left">THE HANDMAIDEN (Ah-ga-ssi, 2016)</td>
-<td align="right">10.0</td>
+<td style="text-align: left;">THE HANDMAIDEN (Ah-ga-ssi, 2016)</td>
+<td style="text-align: right;">10.0</td>
 </tr>
 <tr class="odd">
-<td align="left">O QUARTO DE JACK (Room, 2015)</td>
-<td align="right">9.9</td>
+<td style="text-align: left;">O QUARTO DE JACK (Room, 2015)</td>
+<td style="text-align: right;">9.9</td>
 </tr>
 <tr class="even">
-<td align="left">TRÊS ANÚNCIOS PARA UM CRIME (Three Billboards Outside Ebbing, Missouri, 2017)</td>
-<td align="right">9.9</td>
+<td style="text-align: left;">TRÊS ANÚNCIOS PARA UM CRIME (Three Billboards Outside Ebbing, Missouri, 2017)</td>
+<td style="text-align: right;">9.9</td>
 </tr>
 <tr class="odd">
-<td align="left">BOYHOOD (2014)</td>
-<td align="right">9.7</td>
+<td style="text-align: left;">BOYHOOD (2014)</td>
+<td style="text-align: right;">9.7</td>
 </tr>
 <tr class="even">
-<td align="left">DEADPOOL (2016)</td>
-<td align="right">9.5</td>
+<td style="text-align: left;">DEADPOOL (2016)</td>
+<td style="text-align: right;">9.5</td>
 </tr>
 <tr class="odd">
-<td align="left">WHIPLASH - EM BUSCA DA PERFEIÇÃO (2014)</td>
-<td align="right">9.5</td>
+<td style="text-align: left;">WHIPLASH - EM BUSCA DA PERFEIÇÃO (2014)</td>
+<td style="text-align: right;">9.5</td>
 </tr>
 <tr class="even">
-<td align="left">A CHEGADA (Arrival, 2016)</td>
-<td align="right">9.4</td>
+<td style="text-align: left;">A CHEGADA (Arrival, 2016)</td>
+<td style="text-align: right;">9.4</td>
 </tr>
 <tr class="odd">
-<td align="left">AMOR &amp; AMIZADE (Love &amp; Friendship, 2016)</td>
-<td align="right">9.4</td>
+<td style="text-align: left;">AMOR &amp; AMIZADE (Love &amp; Friendship, 2016)</td>
+<td style="text-align: right;">9.4</td>
 </tr>
 <tr class="even">
-<td align="left">CORRA! (Get Out, 2017)</td>
-<td align="right">9.4</td>
+<td style="text-align: left;">CORRA! (Get Out, 2017)</td>
+<td style="text-align: right;">9.4</td>
 </tr>
 <tr class="odd">
-<td align="left">LA LA LAND (2016)</td>
-<td align="right">9.4</td>
+<td style="text-align: left;">LA LA LAND (2016)</td>
+<td style="text-align: right;">9.4</td>
 </tr>
 <tr class="even">
-<td align="left">O REGRESSO (The Revenant, 2015)</td>
-<td align="right">9.4</td>
+<td style="text-align: left;">O REGRESSO (The Revenant, 2015)</td>
+<td style="text-align: right;">9.4</td>
 </tr>
 </tbody>
 </table>
@@ -409,95 +409,95 @@ notas_2cents &lt;- readr::read_rds(&quot;../../static/blog/2018-02-21-2cents/not
 <table>
 <thead>
 <tr class="header">
-<th align="left">nm</th>
-<th align="right">nota</th>
+<th style="text-align: left;">nm</th>
+<th style="text-align: right;">nota</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">DEUSES DO EGITO (Gods of Egypt, 2016)</td>
-<td align="right">0.0</td>
+<td style="text-align: left;">DEUSES DO EGITO (Gods of Egypt, 2016)</td>
+<td style="text-align: right;">0.0</td>
 </tr>
 <tr class="even">
-<td align="left">PORTA DOS FUNDOS - CONTRATO VITALÍCIO (2016)</td>
-<td align="right">2.1</td>
+<td style="text-align: left;">PORTA DOS FUNDOS - CONTRATO VITALÍCIO (2016)</td>
+<td style="text-align: right;">2.1</td>
 </tr>
 <tr class="odd">
-<td align="left">MULHERES AO ATAQUE (The Other Woman, 2014)</td>
-<td align="right">2.3</td>
+<td style="text-align: left;">MULHERES AO ATAQUE (The Other Woman, 2014)</td>
+<td style="text-align: right;">2.3</td>
 </tr>
 <tr class="even">
-<td align="left">CINQUENTA TONS DE CINZA (2015)</td>
-<td align="right">2.5</td>
+<td style="text-align: left;">CINQUENTA TONS DE CINZA (2015)</td>
+<td style="text-align: right;">2.5</td>
 </tr>
 <tr class="odd">
-<td align="left">TRANSFORMERS - A ERA DA EXTINÇÃO (2014)</td>
-<td align="right">2.5</td>
+<td style="text-align: left;">TRANSFORMERS - A ERA DA EXTINÇÃO (2014)</td>
+<td style="text-align: right;">2.5</td>
 </tr>
 <tr class="even">
-<td align="left">INFERNO (2016)</td>
-<td align="right">3.3</td>
+<td style="text-align: left;">INFERNO (2016)</td>
+<td style="text-align: right;">3.3</td>
 </tr>
 <tr class="odd">
-<td align="left">A CABANA (The Shack, 2017)</td>
-<td align="right">3.4</td>
+<td style="text-align: left;">A CABANA (The Shack, 2017)</td>
+<td style="text-align: right;">3.4</td>
 </tr>
 <tr class="even">
-<td align="left">ASSASSINS CREED (2016)</td>
-<td align="right">3.5</td>
+<td style="text-align: left;">ASSASSINS CREED (2016)</td>
+<td style="text-align: right;">3.5</td>
 </tr>
 <tr class="odd">
-<td align="left">ALICE ATRAVÉS DO ESPELHO (2016)</td>
-<td align="right">3.6</td>
+<td style="text-align: left;">ALICE ATRAVÉS DO ESPELHO (2016)</td>
+<td style="text-align: right;">3.6</td>
 </tr>
 <tr class="even">
-<td align="left">FRANKENSTEIN - ENTRE ANJOS E DEMÔNIOS (2014)</td>
-<td align="right">3.6</td>
+<td style="text-align: left;">FRANKENSTEIN - ENTRE ANJOS E DEMÔNIOS (2014)</td>
+<td style="text-align: right;">3.6</td>
 </tr>
 <tr class="odd">
-<td align="left">PETER PAN (Pan, 2015)</td>
-<td align="right">3.6</td>
+<td style="text-align: left;">PETER PAN (Pan, 2015)</td>
+<td style="text-align: right;">3.6</td>
 </tr>
 <tr class="even">
-<td align="left">A MÚMIA (The Mummy, 2017)</td>
-<td align="right">3.8</td>
+<td style="text-align: left;">A MÚMIA (The Mummy, 2017)</td>
+<td style="text-align: right;">3.8</td>
 </tr>
 <tr class="odd">
-<td align="left">ANTES QUE EU VÁ (Before I Fall, 2017)</td>
-<td align="right">3.8</td>
+<td style="text-align: left;">ANTES QUE EU VÁ (Before I Fall, 2017)</td>
+<td style="text-align: right;">3.8</td>
 </tr>
 <tr class="even">
-<td align="left">QUARTETO FANTÁSTICO (2015)</td>
-<td align="right">3.8</td>
+<td style="text-align: left;">QUARTETO FANTÁSTICO (2015)</td>
+<td style="text-align: right;">3.8</td>
 </tr>
 <tr class="odd">
-<td align="left">CONVERGENTE (Allegiant, 2016)</td>
-<td align="right">3.9</td>
+<td style="text-align: left;">CONVERGENTE (Allegiant, 2016)</td>
+<td style="text-align: right;">3.9</td>
 </tr>
 <tr class="even">
-<td align="left">DEBI &amp; LÓIDE 2 (Dumb and Dumber To, 2014)</td>
-<td align="right">3.9</td>
+<td style="text-align: left;">DEBI &amp; LÓIDE 2 (Dumb and Dumber To, 2014)</td>
+<td style="text-align: right;">3.9</td>
 </tr>
 <tr class="odd">
-<td align="left">JOGOS MORTAIS - JIGSAW (2017)</td>
-<td align="right">4.0</td>
+<td style="text-align: left;">JOGOS MORTAIS - JIGSAW (2017)</td>
+<td style="text-align: right;">4.0</td>
 </tr>
 <tr class="even">
-<td align="left">JUNTOS E MISTURADOS (Blended, 2014)</td>
-<td align="right">4.0</td>
+<td style="text-align: left;">JUNTOS E MISTURADOS (Blended, 2014)</td>
+<td style="text-align: right;">4.0</td>
 </tr>
 <tr class="odd">
-<td align="left">The Mortal Instruments - City of Bones (2013)</td>
-<td align="right">4.0</td>
+<td style="text-align: left;">The Mortal Instruments - City of Bones (2013)</td>
+<td style="text-align: right;">4.0</td>
 </tr>
 <tr class="even">
-<td align="left">ANNABELLE (2014)</td>
-<td align="right">4.1</td>
+<td style="text-align: left;">ANNABELLE (2014)</td>
+<td style="text-align: right;">4.1</td>
 </tr>
 </tbody>
 </table>
 <p>Já assistiu a algum desses filmes? Meus pêsames!</p>
-<div id="testando-a-minha-hipotese" class="section level3">
+<section id="testando-a-minha-hipotese" class="level3">
 <h3>Testando a minha hipótese</h3>
 <p>Finalmente, pude testar minha hipótese!</p>
 <pre class="r"><code>notas_2cents %&gt;% 
@@ -508,16 +508,16 @@ notas_2cents &lt;- readr::read_rds(&quot;../../static/blog/2018-02-21-2cents/not
 <p><img src="/blog/2018-02-21-2cents_files/figure-html/unnamed-chunk-18-1.png" width="768" /></p>
 <p>Parece que a nota média do Tiago Belotti subiu um pouquinho ao longo dos anos, mas nada muito significativo. Ou seja, minha hipótese de que o Tiago Belotti ficou mais bonzinho não se verifica. Ele é super consistente!</p>
 <p>Outras investigações que eu gostaria de fazer:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Qual a relação das notas do Tiago com o Rotten Tomatoes ou o IMDb?</li>
 <li>Será que é possível prever a nota do Tiago com base em outras notas e características do filme?</li>
 <li>O Tiago avalia diferente filmes de gêneros diferentes?</li>
 </ol>
 <p>Para essas investigações, seria necessário cruzar essa base com a base do Rotten Tomatoes e do IMDb. Quem sabe num próximo post!</p>
 <p>É isso pessoal. Happy coding :D</p>
-</div>
-<div id="agradecimentos" class="section level3">
+</section>
+<section id="agradecimentos" class="level3">
 <h3>Agradecimentos</h3>
 <p><a href="https://sillasgonzaga.github.io/">Sillas</a> pelas ideias de visualização, que acabei não postando. E também para os amigos que brincaram comigo na datathon sobre isso: <a href="https://github.com/brunaw">Bruna Wunderwald</a>, <a href="http://curso-r.com">William</a>, <a href="http://curso-r.com">Caio Lente</a>, <a href="https://github.com/duarteguilherme">Guilherme</a> e quem mais eu tiver esquecido.</p>
-</div>
-</div>
+</section>
+</section>
