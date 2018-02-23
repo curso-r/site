@@ -235,7 +235,7 @@ purrr::pluck(detalhes, 4, 1, "snippet", "publishedAt")
 
 Usei esses metadados para extrair a data de disponibilização dos vídeos. No final, fiquei com a seguinte base de dados (apenas 20 linhas):
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 notas_2cents <- readr::read_rds("../../static/blog/2018-02-21-2cents/notas_2cents.rds")
 ```
@@ -279,28 +279,28 @@ notas_2cents %>%
 
 <div align="center">
 
-|nm                                                                            | nota|
-|:-----------------------------------------------------------------------------|----:|
-|A GHOST STORY (2017)                                                          | 10.0|
-|A QUALQUER CUSTO (Hell or High Water, 2016)                                   | 10.0|
-|BINGO - O REI DAS MANHÃS (2017)                                               | 10.0|
-|BLADE RUNNER 2049 (2017)                                                      | 10.0|
-|ELLE (2016)                                                                   | 10.0|
-|MAD MAX - ESTRADA DA FÚRIA (2015)                                             | 10.0|
-|MOONLIGHT (2016)                                                              | 10.0|
-|RELATOS SELVAGENS (Relatos salvajes, 2014)                                    | 10.0|
-|SPOTLIGHT (Segredos Revelados, 2015)                                          | 10.0|
-|THE HANDMAIDEN (Ah-ga-ssi, 2016)                                              | 10.0|
-|O QUARTO DE JACK (Room, 2015)                                                 |  9.9|
-|TRÊS ANÚNCIOS PARA UM CRIME (Three Billboards Outside Ebbing, Missouri, 2017) |  9.9|
-|BOYHOOD (2014)                                                                |  9.7|
-|DEADPOOL (2016)                                                               |  9.5|
-|WHIPLASH - EM BUSCA DA PERFEIÇÃO (2014)                                       |  9.5|
-|A CHEGADA (Arrival, 2016)                                                     |  9.4|
-|AMOR & AMIZADE (Love & Friendship, 2016)                                      |  9.4|
-|CORRA! (Get Out, 2017)                                                        |  9.4|
-|LA LA LAND (2016)                                                             |  9.4|
-|O REGRESSO (The Revenant, 2015)                                               |  9.4|
+|nm                                           | nota|
+|:--------------------------------------------|----:|
+|A GHOST STORY (2017)                         | 10.0|
+|A QUALQUER CUSTO (Hell or High Water, 2016)  | 10.0|
+|BINGO - O REI DAS MANHÃS (2017)              | 10.0|
+|BLADE RUNNER 2049 (2017)                     | 10.0|
+|ELLE (2016)                                  | 10.0|
+|MAD MAX - ESTRADA DA FÚRIA (2015)            | 10.0|
+|MOONLIGHT (2016)                             | 10.0|
+|RELATOS SELVAGENS (Relatos salvajes, 2014)   | 10.0|
+|SPOTLIGHT (Segredos Revelados, 2015)         | 10.0|
+|THE HANDMAIDEN (Ah-ga-ssi, 2016)             | 10.0|
+|O QUARTO DE JACK (Room, 2015)                |  9.9|
+|TRÊS ANÚNCIOS PARA UM CRIME (2017)           |  9.9|
+|BOYHOOD (2014)                               |  9.7|
+|DEADPOOL (2016)                              |  9.5|
+|WHIPLASH - EM BUSCA DA PERFEIÇÃO (2014)      |  9.5|
+|A CHEGADA (Arrival, 2016)                    |  9.4|
+|AMOR & AMIZADE (Love & Friendship, 2016)     |  9.4|
+|CORRA! (Get Out, 2017)                       |  9.4|
+|LA LA LAND (2016)                            |  9.4|
+|O REGRESSO (The Revenant, 2015)              |  9.4|
 
 </div>
 
@@ -366,8 +366,20 @@ Outras investigações que eu gostaria de fazer:
 
 Para essas investigações, seria necessário cruzar essa base com a base do Rotten Tomatoes e do IMDb. Quem sabe num próximo post!
 
-É isso pessoal. Happy coding :D
+É isso pessoal. Um abraço, e até a próxima.
+
+```{r, echo=FALSE, eval=TRUE, fig.align='center'}
+knitr::include_graphics("/blog/2018-02-21-2cents/out_0237.png")
+```
 
 ### Agradecimentos
 
 [Sillas](https://sillasgonzaga.github.io/) pelas ideias de visualização, que acabei não postando. E também para os amigos que brincaram comigo na datathon sobre isso: [Bruna Wunderwald](https://github.com/brunaw), [William](http://curso-r.com), [Caio Lente](http://curso-r.com), [Guilherme](https://github.com/duarteguilherme) e quem mais eu tiver esquecido.
+
+### Cursos R básico e Web Scraping
+
+Não perca a oportunidade de se inscrever nos nossos cursos!
+
+- [Web Scraping - 10 de março de 2018](http://workshop.curso-r.com/web-scraping/)
+- [R básico - 17 e 24 de março de 2018](http://workshop.curso-r.com/introducao-programacao-r/)
+
