@@ -319,6 +319,8 @@ notas_2cents %>%
   knitr::kable()
 ```
 
+<div align="center">
+
 |nm                                            | nota|
 |:---------------------------------------------|----:|
 |DEUSES DO EGITO (Gods of Egypt, 2016)         |  0.0|
@@ -341,6 +343,8 @@ notas_2cents %>%
 |JUNTOS E MISTURADOS (Blended, 2014)           |  4.0|
 |The Mortal Instruments - City of Bones (2013) |  4.0|
 |ANNABELLE (2014)                              |  4.1|
+
+</div>
 
 Já assistiu a algum desses filmes? Meus pêsames!
 
@@ -369,7 +373,7 @@ Para essas investigações, seria necessário cruzar essa base com a base do Rot
 É isso pessoal. Um abraço, e até a próxima.
 
 ```{r, echo=FALSE, eval=TRUE, fig.align='center'}
-knitr::include_graphics("/blog/2018-02-21-2cents/out_0237.png")
+knitr::include_graphics("/blog/2018-02-21-2cents/out_0266.png")
 ```
 
 ### Agradecimentos
