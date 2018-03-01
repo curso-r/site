@@ -1,11 +1,9 @@
 +++
 title = "Introdução à Programação em R"
 banner = "img/banners/banner-r-base.png"
-next = "Dias 17 e 24 de Março"
+hotsite = "http://workshop.curso-r.com/introducao-programacao-r/"
+oferecimento = "17 e 24 de março, em São Paulo - SP"
 summary = "Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia."
-price = "R$ 590,00"
-workload = "16h"
-place = "Espaço Maestro - R. Maestro Cardim, 1170 Paraíso, São Paulo–SP"
 rich_card_desc = "Neste curso introdutório você aprenderá a se ambientar no R e no RStudio, carregar um banco de dados para análise e fazer algumas visualizações. Após este curso você terá conhecimentos suficientes para fazer algumas análises com bastante autonomia."
 +++
 

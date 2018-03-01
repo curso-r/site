@@ -41,7 +41,7 @@ paginate = 10
     # Enable the contact form by entering your Formspree.io email
     email = "contato@curso-r.com"
     about_us = "<p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>"
-    copyright = "Copyright (c) 2016 - 2017, Curso-R; all rights reserved."
+    copyright = "Copyright (c) 2017 - 2018, Curso-R; todos os direitos reservados."
     # Format dates with Go's time formatting
     date_format = "02/01/2006"
     logo = "img/logo-curso-r.png"

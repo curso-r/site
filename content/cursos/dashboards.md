@@ -1,12 +1,10 @@
 +++
 title = "Dashboards"
 banner = "img/banners/banner-dashboards2.png"
-next = "a definir"
-price = "R$ 690,00"
-workload = "12h"
-place = "São Paulo"
+hotsite = ""
+oferecimento = "a definir"
 summary = "Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R"
-rich_card_desc = "Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R"
+rich_card_desc = "Neste curso, você aprenderá a comunicar as suas análises de forma efetiva, criando dashboards interativos e gráficos dinâmicos. Usaremos como base o Shiny, o ambiente que conecta o R à web, e bibliotecas baseadas em htmlwidgets, ferramentas que trazem todo o poder do JavaScript para o R."
 +++
 
 ## Ementa
