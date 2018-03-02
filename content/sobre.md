@@ -44,7 +44,7 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
   <div class = "bio" style = "clear: left;">
   
-  <p> Bacharel em Estatística pelo IME-USP. Trabalhou com modelos preditivos, extração de dados da internet e visualização/dashboards para ABJ, IBOPE, ClearSale, EDP e atualmente é cientista de dados no Itaú. Se interessa por tudo ligado ao R e à estatística. Ama sua cachorrinha Ozzy. </p>
+  <p> Bacharel em Estatística pelo IME-USP. Trabalhou com modelos preditivos, extração de dados da internet e visualização/dashboards para ABJ, IBOPE, ClearSale, EDP e atualmente é cientista de dados no Itaú. Se interessa por tudo ligado ao R e à estatística. Ama sua cachorrinha <a href = "/img/sobre/ozzy.jpg">Ozzy</a>. </p>
   
   </div>
 </div>
@@ -137,7 +137,7 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
   <div class = "bio" style = "clear: left;">
   
-<p> Bacharel, mestre e doutorando em Estatística pelo IME-USP. Secretário-geral da Associação Brasileira de Jurimetria (ABJ). Vice-presidente do CONRE-3a Região. Sócio da Platipus Consultoria em inteligência jurídica e analytics. Sócio da Curso-R treinamentos e consultoria - Trabalha com web scraping, consolidação de dados, visualização e modelagem, construindo modelos preditivos, APIs, pacotes em R e dashboards em Shiny. Coordenador e ministrante de diversos cursos sobre R, ciência de dados e jurimetria. É tão nerd que convence todos seus amigos a mexerem no R e fazerem estatística.
+<p> Bacharel, mestre e doutorando em Estatística pelo IME-USP. Secretário-geral da Associação Brasileira de Jurimetria (ABJ). Presidente do CONRE-3a Região. Sócio da Platipus Consultoria em inteligência jurídica e analytics. Sócio da Curso-R treinamentos e consultoria - Trabalha com web scraping, consolidação de dados, visualização e modelagem, construindo modelos preditivos, APIs, pacotes em R e dashboards em Shiny. Coordenador e ministrante de diversos cursos sobre R, ciência de dados e jurimetria. É tão nerd que convence todos seus amigos a mexerem no R e fazerem estatística.
 </p>
   
   </div>
@@ -162,7 +162,7 @@ muito mais pessoas com essas tecnologias, pelas quais nós somos apaixonados.
 
   <div class = "bio" style = "clear: left;">
   
-  <p> Bacharel, mestre e doutorando em Estatística pelo IME-USP. Áreas de pesquisa: análise de sobrevivência, modelos mistos, modelos longitudinais, modelos lineares generalizados, modelos aditivos generalizados e programação em R. Projetos de pesquisa: Etanol e a qualidade do ar na RMSP; e desenvolvimento de pacotes em R. Ministrante do curso "Introdução à análise explanatória e métodos estatísticos" do Programa de Verão IME-USP, 2016 e 2017. Ministrante do curso "R: do casual ao avançado" do Programa de Verão do IME-USP, 2015 a 2017. Escritor nas horas vagas... ou o contrário. </p>
+  <p> Bacharel e Mestre em Estatstiíca. Doutorando em Estatística pelo IME-USP com projeto de pesquisa na área de <a href = "https://www.rpollution.com/"> poluição do ar </a>. Trabalhando diaramente com análise de dados e programação em R. Escritor nas horas vagas. </p>
   
   </div>
 </div>

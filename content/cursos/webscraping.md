@@ -4,7 +4,7 @@ banner = "img/banners/banner-scrape.png"
 hotsite = "http://workshop.curso-r.com/web-scraping/"
 oferecimento = "10 de março, em São Paulo - SP"
 summary = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter."
-rich_card_desc = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter."
+rich_card_desc = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Usando o R, você também aprenderá a utilizar APIs e automatizar o controle de um browser."
 +++
 
 ## Ementa
@@ -29,13 +29,13 @@ Estudantes e profissionais com __conhecimento intermediário de programação de
 
 ### Requisitos
 
-- Conteúdo do curso [R básico](http://curso-r.com/cursos/introducao-programacao-r/)
-- Conteúdo do curso [R para Data Science](http://curso-r.com/cursos/r4ds/)
+- Conteúdo do curso [R básico](http://curso-r.com/cursos/introducao-programacao-r/).
+- Conteúdo do curso [R para Data Science](http://curso-r.com/cursos/r4ds/) (recomendado).
 
 ## Softwares
 
 O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:
 
 * R - [Instale pelo site da R foundation](https://www.r-project.org/).
-* RStudio - Faça o download. [aqui](https://www.rstudio.com/products/rstudio/download/preview/).
-* Pacotes - `tidyverse`, `httr`, `rvest` e `jsonlite`, entre outros.
+* RStudio - Faça o download [aqui](https://www.rstudio.com/products/rstudio/download/preview/).
+* Pacotes - `tidyverse`, `httr`, `rvest` e `jsonlite`.

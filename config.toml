@@ -41,7 +41,7 @@ paginate = 10
     # Enable the contact form by entering your Formspree.io email
     email = "contato@curso-r.com"
     about_us = "<p>A Curso-R é uma empresa que nasceu com o objetivo de disseminar conhecimento sobre R, Estatística e Data Science.</p>"
-    copyright = "Copyright (c) 2017 - 2018, Curso-R; todos os direitos reservados."
+    copyright = "Copyright (c) 2017 - 2018, Curso-R. Todos os direitos reservados."
     # Format dates with Go's time formatting
     date_format = "02/01/2006"
     logo = "img/logo-curso-r.png"
@@ -106,7 +106,7 @@ paginate = 10
 [params.cursos]
     enable = true
     title = "Nossos cursos"
-    subtitle = "Temos diversas opções de cursos que vão desde a introdução à programação em R até tópicos mais avançados ou específicos de uma área do conhecimento, como Machine Learning e Web Scraping."
+    subtitle = "Temos diversas opções de cursos que vão desde Introdução à programação em R até Machine Learning e Web Scraping."
 
 [params.features]
     enable = false
@@ -141,4 +141,4 @@ paginate = 10
 [params.recent_posts]
     enable = true
     title = "Blog"
-    subtitle = "No nosso blog, compartilhamos pequenos scripts e análises que podem ser interessantes para o nosso público. Nossos posts sempre mostram análises interessantes que podem ser realizadas usando o R."
+    subtitle = "No nosso blog, compartilhamos análises e pequenos tutoriais para usuários de R de todos os níveis."
