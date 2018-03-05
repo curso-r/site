@@ -21,16 +21,16 @@ draft: false
 <section id="estrutura-do-projeto" class="level3">
 <h3>Estrutura do projeto</h3>
 <p><a href="https://github.com/curso-r/shiny-now">Esse repositório</a> contém um exemplo simples funcionando do que iremos detalhar agora. Crie uma pasta no seu computador ou um projeto no RStudio com a seguinte estrutura:</p>
-<pre><code>-- app/
--- -- app.R
--- Dockerfile</code></pre>
+<pre><code>.
+├── Dockerfile
+├── app
+│   └── app.R
+├── app.R
+└── shiny-now.Rproj</code></pre>
 </section>
 <section id="dockerfile" class="level3">
 <h3>Dockerfile</h3>
 <p><code>Dockerfile</code> é um arquivo de texto vazio por enquanto. Dentro da pasta <code>app</code> coloque o seu app shiny. No meu exemplo coloquei um shiny com apenas umarquivo <code>app.R</code>, mas nada impede você de colocar um shiny com a estrtura mais comum (um arquivo <code>ui.R</code> e um arquivo <code>server.R</code>).</p>
-</section>
-<section id="dockerfile-1" class="level3">
-<h3>Dockerfile</h3>
 <p><code>Dockerfile</code>s podem ser referenciados a outras imagens docker. Existe uma imagem chamada <a href="https://hub.docker.com/r/rocker/shiny/">rocker/shiny</a> que já deixa quase tudo preparado para hospedar um app shiny, por isso em nosso Dockerfile vamos incluir a linha:</p>
 <pre><code>FROM rocker/shiny</code></pre>
 <p>Em seguida vamos indicar as instruções para instalação dos pacotes do R que são usados no shiny. No meu caso, como o app não faz praticamente nada, só usei o pacote <code>shinydashboard</code> por isso a próxima linha do meu <code>Dockerfile</code> é apenas:</p>

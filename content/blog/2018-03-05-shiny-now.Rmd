@@ -30,16 +30,17 @@ Para seguir o tutorial você precisa instalar o [now](https://zeit.co/now) e cri
 [Esse repositório](https://github.com/curso-r/shiny-now) contém um exemplo simples funcionando do que iremos detalhar agora. Crie uma pasta no seu computador ou um projeto no RStudio com a seguinte estrutura:
 
 ```
--- app/
--- -- app.R
--- Dockerfile
+.
+├── Dockerfile
+├── app
+│   └── app.R
+├── app.R
+└── shiny-now.Rproj
 ```
 
 ### Dockerfile
 
 `Dockerfile` é um arquivo de texto vazio por enquanto. Dentro da pasta `app` coloque o seu app shiny. No meu exemplo coloquei um shiny com apenas umarquivo `app.R`, mas nada impede você de colocar um shiny com a estrtura mais comum (um arquivo `ui.R` e um arquivo `server.R`).
-
-### Dockerfile
 
 `Dockerfile`s podem ser referenciados a outras imagens docker. Existe uma imagem chamada [rocker/shiny](https://hub.docker.com/r/rocker/shiny/) que já deixa quase tudo preparado para hospedar um app shiny, por isso em nosso Dockerfile vamos incluir a linha:
 
