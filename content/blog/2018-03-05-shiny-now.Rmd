@@ -141,7 +141,7 @@ Sending build context to Docker daemon 6.656 kBkB
 > Deployment complete!
 ```
 
-Na sexta linha dessa mensagem, temos o endereço do nosso aplicativo. Por enquanto, o  [now](https://zeit.co/now) colocou um endereço para testes, mas tudo isso é configurável. Basta abrir essa url no navegador e ver o aplciativo funcionando.
+Na sexta linha dessa mensagem, temos o endereço do nosso aplicativo. Basta abrir essa url no navegador e ver o aplicativo funcionando. Por enquanto, o  [now](https://zeit.co/now) colocou um endereço para testes, mas tudo isso é configurável. 
 
 Para mudar a url do seu app você vai precisar usar o comando `now alias`. A documentação desse comando é muito boa e vai ser melhor do que qualquer coisa que eu escrever aqui. Vá para [este link](https://zeit.co/docs/features/aliases)!
 
