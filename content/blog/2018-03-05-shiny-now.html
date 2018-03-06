@@ -13,6 +13,7 @@ draft: false
 
 <p>Existem diversas formas de hospedar o seu app feito <a href="https://shiny.rstudio.com">em shiny</a>. A maneira mais simples é usando o <a href="http://www.shinyapps.io">shinyapps.io</a>, SaaS desenvolvido pela própria RStudio. No entanto, na versão Free o seu app fica com um logotipo do RStudio no canto e não é permitido configurar um domínio próprio, ou seja, a url do seu app sempre vai ser algo do tipo: <code>dfalbel.shinyapps.io/meuapp</code>.</p>
 <p>Uma alternativa gratuita e que não possui essas contra-partidas é usar o serviço <a href="https://zeit.co/now">now.sh</a>. O <a href="https://zeit.co/now">now</a>, originalmente, foi desenvolvido para hospedar aplicativos feitos em nodejs e javascript, mas recentemente eles possibilitaram a hospedagem de aplicativos feitos com <a href="https://www.docker.com">Docker</a>.</p>
+<p>Além dessas vantagens o now conta com infraestrutura, segundo os desenvolvedores “auto scaling ready”, isto é o número de instâncias servindo o seu aplicativo pode variar de acordo com tráfego que o seu app está recebendo. No plano free o número de instâncias pode ser 0 ou 1, ou seja, seu app fica desligado se ninguém estiver usando. Nos <a href="https://zeit.co/account/plan">planos pagos</a> você pode fazer esse número variar da forma que quiser. Tudo isso está na <a href="https://zeit.co/docs/getting-started/scaling">documentação</a>.</p>
 <p>É difícil explicar o que é o <a href="https://www.docker.com">Docker</a> em poucas palavras, mas ele é uma plataforma de containers que facilita a configuração e preparação do ambiente para a hospedagem de um app. Em outras palavras, você escreve em um arquivo chamado <code>Dockerfile</code> especificando como você quer que seja o ambiente, o que você precisa instalar, que arquivos você quer colocar lá dentro. Para este tutorial você só precisará fazer pequenas modificações no <code>Dockerfile</code> e não precisará entender profundamente como ele funciona.</p>
 <section id="instalacao" class="level3">
 <h3>Instalação:</h3>
@@ -27,10 +28,10 @@ draft: false
 │   └── app.R
 ├── app.R
 └── shiny-now.Rproj</code></pre>
+<p><code>Dockerfile</code> é um arquivo de texto vazio por enquanto. Dentro da pasta <code>app</code> coloque o seu app shiny. No meu exemplo coloquei um shiny com apenas umarquivo <code>app.R</code>, mas nada impede você de colocar um shiny com a estrtura mais comum (um arquivo <code>ui.R</code> e um arquivo <code>server.R</code>).</p>
 </section>
 <section id="dockerfile" class="level3">
 <h3>Dockerfile</h3>
-<p><code>Dockerfile</code> é um arquivo de texto vazio por enquanto. Dentro da pasta <code>app</code> coloque o seu app shiny. No meu exemplo coloquei um shiny com apenas umarquivo <code>app.R</code>, mas nada impede você de colocar um shiny com a estrtura mais comum (um arquivo <code>ui.R</code> e um arquivo <code>server.R</code>).</p>
 <p><code>Dockerfile</code>s podem ser referenciados a outras imagens docker. Existe uma imagem chamada <a href="https://hub.docker.com/r/rocker/shiny/">rocker/shiny</a> que já deixa quase tudo preparado para hospedar um app shiny, por isso em nosso Dockerfile vamos incluir a linha:</p>
 <pre><code>FROM rocker/shiny</code></pre>
 <p>Em seguida vamos indicar as instruções para instalação dos pacotes do R que são usados no shiny. No meu caso, como o app não faz praticamente nada, só usei o pacote <code>shinydashboard</code> por isso a próxima linha do meu <code>Dockerfile</code> é apenas:</p>

@@ -19,6 +19,8 @@ Existem diversas formas de hospedar o seu app feito [em shiny](https://shiny.rst
 
 Uma alternativa gratuita e que não possui essas contra-partidas é usar o serviço [now.sh](https://zeit.co/now). O [now](https://zeit.co/now), originalmente, foi desenvolvido para hospedar aplicativos feitos em nodejs e javascript, mas recentemente eles possibilitaram a hospedagem de aplicativos feitos com [Docker](https://www.docker.com).
 
+Além dessas vantagens o now conta com infraestrutura, segundo os desenvolvedores "auto scaling ready", isto é o número de instâncias servindo o seu aplicativo pode variar de acordo com tráfego que o seu app está recebendo. No plano free o número de instâncias pode ser 0 ou 1, ou seja, seu app fica desligado se ninguém estiver usando. Nos [planos pagos](https://zeit.co/account/plan) você pode fazer esse número variar da forma que quiser. Tudo isso está na [documentação](https://zeit.co/docs/getting-started/scaling). 
+
 É difícil explicar o que é o [Docker](https://www.docker.com) em poucas palavras, mas ele é uma plataforma de containers que facilita a configuração e preparação do ambiente para a hospedagem de um app. Em outras palavras, você escreve em um arquivo chamado `Dockerfile` especificando como você quer que seja o ambiente, o que você precisa instalar, que arquivos você quer colocar lá dentro. Para este tutorial você só precisará fazer pequenas modificações no `Dockerfile` e não precisará entender profundamente como ele funciona.
 
 ### Instalação:
@@ -38,9 +40,9 @@ Para seguir o tutorial você precisa instalar o [now](https://zeit.co/now) e cri
 └── shiny-now.Rproj
 ```
 
-### Dockerfile
-
 `Dockerfile` é um arquivo de texto vazio por enquanto. Dentro da pasta `app` coloque o seu app shiny. No meu exemplo coloquei um shiny com apenas umarquivo `app.R`, mas nada impede você de colocar um shiny com a estrtura mais comum (um arquivo `ui.R` e um arquivo `server.R`).
+
+### Dockerfile
 
 `Dockerfile`s podem ser referenciados a outras imagens docker. Existe uma imagem chamada [rocker/shiny](https://hub.docker.com/r/rocker/shiny/) que já deixa quase tudo preparado para hospedar um app shiny, por isso em nosso Dockerfile vamos incluir a linha:
 
