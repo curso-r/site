@@ -1,0 +1,67 @@
+---
+title: "left join no R"
+date: "2018-03-05T14:25:00+03:00"
+tags: ["shiny"]
+categories: ["tutoriais", "r"]
+banner: "img/banners/shiny-now.png"
+author: ["Daniel"]
+summary: "Uma das dúvidas que mais aparecem no Stack Overflow é como fazer um left join no R. Esse post é um guia definitivo para isso!"
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, 
+                      cache = TRUE, 
+                      eval = FALSE)
+```
+
+Como fazer left joins no R? Essa é uma das perguntas que mais aparecem no [Stack Overflow PT](https://pt.stackoverflow.com/) formulada de diversas formas diferentes. Por exemplo:
+
+* [Procurar valores em um data.frame e adicionar em outro](https://pt.stackoverflow.com/q/124319/6036)
+* [Inserir valor de vetor de um data.frame em outro data.frame](https://pt.stackoverflow.com/q/236509/6036)
+* [Unir data frames](https://pt.stackoverflow.com/q/253589/6036)
+* [Juntar dois df usando a função sqldf](https://pt.stackoverflow.com/q/261090/6036)
+
+Entre outras... Eu mesmo, quando comecei a mexer no R, já fiz essa pesquisa no Google de diversas formas diferentes. Como em geral os usuários de R não possuem um background em programação (geralmente são cientistas usando a linguagem para resolver algum problema específico) é interessante ver a quantidade de formas diferentes que essa pergunta aparece. 
+
+Esse post tem o objetivo de ser um guia definitivo para o procurar valores de um data.frame e adicionar em outro", "unir data.frames", "juntar data.frames" ou de forma mais siples "left join com R". Esse post se inspira fortemente no capítulo [Relational data](http://r4ds.had.co.nz/relational-data.html) do livro [R for Data Science](http://r4ds.had.co.nz).
+
+### Dados relacionais
+
+Joins acontecem toda vez que você tem bancos de dados relacionais. Um bom exemplo desses bacnos de dados é o chamado `nycflights13` que contém informações relacionadas de todos os voos que passaram pelos aeroportos de Nova York em 2013. Esse banco de dados está disponível no R a partir da instalação do pacote `nycflights13`. 
+
+Se você não tiver o pacote instalado, basta rodar:
+
+```{r, eval = FALSE}
+install.packages("nycflights13")
+```
+
+A relação entre as variáveis das tabelas desse banco de dados está descrita no diagarama abaixo.
+
+![](/img/blog/left-join/relational-nycflights.png)
+
+As seguintes relações são importantes:
+
+* a tabela `flights` se conecta com a tabela `planes` pela variável `tailnum`.
+* a tabela `flights` se conecta com a tabela `airlines` pela variável `carrier`.
+* a tabela `flights` se conecta com a tabela `airports` pelas variáveis `origin` e `dest`.
+* a tabela `flights` se conecta com a tabela `weather` pelas variáveis `origin`, `year`, `month`, `day` e `hour`.
+
+Essas variáveis que conectam as tabelas são chamadas de chaves e geralmente é por meio delas que queremos adicionar uma coluna no banco de dados.
+
+### Left join
+
+O diagrama abaixo exemplifica um left join:
+
+![](/img/blog/left-join/left-join.png)
+
+No left join, todas as linhas da tabela da esquerda permanecem na nova tabela. 
+
+
+
+
+
+
+
+
+
