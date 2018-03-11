@@ -1,28 +1,23 @@
 +++
 title = "R para Data Science"
 banner = "img/banners/banner-r-avancado.png"
-next = "a definir"
-price = "R$ 690,00"
-workload = "12h"
-place = "São Paulo"
-summary = "Nesse curso você apronfundará seus conhecimentos em manipulação e transformação de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão e classificação. Por fim, aprenderá a comunicar as suas análises usando ferramentas do R como o shiny."
-rich_card_desc = "Nesse curso você apronfundará seus conhecimentos em manipulação e transformação de dados usando R. Aprenderá a ajustar modelos estatísticos para previsão e classificação. Por fim, aprenderá a comunicar as suas análises usando ferramentas do R como o shiny."
+hotsite = ""
+oferecimento = "a definir"
+summary = "Nesse curso, você aprofundará seus conhecimentos em manipulação e visualização de dados. Também aprenderá a ajustar modelos estatísticos para previsão e classificação, utilizando conceitos de machine learning como validação cruzada e regularização. Nosso objetivo será desenvolver o seu pensamento crítico para análise de dados."
+rich_card_desc = "Nesse curso, você aprofundará seus conhecimentos em manipulação e visualização de dados. Também aprenderá a ajustar modelos estatísticos para previsão e classificação, utilizando conceitos de machine learning como validação cruzada e regularização. Nosso objetivo será desenvolver o seu pensamento crítico para análise de dados."
 +++
 
 ## Ementa
 
-O curso aprofunda os conhecimentos em manipulação de dados aprimorando o conhecimento
-do pacote `dplyr` e introduzindo pacotes como:
+O curso aprofunda os conhecimentos em manipulação de dados aprimorando o conhecimento do pacote `dplyr` e introduzindo pacotes como:
 
-* `tidyr`: para manipulações mais complexas como pivotagem e aninhamento
-* `stringr`: para manipulação de textos 
-* `lubridate`: para manipulação de datas
+* `tidyr`: para manipulações mais complexas como pivotagem e aninhamento.
+* `stringr`: para manipulação de textos .
+* `lubridate`: para manipulação de datas.
 
-Após passar pela manipulação, o curso abordará o ajuste e verificação de modelos
-estatísticos conhecidos como Regressão Logística e Árvores de Decisão usando o R. 
+Após passar pela manipulação, o curso abordará o ajuste e verificação de modelos estatísticos como Regressão Logística e Árvores de Decisão. 
 
-Por fim, serão introduzidas ferramentas como o `shiny` e `flexdashboard` que são úteis 
-para a comunicação das análises feitas em R.
+Também introduziremos conceitos de machine learning, como validação cruzada e regularização.
 
 ## Público Alvo
 
@@ -38,6 +33,7 @@ para a comunicação das análises feitas em R.
 
 O curso utiliza extensivamente os softwares a seguir. Instale-os nessa ordem:
 
-* R - Instale pelo site do CRAN.
-* RStudio - Faça o download aqui.
-* tidyverse - No console do R, digite o código abaixo.
+* R - [Instale pelo site da R foundation](https://www.r-project.org/).
+* RStudio - Faça o download [aqui](https://www.rstudio.com/products/rstudio/download/preview/).
+* O pacote `tidyverse`.
+
