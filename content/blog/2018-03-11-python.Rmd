@@ -71,7 +71,7 @@ eu_gosto_de_R <- "nossa, como você é legal!"
 eu_gosto_de_R
 '''
 
-[1] "nossa, como você é legal"
+[1] "nossa, como você é legal!"
 
 ```
 
@@ -114,7 +114,7 @@ veio_do_python <- py$eu_gosto_de_python
 paste(veio_do_python, " Segue no R.")
 '''
 
-[1] tudo bem, vida que segue!!! Segue no R.
+[1] "tudo bem, vida que segue!!! Segue no R."
 
 ```
 
