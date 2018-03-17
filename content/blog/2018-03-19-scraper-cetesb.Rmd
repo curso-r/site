@@ -1,0 +1,22 @@
+---
+title: "Web scraping do sistema de qualidade do ar da CETESB"
+date: "2018-03-19T14:25:00+03:00"
+tags: ["web-scraping", "dados-abertos"]  
+categories: ["tutoriais", "r"]
+banner: "img/banners/scraper-cetesb.png"
+author: ["William"]
+summary: "Nem sempre dados públicos são disponibilizados de forma eficiente para a coleta. Neste post, vamos exercitar a arte do web scraping para raspar dados de poluição do ar da CETESB."
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, 
+                      cache = TRUE, 
+                      eval = FALSE)
+```
+
+[Tiago Belotti](https://www.youtube.com/channel/UCiSarBtpSphUrxtKDIW9c_A) é o meu crítico de cinema favorito. Gasto uma quantidade de tempo que não me orgulho vendo os vídeos desse ser maravilhoso. Atualmente, muitas vezes eu prefiro ver a crítica dele do filme que o próprio filme, seguindo cegamente as indicações dele a partir das notas que ele coloca no final da crítica. Recomendo fortemente que acessem o canal do Belotti.
+
+```{r echo=FALSE, eval=TRUE, fig.align='center'}
+knitr::include_graphics("/blog/2018-02-21-2cents/out_0045.png")
+```
