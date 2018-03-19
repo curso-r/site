@@ -258,7 +258,7 @@ dados_cetesb %>%
   knitr::kable()
 ```
 
-```{r, echo = FALSE, eval=TRUE, }
+```{r, echo = FALSE, eval=TRUE}
 library(magrittr)
 
 readr::read_rds(path = "../../static/data/scraper-cetesb/dados_cetesb.rds") %>% 
