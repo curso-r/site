@@ -155,14 +155,6 @@ res <- POST(
 
 Observe que, apesar de na pesquisa conseguirmos selecionar o nome da estação e do parâmetro, a requisição envia ids numéricos. No Qualar, eu encontrei apenas os ids das estações, mas os valores de ambos os parâmetros podem ser encontrados inspecionando o html da página. Para facilitar a nossa vida, eu salvei esses valores nos arquivos `station_ids.csv` e `param_ids.csv`, que podem ser baixados pelo [repositório do blog no Github](https://github.com/williamorim/Rpollution-blog/tree/master/content/blog/data).
 
-```{r}
-readr::read_csv("data/station_ids.csv")
-```
-
-```{r}
-readr::read_csv("data/param_ids.csv")
-```
-
 Para finalizar, precisamos ler o resultado da nossa requisição e transformar a tabela existe no html em um data frame.
 
 ```{r, eval = FALSE}
@@ -222,7 +214,7 @@ scraper_CETESB <- function(station, parameter, start, end,
 }
 ```
 
-Assim, basta rodar a função abaixo com o seu login e senha para obter em alguns segundos uma tabela estruturada com os dados solicitados.
+Assim, basta rodar a função abaixo com o seu login e senha para obter em alguns segundos uma tabela com os dados solicitados. Veja um exemplo:
 
 ```{r, eval=FALSE}
 dados_cetesb <- scraper_CETESB(station = "72", 
@@ -236,7 +228,7 @@ dados_cetesb <- scraper_CETESB(station = "72",
                network = "A")
 ```
 
-Agora só precisamos tirar colunas vazias e corrigir o nome das colunas.
+Precisamos apenas tirar as colunas vazias e corrigir o nome das colunas.
 
 ```{r}
 dados_cetesb <- dados_cetesb %>%
@@ -249,7 +241,7 @@ dados_cetesb <- dados_cetesb %>%
   dplyr::slice(-1)
 ```
 
-Eis os dados que queríamos:
+Assim obtemos os dados que queríamos:
 
 ```{r}
 dados_cetesb %>% 

@@ -97,8 +97,6 @@ res &lt;- POST(
   set_cookies(my_cookie)
 )</code></pre>
 <p>Observe que, apesar de na pesquisa conseguirmos selecionar o nome da estação e do parâmetro, a requisição envia ids numéricos. No Qualar, eu encontrei apenas os ids das estações, mas os valores de ambos os parâmetros podem ser encontrados inspecionando o html da página. Para facilitar a nossa vida, eu salvei esses valores nos arquivos <code>station_ids.csv</code> e <code>param_ids.csv</code>, que podem ser baixados pelo <a href="https://github.com/williamorim/Rpollution-blog/tree/master/content/blog/data">repositório do blog no Github</a>.</p>
-<pre class="r"><code>readr::read_csv(&quot;data/station_ids.csv&quot;)</code></pre>
-<pre class="r"><code>readr::read_csv(&quot;data/param_ids.csv&quot;)</code></pre>
 <p>Para finalizar, precisamos ler o resultado da nossa requisição e transformar a tabela existe no html em um data frame.</p>
 <pre class="r"><code>content(res) %&gt;% 
   rvest::html_table(fill = TRUE) %&gt;%
@@ -151,7 +149,7 @@ res &lt;- POST(
   extract2(2)
   
 }</code></pre>
-<p>Assim, basta rodar a função abaixo com o seu login e senha para obter em alguns segundos uma tabela estruturada com os dados solicitados.</p>
+<p>Assim, basta rodar a função abaixo com o seu login e senha para obter em alguns segundos uma tabela com os dados solicitados. Veja um exemplo:</p>
 <pre class="r"><code>dados_cetesb &lt;- scraper_CETESB(station = &quot;72&quot;, 
                parameter = &quot;63&quot;, 
                start = &quot;04/03/2018&quot;, 
@@ -161,7 +159,7 @@ res &lt;- POST(
                password = &quot;wouldy0ukindly?&quot;, 
                invalidData = &quot;on&quot;, 
                network = &quot;A&quot;)</code></pre>
-<p>Agora só precisamos tirar colunas vazias e corrigir o nome das colunas.</p>
+<p>Precisamos apenas tirar as colunas vazias e corrigir o nome das colunas.</p>
 <pre class="r"><code>dados_cetesb &lt;- dados_cetesb %&gt;%
   janitor::remove_empty_cols()
   
@@ -170,7 +168,7 @@ col_names &lt;- as.character(dados_cetesb[1,])
 dados_cetesb &lt;- dados_cetesb %&gt;% 
   magrittr::set_colnames(col_names) %&gt;% 
   dplyr::slice(-1)</code></pre>
-<p>Eis os dados que queríamos:</p>
+<p>Assim obtemos os dados que queríamos:</p>
 <pre class="r"><code>dados_cetesb %&gt;% 
   dplyr::select(`Nome Estação`:`Média Horária`) %&gt;% 
   head %&gt;% 
