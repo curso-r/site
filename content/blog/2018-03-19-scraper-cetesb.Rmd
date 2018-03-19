@@ -222,8 +222,8 @@ dados_cetesb <- scraper_CETESB(station = "72",
                start = "04/03/2018", 
                end = "05/03/2018", 
                type = "P", 
-               login = "thewilliam89@gmail.com", 
-               password = "wouldy0ukindly?", 
+               login = "seu_login", 
+               password = "sua_senha", 
                invalidData = "on", 
                network = "A")
 ```
