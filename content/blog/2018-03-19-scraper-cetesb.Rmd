@@ -3,7 +3,7 @@ title: "Web scraping do sistema de qualidade do ar da CETESB"
 date: "2018-03-19T14:25:00+03:00"
 tags: ["web-scraping", "dados-abertos"]  
 categories: ["tutoriais", "r"]
-banner: "img/banners/scraper-cetesb.png"
+banner: "img/banners/scraper-cetesb.jpg"
 author: ["William"]
 summary: "Nem sempre dados públicos são disponibilizados de forma eficiente para a coleta. Neste post, vamos exercitar a arte do web scraping para raspar dados de poluição do ar da CETESB."
 draft: false
@@ -176,7 +176,9 @@ content(res) %>%
 Agora, vamos transformar nosso código numa função para poder repetir o processo várias vezes para diversos parâmetros.
 
 ```{r, eval = FALSE}
-scraper_CETESB <- function(station, parameter, start, end, type = "P", login, password, invalidData = "on", network = "A") {
+scraper_CETESB <- function(station, parameter, start, end, 
+                           type = "P", login, password, 
+                           invalidData = "on", network = "A") {
   
   
   res <- GET("http://qualar.cetesb.sp.gov.br/qualar/home.do")
@@ -223,16 +225,51 @@ scraper_CETESB <- function(station, parameter, start, end, type = "P", login, pa
 Assim, basta rodar a função abaixo com o seu login e senha para obter em alguns segundos uma tabela estruturada com os dados solicitados.
 
 ```{r, eval=FALSE}
-scraper_CETESB(station = "72", 
+dados_cetesb <- scraper_CETESB(station = "72", 
                parameter = "63", 
                start = "04/03/2018", 
                end = "05/03/2018", 
                type = "P", 
-               login = "seu_login", 
-               password = "sua_senha", 
+               login = "thewilliam89@gmail.com", 
+               password = "wouldy0ukindly?", 
                invalidData = "on", 
                network = "A")
 ```
 
+Agora só precisamos tirar colunas vazias e corrigir o nome das colunas.
+
+```{r}
+dados_cetesb <- dados_cetesb %>%
+  janitor::remove_empty_cols()
+  
+col_names <- as.character(dados_cetesb[1,])
+
+dados_cetesb <- dados_cetesb %>% 
+  magrittr::set_colnames(col_names) %>% 
+  dplyr::slice(-1)
+```
+
+Eis os dados que queríamos:
+
+```{r}
+dados_cetesb %>% 
+  dplyr::select(`Nome Estação`:`Média Horária`) %>% 
+  head %>% 
+  knitr::kable()
+```
+
+```{r, echo = FALSE, eval=TRUE, }
+library(magrittr)
+
+readr::read_rds(path = "../../static/data/scraper-cetesb/dados_cetesb.rds") %>% 
+  dplyr::select(`Nome Estação`:`Média Horária`) %>% 
+  head %>% 
+  knitr::kable()
+```
+
 Iterando essa função fica fácil repetir o processo para diversas estações e parâmetros.
+
+É isso! Dúvidas, críticas e sugestões, deixe um comentário. 
+
+Até a próxima!
 
