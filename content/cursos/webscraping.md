@@ -1,8 +1,8 @@
 +++
 title = "Web scraping com R"
 banner = "img/banners/banner-scrape.png"
-hotsite = "http://workshop.curso-r.com/web-scraping/"
-oferecimento = "10 de março, em São Paulo - SP"
+hotsite = ""
+oferecimento = "a definir"
 summary = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter."
 rich_card_desc = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Usando o R, você também aprenderá a utilizar APIs e automatizar o controle de um browser."
 +++
