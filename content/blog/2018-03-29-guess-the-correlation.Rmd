@@ -18,15 +18,15 @@ A gente fez isso por esporte, favor não tentar achar utilidade nessa aplicaçã
 
 ## O Jogo
 
-O site [Guess The Correlation](http://guessthecorrelation.com/) coloca o ser humano frente a frente com um gráfico de dispersão, em que este é em seguida desafiado a adivinhar respectiva a correlação linear. 
+O site [Guess The Correlation](http://guessthecorrelation.com/) coloca o ser humano frente a frente com um gráfico de dispersão em que é em seguida desafiado a adivinhar a respectiva a correlação linear. 
 
-No nosso desafio Kaggle, desafio similar foi construído. Foram geradas 200 mil imagens em png como as abaixo:
+No nosso desafio Kaggle, desafio similar foi construído. Por exemplo: quanto você chutaria que é a correlação entre os dados da figura abaixo?
 
 <center>
 ![](/img/blog/2018-03-29-guess-the-correlation/exemplo_img.png)
 </center>
 
-e cada uma dessas imagens tem a sua correleção anotada para treinarmos um modelinho.
+Foram geradas 200 mil imagens em png como a figura acima e cada uma delas tem a sua correleção anotada para treinarmos um modelinho.
 
 ## Objetivo
 
