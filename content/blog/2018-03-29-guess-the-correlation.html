@@ -39,60 +39,57 @@ summary: "Criamos uma competição no Kaggle para aprender a máquina adivinhar 
 library(tidyverse)
 library(decryptr)
 
-path &lt;- &quot;./&quot;
-
+path &lt;- &quot;.&quot;
 arqs &lt;- dir(paste0(path,  &quot;/train_imgs&quot;), full.names = TRUE)
 resp &lt;- readr::read_csv(paste0(path,  &quot;/train_responses.csv&quot;))
 
-set.seed(4747)
 i_train &lt;- sample(1:nrow(resp), 10000)
-d_train &lt;- resp[i_train,] %&gt;% 
-  arrange(id)
-d_test &lt;- resp[-i_train,] %&gt;% 
-  arrange(id)
+arqs_train &lt;- arqs[i_train]
+arqs_test &lt;- arqs[-i_train]
 
-nm_files &lt;- arqs %&gt;% 
-  basename() %&gt;% 
-  tools::file_path_sans_ext()
+gen &lt;- function(batch_size = 100, arqs = arqs_train) {
+  f &lt;- function() {
+    a &lt;- sort(sample(arqs, batch_size))
+    imgs &lt;- decryptr::read_captcha(a)
+    captchas_t &lt;- purrr::transpose(imgs)
+    xs &lt;- captchas_t$x
+    xs &lt;- abind::abind(xs, along = 0.1)
+    a_clean &lt;- a %&gt;% 
+      basename() %&gt;% 
+      tools::file_path_sans_ext() %&gt;% 
+      tolower()
+    corr &lt;- resp %&gt;% 
+      filter(id %in% a_clean) %&gt;% 
+      arrange(id) %&gt;% 
+      pull(corr)
+    data &lt;- list(xs, corr)
+    data
+  }
+  f
+}
 
-nm_files_train &lt;- nm_files[tolower(nm_files) %in% d_train$id]
-nm_files_test &lt;- nm_files[tolower(nm_files) %in% d_test$id]
-
-nm_files_train_complete &lt;- stringr::str_glue(&quot;{path}/train_imgs/{nm_files_train}.png&quot;)
-imgs &lt;- decryptr::read_captcha(nm_files_train_complete)
-
-# Check whether frac_test is less than or equal to 100%
-
-# Convert list of captchas to expected format
-captchas_t &lt;- purrr::transpose(imgs)
-xs &lt;- captchas_t$x
-xs &lt;- abind::abind(xs, along = 0.1)
-data &lt;- list(n = length(imgs), y = d_train$corr, x = xs)
-n_units &lt;- 1000
-# Get absolute numbers
-n_tot &lt;- data$n
 
 # Create model
 model &lt;- keras_model_sequential()
 model %&gt;%
   layer_conv_2d(
-    input_shape = dim(data$x)[-1],
-    filters = 16, kernel_size = c(5, 5),
+    input_shape = c(150, 150, 1),
+    filters = 16, kernel_size = c(3, 3),
     padding = &quot;same&quot;,
     activation = &quot;relu&quot;) %&gt;%
   layer_max_pooling_2d() %&gt;%
   layer_conv_2d(
-    filters = 32, kernel_size = c(5, 5),
+    filters = 32, kernel_size = c(3, 3),
     padding = &quot;same&quot;,
     activation = &quot;relu&quot;) %&gt;%
   layer_max_pooling_2d() %&gt;%
   layer_conv_2d(
-    filters = 64, kernel_size = c(5, 5),
+    filters = 64, kernel_size = c(3, 3),
     padding = &quot;same&quot;,
     activation = &quot;relu&quot;) %&gt;%
   layer_max_pooling_2d() %&gt;%
   layer_flatten() %&gt;%
-  layer_dense(units = 100) %&gt;%
+  layer_dense(units = 300) %&gt;%
   layer_dropout(.1) %&gt;%
   layer_dense(units = 1, activation = &quot;tanh&quot;)
 
@@ -102,16 +99,14 @@ model %&gt;%
   compile(
     optimizer = &quot;sgd&quot;,
     loss = &quot;mean_squared_error&quot;,
-    metrics = &quot;accuracy&quot;)
+    metrics = &quot;mean_squared_error&quot;)
 
 model %&gt;%
-  fit(
-    x = data$x,
-    y = data$y,
-    batch_size = 100,
-    epochs = 10,
-    shuffle = TRUE,
-    validation_data = list(data$x, data$y)
+  fit_generator(
+    gen(100, arqs_train),
+    steps_per_epoch = 100,
+    validation_data = gen(100, arqs_test),
+    validation_steps = 10
   )</code></pre>
 <p>E aí? Será que dá pra acertar 100%? Ou será impossível?</p>
 <p>Boa R’ada!</p>

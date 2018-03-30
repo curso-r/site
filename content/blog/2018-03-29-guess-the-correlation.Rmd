@@ -49,60 +49,57 @@ library(keras)
 library(tidyverse)
 library(decryptr)
 
-path <- "./"
-
+path <- "."
 arqs <- dir(paste0(path,  "/train_imgs"), full.names = TRUE)
 resp <- readr::read_csv(paste0(path,  "/train_responses.csv"))
 
-set.seed(4747)
 i_train <- sample(1:nrow(resp), 10000)
-d_train <- resp[i_train,] %>% 
-  arrange(id)
-d_test <- resp[-i_train,] %>% 
-  arrange(id)
+arqs_train <- arqs[i_train]
+arqs_test <- arqs[-i_train]
 
-nm_files <- arqs %>% 
-  basename() %>% 
-  tools::file_path_sans_ext()
+gen <- function(batch_size = 100, arqs = arqs_train) {
+  f <- function() {
+    a <- sort(sample(arqs, batch_size))
+    imgs <- decryptr::read_captcha(a)
+    captchas_t <- purrr::transpose(imgs)
+    xs <- captchas_t$x
+    xs <- abind::abind(xs, along = 0.1)
+    a_clean <- a %>% 
+      basename() %>% 
+      tools::file_path_sans_ext() %>% 
+      tolower()
+    corr <- resp %>% 
+      filter(id %in% a_clean) %>% 
+      arrange(id) %>% 
+      pull(corr)
+    data <- list(xs, corr)
+    data
+  }
+  f
+}
 
-nm_files_train <- nm_files[tolower(nm_files) %in% d_train$id]
-nm_files_test <- nm_files[tolower(nm_files) %in% d_test$id]
-
-nm_files_train_complete <- stringr::str_glue("{path}/train_imgs/{nm_files_train}.png")
-imgs <- decryptr::read_captcha(nm_files_train_complete)
-
-# Check whether frac_test is less than or equal to 100%
-
-# Convert list of captchas to expected format
-captchas_t <- purrr::transpose(imgs)
-xs <- captchas_t$x
-xs <- abind::abind(xs, along = 0.1)
-data <- list(n = length(imgs), y = d_train$corr, x = xs)
-n_units <- 1000
-# Get absolute numbers
-n_tot <- data$n
 
 # Create model
 model <- keras_model_sequential()
 model %>%
   layer_conv_2d(
-    input_shape = dim(data$x)[-1],
-    filters = 16, kernel_size = c(5, 5),
+    input_shape = c(150, 150, 1),
+    filters = 16, kernel_size = c(3, 3),
     padding = "same",
     activation = "relu") %>%
   layer_max_pooling_2d() %>%
   layer_conv_2d(
-    filters = 32, kernel_size = c(5, 5),
+    filters = 32, kernel_size = c(3, 3),
     padding = "same",
     activation = "relu") %>%
   layer_max_pooling_2d() %>%
   layer_conv_2d(
-    filters = 64, kernel_size = c(5, 5),
+    filters = 64, kernel_size = c(3, 3),
     padding = "same",
     activation = "relu") %>%
   layer_max_pooling_2d() %>%
   layer_flatten() %>%
-  layer_dense(units = 100) %>%
+  layer_dense(units = 300) %>%
   layer_dropout(.1) %>%
   layer_dense(units = 1, activation = "tanh")
 
@@ -112,16 +109,14 @@ model %>%
   compile(
     optimizer = "sgd",
     loss = "mean_squared_error",
-    metrics = "accuracy")
+    metrics = "mean_squared_error")
 
 model %>%
-  fit(
-    x = data$x,
-    y = data$y,
-    batch_size = 100,
-    epochs = 10,
-    shuffle = TRUE,
-    validation_data = list(data$x, data$y)
+  fit_generator(
+    gen(100, arqs_train),
+    steps_per_epoch = 100,
+    validation_data = gen(100, arqs_test),
+    validation_steps = 10
   )
 ```
 
