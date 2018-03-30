@@ -106,7 +106,7 @@ knitr::include_graphics("/img/blog/segundo-menor-dl/y1.png")
 **Resposta `y_2`**
 
 ```{r, fig.height=3, echo=FALSE}
-knitr::include_graphics("/img/blog/y2.png")
+knitr::include_graphics("/img/blog/segundo-menor-dl/y2.png")
 ```
 
 
