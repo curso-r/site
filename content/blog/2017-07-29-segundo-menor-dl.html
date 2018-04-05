@@ -10,7 +10,7 @@ summary: "Deep learning é uma grande novidade, mas há muitos mitos em sua volt
 
 
 
-<section id="objetivos" class="level2">
+<div id="objetivos" class="section level2">
 <h2>Objetivos</h2>
 <p>A finalidade do post é:</p>
 <ul>
@@ -21,21 +21,21 @@ summary: "Deep learning é uma grande novidade, mas há muitos mitos em sua volt
 <li>mostrar que muitos profissionais inseridos na área de machine learning já conheciam grande parte do que o deep learning usa.</li>
 <li>levantar discussão sobre alguns mitos que não são construtivos para a comunidade dos analistas de dados.</li>
 </ul>
-</section>
-<section id="motivacao" class="level2">
+</div>
+<div id="motivacao" class="section level2">
 <h2>Motivação</h2>
 <p>Li estatísticos, cientistas da computação, engenheiros de dados a afins questionando o futuro do Machine Learning e se tudo que conhecíamos antes sobre modelagem estatística havia ficado obsoleto (como essa pergunta no Quora: <a href="https://www.quora.com/Should-I-quit-machine-learning">Should I Quit Machine Learning?</a>).</p>
 <p>E em conversas com pessoas próximas percebia certa ufania pela novidade e frustração pela “obsolência” do que se havia investido tempo estudando antes.</p>
 <p>Para piorar, aproveitadores pegaram jacaré nessa onda para fazer marketing malicioso com o intuito de desvalorizar e dividir a comunidade dos analistas de dados. Algo bem similar com o que aconteceu com outras palavras da moda como <em>data science</em>, <em>big data</em>, <em>Python versus R</em> e a própria <em>machine learning</em>. Antes havia a clássica propaganda de que a empresa X utilizava MACHINE LEARNING em vez de modelos preditivos. Agora a coisa evoluiu e apelam para o uso da palavra Deep Learning.</p>
 <p>O que realmente importa:</p>
-<ol type="1">
+<ol style="list-style-type: decimal">
 <li>Deep Learning é uma grande novidade e colocou a Inteligência Artificial em evidência.</li>
 <li>Quem manjava Machine Learning antes vai conseguir aplicar 95% do seu conhecimento nas aplicações de Deep Learning (incluindo baysianismo, bootstrap, inferência, probabilidade e a boiada toda).</li>
 <li>Deep Learning tem que ser visto como uma ferramenta a mais na caixa do analista de dados e não um substituto.</li>
 </ol>
 <p>E para abordar essa questão resolvi ajustar uma regressão logística usando deep learning para que todos que já fizeram uma regressão logística antes possam dizer que já fizeram uma rede neural também! Confesso ter uma leve motivação provocativa, mas qual graça teria se assim não fosse? =P</p>
-</section>
-<section id="o-que-faremos" class="level2">
+</div>
+<div id="o-que-faremos" class="section level2">
 <h2>O que faremos</h2>
 <ul>
 <li>Regressão logística para <span class="math inline">\(Y_1\)</span> (com <code>glm</code>)</li>
@@ -44,19 +44,19 @@ summary: "Deep learning é uma grande novidade, mas há muitos mitos em sua volt
 <li>Deep Learning para <span class="math inline">\(Y_2\)</span> (com <code>keras</code>)</li>
 </ul>
 <p>Mãos à obra.</p>
-<section id="pacotes" class="level3">
+<div id="pacotes" class="section level3">
 <h3>Pacotes</h3>
 <pre class="r"><code>library(keras)
 library(dplyr)
 library(tidyr)
 library(forcats)
 library(ggplot2)</code></pre>
-</section>
-</section>
-<section id="regressao-logistica-versus-deep-learning" class="level2">
+</div>
+</div>
+<div id="regressao-logistica-versus-deep-learning" class="section level2">
 <h2>Regressão logística versus Deep Learning</h2>
 <p>Hora de ajustar modelos para os mesmos dados de duas maneiras diferentes: regressão logística com <code>glm</code> e deep learning com o <code>keras</code>.</p>
-<section id="dados-simulados" class="level3">
+<div id="dados-simulados" class="section level3">
 <h3>Dados simulados</h3>
 <pre class="r"><code>logit &lt;- function(p) log(p) - log(1 - p)
 logistic &lt;- function(x) 1/(1 + exp(-x))
@@ -71,17 +71,18 @@ df &lt;- data_frame(x = runif(n, -2, 2.5)) %&gt;%
 <p><span class="math display">\[E[Y_1|x] = \text{logistic}{(-1 + 2x)} = \frac{1}{1 + e^{{-(-1 + 2x)}}}\]</span></p>
 <p><strong>Resposta <code>y_2</code></strong></p>
 <p><span class="math display">\[E[Y_2|x] = \text{logistic}{(-1 + 2\tanh(-1 + 2x))} = \frac{1}{1 + e^{{-(-1 + 2\tanh(-1 + 2x))}}}\]</span></p>
-<p><span class="math inline">\(x\)</span> é linear no logito de <code>y_1</code>, então a regressão logística vai cair bem para descobrir os parâmetros <span class="math inline">\(-1\)</span> e <span class="math inline">\(2\)</span>. Porém, <span class="math inline">\(x\)</span> não é linhar no logito de <code>y_2</code> e por isso a regressão logística não conseguirá representar fielmente o gerador de <code>y_2</code>.</p>
+<p><span class="math inline">\(x\)</span> é linear no logito de <code>y_1</code>, então a regressão logística vai cair bem para descobrir os parâmetros <span class="math inline">\(-1\)</span> e <span class="math inline">\(2\)</span>.
+Porém, <span class="math inline">\(x\)</span> não é linhar no logito de <code>y_2</code> e por isso a regressão logística não conseguirá representar fielmente o gerador de <code>y_2</code>.</p>
 <p><strong>OBS 1:</strong> A forma <span class="math inline">\(\text{logistic}{(\beta_0 + \beta_1\tanh(\beta_2 + \beta_3X))}\)</span> tem parâmetros dentro do função <code>tanh</code>, o que significa que a nossa hipótese para <span class="math inline">\(E[Y_2|x]\)</span> não é mais <strong>linear</strong> nos parâmetros. Por isso que modelos lineares (como o nome sugere) não são mais indicados. E a <strong>não linearidade</strong> é uma das generalizações que as redes neurais nos fornece! (sim, isso é muito relevante)</p>
 <p><strong>OBS 2:</strong> é claro que nesse caso bem simples de uma variável conseguiríamos inspecionar os dados para chegar em boas transformações de <span class="math inline">\(x\)</span> de tal forma que o ajuste da logística ficasse tão bom quanto o de uma rede neural, mas se acrescentássemos muitas outras variáveis aí a coisa complicaria!</p>
 <p>Em representação de redes neurais, as fórmulas acima ficam assim:</p>
 <p><strong>Resposta <code>y_1</code></strong></p>
 <p><img src="/img/blog/segundo-menor-dl/y1.png" /><!-- --></p>
 <p><strong>Resposta <code>y_2</code></strong></p>
-<p><img src="/img/blog/y2.png" /><!-- --></p>
+<p><img src="/img/blog/segundo-menor-dl/y2.png" /><!-- --></p>
 <p>O que era <strong>função de ligação</strong> no GLM, em redes neurais virou <strong>função de ativação</strong> (no final eu falo mais sobre vocabulários que mudaram).</p>
-</section>
-<section id="olhada-nos-dados" class="level3">
+</div>
+<div id="olhada-nos-dados" class="section level3">
 <h3>Olhada nos dados</h3>
 <pre class="r"><code># skimr::skim(df) %&gt;% skim_print %&gt;% with(numeric)  %&gt;% mutate_if(is.numeric, round, 2) %&gt;% DT::datatable()
 
@@ -102,11 +103,12 @@ df %&gt;%
   labs(x = &quot;x&quot;, colour = &quot;resposta&quot;) +
   theme(axis.text.x = element_blank(),panel.grid.major.x = element_blank(), panel.grid.minor.y = element_blank())</code></pre>
 <p><img src="/blog/2017-07-29-segundo-menor-dl_files/figure-html/unnamed-chunk-6-1.png" width="1152" /></p>
-<p>O gráfico da direita mostra que <code>x</code> é proporcional ao logito das probabilidades de <code>y_1</code> (em vermelho) como era pra ser por termos construído assim. Já com o <code>y_2</code> (em azul) ainda ficou parecendo uma sigmoide mesmo depois da transformação.</p>
-</section>
-<section id="ajuste-de-modelos" class="level3">
+<p>O gráfico da direita mostra que <code>x</code> é proporcional ao logito das probabilidades de <code>y_1</code> (em vermelho) como era pra ser por termos construído assim.
+Já com o <code>y_2</code> (em azul) ainda ficou parecendo uma sigmoide mesmo depois da transformação.</p>
+</div>
+<div id="ajuste-de-modelos" class="section level3">
 <h3>Ajuste de modelos</h3>
-<section id="regressao-logistica-para-y_1-com-glm" class="level4">
+<div id="regressao-logistica-para-y_1-com-glm" class="section level4">
 <h4>Regressão logística para <span class="math inline">\(Y_1\)</span> (com <code>glm</code>)</h4>
 <pre class="r"><code># modelo glm 1 ------------------------------------------------------
 modelo_glm_1 &lt;- glm(y_1 ~ x, data = df, family = binomial)</code></pre>
@@ -123,8 +125,8 @@ sum(diag(conf_matrix_glm_1))/sum(conf_matrix_glm_1)
 # [1] 0.85061</code></pre>
 <p>As estimativas ficaram bem próximas dos verdadeiros valores <span class="math inline">\(\beta_0 = -1\)</span> e <span class="math inline">\(\beta_1 = 2\)</span>.</p>
 <p>A acurácia foi de <strong>85%</strong>.</p>
-</section>
-<section id="deep-learning-para-y_1-com-keras" class="level4">
+</div>
+<div id="deep-learning-para-y_1-com-keras" class="section level4">
 <h4>Deep Learning para <span class="math inline">\(Y_1\)</span> (com <code>keras</code>)</h4>
 <p>Vamos montar nossa hipótese para <span class="math inline">\(E[Y_1|x]\)</span>.</p>
 <pre class="r"><code># modelo keras 1 -------------------------------------------------------
@@ -188,10 +190,11 @@ loss_and_metrics_1[[2]]
 
 # [1] 0.85053</code></pre>
 <p>Resultados idênticos! Era para assim ser porque construímos a mesma hipótese e a memsa função de perda do <code>glm</code>.</p>
-</section>
-<section id="regressao-logistica-para-y_2-com-glm" class="level4">
+</div>
+<div id="regressao-logistica-para-y_2-com-glm" class="section level4">
 <h4>Regressão logística para <span class="math inline">\(Y_2\)</span> (com <code>glm</code>)</h4>
-<p>Para modelar <span class="math inline">\(Y_2\)</span> vamos pisar em terrenos que os modelos lineares não pisam. Primeiro tento ajustar uma curva uasndo <code>x</code> e a transformação <code>tanh(x)</code>. Esse preditor eu suponho que escolhi depois de uma minuciosa e demorada inspeção dos dados (tentei simular mais ou menos o que eu faria numa modelagem onde eu que teria que construir as features na mão).</p>
+<p>Para modelar <span class="math inline">\(Y_2\)</span> vamos pisar em terrenos que os modelos lineares não pisam.
+Primeiro tento ajustar uma curva uasndo <code>x</code> e a transformação <code>tanh(x)</code>. Esse preditor eu suponho que escolhi depois de uma minuciosa e demorada inspeção dos dados (tentei simular mais ou menos o que eu faria numa modelagem onde eu que teria que construir as features na mão).</p>
 <pre class="r"><code># modelo glm 2 ------------------------------------------------------
 modelo_glm_2 &lt;- glm(y_2 ~ x + tanh(x), data = df, family = binomial)
 
@@ -207,8 +210,8 @@ sum(diag(conf_matrix_glm_2))/sum(conf_matrix_glm_2)
 
 # [1] 0.82204</code></pre>
 <p>Acurácia de 82%, nada mal. Mas a hipótese e parâmetros foram distintos do verdadeiro gerador dos dados. Vamos usar redes neurais para resolver o problema de não linearidade.</p>
-</section>
-<section id="deep-learning-para-y_2-com-keras" class="level4">
+</div>
+<div id="deep-learning-para-y_2-com-keras" class="section level4">
 <h4>Deep Learning para <span class="math inline">\(Y_2\)</span> (com <code>keras</code>)</h4>
 <p>Hipótese para <span class="math inline">\(E[Y_2|x]\)</span>.</p>
 <pre class="r"><code># modelo keras 2 -------------------------------------------------------
@@ -302,32 +305,34 @@ loss_and_metrics_2[[2]]
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   labs(x = &quot;x&quot;, colour = &quot;resposta&quot;)</code></pre>
 <p><img src="/blog/2017-07-29-segundo-menor-dl_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-</section>
-<section id="bonus-pca-com-autoencoer" class="level4">
+</div>
+<div id="bonus-pca-com-autoencoer" class="section level4">
 <h4>(Bônus) PCA com autoencoer</h4>
 <p>PCA e autoencodes servem na prática para reduzir a dimensionalidade dos dados. PCA é um caso particular de autoencoder com apenas uma camada e funções de ativação lineares. O post <a href="http://curso-r.com/blog/2017/06/26/2017-06-26-construindo-autoencoders/">Construindo Autoencoders</a> ensina a fazer e recomendo a leitura.</p>
 <p>Resumo: autoencoder é uma técnica incrível que generaliza o PCA.</p>
-</section>
-</section>
-</section>
-<section id="discussao" class="level2">
+</div>
+</div>
+</div>
+<div id="discussao" class="section level2">
 <h2>Discussão</h2>
 <p>Na minha opinião aconteceu de que muita coisa antiga e consagrada teve seu nome mudado e apresentado como novo e isso acabou ofuscando as grandes contribuições realmente relevantes das pesquisas em torno das redes neurais e do deep learning.</p>
-<p>Percebe-se que o Deep Learning generalizou bastante coisa e por isso eu declaro o post bem sucedido se o escrito acima despertou curiosidade em aprender mais sobre deep learning para agregar ao trabalho que já havia sendo feito. Vale mais a pena trazer todos os praticantes de estatística e machine learning juntos nessa novidade do que nos dividirmos.</p>
+<p>Percebe-se que o Deep Learning generalizou bastante coisa e por isso eu declaro o post bem sucedido se o escrito acima despertou curiosidade em aprender mais sobre deep learning para agregar ao trabalho que já havia sendo feito.
+Vale mais a pena trazer todos os praticantes de estatística e machine learning juntos nessa novidade do que nos dividirmos.</p>
 <p>Acredito que mais do que nunca a fundamentação teórica e interpretações terão seu valor potencializado com a disseminação do deep learning. Com o mito de que deep learning seja uma panaceia e com a facilidade que ela nos trouxe para fazer um modelo preditivo, há o risco de sermos soterrados por caixas pretas feitas por pessoas negligentes com aspectos importantes como interpretabilidade, causalidade e generalização. Talvez o bayesianismo se desponte (mais uma vez) como a solução para problemas qualitativos num mundo cada vez mais obscuro trazendo à luz os excessos dos modelos complexos e os benefícios dos modelos simples.</p>
 <p>Puxando o gancho do bayesianismo (e inferências em geral), os resultados já obtidos em cima de modelos lineares ainda se aplicam em deep learning. E também temos a vantagem de que todas as demais ferramentas que se usam em deep learning e que não afetam a linearidade dos parâmetros podem ser utilizadas, como convolucional, recorrente, max pooling, drop out, autoencoder e tantas outras.</p>
 <p>Para finalizar, na prática sugiro aplicar deep learning com o Keras, um pacote incrível que usa o tensorflow ou o theano por trás. Acredito que vocês verão muitos posts sobre o assunto por aqui! (podem encher o saco do Dan Falbel, um dos sócios da <a href="http://curso-r.com">curso-r.com</a>, que está envolvido no desenvolvimento desse pacote em R =]).</p>
-</section>
-<section id="curiosidades" class="level2">
+</div>
+<div id="curiosidades" class="section level2">
 <h2>Curiosidades</h2>
-<section id="n-esimo-menor-deep-learning" class="level3">
+<div id="n-esimo-menor-deep-learning" class="section level3">
 <h3>N-ésimo menor deep learning</h3>
-<p>Vimos acima o menor e o segundo menor Deep Learnings (que de profundo não têm nada =P). Mas podemos ir o tão profundo quanto quisermos! A representação de redes neurais sai fácil:</p>
+<p>Vimos acima o menor e o segundo menor Deep Learnings (que de profundo não têm nada =P). Mas podemos ir o tão profundo quanto quisermos!
+A representação de redes neurais sai fácil:</p>
 <p><img src="/img/blog/segundo-menor-dl/dl_inf.png" /><!-- --></p>
 <p>Já a representação matemática fica esquisita:</p>
 <p><span class="math display">\[E[Y|x] = \frac{1}{1 + \exp{\left(\beta_{p-1} + \beta_p\frac{1}{\frac{\vdots}{1 + \exp{\left(\beta_{6} + \beta_{7}\frac{1}{1 + \exp{\left(\beta_4 + \beta_5\frac{1}{1 + \exp{\left(\beta_2 + \beta_3\frac{1}{1 + \exp{\left(\beta_0 + \beta_1x\right)}}\right)}}\right)}}\right)}}}\right)}}\]</span></p>
-</section>
-<section id="vocabulario" class="level3">
+</div>
+<div id="vocabulario" class="section level3">
 <h3>Vocabulário</h3>
 <p>Os jargões e termos do deep learning foram herdados de um outro contexto diferente do da modelagem preditiva estudada na estatística e por isso acabaram surgindo inúmeros sinônimos. Alguns deles são:</p>
 <ul>
@@ -338,5 +343,5 @@ loss_and_metrics_2[[2]]
 <li>binary crossentropy = deviance da distribuição binomial (regressão logística)</li>
 </ul>
 <p>É isso aí, temos que nos manter curiosos, questionar e dialogar. Abs!</p>
-</section>
-</section>
+</div>
+</div>
