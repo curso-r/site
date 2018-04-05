@@ -66,7 +66,7 @@ paginate = 10
     weight = 1
 
 [[params.menu]]
-    name = "Sobre"
+    name = "Quem somos"
     url  = "/sobre/"
     weight = 2
 
@@ -76,19 +76,24 @@ paginate = 10
     weight = 3
 
 [[params.menu]]
-    name = "Blog"
-    url  = "/blog/"
+    name = "Material"
+    url  = "http://material.curso-r.com/"
     weight = 4
 
 [[params.menu]]
-    name = "Material"
-    url  = "http://material.curso-r.com/"
+    name = "Blog"
+    url  = "/blog/"
     weight = 5
+
+[[params.menu]]
+    name = "Datathon"
+    url  = "/datathon/"
+    weight = 6
 
 [[params.menu]]
     name = "Contato"
     url  = "/contact/"
-    weight = 6
+    weight = 7
 
 # Enable and disable widgets for the right sidebar
 [params.widgets]
