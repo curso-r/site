@@ -21,6 +21,7 @@ principalmente, venha interagir com a gente. :)
 </p>
 </div>
 
+<br>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
