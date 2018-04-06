@@ -1,5 +1,6 @@
 +++
-title = "Datathon"
+title =  "Datathon"
+type = "single"
 id = "datathon"
 +++
 
@@ -12,7 +13,7 @@ membros da Curso-R e convidados(as) que conhecemos pelo mundo da
 ciência de dados. O objetivo é discutir problemas de análise de dados,
 apresentar projetos, conhecer pessoas e áreas novas e, não menos
 importante, comer pizza.
-</p>
+</p> 
 
 <p>
 Nossas reuniões ainda são fechadas, mas temos planos para fazer
