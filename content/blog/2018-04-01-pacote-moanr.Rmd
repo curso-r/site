@@ -3,7 +3,7 @@ title: "Markov Augmented Ordinary Network with R (moanr)"
 date: "2018-03-19T14:25:00+03:00"
 tags: ["R", "pacote"]  
 categories: ["tutoriais", "r"]
-banner: "img/banners/moanr.png"
+banner: "img/banners/moanr.jpg"
 author: ["Julio", "Athos", "William", "Daniel", "Caio"]
 summary: "O pacote que você estava esperando."
 draft: true
