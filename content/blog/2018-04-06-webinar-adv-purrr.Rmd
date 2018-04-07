@@ -23,6 +23,13 @@ Caio é cientista da computação e apaixonado pelo `purrr`, com certeza um dos 
 - **Data:** Segunda Feira (08/04/2018)
 - **Horário:** 14h às 15h30
 - **Valor** GRÁTIS
-- **Link da transmissão:** A definir (Fique atento a essa página ou à página da Curso-R no Facebook)
+- **Link da transmissão:** [Clique Aqui](https://youtu.be/KJNzYVGTF3Y)
 
-Esse Webinar é uma parceria entre Curso-R e [Platipus](https://platipusc.github.io).
+Esse Webinar é uma parceria entre Curso-R e [ABJ](https://abj.org.br).
+
+## Transmissão
+
+```{r, echo = FALSE}
+blogdown::shortcode("youtube", id = "KJNzYVGTF3Y")
+```
+
