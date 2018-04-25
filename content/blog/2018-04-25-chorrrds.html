@@ -163,8 +163,9 @@ p &lt;- da_g %&gt;%
   ggplot(aes(x = date, y = media)) +
   geom_point(colour = &quot;skyblue3&quot;) +
   facet_wrap(&quot;genre&quot;) +
-  geom_smooth(span = 0.65, colour = &quot;white&quot;, fill = &quot;tan&quot;) +
   scale_fill_hue(c = 55, l = 75) +
+  geom_smooth(span = 0.65, colour = &quot;white&quot;, 
+              fill = &quot;tan&quot;, method = &quot;loess&quot;) +
   labs(x = &quot;Anos&quot;, y = &quot;Média de acordes/música&quot;)
 
 # tema para deixar o gráfico bonitinho
@@ -181,7 +182,7 @@ tema &lt;- theme(
   axis.text = element_text(size = 12))
   
 p + tema</code></pre>
-<p><img src="/blog/2018-04-25-chorrrds/media-acordes-musica.png" style="display: block; margin: auto;" /></p>
+<p><img src="/blog/2018-04-25-chorrrds/media-acordes-musicas.png" style="display: block; margin: auto;" /></p>
 <p>Claramente, gêneros como o samba, MPB e bossa nova têm, em geral, uma quantidade média de acordes distintos por música muito maior do que os outros. E eles têm mais variação ao longo dos anos também, o que pode ser um reflexo da maior criatividade envolvida nestes genêros. Os menores valores, como é esperado, estão principalmente no sertanejo, que é um genêro conhecidamente mais uniforme na questão harmônica.</p>
 <p>Nós podemos avançar um pouco e olhar para os próprios artistas. Quem será que usa as maiores quantidades de acordes distintos em suas composições? Vamos ver o próximo gráfico, que mostra apenas os artistas com mediana maior do que 8 acordes diferentes por música.</p>
 <pre class="r"><code>da_g &lt;- da %&gt;%   

@@ -126,8 +126,9 @@ p <- da_g %>%
   ggplot(aes(x = date, y = media)) +
   geom_point(colour = "skyblue3") +
   facet_wrap("genre") +
-  geom_smooth(span = 0.65, colour = "white", fill = "tan") +
   scale_fill_hue(c = 55, l = 75) +
+  geom_smooth(span = 0.65, colour = "white", 
+              fill = "tan", method = "loess") +
   labs(x = "Anos", y = "Média de acordes/música")
 
 # tema para deixar o gráfico bonitinho
@@ -147,7 +148,7 @@ p + tema
 ```
 
 ```{r, echo=FALSE, eval=TRUE, fig.align='center'}
-knitr::include_graphics("/blog/2018-04-25-chorrrds/media-acordes-musica.png")
+knitr::include_graphics("/blog/2018-04-25-chorrrds/media-acordes-musicas.png")
 ```
 
 Claramente, gêneros como o samba, MPB e bossa nova têm, em geral, 
