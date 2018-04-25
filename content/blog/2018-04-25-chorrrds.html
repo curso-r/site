@@ -1,6 +1,6 @@
 ---
 title: "chorrrds: Analisando acordes de músicas brasileiras"
-date: "2018-04-26T13:07:31+02:00"
+date: "2018-04-25T13:07:31+02:00"
 tags: ["musica"]
 categories: ["análises", "r"]
 banner: "img/banners/chorrrds.png"
@@ -181,7 +181,7 @@ tema &lt;- theme(
   axis.text = element_text(size = 12))
   
 p + tema</code></pre>
-<p><img src="/blog/2018-04-26-chorrrds/media-acordes-musica.png" style="display: block; margin: auto;" /></p>
+<p><img src="/blog/2018-04-25-chorrrds/media-acordes-musica.png" style="display: block; margin: auto;" /></p>
 <p>Claramente, gêneros como o samba, MPB e bossa nova têm, em geral, uma quantidade média de acordes distintos por música muito maior do que os outros. E eles têm mais variação ao longo dos anos também, o que pode ser um reflexo da maior criatividade envolvida nestes genêros. Os menores valores, como é esperado, estão principalmente no sertanejo, que é um genêro conhecidamente mais uniforme na questão harmônica.</p>
 <p>Nós podemos avançar um pouco e olhar para os próprios artistas. Quem será que usa as maiores quantidades de acordes distintos em suas composições? Vamos ver o próximo gráfico, que mostra apenas os artistas com mediana maior do que 8 acordes diferentes por música.</p>
 <pre class="r"><code>da_g &lt;- da %&gt;%   
@@ -222,7 +222,7 @@ tema &lt;- theme(
   axis.title.y = element_text(size = 16))
 
 p + tema</code></pre>
-<p><img src="/blog/2018-04-26-chorrrds/stats-artistas.png" style="display: block; margin: auto;" /></p>
+<p><img src="/blog/2018-04-25-chorrrds/stats-artistas.png" style="display: block; margin: auto;" /></p>
 <p>E <em>voilá</em>. A primeira posição é ocupada por um dos maiores musicistas brasileiros, que é referência internacional em questões de harmonia: Chico Buarque. Logo em seguida, temos o Reinaldo, um dos maiores sambistas que o Brasil já conheceu, e o Pixinguinha, um gênio do choro. E assim a lista segue, com artistas principalmente da bossa nova, samba e MPB. Demora até que apareça o primeiro dos rockeiros nesta lista, que é a Rita Lee. Dos membros do sertanejo, nenhum chega a aparecer no gráfico, mostrando que a “variedade” harmônica deste gênero musical é mesmo bem baixa.</p>
 <p>Até agora está legal mas, com música, sempre pode ficar ainda mais. A ideia mais recente que o meu caro orientador <a href="https://github.com/walmes">Walmes Zeviani</a> teve para o nosso trabalho é de encadear as transições entre os acordes em um diagrama de cordas. Vocês já ouviram falar desse diagrama? Eu mal o conheço e já considero pacas.</p>
 <p>O diagrama de cordas é um método gráfico (e lindo) de explicitar relações entre grupos ou indivíduos. Os grupos ficam arranjados de forma radial/circular, e as cordas que aparecem dentro do círculo demonstram as conexões entre eles e suas forças. Pra quem sabe um pouquinho sobre harmonia, vai ser sensacional ver o quanto isso faz sentido (mas também não vou entrar nesse mérito agora).</p>

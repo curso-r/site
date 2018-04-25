@@ -1,6 +1,6 @@
 ---
 title: "chorrrds: Analisando acordes de músicas brasileiras"
-date: "2018-04-26T13:07:31+02:00"
+date: "2018-04-25T13:07:31+02:00"
 tags: ["musica"]
 categories: ["análises", "r"]
 banner: "img/banners/chorrrds.png"
@@ -147,7 +147,7 @@ p + tema
 ```
 
 ```{r, echo=FALSE, eval=TRUE, fig.align='center'}
-knitr::include_graphics("/blog/2018-04-26-chorrrds/media-acordes-musica.png")
+knitr::include_graphics("/blog/2018-04-25-chorrrds/media-acordes-musica.png")
 ```
 
 Claramente, gêneros como o samba, MPB e bossa nova têm, em geral, 
@@ -206,7 +206,7 @@ p + tema
 ```
 
 ```{r, echo=FALSE, eval=TRUE, fig.align='center'}
-knitr::include_graphics("/blog/2018-04-26-chorrrds/stats-artistas.png")
+knitr::include_graphics("/blog/2018-04-25-chorrrds/stats-artistas.png")
 ```
 
 E *voilá*. A primeira posição é ocupada por um dos maiores 
