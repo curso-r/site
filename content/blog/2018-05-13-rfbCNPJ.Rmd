@@ -9,8 +9,8 @@ summary: "Durante nosso último curso de introdução a programação em R, um a
 draft: false
 ---
 
-```{r echo=F}
-knitr::opts_chunk$set(collapse = TRUE, cache = TRUE)
+```{r echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, cache = FALSE)
 ```
 
 Durante nosso [último curso de introdução a programação em R](http://loja.curso-r.com), o [Reinaldo Chaves](https://github.com/reichaves) me pediu ajuda para carregar os dados de [CNPJs da Receita Federal](http://idg.receita.fazenda.gov.br/orientacao/tributaria/cadastros/cadastro-nacional-de-pessoas-juridicas-cnpj/dados-abertos-do-cnpj). Eu me animei tanto com essa base que decidi montar um pacotinho para baixar ler e organizar esses dados.
@@ -291,42 +291,6 @@ empresas %>%
 |MA       |  123736|  6317987|1.96% |
 |AM       |   64306|  3301221|1.95% |
 
-## Wordcloud dos nomes das empresas
-
-```{r eval=FALSE}
-
-# palavras banidas: stop words e alguns tipos empresariais
-banned_words <- c(
-  tm::stopwords("en"), 
-  tm::stopwords("pt-br"),
-  "ltda", "eireli", "epp", "associacao"
-)
-
-wc_data <- empresas %>% 
-  # separa as palavras
-  tidytext::unnest_tokens(word, nome_empresarial) %>% 
-  dplyr::count(word) %>%
-  # tirar palavras banidas, 
-  # palavras com tamanho menor ou igual a 2
-  # e palavras que aparecem 10000 vezes ou menos
-  dplyr::filter(!word %in% banned_words,
-                stringr::str_length(word) > 2,
-                n > 10000) 
-```
-
-
-```{r echo=FALSE}
-# readr::write_rds(wc_data, "../../static/data/rfbCNPJ/wc_data.rds")
-wc <- readr::read_rds("../../static/data/rfbCNPJ/wc_data.rds")
-```
-
-```{r}
-wordcloud2::wordcloud2(wc)
-```
-
-
-WordClouds e sua incrível relevância prática (ironia). Bom, podemos ver que empresas de serviços são comuns! 
-
 ## Quantidade de sócios
 
 Qual a distribuição de quantidade de sócios? 
@@ -480,18 +444,102 @@ grafico
 knitr::include_graphics("/blog/2018-05-13-rfbCNPJ/empresas_sexo.png")
 ```
 
+## Análise Extra
+
+O [Sillas](https://sillasgonzaga.github.io/) sugeriu (e executou!) uma análise adicional. A ideia era montar um grafo das empresas que compartilham sócios da CVM. 
+
+### Baixando dados da CVM
+
+É bem tranquilo baixar as informações das empresas cadastradas na CVM:
+
+```{r eval=FALSE}
+
+# download do arquivo \ipado
+link <- "http://sistemas.cvm.gov.br/cadastro/SPW_CIA_ABERTA.ZIP"
+file_name <- "~/Downloads/companhias.zip"
+httr::GET(link, httr::write_disk(file_name))
+# dezipando arquivo
+unzip("companhias.zip", exdir = ".")
+
+cvm <- readr::read_delim(
+  file = "SPW_CIA_ABERTA.txt", 
+  delim = "\t",
+  col_types = stringr::str_dup("c", 42),
+  locale = readr::locale(encoding = "latin1")
+) %>% 
+  # limpa os nomes zoados
+  janitor::clean_names()
+
+# pega apenas empresas da CVM
+socios_cvm <- socios %>% 
+  dplyr::inner_join(cvm, "cnpj") %>% 
+  dplyr::filter(indicador_cpf_cnpj == "2") %>% 
+  dplyr::distinct(cnpj, nome, .keep_all = TRUE)
+```
+
+### Montando o grafo
+
+Cada nó de nosso grafo é um CNPJ. Uma aresta existe entre dois nós se as empresas têm pelo menos uma pessoa em comum no quadro de sócios. Eu fiz uma pequena alteração [no código que o Sillas fez](https://gist.github.com/sillasgonzaga/4a7cb7135a04c6e7e274680b71fbc643), para usar o `visNetwork` no lugar do `ggraph`.
+
+```{r eval=FALSE}
+# pequena limpeza na base
+empresas <- socios_cvm %>% 
+  dplyr::select(empresa = denom_comerc, pessoa = nome) %>% 
+  dplyr::mutate(empresa = abjutils::rm_accent(empresa)) %>% 
+  dplyr::distinct(empresa, pessoa)
+
+# arestas do grafo
+edges <- dplyr::inner_join(empresas, empresas, by = "pessoa") %>% 
+  dplyr::filter(empresa.x != empresa.y) %>% 
+  dplyr::distinct(empresa.x, empresa.y) %>% 
+  dplyr::rowwise() %>% 
+  # concatena as empresas de forma ordenada
+  dplyr::mutate(concat = paste(sort(c(empresa.x, empresa.y)), 
+                               collapse = "_")) %>% 
+  dplyr::ungroup() %>% 
+  # tira arestas duplicadas
+  dplyr::distinct(concat, .keep_all = TRUE) %>% 
+  dplyr::select(from = empresa.x, to = empresa.y)
+
+# nós do grafo
+nodes <- empresas %>% 
+  dplyr::distinct(empresa, .keep_all = TRUE) %>% 
+  dplyr::transmute(id = empresa, label = empresa) %>% 
+  # apenas empresas com alguma conexão
+  dplyr::filter(label %in% c(edges$from, edges$to))
+
+# guarda numa lista
+g <- list(nodes = nodes, edges = edges)
+```
+
+```{r echo=FALSE}
+# readr::write_rds(g, "../../static/data/rfbCNPJ/grafo.rds")
+
+g <- readr::read_rds("../../static/data/rfbCNPJ/grafo.rds")
+```
+
+```{r}
+library(visNetwork)
+
+v <- visNetwork::visNetwork(g$nodes, g$edges)
+v <- visNetwork::visOptions(v, highlightNearest = TRUE,
+                            nodesIdSelection = TRUE)
+
+v
+```
+
+Use seu mouse para navegar no grafo e descobrir os principais clusters de empresas!
+
 # Wrap-up
 
 - O pacote `rfbCNPJ` serve para organizar os dados de CNPJ da Receita Federal.
 - Use a função `rfb_import()` para ler os binários prontinhos para leitura diretamente do dropbox.
 - Além de descobrir todos os 9.048.917 CNPJs e 11.388.120 nomes únicos de pessoas, podemos fazer algumas análises exploratórias com esses dados.
 
-## Agradecimentos
+## Links e agradecimentos
 
-Aos amigos da curso-r.com e agregados, que me orientaram a criar a função `rfb_import()`.
-
-## Links
-
-Veja também o [Brasil.io](http://brasil.io) do [Turicas](https://github.com/turicas), que tem os mesmos arquivos para download.
+- Valeu amigos da curso-r.com e agregados, que me orientaram a criar a função `rfb_import()`.
+- Veja também o [Brasil.io](http://brasil.io) do [Turicas](https://github.com/turicas), que tem os mesmos arquivos para download.
+- Acompanhe o [blog do Sillas](https://sillasgonzaga.github.io/) que é muito mara!
 
 É isso. Happy coding ;)
