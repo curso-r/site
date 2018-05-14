@@ -446,7 +446,7 @@ knitr::include_graphics("/blog/2018-05-13-rfbCNPJ/empresas_sexo.png")
 
 ## Análise Extra
 
-O [Sillas](https://sillasgonzaga.github.io/) sugeriu (e executou!) uma análise adicional. A ideia era montar um grafo das empresas que compartilham sócios da CVM. 
+O [Sillas](http://sillasgonzaga.com/) sugeriu (e executou!) uma análise adicional. A ideia era montar um grafo das empresas que compartilham sócios da CVM. 
 
 ### Baixando dados da CVM
 
@@ -540,6 +540,6 @@ Use seu mouse para navegar no grafo e descobrir os principais clusters de empres
 
 - Valeu amigos da curso-r.com e agregados, que me orientaram a criar a função `rfb_import()`.
 - Veja também o [Brasil.io](http://brasil.io) do [Turicas](https://github.com/turicas), que tem os mesmos arquivos para download.
-- Acompanhe o [blog do Sillas](https://sillasgonzaga.github.io/) que é muito mara!
+- Acompanhe o [blog do Sillas](http://sillasgonzaga.com/) que é muito mara!
 
 É isso. Happy coding ;)
