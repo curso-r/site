@@ -13,13 +13,13 @@ draft: false
 knitr::opts_chunk$set(collapse = TRUE, cache = FALSE)
 ```
 
-Durante nosso [último curso de introdução a programação em R](http://loja.curso-r.com), o [Reinaldo Chaves](https://github.com/reichaves) me pediu ajuda para carregar os dados de [CNPJs da Receita Federal](http://idg.receita.fazenda.gov.br/orientacao/tributaria/cadastros/cadastro-nacional-de-pessoas-juridicas-cnpj/dados-abertos-do-cnpj). Eu me animei tanto com essa base que decidi montar um pacotinho para baixar ler e organizar esses dados.
+Durante nosso [último curso de introdução a programação em R](http://loja.curso-r.com), o [Reinaldo Chaves](https://github.com/reichaves) me pediu ajuda para carregar os dados de [CNPJs da Receita Federal](http://idg.receita.fazenda.gov.br/orientacao/tributaria/cadastros/cadastro-nacional-de-pessoas-juridicas-cnpj/dados-abertos-do-cnpj). Eu me animei tanto com essa base que decidi montar um pacotinho para baixar, ler e organizar esses dados.
 
 # Pacote
 
 O pacote [`rfbCNPJ`](https://github.com/jtrecenti/rfbCNPJ) baixa e lê os arquivos contendo a lista de todas as empresas do Brasil, disponibilizado pela [Receita Federal em 15 de dezembro de 2017](http://idg.receita.fazenda.gov.br/orientacao/tributaria/cadastros/cadastro-nacional-de-pessoas-juridicas-cnpj/dados-abertos-do-cnpj). 
 
-São duas tabelas separadas por UF: i) `empresas`, contendo informações de CNPJ e nome da empresa e ii) `socios`, contendo quadro de sócios. Essa base de dados é atualizada pela própria RFB e não faço ideia de quando será atualizada novamente.
+São duas tabelas, separadas por UF: i) `empresas`, contendo informações de CNPJ e nome da empresa e ii) `socios`, contendo quadro de sócios. Essa base de dados é atualizada pela própria RFB e eu não faço ideia de quando será atualizada novamente.
 
 Como os arquivos são do tipo [fixed width](https://readr.tidyverse.org/reference/read_fwf.html), algumas pessoas podem ter dificuldade para ler e empilhar os arquivos no R. Esse pacote facilita as operações de download e leitura.
 
@@ -28,6 +28,7 @@ Como os arquivos são do tipo [fixed width](https://readr.tidyverse.org/referenc
 Você pode instalar o pacote `rfbCNPJ` do CRAN rodando
 
 ``` r
+# ainda não foi aprovado no CRAN...
 install.packages("rfbCNPJ")
 ```
 
@@ -61,7 +62,7 @@ path <- "caminho/da/pasta"
 all_files <- fs::dir_ls(path)
 
 dados <- rfb_read(all_files)
-dados <- rfb_read_fir(path) # equivalente
+dados <- rfb_read_dir(path) # equivalente
 ```
 
 ## Carregando dados
@@ -106,12 +107,11 @@ print(dados, n = 27)
 27 D71214TO.txt <tibble [51,629 × 3]>    <tibble [89,911 × 6]>
 ```
 
-A primeira coluna complexa mostra dados das empresas, e a segunda mostra dados dos sócios.
-Para carregar uma dessas listas, use `tidyr::unnest()`.
+A primeira coluna complexa mostra dados das empresas, e a segunda mostra dados dos sócios. Para carregar uma dessas listas, use `tidyr::unnest()`, como veremos abaixo.
 
 
 
-Empresas: (nesse caso, `dados` representa a base completa da receita).
+**Empresas**:
 
 ``` r
 library(magrittr)
@@ -141,7 +141,7 @@ empresas
 
 ```
 
-Sócios:
+**Sócios:**
 
 ``` r
 socios <- dados %>% 
@@ -261,7 +261,7 @@ empresas %>%
 
 ```
 
-|UF |       Qtd. Empresas|      População|Proporção  |
+|UF |       Qtd. Empresas|      População|Razão(%)  |
 |:--------|-------:|--------:|:-----|
 |SC       |  498511|  6199948|8.04% |
 |DF       |  194734|  2541714|7.66% |
@@ -295,7 +295,7 @@ empresas %>%
 
 Qual a distribuição de quantidade de sócios? 
 
-Para responder essa pergunta, considerei apenas sócios pessoa física. Não fiz filtros de qualificação. Mas também não saberia selecionar as qualificações corretas sobre a base de `qualificacao`.
+Para responder à essa pergunta, considerei apenas sócios pessoa física. Não fiz filtros de qualificação. Você tem alguma ideia de como poderíamos selecionar as qualificações corretas sobre a base de `qualificacao`?
 
 ```{r echo=FALSE, eval=FALSE}
 contagens <- socios %>% 
@@ -334,7 +334,7 @@ knitr::kable(tabela)
 
 Dois terços das empresas são formadas por dois sócios e 90% das empresas são formadas por um ou dois sócios. 
 
-Fiquei interessado em saber quais empresas tem tantos sócios. Além da EY, não conheço nenhuma das empresas abaixo. O que dá para notar é que boa parte delas está ligada ao ramo médico.
+Fiquei interessado em saber quais empresas estão na última faixa de quantidade de sócios. A tabela abaixo mostra as 10 empresas com mais sócios nessa base. Além da EY, não conheço nenhuma das empresas abaixo. O que dá para notar é que boa parte delas está ligada ao ramo médico.
 
 ```{r eval=FALSE, echo=FALSE}
 contagens1 %>% 
@@ -358,7 +358,7 @@ contagens1 %>%
 
 ## Pessoas com mais empresas
 
-Quem são as pessoas que fazem parte do maior número de empresas? Temos abaixo uma lista dos 20 mais. Obviamente muitos desses nomes são homônimos. O primeiro nome da lista que me parece pouco provável de ter homônimos é o Renato Gamba Rocha Diniz. Também fiquei interessado nesse "Não Consta na Base"...
+Quem são os sócios com maior número de empresas? Temos abaixo uma lista dos 20 mais. Claramente, muitos desses nomes são homônimos. O primeiro nome da lista que me parece pouco provável de ter homônimos é o Renato Gamba Rocha Diniz. Também fiquei interessado nesse "Não Consta na Base"...
 
 ```{r, echo=FALSE, eval=FALSE}
 n_empresas <- socios %>% 
@@ -397,11 +397,13 @@ n_empresas %>%
 
 ## Sexo dos sócios
 
-Aqui vamos usar o pacote [`genderBR`](https://github.com/meirelesff/genderBR) para pegar o sexo mais provável de todas as pessoas. No total, temos 11.388.120 nomes únicos na base (isso subestima a quantidade de pessoas, por conta de homônimos).
+Agora vamos usar o pacote [`genderBR`](https://github.com/meirelesff/genderBR) para pegar o sexo mais provável de todas as pessoas. No total, temos 11.388.120 nomes únicos na base (isso subestima a quantidade de pessoas, por conta de homônimos).
 
-Para a análise do sexo dos sócios, tivemos de retirar 392.533 nomes em que o `genderBR` não foi capaz de estimar o sexo. Isso corresponde a 2,2% da base. Creio que não seja absurdo afirmar que esses valores faltantes influenciam no resultado. Nessa análise, se uma pessoa tem 2 duas ou mais empresas, ela é contada 2 ou mais vezes.
+Para essa análise, tivemos de retirar 392.533 nomes em que o `genderBR` não foi capaz de estimar o sexo. Isso corresponde a 2,2% da base. Creio que não seja absurdo afirmar que os valores omitidos influenciam no resultado. 
 
-Minha hipótese era que teríamos mais homens como sócios de empresas, por razões históricas/culturais (queremos mudar isso!). Infelizmente a hipótese foi confirmada: 3/5 dos sócios são homens. Claro que essa análise precisa ser refinada pela qualificação e pela repetição de pessoas em empresas distintas.
+Nessa análise também não desconsiderei pessoas que fazem parte de mais de uma empresa. Ou seja, se uma pessoa tem 2 ou mais empresas, ela é contada 2 ou mais vezes.
+
+Minha hipótese inicial era a de que teríamos mais homens como sócios de empresas, por razões históricas/culturais (e queremos mudar isso!). Aparentemente a hipótese foi confirmada: 3/5 dos sócios são homens. Sugiro refinar essa análise pela qualificação e pela repetição de pessoas em empresas distintas.
 
 ```{r eval=FALSE}
 sexo_socios <- socios %>% 
@@ -446,7 +448,7 @@ knitr::include_graphics("/blog/2018-05-13-rfbCNPJ/empresas_sexo.png")
 
 ## Análise Extra
 
-O [Sillas](http://sillasgonzaga.com/) sugeriu (e executou!) uma análise adicional. A ideia era montar um grafo das empresas que compartilham sócios da CVM. 
+O [Sillas](http://sillasgonzaga.com/) sugeriu (e executou!) uma análise adicional. A ideia era montar um grafo das empresas que compartilham sócios da Comissão de Valores Mobiliários (CVM). A CVM guarda informações de todas as empresas de capital aberto do Brasil. Uma investigação interessante é estudar se os sócios fazem parte de várias empresas. A visualização adequada para isso é um grafo das companhias, ligados pela presença de sócios com o mesmo nome.
 
 ### Baixando dados da CVM
 
@@ -479,7 +481,7 @@ socios_cvm <- socios %>%
 
 ### Montando o grafo
 
-Cada nó de nosso grafo é um CNPJ. Uma aresta existe entre dois nós se as empresas têm pelo menos uma pessoa em comum no quadro de sócios. Eu fiz uma pequena alteração [no código que o Sillas fez](https://gist.github.com/sillasgonzaga/4a7cb7135a04c6e7e274680b71fbc643), para usar o `visNetwork` no lugar do `ggraph`.
+Cada nó de nosso grafo é uma empresa Uma aresta existe entre dois nós se as empresas têm pelo menos uma pessoa em comum no quadro de sócios. Para fazer o grafo, eu fiz uma pequena alteração [no código que o Sillas me mandou](https://gist.github.com/sillasgonzaga/4a7cb7135a04c6e7e274680b71fbc643), para usar o `visNetwork` (que é dinâmico) no lugar do `ggraph` (que é lindo, porém estático).
 
 ```{r eval=FALSE}
 # pequena limpeza na base
@@ -534,12 +536,12 @@ Use seu mouse para navegar no grafo e descobrir os principais clusters de empres
 
 - O pacote `rfbCNPJ` serve para organizar os dados de CNPJ da Receita Federal.
 - Use a função `rfb_import()` para ler os binários prontinhos para leitura diretamente do dropbox.
-- Além de descobrir todos os 9.048.917 CNPJs e 11.388.120 nomes únicos de pessoas, podemos fazer algumas análises exploratórias com esses dados.
+- Além de descobrir todos os 9.048.917 CNPJs e 11.388.120 nomes únicos de pessoas, podemos fazer análises exploratórias com esses dados.
 
 ## Links e agradecimentos
 
-- Valeu amigos da curso-r.com e agregados, que me orientaram a criar a função `rfb_import()`.
-- Veja também o [Brasil.io](http://brasil.io) do [Turicas](https://github.com/turicas), que tem os mesmos arquivos para download.
+- Valeu, amigos da curso-r.com e agregados, que me orientaram a criar a função `rfb_import()`.
+- Veja também o [Brasil.io](http://brasil.io) do [Turicas](https://github.com/turicas), que tem os mesmos arquivos para download. Ele me informou também que a base dele é mais confiável, pois apresenta correções de dados incorretos da Receita.
 - Acompanhe o [blog do Sillas](http://sillasgonzaga.com/) que é muito mara!
 
 É isso. Happy coding ;)

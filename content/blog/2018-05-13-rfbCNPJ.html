@@ -15,16 +15,17 @@ draft: false
 <script src="/rmarkdown-libs/visNetwork-binding/visNetwork.js"></script>
 
 
-<p>Durante nosso <a href="http://loja.curso-r.com">último curso de introdução a programação em R</a>, o <a href="https://github.com/reichaves">Reinaldo Chaves</a> me pediu ajuda para carregar os dados de <a href="http://idg.receita.fazenda.gov.br/orientacao/tributaria/cadastros/cadastro-nacional-de-pessoas-juridicas-cnpj/dados-abertos-do-cnpj">CNPJs da Receita Federal</a>. Eu me animei tanto com essa base que decidi montar um pacotinho para baixar ler e organizar esses dados.</p>
+<p>Durante nosso <a href="http://loja.curso-r.com">último curso de introdução a programação em R</a>, o <a href="https://github.com/reichaves">Reinaldo Chaves</a> me pediu ajuda para carregar os dados de <a href="http://idg.receita.fazenda.gov.br/orientacao/tributaria/cadastros/cadastro-nacional-de-pessoas-juridicas-cnpj/dados-abertos-do-cnpj">CNPJs da Receita Federal</a>. Eu me animei tanto com essa base que decidi montar um pacotinho para baixar, ler e organizar esses dados.</p>
 <div id="pacote" class="section level1">
 <h1>Pacote</h1>
 <p>O pacote <a href="https://github.com/jtrecenti/rfbCNPJ"><code>rfbCNPJ</code></a> baixa e lê os arquivos contendo a lista de todas as empresas do Brasil, disponibilizado pela <a href="http://idg.receita.fazenda.gov.br/orientacao/tributaria/cadastros/cadastro-nacional-de-pessoas-juridicas-cnpj/dados-abertos-do-cnpj">Receita Federal em 15 de dezembro de 2017</a>.</p>
-<p>São duas tabelas separadas por UF: i) <code>empresas</code>, contendo informações de CNPJ e nome da empresa e ii) <code>socios</code>, contendo quadro de sócios. Essa base de dados é atualizada pela própria RFB e não faço ideia de quando será atualizada novamente.</p>
+<p>São duas tabelas, separadas por UF: i) <code>empresas</code>, contendo informações de CNPJ e nome da empresa e ii) <code>socios</code>, contendo quadro de sócios. Essa base de dados é atualizada pela própria RFB e eu não faço ideia de quando será atualizada novamente.</p>
 <p>Como os arquivos são do tipo <a href="https://readr.tidyverse.org/reference/read_fwf.html">fixed width</a>, algumas pessoas podem ter dificuldade para ler e empilhar os arquivos no R. Esse pacote facilita as operações de download e leitura.</p>
 <div id="instalacao" class="section level2">
 <h2>Instalação</h2>
 <p>Você pode instalar o pacote <code>rfbCNPJ</code> do CRAN rodando</p>
-<pre class="r"><code>install.packages(&quot;rfbCNPJ&quot;)</code></pre>
+<pre class="r"><code># ainda não foi aprovado no CRAN...
+install.packages(&quot;rfbCNPJ&quot;)</code></pre>
 <p>Você também pode baixar diretamente do GitHub rodando:</p>
 <pre class="r"><code># install.packages(&quot;devtools&quot;)
 devtools::install_github(&quot;jtrecenti/rfbCNPJ&quot;)</code></pre>
@@ -41,7 +42,7 @@ devtools::install_github(&quot;jtrecenti/rfbCNPJ&quot;)</code></pre>
 all_files &lt;- fs::dir_ls(path)
 
 dados &lt;- rfb_read(all_files)
-dados &lt;- rfb_read_fir(path) # equivalente</code></pre>
+dados &lt;- rfb_read_dir(path) # equivalente</code></pre>
 </div>
 <div id="carregando-dados" class="section level2">
 <h2>Carregando dados</h2>
@@ -78,8 +79,8 @@ print(dados, n = 27)</code></pre>
 25 D71214SE.txt &lt;tibble [63,303 × 3]&gt;    &lt;tibble [114,081 × 6]&gt;  
 26 D71214SP.txt &lt;tibble [2,730,412 × 3]&gt; &lt;tibble [5,585,988 × 6]&gt;
 27 D71214TO.txt &lt;tibble [51,629 × 3]&gt;    &lt;tibble [89,911 × 6]&gt;</code></pre>
-<p>A primeira coluna complexa mostra dados das empresas, e a segunda mostra dados dos sócios. Para carregar uma dessas listas, use <code>tidyr::unnest()</code>.</p>
-<p>Empresas: (nesse caso, <code>dados</code> representa a base completa da receita).</p>
+<p>A primeira coluna complexa mostra dados das empresas, e a segunda mostra dados dos sócios. Para carregar uma dessas listas, use <code>tidyr::unnest()</code>, como veremos abaixo.</p>
+<p><strong>Empresas</strong>:</p>
 <pre class="r"><code>library(magrittr)
 
 empresas &lt;- dados %&gt;% 
@@ -102,7 +103,7 @@ empresas</code></pre>
 10 D71214AC.txt 01    01653480000152 DENEVS - TERCEIRIZACAO LTDA         
 # ... with 9,048,907 more rows
 </code></pre>
-<p>Sócios:</p>
+<p><strong>Sócios:</strong></p>
 <pre class="r"><code>socios &lt;- dados %&gt;% 
   dplyr::select(file, socio) %&gt;% 
   tidyr::unnest(socio)
@@ -198,7 +199,7 @@ empresas %&gt;%
 <th align="left">UF</th>
 <th align="right">Qtd. Empresas</th>
 <th align="right">População</th>
-<th align="left">Proporção</th>
+<th align="left">Razão(%)</th>
 </tr>
 </thead>
 <tbody>
@@ -370,7 +371,7 @@ empresas %&gt;%
 <div id="quantidade-de-socios" class="section level2">
 <h2>Quantidade de sócios</h2>
 <p>Qual a distribuição de quantidade de sócios?</p>
-<p>Para responder essa pergunta, considerei apenas sócios pessoa física. Não fiz filtros de qualificação. Mas também não saberia selecionar as qualificações corretas sobre a base de <code>qualificacao</code>.</p>
+<p>Para responder à essa pergunta, considerei apenas sócios pessoa física. Não fiz filtros de qualificação. Você tem alguma ideia de como poderíamos selecionar as qualificações corretas sobre a base de <code>qualificacao</code>?</p>
 <table>
 <thead>
 <tr class="header">
@@ -413,7 +414,7 @@ empresas %&gt;%
 </tbody>
 </table>
 <p>Dois terços das empresas são formadas por dois sócios e 90% das empresas são formadas por um ou dois sócios.</p>
-<p>Fiquei interessado em saber quais empresas tem tantos sócios. Além da EY, não conheço nenhuma das empresas abaixo. O que dá para notar é que boa parte delas está ligada ao ramo médico.</p>
+<p>Fiquei interessado em saber quais empresas estão na última faixa de quantidade de sócios. A tabela abaixo mostra as 10 empresas com mais sócios nessa base. Além da EY, não conheço nenhuma das empresas abaixo. O que dá para notar é que boa parte delas está ligada ao ramo médico.</p>
 <table>
 <colgroup>
 <col width="93%" />
@@ -471,7 +472,7 @@ empresas %&gt;%
 </div>
 <div id="pessoas-com-mais-empresas" class="section level2">
 <h2>Pessoas com mais empresas</h2>
-<p>Quem são as pessoas que fazem parte do maior número de empresas? Temos abaixo uma lista dos 20 mais. Obviamente muitos desses nomes são homônimos. O primeiro nome da lista que me parece pouco provável de ter homônimos é o Renato Gamba Rocha Diniz. Também fiquei interessado nesse “Não Consta na Base”…</p>
+<p>Quem são os sócios com maior número de empresas? Temos abaixo uma lista dos 20 mais. Claramente, muitos desses nomes são homônimos. O primeiro nome da lista que me parece pouco provável de ter homônimos é o Renato Gamba Rocha Diniz. Também fiquei interessado nesse “Não Consta na Base”…</p>
 <table>
 <thead>
 <tr class="header">
@@ -565,9 +566,10 @@ empresas %&gt;%
 </div>
 <div id="sexo-dos-socios" class="section level2">
 <h2>Sexo dos sócios</h2>
-<p>Aqui vamos usar o pacote <a href="https://github.com/meirelesff/genderBR"><code>genderBR</code></a> para pegar o sexo mais provável de todas as pessoas. No total, temos 11.388.120 nomes únicos na base (isso subestima a quantidade de pessoas, por conta de homônimos).</p>
-<p>Para a análise do sexo dos sócios, tivemos de retirar 392.533 nomes em que o <code>genderBR</code> não foi capaz de estimar o sexo. Isso corresponde a 2,2% da base. Creio que não seja absurdo afirmar que esses valores faltantes influenciam no resultado. Nessa análise, se uma pessoa tem 2 duas ou mais empresas, ela é contada 2 ou mais vezes.</p>
-<p>Minha hipótese era que teríamos mais homens como sócios de empresas, por razões históricas/culturais (queremos mudar isso!). Infelizmente a hipótese foi confirmada: 3/5 dos sócios são homens. Claro que essa análise precisa ser refinada pela qualificação e pela repetição de pessoas em empresas distintas.</p>
+<p>Agora vamos usar o pacote <a href="https://github.com/meirelesff/genderBR"><code>genderBR</code></a> para pegar o sexo mais provável de todas as pessoas. No total, temos 11.388.120 nomes únicos na base (isso subestima a quantidade de pessoas, por conta de homônimos).</p>
+<p>Para essa análise, tivemos de retirar 392.533 nomes em que o <code>genderBR</code> não foi capaz de estimar o sexo. Isso corresponde a 2,2% da base. Creio que não seja absurdo afirmar que os valores omitidos influenciam no resultado.</p>
+<p>Nessa análise também não desconsiderei pessoas que fazem parte de mais de uma empresa. Ou seja, se uma pessoa tem 2 ou mais empresas, ela é contada 2 ou mais vezes.</p>
+<p>Minha hipótese inicial era a de que teríamos mais homens como sócios de empresas, por razões históricas/culturais (e queremos mudar isso!). Aparentemente a hipótese foi confirmada: 3/5 dos sócios são homens. Sugiro refinar essa análise pela qualificação e pela repetição de pessoas em empresas distintas.</p>
 <pre class="r"><code>sexo_socios &lt;- socios %&gt;% 
   # apenas pessoas físicas
   dplyr::filter(indicador_cpf_cnpj == &quot;2&quot;) %&gt;% 
@@ -603,7 +605,7 @@ grafico</code></pre>
 </div>
 <div id="analise-extra" class="section level2">
 <h2>Análise Extra</h2>
-<p>O <a href="http://sillasgonzaga.com/">Sillas</a> sugeriu (e executou!) uma análise adicional. A ideia era montar um grafo das empresas que compartilham sócios da CVM.</p>
+<p>O <a href="http://sillasgonzaga.com/">Sillas</a> sugeriu (e executou!) uma análise adicional. A ideia era montar um grafo das empresas que compartilham sócios da Comissão de Valores Mobiliários (CVM). A CVM guarda informações de todas as empresas de capital aberto do Brasil. Uma investigação interessante é estudar se os sócios fazem parte de várias empresas. A visualização adequada para isso é um grafo das companhias, ligados pela presença de sócios com o mesmo nome.</p>
 <div id="baixando-dados-da-cvm" class="section level3">
 <h3>Baixando dados da CVM</h3>
 <p>É bem tranquilo baixar as informações das empresas cadastradas na CVM:</p>
@@ -632,7 +634,7 @@ socios_cvm &lt;- socios %&gt;%
 </div>
 <div id="montando-o-grafo" class="section level3">
 <h3>Montando o grafo</h3>
-<p>Cada nó de nosso grafo é um CNPJ. Uma aresta existe entre dois nós se as empresas têm pelo menos uma pessoa em comum no quadro de sócios. Eu fiz uma pequena alteração <a href="https://gist.github.com/sillasgonzaga/4a7cb7135a04c6e7e274680b71fbc643">no código que o Sillas fez</a>, para usar o <code>visNetwork</code> no lugar do <code>ggraph</code>.</p>
+<p>Cada nó de nosso grafo é uma empresa Uma aresta existe entre dois nós se as empresas têm pelo menos uma pessoa em comum no quadro de sócios. Para fazer o grafo, eu fiz uma pequena alteração <a href="https://gist.github.com/sillasgonzaga/4a7cb7135a04c6e7e274680b71fbc643">no código que o Sillas me mandou</a>, para usar o <code>visNetwork</code> (que é dinâmico) no lugar do <code>ggraph</code> (que é lindo, porém estático).</p>
 <pre class="r"><code># pequena limpeza na base
 empresas &lt;- socios_cvm %&gt;% 
   dplyr::select(empresa = denom_comerc, pessoa = nome) %&gt;% 
@@ -679,13 +681,13 @@ v</code></pre>
 <ul>
 <li>O pacote <code>rfbCNPJ</code> serve para organizar os dados de CNPJ da Receita Federal.</li>
 <li>Use a função <code>rfb_import()</code> para ler os binários prontinhos para leitura diretamente do dropbox.</li>
-<li>Além de descobrir todos os 9.048.917 CNPJs e 11.388.120 nomes únicos de pessoas, podemos fazer algumas análises exploratórias com esses dados.</li>
+<li>Além de descobrir todos os 9.048.917 CNPJs e 11.388.120 nomes únicos de pessoas, podemos fazer análises exploratórias com esses dados.</li>
 </ul>
 <div id="links-e-agradecimentos" class="section level2">
 <h2>Links e agradecimentos</h2>
 <ul>
-<li>Valeu amigos da curso-r.com e agregados, que me orientaram a criar a função <code>rfb_import()</code>.</li>
-<li>Veja também o <a href="http://brasil.io">Brasil.io</a> do <a href="https://github.com/turicas">Turicas</a>, que tem os mesmos arquivos para download.</li>
+<li>Valeu, amigos da curso-r.com e agregados, que me orientaram a criar a função <code>rfb_import()</code>.</li>
+<li>Veja também o <a href="http://brasil.io">Brasil.io</a> do <a href="https://github.com/turicas">Turicas</a>, que tem os mesmos arquivos para download. Ele me informou também que a base dele é mais confiável, pois apresenta correções de dados incorretos da Receita.</li>
 <li>Acompanhe o <a href="http://sillasgonzaga.com/">blog do Sillas</a> que é muito mara!</li>
 </ul>
 <p>É isso. Happy coding ;)</p>
