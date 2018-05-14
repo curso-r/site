@@ -164,7 +164,7 @@ p &lt;- da_g %&gt;%
   geom_point(colour = &quot;skyblue3&quot;) +
   facet_wrap(&quot;genre&quot;) +
   scale_fill_hue(c = 55, l = 75) +
-  geom_smooth(span = 0.65, colour = &quot;white&quot;, 
+  geom_smooth(aes(group = genre), span = 0.65, colour = &quot;white&quot;, 
               fill = &quot;tan&quot;, method = &quot;loess&quot;) +
   labs(x = &quot;Anos&quot;, y = &quot;Média de acordes/música&quot;)
 
