@@ -204,7 +204,7 @@ Você pode carregar os arquivos binários (em `.rds`) diretamente da web usando 
 "socios" (`tibble` retangular).
 
 ``` r
-empresas <- rfb_import("empresas")
+empresas <- rfb_import("empresas", path = ".")
 ```
 
 Você também pode baixar os dados dos arquivos binários em `.rds` desses links

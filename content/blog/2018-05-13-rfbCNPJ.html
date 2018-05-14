@@ -147,7 +147,7 @@ qualificacao</code></pre>
 <div id="download-de-arquivos-binarios" class="section level2">
 <h2>Download de arquivos binários</h2>
 <p>Você pode carregar os arquivos binários (em <code>.rds</code>) diretamente da web usando a função <code>rfb_import()</code>. Essa função baixa os arquivos binários diretamente do <a href="https://www.dropbox.com/sh/tneczglkt11co0b/AABuRuJR02w2QcUbuhSl1XvLa?dl=0">Dropbox</a>. Você pode baixar usando o parâmetro <code>type=</code>, com as opções “all” (<code>tibble</code> complexa com <em>list-columns</em>), “empresas” (<code>tibble</code> retangular) e “socios” (<code>tibble</code> retangular).</p>
-<pre class="r"><code>empresas &lt;- rfb_import(&quot;empresas&quot;)</code></pre>
+<pre class="r"><code>empresas &lt;- rfb_import(&quot;empresas&quot;, path = &quot;.&quot;)</code></pre>
 <p>Você também pode baixar os dados dos arquivos binários em <code>.rds</code> desses links com arquivos armazenados diretamente no dropbox:</p>
 <ul>
 <li><a href="https://www.dropbox.com/s/js3lvm0ogpxcjch/rfb.rds?dl=1">rfb (list-column)</a></li>
