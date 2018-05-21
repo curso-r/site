@@ -1,8 +1,8 @@
 ---
 title: "rfbCNPJ: Repositório de CNPJs da Receita"
 date: "2018-05-13T00:00:00+00:00"
-tags: ["musica"]
-categories: ["análises", "pacotes", "r"]
+tags: ["banco-de-dados", "receita"]
+categories: ["análises", "r", "pacotes"]
 banner: "img/banners/rfbCNPJ.png"
 author: ["Julio"]
 summary: "Durante nosso último curso de introdução a programação em R, um aluno me pediu ajuda para carregar os dados de CNPJs da Receita Federal. Eu me animei tanto com essa base que decidi montar um pacotinho para baixar ler e organizar esses dados..."
@@ -32,12 +32,18 @@ devtools::install_github(&quot;jtrecenti/rfbCNPJ&quot;)</code></pre>
 </div>
 <div id="download-de-arquivos-brutos" class="section level2">
 <h2>Download de arquivos brutos</h2>
-<p>Você pode baixar o arquivo <code>.txt</code> bruto de cada UF usando o comando <code>rfb_download()</code>. Por padrão, temos <code>ufs = NULL</code>, que baixará os arquivos de todas as UFs. Esses arquivos somam aproximadamente 4.8 GB em disco.</p>
+<p>Você pode baixar o arquivo <code>.txt</code> bruto de cada UF usando o comando
+<code>rfb_download()</code>. Por padrão, temos <code>ufs = NULL</code>, que baixará os arquivos
+de todas as UFs. Esses arquivos somam aproximadamente 4.8 GB em disco.</p>
 <pre class="r"><code>rfb_download(ufs = c(&quot;AC&quot;, &quot;RR&quot;), path = &quot;caminho/da/pasta&quot;)</code></pre>
 </div>
 <div id="parse" class="section level2">
 <h2>Parse</h2>
-<p>A partir de uma pasta contendo os arquivos txt, você pode carregar as bases de dados rodando <code>rfb_read()</code> com os caminhos dos arquivos ou <code>rfb_read_dir()</code> diretamente para ler todos os arquivos da pasta. Certifique-se de que a pasta que contém os arquivos a serem lidos contém apenas os arquivos baixados em <code>.txt</code>.</p>
+<p>A partir de uma pasta contendo os arquivos txt, você pode carregar as bases
+de dados rodando <code>rfb_read()</code> com os caminhos dos arquivos ou <code>rfb_read_dir()</code>
+diretamente para ler todos os arquivos da pasta. Certifique-se de que a pasta
+que contém os arquivos a serem lidos contém apenas os arquivos baixados
+em <code>.txt</code>.</p>
 <pre class="r"><code>path &lt;- &quot;caminho/da/pasta&quot;
 all_files &lt;- fs::dir_ls(path)
 
@@ -146,9 +152,13 @@ qualificacao</code></pre>
 </div>
 <div id="download-de-arquivos-binarios" class="section level2">
 <h2>Download de arquivos binários</h2>
-<p>Você pode carregar os arquivos binários (em <code>.rds</code>) diretamente da web usando a função <code>rfb_import()</code>. Essa função baixa os arquivos binários diretamente do <a href="https://www.dropbox.com/sh/tneczglkt11co0b/AABuRuJR02w2QcUbuhSl1XvLa?dl=0">Dropbox</a>. Você pode baixar usando o parâmetro <code>type=</code>, com as opções “all” (<code>tibble</code> complexa com <em>list-columns</em>), “empresas” (<code>tibble</code> retangular) e “socios” (<code>tibble</code> retangular).</p>
+<p>Você pode carregar os arquivos binários (em <code>.rds</code>) diretamente da web usando a função <code>rfb_import()</code>. Essa função baixa os arquivos binários diretamente do
+<a href="https://www.dropbox.com/sh/tneczglkt11co0b/AABuRuJR02w2QcUbuhSl1XvLa?dl=0">Dropbox</a>. Você pode baixar usando o parâmetro <code>type=</code>, com as opções “all”
+(<code>tibble</code> complexa com <em>list-columns</em>), “empresas” (<code>tibble</code> retangular) e
+“socios” (<code>tibble</code> retangular).</p>
 <pre class="r"><code>empresas &lt;- rfb_import(&quot;empresas&quot;, path = &quot;.&quot;)</code></pre>
-<p>Você também pode baixar os dados dos arquivos binários em <code>.rds</code> desses links com arquivos armazenados diretamente no dropbox:</p>
+<p>Você também pode baixar os dados dos arquivos binários em <code>.rds</code> desses links
+com arquivos armazenados diretamente no dropbox:</p>
 <ul>
 <li><a href="https://www.dropbox.com/s/js3lvm0ogpxcjch/rfb.rds?dl=1">rfb (list-column)</a></li>
 <li><a href="https://www.dropbox.com/s/9h06mn9rzml4d2h/rfb_empresas.rds?dl=1">empresas</a></li>
@@ -417,8 +427,8 @@ empresas %&gt;%
 <p>Fiquei interessado em saber quais empresas estão na última faixa de quantidade de sócios. A tabela abaixo mostra as 10 empresas com mais sócios nessa base. Além da EY, não conheço nenhuma das empresas abaixo. O que dá para notar é que boa parte delas está ligada ao ramo médico.</p>
 <table>
 <colgroup>
-<col width="93%" />
-<col width="6%" />
+<col width="94%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">

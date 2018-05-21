@@ -1,8 +1,8 @@
 ---
 title: "rfbCNPJ: Repositório de CNPJs da Receita"
 date: "2018-05-13T00:00:00+00:00"
-tags: ["musica"]
-categories: ["análises", "pacotes", "r"]
+tags: ["banco-de-dados", "receita"]
+categories: ["análises", "r", "pacotes"]
 banner: "img/banners/rfbCNPJ.png"
 author: ["Julio"]
 summary: "Durante nosso último curso de introdução a programação em R, um aluno me pediu ajuda para carregar os dados de CNPJs da Receita Federal. Eu me animei tanto com essa base que decidi montar um pacotinho para baixar ler e organizar esses dados..."
