@@ -21,7 +21,7 @@ Essa semana a Curso-R participará de três eventos:
 
 <br>
 
-* Julio Trecenti apresentará com a [ABJ](https://abj.org.br) e apresentará "Jurimetria: Aplicações com R".
+* Julio Trecenti apresentará com a [ABJ](https://abj.org.br) "Jurimetria: Aplicações com R".
 
 ## [R Day](http://rday.leg.ufpr.br) - 22 de Maio
 
