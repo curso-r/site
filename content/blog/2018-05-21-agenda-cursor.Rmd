@@ -46,7 +46,7 @@ Essa semana a Curso-R participará de três eventos:
 ## Curso de Web-Scraping
 
 Abrimos uma turma do workshop de Web-Scraping com R que acontecerá em São Paulo no dia 23 de Junho.
-Até essa sexta (25/05) o curso está de R\$400,00 por R\$350,00! Inscrevam-se! 
+Até essa sexta (25/05) o curso está de R\\$400,00 por R\\$350,00! Inscrevam-se! 
 Mais informações na [loja da Curso-R](http://loja.curso-r.com/web-scraping).
 
 
