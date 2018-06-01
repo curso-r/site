@@ -1,10 +1,9 @@
 +++
 title = "Web scraping com R"
 banner = "img/banners/banner-scrape.png"
-hotsite = ""
-oferecimento = "a definir"
-summary = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Você também aprenderá a automatizar o controle de um browser usando o R e utilizar APIs como Facebook e Twitter."
-rich_card_desc = "Neste curso, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web. Usando o R, você também aprenderá a utilizar APIs e automatizar o controle de um browser."
+hotsite = "http://loja.curso-r.com/web-scraping"
+oferecimento = "23/06/2018"
+summary = "Em Web scraping em R, você aprenderá a baixar e estruturar dados diretamente da web. Passaremos pelos princípios básicos de requisições web, como controlá-las por intermédio do R e como obter informações estruturadas de páginas da web."
 +++
 
 ## Ementa
@@ -17,11 +16,10 @@ rich_card_desc = "Neste curso, você aprenderá a baixar e estruturar dados dire
 
 O curso aborda os seguintes tópicos:
 
-* noções do protocolo HTTP e acesso a páginas web;
-* pacote `httr` para fazer requisições HTTP com o R e baixar arquivos;
-* pacotes `xml2`, `rvest` e `jsonlite` para obter informações estruturadas de arquivos `.xml`, `.html` e `json`; e
-* utilização do `selenium` para controlar um browser por intermédio do R.
-* utilização de APIs como Facebook, Twitter e traders de bitcoin.
+- Noções de protocolo HTTP e acesso a páginas web. 
+- Pacotes httr e curl para fazer requisições HTTP e baixar arquivos com o R. 
+- Pacotes xml2, rvest e jsonlite para obter informações estruturadas de arquivos .xml, .html e .json.  
+- Pacote pdftools para extrair informações de PDFs.
 
 ## Público Alvo
 
