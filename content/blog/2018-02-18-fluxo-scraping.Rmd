@@ -144,8 +144,8 @@ método consistente e robusto, podemos melhorar um pouco o nosso trabalho.
 O fluxo do web scraping tenta ser este método, englobando em passos simples
 e razoavelmente bem definidos essa arte que é fazer raspadores web.
 
-Caso você tenha se interessado pelo conteúdo abordado nesse post, eu e o
-pessoal da Curso-R vamos dar no dia 10/03/2018 um workshop em São Paulos sobre
+Caso você tenha se interessado pelo conteúdo abordado nesse post, nós da
+Curso-R vamos dar um workshop em São Paulos no dia 23/06/2018 sobre
 web scraping com R. Lá você vai ter a oportunidade de aprender em muitos mais
 detalhes como são, no mundo real, os 6 passos do web scraping além de várias
 dicas de como tornar seus scrapers ainda melhores.
