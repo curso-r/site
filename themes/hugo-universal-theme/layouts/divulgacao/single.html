@@ -3,13 +3,6 @@
 
   {{ partial "head.html" . }}
   
-<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-
   <body>
 
     <div id="all">
@@ -23,7 +16,7 @@
         {{ partial "breadcrumbs.html" . }}
 
         <div id="content">
-            <div class="container">
+            <div class="container" id="divulgacao">
 
                 <div class="row">
 
@@ -39,6 +32,22 @@
                     
                     </div>
                     <!-- *** LEFT COLUMN END *** -->
+                    
+                     <!-- *** RIGHT COLUMN ***
+       _________________________________________________________ -->
+                    
+                    <div class="col-md-3">
+
+                        <!-- *** MENUS AND WIDGETS *** -->
+                        
+                        {{ partial "widgets/divulgacao-curso.html" . }}
+
+                        <!-- *** MENUS AND FILTERS END *** -->
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <!-- *** RIGHT COLUMN END *** -->
 
                 </div>
                 <!-- /.row -->
