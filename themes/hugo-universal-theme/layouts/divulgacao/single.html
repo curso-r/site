@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {{ partial "head.html" . }}
+  
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+
+  <body>
+
+    <div id="all">
+
+        <header>
+
+          {{ partial "nav.html" . }}
+
+        </header>
+
+        {{ partial "breadcrumbs.html" . }}
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    <!-- *** LEFT COLUMN *** -->
+
+                    <div class="col-md-9" id="blog-post">
+
+                        <div id="post-content">
+                          
+                        {{ .Content }}
+                        </div>
+                    <!-- /#blog-post -->
+                    
+                    </div>
+                    <!-- *** LEFT COLUMN END *** -->
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    <!-- /#all -->
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Course",
+      "name": "{{ .Title}}",
+      "description": "{{ .Params.rich_card_desc }}",
+      "provider": {
+        "@type": "Organization",
+        "name": "Curso-R",
+        "sameAs": "http://curso-r.com"
+      }
+    }
+    </script>
+    
+    {{ partial "scripts.html" . }}
+    
+    <script>
+      $(window).scroll(function () {
+        if ($(window).width() >= 992) {
+          $("#inscrever").css({"padding-bottom": (0) + "px"});
+          var pos = $(window).scrollTop();
+          var foot = $("#footer").outerHeight();
+          var cr = $("#copyright").outerHeight();
+          var ins = $("#inscrever").outerHeight();
+          var disq = $("#comments").outerHeight();
+          var nav = $("#navigation").outerHeight();
+          var tot = foot + cr + ins + disq - nav;
+          var p = 0;
+          if (pos < tot) {
+            $("#inscrever").css({"margin-top": (pos) + "px"});
+          } else {
+            $("#inscrever").css({"margin-top": (tot) + "px"});
+          }
+        } else {
+          $("#inscrever").css({"margin-top": (0) + "px"});
+          $("#inscrever").css({"padding-bottom": (20) + "px"});
+        }
+      });
+    </script>
+
+  </body>
+</html>
+
