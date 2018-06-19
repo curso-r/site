@@ -2,7 +2,7 @@
 title: "Agenda da Curso-R"
 date: "2018-05-21T00:00:00+00:00"
 tags: ["agenda"]
-categories: ["divulgação"]
+categories: ["divulgação", "r"]
 banner: "img/banners/banner-agenda.jpg"
 author: ["Daniel", "William"]
 summary: "Essa semana a Curso-R participará de 3 eventos relacionados à R e Estatística. Confira neste post!"

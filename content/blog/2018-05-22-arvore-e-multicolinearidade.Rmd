@@ -2,7 +2,7 @@
 title: "Modelos beseados em árvores são imunes à multicolinearidade?"
 date: "2018-05-22T00:00:00+00:00"
 tags: ["machine learning", "random forest", "multicolinearidade"]
-categories: ["conceitos"]
+categories: ["conceitos", "r"]
 banner: "img/banners/banner-arvore-e-multicolinearidade.png"
 author: ["Athos", "Julio"]
 summary: "Modelos baseados em árvores como árvores de decisão, random forest, ligthGBM e xgboost são conhecidos, dentre outras qualidades, pela sua robustês diante do problema de multicolinearidade. Esse post mostra que isso não é totalmente verdade."
