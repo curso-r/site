@@ -2,7 +2,7 @@
 title: "Modelos beseados em árvores são imunes à multicolinearidade?"
 date: "2018-05-22T00:00:00+00:00"
 tags: ["machine learning", "random forest", "multicolinearidade"]
-categories: ["conceitos"]
+categories: ["conceitos", "r"]
 banner: "img/banners/banner-arvore-e-multicolinearidade.png"
 author: ["Athos", "Julio"]
 summary: "Modelos baseados em árvores como árvores de decisão, random forest, ligthGBM e xgboost são conhecidos, dentre outras qualidades, pela sua robustês diante do problema de multicolinearidade. Esse post mostra que isso não é totalmente verdade."
@@ -19,15 +19,14 @@ draft: false
 <h2>Um modelo bonitinho</h2>
 <p>Primeiro vamos ajustar um modelo bonitinho, livre de multicolinearidade. Suponha que queiramos prever <code>Petal.Length</code> utilizando as medidas das sépalas (<code>Sepal.Width</code> e <code>Sepal.Length</code>) da nossa boa e velha base <code>iris</code>.</p>
 <pre class="r"><code>library(tidyverse)
-## ── Attaching packages ────────────────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ─────────────── tidyverse 1.2.1 ──
 ## ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
 ## ✔ tibble  1.4.2          ✔ dplyr   0.7.4     
 ## ✔ tidyr   0.8.0          ✔ stringr 1.3.1     
 ## ✔ readr   1.1.1          ✔ forcats 0.3.0
-## ── Conflicts ───────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
-## ✖ dplyr::vars()   masks ggplot2::vars()
 
 iris2 &lt;- iris %&gt;% select(Sepal.Length, Sepal.Width, Petal.Length)
 iris2 %&gt;% cor %&gt;% corrplot::corrplot()</code></pre>
