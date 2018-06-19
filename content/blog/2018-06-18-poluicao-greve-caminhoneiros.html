@@ -23,6 +23,69 @@ draft: false
 <p>Com a greve dos caminhoneiros no final do mês de maio, muitas cidades tiveram uma redução atípica no tráfego de caminhões e, posteriormente, com a falta de combustível, de veículos em geral.</p>
 <p>Como as emissões veiculares são a principal fonte de diversos poluentes em centros urbanos, faz todo o sentido analisarmos o impacto das paralisações nos níveis de poluição.</p>
 <p>Neste post, vamos analisar descritivamente as concentrações de alguns poluentes um pouco antes, durante e um pouco depois da greve dos caminhoneiros.</p>
+<p>Como aperitivo, veja a variação dos poluentes durante as paralisações:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">pollutant</th>
+<th align="center">Ibirapuera</th>
+<th align="center">Osasco</th>
+<th align="center">Parque D.Pedro II</th>
+<th align="center">Pinheiros</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">CO (manhã)</td>
+<td align="center">-48.02%</td>
+<td align="center">-32.78%</td>
+<td align="center">-51.16%</td>
+<td align="center">-65.9%</td>
+</tr>
+<tr class="even">
+<td align="left">CO (noite)</td>
+<td align="center">-61.18%</td>
+<td align="center">-50.81%</td>
+<td align="center">-60.77%</td>
+<td align="center">-62.96%</td>
+</tr>
+<tr class="odd">
+<td align="left">MP10</td>
+<td align="center">NaN%</td>
+<td align="center">-19.1%</td>
+<td align="center">-19.06%</td>
+<td align="center">-20.06%</td>
+</tr>
+<tr class="even">
+<td align="left">MP2.5</td>
+<td align="center">-10.26%</td>
+<td align="center">-21.08%</td>
+<td align="center">-20.98%</td>
+<td align="center">-21.13%</td>
+</tr>
+<tr class="odd">
+<td align="left">NO</td>
+<td align="center">-89.66%</td>
+<td align="center">-50.9%</td>
+<td align="center">-75.38%</td>
+<td align="center">-83.09%</td>
+</tr>
+<tr class="even">
+<td align="left">NO2</td>
+<td align="center">-42.49%</td>
+<td align="center">-13.24%</td>
+<td align="center">-38.73%</td>
+<td align="center">-39.45%</td>
+</tr>
+<tr class="odd">
+<td align="left">O3</td>
+<td align="center">53.7%</td>
+<td align="center">NaN%</td>
+<td align="center">68.43%</td>
+<td align="center">126%</td>
+</tr>
+</tbody>
+</table>
 <div id="contextualizando" class="section level2">
 <h2>Contextualizando</h2>
 <p>A greve dos caminhoneiros foi como ficou conhecida a paralisação de caminhoneiros autônomos em todo o território nacional em maio de 2018. As manifestações começaram no dia 21 de maio e duraram até o início de junho. Nesse período, muitas cidades sofreram com desabastecimento, principalmente de combustível.</p>
@@ -141,28 +204,29 @@ draft: false
   facet_grid(polluent ~ dayofweek, scales = &quot;free_y&quot;) +
   theme_bw() +
   labs(x = &quot;Hora&quot;, y = &quot;Concentração&quot;)</code></pre>
-<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>Usando então a função <code>make_grid_plot()</code> e as informações do gráfico acima, podemos construir e analisar as séries de cada poluente. Nos gráficos abaixo, o intervalo entre as retas pontilhadas representa o período de greve.</p>
 <p>O gráfico abaixo mostra as séries do monóxido de carbono (CO), utilizando a média diária das 7 às 11 horas. Os fins de semana foram retirados da amostra.</p>
 <pre class="r"><code>df %&gt;% 
   filter(!dayofweek %in% c(&quot;sáb&quot;,&quot;dom&quot;)) %&gt;% 
   make_grid_plot(&quot;CO&quot;, 7:11)</code></pre>
-<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Agora, o gráfico do monóxido de nitrogênio (NO), também com média diária das 7 às 11 horas. Os domingos foram retirados da amostra.</p>
 <pre class="r"><code>df %&gt;% 
   filter(!dayofweek %in% c(&quot;dom&quot;)) %&gt;% 
   make_grid_plot(&quot;NO&quot;, 7:11)</code></pre>
-<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>E o gráfico do ozônio, com média diária das 12 às 17 horas. Osasco foi retirada pois não há dados de ozônio nessa estação.</p>
 <pre class="r"><code>df %&gt;%
   filter(!stationname == &quot;Osasco&quot;) %&gt;% 
   make_grid_plot(&quot;O3&quot;, 12:17)</code></pre>
-<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>O gráfico abaixo apresenta a média das médias diárias de CO (das 7h às 11h) em um período anterior (09/05 a 16/05), durante (23/05 a 30/05) e em um período posterior à greve (06/06 a 14/06). Os três períodos têm o mesmo número de dias da semana e fins de semana.</p>
 <pre class="r"><code>make_bar_plot(df, &quot;CO&quot;, 7:11)</code></pre>
-<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/blog/2018-06-18-poluicao-greve-caminhoneiros_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Como comentei anteriormente, os gráficos restantes podem ser visualizados <a href="/flexdashboards/greve-caminhoneiros/flexdash-greve-caminhoneiros.html">neste dashboard</a>.</p>
 <p>Por fim, eu juntei os períodos anterior (09/05 a 16/05) e posterior (06/06 a 14/06), calculei a média dos poluentes nesses dias e comparei com a média durante o período de greve. A variação dos poluentes para cada estação está apresentada na tabela abaixo. O CO pela manhã, por exemplo, diminuiu 58.62% em Pinheiros durante a greve, enquanto o ozônio aumentou 111.75%.</p>
+<pre class="r"><code>tab</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -233,4 +297,5 @@ draft: false
 <li><p>O ozônio não é produzido diretamente pela combustão de combustíveis. Ele é produto de um complexo processo químico que ocorre ao longo do dia, envolvendo diversos compostos e a radiação solar. O aumento da concentração de ozônio durante a greve era esperada, pois o NO emitido pela queima de diesel e gasolina reage com o O3 troposférico, diminuindo a sua concentração ao longo da tarde. Como o NO diminuiu por causa do menor tráfego de veículos, o nível de ozônio foi maior durante a greve. Para mais detalhes sobre esse fenômeno, veja <a href="https://www.rpollution.com/blog/o-ciclo-do-ozonio/">este post</a>.</p></li>
 <li><p>Esta análise só considera o período de greve e variáveis de calendário para explicar a variação da concentração dos poluentes. Uma análise mais completa deveria considerar também os efeitos climáticos (temperatura, precipitação, vento, radiação, entre outros). As conclusões aqui supõem que esses fatores se mantiveram homogêneos durante o período analisado, o que pode não ser razoável.</p></li>
 </ul>
+<p>Tem sugestões? Alguma crítica? Está carente? Deixe seu comentário abaixo. :)</p>
 </div>

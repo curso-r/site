@@ -35,6 +35,66 @@ Como as emissões veiculares são a principal fonte de diversos poluentes em cen
 
 Neste post, vamos analisar descritivamente as concentrações de alguns poluentes um pouco antes, durante e um pouco depois da greve dos caminhoneiros.
 
+Como aperitivo, veja a variação dos poluentes durante as paralisações:
+
+```{r, echo = FALSE}
+make_rel_table <- function(df, pollutant_, hours) {
+  
+  df %>% 
+    mutate(period = case_when(
+      date > dmy("09-05-2018") & date < dmy("16-05-2018") ~ 1,
+      date > dmy("23-05-2018") & date < dmy("30-05-2018") ~ 2,
+      date > dmy("06-06-2018") & date < dmy("14-06-2018") ~ 3,
+      TRUE ~ 0
+    )) %>%
+    filter(period != 0) %>% 
+    gather(pollutant, conc, CO:O3) %>%
+    group_by(pollutant, stationname, period) %>%
+    filter(pollutant == pollutant_, hour %in% hours) %>% 
+    summarise(conc = mean(conc, na.rm = TRUE)) %>% 
+    spread(period, conc, sep = "_") %>% 
+    mutate(
+      aux = mean(c(period_1, period_3)),
+      rel = (period_2-aux)/aux
+    ) %>% 
+    select(-starts_with("period"), -aux) %>% 
+    ungroup() %>% 
+    mutate(
+      pollutant = ifelse(
+        pollutant_ == "CO" & hours[1] == 7,  
+        "CO (manhã)", 
+        pollutant
+      ),
+      pollutant = ifelse(
+        pollutant_ == "CO" & hours[1] == 18,  
+        "CO (noite)", 
+        pollutant
+      )
+    )
+  
+  
+}
+
+tab <- map2_dfr(
+    c("CO", "CO", "O3", "NO", "NO2", "MP2.5", "MP10"),
+    list(7:11, 18:24, 12:17, 7:11, 8:20, c(1:9, 19:24), 5:24),
+    make_rel_table,
+    df = df
+  ) %>%  
+  mutate(
+    rel = round(rel, 4)*100,
+    rel = str_c(rel, "%")
+  ) %>%
+  spread(stationname, rel) %>% 
+  mutate(
+    Ibirapuera = ifelse(is.na(Ibirapuera), "N/A", Ibirapuera),
+    Osasco = ifelse(is.na(Osasco), "N/A", Osasco)
+  ) %>% 
+  knitr::kable(align = c("l", "c", "c", "c", "c"))
+
+tab
+```
+
 ## Contextualizando
 
 A greve dos caminhoneiros foi como ficou conhecida a paralisação de caminhoneiros autônomos em todo o território nacional em maio de 2018. As manifestações começaram no dia 21 de maio e duraram até o início de junho. Nesse período, muitas cidades sofreram com desabastecimento, principalmente de combustível.
@@ -223,61 +283,10 @@ Como comentei anteriormente, os gráficos restantes podem ser visualizados [nest
 Por fim, eu juntei os períodos anterior (09/05 a 16/05) e posterior (06/06 a 14/06), calculei a média dos poluentes nesses dias e comparei com a média durante o período de greve. A variação dos poluentes para cada estação está apresentada na tabela abaixo. O CO pela manhã, por exemplo, diminuiu 58.62% em Pinheiros durante a greve, enquanto o ozônio aumentou 111.75%.
 
 
-```{r, echo = FALSE}
-make_rel_table <- function(df, pollutant_, hours) {
-  
-  df %>% 
-    mutate(period = case_when(
-      date > dmy("09-05-2018") & date < dmy("16-05-2018") ~ 1,
-      date > dmy("23-05-2018") & date < dmy("30-05-2018") ~ 2,
-      date > dmy("06-06-2018") & date < dmy("14-06-2018") ~ 3,
-      TRUE ~ 0
-    )) %>%
-    filter(period != 0) %>% 
-    gather(pollutant, conc, CO:O3) %>%
-    group_by(pollutant, stationname, period) %>%
-    filter(pollutant == pollutant_, hour %in% hours) %>% 
-    summarise(conc = mean(conc, na.rm = TRUE)) %>% 
-    spread(period, conc, sep = "_") %>% 
-    mutate(
-      aux = mean(c(period_1, period_3)),
-      rel = (period_2-aux)/aux
-    ) %>% 
-    select(-starts_with("period"), -aux) %>% 
-    ungroup() %>% 
-    mutate(
-      pollutant = ifelse(
-        pollutant_ == "CO" & hours[1] == 7,  
-        "CO (manhã)", 
-        pollutant
-      ),
-      pollutant = ifelse(
-        pollutant_ == "CO" & hours[1] == 18,  
-        "CO (noite)", 
-        pollutant
-      )
-    )
-  
-  
-}
-
-map2_dfr(
-    c("CO", "CO", "O3", "NO", "NO2", "MP2.5", "MP10"),
-    list(7:11, 18:24, 12:17, 7:11, 8:20, c(1:9, 19:24), 5:24),
-    make_rel_table,
-    df = df
-  ) %>%  
-  mutate(
-    rel = round(rel, 4)*100,
-    rel = str_c(rel, "%")
-  ) %>%
-  spread(stationname, rel) %>% 
-  mutate(
-    Ibirapuera = ifelse(is.na(Ibirapuera), "N/A", Ibirapuera),
-    Osasco = ifelse(is.na(Osasco), "N/A", Osasco)
-  ) %>% 
-  knitr::kable(align = c("l", "c", "c", "c", "c"))
+```{r}
+tab
 ```
+
 
 
 ## Comentários
@@ -289,4 +298,4 @@ map2_dfr(
 - Esta análise só considera o período de greve e variáveis de calendário para explicar a variação da concentração dos poluentes. Uma análise mais completa deveria considerar também os efeitos climáticos (temperatura, precipitação, vento, radiação, entre outros). As conclusões aqui supõem que esses fatores se mantiveram homogêneos durante o período analisado, o que pode não ser razoável.
 
 
-
+Tem sugestões? Alguma crítica? Está carente? Deixe seu comentário abaixo. :)
