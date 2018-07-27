@@ -15,7 +15,7 @@ O pesqEle é o repositório oficial de pesquisas eleitorais disponibilizado pelo
 
 O CONRE3 fez um [pacote para o R](https://github.com/conre3/pesqEle) que permite acessar esses dados de forma mais organizada. Leia mais sobre o pacote neste [post do blog](http://curso-r.com/blog/2018/05/30/2018-05-30-pesqele/). 
 
-Junto com o pacote, o CONRE3 fez também um aplicativo em shiny, disponível [neste link](pesqele.conre3.org.br/app). 
+Junto com o pacote, o CONRE3 fez também um aplicativo em shiny, disponível [neste link](http://pesqele.conre3.org.br/app/). 
 
 A ideia dessa primeira edição do Desafio de Dados é replicar o mapa da página inicial do aplicativo que mostra a distribuição de pesquisas eleitorais por estado do Brasil.
 
