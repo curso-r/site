@@ -86,8 +86,8 @@ paginate = 10
     weight = 5
 
 [[params.menu]]
-    name = "Datathon"
-    url  = "/datathon/"
+    name = "Desafio de Dados"
+    url  = "/desafio-dados/"
     weight = 6
     
 [[params.menu]]
