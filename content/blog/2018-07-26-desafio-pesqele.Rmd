@@ -26,7 +26,7 @@ Os dados podem ser obtidos rodando o trecho de código abaixo:
 ```
 # devtools::install_github("conre3/pesqEle") # instalação do pacote;
 library(pesqEle)
-pe <- pe_2018()
+pe <- pesqEle_2018
 dplyr::glimpse(pe)
 ```
 
