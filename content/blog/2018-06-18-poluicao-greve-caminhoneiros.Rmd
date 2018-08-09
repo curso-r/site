@@ -87,8 +87,8 @@ tab <- map2_dfr(
   ) %>%
   spread(stationname, rel) %>% 
   mutate(
-    Ibirapuera = ifelse(is.na(Ibirapuera), "N/A", Ibirapuera),
-    Osasco = ifelse(is.na(Osasco), "N/A", Osasco)
+    Ibirapuera = ifelse(Ibirapuera == "NaN%", "N/A", Ibirapuera),
+    Osasco = ifelse(Osasco == "NaN%", "N/A", Osasco)
   ) %>% 
   knitr::kable(align = c("l", "c", "c", "c", "c"))
 
@@ -111,7 +111,6 @@ Nesta análise, eu foquei a observação entre o dias 23 e 30 de maio, período 
 
 As concentrações de cada poluente foram medidas em estações de monitoramento da CETESB. Considerei quatro estações na Grande São Paulo: Osasco, Pinheiros, Parque Dom Pedro II e Ibirapuera. O critério para a escolha foi a disponibilidade de dados para os poluentes escolhidos e o perfil do tráfego de veículos na região das estações. As estações Parque Dom Pedro II e Pinheiros ficam em regiões de tráfego intenso, a primeira no centro da cidade e a segunda próxima à marginal Pinheiros. A estação de Osasco também fica numa região de tráfego intenso e relativamente próxima a duas rodovias. A estação Ibirapuera não é muito afetada pelo tráfego pois fica dentro do Parque Ibirapuera e será utilizada como comparação.
 
-
 A localização de cada uma delas está representada no mapa a seguir:
 
 ```{r, echo = FALSE}
@@ -125,7 +124,7 @@ df %>%
 
 <br>
 
-Como são muitos gráficos e tabelas, vou apresentar apenas alguns resultados aqui no post. O restante está disponível [nesse flexdashboard](/flexdashboards/greve-caminhoneiros/flexdash-greve-caminhoneiros.html).
+Como são muitos gráficos e tabelas, vou apresentar apenas alguns resultados aqui no post. O restante está disponível [neste flexdashboard](/flexdashboards/greve-caminhoneiros/flexdash-greve-caminhoneiros.html).
 
 ## Dados
 
@@ -283,7 +282,7 @@ Como comentei anteriormente, os gráficos restantes podem ser visualizados [nest
 Por fim, eu juntei os períodos anterior (09/05 a 16/05) e posterior (06/06 a 14/06), calculei a média dos poluentes nesses dias e comparei com a média durante o período de greve. A variação dos poluentes para cada estação está apresentada na tabela abaixo. O CO pela manhã, por exemplo, diminuiu 58.62% em Pinheiros durante a greve, enquanto o ozônio aumentou 111.75%.
 
 
-```{r}
+```{r, echo=FALSE}
 tab
 ```
 
