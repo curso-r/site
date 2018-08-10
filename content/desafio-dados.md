@@ -21,4 +21,4 @@ Você também pode participar sugerindo novos bancos de dados e ideias para as p
 ## Desafios
 
 ### [1 - PesqEle (parte I)](/blog/2018/07/26/2018-07-26-desafio-pesqele/)
-
+### [2 - Recuperação de imagens](/blog/2018/08/09/2018-08-09-desafio-recuperacao-imagem/)

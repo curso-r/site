@@ -43,3 +43,14 @@ df_uf <- ufshape::df_uf
 * [Material Curso-R](http://material.curso-r.com/manip/)
 
 O post com a solução será publicado no dia 09-08-18.
+
+
+# Resultados!
+
+Nós recebemos algumas submissões. Agradecemos muito ao 
+[Mauricio Vancine](https://github.com/mauriciovancine) e ao Donizetti 
+Peçanha pelo envio de suas soluções. Elas estão disponíveis neste 
+[repositório do github](https://github.com/brunaw/desafio_de_dados), 
+junto com uma solução proposta pela Curso-R.
+
+
