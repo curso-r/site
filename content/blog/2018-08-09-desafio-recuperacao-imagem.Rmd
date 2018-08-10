@@ -122,3 +122,7 @@ ggplot(data = img_df_parte1, aes(x = x, y = y)) +
 
 A sua tarefa é recuperar o azul (que nós apagamos da imagem) da Parte 1, 
 utilizando modelos preditivos construídos com a Parte 2 (que ainda tem o azul!) para as duas imagens (`xadrez_colorido` e `purple_wave`).
+
+# Resultado
+
+O resultado desse desafio de dados será publicado no blog no dia 24 de agosto! Boa sorte!
