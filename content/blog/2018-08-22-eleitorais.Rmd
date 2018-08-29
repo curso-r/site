@@ -30,35 +30,33 @@ A principal afirmação desse artigo é a seguinte:
 
 > Pesquisas eleitorais têm como objetivo responder (1), mas a sociedade as usa para responder (2).
 
-Pesquisas eleitorais são levantamentos de intenção de voto. Seu objetivo é entender as opiniões da sociedade sobre dos candidatos, hoje. O objetivo não é predizer qual será o resultado da eleição.
+Pesquisas eleitorais são levantamentos de intenção de voto. Seu objetivo é entender as opiniões da sociedade sobre os candidatos, hoje. O objetivo **não é predizer qual será o resultado da eleição.**
 
-Isso significa que utilizar resultados de eleições para avaliar a qualidade das pesquisas é uma comparação, no mínimo, injusta. É como avaliar a qualidade de um livro pela sua capacidade de servir como peso de papel.
+Isso significa que utilizar resultados de eleições para avaliar a qualidade das pesquisas é uma comparação, no mínimo, injusta. É como avaliar a qualidade de um livro pela sua capacidade de servir como peso de papel, uma vez que esta não é sua finalidade.
 
 ## Pesquisas eleitorais podem ser utilizadas para predizer eleições?
 
-Claro que sim! Modelos estatísticos sempre têm propriedades preditivas. Um modelo preditivo, no entanto, pode utilizar muito mais informações do que as intenções de voto dos eleitores. 
+Claro que sim! Modelos estatísticos sempre podem ter propriedades preditivas. Um modelo preditivo para as eleições, no entanto, deve utilizar muito mais informações do que apenas as intenções de voto dos eleitores. Alguns exemplos
+de dados adicionais que poderiam ser utilizados:
 
-Alguns exemplos de informações que poderiam ser utilizadas:
-
-- Historicamente, sabemos que indecisos têm uma propensão a votar em candidatos do tipo $A$ do que $B$. Podemos utilizar essa informação para ponderar os não respondentes.
-- Historicamente, sabemos que a proporção de brancos e nulos observada nas urnas é diferente do que as pessoas afirmam nas pesquisas. Podemos utilizar esse dado para predizer a proporção de votos brancos e nulos. 
+- Historicamente, sabemos que indecisos têm uma propensão maior a votar em candidatos do tipo $A$ do que $B$. Podemos utilizar essa informação para ponderar os não respondentes.
+- A proporção de brancos e nulos tradicionalmente observada nas urnas é diferente do que a das que aparecem nas pesquisas. Podemos utilizar esse dado para predizer a proporção de votos brancos e nulos. 
 - Em determinadas regiões, as pessoas mudam o voto de última hora, possivelmente por ações ilegais como propaganda em boca de urna. Podemos utilizar essa informação para corrigir os dados levantados via pesquisas eleitorais.
-- Podemos utilizar os dados de diversas pesquisas eleitorais ao mesmo tempo, dando pesos diferentes para elas, para predizer os resultados da eleição.
+- Podemos utilizar os dados de diversas pesquisas eleitorais ao mesmo tempo, dando pesos diferentes para elas. 
 
 ## Como podemos avaliar pesquisas eleitorais?
 
 Pesquisas de intenção de voto só podem ser avaliadas através da metodologia e da execução. Existem diversos parâmetros para levar em conta, como:
 
-- Metodologia de listagem dos indivíduos da amostra: discussões como amostragem probabilística ou amostragem por cotas, por exemplo.
+- Metodologia de listagem dos indivíduos da amostra: discussões como amostragem probabilística ou amostragem por cotas.
 - Metodologia de acesso aos respondentes: discussões como ponto de fluxo, pesquisa em domicílio ou pesquisa por telefone.
 - Tratamento da não resposta: discussões sobre auto seleção.
 - Verificação das respostas: técnicas para evitar manipulação de resultados e fraudes na coleta de dados.
 
-O problema é que a avaliação das pesquisas sempre acaba sendo subjetiva. Por exemplo, sempre é possível argumentar que uma pesquisa é ruim por não ter utilizado amostragem aleatória simples (AAS) para realização do estudo, o que gera um debate incessante. 
+O problema é que a avaliação das pesquisas sempre acaba sendo subjetiva. Por exemplo, sempre é possível argumentar que uma pesquisa é ruim por não ter utilizado amostragem aleatória simples (AAS) para realização do estudo, o que gera um debate incessante. Assim, me parece que a forma mais adequada de avaliar pesquisas de intenção de voto é o atendimento a requisitos formais, como o clarificação sobre o método de condução do estudo. Isso pode ser atigindo com a 
+disponibilização de:
 
-Assim, me parece que a forma mais adequada de avaliar pesquisas de intenção de voto é o atendimento a requisitos formais, como o envio de:
-
-- Base de dados utilizada para realização da pesquisa e script para reprodução dos resultados.
+- Base de dados utilizada para realização da pesquisa e `script` (caso exista) para reprodução dos resultados.
 - Descrição detalhada da metodologia.
 - Apresentação do questionário do estudo.
 
@@ -76,9 +74,9 @@ Minha recomendação é que o TSE defina algumas datas para divulgação de estu
 
 ## Wrap-up
 
-- Não avalie pesquisas de intenção de voto a partir de resultados de pesquisas
+- Não devemos tentar prever os próximos governantes do país a partir de resultados de pesquisas eleitorais: este não é atual objetivo delas.
 - Devemos apenas avaliar o atendimento a critérios formais e, no máximo, detectar anomalias a partir da comparação com outras pesquisas.
-- Estudos preditivos de resultados de eleições é o que realmente responde ao que a população quer saber.
+- Estudos preditivos de resultados de eleições é o que realmente respondem ao que a população quer saber.
 - Sugiro que o TSE determine algumas datas para divulgação de modelos preditivos e, posteriormente, um ranking dos melhores institutos.
 
 Eu sei que o artigo é polêmico, então por favor sejam gentis nos comentários.
