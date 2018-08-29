@@ -1,0 +1,93 @@
+---
+title: "Desafio de Dados - Recuperação de imagens"
+date: "2018-08-09T00:00:00+00:00"
+tags: ["app", "pacotes"]
+categories: ["desafio-de-dados", "r"]
+banner: "img/blog/desafio-recuperacao-img/purple_wave.jpg"
+author: ["Athos","Daniel", "Bruna Wundervald"]
+summary: "Na segunda edição do Desafio de Dados vamos tentar recuperar a cor de uma imagem usando modelos de regressão e árvore de decisão."
+draft: false
+---
+
+
+
+<p>Arquivos com extensão <em>.jpg</em> guardam 5 coordenadas, que são
+suficientes para o computador entender e desenhar a imagem:</p>
+<ul>
+<li><code>x</code> e <code>y</code>: são as coordenadas cartesianas da imagem; e</li>
+<li><code>r</code>, <code>g</code> e <code>b</code>: red, green e blue, respectivamente, que juntas formam cores.</li>
+</ul>
+<p>Todas as cores que conhecemos podem ser compostas pela combinação dessas
+três cores. A intensidade de cada cor varia de 0 a 1. Para cada
+ponto no plano (x,y) existe uma cor associada. Assim, uma imagem pode
+ser representada por um banco de dados com 5 colunas (<code>x</code>, <code>y</code>,
+<code>r</code>, <code>g</code> e <code>b</code>) e cujo número de linhas é número de pixels da imagem.</p>
+<div id="objetivos" class="section level1">
+<h1>Objetivos</h1>
+<ul>
+<li>Verificar qual modelo entre regressão linear e árvores de decisão é o
+mais adequado para recuperar a o componente azul da
+<a href="/img/blog/desafio-recuperacao-img/purple_wave.jpg">imagem purple_wave.jpg.</a></li>
+</ul>
+<p><img src="/img/blog/desafio-recuperacao-img/purple_wave.jpg" /></p>
+<ul>
+<li>Verificar qual modelo entre regressão linear e árvores de decisão é o
+mais adequado para recuperar a o componente azul da
+<a href="/img/blog/desafio-recuperacao-img/xadrez_colorido.jpg">imagem xadrez_colorido.jpg.</a></li>
+</ul>
+<p><img src="/img/blog/desafio-recuperacao-img/xadrez_colorido.jpg" /></p>
+</div>
+<div id="como-comecar" class="section level1">
+<h1>Como começar?</h1>
+<p>Com auxílio da função <code>readJPEG()</code> do pacote <code>jpeg</code>, carregue uma das
+imagens no R e transforme para data.frame:</p>
+<pre class="r"><code>library(tidyverse)
+library(jpeg)
+# carrega uma imagem jpeg no R
+download.file(&quot;http://curso-r.com/img/blog/desafio-recuperacao-img/purple_wave.jpg&quot;, 
+              destfile = &quot;purple_wave.jpg&quot;)
+
+img &lt;- readJPEG(&quot;purple_wave.jpg&quot;)
+
+# transforma o array da imagem em data.frame com infos de posicao (x,y)
+# e cor (r,g,b) dimensões da imagem
+img_dim &lt;- dim(img)
+
+# RGB para data.frame
+img_df &lt;- data.frame(
+  x = rep(1:img_dim[2], each = img_dim[1]),
+  y = rep(img_dim[1]:1, img_dim[2]),
+  r = as.vector(img[,,1]),
+  g = as.vector(img[,,2]),
+  b = as.vector(img[,,3])
+) %&gt;%
+  mutate(cor = rgb(r, g, b),
+         id = 1:n())</code></pre>
+<p>Divida o data.frame em duas partes: uma com o azul (coluna b) e outra sem.
+- Parte 1) <code>x</code>, <code>y</code>, <code>r</code>, <code>g</code>
+- Parte 2) <code>x</code>, <code>y</code>, <code>r</code>, <code>g</code>, <code>b</code></p>
+<pre class="r"><code># para reprodução
+set.seed(2018) 
+# Parte 1) x, y, r, g
+img_df_parte1 &lt;- img_df %&gt;% 
+  sample_frac(3/5) %&gt;% # separando 3/5 do banco
+  mutate(b_backup = b, # backup do azul original
+         b = 0, # retirando o azul da imagem
+         cor = rgb(r, g, b)) # cor da imagem sem o azul
+# Parte 2) x, y, r, g, b
+img_df_parte2 &lt;- img_df %&gt;% filter(!id%in%img_df_parte1$id)</code></pre>
+<p>Visualizando:</p>
+<pre class="r"><code># Imagem sem o azul
+ggplot(data = img_df_parte1, aes(x = x, y = y)) + 
+  geom_point(colour = img_df_parte1$cor) +
+  labs(x = &quot;x&quot;, y = &quot;y&quot;, title = &quot;Imagem sem B (azul)&quot;) +
+  coord_fixed(ratio = 1) +
+  theme_bw()</code></pre>
+<p><img src="/blog/2018-08-09-desafio-recuperacao-imagem_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>A sua tarefa é recuperar o azul (que nós apagamos da imagem) da Parte 1,
+utilizando modelos preditivos construídos com a Parte 2 (que ainda tem o azul!) para as duas imagens (<code>xadrez_colorido</code> e <code>purple_wave</code>).</p>
+</div>
+<div id="resultado" class="section level1">
+<h1>Resultado</h1>
+<p>O resultado desse desafio de dados será publicado no blog no dia 24 de agosto! Boa sorte!</p>
+</div>

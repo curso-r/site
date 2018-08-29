@@ -86,14 +86,19 @@ paginate = 10
     weight = 5
 
 [[params.menu]]
-    name = "Datathon"
-    url  = "/datathon/"
+    name = "Desafio de Dados"
+    url  = "/desafio-dados/"
     weight = 6
+    
+[[params.menu]]
+    name = "Divulgação"
+    url  = "/divulgacao/"
+    weight = 7
 
 [[params.menu]]
     name = "Contato"
     url  = "/contact/"
-    weight = 7
+    weight = 8
 
 # Enable and disable widgets for the right sidebar
 [params.widgets]

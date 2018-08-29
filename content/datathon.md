@@ -1,6 +1,5 @@
 +++
 title =  "Datathon"
-type = "single"
 id = "datathon"
 +++
 

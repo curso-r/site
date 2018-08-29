@@ -127,7 +127,7 @@ p <- da_g %>%
   geom_point(colour = "skyblue3") +
   facet_wrap("genre") +
   scale_fill_hue(c = 55, l = 75) +
-  geom_smooth(span = 0.65, colour = "white", 
+  geom_smooth(aes(group = genre), span = 0.65, colour = "white", 
               fill = "tan", method = "loess") +
   labs(x = "Anos", y = "Média de acordes/música")
 

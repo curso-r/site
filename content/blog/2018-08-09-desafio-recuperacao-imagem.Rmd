@@ -1,0 +1,128 @@
+---
+title: "Desafio de Dados - Recuperação de imagens"
+date: "2018-08-09T00:00:00+00:00"
+tags: ["app", "pacotes"]
+categories: ["desafio-de-dados", "r"]
+banner: "img/blog/desafio-recuperacao-img/purple_wave.jpg"
+author: ["Athos","Daniel", "Bruna Wundervald"]
+summary: "Na segunda edição do Desafio de Dados vamos tentar recuperar a cor de uma imagem usando modelos de regressão e árvore de decisão."
+draft: false
+---
+
+Arquivos com extensão *.jpg* guardam 5 coordenadas, que são
+suficientes para o computador entender e desenhar a imagem:
+
+- `x` e `y`: são as coordenadas cartesianas da imagem; e
+- `r`, `g` e `b`: red, green e blue, respectivamente, que juntas formam cores.
+
+Todas as cores que conhecemos podem ser compostas pela combinação dessas
+três cores. A intensidade de cada cor varia de 0 a 1. Para cada
+ponto no plano (x,y) existe uma cor associada. Assim, uma imagem pode 
+ser representada por um banco de dados com 5 colunas (`x`, `y`, 
+`r`, `g` e `b`) e cujo número de linhas é número de pixels da imagem.
+
+# Objetivos
+
+- Verificar qual modelo entre regressão linear e árvores de decisão é o
+mais adequado para recuperar a o componente azul da 
+[imagem purple_wave.jpg.](/img/blog/desafio-recuperacao-img/purple_wave.jpg)
+
+![](/img/blog/desafio-recuperacao-img/purple_wave.jpg)
+
+- Verificar qual modelo entre regressão linear e árvores de decisão é o
+mais adequado para recuperar a o componente azul da 
+[imagem xadrez_colorido.jpg.](/img/blog/desafio-recuperacao-img/xadrez_colorido.jpg)
+
+![](/img/blog/desafio-recuperacao-img/xadrez_colorido.jpg)
+
+# Como começar?
+
+Com auxílio da função `readJPEG()` do pacote `jpeg`, carregue uma das 
+imagens no R e transforme para data.frame: 
+
+```{r, eval = FALSE}
+library(tidyverse)
+library(jpeg)
+# carrega uma imagem jpeg no R
+download.file("http://curso-r.com/img/blog/desafio-recuperacao-img/purple_wave.jpg", 
+              destfile = "purple_wave.jpg")
+
+img <- readJPEG("purple_wave.jpg")
+
+# transforma o array da imagem em data.frame com infos de posicao (x,y)
+# e cor (r,g,b) dimensões da imagem
+img_dim <- dim(img)
+
+# RGB para data.frame
+img_df <- data.frame(
+  x = rep(1:img_dim[2], each = img_dim[1]),
+  y = rep(img_dim[1]:1, img_dim[2]),
+  r = as.vector(img[,,1]),
+  g = as.vector(img[,,2]),
+  b = as.vector(img[,,3])
+) %>%
+  mutate(cor = rgb(r, g, b),
+         id = 1:n())
+
+```
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE}
+library(jpeg)
+library(tidyverse)
+# carrega uma imagem jpeg no R
+
+img <- readJPEG("../../static/img/blog/desafio-recuperacao-img/purple_wave.jpg")
+
+# transforma o array da imagem em data.frame com infos de posicao (x,y)
+# e cor (r,g,b) dimensões da imagem
+img_dim <- dim(img)
+
+# RGB para data.frame
+img_df <- data.frame(
+  x = rep(1:img_dim[2], each = img_dim[1]),
+  y = rep(img_dim[1]:1, img_dim[2]),
+  r = as.vector(img[,,1]),
+  g = as.vector(img[,,2]),
+  b = as.vector(img[,,3])
+) %>%
+  mutate(cor = rgb(r, g, b),
+         id = 1:n())
+
+```
+
+
+Divida o data.frame em duas partes: uma com o azul (coluna b) e outra sem.
+  - Parte 1) `x`, `y`, `r`, `g`
+  - Parte 2) `x`, `y`, `r`, `g`, `b`
+
+```{r}
+# para reprodução
+set.seed(2018) 
+# Parte 1) x, y, r, g
+img_df_parte1 <- img_df %>% 
+  sample_frac(3/5) %>% # separando 3/5 do banco
+  mutate(b_backup = b, # backup do azul original
+         b = 0, # retirando o azul da imagem
+         cor = rgb(r, g, b)) # cor da imagem sem o azul
+# Parte 2) x, y, r, g, b
+img_df_parte2 <- img_df %>% filter(!id%in%img_df_parte1$id)
+```
+
+Visualizando:
+
+```{r}
+# Imagem sem o azul
+ggplot(data = img_df_parte1, aes(x = x, y = y)) + 
+  geom_point(colour = img_df_parte1$cor) +
+  labs(x = "x", y = "y", title = "Imagem sem B (azul)") +
+  coord_fixed(ratio = 1) +
+  theme_bw()
+```
+
+
+A sua tarefa é recuperar o azul (que nós apagamos da imagem) da Parte 1, 
+utilizando modelos preditivos construídos com a Parte 2 (que ainda tem o azul!) para as duas imagens (`xadrez_colorido` e `purple_wave`).
+
+# Resultado
+
+O resultado desse desafio de dados será publicado no blog no dia 24 de agosto! Boa sorte!

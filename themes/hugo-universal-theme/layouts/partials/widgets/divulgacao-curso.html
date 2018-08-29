@@ -1,25 +1,26 @@
 {{ if .Site.Params.widgets.divulgacao }}
 <div class="panel sidebar-menu">
-    <div class="panel-heading">
+    <div class="panel-heading" style="text-align: center;">
         <h3 class="panel-title">Nossos Cursos</h3>
     </div>
 
     <div class="blog-entries">
-        {{ range first 2 (shuffle (where (where .Site.Pages "Title" "!=" "Cursos") "Section" "cursos")) }} 
+        {{ range first 4 (shuffle (where (where .Site.Pages "Title" "!=" "Cursos") "Section" "cursos")) }} 
         <div>
             <div>
                 <a href="{{ .Permalink }}">
                   {{ if isset .Params "banner" }}
-                    <img src="{{ .Site.BaseURL}}{{ .Params.banner }}" class="img-responsive" alt="">
+                    <img src="{{ .Site.BaseURL}}{{ .Params.banner }}" class="img-responsive" alt="" width=80% style="display: block; margin-left: auto; margin-right: auto;">
                   {{ else }}
-                    <img src="{{ .Site.BaseURL}}img/placeholder.png" class="img-responsive" alt="">
+                    <img src="{{ .Site.BaseURL}}img/placeholder.png" class="img-responsive" alt="" width=80% style="display: block; margin-left: auto; margin-right: auto;">
                   {{ end }}
                 </a>
             </div>
-            <div class="name same-height-always">
+            <div class="name same-height-always" style="text-align: center;">
                 <h5><a href="{{ .Permalink }}">{{ .Title }}</a></h5>
             </div>
         </div>
+        <br>
         {{ end }}
     </div>
     
