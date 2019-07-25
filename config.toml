@@ -1,4 +1,4 @@
-baseurl = "http://curso-r.com/"
+baseurl = "/"
 title = "Curso-R"
 theme = "hugo-universal-theme"
 languageCode = "pt-br"
@@ -117,6 +117,9 @@ paginate = 10
     enable = true
     title = "Nossos cursos"
     subtitle = "Temos diversas opções de cursos que vão desde Introdução à programação em R até Machine Learning e Web Scraping."
+
+[params.loja]
+    enable = true
 
 [params.features]
     enable = false
